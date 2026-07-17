@@ -1,0 +1,325 @@
+{
+  "canonical_name": "Zafina",
+  "character_key": "zafina",
+  "display_name_zh": "扎菲娜",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "[+53] f,f+2 df+1 f+2,3 SCR.4 T! dash uf+1 b+1:1+2[1]",
+          "starter": "Regular Launch (e.g. df+2, ws1,2)"
+        }
+      ],
+      "raw": "Regular Launch (e.g. df+2, ws1,2) [+53] f,f+2 df+1 f+2,3 SCR.4 T! dash uf+1 b+1:1+2[1]",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+28] b3,ORB1:2[2]",
+          "starter": "[13] f+4"
+        },
+        {
+          "route": "[+18] b3",
+          "starter": "[13] f+4"
+        },
+        {
+          "route": "[+17] db+4,2",
+          "starter": "[13] f+4"
+        },
+        {
+          "route": "[+16] dash iWS2",
+          "starter": "[13] f+4"
+        },
+        {
+          "route": "[+11] d2[3]",
+          "starter": "[13] f+4"
+        },
+        {
+          "route": "[+28] dash b3,ORB1:2[2]",
+          "starter": "[24] TRT.2"
+        },
+        {
+          "route": "[+18] dash b3",
+          "starter": "[24] TRT.2"
+        },
+        {
+          "route": "[+16] dash iWS2",
+          "starter": "[24] TRT.2"
+        },
+        {
+          "route": "[+28] b3,ORB1:2[2]",
+          "starter": "[21] MNT.1+2"
+        },
+        {
+          "route": "[+18] b+3",
+          "starter": "[21] MNT.1+2"
+        },
+        {
+          "route": "[+24] MNT.df+1",
+          "starter": "[19] uf+1d"
+        },
+        {
+          "route": "[+24] MNT.df+1",
+          "starter": "[20] TRT.d+1+2"
+        },
+        {
+          "route": "[+16] MNT.1+2",
+          "starter": "[20] TRT.d+1+2"
+        },
+        {
+          "route": "[+15] MNT.d+4",
+          "starter": "[20] TRT.d+1+2"
+        },
+        {
+          "route": "[+24] TRT.df+1",
+          "starter": ""
+        },
+        {
+          "route": "[+24] crawl forward, TRT.df+1",
+          "starter": "[20] CH (1),4"
+        },
+        {
+          "route": "[+16] TRT.1+2",
+          "starter": "[20] CH (1),4"
+        },
+        {
+          "route": "[+24] delay TRT.df+1",
+          "starter": "[21] CH (SCR.1),4"
+        },
+        {
+          "route": "[+21] TRT.df+1[4]",
+          "starter": "[21] CH (SCR.1),4"
+        },
+        {
+          "route": "[+19] TRT.2",
+          "starter": "[21] CH (SCR.1),4"
+        },
+        {
+          "route": "[+28] SCR.2,1[5]",
+          "starter": "[28] f3"
+        },
+        {
+          "route": "[+24] SCR.3,3",
+          "starter": "[28] f3"
+        },
+        {
+          "route": "[+24] df+4,1[5]",
+          "starter": "[24] CH f,F+3~B"
+        },
+        {
+          "route": "[+23] df+4,2",
+          "starter": "[24] CH f,F+3~B"
+        },
+        {
+          "route": "[+19] df+1,4",
+          "starter": "[24] CH f,F+3~B"
+        },
+        {
+          "route": "[+35] H.2+3[6]",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+24] df+4,1[5]",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+23] df+4,2",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+19] df+1,4",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+14] 1,4",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+12] 1,3",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+11] 3",
+          "starter": "[22] b2"
+        },
+        {
+          "route": "[+46] TRT.1+2, b3,ORB1+2[2]",
+          "starter": "[19] CH TRT.3"
+        },
+        {
+          "route": "[+36] TRT.1+2, b3",
+          "starter": "[19] CH TRT.3"
+        },
+        {
+          "route": "[+21] TRT.df+1[5]",
+          "starter": "[19] CH TRT.3"
+        }
+      ],
+      "raw": "[32] df+3,4 [13] f+4 [+28] b3,ORB1:2[2] [+18] b3 [+17] db+4,2 [+16] dash iWS2 [+11] d2[3] [24] CH ff+2 [24] TRT.2 [+28] dash b3,ORB1:2[2] [+18] dash b3 [+16] dash iWS2 [15] FC.df+3 [20] SCR.1+2 [16] CH d+3 [19] uf+3 [27] TRT.1+2 [21] MNT.1+2 [+28] b3,ORB1:2[2] [+18] b+3 [15] FC.df+3~D [16] CH d+3d [19] uf+1d [+24] MNT.df+1 [20] TRT.d+1+2 [+24] MNT.df+1 [+16] MNT.1+2 [+15] MNT.d+4 [20] SCR.1+2~D [15] CH TRT.1 [+24] TRT.df+1 [20] CH (1),4 [+24] crawl forward, TRT.df+1 [+16] TRT.1+2 [21] CH (SCR.1),4 [+24] delay TRT.df+1 [+21] TRT.df+1[4] [+19] TRT.2 [24] CH f,F+3 [28] f3 [+28] SCR.2,1[5] [+24] SCR.3,3 [24] CH f,F+3~B [+24] df+4,1[5] [+23] df+4,2 [+19] df+1,4 [22] b2 [+35] H.2+3[6] [+24] df+4,1[5] [+23] df+4,2 [+19] df+1,4 [+14] 1,4 [+12] 1,3 [+11] 3 [19] CH TRT.3 [+46] TRT.1+2, b3,ORB1+2[2] [+36] TRT.1+2, b3 [+21] TRT.df+1[5]",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+52] f,F+2 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+55] f,F+2 df+1 dash df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+48] f,F+2 df+1 f+2,3 SCR.df+1 T! (d+2),4,3[1]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+52] f,F+2 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[16] ws1,2"
+        },
+        {
+          "route": "[+47] df+2 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+48] df+2 df+1 f+2,3 SCR.4 T! dash uf+1 b+1:1+2",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+50] df+2 df+1 dash df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+44] SCR.df+1 T! dash uf+1 1 uf+1 b+1:1+2",
+          "starter": "[28] f+3"
+        },
+        {
+          "route": "[+36] T! uf+1 1 uf+1 b+1:1+2",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+38] T! b+2 df+1 f+2,3 SCR.3+4",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+49] 3~B df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[20] CH 1+2"
+        },
+        {
+          "route": "[+38] df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[27] CH 1+2,4"
+        },
+        {
+          "route": "[+47] db+3~B df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[20] (1+2,4),4"
+        },
+        {
+          "route": "[+42] ws3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[16] CH d+3"
+        },
+        {
+          "route": "[+37] ws3 SCR.4 T! 2,1,3",
+          "starter": "[16] CH d+3"
+        },
+        {
+          "route": "[+32] MNT.3,1 MNT.4,3 T! MNT.d4 MNT.df+1[2]",
+          "starter": "[16] CH d+3~D"
+        },
+        {
+          "route": "[+35] MNT.df+2 3 SCR.4 T! 2,1,3",
+          "starter": "[20] CH SCR.df+4"
+        },
+        {
+          "route": "[+40] MNT.df+2 3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "[20] CH SCR.df+4"
+        },
+        {
+          "route": "[+42] MNT.3,1 MNT.4,3 T! MNT.2,1,4",
+          "starter": "[22] CH MNT.d+4"
+        },
+        {
+          "route": "[+44] iWS2 T! uf+1 1 uf+1 b+1:1+2",
+          "starter": "[26] CH SS.1+2"
+        },
+        {
+          "route": "[+44] TRT.2 T! uf+1 1 uf+1 b+1:1+2",
+          "starter": "[20] CH (1),4"
+        }
+      ],
+      "raw": "[13] df+2 [+52] f,F+2 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [+55] f,F+2 df+1 dash df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [+48] f,F+2 df+1 f+2,3 SCR.df+1 T! (d+2),4,3[1] [16] ws1,2 [+52] f,F+2 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [18] uf+4 [20] ws2 [+47] df+2 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [+48] df+2 df+1 f+2,3 SCR.4 T! dash uf+1 b+1:1+2 [+50] df+2 df+1 dash df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [28] f+3 [+44] SCR.df+1 T! dash uf+1 1 uf+1 b+1:1+2 Low Parry [+36] T! uf+1 1 uf+1 b+1:1+2 [+38] T! b+2 df+1 f+2,3 SCR.3+4 [20] CH 1+2 [+49] 3~B df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [27] CH 1+2,4 [+38] df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [20] (1+2,4),4 [+47] db+3~B df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1 [16] CH d+3 [+42] ws3 SCR.df+1 T! wr1+2 TRT.df+1 [+37] ws3 SCR.4 T! 2,1,3 [16] CH d+3~D [+32] MNT.3,1 MNT.4,3 T! MNT.d4 MNT.df+1[2] [20] CH SCR.df+4 [+35] MNT.df+2 3 SCR.4 T! 2,1,3 [+40] MNT.df+2 3 SCR.df+1 T! wr1+2 TRT.df+1 [22] CH MNT.d+4 [+42] MNT.3,1 MNT.4,3 T! MNT.2,1,4 [26] CH SS.1+2 [+44] iWS2 T! uf+1 1 uf+1 b+1:1+2 [20] CH (1),4 [+44] TRT.2 T! uf+1 1 uf+1 b+1:1+2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+33] uf+1[3] df+1,2>1 Max damage",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+14] f+2,3 SCR.d+3 SCR.1+2 SCR Okizeme[4]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "Max damage",
+          "starter": ""
+        },
+        {
+          "route": "SCR Okizeme[4]",
+          "starter": ""
+        },
+        {
+          "route": "[+27] uf+1 df+1,2>1",
+          "starter": ""
+        },
+        {
+          "route": "T! delay df+1,2>1",
+          "starter": ""
+        }
+      ],
+      "raw": "Regular carry (30% scaling) [+33] uf+1[3] df+1,2>1 Max damage [+14] f+2,3 SCR.d+3 SCR.1+2 SCR Okizeme[4] Max damage SCR Okizeme[4] [+27] uf+1 df+1,2>1 No Tornado T! delay df+1,2>1",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "df+2+3 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+          "starter": "df+2+3"
+        }
+      ],
+      "raw": "df+2+3 df+2+3 df+1 f+2,3 SCR.df+1 T! wr1+2 TRT.df+1",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Zafina_combos"
+}

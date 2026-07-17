@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekken 8 按键图组件 · Demo</title>
+<link rel="stylesheet" href="tekken-input-notation.css">
+<style>
+  body{margin:0;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;background:#0e1116;color:#dce3ea;padding:32px;display:flex;flex-direction:column;gap:28px}
+  h2{font-size:13px;letter-spacing:2px;color:#8b98a5;font-weight:600;margin:0 0 12px}
+  .rowd{display:flex;align-items:center;gap:12px;padding:9px 10px;border-bottom:1px solid #232a33;font-size:13px}
+  .rowd b{width:110px;font-weight:600}
+  .card{max-width:720px}
+  .lightcard{background:#fff;color:#1d1d1f;border-radius:12px;padding:20px 24px}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>夜间版（默认）</h2>
+  <div class="rowd"><b>腹斩</b>
+    <span class="tk-in tk-md"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></div>
+  <div class="rowd"><b>月燕</b>
+    <span class="tk-in tk-md"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></div>
+  <div class="rowd"><b>福运</b>
+    <span class="tk-in tk-md"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></div>
+  <div class="rowd"><b>向日葵 蓄力</b>
+    <span class="tk-in tk-md tk-char-xiaoyu"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">＊</span></span></div>
+  <div class="rowd"><b>强袭风暴</b>
+    <span class="tk-in tk-md tk-char-xiaoyu"><span class="tk-state">背身时</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></div>
+  <div class="rowd"><b>紧凑行 (sm)</b>
+    <span class="tk-in tk-sm"><span class="tk-b no-num"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b no-num"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b no-num"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></div>
+  <div class="rowd"><b>教学 (lg)</b>
+    <span class="tk-in tk-lg"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></div>
+</div>
+
+<div class="card lightcard">
+  <h2 style="color:#888">浅色变体 · .light</h2>
+  <span class="tk-in tk-md light"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span>
+  &nbsp;&nbsp;
+  <span class="tk-in tk-md light tk-char-xiaoyu"><span class="tk-state">凤凰中</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span>
+</div>
+
+</body>
+</html>

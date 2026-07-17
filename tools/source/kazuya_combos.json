@@ -1,0 +1,167 @@
+{
+  "canonical_name": "Kazuya Mishima",
+  "character_key": "kazuya",
+  "display_name_zh": "三岛一八",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "3,1,4 df+1,df+2 T! 3,1~df~3",
+          "starter": "Regular launch (e.g. f,F+3)"
+        }
+      ],
+      "raw": "Regular launch (e.g. f,F+3) 3,1,4 df+1,df+2 T! 3,1~df~3",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+51; 34] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[20] WGF"
+        },
+        {
+          "route": "[+49; 32] b+4 b+2,2 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[20] WGF"
+        },
+        {
+          "route": "[+41; 26] ws1+2 b+2,2 b+2,2,1+2",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+52] ws1+2 b+2,2 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[24] CH d+1+2"
+        },
+        {
+          "route": "[+51] SSR.3 b+2,2 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[21] f,F+3"
+        },
+        {
+          "route": "[+51] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3[s 1]",
+          "starter": "[30] CH (1,2,4),3"
+        },
+        {
+          "route": "[+37] df+3 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[26] CH f,F+4"
+        },
+        {
+          "route": "[+38] df+3,2,1 T! 3,1,df CD.3",
+          "starter": "[26] CH f,F+4"
+        },
+        {
+          "route": "[+35] df+3,2,1 T! df+3,2,1",
+          "starter": "[28] CH (2),2"
+        },
+        {
+          "route": "[+74] PEWGF EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[26] CH df+2"
+        },
+        {
+          "route": "[+33] df+1,df+2 T! 3,1,df CD.3[s 2]",
+          "starter": "[27] CH SS.3"
+        },
+        {
+          "route": "[+42] CD.1 T! ws1+2 b+2,2,1+2[s 3]",
+          "starter": "[27] CH SS.3"
+        }
+      ],
+      "raw": "[23] EWGF [20] WGF [+51; 34] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3 [+49; 32] b+4 b+2,2 df+1,df+2 T! 3,1,df CD.3 [22] ws1,2 [0] low parry [+41; 26] ws1+2 b+2,2 b+2,2,1+2 [25] ws2 [24] CH d+1+2 [+52] ws1+2 b+2,2 df+1,df+2 T! 3,1,df CD.3 [21] f,F+3 [+51] SSR.3 b+2,2 df+1,df+2 T! 3,1,df CD.3 [26] CH df+2 [30] CH (1,2,4),3 [+51] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3[s 1] [26] CH f,F+4 [+37] df+3 df+1,df+2 T! 3,1,df CD.3 [+38] df+3,2,1 T! 3,1,df CD.3 [28] CH (2),2 [+35] df+3,2,1 T! df+3,2,1 [26] CH df+2 [+74] PEWGF EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3 [27] CH SS.3 [+33] df+1,df+2 T! 3,1,df CD.3[s 2] [+42] CD.1 T! ws1+2 b+2,2,1+2[s 3]",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+23] df+3+4,1,2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+25] df+1,4 1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+39] df+1,4 f+2 df+1,4 1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+46] df+1,4 df+1,df+2 df+3+4,1,2",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) [+23] df+3+4,1,2 [+25] df+1,4 1+2 [+39] df+1,4 f+2 df+1,4 1+2 [+46] df+1,4 df+1,df+2 df+3+4,1,2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+37] b+4 df+1,df+2 T! b+2,2,1+2",
+          "starter": "[23] EWGF"
+        }
+      ],
+      "raw": "[23] EWGF [+37] b+4 df+1,df+2 T! b+2,2,1+2",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        },
+        {
+          "route": "no tornado [+8] f,f,F3",
+          "starter": "Wall Break, both soft and hard"
+        },
+        {
+          "route": "Tornado [+15] df+1,df+2 T! 3,1~df~3",
+          "starter": "Wall Break, both soft and hard"
+        },
+        {
+          "route": "Heatsmash [61] H.2+3 !WB df+3,2,1 T! 3,1~df~3",
+          "starter": "Wall Break, both soft and hard"
+        },
+        {
+          "route": "Heatsmash [71] H.2+3 !WBo df+3,2,1 T! 3,1~df~3",
+          "starter": "Wall Bound"
+        },
+        {
+          "route": "Heatsmash [85] H.2+3 !WBl df+1,4 !W df+3+4,1,2",
+          "starter": "Wall Blast"
+        },
+        {
+          "route": "[+28] H.CD3,1,1 FBl! df+1,df+2 T! 3,1~df~3",
+          "starter": "Floor Blast"
+        },
+        {
+          "route": "[+18] H.CD3,1,1 FB! df+1,df+2 T! 3,1~df~3",
+          "starter": "Floor Break"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here Wall Break, both soft and hard no tornado [+8] f,f,F3 Tornado [+15] df+1,df+2 T! 3,1~df~3 Heatsmash [61] H.2+3 !WB df+3,2,1 T! 3,1~df~3 Wall Bound Heatsmash [71] H.2+3 !WBo df+3,2,1 T! 3,1~df~3 Wall Blast Heatsmash [85] H.2+3 !WBl df+1,4 !W df+3+4,1,2 Floor Blast [+28] H.CD3,1,1 FBl! df+1,df+2 T! 3,1~df~3 Floor Break [+18] H.CD3,1,1 FB! df+1,df+2 T! 3,1~df~3",
+      "section": "Stage hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+43] dash 3,1,4 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+42] b+4 df+1,df+2 T! 3,1,df CD.3",
+          "starter": "[23] EWGF"
+        }
+      ],
+      "raw": "[23] EWGF [+43] dash 3,1,4 df+1,df+2 T! 3,1,df CD.3 [+42] b+4 df+1,df+2 T! 3,1,df CD.3",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Kazuya_combos"
+}

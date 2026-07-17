@@ -1,0 +1,165 @@
+/* ============================================================
+   Tekken 8 input notation component · v1.1 (final, polished)
+   单色 2×2 按键方阵 + 粗箭头方向。全部 em 计量，随 font-size 缩放。
+
+   主题：两个自定义属性
+     --tk-ink : 前景色（按键填充 / 箭头）
+     --tk-bg  : 页面背景色（按下键内的数字用色）
+   默认为夜间版配色（#0e1116 底），加 .light 切浅色。
+
+   标记约定（每条指令一个 .tk-in）：
+     <span class="tk-in tk-md">
+       <span class="tk-dir df"></span>          方向: f b u d df db uf ub
+       <span class="tk-sep">+</span>
+       <span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span>
+       <span class="tk-sep">›</span>            下一步
+       ...
+     </span>
+   .tk-b 恒有 4 个 <i>，顺序固定 1,2,3,4：
+     1 左拳 LP 左上 · 2 右拳 RP 右上 · 3 左脚 LK 左下 · 4 右脚 RK 右下
+   按下 = .on（实心+数字）；4 键常显，未按为幽灵态，不显数字。
+   ============================================================ */
+
+.tk-in{
+  --tk-ink:#dce3ea;
+  --tk-bg:#0e1116;
+  --tk-acc:#8b98a5; /* 角色主题色，默认中性灰蓝；按角色覆盖，见文件底部 */
+  display:inline-flex;align-items:center;gap:.42em;
+  color:var(--tk-ink);
+  font-family:ui-monospace,"JetBrains Mono",Consolas,monospace;
+}
+.tk-in.light{--tk-ink:#1d1d1f;--tk-bg:#ffffff}
+/* 浅色底：关掉辉光/阴影（浅色上会糊） */
+.tk-in.light .tk-b i.on{box-shadow:none}
+.tk-in.light .tk-dir::before{filter:none}
+
+/* 分隔符  + › ~ ＊ */
+.tk-sep{opacity:.45;font-size:.78em;font-weight:400}
+
+/* ---- 2×2 按键方阵 ---------------------------------------- */
+.tk-b{
+  display:inline-grid;flex:none;
+  grid-template-columns:1.35em 1.35em;
+  grid-auto-rows:1.35em;
+  gap:.2em;
+  font-size:.76em;font-weight:600;line-height:1;
+}
+.tk-b i{
+  display:flex;align-items:center;justify-content:center;
+  font-style:normal;
+  border-radius:.34em;
+  /* 幽灵态：淡填充 + 淡描边，不显数字（只有按下的键显示数字） */
+  background:color-mix(in srgb, var(--tk-ink) 7%, transparent);
+  border:.09em solid color-mix(in srgb, var(--tk-ink) 32%, transparent);
+  color:transparent;
+}
+.tk-b i.on{
+  background:var(--tk-ink);
+  border-color:var(--tk-ink);
+  color:var(--tk-bg);
+  font-weight:700;
+  box-shadow:0 0 .55em color-mix(in srgb, var(--tk-ink) 28%, transparent);
+}
+/* 紧凑列表行：连按下键的数字也隐藏，只靠位置 */
+.tk-b.no-num i.on{color:transparent}
+
+/* ---- 方向箭头 --------------------------------------------- */
+.tk-dir{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.5em;height:1.5em;flex:none;
+}
+.tk-dir::before{
+  content:"";
+  width:1.02em;height:1.02em;
+  background:var(--tk-ink);
+  clip-path:polygon(10% 18%, 94% 50%, 10% 82%, 32% 50%);
+  filter:drop-shadow(0 0 .3em color-mix(in srgb, var(--tk-ink) 25%, transparent));
+}
+.tk-dir.f::before {transform:rotate(0deg)}
+.tk-dir.df::before{transform:rotate(45deg)}
+.tk-dir.d::before {transform:rotate(90deg)}
+.tk-dir.db::before{transform:rotate(135deg)}
+.tk-dir.b::before {transform:rotate(180deg)}
+.tk-dir.ub::before{transform:rotate(225deg)}
+.tk-dir.u::before {transform:rotate(270deg)}
+.tk-dir.uf::before{transform:rotate(315deg)}
+/* 按住（大写 F/B/U/D…）：箭头套圈 */
+.tk-dir.hold{
+  border:.09em solid color-mix(in srgb, var(--tk-ink) 75%, transparent);
+  border-radius:50%;
+}
+.tk-dir.hold::before{width:.82em;height:.82em}
+/* 回中 N：纯文字 <span class="tk-n">N</span> */
+.tk-n{font-weight:700;font-size:.8em;opacity:.55}
+
+/* ---- 状态前缀（起身中 / 凤凰中 / 背身时…） --------------- */
+/* 唯一使用主题色的位置：按键图与箭头恒为单色 */
+.tk-state{
+  border:.08em solid color-mix(in srgb, var(--tk-acc) 45%, transparent);
+  background:color-mix(in srgb, var(--tk-acc) 12%, transparent);
+  border-radius:999em;
+  padding:.1em .6em;
+  font-size:.72em;
+  color:color-mix(in srgb, var(--tk-acc) 60%, var(--tk-ink));
+  white-space:nowrap;
+}
+
+/* ---- 三档尺寸 --------------------------------------------- */
+.tk-sm{font-size:11px} /* 列表行，配合 .tk-b.no-num */
+.tk-md{font-size:15px} /* 详情弹层 / 连招卡 */
+.tk-lg{font-size:22px} /* 教学 / 逐步播放 */
+
+/* ---- 推荐角色主题色（至第3季全阵容） -----------------------
+   夜间底调校（浅色底可原样使用）。用法：
+   <span class="tk-in tk-md tk-char-xiaoyu">…</span>
+   或页面级：body{--tk-acc:#ff9fce}
+   按键图/箭头始终单色，主题色只出现在状态胶囊、标签、页面点缀。 */
+
+/* 基础阵容 (32) */
+.tk-char-jin       {--tk-acc:#6fb3ff} /* 风间仁 · 电蓝 */
+.tk-char-kazuya    {--tk-acc:#b18cff} /* 三岛一八 · 恶魔紫 */
+.tk-char-jun       {--tk-acc:#9fe0c0} /* 风间准 · 净绿 */
+.tk-char-paul      {--tk-acc:#ff8087} /* 保罗 · 红 */
+.tk-char-law       {--tk-acc:#ffe07a} /* 马歇尔·洛 · 明黄 */
+.tk-char-king      {--tk-acc:#e8a04c} /* 金 · 豹金 */
+.tk-char-lars      {--tk-acc:#8fa8ff} /* 拉斯 · 蓝紫 */
+.tk-char-jack8     {--tk-acc:#a9cf74} /* 杰克-8 · 军绿 */
+.tk-char-xiaoyu    {--tk-acc:#ff9fce} /* 凌晓雨 · 粉 */
+.tk-char-nina      {--tk-acc:#d8a9ff} /* 妮娜 · 淡紫 */
+.tk-char-leroy     {--tk-acc:#9db4c9} /* 勒罗伊 · 灰蓝 */
+.tk-char-asuka     {--tk-acc:#7fc4e8} /* 风间飞鸟 · 天蓝 */
+.tk-char-lili      {--tk-acc:#cdd6e0} /* 莉莉 · 银白 */
+.tk-char-bryan     {--tk-acc:#9ad0c2} /* 布莱恩 · 青 */
+.tk-char-hwoarang  {--tk-acc:#ff8f4d} /* 花郎 · 烈橙 */
+.tk-char-claudio   {--tk-acc:#bcd4ff} /* 克劳迪奥 · 星蓝 */
+.tk-char-azucena   {--tk-acc:#d9a878} /* 阿苏塞娜 · 咖啡棕 */
+.tk-char-raven     {--tk-acc:#9f86d9} /* 雷文 · 忍紫 */
+.tk-char-leo       {--tk-acc:#e0c187} /* 雷欧 · 棕金 */
+.tk-char-steve     {--tk-acc:#84a9e0} /* 史蒂夫 · 宝蓝 */
+.tk-char-kuma      {--tk-acc:#c99b6e} /* 熊 · 棕 */
+.tk-char-yoshi     {--tk-acc:#7fd6a8} /* 吉光 · 妖绿 */
+.tk-char-shaheen   {--tk-acc:#e8cf9a} /* 沙欣 · 沙金 */
+.tk-char-dragunov  {--tk-acc:#aab6c2} /* 德拉古诺夫 · 铁灰 */
+.tk-char-feng      {--tk-acc:#b5d98a} /* 冯威 · 竹绿 */
+.tk-char-panda     {--tk-acc:#e6e9ee} /* 熊猫 · 熊猫白 */
+.tk-char-lee       {--tk-acc:#c39bff} /* 李超狼 · 紫罗兰 */
+.tk-char-alisa     {--tk-acc:#ffb3c6} /* 阿丽莎 · 樱粉 */
+.tk-char-zafina    {--tk-acc:#c98fd0} /* 扎菲娜 · 暗紫红 */
+.tk-char-deviljin  {--tk-acc:#a17fe0} /* 恶魔仁 · 墨紫 */
+.tk-char-victor    {--tk-acc:#de9fe6} /* 维克多 · 霓紫 */
+.tk-char-reina     {--tk-acc:#cf9ef0} /* 蕾娜 · 雷紫 */
+/* 第1季 */
+.tk-char-eddy      {--tk-acc:#9fd97f} /* 艾迪 · 巴西绿 */
+.tk-char-lidia     {--tk-acc:#ffb0a6} /* 莉迪亚 · 白红 */
+.tk-char-heihachi  {--tk-acc:#ffcf66} /* 三岛平八 · 雷金 */
+.tk-char-clive     {--tk-acc:#6fd0e0} /* 克莱夫 · 晶蓝 */
+/* 第2季 */
+.tk-char-anna      {--tk-acc:#e07a8f} /* 安娜 · 酒红 */
+.tk-char-fahkumram {--tk-acc:#6fe0c9} /* 法昆拉姆 · 雷青 */
+.tk-char-armorking {--tk-acc:#7f8fb3} /* 铠甲王 · 黑豹蓝 */
+.tk-char-miaryzo   {--tk-acc:#c9e896} /* 米亚莉·佐 · 自然绿 */
+/* 第3季 */
+.tk-char-kunimitsu {--tk-acc:#ffc27a} /* 州光 · 狐黄 */
+.tk-char-bob       {--tk-acc:#a6d4ff} /* 鲍勃 · 天蓝白 */
+.tk-char-rogerjr   {--tk-acc:#ff8f7a} /* 罗杰Jr. · 拳套红 */
+.tk-char-yujiro    {--tk-acc:#e5735e} /* 范马勇次郎 · 鬼背红 */

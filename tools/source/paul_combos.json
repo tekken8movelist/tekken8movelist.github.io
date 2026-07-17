@@ -1,0 +1,1543 @@
+{
+  "canonical_name": "Paul Phoenix",
+  "character_key": "paul",
+  "display_name_zh": "保罗",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "[72] df+2 4 df+4 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "Regular Launch Example"
+        },
+        {
+          "route": "[70] df+2 3,2 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "Regular Launch Example"
+        },
+        {
+          "route": "[66] df+2 4 df+4 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "Regular Launch Example"
+        },
+        {
+          "route": "[64] df+2 3,2 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "Regular Launch Example"
+        },
+        {
+          "route": "[77] ws2 3,2 3,2~b~DF> DPD.2,1 T! DPD.1 wr2",
+          "starter": "Low Launch Example"
+        },
+        {
+          "route": "[74] ff+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "Low Launch Example"
+        },
+        {
+          "route": "[73] b+3 3,2 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "Low Launch Example"
+        },
+        {
+          "route": "[71] ws2 3,2 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "Low Launch Example"
+        },
+        {
+          "route": "[68] ff+4 ws3 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "Low Launch Example"
+        },
+        {
+          "route": "[67] b+3 3,2 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "Low Launch Example"
+        }
+      ],
+      "raw": "Regular Launch Example [72] df+2 4 df+4 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [70] df+2 3,2 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [66] df+2 4 df+4 3,2~b SWA.1+2 T! DPD.1 wr2 [64] df+2 3,2 3,2~b SWA.1+2 T! DPD.1 wr2 Low Launch Example [77] ws2 3,2 3,2~b~DF> DPD.2,1 T! DPD.1 wr2 [74] ff+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [73] b+3 3,2 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [71] ws2 3,2 3,2~b SWA.1+2 T! DPD.1 wr2 [68] ff+4 ws3 3,2~b SWA.1+2 T! DPD.1 wr2 [67] b+3 3,2 3,2~b SWA.1+2 T! DPD.1 wr2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[69] CL qcf+2[1][2]",
+          "starter": "CH d+1+2"
+        },
+        {
+          "route": "[57] qcf+2[2]",
+          "starter": "CH d+1+2"
+        },
+        {
+          "route": "[55] d+1+2",
+          "starter": "CH d+1+2"
+        },
+        {
+          "route": "[62] CL qcf+2[1]",
+          "starter": "CH f+1+2[3]"
+        },
+        {
+          "route": "[50] qcf+2",
+          "starter": "CH f+1+2[3]"
+        },
+        {
+          "route": "[48] dash d+1+2",
+          "starter": "CH f+1+2[3]"
+        },
+        {
+          "route": "[58] CL qcf+2[4]",
+          "starter": "qcf+3+4"
+        },
+        {
+          "route": "[44] dash d+1+2",
+          "starter": "qcf+3+4"
+        },
+        {
+          "route": "[58] CL qcf+2[1][5]",
+          "starter": "(df+1,1),2"
+        },
+        {
+          "route": "[46] qcf+2",
+          "starter": "(df+1,1),2"
+        },
+        {
+          "route": "[44] dash d+1+2",
+          "starter": "(df+1,1),2"
+        },
+        {
+          "route": "[68] CL qcf+2[1][5]",
+          "starter": "CH (df+1),1,2"
+        },
+        {
+          "route": "[56] qcf+2",
+          "starter": "CH (df+1),1,2"
+        },
+        {
+          "route": "[54] dash d+1+2",
+          "starter": "CH (df+1),1,2"
+        },
+        {
+          "route": "[57] CL qcf+2[4]",
+          "starter": "SS.1"
+        },
+        {
+          "route": "[45] qcf+2",
+          "starter": "SS.1"
+        },
+        {
+          "route": "[43] dash d+1+2",
+          "starter": "SS.1"
+        },
+        {
+          "route": "[57] CL qcf+2 [1][6]",
+          "starter": "db+1+2"
+        },
+        {
+          "route": "[45] qcf+2",
+          "starter": "db+1+2"
+        },
+        {
+          "route": "[43] dash d+1+2[7]",
+          "starter": "db+1+2"
+        },
+        {
+          "route": "[56] f,F+4",
+          "starter": "DPD.2,1"
+        },
+        {
+          "route": "[56] dash db+2",
+          "starter": "DPD.2,1"
+        },
+        {
+          "route": "[42] microdash d+1+2",
+          "starter": "CH 4"
+        },
+        {
+          "route": "[36] db+2",
+          "starter": "CH 4"
+        },
+        {
+          "route": "[48] d+1+2",
+          "starter": "CH SS.3"
+        },
+        {
+          "route": "[51] b+1,2[9]",
+          "starter": "CH (df+3),4[8]"
+        },
+        {
+          "route": "[48] d+1+2",
+          "starter": "CH (df+3),4[8]"
+        },
+        {
+          "route": "[59] db+2 T! qcf+2[8][10]",
+          "starter": "CH qcf+3"
+        },
+        {
+          "route": "[51] d+4,2:1+2",
+          "starter": "CH qcf+3"
+        },
+        {
+          "route": "[36] OTG.d+2[11]",
+          "starter": "CH qcf+3"
+        },
+        {
+          "route": "[43] f+2[12]",
+          "starter": "CH df+4"
+        },
+        {
+          "route": "[41] b+1,2",
+          "starter": "CH df+4"
+        },
+        {
+          "route": "[39] d+1+2",
+          "starter": "CH df+4"
+        },
+        {
+          "route": "[38] f,F+4",
+          "starter": "CH wr2"
+        },
+        {
+          "route": "[38] dash db+2",
+          "starter": "CH wr2"
+        },
+        {
+          "route": "[43] f+2[12]",
+          "starter": "CH (ws1),2~b"
+        },
+        {
+          "route": "[38] SWA.2[12]",
+          "starter": "CH (ws1),2~b"
+        },
+        {
+          "route": "[31] SWA.4",
+          "starter": "CH (ws1),2~b"
+        },
+        {
+          "route": "[43] SWA.1",
+          "starter": "SWA.1"
+        },
+        {
+          "route": "[40] db2",
+          "starter": "SWA.1"
+        },
+        {
+          "route": "[36] db+2[13]",
+          "starter": "CH DPD.4"
+        },
+        {
+          "route": "[21] b+1,2",
+          "starter": "H.d+1,2* GB [15]"
+        },
+        {
+          "route": "[19] d+1+2",
+          "starter": "H.d+1,2* GB [15]"
+        }
+      ],
+      "raw": "CH d+1+2 [69] CL qcf+2[1][2] [57] qcf+2[2] [55] d+1+2 CH f+1+2[3] [62] CL qcf+2[1] [50] qcf+2 [48] dash d+1+2 qcf+3+4 [58] CL qcf+2[4] [44] dash d+1+2 (df+1,1),2 [58] CL qcf+2[1][5] [46] qcf+2 [44] dash d+1+2 CH (df+1),1,2 [68] CL qcf+2[1][5] [56] qcf+2 [54] dash d+1+2 SS.1 [57] CL qcf+2[4] [45] qcf+2 [43] dash d+1+2 db+1+2 [57] CL qcf+2 [1][6] [45] qcf+2 [43] dash d+1+2[7] DPD.2,1 [56] f,F+4 [56] dash db+2 CH 4 [42] microdash d+1+2 [36] db+2 CH SS.3 [48] d+1+2 CH (df+3),4[8] [51] b+1,2[9] [48] d+1+2 CH qcf+3 [59] db+2 T! qcf+2[8][10] [51] d+4,2:1+2 [36] OTG.d+2[11] CH df+4 [43] f+2[12] [41] b+1,2 [39] d+1+2 CH wr2 [38] f,F+4 [38] dash db+2 CH (ws1),2~b [43] f+2[12] [38] SWA.2[12] [31] SWA.4 SWA.1 [43] SWA.1 [40] db2 CH DPD.4 [36] db+2[13] H.b+2,1* GB [14] H.d+1,2* GB [15] [21] b+1,2 [19] d+1+2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[78] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1]",
+          "starter": "b+3"
+        },
+        {
+          "route": "[75] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "b+3"
+        },
+        {
+          "route": "[75] 3 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "b+3"
+        },
+        {
+          "route": "[72] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[1]",
+          "starter": "b+3"
+        },
+        {
+          "route": "[69] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "b+3"
+        },
+        {
+          "route": "[78] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[78] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[77] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[75] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[74] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[72] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[72] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[71] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[69] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[68] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[66] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[75] df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[2]",
+          "starter": "uf+3,4"
+        },
+        {
+          "route": "[71] 3,2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+3,4"
+        },
+        {
+          "route": "[67] dash ws4 df+4 b+1,2 T! DPD.1 wr2",
+          "starter": "uf+3,4"
+        },
+        {
+          "route": "[65] 3,2 b+1,2 T! DPD.1 wr2",
+          "starter": "uf+3,4"
+        },
+        {
+          "route": "[78] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[77] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[74] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[71] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[68] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[80] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[80] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[79] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[77] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[76] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[74] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[74] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2[3]",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[73] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[3]",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[71] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[70] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[68] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(uf+3),4"
+        },
+        {
+          "route": "[82] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "ws2"
+        },
+        {
+          "route": "[79] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "ws2"
+        },
+        {
+          "route": "[79] 3 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "ws2"
+        },
+        {
+          "route": "[76] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "ws2"
+        },
+        {
+          "route": "[73] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "ws2"
+        },
+        {
+          "route": "[72] 2 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "f,F+3"
+        },
+        {
+          "route": "[66] 2 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "f,F+3"
+        },
+        {
+          "route": "[73] 3,2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "f,F+3,4"
+        },
+        {
+          "route": "[69] dash ws4 df+4 b+1,2 T! DPD.1 wr2",
+          "starter": "f,F+3,4"
+        },
+        {
+          "route": "[67] 3,2 b+1,2 T! DPD.1 wr2",
+          "starter": "f,F+3,4"
+        },
+        {
+          "route": "[77] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(f,F+3),4"
+        },
+        {
+          "route": "[76] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(f,F+3),4"
+        },
+        {
+          "route": "[74] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(f,F+3),4"
+        },
+        {
+          "route": "[71] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(f,F+3),4"
+        },
+        {
+          "route": "[70] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(f,F+3),4"
+        },
+        {
+          "route": "[68] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(f,F+3),4"
+        },
+        {
+          "route": "[82] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[4]",
+          "starter": "f,F+4"
+        },
+        {
+          "route": "[74] ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "f,F+4"
+        },
+        {
+          "route": "[71] ws3 3,2 b+1,2 T! DPD.1 wr2",
+          "starter": "f,F+4"
+        },
+        {
+          "route": "[86] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[86] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[85] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[83] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[82] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[80] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[80] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2[3]",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[79] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[3]",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[77] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[76] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[74] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[87] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[87] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[86] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[84] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[83] dash 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[81] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[81] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[80] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[78] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[77] dash 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[75] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "SWA.1+2"
+        },
+        {
+          "route": "[84] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "DPD.1[5]"
+        },
+        {
+          "route": "[84] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "DPD.1[5]"
+        },
+        {
+          "route": "[83] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "DPD.1[5]"
+        },
+        {
+          "route": "[78] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "DPD.1[5]"
+        },
+        {
+          "route": "[77] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "DPD.1[5]"
+        },
+        {
+          "route": "[67] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1",
+          "starter": "qcf+1+2 T!"
+        },
+        {
+          "route": "[67] dash qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1",
+          "starter": "qcf+1+2 T!"
+        },
+        {
+          "route": "[66] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1",
+          "starter": "qcf+1+2 T!"
+        },
+        {
+          "route": "[63] dash qcf+1 df+4 2 dash 1 dash d+4,2:1+2",
+          "starter": "qcf+1+2 T!"
+        },
+        {
+          "route": "[83] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(f,F+2),2"
+        },
+        {
+          "route": "[80] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(f,F+2),2"
+        },
+        {
+          "route": "[77] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(f,F+2),2"
+        },
+        {
+          "route": "[74] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(f,F+2),2"
+        },
+        {
+          "route": "[100] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[100] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[99] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[97] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[96] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[94] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[94] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[93] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[91] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[90] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[88] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "(H.b+2),1*"
+        },
+        {
+          "route": "[95] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[95] dash qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[94] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[92] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[91] dash 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[89] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[89] dash qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[88] dash qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[86] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[85] dash 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[83] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "H.f+1+2*[6]"
+        },
+        {
+          "route": "[47] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1",
+          "starter": "Low Parry T!"
+        },
+        {
+          "route": "[47] qcf+1 df+4 df+1~b~df WS1,2~b~df DPD.2,1",
+          "starter": "Low Parry T!"
+        },
+        {
+          "route": "[46] qcf+1 df+4 2 dash 3,2~b~df DPD.2,1",
+          "starter": "Low Parry T!"
+        },
+        {
+          "route": "[43] qcf+1 df+4 2 dash 1 dash d+4,2:1+2",
+          "starter": "Low Parry T!"
+        },
+        {
+          "route": "[85] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[85] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[84] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[79] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[78] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[87] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH db+2"
+        },
+        {
+          "route": "[86] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH db+2"
+        },
+        {
+          "route": "[84] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH db+2"
+        },
+        {
+          "route": "[81] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH db+2"
+        },
+        {
+          "route": "[80] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH db+2"
+        },
+        {
+          "route": "[78] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH db+2"
+        },
+        {
+          "route": "[70] ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.3"
+        },
+        {
+          "route": "[67] ws3 3,2 b+1,2 T! DPD.1 wr2",
+          "starter": "CH SWA.3"
+        },
+        {
+          "route": "[72] SSL qcf+1 df+4 dash d+4,2:1+2[7]",
+          "starter": "CH SWA.3,2,1 T!"
+        },
+        {
+          "route": "[71] SSL qcf+1 dash 3,2~b~DF DPD.2,1[7]",
+          "starter": "CH SWA.3,2,1 T!"
+        },
+        {
+          "route": "[67] SSL qcf+1 dash d+4,2:1+2[7]",
+          "starter": "CH SWA.3,2,1 T!"
+        },
+        {
+          "route": "[73] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1",
+          "starter": "CH qcf+3+4 T!"
+        },
+        {
+          "route": "[73] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1",
+          "starter": "CH qcf+3+4 T!"
+        },
+        {
+          "route": "[72] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1",
+          "starter": "CH qcf+3+4 T!"
+        },
+        {
+          "route": "[69] qcf+1 df+4 2 dash 1 dash d+4,2:1+2",
+          "starter": "CH qcf+3+4 T!"
+        },
+        {
+          "route": "[93] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[93] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[92] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[90] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[89] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[87] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[87] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[86] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[84] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[83] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[81] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[96] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[96] dash qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[95] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[93] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[92] dash 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[90] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[90] dash qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[89] dash qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[87] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[86] dash 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[84] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH f+1+2*[6]"
+        },
+        {
+          "route": "[90] SSL qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[8]",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[89] SSL qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[8]",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[87] SSL ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[84] SSL 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[9]",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[84] SSL qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[83] SSL qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[81] SSL ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[80] SSL 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[78] SSL 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[9]",
+          "starter": "CH (ws3),2"
+        },
+        {
+          "route": "[76] qcf+1 df+4 3,2~b SWA.1+2 T! DPD.1 qcf+2",
+          "starter": "CH (df+3),4"
+        },
+        {
+          "route": "[75] qcf+1 df+4 3,2~b SWA.1+2 T! dash d+4,2:1+2",
+          "starter": "CH (df+3),4"
+        },
+        {
+          "route": "[71] qcf+1 3,2~b SWA.1+2 T! DPD.1 qcf+2",
+          "starter": "CH (df+3),4"
+        },
+        {
+          "route": "[70] qcf+1 3,2~b SWA.1+2 T! dash d+4,2:1+2",
+          "starter": "CH (df+3),4"
+        },
+        {
+          "route": "[68] df+4 3,2~b SWA.1+2 T! DPD.1 qcf+2",
+          "starter": "CH (df+3),4"
+        },
+        {
+          "route": "[67] df+4 3,2~b SWA.1+2 T! dash d+4,2:1+2",
+          "starter": "CH (df+3),4"
+        },
+        {
+          "route": "[85] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[84] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[82] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[79] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[78] dash qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[76] f,F+4 ws4 df+4 b+1,2 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[76] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! ! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[73] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (3),2[10]"
+        },
+        {
+          "route": "[91] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[91] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[90] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[88] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[87] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[85] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[85] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2[3]",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[84] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[3]",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[82] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[81] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (SWA.3,2),3"
+        },
+        {
+          "route": "[79] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+          "starter": "CH (SWA.3,2),3"
+        }
+      ],
+      "raw": "b+3 [78] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1] [75] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [75] 3 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [72] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[1] [69] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 df+2 uf+4 [78] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [78] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [77] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [75] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [74] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [72] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [72] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [71] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [69] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [68] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [66] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 uf+3,4 [75] df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[2] [71] 3,2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [67] dash ws4 df+4 b+1,2 T! DPD.1 wr2 [65] 3,2 b+1,2 T! DPD.1 wr2 uf+3 [78] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [77] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [74] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [71] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [68] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 (uf+3),4 [80] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [80] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [79] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [77] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [76] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [74] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [74] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2[3] [73] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[3] [71] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [70] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [68] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 ws2 [82] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [79] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [79] 3 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [76] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [73] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 f,F+3 [72] 2 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [66] 2 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 f,F+3,4 [73] 3,2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [69] dash ws4 df+4 b+1,2 T! DPD.1 wr2 [67] 3,2 b+1,2 T! DPD.1 wr2 (f,F+3),4 [77] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [76] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [74] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [71] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [70] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [68] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 f,F+4 [82] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[4] [74] ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [71] ws3 3,2 b+1,2 T! DPD.1 wr2 qcf+1 [86] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [86] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [85] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [83] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [82] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [80] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [80] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2[3] [79] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[3] [77] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [76] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [74] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 SWA.1+2 [87] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [87] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [86] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [84] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [83] dash 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [81] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [81] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [80] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [78] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [77] dash 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [75] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 DPD.1[5] [84] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [84] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [83] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [78] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [77] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 qcf+1+2 T! [67] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 [67] dash qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 [66] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 [63] dash qcf+1 df+4 2 dash 1 dash d+4,2:1+2 (f,F+2),2 [83] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [80] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [77] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [74] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 (H.b+2),1* [100] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [100] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [99] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [97] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [96] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [94] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [94] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [93] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [91] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [90] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [88] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 H.f+1+2*[6] [95] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [95] dash qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [94] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [92] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [91] dash 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [89] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [89] dash qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [88] dash qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [86] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [85] dash 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [83] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 Low Parry T! [47] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 [47] qcf+1 df+4 df+1~b~df WS1,2~b~df DPD.2,1 [46] qcf+1 df+4 2 dash 3,2~b~df DPD.2,1 [43] qcf+1 df+4 2 dash 1 dash d+4,2:1+2 CH SWA.4 [85] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [85] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [84] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [79] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [78] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 CH db+2 [87] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [86] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [84] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [81] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [80] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [78] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 CH SWA.3 [70] ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [67] ws3 3,2 b+1,2 T! DPD.1 wr2 CH SWA.3,2,1 T! [72] SSL qcf+1 df+4 dash d+4,2:1+2[7] [71] SSL qcf+1 dash 3,2~b~DF DPD.2,1[7] [67] SSL qcf+1 dash d+4,2:1+2[7] CH qcf+3+4 T! [73] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 [73] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 [72] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 [69] qcf+1 df+4 2 dash 1 dash d+4,2:1+2 CH SWA.1 [93] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [93] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [92] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [90] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [89] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [87] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [87] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [86] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [84] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [83] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [81] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 CH f+1+2*[6] [96] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [96] dash qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2 [95] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [93] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [92] dash 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [90] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [90] dash qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [89] dash qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [87] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [86] dash 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [84] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 CH (ws3),2 [90] SSL qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[8] [89] SSL qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[8] [87] SSL ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [84] SSL 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[9] [84] SSL qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2 [83] SSL qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [81] SSL ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [80] SSL 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [78] SSL 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[9] CH (df+3),4 [76] qcf+1 df+4 3,2~b SWA.1+2 T! DPD.1 qcf+2 [75] qcf+1 df+4 3,2~b SWA.1+2 T! dash d+4,2:1+2 [71] qcf+1 3,2~b SWA.1+2 T! DPD.1 qcf+2 [70] qcf+1 3,2~b SWA.1+2 T! dash d+4,2:1+2 [68] df+4 3,2~b SWA.1+2 T! DPD.1 qcf+2 [67] df+4 3,2~b SWA.1+2 T! dash d+4,2:1+2 CH (3),2[10] [85] dash qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [84] dash qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [82] dash ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [79] dash 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [78] dash qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [76] f,F+4 ws4 df+4 b+1,2 T! DPD.1 wr2 [76] dash ws4 df+4 2 dash 3,2~b SWA.1+2 T! ! DPD.1 wr2 [73] dash 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 CH (DPD.2),3 CH (SWA.3,2),3 [91] qcf+1 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [91] qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [90] qcf+1 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [88] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [87] 4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [85] 3,2 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [85] qcf+1 df+4 df+1~b~DF WS1,2~b SWA.1+2 T! DPD.1 wr2[3] [84] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2[3] [82] ws4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [81] 4 df+4 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2 [79] 3,2 2 dash 3,2~b SWA.1+2 T! DPD.1 wr2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[105] 2+3 3,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[105] 2+3 ws1,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[104] 2+3 SSL 2 df+1~b~u H.qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[104] 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[104] ws1,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[100] 1 df+1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[98] df+1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[97] 2 qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[97] 1 qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[96] 3,2~b d1+2",
+          "starter": ""
+        },
+        {
+          "route": "[102] DPD.2,1 2+3 2 H.qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[99] SWA.3,2,1 qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[99] db+2 2+3 3,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[99] db+2 2+3 ws1,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] DPD.2,1 SSL df+1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[98] db+2 2+3 SSL 1 df+1~b~u H.qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[98] 2+3 db+2 3,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] 2+3 db+2 ws1,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] db+2 SSL 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] db+2 ws1,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] qcf+3+4 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] qcf+3+4 ws1,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] 2+3 db+2 3,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] 2+3 db+2 ws1,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] db+2 SSL 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] db+2 ws1,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[98] qcf+3+4 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[95] b+1,2 df+1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[94] db+2 SSL 1 df+1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[93] SSL 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[93] ws1,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[92] db+2 SSL 2 qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[91] db+2 3,2~b d+1+2",
+          "starter": ""
+        },
+        {
+          "route": "[86] 1 qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[84] qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[97] qcf+1 W! qcf+3+4 T! d+1+2 3,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[95] qcf+1 W! qcf+3+4 T! d+1+2 1 df+1~b~u H.qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[93] qcf+1 W! qcf+3+4 T! d+1+2 df+1~b~u H.qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[88] qcf+1 W! qcf+3+4 T! d+1+2 3,2 d+1+2",
+          "starter": ""
+        },
+        {
+          "route": "[100] qcf+1 W! qcf+3+4 T! d+1+2 2+3 3,2~b~u H.qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[99] qcf+1 W! qcf+3+4 T! d+1+2 3,2~b~u qcf+2[1]",
+          "starter": ""
+        },
+        {
+          "route": "[95] qcf+1 W! qcf+3+4 T! d+1+2 1 df1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[93] qcf+1 W! qcf+3+4 T! d+1+2 df1~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[91] qcf+1 W! qcf+3+4 T! d+1+2 3,2 d+1+2",
+          "starter": ""
+        }
+      ],
+      "raw": "[105] 2+3 3,2~b~u H.qcf+2[1] [105] 2+3 ws1,2~b~u H.qcf+2[1] [104] 2+3 SSL 2 df+1~b~u H.qcf+2 [104] 3,2~b~u qcf+2[1] [104] ws1,2~b~u qcf+2[1] [100] 1 df+1~b~u qcf+2 [98] df+1~b~u qcf+2 [97] 2 qcf+2 [97] 1 qcf+2 [96] 3,2~b d1+2 [102] DPD.2,1 2+3 2 H.qcf+2 [99] SWA.3,2,1 qcf+2 [99] db+2 2+3 3,2~b~u H.qcf+2[1] [99] db+2 2+3 ws1,2~b~u H.qcf+2[1] [98] DPD.2,1 SSL df+1~b~u qcf+2 [98] db+2 2+3 SSL 1 df+1~b~u H.qcf+2 [98] 2+3 db+2 3,2~b~u H.qcf+2[1] [98] 2+3 db+2 ws1,2~b~u H.qcf+2[1] [98] db+2 SSL 3,2~b~u qcf+2[1] [98] db+2 ws1,2~b~u qcf+2[1] [98] qcf+3+4 3,2~b~u qcf+2[1] [98] qcf+3+4 ws1,2~b~u qcf+2[1] [98] 2+3 db+2 3,2~b~u H.qcf+2[1] [98] 2+3 db+2 ws1,2~b~u H.qcf+2[1] [98] db+2 SSL 3,2~b~u qcf+2[1] [98] db+2 ws1,2~b~u qcf+2[1] [98] qcf+3+4 3,2~b~u qcf+2[1] [95] b+1,2 df+1~b~u qcf+2 [94] db+2 SSL 1 df+1~b~u qcf+2 [93] SSL 3,2~b~u qcf+2[1] [93] ws1,2~b~u qcf+2[1] [92] db+2 SSL 2 qcf+2 [91] db+2 3,2~b d+1+2 [86] 1 qcf+2 [84] qcf+2 [97] qcf+1 W! qcf+3+4 T! d+1+2 3,2~b~u H.qcf+2[1] [95] qcf+1 W! qcf+3+4 T! d+1+2 1 df+1~b~u H.qcf+2 [93] qcf+1 W! qcf+3+4 T! d+1+2 df+1~b~u H.qcf+2 [88] qcf+1 W! qcf+3+4 T! d+1+2 3,2 d+1+2 [100] qcf+1 W! qcf+3+4 T! d+1+2 2+3 3,2~b~u H.qcf+2[1] [99] qcf+1 W! qcf+3+4 T! d+1+2 3,2~b~u qcf+2[1] [95] qcf+1 W! qcf+3+4 T! d+1+2 1 df1~b~u qcf+2 [93] qcf+1 W! qcf+3+4 T! d+1+2 df1~b~u qcf+2 [91] qcf+1 W! qcf+3+4 T! d+1+2 3,2 d+1+2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[54] qcf+1 df+4 3,2~b SWA.1+2 T! 2 wr2",
+          "starter": "1"
+        },
+        {
+          "route": "[44] df+4 3,2~b SWA.1+2 T! wr2",
+          "starter": "1"
+        },
+        {
+          "route": "[39] 3,2~b SWA.1+2 T! wr2",
+          "starter": "1"
+        },
+        {
+          "route": "[51] SSR qcf+1 (x3) dash 3,2~b SWA.1+2 T! SSR 2 wr2",
+          "starter": "2+3"
+        },
+        {
+          "route": "[50] SSR qcf+1 (x2) df+4 3,2~b SWA.1+2 T! 2 wr2",
+          "starter": "2+3"
+        },
+        {
+          "route": "[48] qcf+1 df+4 ws3 3,2~b SWA.1+2 T! 2 wr2",
+          "starter": "2+3"
+        },
+        {
+          "route": "[46] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! 2 wr2",
+          "starter": "2+3"
+        },
+        {
+          "route": "[50] SSR qcf+1 df+4 2 wr2",
+          "starter": "SWA.1+2 T!"
+        },
+        {
+          "route": "[59] dash 3,2 dash 3,2~b SWA.1+2 T! 2 wr2",
+          "starter": "ws4"
+        },
+        {
+          "route": "[58] df+4 2 dash 3,2~b SWA.1+2 T! 2 wr2",
+          "starter": "ws4"
+        }
+      ],
+      "raw": "1 [54] qcf+1 df+4 3,2~b SWA.1+2 T! 2 wr2 [44] df+4 3,2~b SWA.1+2 T! wr2 [39] 3,2~b SWA.1+2 T! wr2 2+3 [51] SSR qcf+1 (x3) dash 3,2~b SWA.1+2 T! SSR 2 wr2 [50] SSR qcf+1 (x2) df+4 3,2~b SWA.1+2 T! 2 wr2 [48] qcf+1 df+4 ws3 3,2~b SWA.1+2 T! 2 wr2 [46] qcf+1 df+4 2 dash 3,2~b SWA.1+2 T! 2 wr2 SWA.1+2 T! [50] SSR qcf+1 df+4 2 wr2 ws4 [59] dash 3,2 dash 3,2~b SWA.1+2 T! 2 wr2 [58] df+4 2 dash 3,2~b SWA.1+2 T! 2 wr2",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 2+3 H.qcf+2~F qcf+2",
+          "starter": "[93] df+2"
+        },
+        {
+          "route": "ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 2+3 H.qcf+2~F qcf+2",
+          "starter": "[93] b+3 SSL"
+        },
+        {
+          "route": "[84] SSR qcf+1 df+4 3,2~b~u 2+3 qcf+1 H.qcf+2 qcf+2",
+          "starter": "qcf+1+2 T!"
+        },
+        {
+          "route": "[79] SSR qcf+1 df+4 1,2 2+3 qcf+1 H.qcf+2 qcf+2",
+          "starter": "qcf+1+2 T!"
+        },
+        {
+          "route": "[90] dash qcf+1 df+4 3,2~b~u 2+3 qcf+1 H.qcf+2 qcf+2",
+          "starter": "CH qcf+3+4 T![1]"
+        },
+        {
+          "route": "[85] dash qcf+1 df+4 1,2 2+3 qcf+1 H.qcf+2 qcf+2",
+          "starter": "CH qcf+3+4 T![1]"
+        },
+        {
+          "route": "[64] qcf+1 df+4 3,2~b~u 2+3 qcf+1 H.qcf+2 qcf+2",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[59] qcf+1 df+4 1,2 2+3 qcf+1 H.qcf+2 qcf+2",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "qcf+1 qcf+1 qcf+1 1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3][4]",
+          "starter": "[72] H.u+2~F"
+        },
+        {
+          "route": "qcf+1 qcf+1 qcf+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3]",
+          "starter": "[71] H.u+2~F"
+        },
+        {
+          "route": "qcf+1 ws4 df+4 1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[6]",
+          "starter": "[65] H.qcb+2~F"
+        },
+        {
+          "route": "qcf+1 ws4 df+4 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "[64] H.qcb+2~F"
+        },
+        {
+          "route": "qcf+1 df+4 df+1~b~DF ws1,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "[61] H.qcb+2~F"
+        },
+        {
+          "route": "qcf+2[7]",
+          "starter": "[40] H.f+2~F"
+        },
+        {
+          "route": "[61] qcf+1 ws4 df+4 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH ws(1),2~b H.SWA.2~F"
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F delay qcf+2[8]",
+          "starter": ""
+        },
+        {
+          "route": "qcf+1 H.qcf+2~F delay qcb+1[9]",
+          "starter": ""
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F delay qcb+1",
+          "starter": ""
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F delay db+2[10]",
+          "starter": ""
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F cl.qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F wr2[11]",
+          "starter": ""
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F f,F+2:1[12]",
+          "starter": ""
+        },
+        {
+          "route": "DPD.1 H.qcf+2~F f,F+3,4[13]",
+          "starter": ""
+        },
+        {
+          "route": "[35] b+1,2",
+          "starter": "H.d+1,2*"
+        },
+        {
+          "route": "[34] d+1+2",
+          "starter": "H.d+1,2*"
+        },
+        {
+          "route": "W! H.b+2,1*[14] d+1+2 W! Resplat",
+          "starter": "Wall Reset"
+        },
+        {
+          "route": "W! H.b+2,1*[14] qcb+3,2,1 W! H.b+2,1*[14]",
+          "starter": "Wall Reset"
+        }
+      ],
+      "raw": "[102] SWA.1+2 [101] qcf+1 [100] CH SWA.4 [99] DPD.1 [93] df+2 qcf+1 df+4 df+1~b~DF WS1,2~b~DF DPD.2,1 T! DPD.1 2+3 H.qcf+2~F qcf+2 [98] ff+(2),2 [97] ws2 [97] f,F+4 [93] b+3 SSL ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 2+3 H.qcf+2~F qcf+2 qcf+1+2 T! [84] SSR qcf+1 df+4 3,2~b~u 2+3 qcf+1 H.qcf+2 qcf+2 [79] SSR qcf+1 df+4 1,2 2+3 qcf+1 H.qcf+2 qcf+2 CH qcf+3+4 T![1] [90] dash qcf+1 df+4 3,2~b~u 2+3 qcf+1 H.qcf+2 qcf+2 [85] dash qcf+1 df+4 1,2 2+3 qcf+1 H.qcf+2 qcf+2 Low Parry [64] qcf+1 df+4 3,2~b~u 2+3 qcf+1 H.qcf+2 qcf+2 [59] qcf+1 df+4 1,2 2+3 qcf+1 H.qcf+2 qcf+2 [80] H.qcf+2~F[2] [72] H.u+2~F qcf+1 qcf+1 qcf+1 1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3][4] [79] H.qcf+2~F[5] [71] H.u+2~F qcf+1 qcf+1 qcf+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[3] [78] H.qcf+2~F [70] H.u+2~F [65] H.qcb+2~F qcf+1 ws4 df+4 1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[6] [77] H.qcf+2~F [69] H.u+2~F [64] H.qcb+2~F qcf+1 ws4 df+4 3,2~b~DF DPD.2,1 T! DPD.1 wr2 [74] H.qcf+2~F [66] H.u+2~F [61] H.qcb+2~F qcf+1 df+4 df+1~b~DF ws1,2~b~DF DPD.2,1 T! DPD.1 wr2 [52] H.f+4~F [40] H.f+2~F qcf+2[7] CH ws(1),2~b H.SWA.2~F [61] qcf+1 ws4 df+4 3,2~b~DF DPD.2,1 T! DPD.1 wr2 DPD.1 H.qcf+2~F delay qcf+2[8] qcf+1 H.qcf+2~F delay qcb+1[9] DPD.1 H.qcf+2~F delay qcb+1 DPD.1 H.qcf+2~F delay db+2[10] DPD.1 H.qcf+2~F cl.qcf+2 DPD.1 H.qcf+2~F wr2[11] DPD.1 H.qcf+2~F f,F+2:1[12] DPD.1 H.qcf+2~F f,F+3,4[13] Midscreen H.b+2,1* H.d+1,2* [35] b+1,2 [34] d+1+2 Wall Reset W! H.b+2,1*[14] d+1+2 W! Resplat W! H.b+2,1*[14] qcb+3,2,1 W! H.b+2,1*[14]",
+      "section": "Heat"
+    },
+    {
+      "entries": [
+        {
+          "route": "[68] qcf+1 df+4 3,2~b SWA.1+2 T! dash SSR d+4,2:1+2",
+          "starter": "df+2"
+        },
+        {
+          "route": "[60] df+4 3,2~b SWA.1+2 T! d+4,2:1+2",
+          "starter": "df+2"
+        },
+        {
+          "route": "[55] 3,2~b SWA.1+2 T! d+4,2:1+2",
+          "starter": "df+2"
+        },
+        {
+          "route": "[108 (31+77)] qcf+1 df+4 3,2~b SWA.1+2 T! d+4,2:1+2",
+          "starter": "3,2~b SWA.1+2[1]"
+        },
+        {
+          "route": "[103 (31+72)] qcf+1 3,2~b SWA.1+2 T! d+4,2:1+2",
+          "starter": "3,2~b SWA.1+2[1]"
+        },
+        {
+          "route": "[103 (31+72)] qcf+3+4 T! qcf+1 (x2) dash d+4,2:1+2",
+          "starter": "3,2~b SWA.1+2[1]"
+        },
+        {
+          "route": "[114 (15+20+79)] qcf+1 df+4 3,2~b SWA.1+2 T! dash SSR d+4,2:1+2",
+          "starter": "ws1,2~b SWA.1+2[1][2]"
+        },
+        {
+          "route": "[114 (15+20+79)] qcf+1 df+4 qcb+3,2,1 T! dash SSR d+4,2:1+2",
+          "starter": "ws1,2~b SWA.1+2[1][2]"
+        },
+        {
+          "route": "[104 (15+20+79)] df+4 3,2~b SWA.1+2 T! dash SSR d+4,2:1+2",
+          "starter": "ws1,2~b SWA.1+2[1][2]"
+        }
+      ],
+      "raw": "df+2 [68] qcf+1 df+4 3,2~b SWA.1+2 T! dash SSR d+4,2:1+2 [60] df+4 3,2~b SWA.1+2 T! d+4,2:1+2 [55] 3,2~b SWA.1+2 T! d+4,2:1+2 3,2~b SWA.1+2[1] [108 (31+77)] qcf+1 df+4 3,2~b SWA.1+2 T! d+4,2:1+2 [103 (31+72)] qcf+1 3,2~b SWA.1+2 T! d+4,2:1+2 [103 (31+72)] qcf+3+4 T! qcf+1 (x2) dash d+4,2:1+2 ws1,2~b SWA.1+2[1][2] [114 (15+20+79)] qcf+1 df+4 3,2~b SWA.1+2 T! dash SSR d+4,2:1+2 [114 (15+20+79)] qcf+1 df+4 qcb+3,2,1 T! dash SSR d+4,2:1+2 [104 (15+20+79)] df+4 3,2~b SWA.1+2 T! dash SSR d+4,2:1+2",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "[147] CH qcf+2 W! H.qcf+2 WB! qcf+1 (x2) d+1,4,2 W! H.qcf+2 BB! DPD.2,1 T! dash H.qcf+2~F SSL 3,2~b~u W! qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[146] CH qcf+2 W! H.qcf+2 WB! qcf+1 (x2) d+1,4,2 W! H.qcf+2 BB! dash H.qcf+2~F qcf+3+4 T! qcf+1 W! 3,2~b~u qcf+2",
+          "starter": ""
+        },
+        {
+          "route": "[115] SSR qcf+1 (x2) W! qcf+3+4 d+1+2 1 H.qcf+2",
+          "starter": "d+4,2:1+2 WBl!"
+        },
+        {
+          "route": "[111] SSL d+4,2:1+2 w! db+2 1 H.qcf+2",
+          "starter": "d+4,2:1+2 WBl!"
+        },
+        {
+          "route": "[109] SSR qcf+1 SWA.3,2,1 W! 1 H.qcf+2",
+          "starter": "d+4,2:1+2 WBl!"
+        },
+        {
+          "route": "[109] qcf+1 b+1,2 W! 3,2~b H.qcf+2",
+          "starter": "d+4,2:1+2 WBl!"
+        },
+        {
+          "route": "[105] qcf+1 SWA.3,2,1 W! 3,2~b d+1+2",
+          "starter": "d+4,2:1+2 WBl!"
+        },
+        {
+          "route": "[102] d+4,2:1+2 W! 3,2~b d+1+2",
+          "starter": "d+4,2:1+2 WBl!"
+        }
+      ],
+      "raw": "[147] CH qcf+2 W! H.qcf+2 WB! qcf+1 (x2) d+1,4,2 W! H.qcf+2 BB! DPD.2,1 T! dash H.qcf+2~F SSL 3,2~b~u W! qcf+2 [146] CH qcf+2 W! H.qcf+2 WB! qcf+1 (x2) d+1,4,2 W! H.qcf+2 BB! dash H.qcf+2~F qcf+3+4 T! qcf+1 W! 3,2~b~u qcf+2 H.qcf+2 WBl! d+4,2:1+2 WBl! [115] SSR qcf+1 (x2) W! qcf+3+4 d+1+2 1 H.qcf+2 [111] SSL d+4,2:1+2 w! db+2 1 H.qcf+2 [109] SSR qcf+1 SWA.3,2,1 W! 1 H.qcf+2 [109] qcf+1 b+1,2 W! 3,2~b H.qcf+2 [105] qcf+1 SWA.3,2,1 W! 3,2~b d+1+2 [102] d+4,2:1+2 W! 3,2~b d+1+2",
+      "section": "Stage Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[84] qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2][3]",
+          "starter": "df2/uf4"
+        },
+        {
+          "route": "[79] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "b+3"
+        },
+        {
+          "route": "[78] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[83] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "ws2"
+        },
+        {
+          "route": "[79] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[4]",
+          "starter": "f,F+3"
+        },
+        {
+          "route": "[92] qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2]",
+          "starter": "qcf+1"
+        },
+        {
+          "route": "[102] dash qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2]",
+          "starter": "CH f+1+2*"
+        },
+        {
+          "route": "[98] dash qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1]",
+          "starter": "CH f+1+2*"
+        },
+        {
+          "route": "[76] ~DF WS1,2~b SWA.1+2 T! DPD.1 dash qcf+2[5]",
+          "starter": "CH f+1+2*"
+        },
+        {
+          "route": "[101] dash qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2]",
+          "starter": "H.f+1+2*"
+        },
+        {
+          "route": "[97] dash qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1]",
+          "starter": "H.f+1+2*"
+        },
+        {
+          "route": "[75] ~DF WS1,2~b SWA.1+2 T! DPD.1 dash qcf+2[5]",
+          "starter": "H.f+1+2*"
+        },
+        {
+          "route": "[99] SSR qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2]",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[95] dash qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.1"
+        },
+        {
+          "route": "[91] dash qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2]",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[87] SSL qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2",
+          "starter": "CH SWA.4"
+        },
+        {
+          "route": "[90] SSR qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2]",
+          "starter": "DPD.1"
+        },
+        {
+          "route": "[86] SSR qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1]",
+          "starter": "DPD.1"
+        },
+        {
+          "route": "[53] SSR qcf+1 (x3) dash 3,2~b~DF DPD.2,1",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[51] SSR qcf+1 (x2) df+4 dash 3,2~b~DF DPD.2,1",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[49] qcf+1 df+4 ws3 3,2~b~DF DPD.2,1",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[138] backdash qcf+1 W! qcf+3+4 d+1+2 3,2~b~u H.qcf+2[6]",
+          "starter": "CH H.qcf+2 W!"
+        },
+        {
+          "route": "[75] db+2 T! DPD.1 qcf+1 df+4 dash d+4,2:1+2",
+          "starter": "CH qcf+3 (Kuma/Panda/Raven only)"
+        },
+        {
+          "route": "[71] db+2 T! qcf+1 (x2) dash d+4,2:1+2",
+          "starter": "CH qcf+3 (Kuma/Panda/Raven only)"
+        },
+        {
+          "route": "[73] SSL qcf+1 (x2) dash Demoman[2]",
+          "starter": "CH SWA.3,2,1 T!"
+        },
+        {
+          "route": "SSR qcf+3+4 T! df+4 df+4 df+4 2+3...[5]",
+          "starter": "CH df+(3),4"
+        },
+        {
+          "route": "[73] qcf+1 (x2) 3,2~b~u wr2",
+          "starter": "Extremely difficult and rarely useful"
+        }
+      ],
+      "raw": "df2/uf4 [84] qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2][3] b+3 [79] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 uf+3 [78] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 ws2 [83] ws4 df+4 df+1 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2 f,F+3 [79] ws4 df+4 2 dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[4] qcf+1 [92] qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2] CH f+1+2* [102] dash qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2] [98] dash qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1] [76] ~DF WS1,2~b SWA.1+2 T! DPD.1 dash qcf+2[5] H.f+1+2* [101] dash qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2] [97] dash qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1] [75] ~DF WS1,2~b SWA.1+2 T! DPD.1 dash qcf+2[5] CH SWA.1 [99] SSR qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2] [95] dash qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2 CH SWA.4 [91] dash qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2] [87] SSL qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2 DPD.1 [90] SSR qcf+1 (x3) dash 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1][2] [86] SSR qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 T! DPD.1 wr2[1] Low Parry [53] SSR qcf+1 (x3) dash 3,2~b~DF DPD.2,1 [51] SSR qcf+1 (x2) df+4 dash 3,2~b~DF DPD.2,1 [49] qcf+1 df+4 ws3 3,2~b~DF DPD.2,1 CH H.qcf+2 W! [138] backdash qcf+1 W! qcf+3+4 d+1+2 3,2~b~u H.qcf+2[6] CH qcf+3 (Kuma/Panda/Raven only) [75] db+2 T! DPD.1 qcf+1 df+4 dash d+4,2:1+2 [71] db+2 T! qcf+1 (x2) dash d+4,2:1+2 CH SWA.3,2,1 T! [73] SSL qcf+1 (x2) dash Demoman[2] CH ws(3),2 CH df+(3),4 SSR qcf+3+4 T! df+4 df+4 df+4 2+3...[5] Extremely difficult and rarely useful [73] qcf+1 (x2) 3,2~b~u wr2",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Paul_combos"
+}

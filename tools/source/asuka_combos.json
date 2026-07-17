@@ -1,0 +1,73 @@
+{
+  "canonical_name": "Asuka Kazama",
+  "character_key": "asuka",
+  "display_name_zh": "风间飞鸟",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "f,F+2,3 db1,4 T! f,F+4 f,F+2 1+2",
+          "starter": "Regular launch (e.g. df+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) f,F+2,3 db1,4 T! f,F+4 f,F+2 1+2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "f,F+2,3 db1,4 T! f,F+4 f,F+2 1+2",
+          "starter": "f+2"
+        },
+        {
+          "route": "4,3 2,1,2 T! SSL f,F+4 f,F+2 1+2",
+          "starter": "b+3"
+        }
+      ],
+      "raw": "df+2 1+2 f+2 f,F+2,3 db1,4 T! f,F+4 f,F+2 1+2 b+3 4,3 2,1,2 T! SSL f,F+4 f,F+2 1+2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo here",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) combo here",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Asuka_combos"
+}

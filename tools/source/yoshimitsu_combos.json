@@ -1,0 +1,344 @@
+{
+  "canonical_name": "Yoshimitsu",
+  "character_key": "yoshimitsu",
+  "display_name_zh": "吉光",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "1+4 d+2,2,B df+1,2,1 T! 1+4 d22",
+          "starter": "Regular launch (e.g. df+2)"
+        },
+        {
+          "route": "d+2,2,B df+1 d+2,2,2 T! 1+4 d22",
+          "starter": "Pickup launch (e.g. NSS 1+4)"
+        },
+        {
+          "route": "d22b 1 f3+4 d22 f1+2",
+          "starter": "Instant Tornado (e.g. low parry)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) 1+4 d+2,2,B df+1,2,1 T! 1+4 d22 Pickup launch (e.g. NSS 1+4) d+2,2,B df+1 d+2,2,2 T! 1+4 d22 Instant Tornado (e.g. low parry) d22b 1 f3+4 d22 f1+2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+22] b+2,2 [mini 1]",
+          "starter": "[0] CH 1SS.1+2+3"
+        },
+        {
+          "route": "[+14] f,n,d,df+2",
+          "starter": "[0] CH 1SS.1+2+3"
+        },
+        {
+          "route": "[+21] 1SS.1+4 [mini 2]",
+          "starter": "[7] b+1"
+        },
+        {
+          "route": "[+24] NSS.1+4",
+          "starter": "[9] CH b+1"
+        },
+        {
+          "route": "[+17] KIN.f+2[mini 1]",
+          "starter": "[20] f,F+3,1+2"
+        },
+        {
+          "route": "[+18] 1SS.f+1+2",
+          "starter": "[22] CH (1),1SS.1"
+        },
+        {
+          "route": "[+17] 1SS.f,n,d,df+1",
+          "starter": "[22] CH (1),1SS.1"
+        },
+        {
+          "route": "[+23] NSS.f+1+2",
+          "starter": "[25] NSS.1+2+3[mini 5]"
+        },
+        {
+          "route": "[+16] BT.d+1",
+          "starter": "[20] BT.3"
+        },
+        {
+          "route": "[+31] NSS.ub+1+2",
+          "starter": "[13] KIN.3"
+        },
+        {
+          "route": "[+23] NSS.f+1+2",
+          "starter": "[13] KIN.3"
+        },
+        {
+          "route": "[+20] 1SS.ub+1+2",
+          "starter": "[13] KIN.3"
+        },
+        {
+          "route": "[+18] 1SS.f+1+2",
+          "starter": "[13] KIN.3"
+        },
+        {
+          "route": "[+31] H.ub+1+2",
+          "starter": "[22] 1+2,P[mini 6]"
+        },
+        {
+          "route": "[+23] H.f+1+2",
+          "starter": "[22] 1+2,P[mini 6]"
+        },
+        {
+          "route": "[+20] 1SS.ub+1+2",
+          "starter": "[22] 1+2,P[mini 6]"
+        },
+        {
+          "route": "[+18] 1SS.f+1+2",
+          "starter": "[22] 1+2,P[mini 6]"
+        },
+        {
+          "route": "[+23] NSS.f+1+2",
+          "starter": "[30] NSS.qcf+1"
+        },
+        {
+          "route": "[+8] d+2",
+          "starter": "[32] ws3,2"
+        },
+        {
+          "route": "[+24] NSS.ub+1+2",
+          "starter": "[30] H.KIN.f+2,F"
+        },
+        {
+          "route": "[+18] NSS.f+1+2",
+          "starter": "[30] H.KIN.f+2,F"
+        },
+        {
+          "route": "[+16] 1SS.ub+1+2",
+          "starter": "[30] H.KIN.f+2,F"
+        },
+        {
+          "route": "[+14] 1SS.f+1+2",
+          "starter": "[30] H.KIN.f+2,F"
+        }
+      ],
+      "raw": "[20] 1+4 [12] blocked NSS.KIN.2,1+2* [0] CH 1SS.1+2+3 [+22] b+2,2 [mini 1] [+14] f,n,d,df+2 [7] b+1 [+21] 1SS.1+4 [mini 2] [12] CH 2 [mini 3] [9] CH b+1 [+24] NSS.1+4 [20] f,F+3,1+2 [+17] KIN.f+2[mini 1] [24] CH (df+3),1SS.1 [22] CH (1),1SS.1 [+18] 1SS.f+1+2 [+17] 1SS.f,n,d,df+1 [30] NSS.2,1 [mini 4] [21] uf+4[mini 4] [25] NSS.1+2+3[mini 5] [+23] NSS.f+1+2 [36] KIN.1+2 [20] BT.3 [+16] BT.d+1 [24] CH BT.d+1 [24] CH KIN.d+1 [21] CH BT.2 [21] CH f+2 [21] CH (ws1),2 [19] CH (df+1),2 [13] KIN.3 [+31] NSS.ub+1+2 [+23] NSS.f+1+2 [+20] 1SS.ub+1+2 [+18] 1SS.f+1+2 [35] 1SS.qcf+1[mini 6] [22] 1+2,P[mini 6] [+31] H.ub+1+2 [+23] H.f+1+2 [+20] 1SS.ub+1+2 [+18] 1SS.f+1+2 [30] NSS.qcf+1 [+23] NSS.f+1+2 [32] ws3,2 [+8] d+2 [30] H.KIN.f+2,F [+24] NSS.ub+1+2 [+18] NSS.f+1+2 [+16] 1SS.ub+1+2 [+14] 1SS.f+1+2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+59] f,n,d,df+1 df+1 b+2,1,1+2 KIN.b+2,1 T! f,F+1+4*,n[s 1]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+57] 1+4 d+2,2,B df+1,2,1 T! NSS.1+4 1SS.f+3+4",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+56] 1+4 d+2,2,B 1 NSS.f+3+4 2,2 T! >NSS.f+3+4 NSS.f+1+2[s 2]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+54] 1+4 d+2,2,B df+1,2,1 T! (b1) 3,2,NSS.1+2[s 3]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+52] 1+4 d+2,2,B df+1,2,1 T! NSS.1+4 d+2,2,B",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+51] f,n,d,df+1 b+2,1,1+2 KIN.b+2,1 T! d+2,2,2",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+49] dash d+2,>2,B f+1 NSS f+3+4 d+2,>2,>2 T! b+1 NSS.3,1",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+63] 1+4 d2,2 md. d2,2,2 T! KIN.(2),1+2*[s 4]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+49] kin.4 kin.b2,1 T! 3~4u dgf.f1+2",
+          "starter": "[27] CH kin.4"
+        },
+        {
+          "route": "[+48] d2,2B df1 d2,2,2 T! ssr NSS.1+4 d2,2",
+          "starter": "[27] CH kin.4"
+        },
+        {
+          "route": "[+47] SSL.1 d+2,2,B 1 f+3+4 2,2 T! NSS.f+3+4 NSS.f+1+2[s 5]",
+          "starter": "[20] NSS.1+4"
+        },
+        {
+          "route": "[+?] SSL.1 d+2,2,B df+1,2,1 T! NSS.3,1,2",
+          "starter": "[20] NSS.1+4"
+        },
+        {
+          "route": "[+50] uf1+3 1+4 f2,1 3~4u DGF.f1+2",
+          "starter": "[12] NSS.FC.df3"
+        },
+        {
+          "route": "[+46] KIN.4,1+2 KIN.b2,1 d2,2b NSS.f1+2",
+          "starter": "[12] NSS.FC.df3"
+        },
+        {
+          "route": "[+46] KIN.4,1+2 KIN.b2,1 d2,2b NSS.f1+2",
+          "starter": "[12] 1SS.FC.df1"
+        },
+        {
+          "route": "[+44] ws1,2,1 3~4u DGF.f1+2",
+          "starter": "[12] 1SS.FC.df1"
+        },
+        {
+          "route": "[+54] (3)~4 d2,2b df1,2,1 T! (b1) 3,2,1+2",
+          "starter": "[25] FLE.3+4"
+        },
+        {
+          "route": "[+53] 4~3 T! f2,1 3~4u DGF.f1+2[s 6]",
+          "starter": "[25] FLE.3+4"
+        },
+        {
+          "route": "[+58] (3)~4u dgf.2 dgf.2 dgf.2,4b T! 1+4 d221[s 6]",
+          "starter": "[25] FLE.3+4"
+        },
+        {
+          "route": "[+55] 4~3 T! db1+2,1 f3+4 1 d22 f1+2[s 7]",
+          "starter": "[25] FLE.3+4"
+        },
+        {
+          "route": "[+48] d2,2b 1+4 md d2,2b 1 f3+4 d2,2,2 T! 3,1[s 8]",
+          "starter": "[37] H.3,1f"
+        },
+        {
+          "route": "[+61] d2,2b d2,2 d2,2 d2,2,2 T! KIN.(2),1+2*[s 4]",
+          "starter": "[37] H.3,1f"
+        }
+      ],
+      "raw": "[13] df+2 [+59] f,n,d,df+1 df+1 b+2,1,1+2 KIN.b+2,1 T! f,F+1+4*,n[s 1] [+57] 1+4 d+2,2,B df+1,2,1 T! NSS.1+4 1SS.f+3+4 [+56] 1+4 d+2,2,B 1 NSS.f+3+4 2,2 T! >NSS.f+3+4 NSS.f+1+2[s 2] [+54] 1+4 d+2,2,B df+1,2,1 T! (b1) 3,2,NSS.1+2[s 3] [+52] 1+4 d+2,2,B df+1,2,1 T! NSS.1+4 d+2,2,B [+51] f,n,d,df+1 b+2,1,1+2 KIN.b+2,1 T! d+2,2,2 [+49] dash d+2,>2,B f+1 NSS f+3+4 d+2,>2,>2 T! b+1 NSS.3,1 [+63] 1+4 d2,2 md. d2,2,2 T! KIN.(2),1+2*[s 4] [27] CH ss4 [27] CH kin.4 [+49] kin.4 kin.b2,1 T! 3~4u dgf.f1+2 [+48] d2,2B df1 d2,2,2 T! ssr NSS.1+4 d2,2 [20] NSS.1+4 [+47] SSL.1 d+2,2,B 1 f+3+4 2,2 T! NSS.f+3+4 NSS.f+1+2[s 5] [+?] SSL.1 d+2,2,B df+1,2,1 T! NSS.3,1,2 [12] NSS.FC.df3 [+50] uf1+3 1+4 f2,1 3~4u DGF.f1+2 [+46] KIN.4,1+2 KIN.b2,1 d2,2b NSS.f1+2 [12] 1SS.FC.df1 [+46] KIN.4,1+2 KIN.b2,1 d2,2b NSS.f1+2 [+44] ws1,2,1 3~4u DGF.f1+2 [25] 4~3 [25] FLE.3+4 [+54] (3)~4 d2,2b df1,2,1 T! (b1) 3,2,1+2 [+53] 4~3 T! f2,1 3~4u DGF.f1+2[s 6] [+58] (3)~4u dgf.2 dgf.2 dgf.2,4b T! 1+4 d221[s 6] [+55] 4~3 T! db1+2,1 f3+4 1 d22 f1+2[s 7] [20] H.f1+2f [33] H.b2,2f [24] H.DGF.4f [37] H.3,1f [+48] d2,2b 1+4 md d2,2b 1 f3+4 d2,2,2 T! 3,1[s 8] [+61] d2,2b d2,2 d2,2 d2,2,2 T! KIN.(2),1+2*[s 4]",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[40] d+2,2,2 T! uf+3+4,1SS.d+1+2 FLE.n FLE.f,f FLE.f,f FLE.f,f[wall 1]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[32] d+2,2,2 T! >NSS.ub+1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[27] d+2,2,2 T! b+1,1,1,1,1",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[27] HB 4~3 T! 2 3~4,1SS.U DGF.4",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[26] 1SS b+2,1,1+2 W! KIN.f+2 3~4,1SS.U DGF.4",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[25] NSS.3,2>1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[23] 2 3~4,1SS.U DGF.4",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[18] b+1,1 NSS.f+1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[18] d+2,2>2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[varies] 1SS.F+3+4 W! FLE.f,f",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) [40] d+2,2,2 T! uf+3+4,1SS.d+1+2 FLE.n FLE.f,f FLE.f,f FLE.f,f[wall 1] [32] d+2,2,2 T! >NSS.ub+1+2 [27] d+2,2,2 T! b+1,1,1,1,1 [27] HB 4~3 T! 2 3~4,1SS.U DGF.4 [26] 1SS b+2,1,1+2 W! KIN.f+2 3~4,1SS.U DGF.4 [25] NSS.3,2>1+2 [23] 2 3~4,1SS.U DGF.4 [18] b+1,1 NSS.f+1+2 [18] d+2,2>2 [varies] 1SS.F+3+4 W! FLE.f,f",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+42] d+2,2,B f+1 d+2,2,2 T! SSR NSS.1+4 d+2,2",
+          "starter": "[14] 1+4"
+        },
+        {
+          "route": "[+40] d+2,2,B df+1,2,1 T! NSS.1+4 d+2,2",
+          "starter": "[14] 1+4"
+        }
+      ],
+      "raw": "[4] 1 [14] 1+4 [+42] d+2,2,B f+1 d+2,2,2 T! SSR NSS.1+4 d+2,2 [+40] d+2,2,B df+1,2,1 T! NSS.1+4 d+2,2",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+55] NSS.1+4 d+2,2,2 T! f,F+1+2 BT.d+1",
+          "starter": "[51] f,F+3 KIN.b+2,NSS.1"
+        },
+        {
+          "route": "[+61] 3,1 DGF.2,4B T! NSS.1+4 HB f,F+1+2 BT.d+1",
+          "starter": "[54] f,F+3 KIN.b+2,1 (NSS OK)"
+        },
+        {
+          "route": "[+53] 3,1 DGF.2,4 T! f,F+1+2 BT.d+1",
+          "starter": "[54] f,F+3 KIN.b+2,1 (NSS OK)"
+        },
+        {
+          "route": "[+53] 3,1 DGF.2,4B T! f,F+1+2 BT.df+1+2 [b 1]",
+          "starter": "[54] f,F+3 KIN.b+2,1 (NSS OK)"
+        }
+      ],
+      "raw": "[13] df+2 (NSS) [51] f,F+3 KIN.b+2,NSS.1 [+55] NSS.1+4 d+2,2,2 T! f,F+1+2 BT.d+1 [13] df+2 (NSS OK) [32] b+2,1 (NSS OK) [54] f,F+3 KIN.b+2,1 (NSS OK) [+61] 3,1 DGF.2,4B T! NSS.1+4 HB f,F+1+2 BT.d+1 [+53] 3,1 DGF.2,4 T! f,F+1+2 BT.d+1 [+53] 3,1 DGF.2,4B T! f,F+1+2 BT.df+1+2 [b 1]",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+31] u,f,n4 d22b 1 f3+4 d2,2,2 t! b1 3,1",
+          "starter": "[40] dgf.3+4"
+        },
+        {
+          "route": "[+29] ssl1 d2,2b 1 f3+4 d2,2,2 t! b1 3,1",
+          "starter": "[40] dgf.3+4"
+        },
+        {
+          "route": "[+28] u,f,n4 df2 d2,2b d2,2,2 t! 1+2 d2,2",
+          "starter": "[40] dgf.3+4"
+        },
+        {
+          "route": "[+31] db1+2,1 f3+4 d2,2b d2,2,2 t! 1+4 d2,2b",
+          "starter": "[50] uf1+2 (nss)"
+        },
+        {
+          "route": "[+29] ssl1 d2,2b 1 f3+4 d2,2,2 t! b1 3,1",
+          "starter": "[35] dgf.3+4"
+        },
+        {
+          "route": "[+34] ss1 d2,2 df1,2,1 t! ff1+2 bt.d1",
+          "starter": "[45] uf1+2"
+        },
+        {
+          "route": "NSS.1+4 d2,2 df1,2,1 t! ff1+2 bt.d1",
+          "starter": "[45] uf1+2 (nss)"
+        },
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Floor Blast [50] uf1+2 [40] 2+4 [40] dgf.3+4 [+31] u,f,n4 d22b 1 f3+4 d2,2,2 t! b1 3,1 [+29] ssl1 d2,2b 1 f3+4 d2,2,2 t! b1 3,1 [+28] u,f,n4 df2 d2,2b d2,2,2 t! 1+2 d2,2 [50] uf1+2 (nss) [+31] db1+2,1 f3+4 d2,2b d2,2,2 t! 1+4 d2,2b Floor Break [35] 2+4 [35] dgf.3+4 [+29] ssl1 d2,2b 1 f3+4 d2,2,2 t! b1 3,1 [45] uf1+2 [+34] ss1 d2,2 df1,2,1 t! ff1+2 bt.d1 [45] uf1+2 (nss) NSS.1+4 d2,2 df1,2,1 t! ff1+2 bt.d1 Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    },
+    {
+      "entries": [],
+      "raw": "[51] df+2 df+2 df+2 HB df2 d+2,2,2 T! df+2 f,n,d,df+1 [71] uf+3 uf+3 1+4 HB uf+3 H.1+4 d+2,2,2 T! H.1+4 f+1+2,F HD! uf+3",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Yoshimitsu_combos"
+}

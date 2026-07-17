@@ -1,0 +1,147 @@
+{
+  "canonical_name": "Lili",
+  "character_key": "lili",
+  "display_name_zh": "莉莉",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "4 f+2,3 df+3+4 BT.1,2 T! SSR f,F+3,F~DEW.1,4",
+          "starter": "Regular launch (e.g. df+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) 4 f+2,3 df+3+4 BT.1,2 T! SSR f,F+3,F~DEW.1,4",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+22] DEW.3",
+          "starter": "[22] db+3"
+        },
+        {
+          "route": "[+23] DEW.2,1[2]",
+          "starter": "[15] f,F+3,F"
+        },
+        {
+          "route": "[+17] DEW.3+4",
+          "starter": "[15] f,F+3,F"
+        },
+        {
+          "route": "[+14] BT.1,4[2]",
+          "starter": "[15] CH (b+2),1,B"
+        },
+        {
+          "route": "[+14] BT.1,2",
+          "starter": "[15] CH (b+2),1,B"
+        },
+        {
+          "route": "[+16] df+4,4",
+          "starter": "[18] ws4 opponent at the wall"
+        }
+      ],
+      "raw": "[25] wr+1+2 [28] CH FC.df+1 [32] BT.3,4 [20] SS.3 [20] CH BT.d+2[1] [17] u+1 [22] db+3 [+22] DEW.3 [19] CH b+1,F [9] CH (3),2,F [15] f,F+3,F [+23] DEW.2,1[2] [+17] DEW.3+4 [27] CH f,F+4,B [20] CH f+1+2,B [27] CH (df+4),4,B [15] CH (b+2),1,B [+14] BT.1,4[2] [+14] BT.1,2 [18] ws4 opponent at the wall [+16] df+4,4",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+56] f+2,3 f,F+3,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2*, db3+4 [74]",
+          "starter": "[15] df+2"
+        },
+        {
+          "route": "[+51] 4 f+2,3 df+3+4 BT.1,2 T! SSR f,F+3,F~DEW.1,4",
+          "starter": "[15] df+2"
+        },
+        {
+          "route": "[+57] BT.3,4 b+1,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2* db3+4 [73]",
+          "starter": "[15] df+2,B"
+        },
+        {
+          "route": "[+51] BT.3,4 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4",
+          "starter": "[15] df+2,B"
+        },
+        {
+          "route": "[+57] BT.3,4 b+1,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2* db3+4 [73]",
+          "starter": "[21] CH SS4"
+        },
+        {
+          "route": "[+46] BT.3,4 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4",
+          "starter": "[21] CH SS4"
+        },
+        {
+          "route": "[+51] ws2,B BT.3,4 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4",
+          "starter": "[27] CH f+4"
+        },
+        {
+          "route": "[+57] DEW.3 T! u+3,3,F~DEW.3+4 wr1+2 DEW.1,4",
+          "starter": "[27] CH f+4"
+        },
+        {
+          "route": "[+53] 4,1 b+1,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2* db3+4",
+          "starter": "[24] CH df+3"
+        },
+        {
+          "route": "[+44] d+1,D ws1,2 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4",
+          "starter": "[24] CH df+3"
+        },
+        {
+          "route": "[+53] T! DEW.3 df+1 b+2,1,F~DEW.3+4 wr1+2 DEW.3",
+          "starter": "[26] CH H.RAB.3"
+        }
+      ],
+      "raw": "[15] df+2 [+56] f+2,3 f,F+3,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2*, db3+4 [74] [+51] 4 f+2,3 df+3+4 BT.1,2 T! SSR f,F+3,F~DEW.1,4 [15] df+2,B [+57] BT.3,4 b+1,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2* db3+4 [73] [+51] BT.3,4 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4 [14] df3+4 [21] CH SS4 [+57] BT.3,4 b+1,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2* db3+4 [73] [+46] BT.3,4 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4 [27] CH f+4 [+51] ws2,B BT.3,4 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4 [+57] DEW.3 T! u+3,3,F~DEW.3+4 wr1+2 DEW.1,4 [24] CH df+3 [+53] 4,1 b+1,F~DEW.3+4 df+3+4 BT.1,2 T! u+1+2* db3+4 [+44] d+1,D ws1,2 b+1,F~DEW.3 T! f,F+3,F~DEW.1,4 [24] CH RAB.3 [26] CH H.RAB.3 [+53] T! DEW.3 df+1 b+2,1,F~DEW.3+4 wr1+2 DEW.3",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+21] ws1,2,F~DEW.3",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+16] 2 db+2 FC.df+1",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) [+21] ws1,2,F~DEW.3 [+16] 2 db+2 FC.df+1",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "Natural on backturn, as the opponent cannot block or interrupt the 1+2",
+          "starter": "1,2, 1+2"
+        },
+        {
+          "route": "Natural on backturn, as the opponent cannot block or interrupt Matterhorn",
+          "starter": "uf+3+4,3+4"
+        }
+      ],
+      "raw": "1,2, 1+2 Natural on backturn, as the opponent cannot block or interrupt the 1+2 uf+3+4,3+4 Natural on backturn, as the opponent cannot block or interrupt Matterhorn",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Lili_combos"
+}

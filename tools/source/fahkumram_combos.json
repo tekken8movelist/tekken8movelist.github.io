@@ -1,0 +1,93 @@
+{
+  "canonical_name": "Fahkumram",
+  "character_key": "fahkumram",
+  "display_name_zh": "法昆拉姆",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "f+3,2,1 f+3,2,4~3 T! dash db+4 df+4,3",
+          "starter": "Regular launch (e.g. df+2,3)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2,3) f+3,2,1 f+3,2,4~3 T! dash db+4 df+4,3",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+17] f,F+1+2[1]",
+          "starter": "[20] uf+1"
+        },
+        {
+          "route": "[+26] b+1 f,F+1+2[1]",
+          "starter": "[31] CH f+4"
+        },
+        {
+          "route": "[+16] uf+3[2]",
+          "starter": "[31] CH f+4"
+        },
+        {
+          "route": "[+25] ws1,2[2]",
+          "starter": "[24] CH d+1"
+        }
+      ],
+      "raw": "[33] ws2,4 [26] b+3+4 [26] CH FC.df+2 [25] f,F+4 [24] CH (3,4)~3 [24] CH (...4,3)~4 [24] CH (f+3,2),4 [23] db+4 [21] CH (3),4 [20] (3,1),2 [20] b+1 [20] uf+1 [+17] f,F+1+2[1] [31] CH f+4 [+26] b+1 f,F+1+2[1] [+16] uf+3[2] [24] CH d+1 [+25] ws1,2[2]",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+65] SSL df+3:4 3,4:4 dash b+4 f+3,2,4~3 T! dash db+4[1] df+4,3",
+          "starter": "[21] df+2,3"
+        },
+        {
+          "route": "[+63] SSR df+3:4[2] b+1 d+3,4,3~4 uf+4 T! dash db+4[1] df+4,3",
+          "starter": "[21] df+2,3"
+        },
+        {
+          "route": "[+62] df+3:4 b+1 d+3,4,3~4 uf+4 T! dash db+4 2,3",
+          "starter": "[21] df+2,3"
+        },
+        {
+          "route": "[+61] f+3,2,1 f+3,2,4:4[3] uf+4 T! dash db+4[1] df+4,3",
+          "starter": "[21] df+2,3"
+        },
+        {
+          "route": "[+54] f+3,2,1 f+3,2,4~3 T! dash db+4[1] df+4,3",
+          "starter": "[21] df+2,3"
+        },
+        {
+          "route": "[+45; 30] db+4 b+1 d+3,4,3~4 uf+4",
+          "starter": "[0] low parry"
+        }
+      ],
+      "raw": "[25] b,f+4 [21] df+2,3 [+65] SSL df+3:4 3,4:4 dash b+4 f+3,2,4~3 T! dash db+4[1] df+4,3 [+63] SSR df+3:4[2] b+1 d+3,4,3~4 uf+4 T! dash db+4[1] df+4,3 [+62] df+3:4 b+1 d+3,4,3~4 uf+4 T! dash db+4 2,3 [+61] f+3,2,1 f+3,2,4:4[3] uf+4 T! dash db+4[1] df+4,3 [+54] f+3,2,1 f+3,2,4~3 T! dash db+4[1] df+4,3 [0] low parry [+45; 30] db+4 b+1 d+3,4,3~4 uf+4",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+24] b+4,3,2[1]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+24] f+3,2,4~3",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+23] 1,2,1,4",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+21] d+3,4,3~4",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) [+24] b+4,3,2[1] [+24] f+3,2,4~3 [+23] 1,2,1,4 [+21] d+3,4,3~4",
+      "section": "Wall"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Fahkumram_combos"
+}

@@ -1,0 +1,59 @@
+{
+  "canonical_name": "Anna Williams",
+  "character_key": "anna",
+  "display_name_zh": "安娜·威廉斯",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "BNB goes here",
+          "starter": "Regular launch (e.g. df+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) BNB goes here",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo here",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) combo here",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Anna_combos"
+}

@@ -1,0 +1,355 @@
+{
+  "canonical_name": "Devil Jin",
+  "character_key": "devil_jin",
+  "display_name_zh": "恶魔仁",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "3,1 b,f+2,1,d+2 T! df+3,2,4",
+          "starter": "Regular launch (e.g. d+3+4)"
+        },
+        {
+          "route": "3,1 b,f+2,1,2",
+          "starter": "Instant Tornado (e.g. ws2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. d+3+4) 3,1 b,f+2,1,d+2 T! df+3,2,4 Instant Tornado (e.g. ws2) 3,1 b,f+2,1,2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+22] MCR.2,2 HE",
+          "starter": "[18] CH (ws1),2"
+        },
+        {
+          "route": "[+16] dash b+4",
+          "starter": "[25] uf+2"
+        },
+        {
+          "route": "[+10] db+2",
+          "starter": "[25] uf+2"
+        },
+        {
+          "route": "[+20] d+1",
+          "starter": "[25] f,n,d,df+1+2"
+        },
+        {
+          "route": "[+19] f,f+2",
+          "starter": "[25] f,n,d,df+1+2"
+        },
+        {
+          "route": "[+16] dash b+4",
+          "starter": "[25] f,n,d,df+1+2"
+        },
+        {
+          "route": "[+16] b+4",
+          "starter": "[20] MCR.1"
+        },
+        {
+          "route": "[+36] ~f MCR.3 b+4",
+          "starter": "[27] CH (df+1),4"
+        },
+        {
+          "route": "[+19] f,f+2",
+          "starter": "[27] CH (df+1),4"
+        },
+        {
+          "route": "[+16] dash b+4",
+          "starter": "[27] CH (df+1),4"
+        },
+        {
+          "route": "[+20] d+1+2",
+          "starter": "[18] CH db+2"
+        },
+        {
+          "route": "[+16] b+4 - better oki",
+          "starter": "[18] CH db+2"
+        },
+        {
+          "route": "[+18] ~f MCR.3 T! (launch)",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+16] EWGF (launch; hard)",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+26] ~f MCR.4,2,1+2",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+25] ~f MCR.1 b+4",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+23] b+2,3 HE",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+22] ~f MCR.2,2 HE",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+20] 2,2 (for damage)",
+          "starter": "[16, 16] db+1+2** (on block)"
+        },
+        {
+          "route": "[+16] 1,1,2 (for oki)",
+          "starter": "[16, 16] db+1+2** (on block)"
+        }
+      ],
+      "raw": "[10] uf+1 [10] (ws1),1 [20] CH df+2~f [18] CH (ws1),2 [+22] MCR.2,2 HE [25] uf+2 [+16] dash b+4 [+10] db+2 [25] f,n,d,df+1+2 [+20] d+1 [+19] f,f+2 [+16] dash b+4 [20] MCR.1 [+16] b+4 [27] CH (df+1),4 [+36] ~f MCR.3 b+4 [+19] f,f+2 [+16] dash b+4 [25] CH b+1+2 [18] CH db+2 [+20] d+1+2 [+16] b+4 - better oki [19] CH ws3 [+18] ~f MCR.3 T! (launch) [+16] EWGF (launch; hard) [+26] ~f MCR.4,2,1+2 [+25] ~f MCR.1 b+4 [+23] b+2,3 HE [+22] ~f MCR.2,2 HE [16, 16] db+1+2** (on block) [+20] 2,2 (for damage) [+16] 1,1,2 (for oki)",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[52;34] DEWGF 3,1 bf+2,1,d2 T! df+3,2,4[1][2]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[54;35] u+1+2 3,1 bf+2,1,d+2 T! df+3,2,4[2]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[53;34] EWGF 3,1,2 T! dash ssr 31,f,f df+3,2,4[2]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[53;34] EWGF 3,1,2 T! MCR.4,2,1,UF[3][4]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[55;35] u+1+2 3,1,2 T! MCR.4,2,1,UF[3][4]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[59;38] u+1+2 iws3f MCR 3 T! ws3 MCR.4,1,1+2[5][4]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[55;39] u+1+2 uf+1 MCR 3 T! uf1 MCR.4,2,1,UF[6][4]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[48;31] EWGF b+2,1 T! ssr dash 3,1,ff df+3,2,4[7]",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+54] df+2 2 iWS3,f < MCR.4,1 iWS3,F~MCR.3 T! cd.1,UF / ws3,f~MCR.2,2",
+          "starter": "[25] d+3+4"
+        },
+        {
+          "route": "[+47] 3,1,2 T! ws3,F <MCR.4,2,1,UF",
+          "starter": "[25] d+3+4"
+        },
+        {
+          "route": "[+44] 3,1,ff 2 df+3,2,4 T! f,n,d,df+1,u (floor breaks)",
+          "starter": "[25] d+3+4"
+        },
+        {
+          "route": "[+44] df+3,2,4 T! ws3,F <MCR.4,2,1,UF",
+          "starter": "[25] d+3+4"
+        },
+        {
+          "route": "[+53] dash up, u+1+2 3,1 iWS3,F MCR.4,2,1,UF",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+47] WS3F MCR.4,1 iWS3F MCR.4,2,1,UF",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+43] dash up, u+1+2 u+1 MCR.4,2,1,UF (easy)",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+42] dash up, u+1+2 3,1 b,f+2,1,df+2",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+55] FLY.1 iWS.3,F MCR.3 T! ws3,F MCR.4,2,1,UF",
+          "starter": "[22] U+4"
+        },
+        {
+          "route": "[+50] FLY.1 b+2,1 T! ws3,F <MCR.4,2,1,UF",
+          "starter": "[22] U+4"
+        },
+        {
+          "route": "[+47] FLY.1 dash 2 b+2,1 T! SSR dash 3,1,ff df+3,2,4",
+          "starter": "[22] U+4"
+        },
+        {
+          "route": "[+58] u+1+2 DEWGF b+2,1 T! f+3~MCR.4,2,1,UF",
+          "starter": "[25] ss2"
+        },
+        {
+          "route": "[+56] u+1+2 u+1 MCR.3 T! iWS3,F <MCR.4,2,1,UF",
+          "starter": "[25] ss2"
+        },
+        {
+          "route": "[+45] db+1 WS.3,f~MCR.4,1 iWS3,f~MCR.3 T! cd.1,UF / ws3,f~MCR.2,2",
+          "starter": "[25] f,n,d,df+3"
+        },
+        {
+          "route": "[+36] 1+4,2 T! ws3,F <MCR.4,2,1,UF",
+          "starter": "[25] f,n,d,df+3"
+        },
+        {
+          "route": "[+34] 1+4 b+2,1 T! dash SSR 3,1,ff df+3,2,4",
+          "starter": "[25] f,n,d,df+3"
+        },
+        {
+          "route": "[+29] dash, ws1,1 MCR.4,2,1,UF",
+          "starter": "[16] f,n,d,df+4,1+2"
+        },
+        {
+          "route": "[+28] dash, ws3~f MCR.4,2,1,UF",
+          "starter": "[16] f,n,d,df+4,1+2"
+        },
+        {
+          "route": "[+44] df+3,2,4 T! ws3,F MCR.4,2,1,UF",
+          "starter": "[25] (1,2),3"
+        },
+        {
+          "route": "[+44] df+3,2,4 T! ws3,F <MCR.4,2,1,UF (floor breaks)",
+          "starter": "[24] CH b+4"
+        },
+        {
+          "route": "[+37] df+1 2 df+3,2,4 T! f,n,d,df+1,u (floor breaks)",
+          "starter": "[24] CH b+4"
+        },
+        {
+          "route": "[+40] df+1 2 b+2,1 T! MCR.4,2,1,UF (floor breaks)",
+          "starter": "[25] CH uf+3"
+        },
+        {
+          "route": "[+37] df+1 2 df+3,2,4 T! f,n,d,df+1,u (floor breaks)",
+          "starter": "[25] CH uf+3"
+        },
+        {
+          "route": "[+47] 3,1,2 T! ws3,F <MCR.4,2,1,UF",
+          "starter": "[26] CH f,F+4"
+        },
+        {
+          "route": "[+44] df+3,2,4 T! ws3,F <MCR.4,2,1,UF",
+          "starter": "[26] CH f,F+4"
+        },
+        {
+          "route": "[+54] ~f MCR.3 u+1+2 iWS3 iWS3 iWS3~f MCR.4,2,1,UF (advanced)",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+52] ~f MCR.3 u+1+2 3,1 WS3~f MCR.4,2,1,UF",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+50] ~f MCR.3 u+1+2 iWS3~f MCR.4,1 iWS3~f MCR.2,2",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+48] ~f MCR.3 WS3~f MCR.4,1 iWS3~f MCR.4,2,1,UF",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+47] ~f MCR.3 WS3~f MCR.4,1 uf+1 MCR.4,2,1,UF",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+45] ~f MCR.3 u+1+2 3,1 b,f+2,1,2",
+          "starter": "[19] CH ws3"
+        },
+        {
+          "route": "[+54] dash up, u+1+2 3,1 iWS3~f MCR.4,2,1,UF",
+          "starter": "[31] CH MCR.3"
+        },
+        {
+          "route": "[+43] dash up, u+1+2 u+1 MCR.4,2,1,UF",
+          "starter": "[31] CH MCR.3"
+        },
+        {
+          "route": "[+50] ws3,F MCR.3 T! ws1,1,F MCR.4,2,1,UF",
+          "starter": "[24] CH (3,1),4"
+        },
+        {
+          "route": "[+31] 3,1,ff 2 df+3,2,4",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+41] 3,1 CD~WS3,F <MCR.4,2,1,UF",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+48] SSL, CD~WS3, CD~WS3, CD~WS3, CD~WS3,F <MCR.4,2,1,UF",
+          "starter": "[0] Low Parry"
+        }
+      ],
+      "raw": "[23] EWGF [52;34] DEWGF 3,1 bf+2,1,d2 T! df+3,2,4[1][2] [54;35] u+1+2 3,1 bf+2,1,d+2 T! df+3,2,4[2] [53;34] EWGF 3,1,2 T! dash ssr 31,f,f df+3,2,4[2] [53;34] EWGF 3,1,2 T! MCR.4,2,1,UF[3][4] [55;35] u+1+2 3,1,2 T! MCR.4,2,1,UF[3][4] [59;38] u+1+2 iws3f MCR 3 T! ws3 MCR.4,1,1+2[5][4] [55;39] u+1+2 uf+1 MCR 3 T! uf1 MCR.4,2,1,UF[6][4] [48;31] EWGF b+2,1 T! ssr dash 3,1,ff df+3,2,4[7] [25] d+3+4 [+54] df+2 2 iWS3,f < MCR.4,1 iWS3,F~MCR.3 T! cd.1,UF / ws3,f~MCR.2,2 [+47] 3,1,2 T! ws3,F <MCR.4,2,1,UF [+44] 3,1,ff 2 df+3,2,4 T! f,n,d,df+1,u (floor breaks) [+44] df+3,2,4 T! ws3,F <MCR.4,2,1,UF [20] ws2 [+53] dash up, u+1+2 3,1 iWS3,F MCR.4,2,1,UF [+47] WS3F MCR.4,1 iWS3F MCR.4,2,1,UF [+43] dash up, u+1+2 u+1 MCR.4,2,1,UF (easy) [+42] dash up, u+1+2 3,1 b,f+2,1,df+2 [22] U+4 [+55] FLY.1 iWS.3,F MCR.3 T! ws3,F MCR.4,2,1,UF [+50] FLY.1 b+2,1 T! ws3,F <MCR.4,2,1,UF [+47] FLY.1 dash 2 b+2,1 T! SSR dash 3,1,ff df+3,2,4 [25] ss2 [+58] u+1+2 DEWGF b+2,1 T! f+3~MCR.4,2,1,UF [+56] u+1+2 u+1 MCR.3 T! iWS3,F <MCR.4,2,1,UF [25] f,n,d,df+3 [+45] db+1 WS.3,f~MCR.4,1 iWS3,f~MCR.3 T! cd.1,UF / ws3,f~MCR.2,2 [+36] 1+4,2 T! ws3,F <MCR.4,2,1,UF [+34] 1+4 b+2,1 T! dash SSR 3,1,ff df+3,2,4 [16] f,n,d,df+4,1+2 [+29] dash, ws1,1 MCR.4,2,1,UF [+28] dash, ws3~f MCR.4,2,1,UF [25] (1,2),3 [+44] df+3,2,4 T! ws3,F MCR.4,2,1,UF [24] CH b+4 [+44] df+3,2,4 T! ws3,F <MCR.4,2,1,UF (floor breaks) [+37] df+1 2 df+3,2,4 T! f,n,d,df+1,u (floor breaks) [25] CH uf+3 [+40] df+1 2 b+2,1 T! MCR.4,2,1,UF (floor breaks) [+37] df+1 2 df+3,2,4 T! f,n,d,df+1,u (floor breaks) [26] CH f,F+4 [+47] 3,1,2 T! ws3,F <MCR.4,2,1,UF [+44] df+3,2,4 T! ws3,F <MCR.4,2,1,UF [19] CH ws3 [+54] ~f MCR.3 u+1+2 iWS3 iWS3 iWS3~f MCR.4,2,1,UF (advanced) [+52] ~f MCR.3 u+1+2 3,1 WS3~f MCR.4,2,1,UF [+50] ~f MCR.3 u+1+2 iWS3~f MCR.4,1 iWS3~f MCR.2,2 [+48] ~f MCR.3 WS3~f MCR.4,1 iWS3~f MCR.4,2,1,UF [+47] ~f MCR.3 WS3~f MCR.4,1 uf+1 MCR.4,2,1,UF [+45] ~f MCR.3 u+1+2 3,1 b,f+2,1,2 [31] CH MCR.3 [+54] dash up, u+1+2 3,1 iWS3~f MCR.4,2,1,UF [+43] dash up, u+1+2 u+1 MCR.4,2,1,UF [24] CH (3,1),4 [+50] ws3,F MCR.3 T! ws1,1,F MCR.4,2,1,UF [0] Low Parry [+31] 3,1,ff 2 df+3,2,4 [+41] 3,1 CD~WS3,F <MCR.4,2,1,UF [+48] SSL, CD~WS3, CD~WS3, CD~WS3, CD~WS3,F <MCR.4,2,1,UF",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo here",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) combo here",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+41] FLY.1 f,n,d,df+4,1+2 T! f+3 MCR.4,2,1,UF",
+          "starter": "[42] df+3,2,4,U"
+        },
+        {
+          "route": "[+36] 1+4,2 T! ws3f delay MCR.4,2,1,UF",
+          "starter": "[38] 1,2,3"
+        },
+        {
+          "route": "[+33] 1+4 2 df+3,2,4 T! ws3f MCR.2,2",
+          "starter": "[38] 1,2,3"
+        },
+        {
+          "route": "[+31] 1+4 b,f+2,1,df+2 T! ws3f MCR.2,2",
+          "starter": "[38] 1,2,3"
+        },
+        {
+          "route": "[+53] EWGF 3,1,2 T! f+3 MCR.4,2,1,UF",
+          "starter": "[23] EWGF"
+        }
+      ],
+      "raw": "[42] df+3,2,4,U [+41] FLY.1 f,n,d,df+4,1+2 T! f+3 MCR.4,2,1,UF [38] 1,2,3 [+36] 1+4,2 T! ws3f delay MCR.4,2,1,UF [+33] 1+4 2 df+3,2,4 T! ws3f MCR.2,2 [+31] 1+4 b,f+2,1,df+2 T! ws3f MCR.2,2 [23] EWGF [+53] EWGF 3,1,2 T! f+3 MCR.4,2,1,UF",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "[95] EWGF u+1+2 dash 3,1,ff 2 df+3,2,4 T! f,n,d,df+1,U FBl! f,n,d,df+1,U",
+          "starter": "Floorblast"
+        },
+        {
+          "route": "[54] f,n,d,df+4,1+2 uf+1 MCR.1 FBl! uf+1 MCR.4,2,1+2",
+          "starter": "Floorblast"
+        }
+      ],
+      "raw": "Floorblast [95] EWGF u+1+2 dash 3,1,ff 2 df+3,2,4 T! f,n,d,df+1,U FBl! f,n,d,df+1,U [54] f,n,d,df+4,1+2 uf+1 MCR.1 FBl! uf+1 MCR.4,2,1+2",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Devil_Jin_combos"
+}

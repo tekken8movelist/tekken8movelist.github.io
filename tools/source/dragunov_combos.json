@@ -1,0 +1,293 @@
+{
+  "canonical_name": "Sergei Dragunov",
+  "character_key": "dragunov",
+  "display_name_zh": "德拉古诺夫",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "4,4 FC.df+1,4~2 T! df+3+4 2,1,df~1+2",
+          "starter": "Regular launch (e.g. df+2)"
+        },
+        {
+          "route": "T! df+3+4 4,4 FC.df+1,4~1+2",
+          "starter": "Instant Tornado (e.g. low parry)"
+        },
+        {
+          "route": "df+3+4 4,4 FC.df+1,4~2 T! df+3+4 2,1,df~1+2",
+          "starter": "Heat Dash (e.g. f+3,1+2,H.F)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) 4,4 FC.df+1,4~2 T! df+3+4 2,1,df~1+2 Instant Tornado (e.g. low parry) T! df+3+4 4,4 FC.df+1,4~1+2 Heat Dash (e.g. f+3,1+2,H.F) df+3+4 4,4 FC.df+1,4~2 T! df+3+4 2,1,df~1+2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+17; 17] qcf+1+2",
+          "starter": "[20] (1,2),1,H.F"
+        },
+        {
+          "route": "[+16; 16] f,f,F+2 (fast)",
+          "starter": "[20] (1,2),1,H.F"
+        },
+        {
+          "route": "[+16; 16] qcf+2",
+          "starter": "[20] (1,2),1,H.F"
+        },
+        {
+          "route": "[+15; 15] OTG.db+3",
+          "starter": "[20] (1,2),1,H.F"
+        },
+        {
+          "route": "[+19; 13] OTG.db+3",
+          "starter": "[21] CH d+1"
+        },
+        {
+          "route": "[+18; 12] db+3+4",
+          "starter": "[21] CH d+1"
+        },
+        {
+          "route": "[+24] d+1+3",
+          "starter": "[20] uf+1"
+        },
+        {
+          "route": "[+9] df+4",
+          "starter": "[20] uf+1"
+        },
+        {
+          "route": "[+19; 13] dash OTG.db+3",
+          "starter": "[23] qcb+2"
+        },
+        {
+          "route": "[+18; 12] dash db+3+4",
+          "starter": "[23] qcb+2"
+        },
+        {
+          "route": "[+16; 11] f,F+4",
+          "starter": "[23] qcb+2"
+        },
+        {
+          "route": "[46; 15] qcf+1+2",
+          "starter": "CH f,F+2"
+        },
+        {
+          "route": "[45] d+1+3",
+          "starter": "f,F+4"
+        },
+        {
+          "route": "[40+] ws1+2[1][2]",
+          "starter": "f,F+4"
+        },
+        {
+          "route": "[+24] d+1+3",
+          "starter": "[18] (4),3"
+        },
+        {
+          "route": "[+21] b+4,3[2]",
+          "starter": "[18] (4),3"
+        }
+      ],
+      "raw": "[34] CH 1,2,1,H.F [29] CH (1),2,1,H.F [20] (1,2),1,H.F [+17; 17] qcf+1+2 [+16; 16] f,f,F+2 (fast) [+16; 16] qcf+2 [+15; 15] OTG.db+3 [38] f+3,1+2 [27] CH db+3+4 [21] CH d+1 [+19; 13] OTG.db+3 [+18; 12] db+3+4 [26] b+1+2 [20] uf+1 [+24] d+1+3 [+9] df+4 [27] f+1+2 [23] qcb+2 [+19; 13] dash OTG.db+3 [+18; 12] dash db+3+4 [+16; 11] f,F+4 CH f,F+2 [46; 15] qcf+1+2 f,F+4 [45] d+1+3 [40+] ws1+2[1][2] [20] CH (b+4,2),1 [30] CH 4,3 [18] (4),3 [+24] d+1+3 [+21] b+4,3[2]",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+67; 48] 4,1 4,4[1] FC.df+1:4[2] SNK.2 T! 3+4,2 HB! df+3+4 qcf+1+2,H.F qcf+1+2",
+          "starter": "[14] df+2"
+        },
+        {
+          "route": "[+64; 49] 4,4[1]FC.df+1:4[2]~2 T! df+3+4 HB! qcf+4,H.F f,f,F+2 (fast)",
+          "starter": "[14] df+2"
+        },
+        {
+          "route": "[+59; 36] df+1 4,4[1] FC.df+1:4[2] cc 3,1~df SNK.2 T! d+3+4,2 qcf+3",
+          "starter": "[14] df+2"
+        },
+        {
+          "route": "[+57; 35] 4,4[1] ws1~df SNK.3+4, 3,1~df SNK.2 T! d+3+4,2 qcf+3",
+          "starter": "[14] df+2"
+        },
+        {
+          "route": "[+56; 33] 4,1 4,4[1] FC.df+1:4[2] SNK.2 T! d+3+4,2 qcf+3",
+          "starter": "[14] df+2"
+        },
+        {
+          "route": "[+50; 30] 4,4[1] FC.df+1:4[2] cc 3,1~df SNK.2 T! df+3+4 4,1",
+          "starter": "[14] df+2"
+        },
+        {
+          "route": "[+41; 40] qcf+3+4 4,4 ws1~df SNK.3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3",
+          "starter": "[22] SNK.4,H.F"
+        },
+        {
+          "route": "[+50; 31] T! qcf+3+4 4,4 C.df+1:4[2] cc 3,1~df SNK.3",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+46; 29] T! df+3+4 4,4 FC.df+1:4[2] cc 3,1~df SNK.1+2",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+64; 39] qcf+3+4 4,4 FC.df+1:4[2] cc 3,1~DF SNK.2 T! 3+4,2 qcf+3",
+          "starter": "[20] (1,3),2"
+        },
+        {
+          "route": "[+54; 33] qcf+3+4 4,4 FC.df+1:4[2]~2 T! df+3+4 4,1",
+          "starter": "[20] (1,3),2"
+        },
+        {
+          "route": "[87; 42] 3+4,2 qcf+3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3",
+          "starter": "SNK.1"
+        },
+        {
+          "route": "[84; 40] ssl df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3",
+          "starter": "SNK.1"
+        },
+        {
+          "route": "[77; 35] ssl df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! df+3+4 4,1",
+          "starter": "SNK.1"
+        },
+        {
+          "route": "[89; 39] f+2,4 md 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3",
+          "starter": "SNK.2"
+        },
+        {
+          "route": "[89; 40] df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3",
+          "starter": "SNK.2"
+        },
+        {
+          "route": "[86; 37] f+2,4 f+3~df cc 1 f+3~df cc 3,1~df SNK.2 T! d+3+4,2 qcf+3",
+          "starter": "SNK.2"
+        },
+        {
+          "route": "[85; 36] f+2,4 f+3~df cc 1 f+3~df cc 1 f+3~df SNK.2 T! d+4,2 qcf+3",
+          "starter": "SNK.2"
+        },
+        {
+          "route": "[83; 37] f+2,4 f+4,3 T! d+3+4,2 3,1~df SNK.3",
+          "starter": "SNK.2"
+        },
+        {
+          "route": "[+59; 37] df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! df+3+4 4,1",
+          "starter": "[21] CH ub+2"
+        },
+        {
+          "route": "[48; 18] d+3,2,1+2[3]",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[41; 12] d+4,1,3[4]",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[+48; 30] d+2 ws4 b+1,2 T! df+3+4 3,1~df SNK.2",
+          "starter": "[20] (db+2,1),2"
+        },
+        {
+          "route": "[+33] b+4,3 HE!",
+          "starter": "[18] (4),3 (far)"
+        },
+        {
+          "route": "[+44; ] 4,1 b+2 FC.df+1:4[2]~2 T! f+3~df ws1+2",
+          "starter": "[15] ws2"
+        },
+        {
+          "route": "[+37; 22] 4,1 b+1,2 T! 3,1,4",
+          "starter": "[15] ws2"
+        }
+      ],
+      "raw": "[15] ws2 [14] df+2 [+67; 48] 4,1 4,4[1] FC.df+1:4[2] SNK.2 T! 3+4,2 HB! df+3+4 qcf+1+2,H.F qcf+1+2 [+64; 49] 4,4[1]FC.df+1:4[2]~2 T! df+3+4 HB! qcf+4,H.F f,f,F+2 (fast) [+59; 36] df+1 4,4[1] FC.df+1:4[2] cc 3,1~df SNK.2 T! d+3+4,2 qcf+3 [+57; 35] 4,4[1] ws1~df SNK.3+4, 3,1~df SNK.2 T! d+3+4,2 qcf+3 [+56; 33] 4,1 4,4[1] FC.df+1:4[2] SNK.2 T! d+3+4,2 qcf+3 [+50; 30] 4,4[1] FC.df+1:4[2] cc 3,1~df SNK.2 T! df+3+4 4,1 [38] f+3,1+2,H.F [22] SNK.4,H.F [+41; 40] qcf+3+4 4,4 ws1~df SNK.3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3 [26] CH CL db+3 [22] CL db+3 [20] CH db+3 [0] low parry [+50; 31] T! qcf+3+4 4,4 C.df+1:4[2] cc 3,1~df SNK.3 [+46; 29] T! df+3+4 4,4 FC.df+1:4[2] cc 3,1~df SNK.1+2 [31] CH f,f,F+2 (fast) [26] CH f,f,F+2 [20] uf,n,4 [20] uf+2 [20] (1,3),2 [+64; 39] qcf+3+4 4,4 FC.df+1:4[2] cc 3,1~DF SNK.2 T! 3+4,2 qcf+3 [+54; 33] qcf+3+4 4,4 FC.df+1:4[2]~2 T! df+3+4 4,1 SNK.1 [87; 42] 3+4,2 qcf+3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3 [84; 40] ssl df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3 [77; 35] ssl df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! df+3+4 4,1 SNK.2 [89; 39] f+2,4 md 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3 [89; 40] df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! d+3+4,2 qcf+3 [86; 37] f+2,4 f+3~df cc 1 f+3~df cc 3,1~df SNK.2 T! d+3+4,2 qcf+3 [85; 36] f+2,4 f+3~df cc 1 f+3~df cc 1 f+3~df SNK.2 T! d+4,2 qcf+3 [83; 37] f+2,4 f+4,3 T! d+3+4,2 3,1~df SNK.3 [27] CH (df+1),4 [25] SNK.2 [21] CH ub+2 [+59; 37] df+3+4 qcf+3+4 4,4 FC.df+1:4[2]~2 T! df+3+4 4,1 uf+4 [48; 18] d+3,2,1+2[3] [41; 12] d+4,1,3[4] [32] CH (db+2),1,2 [28] CH (f+2),4 [20] (db+2,1),2 [+48; 30] d+2 ws4 b+1,2 T! df+3+4 3,1~df SNK.2 [20] CH (b+4,2),1 [18] (4),3 (far) [+33] b+4,3 HE! [14] df+2 [15] ws2 [+44; ] 4,1 b+2 FC.df+1:4[2]~2 T! f+3~df ws1+2 [+37; 22] 4,1 b+1,2 T! 3,1,4",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+20; 15] d+3,2,1+2[1]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+18; 11] b+4,2~D ws4[2]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+15; 13] f+3~df SNK.2[3]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+21; 13] ws1 1 1,3,2[4]",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+19; 15] 3,1,df~1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+18; 16] b+2 ws1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[+39; 26] f,f,F+4 T! d+3,2,1+2[1]",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "[+42; 30] qcf+2 T! 4,4 ws1+2",
+          "starter": "Regular splat (56% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) [+20; 15] d+3,2,1+2[1] [+18; 11] b+4,2~D ws4[2] [+15; 13] f+3~df SNK.2[3] [+21; 13] ws1 1 1,3,2[4] [+19; 15] 3,1,df~1+2 [+18; 16] b+2 ws1+2 Regular splat (56% scaling) [+39; 26] f,f,F+4 T! d+3,2,1+2[1] [+42; 30] qcf+2 T! 4,4 ws1+2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "4,4 FC.df+1:4~2 T! df+3+4 3,1~df+1+2",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 4,4 FC.df+1:4~2 T! df+3+4 3,1~df+1+2",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "4,4 FC.df+1:4~2 T! df+3+4 3,1~df SNK.1+2",
+          "starter": "df+2"
+        },
+        {
+          "route": "1 4,4 FC.df+1:4~2 T! 2,1~df SNK.1+2",
+          "starter": "1,3,2"
+        }
+      ],
+      "raw": "df+2 4,4 FC.df+1:4~2 T! df+3+4 3,1~df SNK.1+2 1,3,2 1 4,4 FC.df+1:4~2 T! 2,1~df SNK.1+2",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[76; 32] tech roll left ws4 1 4,4 FC.df+1:4~2 T! 2,1~df SNK.1+2",
+          "starter": "f+3+4"
+        },
+        {
+          "route": "[65; 23] tech roll left FC.df+1:4 cc 3,1~df SNK.2 T! df+3+4 3,1~df SNK.2",
+          "starter": "f+3+4"
+        }
+      ],
+      "raw": "f+3+4 [76; 32] tech roll left ws4 1 4,4 FC.df+1:4~2 T! 2,1~df SNK.1+2 [65; 23] tech roll left FC.df+1:4 cc 3,1~df SNK.2 T! df+3+4 3,1~df SNK.2",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Dragunov_combos"
+}

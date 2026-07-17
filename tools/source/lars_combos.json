@@ -1,0 +1,219 @@
+{
+  "canonical_name": "Lars Alexandersson",
+  "character_key": "lars",
+  "display_name_zh": "拉斯",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "df+3~d,DEN.2 2 f,F+4,2 DEN.1~f,SEN.1+2 T! f,f,F+2+4",
+          "starter": "Ark Blast (f+1+2)"
+        },
+        {
+          "route": "df+3~d,DEN.2 2 f,F+4,2 DEN.1~f,SEN.1+2 T! f+3,DEN.2+3[1]",
+          "starter": "Ark Blast (f+1+2)"
+        },
+        {
+          "route": "FC df+2 db+2~f SEN.1+2 T! f+3,DEN.1 df+3~d,DEN.2~UF 4",
+          "starter": "Lightning Screw (uf+3)"
+        },
+        {
+          "route": "f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,1 b+3~f,SEN.1",
+          "starter": "Orbital (uf+4), Blue Bolt (f,n,b+2,1)"
+        },
+        {
+          "route": "T! f+3,DEN.2 df+1 2 f,F+4,2 DEN.2~UF 4",
+          "starter": "Instant Tornado (e.g., low parry)"
+        }
+      ],
+      "raw": "Ark Blast (f+1+2) df+3~d,DEN.2 2 f,F+4,2 DEN.1~f,SEN.1+2 T! f,f,F+2+4 df+3~d,DEN.2 2 f,F+4,2 DEN.1~f,SEN.1+2 T! f+3,DEN.2+3[1] Lightning Screw (uf+3) FC df+2 db+2~f SEN.1+2 T! f+3,DEN.1 df+3~d,DEN.2~UF 4 Orbital (uf+4), Blue Bolt (f,n,b+2,1) f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,1 b+3~f,SEN.1 Instant Tornado (e.g., low parry) T! f+3,DEN.2 df+1 2 f,F+4,2 DEN.2~UF 4",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[15] db+4",
+          "starter": "[25] 1+2"
+        },
+        {
+          "route": "[20] d+1+2",
+          "starter": "[20] SS.2"
+        },
+        {
+          "route": "[18] f,F+3+4",
+          "starter": "[20] SS.2"
+        },
+        {
+          "route": "[20] d+1+2",
+          "starter": "[20] CH d+2"
+        },
+        {
+          "route": "[20] SEN.1",
+          "starter": "[18] CH df+2"
+        },
+        {
+          "route": "[16] f,F+1+2",
+          "starter": "[18] CH df+2~B"
+        },
+        {
+          "route": "[+15] 2,1 LEN",
+          "starter": "[21] CH db+1+2"
+        },
+        {
+          "route": "[+23] DEN.1,2",
+          "starter": "[21] CH db+1+2~D"
+        },
+        {
+          "route": "[28] 4",
+          "starter": "[22] CH DEN.2~UF"
+        },
+        {
+          "route": "[18] SEN.1",
+          "starter": "[25] CH DEN.3+4~F"
+        }
+      ],
+      "raw": "[25] 1+2 [15] db+4 [20] SS.2 [20] d+1+2 [18] f,F+3+4 [20] CH d+2 [20] d+1+2 [18] CH df+2 [20] SEN.1 [18] CH df+2~B [16] f,F+1+2 [21] CH db+1+2 [+15] 2,1 LEN [21] CH db+1+2~D [+23] DEN.1,2 [22] CH DEN.2~UF [28] 4 [25] CH DEN.3+4~F [18] SEN.1",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[58] df+3~d DEN.2 2 f,F+4,2 DEN.1 b+3~f SEN.1+2 T! f+2,1 SEN.1",
+          "starter": "[20] f+1+2"
+        },
+        {
+          "route": "[58] df+3~d DEN.2 2 f,F+4,2 DEN.1 b+3~f SEN.1+2 T! f+2,1 SEN.1",
+          "starter": "[20] uf+4"
+        },
+        {
+          "route": "[+41] FC df+2 db+2~f SEN.1+2 T! ssl f,F+4,2 DEN.1 b+3~f SEN.1",
+          "starter": "[26] uf+3"
+        },
+        {
+          "route": "[+34] FC df+2 db+2~f SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4",
+          "starter": "[26] uf+3"
+        },
+        {
+          "route": "[58] df+3~d DEN.2 2 f,F+4,2 DEN.1 b+3~f SEN.1+2 T! f+2,1 SEN.1",
+          "starter": "[20] f,n,b+2,1"
+        },
+        {
+          "route": "[+56] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1 [2]",
+          "starter": "[20] f,n,b+2,1"
+        },
+        {
+          "route": "[51] uf+3 ws2~f SEN.1+2 T! f,f+4,2 DEN.1 b+3~f SEN.1",
+          "starter": "[20] f,F+2"
+        },
+        {
+          "route": "[51] uf+3 ws2~f SEN.1+2 T! f,f+4,2 DEN.1 b+3~f SEN.1",
+          "starter": "[16] ws1"
+        },
+        {
+          "route": "[44] LEN.2 T! f+1,2,3 DEN.1 b+3~F SEN.3+4",
+          "starter": "[30] ws3~D"
+        },
+        {
+          "route": "[+57] f+3,DEN.2 f+1,2,3 DEN.1 b+3~f SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1",
+          "starter": "[20] CH (b+2),1"
+        },
+        {
+          "route": "[+56] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1",
+          "starter": "[22] CH DEN.2"
+        },
+        {
+          "route": "[+55] f+3,DEN.2 df+3~d,DEN.2 2 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4",
+          "starter": "[22] CH DEN.2"
+        },
+        {
+          "route": "[+56] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4",
+          "starter": "[24] CH f,F+1+2"
+        },
+        {
+          "route": "[+55] DEN.2 df+3~d,DEN.2 2[3] b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1",
+          "starter": "[24] CH (f+1,2),3"
+        },
+        {
+          "route": "[+52] ws4 2 f,F+4,2 DEN.1, b+3~f SEN.1+2 T! f+2,1 SEN.1[4]",
+          "starter": "[22] CH db+4"
+        },
+        {
+          "route": "[+47][5] FC df+2 db+2,1 df+2 SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4",
+          "starter": "[22] CH db+4"
+        },
+        {
+          "route": "[+43] ws2 db+2,1 df+2 SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4",
+          "starter": "[22] CH db+4"
+        },
+        {
+          "route": "[+47] T![6] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.3+4",
+          "starter": "[22] CH SEN.2"
+        },
+        {
+          "route": "[+45] T! df+3~d DEN.2 2 f,f+4,2 DEN.1, b+3~f SEN.1",
+          "starter": "Low parry (Instant Tornado)"
+        }
+      ],
+      "raw": "[20] f+1+2 [58] df+3~d DEN.2 2 f,F+4,2 DEN.1 b+3~f SEN.1+2 T! f+2,1 SEN.1 [20] uf+4 [58] df+3~d DEN.2 2 f,F+4,2 DEN.1 b+3~f SEN.1+2 T! f+2,1 SEN.1 [26] uf+3 [+41] FC df+2 db+2~f SEN.1+2 T! ssl f,F+4,2 DEN.1 b+3~f SEN.1 [+34] FC df+2 db+2~f SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4 [20] f,n,b+2,1 [58] df+3~d DEN.2 2 f,F+4,2 DEN.1 b+3~f SEN.1+2 T! f+2,1 SEN.1 [+56] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1 [2] [20] f,F+2 [51] uf+3 ws2~f SEN.1+2 T! f,f+4,2 DEN.1 b+3~f SEN.1 [16] ws1 [51] uf+3 ws2~f SEN.1+2 T! f,f+4,2 DEN.1 b+3~f SEN.1 [30] ws3~D [44] LEN.2 T! f+1,2,3 DEN.1 b+3~F SEN.3+4 [20] CH (b+2),1 [+57] f+3,DEN.2 f+1,2,3 DEN.1 b+3~f SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1 [22] CH DEN.2 [+56] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1 [+55] f+3,DEN.2 df+3~d,DEN.2 2 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4 [24] CH f,F+1+2 [+56] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4 [24] CH (f+1,2),3 [+55] DEN.2 df+3~d,DEN.2 2[3] b+3~f,SEN.1+2 T! f+3,DEN.1 b+3~f SEN.1 [22] CH db+4 [+52] ws4 2 f,F+4,2 DEN.1, b+3~f SEN.1+2 T! f+2,1 SEN.1[4] [+47][5] FC df+2 db+2,1 df+2 SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4 [+43] ws2 db+2,1 df+2 SEN.1+2 T! f+3,DEN.1 b+3~f SEN.3+4 [22] CH SEN.2 [+47] T![6] f+3,DEN.2 df+3~d,DEN.2 df+1 b+3~f,SEN.3+4 Low parry (Instant Tornado) [+45] T! df+3~d DEN.2 2 f,f+4,2 DEN.1, b+3~f SEN.1",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+41] f,F+2 T! df+1 db2,1 f+1+4",
+          "starter": "W![7]"
+        },
+        {
+          "route": "[+26] df+1 db+2,1 f+1+4",
+          "starter": "W![7]"
+        },
+        {
+          "route": "[+22] f,f,F+2+4 f+1+4",
+          "starter": "W![7]"
+        },
+        {
+          "route": "[+44] ssl f+2,1 SEN.1+2 T! df+1 db2,1 f+1+4",
+          "starter": "W![7]"
+        },
+        {
+          "route": "[+43] ssl b+1+2 f,F+2 T! df+1 db2,1 f+1+4",
+          "starter": "W![7]"
+        }
+      ],
+      "raw": "Pre-Tornado W![7] [+41] f,F+2 T! df+1 db2,1 f+1+4 Post-Tornado W![7] [+26] df+1 db+2,1 f+1+4 [+22] f,f,F+2+4 f+1+4 Resplat W![7] [+44] ssl f+2,1 SEN.1+2 T! df+1 db2,1 f+1+4 [+43] ssl b+1+2 f,F+2 T! df+1 db2,1 f+1+4",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Lars_combos"
+}

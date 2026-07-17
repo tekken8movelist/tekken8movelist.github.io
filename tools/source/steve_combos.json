@@ -1,0 +1,227 @@
+{
+  "canonical_name": "Steve Fox",
+  "character_key": "steve",
+  "display_name_zh": "史蒂夫",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "[+57] DCK.1 df+1,2~1~FLK.1 f+2,2, LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[20] uf+2"
+        },
+        {
+          "route": "[+56] EXD.1 df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[12] CH b+1"
+        },
+        {
+          "route": "[+46] f+2,1~B FLK.1, f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[20] FC.df+2"
+        },
+        {
+          "route": "[+38] T! DCK.1 df+1,2~1~FLK.1 f+2,2 LNH 2",
+          "starter": "Instant Tornado (e.g., low parry)"
+        },
+        {
+          "route": "T! dash LWV.1,2 LNH 2 (Damage)",
+          "starter": "Combo Enders"
+        },
+        {
+          "route": "T! dash LWV.1,2 DCK.1 (Corner Carry)",
+          "starter": "Combo Enders"
+        },
+        {
+          "route": "T! dash FLK.1,1 ALB 2 (More Corner Carry, worse Oki)",
+          "starter": "Combo Enders"
+        }
+      ],
+      "raw": "[20] uf+2 [+57] DCK.1 df+1,2~1~FLK.1 f+2,2, LNH.2 T! dash LWV.1,2 LNH.2 [12] CH b+1 [+56] EXD.1 df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [20] FC.df+2 [+46] f+2,1~B FLK.1, f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 Instant Tornado (e.g., low parry) [+38] T! DCK.1 df+1,2~1~FLK.1 f+2,2 LNH 2 Combo Enders T! dash LWV.1,2 LNH 2 (Damage) T! dash LWV.1,2 DCK.1 (Corner Carry) T! dash FLK.1,1 ALB 2 (More Corner Carry, worse Oki)",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+30] DCK 1+2,1+2,1+2,1+2 (Easy Confirm)",
+          "starter": "[12] CH df+2~DCK"
+        },
+        {
+          "route": "[+32] ws1,2 (Damage)",
+          "starter": "[12] CH df+2~DCK"
+        },
+        {
+          "route": "[+32] ws2,2 (Damage, Goes into LNH, Hard Confirm)",
+          "starter": "[12] CH df+2~DCK"
+        },
+        {
+          "route": "[+28] 1+2 (Reliable, Heat Engager)",
+          "starter": "[15] TFA.1"
+        },
+        {
+          "route": "[+35] iPKB f1+2 (KND + Damage, Hard Confirm)",
+          "starter": "[15] TFA.1"
+        },
+        {
+          "route": "[+18] 1+2",
+          "starter": "[26] SWY 1"
+        },
+        {
+          "route": "[+32] Instant flicker cancel (b3+4, db, neutral) ws1,2",
+          "starter": "[26] SWY 1"
+        },
+        {
+          "route": "[+29] At longer range is +15 and gives f1+2,2",
+          "starter": "[26] SWY 1"
+        },
+        {
+          "route": "[+14] PKB cancel (f3+4), 1+2",
+          "starter": "[18] PKB f+2"
+        },
+        {
+          "route": "[+16] f,F+2",
+          "starter": "[17] DCK 1"
+        },
+        {
+          "route": "[+19] f,F+2",
+          "starter": "[20] (df+1,2)~2"
+        },
+        {
+          "route": "[+17] ALB 2",
+          "starter": "[20] (df+1,2)~2"
+        },
+        {
+          "route": "[+14] LNH 1 (if you dont hold B. Heat Engager)",
+          "starter": "[17] ub+2"
+        },
+        {
+          "route": "[+18] 1+2 (if you do hold B. Heat Engager)",
+          "starter": "[17] ub+2"
+        },
+        {
+          "route": "[+32] Instant flicker cancel (b3+4, db, neutral), ws1,2",
+          "starter": "[17] ub+2"
+        },
+        {
+          "route": "[+17] 1,1,2 (DCK Transition)",
+          "starter": "LNH 1+2 (on block)"
+        },
+        {
+          "route": "[+17] 2,1 (PKB/FLK Transition)",
+          "starter": "LNH 1+2 (on block)"
+        },
+        {
+          "route": "[+19] 2,2 (Damage)",
+          "starter": "LNH 1+2 (on block)"
+        }
+      ],
+      "raw": "[12] CH df+2~DCK [+30] DCK 1+2,1+2,1+2,1+2 (Easy Confirm) [+32] ws1,2 (Damage) [+32] ws2,2 (Damage, Goes into LNH, Hard Confirm) [20] b+2 [21] db+1+2 [15] TFA.1 [+28] 1+2 (Reliable, Heat Engager) [+35] iPKB f1+2 (KND + Damage, Hard Confirm) [26] SWY 1 [+18] 1+2 [+32] Instant flicker cancel (b3+4, db, neutral) ws1,2 [+29] At longer range is +15 and gives f1+2,2 [18] PKB f+2 [+14] PKB cancel (f3+4), 1+2 [17] DCK 1 [+16] f,F+2 [21] EXD 1 [21] FLK b+2 [21] FLK 2 [20] (f+2,1)~2 [20] (df+1,2)~2 [+19] f,F+2 [+17] ALB 2 [17] ub+2 [+14] LNH 1 (if you dont hold B. Heat Engager) [+18] 1+2 (if you do hold B. Heat Engager) [+32] Instant flicker cancel (b3+4, db, neutral), ws1,2 LNH 1+2 (on block) [+17] 1,1,2 (DCK Transition) [+17] 2,1 (PKB/FLK Transition) [+19] 2,2 (Damage)",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+59] EXD.1 df+1,2~1~B~FLK~DCK~db[1] ws1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[12] CH b+1"
+        },
+        {
+          "route": "[+46] df+1,2~1 f+2,1 f+2,2 LNH.2 T! dash 1+2",
+          "starter": "[23] PAB.uf+2"
+        },
+        {
+          "route": "[+57] ub+2~LNH~DCK.1 df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[23] PAB.uf+2"
+        },
+        {
+          "route": "[+42] T! DCK.f+2~DCK.1 df+1 f+2,1~FLK.1~ALB.2",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+40] T! DCK.f+2~DCK.1 df+2~DCK~db[1] ws1 f+2,1~FLK~DCK.1",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+46] df+1,2~1 f+2,1 f+2,2 LNH.2 T! dash 1+2",
+          "starter": "[25] CH FLK.2"
+        },
+        {
+          "route": "[+56] PKB.f+1+2 b+1,2~B f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[16] PKB.df+2"
+        },
+        {
+          "route": "[+46] df+1,2~1 f+2,1~LK.b+2 T! dash LWV.1,2 LNH.2",
+          "starter": "[30] SWY.2"
+        },
+        {
+          "route": "[+57] ub+2~LNH~DCK.1 df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[15] DCK.2"
+        },
+        {
+          "route": "[+60] b+2 df+1,2~1~FLK.1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[15] DCK.2"
+        },
+        {
+          "route": "[+62] EXD.f+2~DCK.1 df+2~DCK~db[1] f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[21] EXD.2"
+        },
+        {
+          "route": "[+54] EXD.1 df+1,2~1 ub+2~LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[25] CH DCK.f+2"
+        },
+        {
+          "route": "[+58] LWV.1,1 dash df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+          "starter": "[25] CH DCK.f+2"
+        }
+      ],
+      "raw": "[12] CH b+1 [+59] EXD.1 df+1,2~1~B~FLK~DCK~db[1] ws1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [20] uf+2 [20] FC.df+2 [23] PAB.uf+2 [+46] df+1,2~1 f+2,1 f+2,2 LNH.2 T! dash 1+2 [+57] ub+2~LNH~DCK.1 df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [22] LNH.2 [0] Low Parry [+42] T! DCK.f+2~DCK.1 df+1 f+2,1~FLK.1~ALB.2 [+40] T! DCK.f+2~DCK.1 df+2~DCK~db[1] ws1 f+2,1~FLK~DCK.1 [25] CH FLK.2 [+46] df+1,2~1 f+2,1 f+2,2 LNH.2 T! dash 1+2 [16] PKB.df+2 [+56] PKB.f+1+2 b+1,2~B f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [30] SWY.2 [+46] df+1,2~1 f+2,1~LK.b+2 T! dash LWV.1,2 LNH.2 [15] DCK.2 [+57] ub+2~LNH~DCK.1 df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [+60] b+2 df+1,2~1~FLK.1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [21] EXD.2 [+62] EXD.f+2~DCK.1 df+2~DCK~db[1] f+2,2 LNH.2 T! dash LWV.1,2 LNH.2 [28] EXD.f+2 [25] CH DCK.f+2 [+54] EXD.1 df+1,2~1 ub+2~LNH.2 T! dash LWV.1,2 LNH.2 [+58] LWV.1,1 dash df+1,2~1 f+2,2 LNH.2 T! dash LWV.1,2 LNH.2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "W! f+2,1[1]~B FLK.f+3 DCK.1+2,1+2,1+2,1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "W! f+2,2,1+2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "W! 1+2",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) W! f+2,1[1]~B FLK.f+3 DCK.1+2,1+2,1+2,1+2 W! f+2,2,1+2 W! 1+2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Steve_combos"
+}

@@ -1,0 +1,201 @@
+{
+  "canonical_name": "Victor Chevalier",
+  "character_key": "victor",
+  "display_name_zh": "维克多",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! b+3,1",
+          "starter": "Regular launch (e.g. df+2/f,f+2)"
+        },
+        {
+          "route": "T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2",
+          "starter": "Instant Tornado (e.g. Low Parry, CH db+3)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2/f,f+2) df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 Instant Tornado (e.g. Low Parry, CH db+3) T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+22] f+1+2",
+          "starter": "[36] H.f+4,1~F"
+        },
+        {
+          "route": "[+29] u+1+2",
+          "starter": "[32] (f+2,2),2,2"
+        },
+        {
+          "route": "[+24] f+4,1",
+          "starter": "[0] CH b+2"
+        },
+        {
+          "route": "[+22] df+3+4",
+          "starter": "[0] CH b+2"
+        },
+        {
+          "route": "[+21] df+4,2",
+          "starter": "[0] CH b+2"
+        }
+      ],
+      "raw": "[25] H.b+1+2~F [36] H.f+4,1~F [+22] f+1+2 [20] CH uf+3 [32] (f+2,2),2,2 [+29] u+1+2 [24] CH b+4 (or PRF.4) [0] CH b+2 [+24] f+4,1 [+22] df+3+4 [+21] df+4,2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+55] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! db+1,1~F PRF.3",
+          "starter": "[20] CH 1+2"
+        },
+        {
+          "route": "[+56] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! b+3,1",
+          "starter": "[20] CH 1+2"
+        },
+        {
+          "route": "[+56] df+4,2 IAI.2 T! df+4,2 IAI.4,2 db+1,1~F PRF.3[1]",
+          "starter": "[20] CH 1+2"
+        },
+        {
+          "route": "[+59] df+4,2 IAI.4,2 df+3 db+1,1~F PRF.2,2 IAI.2 T! b+3,1",
+          "starter": "[20] CH 1+2"
+        },
+        {
+          "route": "[+45] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2",
+          "starter": "[24] CH db+3"
+        },
+        {
+          "route": "[+51] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.1,2,2",
+          "starter": "[24] CH db+3"
+        },
+        {
+          "route": "[+52] T! IAI.4,2 db+1,1~F PRF.2,2 IAI.4,2 db+1,1~F PRF.3",
+          "starter": "[25] CH wr2~3+4 (or D)"
+        },
+        {
+          "route": "[+54] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! b+3,1",
+          "starter": "Regular Launch (e.g. df+2/ws1/CH 1+2)"
+        },
+        {
+          "route": "[+48] df+4,2 IAI.4,2 HB! db+1,1~F PRF.2,2 IAI.2 T! b+3,1",
+          "starter": "Regular Launch (e.g. df+2/ws1/CH 1+2)"
+        },
+        {
+          "route": "[+68] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! db+1,1~F H.PRF.3~F f+1+2 (or u+1+2)",
+          "starter": "Regular Launch (e.g. df+2/ws1/CH 1+2)"
+        },
+        {
+          "route": "[+38] ws2 df+3,4 df+4,2 IAI.4,2 df+3,4,2 T! b+3,1",
+          "starter": "Heat Dash (H.f+1+2~F, H.d+2~F, H.PRF.3~F)"
+        }
+      ],
+      "raw": "[14] df+2 [24] f,F+2 [20] ws1 [18] CH ws2 [20] CH 1+2 [+55] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! db+1,1~F PRF.3 [+56] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [+56] df+4,2 IAI.2 T! df+4,2 IAI.4,2 db+1,1~F PRF.3[1] [+59] df+4,2 IAI.4,2 df+3 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [0] Low Parry [25] CH wr2 [24] CH db+3 [+45] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 [+51] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.1,2,2 [25] CH wr2~3+4 (or D) [+52] T! IAI.4,2 db+1,1~F PRF.2,2 IAI.4,2 db+1,1~F PRF.3 Regular Launch (e.g. df+2/ws1/CH 1+2) [+54] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! b+3,1 [+48] df+4,2 IAI.4,2 HB! db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [+68] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! db+1,1~F H.PRF.3~F f+1+2 (or u+1+2) Heat Dash (H.f+1+2~F, H.d+2~F, H.PRF.3~F) [+38] ws2 df+3,4 df+4,2 IAI.4,2 df+3,4,2 T! b+3,1",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "W! (T!) HB! 1 f+4,2~3+4 (or D) H.IAI.d+2",
+          "starter": "Heat Oki Wall Combo (+8 IAI, 18 chip damage)"
+        },
+        {
+          "route": "W! f,F+2 T! 4,3>2",
+          "starter": "Tornado available"
+        },
+        {
+          "route": "W! f,F+2 T! 1 df1 df3+4",
+          "starter": "Tornado available"
+        },
+        {
+          "route": "W! d+1+2 T! 4,3>2",
+          "starter": "Tornado available"
+        },
+        {
+          "route": "W! d+1+2 T! 1 df1 df3+4",
+          "starter": "Tornado available"
+        },
+        {
+          "route": "W! 4,3>2",
+          "starter": "No tornado"
+        },
+        {
+          "route": "W! 1, df1, df3+4",
+          "starter": "No tornado"
+        },
+        {
+          "route": "W! df1, 1, df3+4",
+          "starter": "Bear/Jack specific"
+        },
+        {
+          "route": "W! 2,1~f PRF 2,2,1+2 (breaks floors, less damage)",
+          "starter": "Bear/Jack specific"
+        }
+      ],
+      "raw": "Heat Oki Wall Combo (+8 IAI, 18 chip damage) W! (T!) HB! 1 f+4,2~3+4 (or D) H.IAI.d+2 Tornado available W! f,F+2 T! 4,3>2 W! f,F+2 T! 1 df1 df3+4 W! d+1+2 T! 4,3>2 W! d+1+2 T! 1 df1 df3+4 No tornado W! 4,3>2 W! 1, df1, df3+4 Bear/Jack specific W! df1, 1, df3+4 W! 2,1~f PRF 2,2,1+2 (breaks floors, less damage)",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "df3,4 2,1~f PRF 2,2,1 f,f+2 T! (3+4), IAI 1,2,2",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 df3,4 2,1~f PRF 2,2,1 f,f+2 T! (3+4), IAI 1,2,2",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "Easy combo: df+2, df4,2 IAI 2 T! df4,2 IAI 1,2,2",
+          "starter": "df+2"
+        },
+        {
+          "route": "Staple: 4,3,2 (Does no chip damage)",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 Easy combo: df+2, df4,2 IAI 2 T! df4,2 IAI 1,2,2 Staple: 4,3,2 (Does no chip damage)",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "wall break combo 1, note oddities notes for combo 1",
+          "starter": ""
+        },
+        {
+          "route": "wall break combo 2",
+          "starter": ""
+        },
+        {
+          "route": "notes for combo 1",
+          "starter": ""
+        }
+      ],
+      "raw": "wall break combo 1, note oddities notes for combo 1 wall break combo 2 notes for combo 1",
+      "section": "Wall break"
+    },
+    {
+      "entries": [
+        {
+          "route": "floor break combo 1, note direction opponent faces notes for combo 1",
+          "starter": ""
+        },
+        {
+          "route": "floor break combo 2",
+          "starter": ""
+        },
+        {
+          "route": "notes for combo 1",
+          "starter": ""
+        }
+      ],
+      "raw": "floor break combo 1, note direction opponent faces notes for combo 1 floor break combo 2 notes for combo 1",
+      "section": "Floor break"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Victor_combos"
+}

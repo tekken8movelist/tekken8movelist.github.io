@@ -1,0 +1,309 @@
+{
+  "canonical_name": "King",
+  "character_key": "king",
+  "display_name_zh": "金",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "4 b+3 T! f,f,F+2+4",
+          "starter": "Regular launch (e.g. uf+4)"
+        },
+        {
+          "route": "df+4,3 1,2 uf+3+4 T! JGR.2+4",
+          "starter": "Low launch (e.g db+2)"
+        },
+        {
+          "route": "T! f,f,F+2+4",
+          "starter": "Instant tornado (e.g FC.df+1 or Low Parry)"
+        }
+      ],
+      "raw": "Regular launch (e.g. uf+4) 4 b+3 T! f,f,F+2+4 Low launch (e.g db+2) df+4,3 1,2 uf+3+4 T! JGR.2+4 Instant tornado (e.g FC.df+1 or Low Parry) T! f,f,F+2+4",
+      "section": "Bread n' Butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+21; 14] f+2+3",
+          "starter": "[21] u+1"
+        },
+        {
+          "route": "[+20; 14] f+4",
+          "starter": "[21] u+1"
+        },
+        {
+          "route": "[+20; 14] f,f+4",
+          "starter": "[21] u+1"
+        },
+        {
+          "route": "[+18; 12] uf+3+4",
+          "starter": "[21] u+1"
+        },
+        {
+          "route": "[+16; 11] f+1+4",
+          "starter": "[21] u+1"
+        },
+        {
+          "route": "[26] b+3:1+2",
+          "starter": "[0] CH f,f,n,1+2"
+        },
+        {
+          "route": "[25] f+2,1[1]",
+          "starter": "[0] CH f,f,n,1+2"
+        },
+        {
+          "route": "[+31; 21] dash d+2+3 d+3+4",
+          "starter": "[25] CH f,F+1"
+        },
+        {
+          "route": "[+28; 19] uf+2",
+          "starter": "[25] CH f,F+1"
+        },
+        {
+          "route": "[+31; 21] d+2+3 d+3+4",
+          "starter": "[24] CH 4"
+        },
+        {
+          "route": "[+11; 7] d+3+4",
+          "starter": "[24] JGR.2"
+        },
+        {
+          "route": "[+35] d+1+4[2]",
+          "starter": "[15] JGS.2"
+        },
+        {
+          "route": "[+35] d+1+3_d+2+4",
+          "starter": "[15] JGS.2"
+        },
+        {
+          "route": "[+13; 9] db+3",
+          "starter": "[23] f+1+2"
+        },
+        {
+          "route": "[+9; 6] d+3",
+          "starter": "[23] f+1+2"
+        },
+        {
+          "route": "[+20; 14] cc d+2+3",
+          "starter": "[20] CH db+3"
+        },
+        {
+          "route": "[+16; 11] FC.DF+1",
+          "starter": "[20] CH db+3"
+        },
+        {
+          "route": "[30; 4] FUFT.3",
+          "starter": "JGR*.4 (at the wall)"
+        },
+        {
+          "route": "[28; 2] FUFT.d+3",
+          "starter": "JGR*.4 (at the wall)"
+        }
+      ],
+      "raw": "[25] f,f,F+3 [21] u+1 [+21; 14] f+2+3 [+20; 14] f+4 [+20; 14] f,f+4 [+18; 12] uf+3+4 [+16; 11] f+1+4 [0] CH f,f,n,1+2 [26] b+3:1+2 [25] f+2,1[1] [28] JGR*.2 [25] CH f,F+1 [+31; 21] dash d+2+3 d+3+4 [+28; 19] uf+2 [24] CH 4 [+31; 21] d+2+3 d+3+4 [45] JGR.2+4 No heat [24] JGR.2 [+11; 7] d+3+4 [21] f,F+2 [15] JGS.2 [+35] d+1+4[2] [+35] d+1+3_d+2+4 [23] f+1+2 [+13; 9] db+3 [+9; 6] d+3 [24] CH db+4[3] [20] CH db+3 [+20; 14] cc d+2+3 [+16; 11] FC.DF+1 JGR*.4 (at the wall) [30; 4] FUFT.3 [28; 2] FUFT.d+3",
+      "section": "Mini-Combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+59; 37] 4 dash df+4,3 1,2 uf+3+4 T! JGR.2 f,hcf:1[1]",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+59; 38] 4 b+2,4 b+3 T! 2 f,f,F:2+4[1]",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+55; 35] f+3 df+4,3 b+1,2 T! f+3+4 JGR.2 f,hcf:1[1]",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[64; 22] df+4,3[2] b+1,2 T! 3+4 4",
+          "starter": "CH df+2,1"
+        },
+        {
+          "route": "[63; 20] df+4,3[2] b+1,2 T! f+2,d+1,2",
+          "starter": "CH df+2,1"
+        },
+        {
+          "route": "[45; 10] d+3+4,4,2",
+          "starter": "CH df+2,1"
+        },
+        {
+          "route": "[68; 35] T! 3+4 JGS.3 f,f,F:2+4[1]",
+          "starter": "CH b+1,2"
+        },
+        {
+          "route": "[65; 33] T! f+3+4 JGR.2 df+4,3 f,hcf:1[1]",
+          "starter": "CH b+1,2"
+        },
+        {
+          "route": "[+38; 33][3] f+3 f+3 f+3 b+1,2 T! f+3+4 JGR.2 1 f,f,F:2+4[1]",
+          "starter": "[27] f+2+3,H.F"
+        },
+        {
+          "route": "[53; 34][3] b+2,4 b+2,4 b+1,2 T! f+3+4 JGR.2 1 f,f,F:2+4[1]",
+          "starter": "db+1+2,2,H.F"
+        },
+        {
+          "route": "[83; 40] ssl 4 f+1+2 df+4,3 b+1,2 T! f,f,F:2+4[1]",
+          "starter": "d+1+2"
+        },
+        {
+          "route": "[80; 35] f+3 df+4,3 b+1,2 T! f+3+4 JGR.2 f,hcf:1[1]",
+          "starter": "u+1+2"
+        },
+        {
+          "route": "[82; 39] md 3,2 df+4,3 b+1,2 T! f+3+4 JGR.2 f,hcf:1[1]",
+          "starter": "FC.df+2"
+        },
+        {
+          "route": "[80; 36] f,F+1 df+4,3 1,2 uf+3+4 T! JGR.2 f,hcf:1[1]",
+          "starter": "FC.df+2"
+        },
+        {
+          "route": "[+52; 32] df+4,3 b+1,2 T! f+3+4 JGR.2 1 f,f,F:2+4[1]",
+          "starter": "[21] db+2"
+        },
+        {
+          "route": "[+50; 30] df+4,3 1 1,2 uf+3+4 T! JGR.2 f,hcf:1[1]",
+          "starter": "[21] db+2"
+        },
+        {
+          "route": "[+49; 39] f,f,F:2+4[4]",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+45] f,F+1 df+4,3 2 f,f,F:2+4",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+34] f,F+1 df+4,3 1 f+2,1",
+          "starter": "[0] Low Parry"
+        }
+      ],
+      "raw": "[20] ws1+2 [20] uf,n,4 [18] CH ub+4 [13] uf+4 [+59; 37] 4 dash df+4,3 1,2 uf+3+4 T! JGR.2 f,hcf:1[1] [+59; 38] 4 b+2,4 b+3 T! 2 f,f,F:2+4[1] [+55; 35] f+3 df+4,3 b+1,2 T! f+3+4 JGR.2 f,hcf:1[1] CH df+2,1 [64; 22] df+4,3[2] b+1,2 T! 3+4 4 [63; 20] df+4,3[2] b+1,2 T! f+2,d+1,2 [45; 10] d+3+4,4,2 CH b+1,2 [68; 35] T! 3+4 JGS.3 f,f,F:2+4[1] [65; 33] T! f+3+4 JGR.2 df+4,3 f,hcf:1[1] [37] f+2,1,H.F [27] f+2+3,H.F [+38; 33][3] f+3 f+3 f+3 b+1,2 T! f+3+4 JGR.2 1 f,f,F:2+4[1] db+1+2,2,H.F [53; 34][3] b+2,4 b+2,4 b+1,2 T! f+3+4 JGR.2 1 f,f,F:2+4[1] d+1+2 [83; 40] ssl 4 f+1+2 df+4,3 b+1,2 T! f,f,F:2+4[1] u+1+2 [80; 35] f+3 df+4,3 b+1,2 T! f+3+4 JGR.2 f,hcf:1[1] FC.df+2 [82; 39] md 3,2 df+4,3 b+1,2 T! f+3+4 JGR.2 f,hcf:1[1] [80; 36] f,F+1 df+4,3 1,2 uf+3+4 T! JGR.2 f,hcf:1[1] [22] (b+2),1+2 [21] db+2 [+52; 32] df+4,3 b+1,2 T! f+3+4 JGR.2 1 f,f,F:2+4[1] [+50; 30] df+4,3 1 1,2 uf+3+4 T! JGR.2 f,hcf:1[1] [25] JGR*.1 [20] FC.DF+1 [0] Low Parry [+49; 39] f,f,F:2+4[4] [+45] f,F+1 df+4,3 2 f,f,F:2+4 [+34] f,F+1 df+4,3 1 f+2,1",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+30; 23] f,F+4 T! 3,2,2*[1]",
+          "starter": "W! (24% scaling)"
+        },
+        {
+          "route": "[+29; 20] b+1,2 T! 3,2,2[1]",
+          "starter": "W! (24% scaling)"
+        },
+        {
+          "route": "[+25; 19] 3,2,2*[1]",
+          "starter": "W! (24% scaling)"
+        },
+        {
+          "route": "[+15; 7] 3,2,2[1]",
+          "starter": "W! (24% scaling)"
+        },
+        {
+          "route": "[+42; 31] f,F+4 T! 3,2,2*[1]",
+          "starter": "W! (56% scaling)"
+        },
+        {
+          "route": "[+40; 22] b+1,2 T! f,hcf:1[2]",
+          "starter": "W! (56% scaling)"
+        },
+        {
+          "route": "[+39; 25] b+1,2 T! 3,2,2[1]",
+          "starter": "W! (56% scaling)"
+        }
+      ],
+      "raw": "W! (24% scaling) [+30; 23] f,F+4 T! 3,2,2*[1] [+29; 20] b+1,2 T! 3,2,2[1] [+25; 19] 3,2,2*[1] [+15; 7] 3,2,2[1] W! (56% scaling) [+42; 31] f,F+4 T! 3,2,2*[1] [+40; 22] b+1,2 T! f,hcf:1[2] [+39; 25] b+1,2 T! 3,2,2[1]",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+28] md db+2+4[1]",
+          "starter": "CH 4"
+        },
+        {
+          "route": "[+25] md db+1+3[2]",
+          "starter": "CH 4"
+        }
+      ],
+      "raw": "CH 4 [+28] md db+2+4[1] [+25] md db+1+3[2]",
+      "section": "Fake Combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[63; 33] 4 dash df+4,3 1,2 uf+3+4,B T! f,f,F:2+4",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[74; 35] f+1+2 df+4,3 b+1,2 T! f,f,F:2+4",
+          "starter": "FC.DF+2"
+        },
+        {
+          "route": "[72; 33] f,F,1 df+4,3 2 b+3 T! f,f,F:2+4",
+          "starter": "FC.DF+2"
+        },
+        {
+          "route": "[72; 33] f,F,1 df+4,3 b+1,2 T! f,f,F:2+4",
+          "starter": "FC.DF+2"
+        },
+        {
+          "route": "[72; 33] f+1+4 df+4,3 b+1,2 T! f,f,F:2+4",
+          "starter": "FC.DF+2"
+        },
+        {
+          "route": "[76; 33] f+1+4 df+4,3 b+1,2 T! f,f,F:2+4",
+          "starter": "u+1+2"
+        },
+        {
+          "route": "[74; 31] f+1+4 df+4,3 1 uf+3+4,B T! f,f,F:2+4",
+          "starter": "u+1+2"
+        },
+        {
+          "route": "[73; 31] f+1+4 df+4,3 b+3 T! f,f,F:2+4",
+          "starter": "u+1+2"
+        },
+        {
+          "route": "[68; 30] df+4,3 f+3 b+1,2 T! f,f,F:2+4",
+          "starter": "db+2"
+        },
+        {
+          "route": "[+28; 22] b+1,2 T! b+4 BT.1+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+24; 13] b+1,2 T! f,hcf:1 or f,f,F:2+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+21; 18] b+4 BT.1+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+17; 9] f,hcf:1 or f,f,F:2+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+15; 11] 1,2 f+3[1]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+13; 6] df+4,3,4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+15; 13] 2 f+4",
+          "starter": "W!"
+        }
+      ],
+      "raw": "uf+4 [63; 33] 4 dash df+4,3 1,2 uf+3+4,B T! f,f,F:2+4 FC.DF+2 [74; 35] f+1+2 df+4,3 b+1,2 T! f,f,F:2+4 [72; 33] f,F,1 df+4,3 2 b+3 T! f,f,F:2+4 [72; 33] f,F,1 df+4,3 b+1,2 T! f,f,F:2+4 [72; 33] f+1+4 df+4,3 b+1,2 T! f,f,F:2+4 u+1+2 [76; 33] f+1+4 df+4,3 b+1,2 T! f,f,F:2+4 [74; 31] f+1+4 df+4,3 1 uf+3+4,B T! f,f,F:2+4 [73; 31] f+1+4 df+4,3 b+3 T! f,f,F:2+4 db+2 [68; 30] df+4,3 f+3 b+1,2 T! f,f,F:2+4 W! [+28; 22] b+1,2 T! b+4 BT.1+4 [+24; 13] b+1,2 T! f,hcf:1 or f,f,F:2+4 [+21; 18] b+4 BT.1+4 [+17; 9] f,hcf:1 or f,f,F:2+4 [+15; 11] 1,2 f+3[1] [+13; 6] df+4,3,4 [+15; 13] 2 f+4",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/King_combos"
+}

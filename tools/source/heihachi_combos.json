@@ -1,0 +1,451 @@
+{
+  "canonical_name": "Heihachi Mishima",
+  "character_key": "heihachi",
+  "display_name_zh": "三岛平八",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "4 T! uf+3,4 1,b+2,4",
+          "starter": "Regular launch (e.g. f,F+3)"
+        },
+        {
+          "route": "T! uf+3,4 f+3 1,b+2,4",
+          "starter": "Instant Tornado (e.g., low parry)"
+        }
+      ],
+      "raw": "Regular launch (e.g. f,F+3) 4 T! uf+3,4 1,b+2,4 Instant Tornado (e.g., low parry) T! uf+3,4 f+3 1,b+2,4",
+      "section": "Bread n' Butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+19+(...)] df+2,WAR.1 T! ...",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[+33] WAR.1+2[1] WAR.f,F+2",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[+26] df+1:2*",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[+23] df+4,2[1]",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[+21] qcf+2[1][2]",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[+17] 1+2[1]",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[+15] f,F+1+2[1][2]",
+          "starter": "[15] f+1+2"
+        },
+        {
+          "route": "[37; 11] f,F+2",
+          "starter": "CL FC.df+4"
+        },
+        {
+          "route": "[32; 22][3] d+3,H.2",
+          "starter": "[24] f,n,d,DF+3"
+        },
+        {
+          "route": "[24; 16][3] OTG.d+4",
+          "starter": "[24] f,n,d,DF+3"
+        },
+        {
+          "route": "[20; 14][3] d+3",
+          "starter": "[24] f,n,d,DF+3"
+        },
+        {
+          "route": "[17; 11] f,F+2",
+          "starter": "[24] f,n,d,DF+3"
+        },
+        {
+          "route": "[56; 22] d+3,H.2",
+          "starter": "CH f+4"
+        },
+        {
+          "route": "[54; 21] OTGF[4]",
+          "starter": "CH f+4"
+        },
+        {
+          "route": "[44; 14] d+3",
+          "starter": "CH f+4"
+        },
+        {
+          "route": "[41; 11] f,F+2",
+          "starter": "CH f+4"
+        },
+        {
+          "route": "[50] FUJ.DF+1",
+          "starter": "CH f+4,D"
+        },
+        {
+          "route": "[40] FUJ.4",
+          "starter": "CH f+4,D"
+        },
+        {
+          "route": "[35] FUJ.1,2[1]",
+          "starter": "f+3,D"
+        },
+        {
+          "route": "[33] FUJ.1,1[1][2]",
+          "starter": "f+3,D"
+        },
+        {
+          "route": "[+32; 26] d+3,H.2",
+          "starter": "[16] CH (d+1),2"
+        },
+        {
+          "route": "[+30; 21] OTGF[4]",
+          "starter": "[16] CH (d+1),2"
+        },
+        {
+          "route": "[+24; 16] qcf+2",
+          "starter": "[16] CH (d+1),2"
+        },
+        {
+          "route": "[+20; 14] d+3",
+          "starter": "[16] CH (d+1),2"
+        },
+        {
+          "route": "[49; 26] dash d+3,H.1+2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[41; 16] dash d+4",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[34; 11] f,F+2",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[+8 ;5][5] db+3",
+          "starter": "[25] (b+3),3"
+        },
+        {
+          "route": "[48] WAR.f,F+2",
+          "starter": "WAR.1+2"
+        },
+        {
+          "route": "[+36; 28] RAI.3,H.2",
+          "starter": "[16] CH (d+1),2,F"
+        },
+        {
+          "route": "[+30; 21] RAI.1",
+          "starter": "[16] CH (d+1),2,F"
+        },
+        {
+          "route": "[+24; 16] RAI.3",
+          "starter": "[16] CH (d+1),2,F"
+        },
+        {
+          "route": "[+24; 24] OTGF[4]",
+          "starter": "[20] b+1+2,H.F"
+        },
+        {
+          "route": "[+19; 19] OTG.d+4",
+          "starter": "[20] b+1+2,H.F"
+        },
+        {
+          "route": "[+28; 10] 1,1,2",
+          "starter": "RAI.2 GB!"
+        },
+        {
+          "route": "[+26; 10] 1,2,2~D",
+          "starter": "RAI.2 GB!"
+        }
+      ],
+      "raw": "[24] CH ws2 [20] f+4 (vs crouchers) [15] f+1+2 [+19+(...)] df+2,WAR.1 T! ... [+33] WAR.1+2[1] WAR.f,F+2 [+26] df+1:2* [+23] df+4,2[1] [+21] qcf+2[1][2] [+17] 1+2[1] [+15] f,F+1+2[1][2] CL FC.df+4 [37; 11] f,F+2 [28] CH (b+1),4 [24] f,n,d,DF+3 [32; 22][3] d+3,H.2 [24; 16][3] OTG.d+4 [20; 14][3] d+3 [17; 11] f,F+2 CH f+4 [56; 22] d+3,H.2 [54; 21] OTGF[4] [44; 14] d+3 [41; 11] f,F+2 CH f+4,D [50] FUJ.DF+1 [40] FUJ.4 f+3,D [35] FUJ.1,2[1] [33] FUJ.1,1[1][2] [30] b+2* [24] CH SSR.2 [17] ws1 [16] CH (d+1),2 [+32; 26] d+3,H.2 [+30; 21] OTGF[4] [+24; 16] qcf+2 [+20; 14] d+3 uf+4 [49; 26] dash d+3,H.1+2 [41; 16] dash d+4 [34; 11] f,F+2 [39] b+3,3 [25] d+3 [25] (b+3),3 [+8 ;5][5] db+3 WAR.1+2 [48] WAR.f,F+2 [30] b+2*,F [24] CH SSR.2,F [16] CH (d+1),2,F [+36; 28] RAI.3,H.2 [+30; 21] RAI.1 [+24; 16] RAI.3 [33] FUJ.1,1,H.F [30] qcf+2,H.F [20] b+1+2,H.F [+24; 24] OTGF[4] [+19; 19] OTG.d+4 RAI.2 GB! [+28; 10] 1,1,2 [+26; 10] 1,2,2~D",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+70] md EWGF PEWGF md f,n,d,DF+4,4,1 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3",
+          "starter": "[17] FC.df+2"
+        },
+        {
+          "route": "[+63; 41] EWGF md EWGF f+3,D FUJ.1 f+3,D FUJ.2 T! dash uf+3,4 qcf+2",
+          "starter": "[17] FC.df+2"
+        },
+        {
+          "route": "[+62; 39] EGWF md EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3",
+          "starter": "[17] FC.df+2"
+        },
+        {
+          "route": "[+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[17] FC.df+2"
+        },
+        {
+          "route": "[77; 39] f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SSR.2,F RAI.1",
+          "starter": "uf+3,4"
+        },
+        {
+          "route": "[+64; 10] T! b:2* md f,n,d,DF+4,4,1 1,b+2,WAR.2 OTGF",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+51; 32] T! b:2* f,n,d,DF+4,4,1 1,b+2,4",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+50; 31] T! b:2* md EWGF f+3,D FUJ.DF+4,4,3",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+49; 8] T! uf+3,4 f+3 1,b+2,WAR.2 d+4",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+45; 30] T! DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+40; 25] T! uf+3,4 f+3 1,b+2,4",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[91; 39] f,n,d,df+3 T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2",
+          "starter": "CH b+4"
+        },
+        {
+          "route": "[88; 37][1] 4* T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2",
+          "starter": "CH b+4"
+        },
+        {
+          "route": "[+62; 41] DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[24] CH (b+3),2"
+        },
+        {
+          "route": "[+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[10] f,n,d,DF+4,4"
+        },
+        {
+          "route": "[+35; 25] EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[22] f,F+1+2,H.F"
+        }
+      ],
+      "raw": "[23] EWGF [23] PEWGF [22] f,F+2 [21] f,F+3 [17] FC.df+2 [+70] md EWGF PEWGF md f,n,d,DF+4,4,1 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3 [+63; 41] EWGF md EWGF f+3,D FUJ.1 f+3,D FUJ.2 T! dash uf+3,4 qcf+2 [+62; 39] EGWF md EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3 [+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 uf+3,4 [77; 39] f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SSR.2,F RAI.1 [32] CH 4* [28] df+2,WAR.1 [20] FUJ.2 [0] low parry [+64; 10] T! b:2* md f,n,d,DF+4,4,1 1,b+2,WAR.2 OTGF [+51; 32] T! b:2* f,n,d,DF+4,4,1 1,b+2,4 [+50; 31] T! b:2* md EWGF f+3,D FUJ.DF+4,4,3 [+49; 8] T! uf+3,4 f+3 1,b+2,WAR.2 d+4 [+45; 30] T! DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 [+40; 25] T! uf+3,4 f+3 1,b+2,4 CH b+4 [91; 39] f,n,d,df+3 T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2 [88; 37][1] 4* T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2 [25] CH 4 [25] (f,n,d,DF+4),3 [24] CH (b+3),2 [+62; 41] DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [18] f,n,d,df+4 [10] f,n,d,DF+4,4 [+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [36] uf+2,1,H.F [22] f,F+1+2,H.F [+35; 25] EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+35; 13] b+1,4 T! HB! b+3,3,H.2",
+          "starter": "With Tornado"
+        },
+        {
+          "route": "[+33; 20] df+1:2*[1] T! df+3,1+2,qcf+1",
+          "starter": "With Tornado"
+        },
+        {
+          "route": "[+32; 19] b+1,4 T! df+3,1+2,qcf+1",
+          "starter": "With Tornado"
+        },
+        {
+          "route": "[+25; 17] f,F+2 T! b+3,2 1+2",
+          "starter": "With Tornado"
+        },
+        {
+          "route": "[+27; 20] HB! b+3,3,H.2",
+          "starter": "Without Tornado"
+        },
+        {
+          "route": "[+24; 16] df+3,1+2,qcf+1",
+          "starter": "Without Tornado"
+        },
+        {
+          "route": "[+21; 17] b+3,2 1+2",
+          "starter": "Without Tornado"
+        },
+        {
+          "route": "[+19; 15] f,n,d,DF+4,n+4 1+2",
+          "starter": "Without Tornado"
+        },
+        {
+          "route": "[+17; 14] EWGF 1+2",
+          "starter": "Without Tornado"
+        },
+        {
+          "route": "[+53; 35][2] bb b+1,4 T! 1+2 HB! b+3,3,H.2",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "[+50; 31][2] bb b+1,4 T! 1+2 df+3,1+2,qcf+1",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "[+46; 32] b+1,4 T! HB! b+3,3,H.2",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "[+43; 27] df+1:2*[1] T! df+3,1+2,qcf+1",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "[+42; 30] f,n,d,df+3 T! b+3,2 1+2",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "[+42; 27] b+1,4 T! df+3,1+2,qcf+1",
+          "starter": "Regular splat (56% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) With Tornado [+35; 13] b+1,4 T! HB! b+3,3,H.2 [+33; 20] df+1:2*[1] T! df+3,1+2,qcf+1 [+32; 19] b+1,4 T! df+3,1+2,qcf+1 [+25; 17] f,F+2 T! b+3,2 1+2 Without Tornado [+27; 20] HB! b+3,3,H.2 [+24; 16] df+3,1+2,qcf+1 [+21; 17] b+3,2 1+2 [+19; 15] f,n,d,DF+4,n+4 1+2 [+17; 14] EWGF 1+2 Regular splat (56% scaling) [+53; 35][2] bb b+1,4 T! 1+2 HB! b+3,3,H.2 [+50; 31][2] bb b+1,4 T! 1+2 df+3,1+2,qcf+1 [+46; 32] b+1,4 T! HB! b+3,3,H.2 [+43; 27] df+1:2*[1] T! df+3,1+2,qcf+1 [+42; 30] f,n,d,df+3 T! b+3,2 1+2 [+42; 27] b+1,4 T! df+3,1+2,qcf+1",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+46; 36] f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! ss2,F RAI.1",
+          "starter": "[9] ws4"
+        }
+      ],
+      "raw": "[9] ws4 [+46; 36] f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! ss2,F RAI.1",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+50; 33] EWGF f+3 df+1:2* T! md SSL.2,F RAI.1",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+50; 33] EWGF f+3 df+1:2* T! md SSR.2,F RAI.1",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "if it auto corrects on the second EWGF do normal route",
+          "starter": "[23] EWGF"
+        }
+      ],
+      "raw": "3~ish SSRs [23] EWGF [+50; 33] EWGF f+3 df+1:2* T! md SSL.2,F RAI.1 3~ish SSLs [23] EWGF [+50; 33] EWGF f+3 df+1:2* T! md SSR.2,F RAI.1 if it auto corrects on the second EWGF do normal route",
+      "section": "Off-axis"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+37; 24] T! b+2* f+3,D FUJ.DF+4,4,3",
+          "starter": "[30] f+3,D FUJ.2"
+        },
+        {
+          "route": "[+35; 22] T! f,n,d,DF+4,4,1 1,b+2,1",
+          "starter": "[30] f+3,D FUJ.2"
+        }
+      ],
+      "raw": "[30] f+3,D FUJ.2 [+37; 24] T! b+2* f+3,D FUJ.DF+4,4,3 [+35; 22] T! f,n,d,DF+4,4,1 1,b+2,1",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+41; 24][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2",
+          "starter": "[5; 5] W! (39% scaling)"
+        },
+        {
+          "route": "[+41; 21][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1",
+          "starter": "[5; 5] W! (39% scaling)"
+        },
+        {
+          "route": "[+36; 24] uf+3,4 b+1,4 T! df+3,1+2,qcf+1",
+          "starter": "[5; 5] W! (39% scaling)"
+        },
+        {
+          "route": "[+44; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2",
+          "starter": "[5; 5] W! (39% scaling)"
+        },
+        {
+          "route": "[+32; 18][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2",
+          "starter": "[5; 5] W! (27% scaling)[2][3]"
+        },
+        {
+          "route": "[+30; 13][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1",
+          "starter": "[5; 5] W! (27% scaling)[2][3]"
+        },
+        {
+          "route": "[+26; 12] uf+3,4 b+1,4 T! df+3,1+2,qcf+1",
+          "starter": "[5; 5] W! (27% scaling)[2][3]"
+        },
+        {
+          "route": "[+31; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2",
+          "starter": "[5; 5] W! (27% scaling)[4]"
+        },
+        {
+          "route": "[+27; 13][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2",
+          "starter": "[5; 5] W! (19% scaling)"
+        },
+        {
+          "route": "[+18; 5][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1",
+          "starter": "[5; 5] W! (19% scaling)"
+        },
+        {
+          "route": "[+29; 17] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[5; 5] W! (39% scaling)"
+        },
+        {
+          "route": "[+32; 20] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2",
+          "starter": "[5; 5] W! (39% scaling)"
+        },
+        {
+          "route": "[+16; 5] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[5; 5] W! (27% scaling)[2][3]"
+        },
+        {
+          "route": "[+18; 8] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2",
+          "starter": "[5; 5] W! (27% scaling)[4]"
+        },
+        {
+          "route": "[+12; 3] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[5; 5] W! (19% scaling)"
+        },
+        {
+          "route": "[+30; 18] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+          "starter": "[5; 5] FH! (39% scaling)"
+        }
+      ],
+      "raw": "[50] H.2+3,F (Heat Smash Foward) [33] df+4,2 [25] 1+2 [5; 5] W! (39% scaling) [+41; 24][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+41; 21][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [+36; 24] uf+3,4 b+1,4 T! df+3,1+2,qcf+1 [30] qcf+2,HE [22] f,F+1+2,HE [5; 5] W! (39% scaling) [+44; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2 [27] 1,1,2 [5; 5] W! (27% scaling)[2][3] [+32; 18][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+30; 13][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [+26; 12] uf+3,4 b+1,4 T! df+3,1+2,qcf+1 [33] f+3~D FUJ.1,1,HE [5; 5] W! (27% scaling)[4] [+31; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2 [28; 10] RAI.2 GB! 1,1,2 [5; 5] W! (19% scaling) [+27; 13][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+18; 5][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [50] H.2+3,F (Heat Smash Foward) [33] df+4,2 [25] 1+2 [5; 5] W! (39% scaling) [+29; 17] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [30] qcf+2,HE [22] f,F+1+2,HE [5; 5] W! (39% scaling) [+32; 20] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2 [27] 1,1,2 [5; 5] W! (27% scaling)[2][3] [+16; 5] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [33] f+3~D FUJ.1,1,HE [5; 5] W! (27% scaling)[4] [+18; 8] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2 [28; 10] RAI.2 GB! 1,1,2 [5; 5] W! (19% scaling) [+12; 3] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [50] H.2+3 (Heat Smash) [46] Right Throw (Freefall) [35] 2+4 (Jumping Powerbomb) [5; 5] FH! (39% scaling) [+30; 18] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+      "section": "Stage Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+56] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! f,n,d,DF+4,3",
+          "starter": "FC.df+2"
+        },
+        {
+          "route": "[71] f+3,D WKG.DF+4,4,1 f+3,D FUJ.2 T! f,n,d,DF+4,3",
+          "starter": "uf+3,4"
+        },
+        {
+          "route": "[40] T! dash EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.DF+4,3",
+          "starter": "WAR.df+2,1"
+        },
+        {
+          "route": "[+38; 26] df+1:2*[1] T! EWGF 1+2",
+          "starter": "Regular Splat (56% scaling)"
+        },
+        {
+          "route": "[+38; 24] 4 T! df+3,1+2,qcf+1",
+          "starter": "Regular Splat (56% scaling)"
+        },
+        {
+          "route": "[+27; 18] df+3,1+2,qcf+1",
+          "starter": "Regular Splat (56% scaling)"
+        }
+      ],
+      "raw": "EWGF PEWGF f,F+3 f,F+2 FC.df+2 [+56] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! f,n,d,DF+4,3 uf+3,4 [71] f+3,D WKG.DF+4,4,1 f+3,D FUJ.2 T! f,n,d,DF+4,3 low parry FUJ.2 WAR.df+2,1 [40] T! dash EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.DF+4,3 Regular Splat (56% scaling) [+38; 26] df+1:2*[1] T! EWGF 1+2 [+38; 24] 4 T! df+3,1+2,qcf+1 [+27; 18] df+3,1+2,qcf+1",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Heihachi_combos"
+}

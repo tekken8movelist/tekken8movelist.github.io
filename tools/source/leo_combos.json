@@ -1,0 +1,333 @@
+{
+  "canonical_name": "Leo",
+  "character_key": "leo",
+  "display_name_zh": "雷欧",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "b+1,4 KNK.1,4,d BOK.1,2 T! b+1+2,1+2,qcf2",
+          "starter": "Regular launch (e.g. df+2)"
+        },
+        {
+          "route": "T! b+1,4~df >ws3 f+4~df CD.2,4",
+          "starter": "Instant Tornado (e.g. low parry)"
+        },
+        {
+          "route": "f+2 b+1,1+2,d BOK.1,2 T! b+1+2,1+2,qcf+2",
+          "starter": "Heat Dash (e.g. db+2,4,H.F)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) b+1,4 KNK.1,4,d BOK.1,2 T! b+1+2,1+2,qcf2 Instant Tornado (e.g. low parry) T! b+1,4~df >ws3 f+4~df CD.2,4 Heat Dash (e.g. db+2,4,H.F) f+2 b+1,1+2,d BOK.1,2 T! b+1+2,1+2,qcf+2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[39; 13] f+1+2",
+          "starter": "CH 4"
+        },
+        {
+          "route": "[+10; 7] d+4",
+          "starter": "[20] (df+1),2"
+        },
+        {
+          "route": "[44; 14] f,F+2[1]",
+          "starter": "CH (ws3,1),2"
+        },
+        {
+          "route": "[43; 13] f+1+2",
+          "starter": "CH (ws3,1),2"
+        },
+        {
+          "route": "[38; 12] BOK.2",
+          "starter": "f,F+3,d"
+        },
+        {
+          "route": "[41; 17] d+4,2[1]",
+          "starter": "uf+2,1"
+        },
+        {
+          "route": "[+20; 13] d+4,2[1]",
+          "starter": "[21] CH KNK.4"
+        },
+        {
+          "route": "[50; 15] BOK.2 df+4",
+          "starter": "CH f+3,d"
+        },
+        {
+          "route": "[60; 11] f,F+3",
+          "starter": "f+2,4,LTG.3"
+        },
+        {
+          "route": "[20; 13] dash d+4,2[1]",
+          "starter": "[20] CH (CD.2),1"
+        },
+        {
+          "route": "[+21] b+2,1+2[2]",
+          "starter": "[22] ub+1.P.4"
+        },
+        {
+          "route": "[+21] b+2,1+2[2]",
+          "starter": "[19] CH b+1+4"
+        },
+        {
+          "route": "[35] KNK.1,2[2]",
+          "starter": "CH f+4"
+        },
+        {
+          "route": "[30] KNK.2[3]",
+          "starter": "CH f+4"
+        },
+        {
+          "route": "[+17, 11] d+3+4",
+          "starter": "[21] CH d+1"
+        },
+        {
+          "route": "[37] ws4,1+2[2]",
+          "starter": "CH CD.1"
+        },
+        {
+          "route": "[38; 12] d+1+2 BOK.2",
+          "starter": "FC.df+3"
+        }
+      ],
+      "raw": "CH 4 [39; 13] f+1+2 [35] CH df+1,2 [20] (df+1),2 [+10; 7] d+4 CH (df+1),2 CH (ws3,1),2 [44; 14] f,F+2[1] [43; 13] f+1+2 f,F+3,d [38; 12] BOK.2 uf+2,1 [41; 17] d+4,2[1] [27] CH f+3 [21] CH KNK.4 [+20; 13] d+4,2[1] CH f+3,d [50; 15] BOK.2 df+4 f+2,4,LTG.3 [60; 11] f,F+3 [36] CH SS.1+2 [25] CH (f+2),2 [20] CH (CD.2),1 [20; 13] dash d+4,2[1] [22] ub+1.P.4 [+21] b+2,1+2[2] [19] CH b+1+4 [+21] b+2,1+2[2] CH f+4 [35] KNK.1,2[2] [30] KNK.2[3] [21] CH d+1 [+17, 11] d+3+4 CH CD.1 [37] ws4,1+2[2] FC.df+3 [38; 12] d+1+2 BOK.2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[1][2]",
+          "starter": "[12] f,F+4"
+        },
+        {
+          "route": "[+54; 32] 4 b+1,1+2,d BOK.1,2 T! DLS[3]",
+          "starter": "[12] f,F+4"
+        },
+        {
+          "route": "[+54; 34] b+1,1+2 1 f+3,d BOK.1,2 T! BBP[4][5]",
+          "starter": "[12] f,F+4"
+        },
+        {
+          "route": "[+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "[12] f,F+4"
+        },
+        {
+          "route": "[84; 36] f+3 2 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "CH d+2"
+        },
+        {
+          "route": "[+45; 26] T! df+2+3 ws3 b+1,4~df >ws3 f+4~df CD.2,4",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+40] f+3~d BOK.1,2 d+4,1 [6]",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+35; 20] T! 4 b+1,4~df >ws3 f+4~df CD.2,4",
+          "starter": "[28; 9] BOK.1,2"
+        },
+        {
+          "route": "[+50; 30] ws3 4 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4[3]",
+          "starter": "[21] CH KNK.4~df"
+        },
+        {
+          "route": "[+49; 29] ws3 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "[21] CH KNK.4~df"
+        },
+        {
+          "route": "[77; 32] iws3 b+1,1+2,d BOK.1,2 T! BBP[8]",
+          "starter": "uf+2,1"
+        },
+        {
+          "route": "[59; 40] HB~ f+2 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "uf+2,1"
+        },
+        {
+          "route": "[41; 17] d+4,2[9]",
+          "starter": "uf+2,1"
+        },
+        {
+          "route": "[72; 38] f+2 b+1,1+2,d BOK.1,2 T! BBP[4]",
+          "starter": "f,F+4,3"
+        },
+        {
+          "route": "[69; 36] b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "f,F+4,3"
+        },
+        {
+          "route": "[+60; 38] f+3 f+2 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "[23] BOK.2"
+        },
+        {
+          "route": "[+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[5]",
+          "starter": "[31] CH ub+3"
+        },
+        {
+          "route": "[76; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "CH KNK.2"
+        },
+        {
+          "route": "[85; 36] b+1,1+2 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "CH f+1+2"
+        },
+        {
+          "route": "[+55; 34] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[10]",
+          "starter": "[10] CH db+4"
+        },
+        {
+          "route": "[+54; 32] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4",
+          "starter": "[10] CH db+4"
+        },
+        {
+          "route": "[76; 29] dash df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[8]",
+          "starter": "CH f+3"
+        },
+        {
+          "route": "[74; 29] CD ws3 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "CH f+3"
+        },
+        {
+          "route": "[69; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8]",
+          "starter": "CH (CD.2),1"
+        },
+        {
+          "route": "[72; 31] df+1 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "CH (f,F+4,3),4"
+        },
+        {
+          "route": "[+47; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8]",
+          "starter": "[21] b+2+3 (successful parry)"
+        },
+        {
+          "route": "[+16; 11] f+1+2",
+          "starter": "[21] b+2+3 (successful parry)"
+        }
+      ],
+      "raw": "[20] uf,n,4 [17] ws2 [15] df+2 [15] uf+4 [12] f,F+4 [+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[1][2] [+54; 32] 4 b+1,1+2,d BOK.1,2 T! DLS[3] [+54; 34] b+1,1+2 1 f+3,d BOK.1,2 T! BBP[4][5] [+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS CH d+2 [84; 36] f+3 2 b+1,1+2,d BOK.1,2 T! BBP [28] CH f+3+4 [0] low parry [+45; 26] T! df+2+3 ws3 b+1,4~df >ws3 f+4~df CD.2,4 [+40] f+3~d BOK.1,2 d+4,1 [6] [31; 12] KNK.3,4 [28; 9] BOK.1,2 [+35; 20] T! 4 b+1,4~df >ws3 f+4~df CD.2,4 [24] CH df+2+3[7] [21] CH KNK.4~df [+50; 30] ws3 4 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4[3] [+49; 29] ws3 b+1,1+2,d BOK.1,2 T! DLS uf+2,1 [77; 32] iws3 b+1,1+2,d BOK.1,2 T! BBP[8] [59; 40] HB~ f+2 b+1,1+2,d BOK.1,2 T! BBP [41; 17] d+4,2[9] f,F+4,3 [72; 38] f+2 b+1,1+2,d BOK.1,2 T! BBP[4] [69; 36] b+1,1+2,d BOK.1,2 T! BBP [24] CH KNK.1+2 [23] db+3 [23] BOK.2 [+60; 38] f+3 f+2 b+1,1+2,d BOK.1,2 T! BBP [13] KNK.3 [31] CH ub+3 [+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[5] CH KNK.2 [76; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS CH f+1+2 [85; 36] b+1,1+2 b+1,1+2,d BOK.1,2 T! BBP [14] CH CL db+4 [10] CH db+4 [+55; 34] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[10] [+54; 32] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4 CH f+3 [76; 29] dash df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[8] [74; 29] CD ws3 b+1,1+2,d BOK.1,2 T! DLS CH (CD.2),1 [69; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8] CH (f,F+4,3),4 [72; 31] df+1 b+1,1+2,d BOK.1,2 T! DLS [25] CH b+2+3 [21] b+2+3 (successful parry) [+47; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8] [+16; 11] f+1+2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+42; 28] f+4 KNK.3,4 WT! 2 BOK.1+2 d+3+4",
+          "starter": "Before Tornado (30% scaling)"
+        },
+        {
+          "route": "[+41; 28] 3,2,3 WT! BOK.1+2 d+3+4",
+          "starter": "Before Tornado (30% scaling)"
+        },
+        {
+          "route": "[+40; 28] b+1,4 KNK.3,4 WT! ws1,4,1[1][2]",
+          "starter": "Before Tornado (30% scaling)"
+        },
+        {
+          "route": "[+22; 18] b+1+2,1+2,qcf+2[3]",
+          "starter": "After Tornado (30% scaling)"
+        },
+        {
+          "route": "[+20; 16] b+1,4 KNK.3,4",
+          "starter": "After Tornado (30% scaling)"
+        },
+        {
+          "route": "[+19; 14] b+1,4 KNK.1+2[2]",
+          "starter": "After Tornado (30% scaling)"
+        }
+      ],
+      "raw": "Before Tornado (30% scaling) [+42; 28] f+4 KNK.3,4 WT! 2 BOK.1+2 d+3+4 [+41; 28] 3,2,3 WT! BOK.1+2 d+3+4 [+40; 28] b+1,4 KNK.3,4 WT! ws1,4,1[1][2] After Tornado (30% scaling) [+22; 18] b+1+2,1+2,qcf+2[3] [+20; 16] b+1,4 KNK.3,4 [+19; 14] b+1,4 KNK.1+2[2]",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+47; 30] 2,1 3,2,4 KNK.1+2 T! BBP",
+          "starter": "[15] df+2"
+        }
+      ],
+      "raw": "[50] b+1,1+2 df+2[1] [15] df+2 [+47; 30] 2,1 3,2,4 KNK.1+2 T! BBP",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[67; 32] 4 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[65; 31] f+2 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[+61; 39] f+3 4 b+1[1],1+2,d BOK.1,2 T! BBP[2]",
+          "starter": "[24] CH KNK.1+2"
+        },
+        {
+          "route": "[+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "[24] CH KNK.1+2"
+        },
+        {
+          "route": "[+29; 17] T! b+1,4~df ws3 f+4~df ws3,1,2",
+          "starter": "[28; 9] BOK.1,2"
+        },
+        {
+          "route": "[+41; 24] T! 4 b+1,4~df >ws3 f+4~df CD.2,4",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+54; 34] b+1,1+2 1 f+3,d BOK.1,2 T! BBP[3][4]",
+          "starter": "[31] CH ub+3"
+        },
+        {
+          "route": "[+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "[31] CH ub+3"
+        },
+        {
+          "route": "[+29; 26] T! b+1,4~df >ws3 f+4~df >ws3,1,2",
+          "starter": "[28; 9] BOK.1,2"
+        },
+        {
+          "route": "[82; 33] f+3 f+4,1~d BOK.1,2 T! DLS",
+          "starter": "CH d+2"
+        },
+        {
+          "route": "[82; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP",
+          "starter": "CH d+2"
+        },
+        {
+          "route": "[76; 29] qcf ws3 b+1,1+2,d BOK.1,2 T! DLS",
+          "starter": "CH f+3"
+        },
+        {
+          "route": "[+51; 32] ws3 4 b+1,1+2,d BOK.1,2 T! BBP[6]",
+          "starter": "[21] CH KNK.4~df"
+        }
+      ],
+      "raw": "df+2 uf+4 [67; 32] 4 b+1,1+2,d BOK.1,2 T! BBP [65; 31] f+2 b+1,1+2,d BOK.1,2 T! BBP [23] db+3 [23] BOK.2 [24] CH KNK.1+2 [+61; 39] f+3 4 b+1[1],1+2,d BOK.1,2 T! BBP[2] [+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS [31; 12] KNK.3,4 [28; 9] BOK.1,2 [+29; 17] T! b+1,4~df ws3 f+4~df ws3,1,2 [28] CH f+3+4 [0] low parry [+41; 24] T! 4 b+1,4~df >ws3 f+4~df CD.2,4 [13] KNK.3 [31] CH ub+3 [+54; 34] b+1,1+2 1 f+3,d BOK.1,2 T! BBP[3][4] [+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS [31; 12] KNK.3,4 [28; 9] BOK.1,2 [+29; 26] T! b+1,4~df >ws3 f+4~df >ws3,1,2 CH d+2 [82; 33] f+3 f+4,1~d BOK.1,2 T! DLS [82; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP CH f+3 [76; 29] qcf ws3 b+1,1+2,d BOK.1,2 T! DLS [24] CH df+2+3[5] [21] CH KNK.4~df [+51; 32] ws3 4 b+1,1+2,d BOK.1,2 T! BBP[6]",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Leo_combos"
+}

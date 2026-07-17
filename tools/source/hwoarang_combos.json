@@ -1,0 +1,321 @@
+{
+  "canonical_name": "Hwoarang",
+  "character_key": "hwoarang",
+  "display_name_zh": "花郎",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "f+4~RFS.3~4 d+4,4 T! uf+3,4,3",
+          "starter": "Regular launch (e.g. df+2)"
+        },
+        {
+          "route": "f+4~RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "Regular launch (e.g. df+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) f+4~RFS.3~4 d+4,4 T! uf+3,4,3 f+4~RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+19] f,F+3",
+          "starter": "[35] RFF.3~4"
+        }
+      ],
+      "raw": "[35] RFF.3~4 [+19] f,F+3",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+64] f+4~RFS.3~4, dash 4,3f~LFS.uf+3+4~F~LFS.uf+4 T! dash f+3+4~RFF.3~4 ub+3",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+63] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (does not work on small characters)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+62] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 (does not work on small characters)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+62] f+4~RFS.b+3, dash df+1,3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+62] f+2~RFF.f+3~LFS.2~RFF.f+3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+62] u+3 LFS.2~RFF.3,4~RFS.u+4,4 T! dash f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+61] f+4~RFS.b+3, dash 4,4,4,4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+61] f+4~RFS.b+3, dash df+1,3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+60] f+4 RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+57 without JFFE] (easy)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+60] u+3 LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+59] f+4~RFS.b+3, dash (uf+3+4~F)x2~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+59] f+4 RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+56 without JFFE]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+59] u+3 LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 (easy)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+47] f+4~RFS.3~4 d+4,4 T! uf+3,4,3",
+          "starter": ""
+        },
+        {
+          "route": "[+67] f+4~RFS.3~4 u+3 uf+3+4~F~LFS.uf+4 T! dash f+3+4~RFF.3~4 ub+3 [+64 without JFFE]",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+67] f+4~RFS.3~4 u+3 uf+3+4~F~LFS.1, dash b+3 T! dash f+3+4~RFF.3~4 ub+3 [+64 without JFFE]",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+63] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (may not work on small characters)",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+62] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+62] f+4~RFS.3, uf+3+4~F~LFS.uf+3+4~F~LFS.uf+4 T! T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+62] u+3 LFS.2~RFF.3,4~RFS.u+4,4 T! dash f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+60] u+3~LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy)",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+57] f+4~RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+53] f+4~RFS.b+3 2,4~RFS.2,3 T! 3+4~RFF.f+3~LFS.4~3",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+61] 3+4~RFS.b+3, db+4~F~RFS.3~4, uf+3+4~F~LFS.uf+4, dash RFF.3~4, dash ub+3",
+          "starter": "[25] u+3"
+        },
+        {
+          "route": "[+59] 3+4~RFS.b+3, f+2~RFF.3,4~RFS.u+4,4 T! 3+4~RFF.f+3~LFS.4~3",
+          "starter": "[25] u+3"
+        },
+        {
+          "route": "[+59] f+2~RFF.f+3~LFS.2~RFS dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[25] u+3"
+        },
+        {
+          "route": "[+50] LFS.2~RFF.f+3 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[25] u+3"
+        },
+        {
+          "route": "[+59] f+2~RFF.f+3~LFS.2~RFS dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (does not work off-axis)",
+          "starter": "[20] u+3+4"
+        },
+        {
+          "route": "[+58] f+2~RFF.f+3~LFS.2~RFS dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] u+3+4"
+        },
+        {
+          "route": "[+56] f+2~RFF.f+3~LFS.2 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[20] u+3+4"
+        },
+        {
+          "route": "[+55] f+2~RFF.f+3~LFS.2 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] u+3+4"
+        },
+        {
+          "route": "[+68] RFF.3~4, dash u+3~LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": ""
+        },
+        {
+          "route": "[+68] RFF.3~4, dash u+3~LFS.2~RFF m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": ""
+        },
+        {
+          "route": "[+67] RFF.3~4, step f+4~RFS.3~4, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": ""
+        },
+        {
+          "route": "[+66] RFF.3~4, f+2~RFF.f+3~LFS.2, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": ""
+        },
+        {
+          "route": "[+37] (LFS.1) u+3, LFS.1, u+3, (uf+3+4~F)x2~LFS.f+3",
+          "starter": "[18] WS.2,3 T!"
+        },
+        {
+          "route": "[+36] (LFS.1) f+4~RFS.3~4 (uf+3+4~Fx2)~LFS.f+3",
+          "starter": "[18] WS.2,3 T!"
+        },
+        {
+          "route": "[+58] f+2~RFF.f+3~LFS.2~m.dash RFF.3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[20] LFS.uf+4"
+        },
+        {
+          "route": "[+62] f+4~RFS.b+3, m.dash df+1,3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3",
+          "starter": "[20] LFS.uf+4"
+        },
+        {
+          "route": "[+62] f+3~LFS.2, RFF.f+3~LFS.2, uf+3+4~F~LFS.uf+4 T! 3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] RFS.uf+4"
+        },
+        {
+          "route": "[+58] f+3~LFS.2, RFF.f+3, uf+3+4~F~LFS.uf+4 T! 3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] RFS.uf+4"
+        },
+        {
+          "route": "[+65] f+4~RFS.b+3, dash f+2~RFF.f+3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] BT.3"
+        },
+        {
+          "route": "[+64] RFF 3~4, u+3~LFS.uf+3+4~F~LFS.1, dash d+4,4 T! dash f+3+4~RFF.3~4 ub+3",
+          "starter": "[20] CH b+4"
+        },
+        {
+          "route": "[+63] RFF 3~4, f+4~RFS.3:4, dash b+3 T! dash f+3+4~RFF.3~4 ub+3",
+          "starter": "[20] CH b+4"
+        },
+        {
+          "route": "[+63] RFF 3~4, f+2~RFF.3,4~RFS.u+4,4 T! dash f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] CH b+4"
+        },
+        {
+          "route": "[+56] SSL db+4F~RFS.3, uf+3+4~F~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+          "starter": "[20] CH RFF.b+3"
+        }
+      ],
+      "raw": "[13] df+2 [+64] f+4~RFS.3~4, dash 4,3f~LFS.uf+3+4~F~LFS.uf+4 T! dash f+3+4~RFF.3~4 ub+3 [+63] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (does not work on small characters) [+62] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 (does not work on small characters) [+62] f+4~RFS.b+3, dash df+1,3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+62] f+2~RFF.f+3~LFS.2~RFF.f+3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy) [+62] u+3 LFS.2~RFF.3,4~RFS.u+4,4 T! dash f+3+4~RFF.f+3~LFS.4~3 [+61] f+4~RFS.b+3, dash 4,4,4,4 T! f+3+4~RFF.f+3~LFS.4~3 [+61] f+4~RFS.b+3, dash df+1,3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+60] f+4 RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+57 without JFFE] (easy) [+60] u+3 LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy) [+59] f+4~RFS.b+3, dash (uf+3+4~F)x2~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy) [+59] f+4 RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+56 without JFFE] [+59] u+3 LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 (easy) [+47] f+4~RFS.3~4 d+4,4 T! uf+3,4,3 [17] b+3 [+67] f+4~RFS.3~4 u+3 uf+3+4~F~LFS.uf+4 T! dash f+3+4~RFF.3~4 ub+3 [+64 without JFFE] [+67] f+4~RFS.3~4 u+3 uf+3+4~F~LFS.1, dash b+3 T! dash f+3+4~RFF.3~4 ub+3 [+64 without JFFE] [+63] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (may not work on small characters) [+62] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+62] f+4~RFS.3, uf+3+4~F~LFS.uf+3+4~F~LFS.uf+4 T! T! f+3+4~RFF.3~4 ub+3 [+62] u+3 LFS.2~RFF.3,4~RFS.u+4,4 T! dash f+3+4~RFF.f+3~LFS.4~3 [+60] u+3~LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (easy) [+57] f+4~RFS.3~4 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+53] f+4~RFS.b+3 2,4~RFS.2,3 T! 3+4~RFF.f+3~LFS.4~3 [25] u+3 [+61] 3+4~RFS.b+3, db+4~F~RFS.3~4, uf+3+4~F~LFS.uf+4, dash RFF.3~4, dash ub+3 [+59] 3+4~RFS.b+3, f+2~RFF.3,4~RFS.u+4,4 T! 3+4~RFF.f+3~LFS.4~3 [+59] f+2~RFF.f+3~LFS.2~RFS dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+50] LFS.2~RFF.f+3 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [20] u+3+4 [+59] f+2~RFF.f+3~LFS.2~RFS dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (does not work off-axis) [+58] f+2~RFF.f+3~LFS.2~RFS dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+56] f+2~RFF.f+3~LFS.2 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+55] f+2~RFF.f+3~LFS.2 uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [18] JFSR [+68] RFF.3~4, dash u+3~LFS.1 u+3 LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+68] RFF.3~4, dash u+3~LFS.2~RFF m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+67] RFF.3~4, step f+4~RFS.3~4, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [+66] RFF.3~4, f+2~RFF.f+3~LFS.2, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [18] WS.2,3 T! [+37] (LFS.1) u+3, LFS.1, u+3, (uf+3+4~F)x2~LFS.f+3 [+36] (LFS.1) f+4~RFS.3~4 (uf+3+4~Fx2)~LFS.f+3 [20] LFS.uf+4 [+58] f+2~RFF.f+3~LFS.2~m.dash RFF.3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [+62] f+4~RFS.b+3, m.dash df+1,3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 [20] RFS.uf+4 [+62] f+3~LFS.2, RFF.f+3~LFS.2, uf+3+4~F~LFS.uf+4 T! 3+4~RFF.f+3~LFS.4~3 [+58] f+3~LFS.2, RFF.f+3, uf+3+4~F~LFS.uf+4 T! 3+4~RFF.f+3~LFS.4~3 [20] BT.3 [+65] f+4~RFS.b+3, dash f+2~RFF.f+3~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 [20] CH b+4 [+64] RFF 3~4, u+3~LFS.uf+3+4~F~LFS.1, dash d+4,4 T! dash f+3+4~RFF.3~4 ub+3 [+63] RFF 3~4, f+4~RFS.3:4, dash b+3 T! dash f+3+4~RFF.3~4 ub+3 [+63] RFF 3~4, f+2~RFF.3,4~RFS.u+4,4 T! dash f+3+4~RFF.f+3~LFS.4~3 [20] CH RFF.b+3 [+56] SSL db+4F~RFS.3, uf+3+4~F~LFS.uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "CD.3 T!>LFS.4>RFS.4,3>LFS.3,f+4",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "f+4>RFS.2,3 T! 2, 3,3,2",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "[53] f,f+4>RFF.f+3>LFS.uf+4 T! SS.3,3>LFS.3,2",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[49] f+4>RFS.2,3 T! 2 > SS.3,3>LFS.3,2 (easy)",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[52] f+4>RFS.3>LFS.uf+4 T! f+4>RFS.2>RFF.f+3>RFS.3,f+4 (easy)",
+          "starter": "[17] b+3"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) CD.3 T!>LFS.4>RFS.4,3>LFS.3,f+4 f+4>RFS.2,3 T! 2, 3,3,2 [13] df+2 [17] b+3 [53] f,f+4>RFF.f+3>LFS.uf+4 T! SS.3,3>LFS.3,2 [49] f+4>RFS.2,3 T! 2 > SS.3,3>LFS.3,2 (easy) [17] b+3 [52] f+4>RFS.3>LFS.uf+4 T! f+4>RFS.2>RFF.f+3>RFS.3,f+4 (easy)",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "f+4, RFS 3~4, uf+3+4f, uf+4, dash uf+2, b+3",
+          "starter": "df+2"
+        },
+        {
+          "route": "RFS.3~4, f+2, uf+3+4f, uf+4, dash uf+2, b+3 (95 damage; the last hit can sometimes be avoided with B getup [wake up backwards] in season 2; can use df+4 to catch B getup for 98 damage, but it will not hit grounded)",
+          "starter": "3,3,4~RFS"
+        },
+        {
+          "route": "RFS.uf+4~RFF.3~4, uf+3+4f, uf+3+4f, uf+3+4,4",
+          "starter": ""
+        },
+        {
+          "route": "RFS.4,3 T! LFS.uf+3+4f, uf+3+4f, uf+3+4,4",
+          "starter": ""
+        }
+      ],
+      "raw": "df+2 f+4, RFS 3~4, uf+3+4f, uf+4, dash uf+2, b+3 3,3,4~RFS RFS.3~4, f+2, uf+3+4f, uf+4, dash uf+2, b+3 (95 damage; the last hit can sometimes be avoided with B getup [wake up backwards] in season 2; can use df+4 to catch B getup for 98 damage, but it will not hit grounded) RFS.uf+4~RFF.3~4, uf+3+4f, uf+3+4f, uf+3+4,4 RFS.4,3 T! LFS.uf+3+4f, uf+3+4f, uf+3+4,4",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+67] f+4~RFS.b+3, dash f+2, m.dash 3, dash 4,3f, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (challenge combo, super hard, presumably works only on King, Feng, Paul, Victor)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+66] f+4~RFS.3~4, dash 2,4~RFS.3~4, m.dash b+3 T! f+3+4~RFF.3~4 ub+3 (two JFFEs)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+63] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (does not work on small characters)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+62] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 (does not work on small characters)",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+64] u+3, [delay] LFS.1, f+4~RFS.3~4 (only the second hit should connect), uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (very hard, without JFFE)",
+          "starter": "[17] b+3"
+        },
+        {
+          "route": "[+62] f+2~RFF.f+3~LFS.2~RFF.f+3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (works on Alisa, Azucena, Jun, Lili, Nina, Claudio, DJ, King, Leroy, Paul, Steve, Victor)",
+          "starter": "[20] LFS.uf+4"
+        }
+      ],
+      "raw": "[13] df+2 [+67] f+4~RFS.b+3, dash f+2, m.dash 3, dash 4,3f, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (challenge combo, super hard, presumably works only on King, Feng, Paul, Victor) [+66] f+4~RFS.3~4, dash 2,4~RFS.3~4, m.dash b+3 T! f+3+4~RFF.3~4 ub+3 (two JFFEs) [+63] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (does not work on small characters) [+62] f+4~RFS.b+3, dash f+2, m.dash 3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.f+3~LFS.4~3 (does not work on small characters) [17] b+3 [+64] u+3, [delay] LFS.1, f+4~RFS.3~4 (only the second hit should connect), uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (very hard, without JFFE) [20] LFS.uf+4 [+62] f+2~RFF.f+3~LFS.2~RFF.f+3, uf+3+4~F~LFS.uf+4 T! f+3+4~RFF.3~4 ub+3 (works on Alisa, Azucena, Jun, Lili, Nina, Claudio, DJ, King, Leroy, Paul, Steve, Victor)",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Hwoarang_combos"
+}

@@ -1,0 +1,103 @@
+{
+  "canonical_name": "Claudio Serafino",
+  "character_key": "claudio",
+  "display_name_zh": "克劳迪奥",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "f,F+4 b+3 uf+3+4 db+1+2 T! wr2",
+          "starter": "Regular launch (e.g. df+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) f,F+4 b+3 uf+3+4 db+1+2 T! wr2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+15] 3,2",
+          "starter": "[24] CH 4,3"
+        },
+        {
+          "route": "[+??] 4,2 STB",
+          "starter": "[??] CH f+3"
+        },
+        {
+          "route": "[+??] f+2,2 STB",
+          "starter": "[??] CH f+3"
+        },
+        {
+          "route": "[+??] 3+4,cc,3",
+          "starter": "[??] CH SS.4"
+        },
+        {
+          "route": "[+??] db+3",
+          "starter": "[??] CH SS.4"
+        },
+        {
+          "route": "[+??] f2+2",
+          "starter": "[??] CH ff4"
+        },
+        {
+          "route": "[+??] 4,STB 2",
+          "starter": "[??] CH ff4"
+        }
+      ],
+      "raw": "[24] CH 4,3 [+15] 3,2 [??] CH f+3 [+??] 4,2 STB [+??] f+2,2 STB [??] CH SS.4 [+??] 3+4,cc,3 [+??] db+3 [??] CH ff4 [+??] f2+2 [+??] 4,STB 2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+47] b+3 dash b+3 b+3 uf+3+4 db+1+2 T! wr2",
+          "starter": "[20] ws2"
+        }
+      ],
+      "raw": "[20] ws2 [+47] b+3 dash b+3 b+3 uf+3+4 db+1+2 T! wr2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo here",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) combo here",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Claudio_combos"
+}

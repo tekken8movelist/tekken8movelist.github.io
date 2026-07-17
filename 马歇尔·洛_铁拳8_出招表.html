@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>马歇尔·洛 · 铁拳8 出招表</title>
+<style>
+  :root {
+    --jade: #b88900; --jade-dark: #6e5200; --jade-light: #fff6d2;
+    --ink: #2c2715; --line: #eadb9c;
+    --hi: #1d63b8; --mid: #b96a00; --low: #b3262e; --misc: #6b46a8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif; color: var(--ink); background: #fff; font-size: 10.5px; line-height: 1.35; max-width: 1120px; margin: 0 auto; padding: 16px; }
+  header { background: linear-gradient(120deg, var(--jade-dark), var(--jade) 60%, #d3a92f); color: #fff; border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+  header h1 { font-size: 21px; font-weight: 700; letter-spacing: 2px; }
+  header h1 small { font-size: 12px; font-weight: 400; opacity: .85; margin-left: 10px; letter-spacing: 1px; }
+  header .sub { font-size: 10px; opacity: .8; }
+  .legend { background: var(--jade-light); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; margin-bottom: 10px; font-size: 9.5px; color: #33463f; }
+  .legend b { color: var(--jade-dark); }
+  section { margin-bottom: 12px; }
+  section.keep { break-inside: avoid; }
+  table.lt { table-layout: fixed; border-spacing: 0; break-inside: avoid; margin-bottom: 10px; }
+  table.lt > tbody > tr > td.ltc { padding: 0; border: none; background: none; vertical-align: top; }
+  table.lt > tbody > tr > td.ltc + td.ltc { padding-left: 16px !important; }
+  .tpFull { break-inside: avoid; margin-bottom: 10px; }
+  section.tipsPage { break-before: page; margin-top: 0; }
+  .tipsPage td { line-height: 1.4; }
+  .tipsPage td.cmd b, .tipsPage td b { color: var(--jade-dark); }
+  h2 { font-size: 13px; color: #fff; background: var(--jade); padding: 4px 10px; border-radius: 5px 5px 0 0; letter-spacing: 3px; font-weight: 600; }
+  h2 .en { font-size: 9px; letter-spacing: 1px; opacity: .75; float: right; font-weight: 400; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; }
+  th { background: var(--jade-light); color: var(--jade-dark); font-size: 9.5px; padding: 3px 6px; text-align: left; border-bottom: 1.5px solid var(--jade); letter-spacing: 1px; }
+  td { padding: 2.5px 6px; border-bottom: 1px solid #edf3f0; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7fbf9; }
+  td.name { font-weight: 600; white-space: nowrap; }
+  td.cmd { font-family: Consolas, "Courier New", monospace; font-size: 9.5px; color: #145041; }
+  td.dmg { text-align: right; white-space: nowrap; color: #555; font-variant-numeric: tabular-nums; }
+  td.rng { white-space: nowrap; letter-spacing: 1px; }
+  .hi { color: var(--hi); font-weight: 600; }
+  .md { color: var(--mid); font-weight: 600; }
+  .lo { color: var(--low); font-weight: 600; }
+  .sp { color: var(--misc); font-weight: 600; }
+  .tag { display: inline-block; font-size: 8px; color: #fff; background: var(--misc); border-radius: 3px; padding: 0 4px; margin-left: 4px; vertical-align: 1px; letter-spacing: 1px; }
+  .tag.heat { background: #c2452e; }
+  .tag.stance { background: var(--jade); }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; align-items: start; }
+  .colsRow { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; align-items: start; }
+  footer { margin-top: 8px; font-size: 8.5px; color: #8aa39a; text-align: center; }
+  @media print {
+    body { padding: 0; font-size: 9.5px; max-width: none; }
+    header { border-radius: 0; }
+    tr { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+  /* uniform single-line rows in movelist tables (tips page keeps wrapping) */
+  section:not(.tipsPage) td { white-space: nowrap; }
+  @page { size: A4; margin: 9mm; }
+  @media (max-width: 760px) { .cols2, .colsRow { grid-template-columns: 1fr; } }
+</style>
+<style>/* screen-only 125% scaling; print/PDF unaffected */
+@media screen { body { zoom: 1.25; } }</style>
+<style>
+/* ---- dark theme (html.dark) ---- */
+html.dark { --hi:#6fb3ff; --mid:#ffb45e; --low:#ff8087; --misc:#c39bff; --acc:#ffe07a; }
+html.dark, html.dark body { background:#0e1116; }
+html.dark body { color:#dce3ea; }
+html.dark table { background:transparent; }
+html.dark td { border-bottom:1px solid #232a33; }
+html.dark tr:nth-child(even) td { background:#161b22; }
+html.dark th { background:#1b222b; color:var(--acc); border-bottom-color:var(--acc); }
+html.dark .legend { background:#141920; border-color:#2a323d; color:#b9c3cf; }
+html.dark .legend b { color:var(--acc); }
+html.dark td.cmd { color:var(--acc); }
+html.dark td.dmg { color:#98a4b1; }
+html.dark footer { color:#68737f; }
+html.dark .tipsPage td b, html.dark .tipsPage td.cmd b, html.dark .tipsPage td.name { color:#ffd9a0; }
+html.dark section.tipsPage { break-before: auto; border-top:2px solid #2a323d; padding-top:14px; margin-top:16px; }
+/* ---- light theme extras ---- */
+html:not(.dark) .tk-in{--tk-ink:#1d1d1f;--tk-bg:#ffffff}
+html:not(.dark) .tk-b i.on{box-shadow:none}
+html:not(.dark) .tk-dir::before{filter:none}
+html:not(.dark) section.tipsPage{border-top:2px solid var(--line);padding-top:14px;margin-top:16px}
+</style>
+<style id="tk-notation">
+/* ============================================================
+   Tekken 8 input notation component · v1.1 (final, polished)
+   单色 2×2 按键方阵 + 粗箭头方向。全部 em 计量，随 font-size 缩放。
+
+   主题：两个自定义属性
+     --tk-ink : 前景色（按键填充 / 箭头）
+     --tk-bg  : 页面背景色（按下键内的数字用色）
+   默认为夜间版配色（#0e1116 底），加 .light 切浅色。
+
+   标记约定（每条指令一个 .tk-in）：
+     <span class="tk-in tk-md">
+       <span class="tk-dir df"></span>          方向: f b u d df db uf ub
+       <span class="tk-sep">+</span>
+       <span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span>
+       <span class="tk-sep">›</span>            下一步
+       ...
+     </span>
+   .tk-b 恒有 4 个 <i>，顺序固定 1,2,3,4：
+     1 左拳 LP 左上 · 2 右拳 RP 右上 · 3 左脚 LK 左下 · 4 右脚 RK 右下
+   按下 = .on（实心+数字）；4 键常显，未按为幽灵态，不显数字。
+   ============================================================ */
+
+.tk-in{
+  --tk-ink:#dce3ea;
+  --tk-bg:#0e1116;
+  --tk-acc:#8b98a5; /* 角色主题色，默认中性灰蓝；按角色覆盖，见文件底部 */
+  display:inline-flex;align-items:center;gap:.42em;
+  color:var(--tk-ink);
+  font-family:ui-monospace,"JetBrains Mono",Consolas,monospace;
+}
+.tk-in.light{--tk-ink:#1d1d1f;--tk-bg:#ffffff}
+/* 浅色底：关掉辉光/阴影（浅色上会糊） */
+.tk-in.light .tk-b i.on{box-shadow:none}
+.tk-in.light .tk-dir::before{filter:none}
+
+/* 分隔符  + › ~ ＊ */
+.tk-sep{opacity:.45;font-size:.78em;font-weight:400}
+
+/* ---- 2×2 按键方阵 ---------------------------------------- */
+.tk-b{
+  display:inline-grid;flex:none;
+  grid-template-columns:1.35em 1.35em;
+  grid-auto-rows:1.35em;
+  gap:.2em;
+  font-size:.76em;font-weight:600;line-height:1;
+}
+.tk-b i{
+  display:flex;align-items:center;justify-content:center;
+  font-style:normal;
+  border-radius:.34em;
+  /* 幽灵态：淡填充 + 淡描边，不显数字（只有按下的键显示数字） */
+  background:color-mix(in srgb, var(--tk-ink) 7%, transparent);
+  border:.09em solid color-mix(in srgb, var(--tk-ink) 32%, transparent);
+  color:transparent;
+}
+.tk-b i.on{
+  background:var(--tk-ink);
+  border-color:var(--tk-ink);
+  color:var(--tk-bg);
+  font-weight:700;
+  box-shadow:0 0 .55em color-mix(in srgb, var(--tk-ink) 28%, transparent);
+}
+/* 紧凑列表行：连按下键的数字也隐藏，只靠位置 */
+.tk-b.no-num i.on{color:transparent}
+
+/* ---- 方向箭头 --------------------------------------------- */
+.tk-dir{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.5em;height:1.5em;flex:none;
+}
+.tk-dir::before{
+  content:"";
+  width:1.02em;height:1.02em;
+  background:var(--tk-ink);
+  clip-path:polygon(10% 18%, 94% 50%, 10% 82%, 32% 50%);
+  filter:drop-shadow(0 0 .3em color-mix(in srgb, var(--tk-ink) 25%, transparent));
+}
+.tk-dir.f::before {transform:rotate(0deg)}
+.tk-dir.df::before{transform:rotate(45deg)}
+.tk-dir.d::before {transform:rotate(90deg)}
+.tk-dir.db::before{transform:rotate(135deg)}
+.tk-dir.b::before {transform:rotate(180deg)}
+.tk-dir.ub::before{transform:rotate(225deg)}
+.tk-dir.u::before {transform:rotate(270deg)}
+.tk-dir.uf::before{transform:rotate(315deg)}
+/* 按住（大写 F/B/U/D…）：箭头套圈 */
+.tk-dir.hold{
+  border:.09em solid color-mix(in srgb, var(--tk-ink) 75%, transparent);
+  border-radius:50%;
+}
+.tk-dir.hold::before{width:.82em;height:.82em}
+/* 回中 N：纯文字 <span class="tk-n">N</span> */
+.tk-n{font-weight:700;font-size:.8em;opacity:.55}
+
+/* ---- 状态前缀（起身中 / 凤凰中 / 背身时…） --------------- */
+/* 唯一使用主题色的位置：按键图与箭头恒为单色 */
+.tk-state{
+  border:.08em solid color-mix(in srgb, var(--tk-acc) 45%, transparent);
+  background:color-mix(in srgb, var(--tk-acc) 12%, transparent);
+  border-radius:999em;
+  padding:.1em .6em;
+  font-size:.72em;
+  color:color-mix(in srgb, var(--tk-acc) 60%, var(--tk-ink));
+  white-space:nowrap;
+}
+
+/* ---- 三档尺寸 --------------------------------------------- */
+.tk-sm{font-size:11px} /* 列表行，配合 .tk-b.no-num */
+.tk-md{font-size:15px} /* 详情弹层 / 连招卡 */
+.tk-lg{font-size:22px} /* 教学 / 逐步播放 */
+
+/* ---- 推荐角色主题色（至第3季全阵容） -----------------------
+   夜间底调校（浅色底可原样使用）。用法：
+   <span class="tk-in tk-md tk-char-xiaoyu">…</span>
+   或页面级：body{--tk-acc:#ff9fce}
+   按键图/箭头始终单色，主题色只出现在状态胶囊、标签、页面点缀。 */
+
+/* 基础阵容 (32) */
+.tk-char-jin       {--tk-acc:#6fb3ff} /* 风间仁 · 电蓝 */
+.tk-char-kazuya    {--tk-acc:#b18cff} /* 三岛一八 · 恶魔紫 */
+.tk-char-jun       {--tk-acc:#9fe0c0} /* 风间准 · 净绿 */
+.tk-char-paul      {--tk-acc:#ff8087} /* 保罗 · 红 */
+.tk-char-law       {--tk-acc:#ffe07a} /* 马歇尔·洛 · 明黄 */
+.tk-char-king      {--tk-acc:#e8a04c} /* 金 · 豹金 */
+.tk-char-lars      {--tk-acc:#8fa8ff} /* 拉斯 · 蓝紫 */
+.tk-char-jack8     {--tk-acc:#a9cf74} /* 杰克-8 · 军绿 */
+.tk-char-xiaoyu    {--tk-acc:#ff9fce} /* 凌晓雨 · 粉 */
+.tk-char-nina      {--tk-acc:#d8a9ff} /* 妮娜 · 淡紫 */
+.tk-char-leroy     {--tk-acc:#9db4c9} /* 勒罗伊 · 灰蓝 */
+.tk-char-asuka     {--tk-acc:#7fc4e8} /* 风间飞鸟 · 天蓝 */
+.tk-char-lili      {--tk-acc:#cdd6e0} /* 莉莉 · 银白 */
+.tk-char-bryan     {--tk-acc:#9ad0c2} /* 布莱恩 · 青 */
+.tk-char-hwoarang  {--tk-acc:#ff8f4d} /* 花郎 · 烈橙 */
+.tk-char-claudio   {--tk-acc:#bcd4ff} /* 克劳迪奥 · 星蓝 */
+.tk-char-azucena   {--tk-acc:#d9a878} /* 阿苏塞娜 · 咖啡棕 */
+.tk-char-raven     {--tk-acc:#9f86d9} /* 雷文 · 忍紫 */
+.tk-char-leo       {--tk-acc:#e0c187} /* 雷欧 · 棕金 */
+.tk-char-steve     {--tk-acc:#84a9e0} /* 史蒂夫 · 宝蓝 */
+.tk-char-kuma      {--tk-acc:#c99b6e} /* 熊 · 棕 */
+.tk-char-yoshi     {--tk-acc:#7fd6a8} /* 吉光 · 妖绿 */
+.tk-char-shaheen   {--tk-acc:#e8cf9a} /* 沙欣 · 沙金 */
+.tk-char-dragunov  {--tk-acc:#aab6c2} /* 德拉古诺夫 · 铁灰 */
+.tk-char-feng      {--tk-acc:#b5d98a} /* 冯威 · 竹绿 */
+.tk-char-panda     {--tk-acc:#e6e9ee} /* 熊猫 · 熊猫白 */
+.tk-char-lee       {--tk-acc:#c39bff} /* 李超狼 · 紫罗兰 */
+.tk-char-alisa     {--tk-acc:#ffb3c6} /* 阿丽莎 · 樱粉 */
+.tk-char-zafina    {--tk-acc:#c98fd0} /* 扎菲娜 · 暗紫红 */
+.tk-char-deviljin  {--tk-acc:#a17fe0} /* 恶魔仁 · 墨紫 */
+.tk-char-victor    {--tk-acc:#de9fe6} /* 维克多 · 霓紫 */
+.tk-char-reina     {--tk-acc:#cf9ef0} /* 蕾娜 · 雷紫 */
+/* 第1季 */
+.tk-char-eddy      {--tk-acc:#9fd97f} /* 艾迪 · 巴西绿 */
+.tk-char-lidia     {--tk-acc:#ffb0a6} /* 莉迪亚 · 白红 */
+.tk-char-heihachi  {--tk-acc:#ffcf66} /* 三岛平八 · 雷金 */
+.tk-char-clive     {--tk-acc:#6fd0e0} /* 克莱夫 · 晶蓝 */
+/* 第2季 */
+.tk-char-anna      {--tk-acc:#e07a8f} /* 安娜 · 酒红 */
+.tk-char-fahkumram {--tk-acc:#6fe0c9} /* 法昆拉姆 · 雷青 */
+.tk-char-armorking {--tk-acc:#7f8fb3} /* 铠甲王 · 黑豹蓝 */
+.tk-char-miaryzo   {--tk-acc:#c9e896} /* 米亚莉·佐 · 自然绿 */
+/* 第3季 */
+.tk-char-kunimitsu {--tk-acc:#ffc27a} /* 州光 · 狐黄 */
+.tk-char-bob       {--tk-acc:#a6d4ff} /* 鲍勃 · 天蓝白 */
+.tk-char-rogerjr   {--tk-acc:#ff8f7a} /* 罗杰Jr. · 拳套红 */
+.tk-char-yujiro    {--tk-acc:#e5735e} /* 范马勇次郎 · 鬼背红 */
+
+
+/* ---- adaptation: graphical notation on this sheet ---- */
+.tk-in{--tk-acc:#ffe07a}
+td.cmd .tk-b i:not(.on){color:transparent}
+body.nn-mode td.cmd .tk-b i.on{color:transparent}
+.tk-txt{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;font-size:.85em;opacity:.72;white-space:nowrap}
+.tk-tbang{color:var(--mid,#ffb45e);font-weight:700;font-size:.8em;letter-spacing:.5px}
+.tk-sep.tk-arw{opacity:.7;font-size:.95em}
+td.fr{font-family:Consolas,'Courier New',monospace;font-size:9px;white-space:nowrap;color:#8a6f7d}
+html.dark td.fr{color:#8fa3b8}
+section:not(.tipsPage) table:not(.lt) td{vertical-align:middle}
+.tipsPage .tpFull td{vertical-align:middle}
+td.cmd .tk-in{flex-wrap:wrap;row-gap:.25em;vertical-align:middle}
+table.cb td{padding:8px 8px}
+table.cb td:first-child{border-right:1px solid rgba(139,152,165,.22);padding-right:10px}
+table.cb .tk-sep.tk-arw{margin:0 .3em}
+body.txt-mode .cmd-gfx{display:none}
+body.txt-mode .gfx-only{display:none}
+body:not(.txt-mode) .cmd-txt{display:none}
+.ntgl{display:inline-flex;align-items:center;gap:8px;font-size:10px;opacity:.95}
+.ntgl .seg{display:inline-flex;border:1px solid rgba(255,255,255,.45);border-radius:999px;overflow:hidden}
+.ntgl button{font:inherit;border:0;background:transparent;color:#fff;padding:2px 10px;cursor:pointer;letter-spacing:1px}
+.ntgl button.on{background:rgba(255,255,255,.92);color:#b88900;font-weight:600}
+</style>
+<script>/* tk-theme boot */
+try{if((localStorage.getItem('tk-theme')||'dark')==='dark')document.documentElement.classList.add('dark')}catch(e){document.documentElement.classList.add('dark')}</script>
+
+<style>
+tr.grp th{background:color-mix(in srgb,var(--jade-light) 72%,var(--jade));color:var(--jade-dark);padding-top:5px}
+html.dark tr.grp th{background:#20200f;color:var(--acc);border-bottom-color:#66591d}
+.movelist td.name{max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.balanced-movelists{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 24px;align-items:start}
+.balanced-list{min-width:0}
+.balanced-list tbody tr{height:38px}
+.balanced-list td{height:38px;vertical-align:middle}
+.balanced-list td.cmd{font-size:9px}
+.synced-lists .movelist{table-layout:fixed}
+.synced-lists .movelist th:nth-child(1){width:19%}
+.synced-lists .movelist th:nth-child(2){width:41%}
+.synced-lists .movelist th:nth-child(3){width:10%}
+.synced-lists .movelist th:nth-child(4){width:18%}
+.synced-lists .movelist th:nth-child(5){width:12%}
+.synced-lists .movelist tr:not(.grp){height:38px}
+.synced-lists .movelist tr:not(.grp)>td{height:38px;vertical-align:middle}
+.synced-lists .movelist td.cmd{font-size:8.5px}
+.synced-lists .movelist td.dmg{font-size:9px}
+.synced-lists td.cmd .tk-in{flex-wrap:nowrap}
+@media (max-width:760px){.balanced-movelists{grid-template-columns:1fr;gap:12px 0}.balanced-list tbody tr{height:auto}.balanced-list td{height:auto}}
+.tipsLead{margin-bottom:10px;color:#66705f}
+html.dark .tipsLead{color:#98a4b1}
+</style>
+</head>
+
+<body>
+<header>
+  <h1>马歇尔·洛<small>MARSHALL LAW · 铁拳 8 出招表 (数据依据 Wavu Wiki 现行版本)</small></h1>
+  <div class="ntgl" id="thgl">主题<span class="seg"><button type="button" id="thd" class="on">夜间</button><button type="button" id="thl">浅色</button></span></div>
+  <div class="ntgl" id="ntgl">记法<span class="seg"><button type="button" id="ng" class="on">按键图</button><button type="button" id="nn">无数字</button><button type="button" id="nt">文字</button></span></div>
+  <div class="sub">上段 <span style="color:#9fc9ff">■</span>　中段 <span style="color:#ffd18a">■</span>　下段 <span style="color:#ff9d9d">■</span></div>
+</header>
+
+<div class="legend">
+  <b>指令说明</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上　|
+  f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　龙构=龙构架势(DSS)　背身=背身状态(BT)　+=同时按　~=紧接　|　<b>判定</b>：<span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御　|　<b>发生</b>=首击冲击帧(i=impact,越小越快,依 Wavu)
+</div>
+<div class="legend gfx-only">
+  <b>图形记法</b>
+  <span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）
+  <span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向
+  <span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住
+  <span class="tk-in tk-sm"><span class="tk-state">龙构中</span></span>=状态前缀　|　<b>分隔</b>：› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋
+</div>
+
+<section>
+  <h2>投技 <span class="en">THROWS</span></h2>
+    <div class="cols2 balanced-movelists">
+    <table class="movelist balanced-list throws-list">
+      <thead><tr><th>招式</th><th>指令</th><th>发生</th><th>方向</th><th>伤害</th><th>挣脱</th></tr></thead>
+      <tbody>
+        <tr><td class="name">龙火投</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">1+3</span></td><td class="fr">i12~14</td><td>正面</td><td class="dmg">35</td><td>1或2</td></tr>
+        <tr><td class="name">跃蛙投</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">2+4</span></td><td class="fr">i12~14</td><td>正面</td><td class="dmg">35</td><td>1或2</td></tr>
+        <tr><td class="name">夹头踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">左侧</span><span class="tk-b"><i class="on">1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-txt">(</span><span class="tk-txt">或</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i class="on">4</i></span><span class="tk-txt">)</span></span></span><span class="cmd-txt">左侧 1+3 (或 2+4)</span></td><td class="fr">i12~14</td><td>左侧</td><td class="dmg">40</td><td>1</td></tr>
+        <tr><td class="name">破裆摔</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">右侧</span><span class="tk-b"><i class="on">1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-txt">(</span><span class="tk-txt">或</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i class="on">4</i></span><span class="tk-txt">)</span></span></span><span class="cmd-txt">右侧 1+3 (或 2+4)</span></td><td class="fr">i12~14</td><td>右侧</td><td class="dmg">42</td><td>2</td></tr>
+        <tr><td class="name">龙噬</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背后</span><span class="tk-b"><i class="on">1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-txt">(</span><span class="tk-txt">或</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i class="on">4</i></span><span class="tk-txt">)</span></span></span><span class="cmd-txt">背后 1+3 (或 2+4)</span></td><td class="fr">i12~14</td><td>背后</td><td class="dmg">50</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <table class="movelist balanced-list throws-list">
+      <thead><tr><th>招式</th><th>指令</th><th>发生</th><th>方向</th><th>伤害</th><th>挣脱</th></tr></thead>
+      <tbody>
+        <tr><td class="name">冲刺抱摔</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">f+2+3</span></td><td class="fr">i12</td><td>正面</td><td class="dmg">35</td><td>1</td></tr>
+        <tr><td class="name">夹头拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+1+2</span></td><td class="fr">i12</td><td>正面</td><td class="dmg">35</td><td>1+2</td></tr>
+        <tr><td class="name">夹头落</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+1+2,1,2,1+2</span></td><td class="fr">i12</td><td>正面</td><td class="dmg">40</td><td>1+2</td></tr>
+        <tr><td class="name">抬膝摔</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">f,F+3+4</span></td><td class="fr">i14</td><td>正面</td><td class="dmg">10</td><td>1+2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>打击技 <span class="en">ATTACKS</span></h2>
+    <div class="cols2 balanced-movelists">
+    <table class="movelist balanced-list attacks-list">
+      <thead><tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td class="name">刺拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1</span></td><td class="fr">i10</td><td class="dmg">5</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">双刺拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,1</span></td><td class="fr">i10</td><td class="dmg">5,5</td><td class="rng"><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">怒龙突进</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,1,1</span></td><td class="fr">i10</td><td class="dmg">5,5,20</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">拳雨连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,1,2</span></td><td class="fr">i10</td><td class="dmg">5,5,12</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">左右连拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,2</span></td><td class="fr">i10</td><td class="dmg">5,8</td><td class="rng"><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">左右连环拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,2,2</span></td><td class="fr">i10</td><td class="dmg">5,8,10</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">左右龙拳连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,2,2,2</span></td><td class="fr">i10</td><td class="dmg">5,8,10,15</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">左右烈焰拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,2,2,1+2</span></td><td class="fr">i10</td><td class="dmg">5,8,10,23</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">左右拳接膝</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">1,2,3</span></td><td class="fr">i10</td><td class="dmg">5,8,10</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">左右拳转空翻</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">1,2,u/f+3</span></td><td class="fr">i10</td><td class="dmg">—</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="sp">特殊</span></td></tr>
+        <tr><td class="name">左右拳转空翻虚招</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">1,2,u/f+3,4</span></td><td class="fr">i10</td><td class="dmg">20</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="sp">特殊</span><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">右刺拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2</span></td><td class="fr">i10</td><td class="dmg">8</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">双右拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2,2</span></td><td class="fr">i10</td><td class="dmg">8,10</td><td class="rng"><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">狂舞连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2,2,2</span></td><td class="fr">i10</td><td class="dmg">8,10,10</td><td class="rng"><span class="hi">上</span><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">烈焰拳连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2,2,1+2</span></td><td class="fr">i10</td><td class="dmg">8,10,20</td><td class="rng"><span class="hi">上</span><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">右拳反手</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2,b+2</span></td><td class="fr">i10</td><td class="dmg">8,8</td><td class="rng"><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">右拳回身连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2,b+2,1</span></td><td class="fr">i10</td><td class="dmg">8,8,8</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">怒龙连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">2,b+2,1,2</span></td><td class="fr">i10</td><td class="dmg">8,8,8,21</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">高位踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">3</span></td><td class="fr">i12</td><td class="dmg">12</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">虚招转中踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">3,3</span></td><td class="fr">i12</td><td class="dmg">12,17</td><td class="rng"><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">高踢转血刃</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">3,4</span></td><td class="fr">i12</td><td class="dmg">12,20</td><td class="rng"><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">右高踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">4</span></td><td class="fr">i13</td><td class="dmg">15</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">右踢转左踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">4,3</span></td><td class="fr">i13</td><td class="dmg">15,12</td><td class="rng"><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">少林旋风腿</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">4,3,4</span></td><td class="fr">i13</td><td class="dmg">15,12,14</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">月轮踢连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-dir u"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">4,u+3</span></td><td class="fr">i13</td><td class="dmg">15,23</td><td class="rng"><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">旋风棍爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1+2</span></td><td class="fr">i16~17</td><td class="dmg">20</td><td class="rng"><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">龙构双飞踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">3+4</span></td><td class="fr">i14~15</td><td class="dmg">5,10</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">狂龙飞翔</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">3+4,4</span></td><td class="fr">i14~15</td><td class="dmg">5,10,25</td><td class="rng"><span class="md">中</span><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">龙构突拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f+2</span></td><td class="fr">i12</td><td class="dmg">10</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">毒箭</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f+2~1</span></td><td class="fr">i19~20</td><td class="dmg">24</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">前踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">f+3</span></td><td class="fr">i18</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">沉坠击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f+3,1</span></td><td class="fr">i18</td><td class="dmg">12,15</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙锤</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f+1+2</span></td><td class="fr">i20</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">屠龙脚</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">f+3+4</span></td><td class="fr">i25~26</td><td class="dmg">20</td><td class="rng"><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">前下左拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+1</span></td><td class="fr">i13</td><td class="dmg">10</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">爆裂爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+1,2</span></td><td class="fr">i13</td><td class="dmg">10,24</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">前下拳扫</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+1,3</span></td><td class="fr">i13</td><td class="dmg">10,6</td><td class="rng"><span class="md">中</span><span class="lo">下</span></td></tr>
+        <tr><td class="name">前下拳扫连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+1,3,2</span></td><td class="fr">i13</td><td class="dmg">10,6,6</td><td class="rng"><span class="md">中</span><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">升龙</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+2</span></td><td class="fr">i15~16</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">龙枪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+3</span></td><td class="fr">i21</td><td class="dmg">23</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">右中踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/f+4</span></td><td class="fr">i13</td><td class="dmg">15</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">右中踢转空翻踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+4,3</span></td><td class="fr">i13</td><td class="dmg">15,23</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">香蕉皮</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/f+3+4</span></td><td class="fr">i18</td><td class="dmg">12</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">低位反手</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d+1</span></td><td class="fr">i19~20</td><td class="dmg">15</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">低位反手转高踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d+1,3</span></td><td class="fr">i19~20</td><td class="dmg">15,21</td><td class="rng"><span class="lo">下</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">身体拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d+2</span></td><td class="fr">i11</td><td class="dmg">8</td><td class="rng"><span class="sp">特下</span></td></tr>
+        <tr><td class="name">身体拳转升龙</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d+2,3</span></td><td class="fr">i11</td><td class="dmg">8,21</td><td class="rng"><span class="sp">特下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙式低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d+3</span></td><td class="fr">i16</td><td class="dmg">8</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">龙式低踢转钩踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d+3,3</span></td><td class="fr">i16</td><td class="dmg">8,17</td><td class="rng"><span class="lo">下</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d+4</span></td><td class="fr">i15</td><td class="dmg">7</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">组合踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d+4,3</span></td><td class="fr">i15</td><td class="dmg">7,12</td><td class="rng"><span class="lo">下</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d+3+4</span></td><td class="fr">i12</td><td class="dmg">7</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">低踢转空翻</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d+3+4,3</span></td><td class="fr">i12</td><td class="dmg">7,23</td><td class="rng"><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">蹲姿刺拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/b+1</span></td><td class="fr">i10</td><td class="dmg">5</td><td class="rng"><span class="sp">特下</span></td></tr>
+        <tr><td class="name">后下肘击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/b+2</span></td><td class="fr">i14</td><td class="dmg">15</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">肘击弹踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/b+2,4</span></td><td class="fr">i14</td><td class="dmg">15,25</td><td class="rng"><span class="md">中</span><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">胫骨粉碎</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d/b+3</span></td><td class="fr">i17</td><td class="dmg">15</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">龙尾扫</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/b+4</span></td><td class="fr">i26</td><td class="dmg">20</td><td class="rng"><span class="lo">下</span></td></tr>
+      </tbody>
+    </table>
+    <table class="movelist balanced-list attacks-list">
+      <thead><tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td class="name">龙尾扫转空翻踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/b+4,4</span></td><td class="fr">i26</td><td class="dmg">20,27</td><td class="rng"><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">双截棍连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/b+1+2</span></td><td class="fr">i17</td><td class="dmg">8,8,8</td><td class="rng"><span class="md">中</span><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙之审判</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/b+1+2,1</span></td><td class="fr">i17</td><td class="dmg">8,8,8,28</td><td class="rng"><span class="md">中</span><span class="hi">上</span><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">后手拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+1</span></td><td class="fr">i14</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">后手拳连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+1,2</span></td><td class="fr">i14</td><td class="dmg">12,12</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙暴连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+1,2,2</span></td><td class="fr">i14</td><td class="dmg">12,12,22</td><td class="rng"><span class="md">中</span><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">后肘</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+2</span></td><td class="fr">i16</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">涡旋突进</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+2,1</span></td><td class="fr">i16</td><td class="dmg">12,16</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">拳锋突进</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+2,2</span></td><td class="fr">i16</td><td class="dmg">12,15</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">后肘低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">b+2,3</span></td><td class="fr">i16</td><td class="dmg">12,10</td><td class="rng"><span class="md">中</span><span class="lo">下</span></td></tr>
+        <tr><td class="name">废车场踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">b+2,3,4</span></td><td class="fr">i16</td><td class="dmg">12,10,23</td><td class="rng"><span class="md">中</span><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙突连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">b+2,3,d+4</span></td><td class="fr">i16</td><td class="dmg">12,10,23</td><td class="rng"><span class="md">中</span><span class="lo">下</span><span class="lo">下</span></td></tr>
+        <tr><td class="name">龙旋踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">b+3</span></td><td class="fr">i23</td><td class="dmg">27</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">后踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">b+4</span></td><td class="fr">i14</td><td class="dmg">13</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">虎牙</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">b+4,3</span></td><td class="fr">i14</td><td class="dmg">13,21</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">龙刺</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+1+2</span></td><td class="fr">i20</td><td class="dmg">21</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">格挡</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">b+1+3</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+        <tr><td class="name">龙式格挡</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">b+2+4</span></td><td class="fr">—</td><td class="dmg">34</td><td class="rng"><span class="sp">投</span></td></tr>
+        <tr><td class="name">龙箭</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">b+3+4</span></td><td class="fr">i23</td><td class="dmg">25</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">通用钩拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir ub"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/b+2</span></td><td class="fr">i15</td><td class="dmg">17</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">怒拳连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir ub"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/b+1,1+2,2</span></td><td class="fr">i12</td><td class="dmg">3,3,3,25</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="hi">上</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">空翻</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir ub"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">u/b+3</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+        <tr><td class="name">空翻虚招</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir ub"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">u/b+3,4</span></td><td class="fr">i15</td><td class="dmg">20</td><td class="rng"><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">龙式背击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir ub"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/b+1+2</span></td><td class="fr">i16~17</td><td class="dmg">20</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">脚尖升踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir u"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">u+4</span></td><td class="fr">i15</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">黑障</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+1</span></td><td class="fr">i12</td><td class="dmg">10</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">黑障转突袭</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+1,3</span></td><td class="fr">i12</td><td class="dmg">10 10</td><td class="rng"><span class="hi">上</span><span class="lo">下</span></td></tr>
+        <tr><td class="name">疾风爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+2</span></td><td class="fr">i19~20</td><td class="dmg">21</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">龙之怒</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+3</span></td><td class="fr">i18</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">升龙踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">u/f+4</span></td><td class="fr">i15</td><td class="dmg">14</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">龙降</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">u/f+3+4</span></td><td class="fr">i29</td><td class="dmg">27</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">升龙炮</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-n">N</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">u/f, N, 4</span></td><td class="fr">i19</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">空翻踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">u/f+4</span></td><td class="fr">i15</td><td class="dmg">23</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">后空翻踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+4,3</span></td><td class="fr">i15</td><td class="dmg">23 16</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙探手</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f,F+2</span></td><td class="fr">i14~16</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">龙探手连拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f,F+2,1</span></td><td class="fr">i14~16</td><td class="dmg">12,12</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">龙击连招</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">f,F+2,1,3</span></td><td class="fr">i14~16</td><td class="dmg">12,12,23</td><td class="rng"><span class="md">中</span><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙匕</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">f,F+2,3</span></td><td class="fr">i14~16</td><td class="dmg">12,20</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">龙探手转毒箭</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f,F+2,f+1+2</span></td><td class="fr">i14~16</td><td class="dmg">12,24</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">龙断</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">f,F+3</span></td><td class="fr">i23~26</td><td class="dmg">30</td><td class="rng"><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">龙跃击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">f,F+4</span></td><td class="fr">i20~21</td><td class="dmg">17</td><td class="rng"><span class="md">中(地)</span></td></tr>
+        <tr><td class="name">奔袭侧踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">f,f,F+3</span></td><td class="fr">i20~28</td><td class="dmg">30</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">蓄力重拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-dir b hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">b,B+2+3</span></td><td class="fr">i78</td><td class="dmg">60</td><td class="rng"><span class="md">中!</span></td></tr>
+        <tr><td class="name">蹲姿刺拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">蹲伏中 1</span></td><td class="fr">i10</td><td class="dmg">5</td><td class="rng"><span class="sp">特下</span></td></tr>
+        <tr><td class="name">身体拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">蹲伏中 2</span></td><td class="fr">i11</td><td class="dmg">8</td><td class="rng"><span class="sp">特下</span></td></tr>
+        <tr><td class="name">蹲姿左踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">蹲伏中 3</span></td><td class="fr">i16</td><td class="dmg">10</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">双重冲击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">蹲伏中 3,4</span></td><td class="fr">i16</td><td class="dmg">10,27</td><td class="rng"><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">蹲伏中 4</span></td><td class="fr">i12</td><td class="dmg">7</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">低踢转空翻</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">蹲伏中 4,3</span></td><td class="fr">i12</td><td class="dmg">7,23</td><td class="rng"><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">彩虹踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">蹲伏中 u/f+3+4</span></td><td class="fr">i46~49</td><td class="dmg">30</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">滑铲</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-dir df"></span><span class="tk-dir d"></span><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">蹲伏中 d/f,d,d/f+3</span></td><td class="fr">i16~20</td><td class="dmg">17</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">起身左拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 1</span></td><td class="fr">i13</td><td class="dmg">10</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">闪光拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 1,2</span></td><td class="fr">i13</td><td class="dmg">10,25</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">龙上勾拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 2</span></td><td class="fr">i15</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">侧踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 3</span></td><td class="fr">i16</td><td class="dmg">16</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">起身右踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">起身中 4</span></td><td class="fr">i11</td><td class="dmg">14</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">前踢空翻变式</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 4,3</span></td><td class="fr">i11</td><td class="dmg">14,23</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+        <tr><td class="name">弹射踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">起身中 3+4</span></td><td class="fr">i14</td><td class="dmg">30</td><td class="rng"><span class="md">中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="keep">
+  <table class="lt synced-lists"><tbody><tr>
+    <td class="ltc" style="width:50%"><h2>龙构 <span class="en">DRAGON CHARGE / DSS</span></h2><table class="movelist">
+<tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr>
+<tr class="grp"><th colspan="5">龙构</th></tr>
+<tr><td class="name">龙构</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d+1+2</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+<tr><td class="name">龙拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 1</span></td><td class="fr">i12</td><td class="dmg">14</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">云门</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 2</span></td><td class="fr">i14</td><td class="dmg">20</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">龙构旋踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 3</span></td><td class="fr">i19</td><td class="dmg">25</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">龙构踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">龙构中 4</span></td><td class="fr">i21</td><td class="dmg">21</td><td class="rng"><span class="lo">下</span></td></tr>
+<tr><td class="name">旋风棍爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1+2</span></td><td class="fr">i16~17</td><td class="dmg">20</td><td class="rng"><span class="md">中(地)</span></td></tr>
+<tr><td class="name">龙吼</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 f+1</span></td><td class="fr">i14</td><td class="dmg">20 (24)</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">毒箭</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f+2~1</span></td><td class="fr">i19~20</td><td class="dmg">24</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">龙炮</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 f+3</span></td><td class="fr">i20</td><td class="dmg">27 (32)</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">龙翔</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">龙构中 f+4</span></td><td class="fr">i19</td><td class="dmg">36 (40)</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">掀面摔</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 u/f+1+2</span></td><td class="fr">i12</td><td class="dmg">35</td><td class="rng"><span class="sp">投</span></td></tr>
+</table></td>
+    <td class="ltc" style="width:50%"><h2>背身 <span class="en">BACK TURNED</span></h2><table class="movelist">
+<tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr>
+<tr class="grp"><th colspan="5">背身</th></tr>
+<tr><td class="name">回身拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 1</span></td><td class="fr">i10</td><td class="dmg">7</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">背身右拳</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 2</span></td><td class="fr">i15</td><td class="dmg">17</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">盲肘连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 2,2</span></td><td class="fr">i15</td><td class="dmg">17,20</td><td class="rng"><span class="md">中</span><span class="md">中</span></td></tr>
+<tr><td class="name">背身左踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 3</span></td><td class="fr">i10</td><td class="dmg">18</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">背身右踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">背身时 4</span></td><td class="fr">i11</td><td class="dmg">14</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">狼牙</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 4,3</span></td><td class="fr">i11</td><td class="dmg">14,24</td><td class="rng"><span class="hi">上</span><span class="md">中</span></td></tr>
+<tr><td class="name">龙式背击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 1+2</span></td><td class="fr">i15~16</td><td class="dmg">20</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">背身低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">背身时 d+3</span></td><td class="fr">i12</td><td class="dmg">6</td><td class="rng"><span class="lo">下</span></td></tr>
+<tr><td class="name">反身低踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">背身时 d+4</span></td><td class="fr">i23</td><td class="dmg">17</td><td class="rng"><span class="lo">下</span></td></tr>
+<tr><td class="name">蛙人踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背身时</span><span class="tk-dir d"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">背身时 d+3+4</span></td><td class="fr">i26</td><td class="dmg">25</td><td class="rng"><span class="md">中(地)</span></td></tr>
+</table></td>
+  </tr></tbody></table>
+  <table class="lt synced-lists"><tbody><tr>
+    <td class="ltc" style="width:50%"><h2>横移与特殊 <span class="en">SIDESTEP / OTHERS</span></h2><table class="movelist">
+<tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr>
+<tr class="grp"><th colspan="5">横移</th></tr>
+<tr><td class="name">旋龙击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">横移中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">横移中 2</span></td><td class="fr">i18</td><td class="dmg">23</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">低位压制</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">横移中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">横移中 3</span></td><td class="fr">i18</td><td class="dmg">17</td><td class="rng"><span class="lo">下</span></td></tr>
+<tr><td class="name">双龙</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">横移中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">横移中 3+4</span></td><td class="fr">i15</td><td class="dmg">9,10</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+<tr class="grp"><th colspan="5">其他</th></tr>
+<tr><td class="name">龙之宿命</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">愤怒中</span><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">愤怒中 d/f+1+2</span></td><td class="fr">i20</td><td class="dmg">55+</td><td class="rng"><span class="md">中</span><span class="sp">投</span></td></tr>
+<tr><td class="name">蓄气</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">1+2+3+4</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+<tr><td class="name">黑障</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">~</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1+2+3+4~1</span></td><td class="fr">i12</td><td class="dmg">10</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">黑障转突袭</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">~</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">1+2+3+4~1,3</span></td><td class="fr">i12</td><td class="dmg">10,10</td><td class="rng"><span class="hi">上</span><span class="lo">下</span></td></tr>
+<tr><td class="name">蓄气保持</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">＊</span></span></span><span class="cmd-txt">1+2+3+4,1+2*</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+<tr><td class="name">云门</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">＊</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1+2+3+4,1+2*,2</span></td><td class="fr">i14</td><td class="dmg">22</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">挑衅</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">倒地仰面时</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">倒地仰面时 1+2+3+4</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+<tr><td class="name">挑衅</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="cmd-txt">2+3+4</span></td><td class="fr">—</td><td class="dmg">—</td><td class="rng">—</td></tr>
+<tr><td class="name">蹬墙飞踢</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">背墙时</span><span class="tk-dir b"></span><span class="tk-dir b"></span><span class="tk-dir ub"></span></span></span><span class="cmd-txt">背墙时 b,b,u/b</span></td><td class="fr">i29~33</td><td class="dmg">25</td><td class="rng"><span class="md">中</span></td></tr>
+</table></td>
+    <td class="ltc" style="width:50%"><h2>热能系统 <span class="en">HEAT</span></h2><table class="movelist">
+<tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr>
+<tr class="grp"><th colspan="5">热能专用与强化</th></tr>
+<tr><td class="name">热能爆发</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">2+3</span></td><td class="fr">i16</td><td class="dmg">[12;12]</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">天翔龙</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">热能中</span><span class="tk-b"><i>1</i><i class="on">2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">热能中 2+3</span></td><td class="fr">i14</td><td class="dmg">24,4,5,5,5,7 (50)</td><td class="rng"><span class="md">中</span><span class="sp">投</span></td></tr>
+<tr><td class="name">旋风棍爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">热能中</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">热能中 1+2</span></td><td class="fr">i16~17</td><td class="dmg">20</td><td class="rng"><span class="md">中(地)</span></td></tr>
+<tr><td class="name">龙式格挡</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-txt">热能中龙构中 自动格挡拳技</span></span></span><span class="cmd-txt">热能中龙构中 自动格挡拳技</span></td><td class="fr">—</td><td class="dmg">38</td><td class="rng"><span class="sp">投</span></td></tr>
+<tr><td class="name">爆裂爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-state">热能中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+1,热能中 2</span></td><td class="fr">i13</td><td class="dmg">10,27</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+<tr><td class="name">疾风爪</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">热能中</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">热能中 u/f+2</span></td><td class="fr">i19~20</td><td class="dmg">21</td><td class="rng"><span class="hi">上</span></td></tr>
+<tr><td class="name">怒龙突进</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,1,1</span></td><td class="fr">i10</td><td class="dmg">5,5,20</td><td class="rng"><span class="hi">上</span><span class="hi">上</span><span class="md">中</span></td></tr>
+<tr><td class="name">龙暴连击</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">b+1,2,2</span></td><td class="fr">i14</td><td class="dmg">12,12,22</td><td class="rng"><span class="md">中</span><span class="md">中</span><span class="md">中</span></td></tr>
+<tr><td class="name">龙之怒</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+3</span></td><td class="fr">i18</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">龙吼</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 f+1</span></td><td class="fr">i14</td><td class="dmg">20 (24)</td><td class="rng"><span class="md">中</span></td></tr>
+<tr><td class="name">龙炮</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">龙构中 f+3</span></td><td class="fr">i20</td><td class="dmg">27 (32)</td><td class="rng"><span class="md">中</span></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table></td>
+  </tr></tbody></table>
+  <h2>十连技 <span class="en">10 HIT COMBO</span></h2>
+  <table class="movelist">
+<tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr>
+<tr class="grp"><th colspan="5">十连技</th></tr>
+<tr><td class="name">十连技</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/f+1,3,2,2,3,3,3,4,4,4</span></td><td class="fr">i13</td><td class="dmg">—</td><td class="rng">—</td></tr>
+</table>
+</section>
+
+<section class="tipsPage">
+  <header>
+    <h1>马歇尔·洛<small>实战攻略 · PRACTICAL GUIDE</small></h1>
+    <div class="sub">连招依据 Wavu Wiki 当前页面 · 打法参考 TekkenDocs Season 2 Law Guide by Landon D</div>
+  </header>
+  <div class="tipsLead">定位：近身压制与节奏控制。用刺拳、d/f+1、龙锤和低踢逼对手出手，再以 d/f+2、反击命中与龙构分支兑现伤害。</div>
+
+  <div class="tpFull">
+    <h2>核心招式 <span class="en">KEY MOVES</span></h2>
+    <table>
+      <tr><th>用途</th><th>指令</th><th>要点</th></tr>
+      <tr><td class="name">近身框架</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-txt">/</span><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1 / d/f+1</span></td><td>最重要的短距离控制工具；观察对手按键、横移或蹲防后再分流。</td></tr>
+      <tr><td class="name">中段压制</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">f+1+2</span></td><td>龙锤安全压制，反击命中可起连；与 d/b+3 组成核心中下择。</td></tr>
+      <tr><td class="name">低段消耗</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir db"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-txt">/</span><span class="tk-state">横移中</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">d/b+3 / 横移中 3</span></td><td>d/b+3 命中后保持攻势；横移中3伤害更高并进入龙构。</td></tr>
+      <tr><td class="name">安全起浮</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+2</span></td><td>15帧中段起浮，适合拦截抢招与横移后的对手。</td></tr>
+      <tr><td class="name">低段回避</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">u/f+3</span></td><td>跳过下段的热能发动技，适合终结压制回合。</td></tr>
+      <tr><td class="name">蹲姿启动</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span></span></span><span class="cmd-txt">起身中 4~F → 龙构中</span></td><td>起身11帧工具；转龙构后继续压制或进入滑铲二择。</td></tr>
+      <tr><td class="name">滑铲</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">蹲伏中</span><span class="tk-dir df"></span><span class="tk-dir d"></span><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">蹲伏中 d/f,d,d/f+3</span></td><td>洛的标志性全蹲下段；命中后通常可追 1+2。</td></tr>
+    </table>
+  </div>
+
+  <div class="tpFull">
+    <h2>连招 <span class="en">COMBOS</span></h2>
+    <table class="cb">
+      <tr><th style="width:225px">起手</th><th>路线 (T!=回旋 · ~F=按住前 · →=下一招)</th></tr>
+      <tr><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-txt">/</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-txt">/</span><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-txt">/</span><span class="tk-tbang">CH</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">d/f+2 / u/f+4 / 起身中 2 / CH f+1+2</span></td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-dir u"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-dir f"></span><span class="tk-dir f hold"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-tbang">T!</span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">4,u+3 → d/f+1,2 → f,F+4 → 1+2 T! → 4,3~F → 龙构中 f+4</span></td></tr>
+      <tr><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-txt">简易通用起浮</span></span></span><span class="cmd-txt">简易通用起浮</span></td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-dir u"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-tbang">T!</span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">4,u+3 → 4,3~F → 龙构中 u/f+2 → 1+2 T! → 4,3~F → 龙构中 f+4</span></td></tr>
+      <tr><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-tbang">CH</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">CH 4,3</span></td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">龙构中</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-tbang">T!</span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">龙构中 u/f+2 → f+3,1~F → 龙构中 1+2 T! → 4,3~F → 龙构中 f+4</span></td></tr>
+      <tr><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-txt">低段格挡 T!</span></span></span><span class="cmd-txt">低段格挡 T!</span></td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-dir u"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep tk-arw">→</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">4,u+3 → 4,3~F → 龙构中 f+4</span></td></tr>
+      <tr><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-txt">墙!</span></span></span><span class="cmd-txt">墙!</span></td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span><span class="tk-sep tk-arw">→</span><span class="tk-state">龙构中</span><span class="tk-dir f"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">4,3~F → 龙构中 f+3</span></td></tr>
+    </table>
+  </div>
+
+  <table class="lt"><tbody><tr>
+    <td class="ltc" style="width:50%">
+      <h2>确定反击 <span class="en">PUNISHERS</span></h2>
+      <table>
+        <tr><th>帧数</th><th>指令</th><th>说明</th></tr>
+        <tr><td>立姿 10f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">1,1,2</span></td><td>标准确反并转龙构。</td></tr>
+        <tr><td>13f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-txt">/</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span><span class="tk-sep">~</span><span class="tk-dir f hold"></span></span></span><span class="cmd-txt">d/f+1,2 / 4,3~F</span></td><td>按距离选择；4,3 可转龙构。</td></tr>
+        <tr><td>14f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-txt">/</span><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span></span><span class="cmd-txt">3+4,4 / b+4,3</span></td><td>主力挥空惩罚，墙边优先虎牙。</td></tr>
+        <tr><td>15f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-txt">/</span><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">d/f+2 / u/f+4</span></td><td>站姿起浮确反。</td></tr>
+        <tr><td>起身 11f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span></span><span class="cmd-txt">起身中 4</span></td><td>最快起身确反，可转龙构。</td></tr>
+        <tr><td>起身 13f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 1,2</span></td><td>闪光拳击倒。</td></tr>
+        <tr><td>起身 15f</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">起身中</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">起身中 2</span></td><td>龙上勾拳起浮。</td></tr>
+      </table>
+    </td>
+    <td class="ltc" style="width:50%">
+      <h2>龙构与热能 <span class="en">DSS / HEAT</span></h2>
+      <table>
+        <tr><th>要点</th><th>说明</th></tr>
+        <tr><td class="name">拳技自动格挡</td><td>热能中进入龙构会自动格挡拳技；成功格挡与 b+2+4 可恢复热能。</td></tr>
+        <tr><td class="name">热能双截棍</td><td class="cmd"><span class="cmd-gfx"><span class="tk-in tk-sm"><span class="tk-state">热能中</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="cmd-txt">热能中 1+2</span>：范围、追踪与安全性全面强化，命中可起浮并恢复热能。</td></tr>
+        <tr><td class="name">滑铲续热</td><td class="cmd">滑铲命中 → 1+2；多数位置稳定追击，同时延长热能资源。</td></tr>
+        <tr><td class="name">龙构控制</td><td>对手按键用龙吼，对手横移/防守时切蹲伏滑铲或延迟继续压制。</td></tr>
+      </table>
+      <h2 style="margin-top:10px">实用贴士 <span class="en">TIPS</span></h2>
+      <table>
+        <tr><th>贴士</th><th>说明</th></tr>
+        <tr><td class="name">先抢近身</td><td>洛的强度集中在近距离；远距离只用 f,F+2、u/f+2、f+3,1 等安全手段接近。</td></tr>
+        <tr><td class="name">不要自动续完</td><td>b+1,2,2 与拳串可延迟、停手或转龙构；固定续完会被蹲避或确反。</td></tr>
+        <tr><td class="name">滑铲要铺垫</td><td>先用起身中3、起身中4与龙构中段逼站防，再加入滑铲。</td></tr>
+        <tr><td class="name">保留热能</td><td>需要对拼特定角色时不要过早耗尽热能；龙构自动格挡与强化 1+2 是关键胜负点。</td></tr>
+      </table>
+    </td>
+  </tr></tbody></table>
+  <footer style="margin-top:4px">数据来源：Wavu Wiki (wavu.wiki/t/Law_movelist · Law_combos) · 打法参考：TekkenDocs Law Guide by Landon D · 招式名为中文意译，供参考</footer>
+</section>
+
+<script>
+(function(){
+  var KEY='tk-notation', BTN={gfx:'ng', nn:'nn', txt:'nt'};
+  function set(m){
+    if(!BTN[m]) m='gfx';
+    document.body.classList.toggle('txt-mode', m==='txt');
+    document.body.classList.toggle('nn-mode', m==='nn');
+    for(var k in BTN){
+      document.getElementById(BTN[k]).classList.toggle('on', k===m);
+    }
+    try{localStorage.setItem(KEY,m)}catch(e){}
+  }
+  var m='gfx';
+  try{m=localStorage.getItem(KEY)||'gfx'}catch(e){}
+  set(m);
+  for(var k in BTN){(function(mode){
+    document.getElementById(BTN[mode]).onclick=function(){set(mode)};
+  })(k);}
+})();
+(function(){
+  var KEY='tk-theme', BTN={dark:'thd', light:'thl'};
+  function set(m){
+    if(!BTN[m]) m='dark';
+    document.documentElement.classList.toggle('dark', m==='dark');
+    for(var k in BTN){
+      document.getElementById(BTN[k]).classList.toggle('on', k===m);
+    }
+    try{localStorage.setItem(KEY,m)}catch(e){}
+  }
+  var m='dark';
+  try{m=localStorage.getItem(KEY)||'dark'}catch(e){}
+  set(m);
+  for(var k in BTN){(function(mode){
+    document.getElementById(BTN[mode]).onclick=function(){set(mode)};
+  })(k);}
+})();
+</script>
+</body>
+</html>

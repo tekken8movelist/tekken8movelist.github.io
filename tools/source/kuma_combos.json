@@ -1,0 +1,93 @@
+{
+  "canonical_name": "Kuma",
+  "character_key": "kuma",
+  "display_name_zh": "熊",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "[68] u+1+2,3+4[1] HBS.1 b+2,1,3+4[1] HBS.d+1+2 HBS.df2 T! dash uf+2 bf+2",
+          "starter": "Regular launch (e.g. df+2,1)"
+        },
+        {
+          "route": "[63] u+1+2,3+4[1] HBS.1 b+2,2,1 T! uf+2 b+1",
+          "starter": "Regular launch (e.g. df+2,1)"
+        },
+        {
+          "route": "[62] b+2,1 b+2,1,3+4[1] HBS.d+1+2 HBS.df2 T! dash uf+2 bf+2",
+          "starter": "Low launch (e.g WS+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2,1) [68] u+1+2,3+4[1] HBS.1 b+2,1,3+4[1] HBS.d+1+2 HBS.df2 T! dash uf+2 bf+2 [63] u+1+2,3+4[1] HBS.1 b+2,2,1 T! uf+2 b+1 Low launch (e.g WS+2) [62] b+2,1 b+2,1,3+4[1] HBS.d+1+2 HBS.df2 T! dash uf+2 bf+2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[63; 30] b+2,1 b+2,1,3+4 HBS.d+1+2 HBS.df+2 T! uf+2 b+1",
+          "starter": "uf+3"
+        }
+      ],
+      "raw": "uf+3 [63; 30] b+2,1 b+2,1,3+4 HBS.d+1+2 HBS.df+2 T! uf+2 b+1",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo here",
+          "starter": "Regular carry (30% scaling)"
+        },
+        {
+          "route": "b+2,1 d+1+2",
+          "starter": "Regular splat"
+        },
+        {
+          "route": "df+1,2>1+2 d+1+2",
+          "starter": "Regular splat"
+        },
+        {
+          "route": "b+3+4 T! b+2,1 d+1+2",
+          "starter": "Regular splat (with Tornado)"
+        },
+        {
+          "route": "b+3+4 T! df+1,2>1+2 d+1+2",
+          "starter": "Regular splat (with Tornado)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) combo here Regular splat b+2,1 d+1+2 df+1,2>1+2 d+1+2 Regular splat (with Tornado) b+3+4 T! b+2,1 d+1+2 b+3+4 T! df+1,2>1+2 d+1+2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Kuma_combos"
+}

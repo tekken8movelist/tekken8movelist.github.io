@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风间准 · 铁拳8 出招表 · 夜间版</title>
+<style>
+  :root {
+    --jade: #1f6f5b; --jade-dark: #14503f; --jade-light: #e8f3ef;
+    --ink: #21302b; --line: #cfe0d9;
+    --hi: #1d63b8; --mid: #b96a00; --low: #b3262e; --misc: #6b46a8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif; color: var(--ink); background: #fff; font-size: 10.5px; line-height: 1.35; max-width: 1120px; margin: 0 auto; padding: 16px; }
+  header { background: linear-gradient(120deg, var(--jade-dark), var(--jade) 60%, #3f8f78); color: #fff; border-radius: 8px; padding: 14px 18px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+  header h1 { font-size: 21px; font-weight: 700; letter-spacing: 2px; }
+  header h1 small { font-size: 12px; font-weight: 400; opacity: .85; margin-left: 10px; letter-spacing: 1px; }
+  header .sub { font-size: 10px; opacity: .8; }
+  .legend { background: var(--jade-light); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; margin-bottom: 10px; font-size: 9.5px; color: #33463f; }
+  .legend b { color: var(--jade-dark); }
+  section { margin-bottom: 12px; }
+  section.keep { break-inside: avoid; }
+  table.lt { table-layout: fixed; border-spacing: 0; break-inside: avoid; margin-bottom: 10px; }
+  table.lt > tbody > tr > td.ltc { padding: 0; border: none; background: none; vertical-align: top; }
+  table.lt > tbody > tr > td.ltc + td.ltc { padding-left: 16px !important; }
+  .tpFull { break-inside: avoid; margin-bottom: 10px; }
+  section.tipsPage { break-before: page; margin-top: 0; }
+  .tipsPage td { line-height: 1.4; }
+  .tipsPage td.cmd b, .tipsPage td b { color: var(--jade-dark); }
+  h2 { font-size: 13px; color: #fff; background: var(--jade); padding: 4px 10px; border-radius: 5px 5px 0 0; letter-spacing: 3px; font-weight: 600; }
+  h2 .en { font-size: 9px; letter-spacing: 1px; opacity: .75; float: right; font-weight: 400; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; }
+  th { background: var(--jade-light); color: var(--jade-dark); font-size: 9.5px; padding: 3px 6px; text-align: left; border-bottom: 1.5px solid var(--jade); letter-spacing: 1px; }
+  td { padding: 2.5px 6px; border-bottom: 1px solid #edf3f0; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7fbf9; }
+  td.name { font-weight: 600; white-space: nowrap; }
+  td.cmd { font-family: Consolas, "Courier New", monospace; font-size: 9.5px; color: #145041; }
+  td.dmg { text-align: right; white-space: nowrap; color: #555; font-variant-numeric: tabular-nums; }
+  td.rng { white-space: nowrap; letter-spacing: 1px; }
+  .hi { color: var(--hi); font-weight: 600; }
+  .md { color: var(--mid); font-weight: 600; }
+  .lo { color: var(--low); font-weight: 600; }
+  .sp { color: var(--misc); font-weight: 600; }
+  .tag { display: inline-block; font-size: 8px; color: #fff; background: var(--misc); border-radius: 3px; padding: 0 4px; margin-left: 4px; vertical-align: 1px; letter-spacing: 1px; }
+  .tag.heat { background: #c2452e; }
+  .tag.stance { background: var(--jade); }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; align-items: start; }
+  .colsRow { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; align-items: start; }
+  footer { margin-top: 8px; font-size: 8.5px; color: #8aa39a; text-align: center; }
+  @media print {
+    body { padding: 0; font-size: 9.5px; max-width: none; }
+    header { border-radius: 0; }
+    tr { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+  /* uniform single-line rows in movelist tables (tips page keeps wrapping) */
+  section:not(.tipsPage) td { white-space: nowrap; }
+  @page { size: A4; margin: 9mm; }
+  @media (max-width: 760px) { .cols2, .colsRow { grid-template-columns: 1fr; } }
+</style>
+<style>/* screen-only 125% scaling; print/PDF unaffected */
+@media screen { body { zoom: 1.25; } }</style>
+<style>
+:root { --hi:#6fb3ff; --mid:#ffb45e; --low:#ff8087; --misc:#c39bff; --acc:#7ed6b8; }
+html, body { background:#0e1116; }
+body { color:#dce3ea; }
+table { background:transparent; }
+td { border-bottom:1px solid #232a33; }
+tr:nth-child(even) td { background:#161b22; }
+th { background:#1b222b; color:var(--acc); border-bottom-color:var(--acc); }
+.legend { background:#141920; border-color:#2a323d; color:#b9c3cf; }
+.legend b { color:var(--acc); }
+td.cmd { color:var(--acc); }
+td.dmg { color:#98a4b1; }
+footer { color:#68737f; }
+.tipsPage td b, .tipsPage td.cmd b, .tipsPage td.name { color:#ffd9a0; }
+section.tipsPage { break-before: auto; border-top:2px solid #2a323d; padding-top:14px; margin-top:16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>风间准<small>KAZAMA JUN · 铁拳 8 出招表 (数据依据 Wavu Wiki 现行版本)</small></h1>
+  <div class="sub">上段 <span style="color:#9fc9ff">■</span>　中段 <span style="color:#ffd18a">■</span>　下段 <span style="color:#ff9d9d">■</span></div>
+</header>
+
+<div class="legend">
+  <b>指令说明</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上　|
+  f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　+=同时按　~=紧接　|　<b>判定</b>：<span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊(特下/特中)　<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御
+</div>
+
+<section>
+  <h2>投技 <span class="en">THROWS</span></h2>
+  <div class="cols2">
+    <table>
+      <tr><th>招式</th><th>指令</th><th>方向</th><th>伤害</th><th>挣脱</th></tr>
+      <tr><td class="name">四方投</td><td class="cmd">1+3 (或 f+1+3)</td><td>正面</td><td class="dmg">35</td><td>1</td></tr>
+      <tr><td class="name">型拔</td><td class="cmd">2+4 (或 f+2+4)</td><td>正面</td><td class="dmg">35</td><td>2</td></tr>
+      <tr><td class="name">拂云摔</td><td class="cmd">左侧 1+3 (或 2+4)</td><td>左侧</td><td class="dmg">40</td><td>1</td></tr>
+      <tr><td class="name">风车</td><td class="cmd">右侧 1+3 (或 2+4)</td><td>右侧</td><td class="dmg">40</td><td>2</td></tr>
+      <tr><td class="name">拧肢固</td><td class="cmd">背后 1+3 (或 2+4)</td><td>背后</td><td class="dmg">50</td><td>—</td></tr>
+      <tr><td class="name">白山</td><td class="cmd">d/f+2+3</td><td>正面</td><td class="dmg">40</td><td>2</td></tr>
+    </table>
+    <table>
+      <tr><th>招式</th><th>指令</th><th>方向</th><th>伤害</th><th>挣脱</th></tr>
+      <tr><td class="name">理合</td><td class="cmd">u/f+1+2</td><td>正面</td><td class="dmg">40</td><td>1+2</td></tr>
+      <tr><td class="name">落雨</td><td class="cmd">FC+d/b+1+2</td><td>正面</td><td class="dmg">45</td><td>1+2</td></tr>
+      <tr><td class="name">月读</td><td class="cmd">出云中 1+3</td><td>正面</td><td class="dmg">35</td><td>1+2</td></tr>
+      <tr><td class="name">当身返技</td><td class="cmd">看准对手攻击 b+1+3 (或 b+2+4)</td><td>返技</td><td class="dmg">25</td><td>—</td></tr>
+      <tr><td class="name">天照</td><td class="cmd">看准对手下段攻击 f+3+4 (幻月自动)</td><td>返技</td><td class="dmg">20</td><td>—</td></tr>
+      <tr><td class="name">投技反制</td><td class="cmd">看准对手投技 f+3+4 (幻月自动)</td><td>返技</td><td class="dmg">40</td><td>—</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>打击技 <span class="en">ATTACKS</span></h2>
+  <div class="cols2">
+    <table>
+      <tr><th>招式</th><th>指令</th><th>伤害</th><th>判定</th></tr>
+      <tr><td class="name">天津伊邪那美<span class="tag">愤怒技</span></td><td class="cmd">愤怒中 d/f+1+2</td><td class="dmg">55</td><td class="rng"><span class="md">中</span><span class="sp">投</span></td></tr>
+      <tr><td class="name">水茎·出云碎击</td><td class="cmd">1, 1</td><td class="dmg">5, 15</td><td class="rng"><span class="hi">上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">枪步</td><td class="cmd">1, 2</td><td class="dmg">5, 8</td><td class="rng"><span class="hi">上上</span></td></tr>
+      <tr><td class="name">枪步·出云击</td><td class="cmd">1, 2, 2</td><td class="dmg">5, 8, 12</td><td class="rng"><span class="hi">上上上</span></td></tr>
+      <tr><td class="name">枪步·旋踢</td><td class="cmd">1, 2, 4</td><td class="dmg">5, 8, 16</td><td class="rng"><span class="hi">上上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">睡莲·扫腿</td><td class="cmd">1, 3</td><td class="dmg">5, 12</td><td class="rng"><span class="hi">上</span><span class="lo">下</span></td></tr>
+      <tr><td class="name">白莲·突拔</td><td class="cmd">2, 1, 4, 1</td><td class="dmg">7, 9, 12, 30</td><td class="rng"><span class="hi">上</span><span class="md">中中中</span></td></tr>
+      <tr><td class="name">白莲·玉帘</td><td class="cmd">2, 1, 4, 3</td><td class="dmg">7, 9, 12, 21</td><td class="rng"><span class="hi">上</span><span class="md">中中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">白莲·禊</td><td class="cmd">2, 1, 1+2</td><td class="dmg">7, 9, 21</td><td class="rng"><span class="hi">上</span><span class="md">中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">紫苑</td><td class="cmd">3</td><td class="dmg">14</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">紫苑·巫</td><td class="cmd">3, 1</td><td class="dmg">14, 20</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">魔术四</td><td class="cmd">4</td><td class="dmg">17</td><td class="rng"><span class="hi">上</span></td></tr>
+      <tr><td class="name">瞬劲<span class="tag heat">热能发动</span></td><td class="cmd">1+2</td><td class="dmg">26</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">流云锤·禊</td><td class="cmd">3+4</td><td class="dmg">6, 18, 20</td><td class="rng"><span class="md">中中中</span></td></tr>
+      <tr><td class="name">白鹭之舞</td><td class="cmd">1+4, 2, 4</td><td class="dmg">5, 8, 10, 23</td><td class="rng"><span class="sp">特下</span><span class="hi">上上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">白鹭之舞·下段</td><td class="cmd">1+4, 2, d+4</td><td class="dmg">5, 8, 10, 15</td><td class="rng"><span class="sp">特下</span><span class="hi">上上</span><span class="lo">下</span></td></tr>
+      <tr><td class="name">白鹭·阳掌</td><td class="cmd">1+4, 3, 1</td><td class="dmg">5, 8, 15, 20</td><td class="rng"><span class="sp">特下</span><span class="hi">上</span><span class="md">中中</span></td></tr>
+      <tr><td class="name">白鹭·月踢</td><td class="cmd">1+4, 3, 4</td><td class="dmg">5, 8, 15, 17</td><td class="rng"><span class="sp">特下</span><span class="hi">上</span><span class="md">中</span><span class="lo">下</span></td></tr>
+      <tr><td class="name">气合蓄力</td><td class="cmd">1+2+3+4</td><td class="dmg">—</td><td class="rng">—</td></tr>
+      <tr><td class="name">出云碎击</td><td class="cmd">f+1</td><td class="dmg">15</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">鬼杀</td><td class="cmd">f+2</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">天羽羽斩<span class="tag heat">热能发动</span></td><td class="cmd">f+2 (命中/被防时) 1+2</td><td class="dmg">20, 20</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">神柱</td><td class="cmd">f+3</td><td class="dmg">13</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">神柱·出云击</td><td class="cmd">f+3, 2</td><td class="dmg">13, 17</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">双神柱</td><td class="cmd">f+3, 4</td><td class="dmg">13, 22</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">月贯脚</td><td class="cmd">f+4</td><td class="dmg">21</td><td class="rng"><span class="hi">上</span></td></tr>
+      <tr><td class="name">静心<span class="tag">拂挡</span></td><td class="cmd">f+1+2</td><td class="dmg">(5)</td><td class="rng"><span class="hi">上</span></td></tr>
+      <tr><td class="name">幻月<span class="tag stance">架势</span></td><td class="cmd">f+3+4</td><td class="dmg">—</td><td class="rng">—</td></tr>
+      <tr><td class="name">车轮踢</td><td class="cmd">f+2+3</td><td class="dmg">21</td><td class="rng"><span class="hi">上</span></td></tr>
+      <tr><td class="name">叶牡丹</td><td class="cmd">d/f+1, 1</td><td class="dmg">10, 17</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">绫缝</td><td class="cmd">d/f+1, 2</td><td class="dmg">10, 12</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">瑞穗</td><td class="cmd">d/f+2</td><td class="dmg">14</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">天丛云</td><td class="cmd">d/f+2 (命中/被防时) 1+2</td><td class="dmg">14, 12</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">风切</td><td class="cmd">d/f+3</td><td class="dmg">22</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">酢浆草</td><td class="cmd">d/f+4</td><td class="dmg">22</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">天·阳掌</td><td class="cmd">d/f+3+4, 1</td><td class="dmg">17, 20</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">天·月踢</td><td class="cmd">d/f+3+4, 4</td><td class="dmg">17, 17</td><td class="rng"><span class="md">中</span><span class="lo">下</span></td></tr>
+      <tr><td class="name">鸣海</td><td class="cmd">d+2</td><td class="dmg">18</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">墨流</td><td class="cmd">d+4, 4</td><td class="dmg">10, 20</td><td class="rng"><span class="lo">下</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">神度剑</td><td class="cmd">d+1+2</td><td class="dmg">28</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">双升踢</td><td class="cmd">d+3+4</td><td class="dmg">5, 15</td><td class="rng"><span class="lo">下</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">蓬莱之舞</td><td class="cmd">d/b+1, 1, 1+2</td><td class="dmg">7, 8, 5, 5, 20</td><td class="rng"><span class="md">中×5</span></td></tr>
+      <tr><td class="name">菖蒲</td><td class="cmd">d/b+2</td><td class="dmg">17</td><td class="rng"><span class="lo">下</span></td></tr>
+      <tr><td class="name">镰扫腿</td><td class="cmd">d/b+3</td><td class="dmg">14</td><td class="rng"><span class="lo">下</span></td></tr>
+    </table>
+    <table>
+      <tr><th>招式</th><th>指令</th><th>伤害</th><th>判定</th></tr>
+      <tr><td class="name">刈足</td><td class="cmd">d/b+4, (4, 4)</td><td class="dmg">14, (15, 16)</td><td class="rng"><span class="lo">下(下下)</span></td></tr>
+      <tr><td class="name">刈足·白露</td><td class="cmd">刈足中 1+4</td><td class="dmg">14, 5, 8</td><td class="rng"><span class="lo">下</span><span class="sp">特下</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">紫罗兰 (CH追加堇送)</td><td class="cmd">b+1</td><td class="dmg">19</td><td class="rng"><span class="lo">下</span></td></tr>
+      <tr><td class="name">龙炎</td><td class="cmd">b+2</td><td class="dmg">10</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">龙炎·肘击</td><td class="cmd">b+2, 1</td><td class="dmg">10, 7</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">龙炎·咲花掌</td><td class="cmd">b+2, 1, 1</td><td class="dmg">10, 7, 20</td><td class="rng"><span class="md">中</span><span class="hi">上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">龙炎·咲花连拳</td><td class="cmd">b+2, 1, 2</td><td class="dmg">10, 7, 20</td><td class="rng"><span class="md">中</span><span class="hi">上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">龙炎·咲花连踢</td><td class="cmd">b+2, 1, 4</td><td class="dmg">10, 7, 24</td><td class="rng"><span class="md">中</span><span class="hi">上上</span></td></tr>
+      <tr><td class="name">龙炎·贯串</td><td class="cmd">b+2, 2</td><td class="dmg">10, 10</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">龙车踢</td><td class="cmd">b+3</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">龙车·连拳</td><td class="cmd">b+3, 2</td><td class="dmg">20, 22</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">龙车·下扫</td><td class="cmd">b+3, 4</td><td class="dmg">20, 14</td><td class="rng"><span class="md">中</span><span class="lo">下</span></td></tr>
+      <tr><td class="name">白拍子</td><td class="cmd">b+4, 2</td><td class="dmg">14, 17</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">思金</td><td class="cmd">b+3+4</td><td class="dmg">25</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">神气</td><td class="cmd">u/b+1+2</td><td class="dmg">50</td><td class="rng"><span class="sp">不可防(中)</span></td></tr>
+      <tr><td class="name">千座</td><td class="cmd">u+4</td><td class="dmg">21</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">神逐·天</td><td class="cmd">u/f+1</td><td class="dmg">6, 30</td><td class="rng"><span class="hi">上上</span></td></tr>
+      <tr><td class="name">十拳剑</td><td class="cmd">u/f+2</td><td class="dmg">24</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">岩户</td><td class="cmd">u/f+3</td><td class="dmg">17</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">凤仙花·禊</td><td class="cmd">u/f+4, 3</td><td class="dmg">10, 8, 20</td><td class="rng"><span class="md">中中中</span></td></tr>
+      <tr><td class="name">彩云锤</td><td class="cmd">u/f+3+4</td><td class="dmg">5, 21</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">水影·里咲花</td><td class="cmd">f, f+2, 2</td><td class="dmg">16, 22</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">水影·花月</td><td class="cmd">f, f+2, 3</td><td class="dmg">16, 22</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+      <tr><td class="name">雪见车</td><td class="cmd">f, f+3, 3+4</td><td class="dmg">23, 12, 15</td><td class="rng"><span class="md">中中中</span></td></tr>
+      <tr><td class="name">突劲·禊</td><td class="cmd">f, f+1+2</td><td class="dmg">32</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">天钿女</td><td class="cmd">f, f, f+3</td><td class="dmg">28</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">转环·咲花掌</td><td class="cmd">WS+1, 1, 1</td><td class="dmg">14, 7, 20</td><td class="rng"><span class="hi">上上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">转环·咲花连拳</td><td class="cmd">WS+1, 1, 2</td><td class="dmg">14, 7, 22</td><td class="rng"><span class="hi">上上</span><span class="md">中</span></td></tr>
+      <tr><td class="name">转环·咲花连踢</td><td class="cmd">WS+1, 1, 4</td><td class="dmg">14, 7, 24</td><td class="rng"><span class="hi">上上上</span></td></tr>
+      <tr><td class="name">巴樱</td><td class="cmd">WS+1, 4, 2</td><td class="dmg">14, 16, 17</td><td class="rng"><span class="hi">上</span><span class="md">中</span><span class="lo">下</span></td></tr>
+      <tr><td class="name">巴藤</td><td class="cmd">WS+1, 4, 1+2</td><td class="dmg">14, 16, 28</td><td class="rng"><span class="hi">上</span><span class="md">中中</span></td></tr>
+      <tr><td class="name">百花王</td><td class="cmd">WS+2, 1</td><td class="dmg">12, 20</td><td class="rng"><span class="md">中中</span></td></tr>
+      <tr><td class="name">祇王</td><td class="cmd">WS+3</td><td class="dmg">16</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">一角</td><td class="cmd">WS+4</td><td class="dmg">21</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">帘流</td><td class="cmd">WS+1+2</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">流月香</td><td class="cmd">WS+3+4</td><td class="dmg">23</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">双云连踢</td><td class="cmd">FC+3+4, 3</td><td class="dmg">10, 10, 10, 10</td><td class="rng"><span class="md">中×4</span></td></tr>
+      <tr><td class="name">神逐·地</td><td class="cmd">FC+d/f+1</td><td class="dmg">6, 30</td><td class="rng"><span class="sp">特下</span><span class="md">中</span></td></tr>
+      <tr><td class="name">雅</td><td class="cmd">FC+d/f+2</td><td class="dmg">12</td><td class="rng"><span class="lo">下</span></td></tr>
+      <tr><td class="name">要返</td><td class="cmd">FC+d/f+3</td><td class="dmg">12</td><td class="rng"><span class="lo">下</span></td></tr>
+      <tr><td class="name">重霞</td><td class="cmd">SS+2</td><td class="dmg">27</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">神乐<span class="tag heat">热能发动</span></td><td class="cmd">SS+4</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+      <tr><td class="name">三光鸟</td><td class="cmd">SS+1+2</td><td class="dmg">7, 9, 18</td><td class="rng"><span class="hi">上上</span><span class="md">中</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="keep">
+  <table class="lt"><tbody><tr>
+    <td class="ltc">
+      <h2>幻月 <span class="en">GENJITSU</span></h2>
+      <table>
+        <tr><th>招式</th><th>指令</th><th>伤害</th><th>判定</th></tr>
+        <tr><td class="name">幻月<span class="tag stance">架势</span></td><td class="cmd">f+3+4</td><td class="dmg">—</td><td class="rng">—</td></tr>
+        <tr><td class="name">琉璃光海</td><td class="cmd">幻月中 1</td><td class="dmg">22</td><td class="rng"><span class="lo">下</span></td></tr>
+        <tr><td class="name">风间流·气魄</td><td class="cmd">幻月中 2</td><td class="dmg">16, 32</td><td class="rng"><span class="md">中</span><span class="sp">投</span></td></tr>
+        <tr><td class="name">月云</td><td class="cmd">幻月中 3</td><td class="dmg">14</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">月云·连拳</td><td class="cmd">幻月中 3, 2</td><td class="dmg">14, 16</td><td class="rng"><span class="md">中中</span></td></tr>
+        <tr><td class="name">日云</td><td class="cmd">幻月中 4</td><td class="dmg">24</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">天照<span class="tag">自动</span></td><td class="cmd">幻月中自动防反下段</td><td class="dmg">20</td><td class="rng"><span class="sp">投</span></td></tr>
+      </table>
+    </td>
+    <td class="ltc">
+      <h2>出云 <span class="en">IZUMO</span></h2>
+      <table>
+        <tr><th>招式</th><th>指令</th><th>伤害</th><th>判定</th></tr>
+        <tr><td class="name">出云击<span class="tag stance">架势</span></td><td class="cmd">u+2</td><td class="dmg">17</td><td class="rng"><span class="hi">上</span></td></tr>
+        <tr><td class="name">祓手·巫</td><td class="cmd">出云中 1, 1</td><td class="dmg">7, 26</td><td class="rng"><span class="hi">上上</span></td></tr>
+        <tr><td class="name">祓手·结</td><td class="cmd">出云中 1, 2</td><td class="dmg">7, 20</td><td class="rng"><span class="hi">上</span><span class="md">中</span></td></tr>
+        <tr><td class="name">雪轮舞·禊</td><td class="cmd">出云中 2</td><td class="dmg">24</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">瑞云连脚<span class="tag heat">热能发动</span></td><td class="cmd">出云中 3</td><td class="dmg">10, 16</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">别雷·禊</td><td class="cmd">出云中 4, 1</td><td class="dmg">10, 21</td><td class="rng"><span class="lo">下</span><span class="md">中</span></td></tr>
+        <tr><td class="name">御光降</td><td class="cmd">出云中 1+2</td><td class="dmg">24</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">抚子花园</td><td class="cmd">出云中 f+1+2</td><td class="dmg">21</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">月读<span class="tag">投</span></td><td class="cmd">出云中 1+3</td><td class="dmg">35</td><td class="rng"><span class="sp">投</span></td></tr>
+      </table>
+    </td>
+    <td class="ltc">
+      <h2>御生 <span class="en">MIARE</span></h2>
+      <table>
+        <tr><th>招式</th><th>指令</th><th>伤害</th><th>判定</th></tr>
+        <tr><td class="name">御生<span class="tag stance">架势</span></td><td class="cmd">b+1+2</td><td class="dmg">—</td><td class="rng">—</td></tr>
+        <tr><td class="name">天逆鉾</td><td class="cmd">御生中 1</td><td class="dmg">30</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">天沼矛<span class="tag heat">热能发动</span></td><td class="cmd">御生中 2</td><td class="dmg">28</td><td class="rng"><span class="sp">特中</span></td></tr>
+        <tr><td class="name">八云立</td><td class="cmd">御生中 1+2</td><td class="dmg">17</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">幻月<span class="tag stance">转换</span></td><td class="cmd">御生中 F</td><td class="dmg">—</td><td class="rng">—</td></tr>
+      </table>
+    </td>
+  </tr></tbody></table>
+</section>
+
+<section class="keep">
+  <div class="colsRow">
+    <div>
+      <h2>热能系统 <span class="en">HEAT</span></h2>
+      <table>
+        <tr><th>招式</th><th>指令</th><th>伤害</th><th>判定</th></tr>
+        <tr><td class="name">热能爆发</td><td class="cmd">可发动热能时 2+3</td><td class="dmg">12</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">瞬劲<span class="tag heat">发动技</span></td><td class="cmd">1+2</td><td class="dmg">26</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">天羽羽斩<span class="tag heat">发动技</span></td><td class="cmd">f+2 (命中/被防时) 1+2</td><td class="dmg">20, 20</td><td class="rng"><span class="md">中中</span></td></tr>
+        <tr><td class="name">神乐<span class="tag heat">发动技</span></td><td class="cmd">SS+4</td><td class="dmg">20</td><td class="rng"><span class="md">中</span></td></tr>
+        <tr><td class="name">瑞云连脚<span class="tag heat">发动技</span></td><td class="cmd">出云中 3</td><td class="dmg">10, 16</td><td class="rng"><span class="md">中</span><span class="hi">上</span></td></tr>
+        <tr><td class="name">天沼矛<span class="tag heat">发动技</span></td><td class="cmd">御生中 2</td><td class="dmg">28</td><td class="rng"><span class="sp">特中</span></td></tr>
+        <tr><td class="name">黄泉大弓<span class="tag heat">热能中</span></td><td class="cmd">热能中 2+3</td><td class="dmg">20, 30</td><td class="rng"><span class="md">中中</span></td></tr>
+        <tr><td class="name">黄泉御柱<span class="tag heat">热能中</span></td><td class="cmd">热能中·幻月中 1, 2+3</td><td class="dmg">14, 35</td><td class="rng"><span class="lo">下</span><span class="md">中</span></td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>十连技 <span class="en">10 HIT COMBO</span></h2>
+      <table>
+        <tr><th>指令</th><th>伤害</th><th>判定</th></tr>
+        <tr>
+          <td class="cmd">WS+1, 1, 1+4, 2, 1, 2, 4, 4, 3</td>
+          <td class="dmg">90</td>
+          <td class="rng"><span class="hi">上上</span><span class="lo">下</span><span class="hi">上上</span><span class="md">中</span><span class="hi">上</span><span class="lo">下</span><span class="md">中中</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 进阶攻略页 ============ -->
+<section class="tipsPage">
+  <header style="margin-bottom:8px">
+    <h1>进阶攻略<small>连招 · 确反 · 实战技巧</small></h1>
+    <div class="sub">连招依据 Wavu Wiki (现行版本) · 打法参考 TekkenDocs (Pagani)</div>
+  </header>
+  <div class="legend" style="margin-top:6px">
+    <b>术语</b>　<b>BnB</b>=万用基础连招(Bread and Butter,优先练熟)　|　<b>T!</b>=回旋(Tornado):命中空中对手使其横转、延长连招,每套连招限一次　|　<b>CH</b>=反击命中(Counter Hit):打中正在出招的对手,多数CH技有起浮/崩溃等强化效果　|　<b>确反</b>=对手招式被防住后利用其硬直的必中惩罚　|　<b>精粹(Staples)</b>=针对特定起手的更高伤害路线　|　<b>择/二择</b>=逼对手在站防(防中段)与蹲防(防下段)间二选一的猜拳局面,核心择=该角色主要的猜拳点
+  </div>
+
+  <div class="legend">
+    <b>玩法定位</b>　风间准以<b>防守反击</b>为核心：立回控距、后撤诱敌、用反击(CH)技惩罚对手抢招。风间流气功技(如 f+2 派生、d+1+2)被防时会<b>消耗自身体力</b>(部分可回复)，热能中消耗减半且对敌削减增强；1,2,2 与 d/b+1,1,1+2 命中可<b>回复体力</b>。中近距离用 b+2 / d+4 / d/b+3 戳刺压制，中距离用 d/f+4、b+3 拒止，f+2(鬼杀)惩罚挥空。
+  </div>
+
+  <table class="lt"><tbody><tr>
+  <td class="ltc">
+      <h2>核心招式 <span class="en">KEY MOVES</span></h2>
+      <table>
+        <tr><th>指令</th><th>要点</th></tr>
+        <tr><td class="cmd">d/f+3</td><td><b>风切</b>：立回王牌，中段横向覆盖极强，被防仅-8，命中击倒近墙可贴墙</td></tr>
+        <tr><td class="cmd">d+3+4</td><td><b>双升踢(剪刀脚)</b>：i14 最强CH起浮技，带空中判定<b>不可被下段防反</b>，被防-25</td></tr>
+        <tr><td class="cmd">f+2</td><td><b>鬼杀</b>：i17 长距离浮空技，惩罚挥空的招牌；热能中 f+2,1+2 变为安全可确认起浮</td></tr>
+        <tr><td class="cmd">d/f+4</td><td><b>酢浆草</b>：i15 长距离CH拒止中段，命中崩溃强制受身，被防-14 慎用</td></tr>
+        <tr><td class="cmd">u/f+3</td><td><b>岩户</b>：i20 低姿态中段，被防仅-6，CH直接起浮，命中+5 可继续压制</td></tr>
+        <tr><td class="cmd">f+4</td><td>横移追踪(上段)，被防+3、命中+13，命中后接 1+2 必中(热能发动)</td></tr>
+        <tr><td class="cmd">f,f+1+2 / SS+4</td><td>两大<b>被防+6</b>压制技，是准少有的强帧数进攻起点</td></tr>
+        <tr><td class="cmd">d+4 / d/b+3</td><td>主力下段戳刺：d+4 距离长追踪好；d/b+3 命中+2、CH+6 接续压制</td></tr>
+        <tr><td class="cmd">u+2 / 御生中1+2</td><td>横移追踪且转入<b>出云</b>架势：出云中 4,1(下段扫堂) 与 2(中段起浮) 构成核心二择</td></tr>
+        <tr><td class="cmd">f+1+2</td><td><b>静心</b>：上段拂挡；热能中变为第5帧起当身，成功可接 御生2 转全套连招</td></tr>
+      </table>
+
+  </td>
+  <td class="ltc">
+      <h2>连招 (Wavu 现版本) <span class="en">COMBOS</span></h2>
+      <table>
+        <tr><th>起手</th><th>路线 (T!=回旋 / ~=接 / SWL=左侧走)</th></tr>
+        <tr><td class="cmd"><b>万用BnB</b> (d/f+2等常规起浮)</td><td class="cmd">b+4,2 → f+3,2~出云中1,1 T! → b+4,2</td></tr>
+        <tr><td class="cmd">即时回旋 (如下段防反)</td><td class="cmd">T! → b+4,2 → f+3 → b+2,1~F → 幻月中2</td></tr>
+        <tr><td class="cmd">d/f+2 (精粹 +55)</td><td class="cmd">b+4,2 → d/f+1 → f+3,2~出云中1,1 T! → f,F+2~F → 幻月中2</td></tr>
+        <tr><td class="cmd">d/f+2,1+2 (+60)</td><td class="cmd">f+4 → b+4,2 → f+3,2~出云中1,1 T! → b+2,1~F → 幻月中2</td></tr>
+        <tr><td class="cmd">d/f+2,1+2 (高伤 +73)</td><td class="cmd">f+4 → f,F+2~B → 御生中1 T! → SWL → f+3,2~出云中1+2 → 御生中1</td></tr>
+        <tr><td class="cmd">f+2 (+75)</td><td class="cmd">4 → f+4 → f,F+2~B → 御生中1 T! → f+3,2~出云中1+2 → 御生中1</td></tr>
+        <tr><td class="cmd">b+3 (+58)</td><td class="cmd">b+3~2 T! → SWL → f+3,2~出云中1+2 → 御生中1</td></tr>
+        <tr><td class="cmd">WS+3 (+55)</td><td class="cmd">b+4,2 → d/f+1 → f+3,2~出云中1,1 T! → f,F+2~F → 幻月中2</td></tr>
+        <tr><td class="cmd">u/f+4,3 (+38)</td><td class="cmd">~f~幻月中4 → f+3 → b+2,1~F → 幻月中3&gt;2</td></tr>
+        <tr><td class="cmd">CH d+3+4 (+62)</td><td class="cmd">b+4,2 → f+4 → f,F+2~B → 御生中1 → f+3+4~幻月中4 → f,F+2,3</td></tr>
+        <tr><td class="cmd">CH u/f+3 (+60)</td><td class="cmd">d+1+2 T! → f+3+4~幻月中4 → b+4,2 → f,F+2,3</td></tr>
+        <tr><td class="cmd">FC+d/b+1+2 投后 (+49)</td><td class="cmd">4 → b+4,2 → f+3,2~出云中2 T! → f,F+2,3</td></tr>
+      </table>
+
+  </td>
+  </tr></tbody></table>
+  <table class="lt"><tbody><tr>
+  <td class="ltc">
+      <h2 style="margin-top:10px">确定反击 <span class="en">PUNISHERS</span></h2>
+      <table>
+        <tr><th>帧数</th><th>指令</th><th>说明</th></tr>
+        <tr><td>立姿 10f</td><td class="cmd">1,2,2 / u/f+1</td><td>1,2,2 可确认转架势且回血；u/f+1 击倒(近墙优先)</td></tr>
+        <tr><td>12f</td><td class="cmd">2,1,4(,1)</td><td>可确认三段 28 伤害</td></tr>
+        <tr><td>13f</td><td class="cmd">1+2</td><td>热能发动技</td></tr>
+        <tr><td>15f</td><td class="cmd">d/b+1,1,1+2</td><td>可确认 45 伤害并回血</td></tr>
+        <tr><td>16f</td><td class="cmd">d/f+2,1+2</td><td>最优起浮确反,连招路线最好</td></tr>
+        <tr><td>17f</td><td class="cmd">f+2</td><td>长距离起浮</td></tr>
+        <tr><td>蹲姿 10f</td><td class="cmd">FC+d/f+1</td><td>36 伤害击倒,墙场极强(消耗自身)</td></tr>
+        <tr><td>11f</td><td class="cmd">WS+4</td><td>击倒,倒地压制好</td></tr>
+        <tr><td>13f</td><td class="cmd">WS+2,1</td><td>击倒+贴墙,近墙首选</td></tr>
+        <tr><td>14f</td><td class="cmd">WS+3</td><td>最快起身浮空技</td></tr>
+        <tr><td>18f</td><td class="cmd">WS+3+4</td><td>最高伤害起身浮空</td></tr>
+        <tr><td>挥空罚</td><td class="cmd">1,2,2 / d/f+4 / f+2 / u/f+3+4</td><td>由近及远选择</td></tr>
+      </table>
+
+      <h2 style="margin-top:10px">热能运用 <span class="en">HEAT</span></h2>
+      <table>
+        <tr><th>要点</th><th>说明</th></tr>
+        <tr><td class="name">静心变当身</td><td class="cmd">热能中 f+1+2 第5帧起当身，成功消耗热能接 御生2~F 起连招</td></tr>
+        <tr><td class="name">确认起浮</td><td class="cmd">热能中 f+2,1+2 变安全、可命中确认的热能冲刺起浮技</td></tr>
+        <tr><td class="name">额外扫堂</td><td class="cmd">热能+幻月中 1,2+3 (黄泉御柱) 相当于第二把下段扫堂腿</td></tr>
+        <tr><td class="name">气功增益</td><td>热能中风间技对自身削减减半、对敌方增加,f,f+1+2 成为超强压制</td></tr>
+      </table>
+  </td>
+  <td class="ltc">
+      <h2 style="margin-top:10px">小连招 &amp; 墙连 <span class="en">MINI / WALL</span></h2>
+      <table>
+        <tr><th>场景</th><th>路线</th></tr>
+        <tr><td class="cmd">CH 4 (+24)</td><td class="cmd">→ b+1+2~御生中1 (或 d+1+2 / u/f+3+4)</td></tr>
+        <tr><td class="cmd">CH SS+2 (+25)</td><td class="cmd">→ f,F+1+2 (或 d+1+2)</td></tr>
+        <tr><td class="cmd">f+4 命中 (+20)</td><td class="cmd">→ b+4,2 (或 1+2 转热能)</td></tr>
+        <tr><td class="cmd">CH d/f+1,2 (+25)</td><td class="cmd">→ u/f+1</td></tr>
+        <tr><td class="cmd">u+2 命中 (+18)</td><td class="cmd">→ 出云中 3</td></tr>
+        <tr><td class="cmd">贴墙 (+27)</td><td class="cmd">墙! → u/f+4,3~御生中2</td></tr>
+        <tr><td class="cmd">贴墙 (稳定)</td><td class="cmd">墙! → b+2,1~B~御生中2 / d/b+1,1,1+2 / SS+1+2 → U/F+2</td></tr>
+        <tr><td class="cmd">贴墙带回旋</td><td class="cmd">墙! → u/f+4,3 T! → F~幻月中4 → 1+2</td></tr>
+      </table>
+
+      <h2 style="margin-top:10px">实用贴士 <span class="en">TIPS</span></h2>
+      <table>
+        <tr><th>贴士</th><th>说明</th></tr>
+        <tr><td class="name">体力管理</td><td>血量吃紧时确反改用 1,2,2、d/b+1,1,1+2 回血;少按消耗大的气功技</td></tr>
+        <tr><td class="name">出云二择</td><td class="cmd">出云中 4,1 (下段) ⇄ 出云中 2 (中段,被防可罚) 是核心择</td></tr>
+        <tr><td class="name">御生2 慎用</td><td class="cmd">御生中 2 被防会被确反(含怒气技),尽量在热能中或确杀时使用</td></tr>
+        <tr><td class="name">连招要点</td><td class="cmd">核心过渡: f+3,2~出云 与 f,F+2~B 御生;收尾选 幻月中2(伤害) 或 f,F+2,3(运载)</td></tr>
+        <tr><td class="name">对付防守型</td><td>准难破铁龟:多用 幻月中1(+3)与 出云扫堂制造开口,耐心等CH</td></tr>
+      </table>
+  </td>
+  </tr></tbody></table>
+  <footer style="margin-top:4px">数据来源：Wavu Wiki (wavu.wiki/t/Jun_movelist · Jun_combos) · 打法参考：TekkenDocs Jun Guide by Pagani · 招式名为中文意译，供参考</footer>
+</section>
+
+</body>
+</html>
+

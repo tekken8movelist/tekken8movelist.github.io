@@ -1,0 +1,917 @@
+{
+  "canonical_name": "Reina",
+  "character_key": "reina",
+  "display_name_zh": "蕾娜",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "f,F+2,F SEN.3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2 (demo Reina df+2 f,F+2,F~3 df+3 BnB combo)",
+          "starter": "Regular launch (e.g. df+2)"
+        },
+        {
+          "route": "T! f,F+2,F SEN.3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 (demo Reina Instant T! BnB combo)",
+          "starter": "Instant Tornado (e.g., low parry)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) f,F+2,F SEN.3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2 (demo Reina df+2 f,F+2,F~3 df+3 BnB combo) Instant Tornado (e.g., low parry) T! f,F+2,F SEN.3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 (demo Reina Instant T! BnB combo)",
+      "section": "Bread n' Butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+20] OTG.d+4:1",
+          "starter": "[22] H.SEN.3,F"
+        },
+        {
+          "route": "[+16] f,n,d,df#3",
+          "starter": "[22] H.SEN.3,F"
+        },
+        {
+          "route": "[+13] OTG.d+4",
+          "starter": "[22] H.SEN.3,F"
+        },
+        {
+          "route": "[+27] OTG.d+4:1[1]",
+          "starter": "[22] 2~1"
+        },
+        {
+          "route": "[+21] f,n,d,df#3",
+          "starter": "[22] 2~1"
+        },
+        {
+          "route": "[+20] dash 1+2",
+          "starter": "[22] 2~1"
+        },
+        {
+          "route": "[+16] f+4",
+          "starter": "[22] 2~1"
+        },
+        {
+          "route": "[+27] dash OTG.d+4:1",
+          "starter": "[20] (df+4,2),3"
+        },
+        {
+          "route": "[+21] f,n,d,df#3",
+          "starter": "[20] (df+4,2),3"
+        },
+        {
+          "route": "[+22] SEN.3[2]",
+          "starter": "[12] ws1"
+        },
+        {
+          "route": "[+20] SEN.2",
+          "starter": "[12] ws1"
+        },
+        {
+          "route": "[+21] WRA.2",
+          "starter": "[30] SEN.1+2"
+        },
+        {
+          "route": "[+16] WRA.4,2,2,<qcf+1+2",
+          "starter": "[30] SEN.1+2"
+        },
+        {
+          "route": "[+21] f,n,d,df#3",
+          "starter": "[20] CH d+2"
+        },
+        {
+          "route": "[+11] OTG.d+4",
+          "starter": "[20] CH d+2"
+        },
+        {
+          "route": "[+28] 2~1 OTG.d+4:1",
+          "starter": "[24] CH ws2"
+        },
+        {
+          "route": "[+24] f,F+2,F~3[2][1]",
+          "starter": "[24] CH ws2"
+        },
+        {
+          "route": "[+19] df+1,2[2]",
+          "starter": "[24] CH ws2"
+        },
+        {
+          "route": "[+17] 1+2",
+          "starter": "[24] CH ws2"
+        },
+        {
+          "route": "[+23] WRA.1,4",
+          "starter": "[18] CH uf+1"
+        },
+        {
+          "route": "[+23] WRA.1,f SEN.3[2]",
+          "starter": "[18] CH uf+1"
+        },
+        {
+          "route": "[+21] WRA.2[2]",
+          "starter": "[18] CH uf+1"
+        },
+        {
+          "route": "[+21] WRA.1+2",
+          "starter": "[18] CH uf+1"
+        },
+        {
+          "route": "[+22] SEN.3[2][3]",
+          "starter": "[14] f,F+2,F"
+        },
+        {
+          "route": "[+20] SEN.2",
+          "starter": "[14] f,F+2,F"
+        },
+        {
+          "route": "[+22] SEN.3[2][3]",
+          "starter": "[12] WRA.1,F"
+        },
+        {
+          "route": "[+24] f,F+2,F SEN.3[1]",
+          "starter": "[15] (uf+3),1 (on crouching opp.)"
+        },
+        {
+          "route": "[+19] df+1,2[2][3]",
+          "starter": "[15] (uf+3),1 (on crouching opp.)"
+        },
+        {
+          "route": "[+17] 1+2",
+          "starter": "[15] (uf+3),1 (on crouching opp.)"
+        },
+        {
+          "route": "[+51] SEN.1+2 WRA.2",
+          "starter": "[14] CH WRA.1,F"
+        },
+        {
+          "route": "[+46] SEN.1+2 WRA.4,2,2,qcf+1+2 [4]",
+          "starter": "[14] CH WRA.1,F"
+        },
+        {
+          "route": "[+42] SEN.1,qcf+2",
+          "starter": "[14] CH WRA.1,F"
+        },
+        {
+          "route": "[+28] df+1,2[2]",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "2~1, OTG.d+4:1[1]",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "2~1 f,n,d,df#3",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "2~1 dash 1+2",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "2~1 f+4",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "[+17] 1,2,2",
+          "starter": "[0] f+3+4* (on block)"
+        },
+        {
+          "route": "[+15] 1,1,2",
+          "starter": "[0] f+3+4* (on block)"
+        },
+        {
+          "route": "[+24] f,F+2,F SEN.3[1]",
+          "starter": "[14] ws3+4"
+        },
+        {
+          "route": "[+16] f+2,3",
+          "starter": "[14] ws3+4"
+        },
+        {
+          "route": "[+21] deep dash EWGK",
+          "starter": "[20] f,F+3"
+        },
+        {
+          "route": "[+32] cc 2,2,1[1]",
+          "starter": "[0] P.d+3"
+        },
+        {
+          "route": "[+27] cc 1,2,2",
+          "starter": "[0] P.d+3"
+        },
+        {
+          "route": "[+23] cc 1,1,2",
+          "starter": "[0] P.d+3"
+        },
+        {
+          "route": "[+15] SEN.3[2]",
+          "starter": "[19] CH (f2),3,F"
+        },
+        {
+          "route": "[+14] SEN.2",
+          "starter": "[19] CH (f2),3,F"
+        },
+        {
+          "route": "SEN.3[2]",
+          "starter": "CH UNS.d+4"
+        },
+        {
+          "route": "SEN.2",
+          "starter": "CH UNS.d+4"
+        },
+        {
+          "route": "1,1,2",
+          "starter": "CH UNS.d+4, B"
+        },
+        {
+          "route": "1,2,2",
+          "starter": "CH UNS.d+4, B"
+        }
+      ],
+      "raw": "[28] H.df+1,2,F [22] H.SEN.3,F [+20] OTG.d+4:1 [+16] f,n,d,df#3 [+13] OTG.d+4 [22] wr3 [22] 2~1 [+27] OTG.d+4:1[1] [+21] f,n,d,df#3 [+20] dash 1+2 [+16] f+4 [24] CH 4 [20] b+4 [20] (df+4,2),3 [+27] dash OTG.d+4:1 [+21] f,n,d,df#3 [13] (b+1,1),3,F [12] ws1 [+22] SEN.3[2] [+20] SEN.2 [30] SEN.1+2 [+21] WRA.2 [+16] WRA.4,2,2,<qcf+1+2 [26] WRA.3+4 [24] CH f+4 [24] SEN.4 [20] CH d+2 [+21] f,n,d,df#3 [+11] OTG.d+4 [24] CH ws2 [+28] 2~1 OTG.d+4:1 [+24] f,F+2,F~3[2][1] [+19] df+1,2[2] [+17] 1+2 [18] CH uf+1 [+23] WRA.1,4 [+23] WRA.1,f SEN.3[2] [+21] WRA.2[2] [+21] WRA.1+2 [14] f,F+2,F [+22] SEN.3[2][3] [+20] SEN.2 [12] WRA.1,F [+22] SEN.3[2][3] [20] f+4 (on crouching opp.) [15] (uf+3),1 (on crouching opp.) [+24] f,F+2,F SEN.3[1] [+19] df+1,2[2][3] [+17] 1+2 [14] CH WRA.1,F [+51] SEN.1+2 WRA.2 [+46] SEN.1+2 WRA.4,2,2,qcf+1+2 [4] [+42] SEN.1,qcf+2 [14] CH WRA.1 [+28] df+1,2[2] 2~1, OTG.d+4:1[1] 2~1 f,n,d,df#3 2~1 dash 1+2 2~1 f+4 [0] f+3+4* (on block) [+17] 1,2,2 [+15] 1,1,2 [16] CH ws3+4 [14] ws3+4 [+24] f,F+2,F SEN.3[1] [+16] f+2,3 [20] f,F+3 [+21] deep dash EWGK [0] P.f,n [0] P.u+3 [0] P.d+3 [+32] cc 2,2,1[1] [+27] cc 1,2,2 [+23] cc 1,1,2 [19] CH (f2),3,F [+15] SEN.3[2] [+14] SEN.2 CH f,n,4 CH UNS.d+4 SEN.3[2] SEN.2 CH f,n,4, B CH UNS.d+4, B 1,1,2 1,2,2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+83] EWGF ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2][3] T! H.2+3 d+3~H.4,F dash OTG.d+4:1",
+          "starter": "[23] EWGF (f,n,d,df#2)"
+        },
+        {
+          "route": "[+56] EWGF ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 (demo Reina EWGF EWGF ws3 staple combo)",
+          "starter": "[23] EWGF (f,n,d,df#2)"
+        },
+        {
+          "route": "[+56] f,F+3+4 uf+1 WRA.DF ws3 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[4] (demoReina's EWGF f,F+3+4 uf+1 ws3 staple combo.Reina EWGF f,F+3+4 uf+1 ws3 staple combo)",
+          "starter": "[23] EWGF (f,n,d,df#2)"
+        },
+        {
+          "route": "[+55] f,F+3+4 ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[5][1] (demo Reina EWGF f,F+3+4 ws3 staple combo)",
+          "starter": "[23] EWGF (f,n,d,df#2)"
+        },
+        {
+          "route": "[+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6]",
+          "starter": "[23] EWGF (f,n,d,df#2)"
+        },
+        {
+          "route": "[+56] EWGF ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+54] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[6]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+51] b+4 T! f,f+3+4 df+1,1 f+2,3,F df+1,F~1,qcf+2[5]",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+56] (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 (demoReina's FC.df+4 staple combo.Reina FC.df+4 staple combo)",
+          "starter": "[20] FC.df+4"
+        },
+        {
+          "route": "[+54] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[6]",
+          "starter": "[20] FC.df+4"
+        },
+        {
+          "route": "[+55] (f+2),3,F~3 df+1,1[7] f+2,3,F df+1,F~1+2[2] T! WRA.3,4 (demoReina's FC.df+3 staple combo.Reina FC.df+3 staple combo)",
+          "starter": "[25] FC.df+3"
+        },
+        {
+          "route": "[+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6]",
+          "starter": "[25] FC.df+3"
+        },
+        {
+          "route": "[+55] (f+2),3~3 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4",
+          "starter": "[20] CH f,n,3"
+        },
+        {
+          "route": "[+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2",
+          "starter": "[20] CH f,n,3"
+        },
+        {
+          "route": "[+51] b+4 T! f,F+3+4 df+1,1 f+2,3,F df+1,F~1,qcf+2[5]",
+          "starter": "[20] CH f,n,3"
+        },
+        {
+          "route": "[+49] T! b,B[8] (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[15] uf+4"
+        },
+        {
+          "route": "[+48] T! b,B[8] (f+2),3,F~3 df+1,1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[15] uf+4"
+        },
+        {
+          "route": "[+47] T! f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+45] T! EWGF df+2 df+1 f+2,3,F df+1,F~1,qcf+2[9]",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+45] T! b,B[8] (f+2),3,F~3 df+1 f+2,3,F df+1,F~1,qcf+2[9]",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+38] f+3~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[25] CH 3,2"
+        },
+        {
+          "route": "[+38] f,F+3+4 df+2 df+1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[25] CH 3,2"
+        },
+        {
+          "route": "[+56] SSR (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[26] CH.f,F+3+4"
+        },
+        {
+          "route": "[+52] f+3~2 T! f+3~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[26] CH.f,F+3+4"
+        },
+        {
+          "route": "[+47] ws3 df+1 SSL df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[25] CH WGS.df+3"
+        },
+        {
+          "route": "[+46] ws3 df+1 df+1,1 f+2,3,f df+1,F~1+2 T! WRA.3,4",
+          "starter": "[25] CH WGS.df+3"
+        },
+        {
+          "route": "[+54] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[19] CH (f,n,d,DF+4),4"
+        },
+        {
+          "route": "[+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6]",
+          "starter": "[19] CH (f,n,d,DF+4),4"
+        },
+        {
+          "route": "[+46] ws4 df+2 df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[19] CH (f,n,d,DF+4),4"
+        },
+        {
+          "route": "[+45] ws4 df+2 df+1,1 f+2,3,F df+1,F~2 T! uf+3+4,1+2",
+          "starter": "[19] CH (f,n,d,DF+4),4"
+        },
+        {
+          "route": "[+33] EWGF df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[20] H.f,F+3,F"
+        },
+        {
+          "route": "[+33] EWGF df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2",
+          "starter": "[20] H.f,F+3,F"
+        },
+        {
+          "route": "[+33] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6]",
+          "starter": "[20] H.f,F+3,F"
+        },
+        {
+          "route": "[+47] df+2 df+1 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+          "starter": "[21] (back to wall) b,b,UB"
+        }
+      ],
+      "raw": "[23] EWGF (f,n,d,df#2) [+83] EWGF ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2][3] T! H.2+3 d+3~H.4,F dash OTG.d+4:1 [+56] EWGF ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 (demo Reina EWGF EWGF ws3 staple combo) [+56] f,F+3+4 uf+1 WRA.DF ws3 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[4] (demoReina's EWGF f,F+3+4 uf+1 ws3 staple combo.Reina EWGF f,F+3+4 uf+1 ws3 staple combo) [+55] f,F+3+4 ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[5][1] (demo Reina EWGF f,F+3+4 ws3 staple combo) [+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6] [13] df+2 [+56] EWGF ws3[1] df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 [+54] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[6] [+51] b+4 T! f,f+3+4 df+1,1 f+2,3,F df+1,F~1,qcf+2[5] [20] FC.df+4 [+56] (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 (demoReina's FC.df+4 staple combo.Reina FC.df+4 staple combo) [+54] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4[6] [25] FC.df+3 [+55] (f+2),3,F~3 df+1,1[7] f+2,3,F df+1,F~1+2[2] T! WRA.3,4 (demoReina's FC.df+3 staple combo.Reina FC.df+3 staple combo) [+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6] [30] f+3+4* [30] CH f+3+4 [24] CH (3),4 [24] CH (3+4),4 [24] CH (df+3+4),4 [24] CH (b+1,1,3),3 [24] CH (WRA.d+4),3 [20] BT.4 [20] CH f,n,3 [+55] (f+2),3~3 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 [+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2 [+51] b+4 T! f,F+3+4 df+1,1 f+2,3,F df+1,F~1,qcf+2[5] [24] CH (df+4,2),3 [24] CH b+4 [15] uf+4 [+49] T! b,B[8] (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 [+48] T! b,B[8] (f+2),3,F~3 df+1,1 f+2,3,F df+1,F~1,qcf+2 [0] low parry [+47] T! f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 [+45] T! EWGF df+2 df+1 f+2,3,F df+1,F~1,qcf+2[9] [+45] T! b,B[8] (f+2),3,F~3 df+1 f+2,3,F df+1,F~1,qcf+2[9] [25] CH 3,2 [+38] f+3~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 [+38] f,F+3+4 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 [26] CH.f,F+3+4 [+56] SSR (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 [+52] f+3~2 T! f+3~3 df+2 df+1 f+2,3,F df+1,F~1,qcf+2 [32] CH f,n,d,df#3 [25] CH WGS.df+3 [+47] ws3 df+1 SSL df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 [+46] ws3 df+1 df+1,1 f+2,3,f df+1,F~1+2 T! WRA.3,4 [19] CH (f,n,d,DF+4),4 [+54] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 [+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6] [+46] ws4 df+2 df+1,1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 [+45] ws4 df+2 df+1,1 f+2,3,F df+1,F~2 T! uf+3+4,1+2 [30] H.WRA.2,F [30] H.UNS.4,F [20] H.f,F+3,F [+33] EWGF df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4 [+33] EWGF df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2 [+33] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2[6] [21] (back to wall) b,b,UB [+47] df+2 df+1 df+2 df+1 f+2,3,F df+1,F~1+2[2] T! WRA.3,4",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+48] W![1] 1+2 b+4 WT! b+1,<1,3,F~2[2]",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+42] W! df+4,2,3 WT! d+1+2~4,2,2,qcf+1+2[3]",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+40] W! b+4 WT! b+1,<1,1,3,F~2[4]",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+39] W! df+4,2,3 WT! <OTG.d+4:1[5]",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+36] W! f+3~1+2 WT! WRA.4,2,2,qcf+1+2",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+35] W! b+4 WT! d+1+2~4,2,2,qcf+1+2",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+35] W! df+4,2,3 WT! df+3+4,4",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+35] W! 3,2 WT! 1 OTG.d+4:1[5]",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+34] W! 3,2 WT! SSL EWGF 1+2[6]",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+33] W! 3,2 WT! f,F+3+4 1+2",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[+32] W! b+4 WT! df+1,1 1+2",
+          "starter": "Tornado available (56% scaling e.g. raw W!)"
+        },
+        {
+          "route": "[24; -2a (-10)] W! b+1,<1,3,F~2[4]",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[24; -4a (-12)] W! b+1,<1,3,F~1+2[7][4][5]",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[??] W! H.f+3~3,F 1 OTG.d+4:1[5]",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[23; -15a (-23)] W! H.2+3 d+3~H.4,F 1 OTG.d+4:1",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[21; -2a (-14)] W! WRA.4,2,2,qcf+1+2[8]",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[21; -15a (-23)] W! 1 OTG.d+4:1[9][10][5]",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[20; +0d] W! R.df+1+2",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[19; -4a (-14)] W! 1,1 df+3+4,4[11]",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[18; -5a (-17)] W! f+3~1,qcf+2",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[17; +12a (+1)] W! f,F+3+4 1+2",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        },
+        {
+          "route": "[17; +12a (+1)] W! df+1,1 1+2",
+          "starter": "No tornado available (24% scaling e.g. long combo with T! into W!)"
+        }
+      ],
+      "raw": "Tornado available (56% scaling e.g. raw W!) [+48] W![1] 1+2 b+4 WT! b+1,<1,3,F~2[2] [+42] W! df+4,2,3 WT! d+1+2~4,2,2,qcf+1+2[3] [+40] W! b+4 WT! b+1,<1,1,3,F~2[4] [+39] W! df+4,2,3 WT! <OTG.d+4:1[5] [+36] W! f+3~1+2 WT! WRA.4,2,2,qcf+1+2 [+35] W! b+4 WT! d+1+2~4,2,2,qcf+1+2 [+35] W! df+4,2,3 WT! df+3+4,4 [+35] W! 3,2 WT! 1 OTG.d+4:1[5] [+34] W! 3,2 WT! SSL EWGF 1+2[6] [+33] W! 3,2 WT! f,F+3+4 1+2 [+32] W! b+4 WT! df+1,1 1+2 No tornado available (24% scaling e.g. long combo with T! into W!) [24; -2a (-10)] W! b+1,<1,3,F~2[4] [24; -4a (-12)] W! b+1,<1,3,F~1+2[7][4][5] [??] W! H.f+3~3,F 1 OTG.d+4:1[5] [23; -15a (-23)] W! H.2+3 d+3~H.4,F 1 OTG.d+4:1 [21; -2a (-14)] W! WRA.4,2,2,qcf+1+2[8] [21; -15a (-23)] W! 1 OTG.d+4:1[9][10][5] [20; +0d] W! R.df+1+2 [19; -4a (-14)] W! 1,1 df+3+4,4[11] [18; -5a (-17)] W! f+3~1,qcf+2 [17; +12a (+1)] W! f,F+3+4 1+2 [17; +12a (+1)] W! df+1,1 1+2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+45] <df+4,2,3 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+42] b+4 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+54] EWGF f+2,D~DF[1] ws3 f+2,3,F df+1,F~SEN.2 T! uf+3+4,1+2",
+          "starter": "[23] SSL EWGF"
+        },
+        {
+          "route": "[+45] df+4,2,3 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+39] 2,2,2,1 T! f+2,3,F~1,qcf+2",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+45] <df+4,2,3 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[20] BT.4"
+        },
+        {
+          "route": "[+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2",
+          "starter": "[25] FC.df+3"
+        },
+        {
+          "route": "[+33] b+1,1,3,F~1,qcf+2",
+          "starter": "[15] uf+4"
+        },
+        {
+          "route": "[+44] f,F+2,F~1+2 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[21] (back to wall) b,b,UB"
+        }
+      ],
+      "raw": "[23] EWGF [+45] <df+4,2,3 T! b+1,1,3,F~1,qcf+2 [+42] b+4 T! b+1,1,3,F~1,qcf+2 [23] SSR EWGF [23] SSL EWGF [+54] EWGF f+2,D~DF[1] ws3 f+2,3,F df+1,F~SEN.2 T! uf+3+4,1+2 [13] df+2 [+45] df+4,2,3 T! b+1,1,3,F~1,qcf+2 [+39] 2,2,2,1 T! f+2,3,F~1,qcf+2 [20] FC.df+4 [20] BT.4 [+45] <df+4,2,3 T! b+1,1,3,F~1,qcf+2 [25] FC.df+3 [+53] f,F+2,F~3 df+2 df+1 f+2,3,F df+1,F~2 T! uf+3+4,1+2 [15] uf+4 [+33] b+1,1,3,F~1,qcf+2 [21] (back to wall) b,b,UB [+44] f,F+2,F~1+2 T! b+1,1,3,F~1,qcf+2",
+      "section": "Off-Axis"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+32] WB! b+1,1,3,F~3 W! df+4,2,3 WT! <OTG.d+4:1[2]",
+          "starter": "≤ 2 hits, T! available"
+        },
+        {
+          "route": "[+27] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2]",
+          "starter": "≤ 2 hits, T! available"
+        },
+        {
+          "route": "[+26] WB! b+1,1,3 W! df+4,2,3 T! <OTG.d+4:1[2]",
+          "starter": "3 hits, T! available"
+        },
+        {
+          "route": "[+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2]",
+          "starter": "3 hits, T! available"
+        },
+        {
+          "route": "[+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2][3]",
+          "starter": "> 3 hits, T! available (e.g., short combo into W!)"
+        },
+        {
+          "route": "[+22] WB! b+1,1,3 W! 1 OTG.d+4:1",
+          "starter": "2 hits, T! used"
+        },
+        {
+          "route": "[+21] WB! b,B uf+3+4,1+2 1 OTG.d+4:1",
+          "starter": "2 hits, T! used"
+        },
+        {
+          "route": "[+20] WB! b,B uf+3+4,1+2 1 OTG.d+4:1",
+          "starter": "≥ 3 hits, T! used (e.g., long combo with T! into W!)"
+        },
+        {
+          "route": "(1 hit) WH! EWGF df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "(2 hits) WH! df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "(3 hits) WH! df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "(4 hits) WH! df+1 f+2,3,F df+1,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "(5 hits) WH! f+2,3,F df+1,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "(6 hits) WH! f+2,3,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "(7 hits) WH! dash df+1,F~1+2 T! WRA.3,4",
+          "starter": "< 7 hits, T! available"
+        },
+        {
+          "route": "<3,2[4][5] T! iws3,4",
+          "starter": "8+ hits, T! available"
+        },
+        {
+          "route": "b+4 T! iws3,4",
+          "starter": "8+ hits, T! available"
+        },
+        {
+          "route": "WH! (same combo as with T! available, but replace F~1+2 T! WRA.3,4 with F~1,qcf+2)",
+          "starter": "2-7 hits, T! unavailable"
+        },
+        {
+          "route": "[+8] WH! <f,F+3[6]",
+          "starter": "8+ hits, T! unavailable (e.g., long combo with T! into W!)"
+        },
+        {
+          "route": "[+5] WH! 3+4,4",
+          "starter": "8+ hits, T! unavailable (e.g., long combo with T! into W!)"
+        },
+        {
+          "route": "[+3] WH! <3,2[5]",
+          "starter": "8+ hits, T! unavailable (e.g., long combo with T! into W!)"
+        },
+        {
+          "route": "[+2] WH! uf+1[7]",
+          "starter": "8+ hits, T! unavailable (e.g., long combo with T! into W!)"
+        },
+        {
+          "route": "[+40] HWB! EWGF df+2 df+1 f+2,3 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1",
+          "starter": "raw HWB! (one prior wall hit)"
+        },
+        {
+          "route": "[+39] HWB! b+1,1,3 df+3 iws3,4 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4,D W! WRA.4,2,2,qcf+1+2",
+          "starter": "raw HWB! (one prior wall hit)"
+        },
+        {
+          "route": "[+35] HWB! b+1,1,3,F~<3 W! d+3~4 BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 (demo Reina Elegant Palace HWB! combo)",
+          "starter": "raw W! into HWB! (no prior wall hit)"
+        },
+        {
+          "route": "[+??] 3,2 W! wr3 BB! 3+4,4",
+          "starter": "≥ 4 hits, T! unavailable, W! into HWB! (e.g. long combo with T! into W!)"
+        }
+      ],
+      "raw": "≤ 2 hits, T! available [+32] WB! b+1,1,3,F~3 W! df+4,2,3 WT! <OTG.d+4:1[2] [+27] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2] 3 hits, T! available [+26] WB! b+1,1,3 W! df+4,2,3 T! <OTG.d+4:1[2] [+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2] > 3 hits, T! available (e.g., short combo into W!) [+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2][3] 2 hits, T! used [+22] WB! b+1,1,3 W! 1 OTG.d+4:1 [+21] WB! b,B uf+3+4,1+2 1 OTG.d+4:1 ≥ 3 hits, T! used (e.g., long combo with T! into W!) [+20] WB! b,B uf+3+4,1+2 1 OTG.d+4:1 < 7 hits, T! available (1 hit) WH! EWGF df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (2 hits) WH! df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (3 hits) WH! df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (4 hits) WH! df+1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (5 hits) WH! f+2,3,F df+1,F~1+2 T! WRA.3,4 (6 hits) WH! f+2,3,F~1+2 T! WRA.3,4 (7 hits) WH! dash df+1,F~1+2 T! WRA.3,4 8+ hits, T! available <3,2[4][5] T! iws3,4 b+4 T! iws3,4 2-7 hits, T! unavailable WH! (same combo as with T! available, but replace F~1+2 T! WRA.3,4 with F~1,qcf+2) 8+ hits, T! unavailable (e.g., long combo with T! into W!) [+8] WH! <f,F+3[6] [+5] WH! 3+4,4 [+3] WH! <3,2[5] [+2] WH! uf+1[7] raw HWB! (one prior wall hit) [+40] HWB! EWGF df+2 df+1 f+2,3 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 [+39] HWB! b+1,1,3 df+3 iws3,4 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4,D W! WRA.4,2,2,qcf+1+2 raw W! into HWB! (no prior wall hit) [+35] HWB! b+1,1,3,F~<3 W! d+3~4 BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 (demo Reina Elegant Palace HWB! combo) ≥ 4 hits, T! unavailable, W! into HWB! (e.g. long combo with T! into W!) [+??] 3,2 W! wr3 BB! 3+4,4",
+      "section": "Stage Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+70] EWGF EWGF EWGF b+4 T! 1 f,F+3 PEWGK",
+          "starter": "[20] FC.df+4"
+        },
+        {
+          "route": "[+67] EWGF EWGF df+1 b+4 T! 1 f,F+3 PEWGK",
+          "starter": "[20] FC.df+4"
+        },
+        {
+          "route": "[+64] EWGF EWGF b+4 T! 1 f,F+3 PEWGK",
+          "starter": "[20] FC.df+4"
+        },
+        {
+          "route": "[+62] EWGF EWGF microdash df+1,1 f+2,3,F df+1,F~<1+2 T! WRA.DF WGS.1,4",
+          "starter": "[13] df+2"
+        },
+        {
+          "route": "[+53] T! EWGF EWGF df+1,1 f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[0] low parry"
+        },
+        {
+          "route": "[+??] ws3 ws4 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.D~1,4",
+          "starter": "[25] CH WGS.df+3"
+        },
+        {
+          "route": "[+55] SSR (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2 T! WRA.DF uf+3+4,1+2",
+          "starter": "[26] CH.f,F+3+4"
+        },
+        {
+          "route": "[+111] PEWGF EWGF EWGF dash EWGF microdash df+1,F~1+2 T! f,F+3+4 HB! f+2,d~4,F OTG.d+4:1[1] (demo Reina CH HW.1 max damage combo on bigs)",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "[+??] PEWGF EWGF EWGF microdash df+1,1 f+2,3,F~<1+2 T! WRA.3,4",
+          "starter": "[14] CH WRA.1"
+        },
+        {
+          "route": "[+??] SSR EWGF EWGF EWGF df+1 EWGF df+1,1 f+2,3,F~1+2 T! WRA.3,4",
+          "starter": "[20] H.f,F+3,F"
+        },
+        {
+          "route": "[+48] W! EWGF 3,2 WT! 1 OTG.d+4:1",
+          "starter": "[23] EWGF W!"
+        }
+      ],
+      "raw": "[23] EWGF [20] FC.df+4 [+70] EWGF EWGF EWGF b+4 T! 1 f,F+3 PEWGK [+67] EWGF EWGF df+1 b+4 T! 1 f,F+3 PEWGK [+64] EWGF EWGF b+4 T! 1 f,F+3 PEWGK [30] f+3+4* [30] CH f+3+4 [25] FC.df+3 [24] CH (3),4 [24] CH (3+4),4 [24] CH (df+3+4),4 [24] CH (b+1,1,3),3 [24] CH (WRA.d+4),3 [20] BT.4 [20] CH f,n,3 [19] CH (f,n,d,DF+4),4 [13] df+2 [+62] EWGF EWGF microdash df+1,1 f+2,3,F df+1,F~<1+2 T! WRA.DF WGS.1,4 [24] CH (df+4,2),3 [24] CH b+4 [15] uf+4 [0] low parry [+53] T! EWGF EWGF df+1,1 f+2,3,F df+1,F~1,qcf+2 [32] CH f,n,d,df#3 [25] CH WGS.df+3 [+??] ws3 ws4 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.D~1,4 [26] CH.f,F+3+4 [+55] SSR (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2 T! WRA.DF uf+3+4,1+2 [14] CH WRA.1 [+111] PEWGF EWGF EWGF dash EWGF microdash df+1,F~1+2 T! f,F+3+4 HB! f+2,d~4,F OTG.d+4:1[1] (demo Reina CH HW.1 max damage combo on bigs) [+??] PEWGF EWGF EWGF microdash df+1,1 f+2,3,F~<1+2 T! WRA.3,4 [30] H.WRA.2,F [30] H.UNS.4,F [20] H.f,F+3,F [+??] SSR EWGF EWGF EWGF df+1 EWGF df+1,1 f+2,3,F~1+2 T! WRA.3,4 [23] EWGF W! [+48] W! EWGF 3,2 WT! 1 OTG.d+4:1",
+      "section": "Extras"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+21] b+1,1,3",
+          "starter": "launcher"
+        },
+        {
+          "route": "[+20] f,F+2,F~3",
+          "starter": "launcher"
+        },
+        {
+          "route": "[+17] df+2 df+1,1",
+          "starter": "launcher"
+        },
+        {
+          "route": "[+13] df+1 df+1,1",
+          "starter": "launcher"
+        },
+        {
+          "route": "[+8] SEN.1+2[1]",
+          "starter": "after 4+ filler hits"
+        },
+        {
+          "route": "[+6] SEN.2[2]",
+          "starter": "after 4+ filler hits"
+        },
+        {
+          "route": "[+6] b+4[3]",
+          "starter": "after 4+ filler hits"
+        },
+        {
+          "route": "done after a df+1/df+1,1 from instant T! combos",
+          "starter": "[+36] HB! dash H.f+2,D~4,F OTG.d+4:1"
+        },
+        {
+          "route": "[+35] HB! d+3~H.4,F OTG.d+4:1[1]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+??] HB! f+3~H.3,F OTG.d+4:1",
+          "starter": "T!"
+        },
+        {
+          "route": "[+??] HB! H.f,F+3,F OTG.d+4:1",
+          "starter": "T!"
+        },
+        {
+          "route": "[+15] H.WRA.2,F OTG.d+4:1[1]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+13] H.f,F+3,F 3+4,4",
+          "starter": "T!"
+        },
+        {
+          "route": "[+13] H.f+3~3,F 3+4,4",
+          "starter": "T!"
+        },
+        {
+          "route": "[+13] T! df+1,2,F EWGK[2]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+12] H.f,F+3,F OTG.d+4:1",
+          "starter": "T!"
+        },
+        {
+          "route": "[+24] df+1 RA[1]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+24] 1 RA[1]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+23] RA[2]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+13] WGS.1,4[1]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+12] uf+3+4,1+2[2]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+11] WRA.3,4[3]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+10] ws3,4[4]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+5] df+1,1",
+          "starter": "T!"
+        },
+        {
+          "route": "[+4] uf+1[1]",
+          "starter": "T!"
+        },
+        {
+          "route": "[+6] f+3~3",
+          "starter": "T!"
+        },
+        {
+          "route": "[+6] uf+3+4",
+          "starter": "T!"
+        },
+        {
+          "route": "[+8] f+3~1+2",
+          "starter": "T!"
+        },
+        {
+          "route": "[+7] f+3~4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+7] ws4,4[1]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+6] f,F+3",
+          "starter": "W!"
+        },
+        {
+          "route": "[+6] f+4[2]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+6] OTG.d+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+5] d+2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] 3+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] WRA.3,4,D W! WRA.2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] uf+3+4,1+2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] ws3,4[3]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] d+3~4[4]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] 1+2[5]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] 3,4[6]",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] H.2+3",
+          "starter": "W!"
+        },
+        {
+          "route": "[+?] f+3~1,qcf+2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+20] df+4,2,3",
+          "starter": "W!"
+        },
+        {
+          "route": "[+15] SEN.1+2/f+3~1+2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+14] 3,2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+12] b+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+12] SEN.2/f+3~2",
+          "starter": "W!"
+        },
+        {
+          "route": "[+9] uf+4",
+          "starter": "W!"
+        },
+        {
+          "route": "[+28] W! b+1,<1,3,F~1+2",
+          "starter": "1 wall hit (e.g., combo ender into W!, b+4 WT!)"
+        },
+        {
+          "route": "[+28] W! b+1,<1,3,F~2",
+          "starter": "1 wall hit (e.g., combo ender into W!, b+4 WT!)"
+        },
+        {
+          "route": "[+20] W! df+1,1 1+2",
+          "starter": "1 wall hit (e.g., combo ender into W!, b+4 WT!)"
+        },
+        {
+          "route": "[+19] W! <1,1 df+3+4,4",
+          "starter": "1 wall hit (e.g., combo ender into W!, b+4 WT!)"
+        },
+        {
+          "route": "[+19] W! f+2,D~4",
+          "starter": "1 wall hit (e.g., combo ender into W!, b+4 WT!)"
+        },
+        {
+          "route": "[+24] W! 1 OTG.d+4:1",
+          "starter": "2 wall hits (e.g. 3,2 WT!, f+3~1+2 WT!)"
+        },
+        {
+          "route": "[+21] W! WRA.4,2,2,qcf+1+2[7]",
+          "starter": "2 wall hits (e.g. 3,2 WT!, f+3~1+2 WT!)"
+        },
+        {
+          "route": "[+21] W! f,F+3+4 1+2",
+          "starter": "2 wall hits (e.g. 3,2 WT!, f+3~1+2 WT!)"
+        },
+        {
+          "route": "[+22] W! <OTG.d+4:1",
+          "starter": "3+ wall hits (e.g. df+4,2,3 WT!)"
+        },
+        {
+          "route": "[+15] W! df+3+4,4",
+          "starter": "3+ wall hits (e.g. df+4,2,3 WT!)"
+        },
+        {
+          "route": "[+11] W! 3+4,4",
+          "starter": "3+ wall hits (e.g. df+4,2,3 WT!)"
+        }
+      ],
+      "raw": "launcher [+21] b+1,1,3 [+20] f,F+2,F~3 [+17] df+2 df+1,1 [+13] df+1 df+1,1 after 4+ filler hits [+8] SEN.1+2[1] [+6] SEN.2[2] [+6] b+4[3] [+36] HB! dash H.f+2,D~4,F OTG.d+4:1 done after a df+1/df+1,1 from instant T! combos T! [+35] HB! d+3~H.4,F OTG.d+4:1[1] [+??] HB! f+3~H.3,F OTG.d+4:1 [+??] HB! H.f,F+3,F OTG.d+4:1 T! [+15] H.WRA.2,F OTG.d+4:1[1] [+13] H.f,F+3,F 3+4,4 [+13] H.f+3~3,F 3+4,4 [+13] T! df+1,2,F EWGK[2] [+12] H.f,F+3,F OTG.d+4:1 T! [+24] df+1 RA[1] [+24] 1 RA[1] [+23] RA[2] T! [+13] WGS.1,4[1] [+12] uf+3+4,1+2[2] [+11] WRA.3,4[3] [+10] ws3,4[4] T! [+5] df+1,1 [+4] uf+1[1] [+6] f+3~3 [+6] uf+3+4 [+8] f+3~1+2 T! W! [+7] f+3~4 [+7] ws4,4[1] [+6] f,F+3 [+6] f+4[2] [+6] OTG.d+4 [+5] d+2 [+?] 3+4 T! W! [+?] WRA.3,4,D W! WRA.2 [+?] uf+3+4,1+2 [+?] ws3,4[3] [+?] d+3~4[4] [+?] 1+2[5] [+?] 3,4[6] [+?] H.2+3 [+?] f+3~1,qcf+2 W! [+20] df+4,2,3 [+15] SEN.1+2/f+3~1+2 [+14] 3,2 [+12] b+4 [+12] SEN.2/f+3~2 [+9] uf+4 1 wall hit (e.g., combo ender into W!, b+4 WT!) [+28] W! b+1,<1,3,F~1+2 [+28] W! b+1,<1,3,F~2 [+20] W! df+1,1 1+2 [+19] W! <1,1 df+3+4,4 [+19] W! f+2,D~4 2 wall hits (e.g. 3,2 WT!, f+3~1+2 WT!) [+24] W! 1 OTG.d+4:1 [+21] W! WRA.4,2,2,qcf+1+2[7] [+21] W! f,F+3+4 1+2 3+ wall hits (e.g. df+4,2,3 WT!) [+22] W! <OTG.d+4:1 [+15] W! df+3+4,4 [+11] W! 3+4,4",
+      "section": "Combo Theory"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Reina_combos"
+}

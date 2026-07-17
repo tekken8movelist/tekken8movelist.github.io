@@ -1,0 +1,368 @@
+{
+  "canonical_name": "Armor King",
+  "character_key": "armor_king",
+  "display_name_zh": "铠甲王",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "df+3 f+3,2~DF CD.1 f+3,2,1 T! dash f+1+2~F BAD.2+4",
+          "starter": "Regular launch (e.g. uf+4 or f,n,d,df+2)"
+        },
+        {
+          "route": "f+3,2~DF CD.1 f+3,2~DF CD.1 db+2,3",
+          "starter": "Tornado launch (e.g. Low Parry or b+3)"
+        }
+      ],
+      "raw": "Regular launch (e.g. uf+4 or f,n,d,df+2) df+3 f+3,2~DF CD.1 f+3,2,1 T! dash f+1+2~F BAD.2+4 Tornado launch (e.g. Low Parry or b+3) f+3,2~DF CD.1 f+3,2~DF CD.1 db+2,3",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+27; 20] OTG.d+4,4,3+4",
+          "starter": "[20] ub+1+2"
+        },
+        {
+          "route": "[+22; 15] f+1+4",
+          "starter": "[20] ub+1+2"
+        },
+        {
+          "route": "[+24] d+2+4[1]",
+          "starter": "[22] CH (df+1),2"
+        },
+        {
+          "route": "[+24] d+1+3[2]",
+          "starter": "[22] CH (df+1),2"
+        },
+        {
+          "route": "[+10] df+4",
+          "starter": "[22] CH (df+1),2"
+        },
+        {
+          "route": "[41] 2,1",
+          "starter": "[9] CH (df+2),1"
+        },
+        {
+          "route": "[+25] BAD.1,2[1]",
+          "starter": "[9] CH (df+2),1~F"
+        },
+        {
+          "route": "[+24] BAD.1,4[3]",
+          "starter": "[9] CH (df+2),1~F"
+        },
+        {
+          "route": "[44] ws3,1[1]",
+          "starter": "CH d+2"
+        },
+        {
+          "route": "[34] ws4",
+          "starter": "CH d+2"
+        },
+        {
+          "route": "[+27; 20] OTG.d+4,4,3+4[4]",
+          "starter": "[20] f,n,d,df+1"
+        },
+        {
+          "route": "[+27; 20] OTG.d+4,4,3+4",
+          "starter": "[14] CH (d+3+4),1"
+        },
+        {
+          "route": "[+27; 20] OTG.d+4,4,3+4",
+          "starter": "[24] ub+1+2*"
+        },
+        {
+          "route": "[25] f+2,1[1][5]",
+          "starter": "CH b+1+2"
+        },
+        {
+          "route": "[14 +] f,n,df+2 (HARD)",
+          "starter": "CH b+1+2"
+        },
+        {
+          "route": "[11 +] uf+2,1 (Close range)",
+          "starter": "CH b+1+2"
+        },
+        {
+          "route": "[+21; 21] OTG.d+4,4,3+4",
+          "starter": "[36] ws3,1,H.F"
+        },
+        {
+          "route": "[42; 5][6] db,n,f+2+4[2]",
+          "starter": "f,n,d,df+1+2"
+        },
+        {
+          "route": "[39; 5][6] f,hcf:1[7][8]",
+          "starter": "f,n,d,df+1+2"
+        },
+        {
+          "route": "[36; 5][6] f,f,F:2+4[5][8]",
+          "starter": "f,n,d,df+1+2"
+        },
+        {
+          "route": "[36; 5][6] qcb+1+2[5]",
+          "starter": "f,n,d,df+1+2"
+        },
+        {
+          "route": "[33; 5][6] uf+1+2[2]",
+          "starter": "f,n,d,df+1+2"
+        },
+        {
+          "route": "[33; 5][6] df+2+3",
+          "starter": "f,n,d,df+1+2"
+        },
+        {
+          "route": "[22] b+1,2~F[9]",
+          "starter": "db+2+4 on FUFT or FDFA opponent"
+        }
+      ],
+      "raw": "[22] f,n,d,DF+4 [21] ub+1 [20] ub+1+2 [+27; 20] OTG.d+4,4,3+4 [+22; 15] f+1+4 [25] CH f+4 [22] BAD.1+2 [22] CH (df+1),2 [+24] d+2+4[1] [+24] d+1+3[2] [+10] df+4 [24] CH f,f,n,2 [24] CH (b+1),2 [9] CH (df+2),1 [41] 2,1 [24] CH f,f,n,2~F [24] CH (b+1),2~F [9] CH (df+2),1~F [+25] BAD.1,2[1] [+24] BAD.1,4[3] CH d+2 [44] ws3,1[1] [34] ws4 [24] CH db+4 [20] f,n,d,df+1 [+27; 20] OTG.d+4,4,3+4[4] [30] 1+2,2[4] [27] CH BAD.4 [21] CH (4),3 [14] CH (d+3+4),1 [+27; 20] OTG.d+4,4,3+4 [24] ub+1+2* [+27; 20] OTG.d+4,4,3+4 CH b+1+2 [25] f+2,1[1][5] [14 +] f,n,df+2HARD [11 +] uf+2,1Close range [37] BAD.1,2,H.F [36] ws3,1,H.F [+21; 21] OTG.d+4,4,3+4 BAD.f+1+2 BAD.P f,n,d,df+1+2 [42; 5][6] db,n,f+2+4[2] [39; 5][6] f,hcf:1[7][8] [36; 5][6] f,f,F:2+4[5][8] [36; 5][6] qcb+1+2[5] [33; 5][6] uf+1+2[2] [33; 5][6] df+2+3 db+2+4 on FUFT or FDFA opponent [22] b+1,2~F[9]",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+78; 59] f,n,df+2 df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 HB! iws3,1,H.f OTG.d+4,4,3+4",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+66; 42] f,n,df+2 df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+64; 41] 4,3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+61; 39] df+3 df+1 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+57; 36] f,n,df+2 df+3 f+3,2~DF CD.1 f+3,2,1 T! iws3,1",
+          "starter": "[13] uf+4"
+        },
+        {
+          "route": "[+56; 37] T! f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF CD.1 f,hcf:1[1][2]",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+55; 35] T! f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF CD.1 f+1+4",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+44; 27] df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[45; 17] CH b+1+3,2,f,d,df+2"
+        },
+        {
+          "route": "[+64; 41] 4,3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+61; 39] df+3 df+1 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[17] uf+2,1"
+        },
+        {
+          "route": "[80; 39] f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "CH 4,3"
+        },
+        {
+          "route": "[84; 39] ssr 3+4,1 f+3,2~DF CD.1 f+3,2,1 T! run ssr f+1+2 BAD.2+4",
+          "starter": "CH f,F+2"
+        },
+        {
+          "route": "[74; 32] d+3+4,1 f+3,2~DF CD.4 T! SSL f+3,2~DF CD.1 f+1+4",
+          "starter": "CH df+2"
+        },
+        {
+          "route": "[+31; 28] f+3,2~DF CD.1 f+3,2~DF CD.1 f+3,2,1 T! dash f+1+2 BAD.2+4",
+          "starter": "[25] f,F+4,H.F"
+        },
+        {
+          "route": "[108; 38] ~F f,F,n,d,DF+4 T! f,n,d,df+1 f+3,2~DF CD.1 f+3,2~DF CD.1 f+1+4",
+          "starter": "b,B+2+3"
+        },
+        {
+          "route": "[107; 38] ~F f,F,n,d,DF+4 T! f+3,2~DF CD.1 f+3,2~DF CD.1 f,hcf:1[1][2]",
+          "starter": "b,B+2+3"
+        }
+      ],
+      "raw": "[20] CH uf+3 [20] f,n,d,df+2 [16] ws1 [13] uf+4 [+78; 59] f,n,df+2 df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 HB! iws3,1,H.f OTG.d+4,4,3+4 [+66; 42] f,n,df+2 df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [+64; 41] 4,3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [+61; 39] df+3 df+1 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [+57; 36] f,n,df+2 df+3 f+3,2~DF CD.1 f+3,2,1 T! iws3,1 [28] H.ub+1+2* [24] CH db+3 [17] b+3 [0] Low Parry [+56; 37] T! f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF CD.1 f,hcf:1[1][2] [+55; 35] T! f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF CD.1 f+1+4 [42; 15] CH ws2,2 [42; 15] CH b+1+3,2,2 [45; 17] CH ws2,f,d,df+2 [45; 17] CH b+1+3,2,f,d,df+2 [+44; 27] df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [26] CH BAD.1+2 [23] FC.DF+2 [20] CH df+3 [+64; 41] 4,3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [26] CH ss4 [25] H.ub+1 [25] u+1+2 [24] CH uf+1 [20] CH (1+2),4 [20] BT.3 [17] uf+2,1 [+61; 39] df+3 df+1 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 CH 4,3 [80; 39] f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 CH f,F+2 [84; 39] ssr 3+4,1 f+3,2~DF CD.1 f+3,2,1 T! run ssr f+1+2 BAD.2+4 CH df+2 [74; 32] d+3+4,1 f+3,2~DF CD.4 T! SSL f+3,2~DF CD.1 f+1+4 [37] f+2,1,H.F [25] f,F+4,H.F [+31; 28] f+3,2~DF CD.1 f+3,2~DF CD.1 f+3,2,1 T! dash f+1+2 BAD.2+4 b,B+2+3 [108; 38] ~F f,F,n,d,DF+4 T! f,n,d,df+1 f+3,2~DF CD.1 f+3,2~DF CD.1 f+1+4 [107; 38] ~F f,F,n,d,DF+4 T! f+3,2~DF CD.1 f+3,2~DF CD.1 f,hcf:1[1][2]",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+32; 21] df+1,2 T! 3,4,1",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "[+20; 11] df+1,2 T! OTG.d+4,4,3+4",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "[+16; 10] 3,4,1",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "[+39; 27] d+3+4,3 T! 3,4,1",
+          "starter": "Wall splat (56% scaling)"
+        },
+        {
+          "route": "[76] FUFT.4[1] W! b+3 T! 3,4,1",
+          "starter": "f,f,F#2+4 W!"
+        },
+        {
+          "route": "[70; 11] FUFT.4[1] W! df+1,2 T! W.2+4",
+          "starter": "f,f,F#2+4 W!"
+        }
+      ],
+      "raw": "Regular carry (24% scaling) [+32; 21] df+1,2 T! 3,4,1 [+20; 11] df+1,2 T! OTG.d+4,4,3+4 [+16; 10] 3,4,1 Wall splat (56% scaling) [+39; 27] d+3+4,3 T! 3,4,1 f,f,F#2+4 W! [76] FUFT.4[1] W! b+3 T! 3,4,1 [70; 11] FUFT.4[1] W! df+1,2 T! W.2+4",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+42; 33] df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[14; 9][1] f,n,d,df+2"
+        },
+        {
+          "route": "[+38; 31] f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "[14; 9][1] f,n,d,df+2 (on lower hit)"
+        },
+        {
+          "route": "[60; 39] f+3,2~DF CD.1 f+3,2,1 T! run ssr f+1+2 BAD.2+4",
+          "starter": "FC.df+4,1"
+        },
+        {
+          "route": "[57; 37] T! f,n,d,DF+1 f+3,2~DF CD.1 f+3,2~DF CD.1 f+1+4",
+          "starter": "b+3"
+        }
+      ],
+      "raw": "[3] 1 [14; 9] ws4 [14; 9][1] f,n,d,df+2 [+42; 33] df+3 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [14; 9][1] f,n,d,df+2(on lower hit) [+38; 31] f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 FC.df+4,1 [60; 39] f+3,2~DF CD.1 f+3,2,1 T! run ssr f+1+2 BAD.2+4 b+3 [57; 37] T! f,n,d,DF+1 f+3,2~DF CD.1 f+3,2~DF CD.1 f+1+4",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "Combo Off-axis to the right",
+          "starter": "uf+4"
+        },
+        {
+          "route": "Combo Off-axis to the left",
+          "starter": "uf+4"
+        }
+      ],
+      "raw": "uf+4 Combo Off-axis to the right uf+4 Combo Off-axis to the left",
+      "section": "Off-axis"
+    },
+    {
+      "entries": [
+        {
+          "route": "Combo Back-Turned goes here",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[78; 39] df+3 df+1 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "uf+2,1"
+        },
+        {
+          "route": "[70; 34] (Backturned) f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4",
+          "starter": "uf+2,1"
+        },
+        {
+          "route": "[17] uf+2,1",
+          "starter": "[0] db+2+4 on FDFT or FUFA opponent"
+        },
+        {
+          "route": "[+34] db+2,3",
+          "starter": "[29] df+2,1"
+        },
+        {
+          "route": "[+32] db+2,4",
+          "starter": "[29] df+2,1"
+        },
+        {
+          "route": "[+28] f+1+4",
+          "starter": "[15] df+4"
+        }
+      ],
+      "raw": "uf+4 Combo Back-Turned goes here uf+2,1 [78; 39] df+3 df+1 f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [70; 34]Backturned f+3,2~DF CD.1 f+3,2,1 T! run f+1+2 BAD.2+4 [35] 4,3 [0] db+2+4 on FDFT or FUFA opponent [17] uf+2,1 If they crouch block after +9 you get to do the Backturned combo. Any string that ends in +8 [32] b+1,2 [31] df+1,2 [29] df+2,1 [+34] db+2,3 [+32] db+2,4 Any string that ends in +7 [25] 2,1 [21] f+4 [15] f+3 [15] df+4 [+28] f+1+4",
+      "section": "Backturned Opponent"
+    },
+    {
+      "entries": [],
+      "raw": "[37] f+1,2 [28] f+1+4 WH! [5; 5] [+ ;] Wall Hazard Combo Here [46] f,f,F#2+4 WH! [5; 5] [+ ;] Wall Hazard Combo Here",
+      "section": "Wall Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+ ;] Wall Blast Combo Here",
+          "starter": "WB! [5; 5]"
+        },
+        {
+          "route": "[+ ;] Wall Blast Combo Here",
+          "starter": "WB! [5; 5]"
+        },
+        {
+          "route": "[+ ;] Wall Blast Combo Here",
+          "starter": "WB! [5; 5]"
+        }
+      ],
+      "raw": "[37] f+1,2 [28] f+1+4 WB! [5; 5] [+ ;] Wall Blast Combo Here [46] f,f,F#2+4 WB! [5; 5] [+ ;] Wall Blast Combo Here [44] qcb+1+2 WB! [5; 5] [+ ;] Wall Blast Combo Here",
+      "section": "Wall Blast"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+ ;] Floor Hazard Combo Here",
+          "starter": "FH! [5; 5]"
+        },
+        {
+          "route": "[+ ;] Floor Hazard Combo Here",
+          "starter": "FH! [5; 5]"
+        },
+        {
+          "route": "[+ ;] Floor Hazard Combo Here",
+          "starter": "FH! [5; 5]"
+        }
+      ],
+      "raw": "[40] uf+1+2 FH! [5; 5] [+ ;] Floor Hazard Combo Here [40] 3+4*Second hit only FH! [5; 5] [+ ;] Floor Hazard Combo Here [53] db,n,f+2+4 [38] 2+4,d+1+2 [35] d+1+3 FH! [5; 5] [+ ;] Floor Hazard Combo Here",
+      "section": "Floor Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+25; 3] db+2+4[1] b+1,2",
+          "starter": "[19; 10] W! df+1,2 T! 2"
+        }
+      ],
+      "raw": "[19; 10] W! df+1,2 T! 2 [+25; 3] db+2+4[1] b+1,2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[73; 39] 4,3 f+3,2~DF CD.1 f+3,2,1 T! f,f,F+2+4",
+          "starter": "uf+4"
+        },
+        {
+          "route": "[79; 38] f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF ws3,1,H.F f,f,F:2+4",
+          "starter": "b+3 With heat"
+        },
+        {
+          "route": "[75; 36] f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF ws3,1,H.F f,hcf:1",
+          "starter": "b+3 With heat"
+        },
+        {
+          "route": "[;] d+3+4,1 f+3,2~DF CD.1 f+3,2,1 T! f+1+2~F BAD.1+3",
+          "starter": "CH ws2"
+        }
+      ],
+      "raw": "uf+4 [73; 39] 4,3 f+3,2~DF CD.1 f+3,2,1 T! f,f,F+2+4 b+3With heat [79; 38] f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF ws3,1,H.F f,f,F:2+4 [75; 36] f,n,d,df+1 df+3 f+3,2~DF CD.1 f+3,2~DF ws3,1,H.F f,hcf:1 CH ws2 [;] d+3+4,1 f+3,2~DF CD.1 f+3,2,1 T! f+1+2~F BAD.1+3",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Armor_King_combos"
+}

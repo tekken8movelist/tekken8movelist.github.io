@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+tools/_qa_shots/
+tools/_season2_qa/

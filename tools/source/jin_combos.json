@@ -1,0 +1,241 @@
+{
+  "canonical_name": "Jin Kazama",
+  "character_key": "jin",
+  "display_name_zh": "风间仁",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3",
+          "starter": "Regular launch (e.g. d+3+4 or uf+4)"
+        },
+        {
+          "route": "T! EWHF[1] b+3~F ZEN.1 b+3~F ZEN.1,3",
+          "starter": "Instant Tornado (e.g. EWHF or low parry)"
+        }
+      ],
+      "raw": "Regular launch (e.g. d+3+4 or uf+4) b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3 Instant Tornado (e.g. EWHF or low parry) T! EWHF[1] b+3~F ZEN.1 b+3~F ZEN.1,3",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+19] df+1,4",
+          "starter": "[18] CH 4"
+        },
+        {
+          "route": "[+15] 1+2[1]",
+          "starter": "[18] CH 4"
+        },
+        {
+          "route": "[+19; 13] md OTG.d+1+2",
+          "starter": "[20] (1,2),3"
+        },
+        {
+          "route": "[+17; 11] d+2",
+          "starter": "[20] (1,2),3"
+        },
+        {
+          "route": "[+25; 17] f,F+4",
+          "starter": "[20] b+1+2,P"
+        },
+        {
+          "route": "[+17; 11] d+2",
+          "starter": "[20] b+1+2,P"
+        },
+        {
+          "route": "[+17; 11] md d+2",
+          "starter": "[24] CH (2,1),4~4[2]"
+        },
+        {
+          "route": "[+20; 20] f,F+4",
+          "starter": "[24] 1+2,H.F"
+        },
+        {
+          "route": "[+15; 15] OTG.d+1+2",
+          "starter": "[24] 1+2,H.F"
+        }
+      ],
+      "raw": "[20] (ws1),3~3 [20] df+3~3 [18] CH 4 [+19] df+1,4 [+15] 1+2[1] [28] db+3[2] [25] ZEN.4[3] [24] CH ZEN.3[3] [23] (db+2),3[2] [20] (1,2),3 [+19; 13] md OTG.d+1+2 [+17; 11] d+2 [25] CH (d+3,4),3 [20] b+1+2,P [+25; 17] f,F+4 [+17; 11] d+2 [24] CH (2,1),4~4[2] [+17; 11] md d+2 [24] 1+2,H.F [+20; 20] f,F+4 [+15; 15] OTG.d+1+2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+78; 57] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.2 HB! f+3+4 ZEN.1,2,H.F f,F+4",
+          "starter": "[14] ws2"
+        },
+        {
+          "route": "[+63; 38] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[14] ws2"
+        },
+        {
+          "route": "[+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3",
+          "starter": "[14] ws2"
+        },
+        {
+          "route": "[+56; 35] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2",
+          "starter": "[14] ws2"
+        },
+        {
+          "route": "[+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[14] ws2"
+        },
+        {
+          "route": "[+66] T! EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.HB! (2),4~F ZEN.2 f,F+2,H.F f,F+4",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+47] T! (2),4~F ZEN.2 b,f+2,3~F ZEN.1,3",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+47] T! EWHF b+3~F ZEN.1 b+3~F ZEN.1,3",
+          "starter": "[0] Low Parry"
+        },
+        {
+          "route": "[+39; 38] EWHF b+3~F ZEN.1 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[22] df+4,H.F"
+        },
+        {
+          "route": "[+52] [3] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! ssr b+3~F ZEN.1,3",
+          "starter": "[25] CH f+4"
+        },
+        {
+          "route": "[+46] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2",
+          "starter": "[25] CH f+4"
+        },
+        {
+          "route": "[+49] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! dash b,f+2,1,2",
+          "starter": "[25] CH f+4"
+        },
+        {
+          "route": "[+55; 33] ZEN.df <ws4 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[25] CH f+4~F"
+        },
+        {
+          "route": "[+63; 38] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[20] f,F+3"
+        },
+        {
+          "route": "[+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3",
+          "starter": "[20] f,F+3"
+        },
+        {
+          "route": "[+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[20] f,F+3"
+        },
+        {
+          "route": "[+62; 37] EWHF b+3~F ZEN.1 b,f+2,1,df+2 T! dash (2),4~F ZEN.1,3",
+          "starter": "[20] CH (1,3),4"
+        },
+        {
+          "route": "[+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3",
+          "starter": "[20] CH (1,3),4"
+        },
+        {
+          "route": "[+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[20] CH (1,3),4"
+        }
+      ],
+      "raw": "[23] H.DVS.2 (EWGF) Cannot do HB! routes [22] f,n,d,df#1 [20] f,n,d,df+1 [20] ZEN.u+1[1] [20] d+3+4 [13] uf+4 [14] ws2 [+78; 57] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.2 HB! f+3+4 ZEN.1,2,H.F f,F+4 [+63; 38] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+56; 35] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] H.DVS.1 Cannot do HB! routes [25] EWHF [0] Low Parry [+66] T! EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.HB! (2),4~F ZEN.2 f,F+2,H.F f,F+4 [+47] T! (2),4~F ZEN.2 b,f+2,3~F ZEN.1,3 [+47] T! EWHF b+3~F ZEN.1 b+3~F ZEN.1,3 [35] ZEN.1,2,H.F [29] f+3,2,H.F [22] f,F+2,H.F [22] df+4,H.F [+39; 38] EWHF b+3~F ZEN.1 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] CH f+4 [+52] [3] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! ssr b+3~F ZEN.1,3 [+46] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+49] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! dash b,f+2,1,2 [25] CH f+4~F [+55; 33] ZEN.df <ws4 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] H.DVS.3 Stick to second route, cannot do HB! routes [20] f,F+3 [+63; 38] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [21] CH (3,1),4 [20] CH (1,3),4 [+62; 37] EWHF b+3~F ZEN.1 b,f+2,1,df+2 T! dash (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[45] f,n,d,df#1 T! b,f+2,1,df+2",
+          "starter": "Tornado Available"
+        },
+        {
+          "route": "[44] b+1,2 T! b,f+2,1,2",
+          "starter": "Tornado Available"
+        },
+        {
+          "route": "[26] b,f+2,1,df+2",
+          "starter": "No Tornado Available"
+        },
+        {
+          "route": "[24] 1 db+2,2,3",
+          "starter": "No Tornado Available"
+        }
+      ],
+      "raw": "Tornado Available [45] f,n,d,df#1 T! b,f+2,1,df+2 [44] b+1,2 T! b,f+2,1,2 No Tornado Available [26] b,f+2,1,df+2 [24] 1 db+2,2,3",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[43] b3F ZEN 1 bf2,3F ZEN u1 T! b3,2",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 [43] b3F ZEN 1 bf2,3F ZEN u1 T! b3,2",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        },
+        {
+          "route": "Launches opponent",
+          "starter": "1,2,1"
+        },
+        {
+          "route": "f*d,df+2, df+2,4, dash b+3F>Zen.u+1, df+3~3DF>CD.1",
+          "starter": "bf+2,1,df+2"
+        },
+        {
+          "route": "f*d,df+2, dash 3,1F,2, dash b+3F>Zen.u+1, df+3~3DF>CD.1",
+          "starter": "bf+2,1,df+2"
+        },
+        {
+          "route": "Launches opponent",
+          "starter": "bf+2,3F ZEN u1"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back 1,2,1 Launches opponent bf+2,1,df+2 f*d,df+2, df+2,4, dash b+3F>Zen.u+1, df+3~3DF>CD.1 f*d,df+2, dash 3,1F,2, dash b+3F>Zen.u+1, df+3~3DF>CD.1 bf+2,3F ZEN u1 Launches opponent",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+31; 18] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[5; 5] FH! (39% scaling)"
+        },
+        {
+          "route": "[+28; 16] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3",
+          "starter": "[5; 5] FH! (35% scaling)"
+        },
+        {
+          "route": "[+28; 20] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+          "starter": "[5; 5] WH! (39% scaling)"
+        },
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "[40] uf+1+2 [5; 5] FH! (39% scaling) [+31; 18] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [42; 12] ws1,3,2,1,4,2 [31; 13] f,n,d,df+4,2 [5; 5] FH! (35% scaling) [+28; 16] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3 [29] 2,4 [5; 5] WH! (39% scaling) [+28; 20] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+56; 35] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2",
+          "starter": "[22] cd+1"
+        },
+        {
+          "route": "[+52; 31] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3",
+          "starter": "[22] cd+1"
+        }
+      ],
+      "raw": "[22] cd+1 [+56; 35] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+52; 31] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3",
+      "section": "Extras"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Jin_combos"
+}

@@ -1,0 +1,227 @@
+{
+  "canonical_name": "Feng Wei",
+  "character_key": "feng",
+  "display_name_zh": "冯威",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "[+51] df+1 b+3,DF~CD.3 b+4,2~DF CD.2 T! dash uf+3 df+4,3",
+          "starter": "Regular launch (e.g. uf+4, ws3, f+3,4)"
+        },
+        {
+          "route": "[+42] uf+3 b+3,DF~CD.3 b+4,2~DF CD.2",
+          "starter": "Instant T! launch (e.g. df+3, CH ws2, KNP.3)"
+        },
+        {
+          "route": "[+48] f+4,2 T! uf+3 db+1,2,4",
+          "starter": "Off-axis launch (e.g. uf+4, ws3, f+3,4)"
+        }
+      ],
+      "raw": "Regular launch (e.g. uf+4, ws3, f+3,4) [+51] df+1 b+3,DF~CD.3 b+4,2~DF CD.2 T! dash uf+3 df+4,3 Instant T! launch (e.g. df+3, CH ws2, KNP.3) [+42] uf+3 b+3,DF~CD.3 b+4,2~DF CD.2 Off-axis launch (e.g. uf+4, ws3, f+3,4) [+48] f+4,2 T! uf+3 db+1,2,4",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+24] b+1+2[1]",
+          "starter": "[24] CH STC.4"
+        },
+        {
+          "route": "[+26] BT.3",
+          "starter": "[27] CH (3,3),4"
+        },
+        {
+          "route": "[+13] BT.d+3[2]",
+          "starter": "[27] CH (3,3),4"
+        },
+        {
+          "route": "[+19] OTG.d+3+4",
+          "starter": "[20] STC.1+2"
+        },
+        {
+          "route": "[+13] df+3",
+          "starter": "[20] STC.1+2"
+        },
+        {
+          "route": "[+30] H.b+1 dash b+1+2",
+          "starter": "[0 (12)] H.f,F+1+2* on block"
+        },
+        {
+          "route": "[+17] 1,2,2",
+          "starter": "[0 (12)] H.f,F+1+2* on block"
+        },
+        {
+          "route": "[+16] 1,3",
+          "starter": "[0 (12)] H.f,F+1+2* on block"
+        },
+        {
+          "route": "[+21] b+1+2",
+          "starter": "[20] ws1+2 Successful parry"
+        },
+        {
+          "route": "[+20] b+4,2",
+          "starter": "[20] ws1+2 Successful parry"
+        },
+        {
+          "route": "[+21] b+4,H.3+4[3]",
+          "starter": "[20] ws1+2 Successful parry"
+        },
+        {
+          "route": "[+20] 4~3",
+          "starter": "[16] uf+3[4]"
+        },
+        {
+          "route": "[+29] b+4,2",
+          "starter": "[12] uf+1 on crouching opponent"
+        },
+        {
+          "route": "[+30] b+4,H.3+4[3]",
+          "starter": "[12] uf+1 on crouching opponent"
+        },
+        {
+          "route": "[+20] H.b+1",
+          "starter": "[28] ub+2 opponent's back to wall"
+        }
+      ],
+      "raw": "[20] CH b+1[1] [20] H.b+1[1] [30] CH CD.1+2 [24] CH ub+1[1] [20] CH (f+3),2 [24] CH STC.4 [+24] b+1+2[1] [23] H.3+4 [24] CH BT.1+2 [25] STC.3 [27] CH (3,3),4 [+26] BT.3 [+13] BT.d+3[2] [20] STC.1+2 [+19] OTG.d+3+4 [+13] df+3 [0 (12)] H.f,F+1+2* on block [+30] H.b+1 dash b+1+2 [+17] 1,2,2 [+16] 1,3 [12] BT.1 [20] 1+2 Successful parry [20] ws1+2 Successful parry [+21] b+1+2 [+20] b+4,2 [+21] b+4,H.3+4[3] [23] df+3+4 [16] uf+3[4] [+20] 4~3 [12] uf+1 on crouching opponent [+29] b+4,2 [+30] b+4,H.3+4[3] [28] ub+2 opponent's back to wall [+20] H.b+1",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+51] df+1 f,F+4>3 1 b+3,DF~CD.2 T! uf+3 df+4,3",
+          "starter": "[15] f,F+4"
+        },
+        {
+          "route": "[+51] df+1 b+3~DF CD.3 b+4,2~DF CD.2 T! dash uf+3 df+4,3",
+          "starter": "[15] f,F+4"
+        },
+        {
+          "route": "[+55] df+1 f,F+4>3 1 b+3,DF~CD.2 T! uf+3 dash 3,1+2",
+          "starter": "[15] f,F+4"
+        },
+        {
+          "route": "[+42] uf+3 f,F+4>3[1] 1 dash 3,1+2",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+40] uf+3 b+3 1 db+1,2,4",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+35] uf+3 f,F+4>3 3,3[2]",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[69] run up SSL uf+3 b+3 1 dash db+1,2,4",
+          "starter": "f+4,2 T!"
+        },
+        {
+          "route": "[]",
+          "starter": "FC.df+2"
+        },
+        {
+          "route": "[]",
+          "starter": "f+4"
+        },
+        {
+          "route": "[]",
+          "starter": "f,F+4,3"
+        }
+      ],
+      "raw": "[13] uf+4 [25] f+3,4 [15] f,F+4 [+51] df+1 f,F+4>3 1 b+3,DF~CD.2 T! uf+3 df+4,3 [+51] df+1 b+3~DF CD.3 b+4,2~DF CD.2 T! dash uf+3 df+4,3 [+55] df+1 f,F+4>3 1 b+3,DF~CD.2 T! uf+3 dash 3,1+2 [17] df+3 T! [20] KNP.3 [20] CH ws2 [20] BT.d+3 Low Parry [+42] uf+3 f,F+4>3[1] 1 dash 3,1+2 [+40] uf+3 b+3 1 db+1,2,4 [+35] uf+3 f,F+4>3 3,3[2] f+4,2 T! [69] run up SSL uf+3 b+3 1 dash db+1,2,4 FC.df+2 [] f+4 [] f,F+4,3 []",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+34 ] 2+3 df+1 b+4,H.3+4 BT.d+3",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+23] f+3,2 > b1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+23] db+1,2,4",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+36] df+3 T! > b1+2 > db+1,2,4",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+35] df+3 T! > b1+2 > 1,3 > b1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+32] f+4,2 T! > SSL > 1+2 > b1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+31] d1+2,1 T! > f+3 > 2 > b1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+31] d1+2,1 T! > db+1,2,4",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+50] backdash_ss > uf+3 W! > df+3 T! > b1+2 > db+1,2,4",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+49] backdash_ss > uf+3 W! > df+3 T! > b1+2 > 1,3 > b+1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+45] backdash_ss > uf+3 W! > f+4,2 T! > SSL 1+2 > b1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+42] backdash_ss > uf+3 W! > d1+2,1 T! > f+3,2 > b1+2",
+          "starter": "W![1]"
+        },
+        {
+          "route": "[+42] backdash_ss > uf+3 W! > d1+2,1 T! > db+1,2,4",
+          "starter": "W![1]"
+        }
+      ],
+      "raw": "Post-Tornado W![1] [+34 ] 2+3 df+1 b+4,H.3+4 BT.d+3 [+23] f+3,2 > b1+2 [+23] db+1,2,4 Pre-Tornado W![1] [+36] df+3 T! > b1+2 > db+1,2,4 [+35] df+3 T! > b1+2 > 1,3 > b1+2 [+32] f+4,2 T! > SSL > 1+2 > b1+2 [+31] d1+2,1 T! > f+3 > 2 > b1+2 [+31] d1+2,1 T! > db+1,2,4 Resplat W![1] [+50] backdash_ss > uf+3 W! > df+3 T! > b1+2 > db+1,2,4 [+49] backdash_ss > uf+3 W! > df+3 T! > b1+2 > 1,3 > b+1+2 [+45] backdash_ss > uf+3 W! > f+4,2 T! > SSL 1+2 > b1+2 [+42] backdash_ss > uf+3 W! > d1+2,1 T! > f+3,2 > b1+2 [+42] backdash_ss > uf+3 W! > d1+2,1 T! > db+1,2,4",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+48] f+4,2 T! > dash > uf+3 > db+1,2,4[1]",
+          "starter": "uf+4"
+        }
+      ],
+      "raw": "uf+4 [+48] f+4,2 T! > dash > uf+3 > db+1,2,4[1] [60] db+1,2,4",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Feng_combos"
+}

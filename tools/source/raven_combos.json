@@ -1,0 +1,389 @@
+{
+  "canonical_name": "Raven",
+  "character_key": "raven",
+  "display_name_zh": "雷文",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "BT f3, db2,1, db2,1d, SZN3,2 T! dash b2,4,2",
+          "starter": "Regular launch (e.g. df+2, qcf+4)"
+        },
+        {
+          "route": "BT f2, db2,1, 4,1, BT 2,1~F, 1,2 T! 3+4, SZN1+2, ff2",
+          "starter": "Regular launch (e.g. df+2, qcf+4)"
+        },
+        {
+          "route": "BT f3, ff4, 4,1, BT 2,1~F, 1,2 T! 3+4, SZN1+2, ff2",
+          "starter": "Regular launch (e.g. df+2, qcf+4)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2, qcf+4) BT f3, db2,1, db2,1d, SZN3,2 T! dash b2,4,2 BT f2, db2,1, 4,1, BT 2,1~F, 1,2 T! 3+4, SZN1+2, ff2 BT f3, ff4, 4,1, BT 2,1~F, 1,2 T! 3+4, SZN1+2, ff2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+26] df+1,4",
+          "starter": "[20] CH BT.f+3"
+        },
+        {
+          "route": "[+14] 1+2",
+          "starter": "[20] CH BT.f+3"
+        },
+        {
+          "route": "[+20] f,F+2",
+          "starter": "[25] CH (f+3),2"
+        },
+        {
+          "route": "[+16] f,F+4",
+          "starter": "[25] CH (f+3),2"
+        },
+        {
+          "route": "[+19] BT f+3+4",
+          "starter": "[20] CH FC.df+3"
+        },
+        {
+          "route": "[+18] b+3",
+          "starter": "[25] SZN.1+2"
+        },
+        {
+          "route": "[+16] db+4",
+          "starter": "[25] SZN.1+2"
+        },
+        {
+          "route": "[+18] BT.1+2",
+          "starter": "[28] CH (b+4),B+4"
+        },
+        {
+          "route": "[+16] db+4",
+          "starter": "[23] b+3"
+        },
+        {
+          "route": "[+27] BT.3,4[1]",
+          "starter": "[18] BT.f+1"
+        },
+        {
+          "route": "[+19] uf+3",
+          "starter": "[24] CH (uf+4),4"
+        },
+        {
+          "route": "[+13] f+2,3",
+          "starter": "[18] CH qcf+1"
+        },
+        {
+          "route": "[+15] 2,4",
+          "starter": "[20] CH BT.(3),4"
+        },
+        {
+          "route": "[+30] BT.1,4",
+          "starter": "[20] CH (b+2),2"
+        }
+      ],
+      "raw": "[18] BT.f+2,3 [21] CH qcf+2 [20] CH BT.f+3 [+26] df+1,4 [+14] 1+2 [23] BT.1+2 [25] CH (f+3),2 [+20] f,F+2 [+16] f,F+4 [22] BT.b+3 [20] CH FC.df+3 [+19] BT f+3+4 [25] SZN.1+2 [+18] b+3 [+16] db+4 [20] f,f,F+3 [24] BT.f+3+4 [28] CH (b+4),B+4 [+18] BT.1+2 [23] b+3 [+16] db+4 [18] BT.f+1 [+27] BT.3,4[1] [22] CH db+3 [25] CH db+4[2] [24] CH (uf+4),4 [+19] uf+3 [18] CH qcf+1 [+13] f+2,3 [20] CH BT.(3),4 [+15] 2,4 [20] CH (b+2),2 [+30] BT.1,4",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+56] f,F+3 f,F+4 db+2 BT.3+4 dash b+2,4,2 T! qcf+1,2",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+60] f,F+3 f,F+4 db+2 BT.3+4 f,F+3 qcf+1,2 T! qcf+1,2",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+53] f,F+3, f,F+4, db+2,1~D, SZN 3,2 T! qcf+1,2",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+57] f,F+3, f,F+4, 1, f,F+3, 1, b+2,4,2 T! qcf+1,2",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+58] f,F+3, f,F+4, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+60] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3 qcf+1,2 T! ws3,2",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+63] f,F+3, f,F+4, 4,1, BT.2,1~F, CD 1,2, T! dash b+3+4, BT.2,1~F+3",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+63] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2",
+          "starter": "[20] CH df+3"
+        },
+        {
+          "route": "[+55] BT.d+2~D ws4 db+2 BT.3+4 dash b+2,4,2 T! qcf+1,2",
+          "starter": "[15] qcf+4"
+        },
+        {
+          "route": "[+59] BT.d+2~D ws4 db+2 BT.3+4 f,F+3 qcf+1,2 T! qcf+1,2",
+          "starter": "[15] qcf+4"
+        },
+        {
+          "route": "[+52] BT.f+3, db+2,1, f,F+3, 1, b+2,4,2 T! ws3,2",
+          "starter": "[15] qcf+4"
+        },
+        {
+          "route": "[+55] BT.f+3, f,F+4, db+2,1~D, SZN 3,2 T! dash b+3+4, BT.2,1~F+3",
+          "starter": "[15] qcf+4"
+        },
+        {
+          "route": "[+60] BT.f+3, db+2,1, f,F+3, 1, f,F+3,[1] qcf+1,2 T! 3+4, SZN 1+2, f,F+2",
+          "starter": "[15] qcf+4"
+        },
+        {
+          "route": "[+63] BT.d+2~D, ws4, db+2, BT.3+4, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2[2]",
+          "starter": "[15] qcf+4"
+        },
+        {
+          "route": "[+52] df+2,3, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[+55] db+2,1, f,F+3, 1, f,F+3, qcf+1,2 T! f,f, b+2,4,2",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[+46] T! 3+4, SZN 1+2, f,F+4, db+2,1~D, SZN 3,2",
+          "starter": "CH (3),(3),4"
+        },
+        {
+          "route": "[+48] T! 3+4, SZN 1+2, f,F+4, 1, f,F+3, 1, f,F+3, f,F+4",
+          "starter": "CH (3),(3),4"
+        },
+        {
+          "route": "[+52] T! 3+4, SZN 1+2, f,F+4, 1, f,F+3, 1, f,F+3, qcf+1,2",
+          "starter": "CH (3),(3),4"
+        },
+        {
+          "route": "[+44] f+2,4,2 T! b+3+4, BT.3+4, f,f, b+2,4,2",
+          "starter": "BT.f,F+3+4 (close)"
+        },
+        {
+          "route": "[+52] df+2,3, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3 [3]",
+          "starter": "BT.f,F+3+4 (far)"
+        },
+        {
+          "route": "[+54] BT.3, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3",
+          "starter": "3~4"
+        },
+        {
+          "route": "[+57] BT.3, db+2,1, b+2,4,2 T! f,f, b+2,4,2",
+          "starter": "3~4"
+        },
+        {
+          "route": "[+60] BT.3, db+2,1, f,F+3, qcf+1,2 T! f,f, b+3+4, BT.2,1~F+3",
+          "starter": "3~4"
+        },
+        {
+          "route": "[+43] db+2,1, db+2,1~D, SZN 3,2 T! f,f, b+2,4,2",
+          "starter": "uf+3+4,4"
+        },
+        {
+          "route": "[+44] db+2,1, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3",
+          "starter": "uf+3+4,4"
+        },
+        {
+          "route": "[+49] db+2,1, f,F+3, 1, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2",
+          "starter": "uf+3+4,4"
+        },
+        {
+          "route": "[+31] T! 3+4, SZN 1+2, db+2,1~D, SZN 3,2",
+          "starter": "ws3,2"
+        },
+        {
+          "route": "[+37] T! 3+4, SZN 1+2, db+2,1, f,F+3, qcf+1,2",
+          "starter": "ws3,2"
+        },
+        {
+          "route": "[+25] T! f,F+4, db+2,1~D, SZN 3,2",
+          "starter": "CH qcf+1~D SZN 3,2"
+        },
+        {
+          "route": "[+27] T! 3+4, SZN 1+2, f,f, db+2,1~D, SZN 3,2",
+          "starter": "CH qcf+1~D SZN 3,2"
+        },
+        {
+          "route": "[+50] f,F+4, db+2,1, b+2,4,2 T! qcf+1,2",
+          "starter": "CH SZN 4"
+        },
+        {
+          "route": "[+55] f,F+4, db+2,1, b+2,4,2 T! f,f, b+3+4, BT.2,1~F+3",
+          "starter": "CH SZN 4"
+        },
+        {
+          "route": "[+57] f,F+4, db+2,1, db+2,1~D SZN 3,2 T! 3+4, SZN 1+2, f,F+2",
+          "starter": "CH SZN 4"
+        },
+        {
+          "route": "[+43] f,F+3, f,F+4, db+2,1~D, SZN 3,2",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+45] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, f,F+4",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+48] b+3+4, BT.b+3, BT.b+2,3, f,F+3, b+2,4,2",
+          "starter": "Low Parry"
+        },
+        {
+          "route": "[+49] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, qcf,1,2",
+          "starter": "Low Parry"
+        }
+      ],
+      "raw": "[14] ws1 [20] f,F+3 [18] 4~3 [20] CH ws 2 [20] CH df+3 [+56] f,F+3 f,F+4 db+2 BT.3+4 dash b+2,4,2 T! qcf+1,2 [+60] f,F+3 f,F+4 db+2 BT.3+4 f,F+3 qcf+1,2 T! qcf+1,2 [+53] f,F+3, f,F+4, db+2,1~D, SZN 3,2 T! qcf+1,2 [+57] f,F+3, f,F+4, 1, f,F+3, 1, b+2,4,2 T! qcf+1,2 [+58] f,F+3, f,F+4, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3 [+60] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3 qcf+1,2 T! ws3,2 [+63] f,F+3, f,F+4, 4,1, BT.2,1~F, CD 1,2, T! dash b+3+4, BT.2,1~F+3 [+63] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2 [15] df+2 [15] qcf+4 [+55] BT.d+2~D ws4 db+2 BT.3+4 dash b+2,4,2 T! qcf+1,2 [+59] BT.d+2~D ws4 db+2 BT.3+4 f,F+3 qcf+1,2 T! qcf+1,2 [+52] BT.f+3, db+2,1, f,F+3, 1, b+2,4,2 T! ws3,2 [+55] BT.f+3, f,F+4, db+2,1~D, SZN 3,2 T! dash b+3+4, BT.2,1~F+3 [+60] BT.f+3, db+2,1, f,F+3, 1, f,F+3,[1] qcf+1,2 T! 3+4, SZN 1+2, f,F+2 [+63] BT.d+2~D, ws4, db+2, BT.3+4, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2[2] uf+3 [+52] df+2,3, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3 [+55] db+2,1, f,F+3, 1, f,F+3, qcf+1,2 T! f,f, b+2,4,2 BT.d+3 CH (3),(3),4 [+46] T! 3+4, SZN 1+2, f,F+4, db+2,1~D, SZN 3,2 [+48] T! 3+4, SZN 1+2, f,F+4, 1, f,F+3, 1, f,F+3, f,F+4 [+52] T! 3+4, SZN 1+2, f,F+4, 1, f,F+3, 1, f,F+3, qcf+1,2 BT.f,F+3+4 (close) [+44] f+2,4,2 T! b+3+4, BT.3+4, f,f, b+2,4,2 BT.f,F+3+4 (far) [+52] df+2,3, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3 [3] 3~4 [+54] BT.3, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3 [+57] BT.3, db+2,1, b+2,4,2 T! f,f, b+2,4,2 [+60] BT.3, db+2,1, f,F+3, qcf+1,2 T! f,f, b+3+4, BT.2,1~F+3 uf+3+4,4 [+43] db+2,1, db+2,1~D, SZN 3,2 T! f,f, b+2,4,2 [+44] db+2,1, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT.2,1~F+3 [+49] db+2,1, f,F+3, 1, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2 ws3,2 [+31] T! 3+4, SZN 1+2, db+2,1~D, SZN 3,2 [+37] T! 3+4, SZN 1+2, db+2,1, f,F+3, qcf+1,2 CH qcf+1~D SZN 3,2 [+25] T! f,F+4, db+2,1~D, SZN 3,2 [+27] T! 3+4, SZN 1+2, f,f, db+2,1~D, SZN 3,2 CH SZN 4 [+50] f,F+4, db+2,1, b+2,4,2 T! qcf+1,2 [+55] f,F+4, db+2,1, b+2,4,2 T! f,f, b+3+4, BT.2,1~F+3 [+57] f,F+4, db+2,1, db+2,1~D SZN 3,2 T! 3+4, SZN 1+2, f,F+2 Low Parry [+43] f,F+3, f,F+4, db+2,1~D, SZN 3,2 [+45] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, f,F+4 [+48] b+3+4, BT.b+3, BT.b+2,3, f,F+3, b+2,4,2 [+49] f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, qcf,1,2",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "T! f,F+3, 2+3, H.f,F+2~F, b+1+2",
+          "starter": "Finishers after T!"
+        },
+        {
+          "route": "T! f,F+3, 2+3, b+3+4, BT b+3, BT H.4~F, f,F+2",
+          "starter": "Finishers after T!"
+        },
+        {
+          "route": "T! 3+4, SZN 1+2, 2+3, H.f,F+2~F, b+1+2",
+          "starter": "Finishers after T!"
+        },
+        {
+          "route": "T! b+3+4, BT b+3, BT H.4~F, b+3+4, BT 2,1~F+3",
+          "starter": "Finishers after T! Heat activated"
+        },
+        {
+          "route": "T! f,f, b+3+4, BT b+3, BT H.4~F, qcf+3 [1]",
+          "starter": "Finishers after T! Heat activated"
+        },
+        {
+          "route": "ff3, ff4, 1, ff3, 1, ff3, 1, ff3, qcf1,2 T! 3+4, SZN 1+2, ff2",
+          "starter": "H.(BT 4~F, 1+2~F, ws3+4~F and SZN2~F)[2]"
+        },
+        {
+          "route": "ff3, ff4, db2,1 ff3, 1, ff3, 1, b2,4,2, T! 3+4, SZN 1+2, ff2",
+          "starter": "H.(BT 4~F, 1+2~F, ws3+4~F and SZN2~F)[2]"
+        },
+        {
+          "route": "ff3, ff4, db2,1 ff3, 1, ff3, 1, ff3, qcf1,2 T! 3+4, SZN 1+2, ff2",
+          "starter": "H.(BT 4~F, 1+2~F, ws3+4~F and SZN2~F)[2]"
+        },
+        {
+          "route": "ff3, ff4, ff4, 1, ff3, 1, ff3, 1 ff3, qcf1,2 T! 3+4, SZN 1+2, ff2",
+          "starter": "H.(BT 4~F, 1+2~F, ws3+4~F and SZN2~F)[2]"
+        },
+        {
+          "route": "[29] T! BT b+2,3, f,F+3, 1,2~D, SZN 4",
+          "starter": "H.f,f,f+3,4 BT"
+        },
+        {
+          "route": "[31] T! b+3+4, 3+4, SZN 1+2, db+2,1~D, SZN 3,2",
+          "starter": "H.f,f,f+3,4 BT"
+        },
+        {
+          "route": "[33] T! BT b+2,3, f,F+3, b+2,4,2",
+          "starter": "H.f,f,f+3,4 BT"
+        },
+        {
+          "route": "[35] T! b+3+4, f,F+4, 1, f,F+3, 1, f,F+3 qcf+1,2",
+          "starter": "H.f,f,f+3,4 BT"
+        }
+      ],
+      "raw": "Finishers after T! T! f,F+3, 2+3, H.f,F+2~F, b+1+2 T! f,F+3, 2+3, b+3+4, BT b+3, BT H.4~F, f,F+2 T! 3+4, SZN 1+2, 2+3, H.f,F+2~F, b+1+2 Finishers after T! Heat activated T! b+3+4, BT b+3, BT H.4~F, b+3+4, BT 2,1~F+3 T! f,f, b+3+4, BT b+3, BT H.4~F, qcf+3 [1] H.(BT 4~F, 1+2~F, ws3+4~F and SZN2~F)[2] ff3, ff4, 1, ff3, 1, ff3, 1, ff3, qcf1,2 T! 3+4, SZN 1+2, ff2 ff3, ff4, db2,1 ff3, 1, ff3, 1, b2,4,2, T! 3+4, SZN 1+2, ff2 ff3, ff4, db2,1 ff3, 1, ff3, 1, ff3, qcf1,2 T! 3+4, SZN 1+2, ff2 ff3, ff4, ff4, 1, ff3, 1, ff3, 1 ff3, qcf1,2 T! 3+4, SZN 1+2, ff2 H.f,f,f+3,4 BT [29] T! BT b+2,3, f,F+3, 1,2~D, SZN 4 [31] T! b+3+4, 3+4, SZN 1+2, db+2,1~D, SZN 3,2 [33] T! BT b+2,3, f,F+3, b+2,4,2 [35] T! b+3+4, f,F+4, 1, f,F+3, 1, f,F+3 qcf+1,2",
+      "section": "Heat"
+    },
+    {
+      "entries": [
+        {
+          "route": "[36] W! qcf+1,2 T! db+2,1,1",
+          "starter": "Wall splat with T!"
+        },
+        {
+          "route": "[37] W! ws 3,2 T! db+2,1,1",
+          "starter": "Wall splat with T!"
+        },
+        {
+          "route": "[37] W! b+3+4 BT f+2,4,2 T! ws 3,2",
+          "starter": "Wall splat with T!"
+        },
+        {
+          "route": "[37] W! b+3+4 BT f+2,4,2 T! 1,2,4",
+          "starter": "Wall splat with T!"
+        },
+        {
+          "route": "[38] W! b+3+4 BT f+2,4,2 T! b+2,2,3[1]",
+          "starter": "Wall splat with T!"
+        },
+        {
+          "route": "[17] W! db+2,1, 1+2",
+          "starter": "Wall splat without T!"
+        },
+        {
+          "route": "[19] W! 1, db+2,1,1",
+          "starter": "Wall splat without T!"
+        },
+        {
+          "route": "[20] W! b+3+4, BT b+2,3, 1+2",
+          "starter": "Wall splat without T!"
+        },
+        {
+          "route": "[26] W! b+3+4, BT b+2,3, 1,2,4",
+          "starter": "No wall splat without T! [2]"
+        },
+        {
+          "route": "[27] W! b+3+4, BT b+2,3, b+2,2,3[1]",
+          "starter": "No wall splat without T! [2]"
+        }
+      ],
+      "raw": "Wall splat with T! [36] W! qcf+1,2 T! db+2,1,1 [37] W! ws 3,2 T! db+2,1,1 [37] W! b+3+4 BT f+2,4,2 T! ws 3,2 [37] W! b+3+4 BT f+2,4,2 T! 1,2,4 [38] W! b+3+4 BT f+2,4,2 T! b+2,2,3[1] Wall splat without T! [17] W! db+2,1, 1+2 [19] W! 1, db+2,1,1 [20] W! b+3+4, BT b+2,3, 1+2 No wall splat without T! [2] [26] W! b+3+4, BT b+2,3, 1,2,4 [27] W! b+3+4, BT b+2,3, b+2,2,3[1]",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[44] f,F+4, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT 2,1~F+3",
+          "starter": "1"
+        },
+        {
+          "route": "[49] f,F+4, 1, f,F+3, 1, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 [44] f,F+4, db+2,1~D, SZN 3,2 T! f,f, b+3+4, BT 2,1~F+3 [49] f,F+4, 1, f,F+3, 1, f,F+3, qcf+1,2 T! 3+4, SZN 1+2, f,F+2",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "[44] BT f+2,4,2 T! b+3+4, BT 3+4, f,f, b+2,4,2",
+          "starter": "df+2"
+        },
+        {
+          "route": "[48] df+4,4,3[1]",
+          "starter": "Without launcher"
+        }
+      ],
+      "raw": "df+2 [44] BT f+2,4,2 T! b+3+4, BT 3+4, f,f, b+2,4,2 Without launcher [48] df+4,4,3[1]",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "[53] [1]WB! f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, 4,1 W! BT 1+2 WB! ws 3,2 T! f,f,f, 2+3, f,f,[2] H.2+3 WB! qcf+3",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground [53] [1]WB! f,F+3, f,F+4, 1, f,F+3, 1, f,F+3, 4,1 W! BT 1+2 WB! ws 3,2 T! f,f,f, 2+3, f,f,[2] H.2+3 WB! qcf+3",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Raven_combos"
+}

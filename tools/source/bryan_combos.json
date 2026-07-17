@@ -1,0 +1,271 @@
+{
+  "canonical_name": "Bryan Fury",
+  "character_key": "bryan",
+  "display_name_zh": "布莱恩",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "db+2 2 b+2,1,f~2,4[1] T! b+3,f~2,1",
+          "starter": "Regular launch (e.g. ws1 or f,n,b+2)"
+        },
+        {
+          "route": "db+2 4,1 4,1~B SWY.1 T! b+3~F+2,2",
+          "starter": "Regular launch (e.g. ws1 or f,n,b+2)"
+        },
+        {
+          "route": "4,1 1 b+2,1~F SLS.2,4 [1]",
+          "starter": "Tornado launch (e.g. df+3 or CH qcb+1)"
+        }
+      ],
+      "raw": "Regular launch (e.g. ws1 or f,n,b+2) db+2 2 b+2,1,f~2,4[1] T! b+3,f~2,1 db+2 4,1 4,1~B SWY.1 T! b+3~F+2,2 Tornado launch (e.g. df+3 or CH qcb+1) 4,1 1 b+2,1~F SLS.2,4 [1]",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+20] f,F+2[1]",
+          "starter": "[15] uf+3"
+        },
+        {
+          "route": "[+9] d+4",
+          "starter": "[15] uf+3"
+        },
+        {
+          "route": "[+31] f+2,1,SNE.2,3,2",
+          "starter": "[27] CH ss1"
+        },
+        {
+          "route": "[+29] f+2,1,4[2]",
+          "starter": "[27] CH ss1"
+        },
+        {
+          "route": "[+21] uf+2,2,2,SNE.2,2,3",
+          "starter": "[27] CH ss1"
+        },
+        {
+          "route": "[+17] uf+2,2,2,3",
+          "starter": "[27] CH ss1"
+        },
+        {
+          "route": "[+16] db+1+2[1]",
+          "starter": "[27] CH ss1"
+        },
+        {
+          "route": "[+18; 12] qcb+4",
+          "starter": "[18] CH (1,2),3"
+        },
+        {
+          "route": "[+12; 8] d+3+4",
+          "starter": "[18] CH (1,2),3"
+        },
+        {
+          "route": "[10; 7] d+4",
+          "starter": "[22] uf+3+4 with SNE activated[3]"
+        },
+        {
+          "route": "[44; 13] b,B+4",
+          "starter": "CH (b+2,1),4"
+        },
+        {
+          "route": "[43; 12] f,F qcb+4",
+          "starter": "CH (b+2,1),4"
+        },
+        {
+          "route": "[41; 11] f,F df+3",
+          "starter": "CH (b+2,1),4"
+        },
+        {
+          "route": "[43; 13] H.FC.df+3",
+          "starter": "SNE.b+1+2"
+        },
+        {
+          "route": "[40; 11] FC.df+4",
+          "starter": "SNE.b+1+2"
+        },
+        {
+          "route": "[20 +] f,n,b+2 ...",
+          "starter": "1+3+4 (taunt)"
+        },
+        {
+          "route": "[55; 20] H.2+3",
+          "starter": "1+3+4 (taunt)"
+        },
+        {
+          "route": "[48; 9] f+2,1,SNE.2,3,2",
+          "starter": "1+3+4 (taunt)"
+        },
+        {
+          "route": "[42] f+2,1,4[2]",
+          "starter": "1+3+4 (taunt)"
+        },
+        {
+          "route": "[18 +] b+4 ...",
+          "starter": "1+3+4 (taunt)"
+        },
+        {
+          "route": "[30] 4,1",
+          "starter": "1+3+4 (taunt)"
+        }
+      ],
+      "raw": "[18] b+4 [15] uf+3 [+20] f,F+2[1] [+9] d+4 [27] CH ss1 [+31] f+2,1,SNE.2,3,2 [+29] f+2,1,4[2] [+21] uf+2,2,2,SNE.2,2,3 [+17] uf+2,2,2,3 [+16] db+1+2[1] [41] qcb+2,4 [32] f,F+4 [30] CH (b+3),1+2 [30] CH b,df+4 [23] df+4 [21] CH (1,4,3),3 [18] CH (1,2),3 [+18; 12] qcb+4 [+12; 8] d+3+4 [38] qcf+2,4 with SNE activated[3] [22] uf+3+4 with SNE activated[3] [10; 7] d+4 CH (1,4,2,1),4 CH (qcf+4,1),4 CH (b+2,1),4 [44; 13] b,B+4 [43; 12] f,F qcb+4 [41; 11] f,F df+3 SNE.b+1+2 [43; 13] H.FC.df+3 [40; 11] FC.df+4 1+3+4 (taunt) [20 +] f,n,b+2 ... [55; 20] H.2+3 [48; 9] f+2,1,SNE.2,3,2 [42] f+2,1,4[2] [18 +] b+4 ... [30] 4,1",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[76; 34] dash qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,2[2][3]",
+          "starter": "f,n,b+2"
+        },
+        {
+          "route": "[75; 34] dash qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,1",
+          "starter": "f,n,b+2"
+        },
+        {
+          "route": "[73; 34] dash qcf+3,4 b+2,4 qcb+1 T! b+3,f~2,1",
+          "starter": "f,n,b+2"
+        },
+        {
+          "route": "[72; 43] f+1+2 2 b+2,4 qcb+1 T! b+3,f~2,1",
+          "starter": "f,n,b+2"
+        },
+        {
+          "route": "[71; 42] f+1+2 1 b+2,1,f~2,4[1] T! b+3,f~2,1",
+          "starter": "f,n,b+2"
+        },
+        {
+          "route": "[76; 34] dash qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,2[2][3]",
+          "starter": "ws1"
+        },
+        {
+          "route": "[75; 34] qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,1",
+          "starter": "ws1"
+        },
+        {
+          "route": "[72; 33] b+2,4 uf+3 d+3+4,2 T! b+3,f~2,1",
+          "starter": "ws1"
+        },
+        {
+          "route": "[39; 25] T! b+2,4 dash 2 b+3,f~2,1",
+          "starter": "low parry"
+        },
+        {
+          "route": "[72; 31] 1+2,1 1 b+2,1,f~2,4[1] T! dash b+3,f~2,2[2]",
+          "starter": "f+4,1"
+        },
+        {
+          "route": "[69; 30] uf+3 2 b+2,1,f~2,4[1] T! b+3,f~2,1",
+          "starter": "f+4,1"
+        },
+        {
+          "route": "[61; 24] T! 1+2,1 2 b+2,1,f~2,2[2]",
+          "starter": "df+3"
+        },
+        {
+          "route": "[60; 24] T! 1+2,1 2 b+2,1,f~2,4[1]",
+          "starter": "df+3"
+        },
+        {
+          "route": "[81; 34] b+2,f+4 b+2,4 dash d+3+4,2 T! b+3,f~2,2",
+          "starter": "CH b+1"
+        },
+        {
+          "route": "[86; 31] b+2,4 dash d+3+4,2 T! b+3,f~2,2[2]",
+          "starter": "CH b+2,1"
+        },
+        {
+          "route": "[85; 31] b+2,4 dash d+3+4,2 T! b+3,f~2,1",
+          "starter": "CH b+2,1"
+        },
+        {
+          "route": "[83; 29] b+2,1,f~2,4[1] T! b+3,f~2,2[2]",
+          "starter": "CH b+2,1"
+        },
+        {
+          "route": "[76; 31] 1+2,1 1 b+2,1,f~2,4[1] T! dash b+3,f~2,2[2]",
+          "starter": "CH 3+4"
+        },
+        {
+          "route": "combo for df+2 with rage here",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "f,n,b+2 [76; 34] dash qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,2[2][3] [75; 34] dash qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,1 [73; 34] dash qcf+3,4 b+2,4 qcb+1 T! b+3,f~2,1 [72; 43] f+1+2 2 b+2,4 qcb+1 T! b+3,f~2,1 [71; 42] f+1+2 1 b+2,1,f~2,4[1] T! b+3,f~2,1 ws1 [76; 34] dash qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,2[2][3] [75; 34] qcf+3,4 b+2,1,f~2,4[1] T! b+3,f~2,1 [72; 33] b+2,4 uf+3 d+3+4,2 T! b+3,f~2,1 low parry [39; 25] T! b+2,4 dash 2 b+3,f~2,1 f+4,1 [72; 31] 1+2,1 1 b+2,1,f~2,4[1] T! dash b+3,f~2,2[2] [69; 30] uf+3 2 b+2,1,f~2,4[1] T! b+3,f~2,1 df+3 [61; 24] T! 1+2,1 2 b+2,1,f~2,2[2] [60; 24] T! 1+2,1 2 b+2,1,f~2,4[1] CH b+1 [81; 34] b+2,f+4 b+2,4 dash d+3+4,2 T! b+3,f~2,2 CH b+2,1 [86; 31] b+2,4 dash d+3+4,2 T! b+3,f~2,2[2] [85; 31] b+2,4 dash d+3+4,2 T! b+3,f~2,1 [83; 29] b+2,1,f~2,4[1] T! b+3,f~2,2[2] CH 3+4 [76; 31] 1+2,1 1 b+2,1,f~2,4[1] T! dash b+3,f~2,2[2] df+2 combo for df+2 with rage here",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "1+2,1 uf+2,2,2,2,2,3",
+          "starter": "Regular carry (30% scaling) wallsplat"
+        },
+        {
+          "route": "b+3,f~3>4",
+          "starter": "Regular carry (30% scaling) wallsplat"
+        },
+        {
+          "route": "b+3,f~u, db+1+2",
+          "starter": "Regular carry (30% scaling) wallsplat"
+        },
+        {
+          "route": "uf+3+4, 1+2,1 uf+2,2,2,2,2,3",
+          "starter": "Regular carry (30% scaling) wallsplat with tornado"
+        },
+        {
+          "route": "[64; 22] f,n,b+2 W! f,F+4 uf+3+4 T! b+3,f~3>4",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[77; 24] f,n,b+2 W! f,F+4 uf+3+4 T! 1+2,1 uf+2,2,2,2,2,3",
+          "starter": "uf+3"
+        },
+        {
+          "route": "[81; 25] f,n,b+2 W! f,F+4 f,n,b+2 T! f,n,b+2 1+2,1 uf+2,2,2,2,2,3",
+          "starter": "uf+3"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) wallsplat 1+2,1 uf+2,2,2,2,2,3 b+3,f~3>4 b+3,f~u, db+1+2 Regular carry (30% scaling) wallsplat with tornado uf+3+4, 1+2,1 uf+2,2,2,2,2,3 b+4 uf+3 [64; 22] f,n,b+2 W! f,F+4 uf+3+4 T! b+3,f~3>4 [77; 24] f,n,b+2 W! f,F+4 uf+3+4 T! 1+2,1 uf+2,2,2,2,2,3 [81; 25] f,n,b+2 W! f,F+4 f,n,b+2 T! f,n,b+2 1+2,1 uf+2,2,2,2,2,3",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[42; 26] b+2,1,f~2,4 T! b+3,f~2,1",
+          "starter": "1"
+        },
+        {
+          "route": "[38; 23] b+3,f~u f+1 b+3,f~2,4 T! b+3,f~2,1",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 [42; 26] b+2,1,f~2,4 T! b+3,f~2,1 [38; 23] b+3,f~u f+1 b+3,f~2,4 T! b+3,f~2,1",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "dash qcf+3,4 dash d+3+4,2 T! qcf+4,1,2",
+          "starter": "3,3,2"
+        },
+        {
+          "route": "dash qcf+3,4 dash d+3+4,2 T! d+2,3",
+          "starter": "3,3,2"
+        }
+      ],
+      "raw": "3,3,2 dash qcf+3,4 dash d+3+4,2 T! qcf+4,1,2 dash qcf+3,4 dash d+3+4,2 T! d+2,3",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage break"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Bryan_combos"
+}

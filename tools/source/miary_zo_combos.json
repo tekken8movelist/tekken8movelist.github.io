@@ -1,0 +1,265 @@
+{
+  "canonical_name": "Miary Zo",
+  "character_key": "miary_zo",
+  "display_name_zh": "米亚莉·佐",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "[+47] 4,4,F BAO.4 T! F+4,4,4",
+          "starter": "Regular launch (e.g. df+2)"
+        },
+        {
+          "route": "[+59] u+3 df+4 df+4,F MOR.1,4,F BAO.2 T! (b+3),4,2,F MOR.1,2",
+          "starter": "Regular launch (e.g. df+2)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2) [+47] 4,4,F BAO.4 T! F+4,4,4 [+59] u+3 df+4 df+4,F MOR.1,4,F BAO.2 T! (b+3),4,2,F MOR.1,2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "qcf+1",
+          "starter": "f,f,F+2,1"
+        },
+        {
+          "route": "MOR.2",
+          "starter": "f,f,F+2,1~F"
+        },
+        {
+          "route": "ws+1,4 (heat)",
+          "starter": "u+1+2"
+        },
+        {
+          "route": "3,2 (heat)",
+          "starter": "db+1+2"
+        },
+        {
+          "route": "df+1,4",
+          "starter": "db+1+2"
+        },
+        {
+          "route": "(dash) df+3+4",
+          "starter": "BAO.1,4"
+        },
+        {
+          "route": "BAO.2",
+          "starter": "MOR.1+2"
+        },
+        {
+          "route": "d+1+2",
+          "starter": "CH df+3+4"
+        },
+        {
+          "route": "qcf+1",
+          "starter": "During Heat ws+1,4~F"
+        },
+        {
+          "route": "d+1+2",
+          "starter": "During Heat ws+1,4~F"
+        }
+      ],
+      "raw": "f+2 (parry) f,f,F+2,1 qcf+1 f,f,F+2,1~F MOR.2 u+1+2 ws+1,4 (heat) db+1+2 3,2 (heat) df+1,4 BAO.1,4 (dash) df+3+4 MOR.1+2 BAO.2 d+2 FC df+4 CH u+3 CH b+4 CH df+3+4 d+1+2 During Heat 3,2~F During Heat ws+1,4~F qcf+1 d+1+2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+59] u+3 df+4 df+4,F MOR.1,4,F BAO.2 T! (b+3),4,2,F MOR.1,2",
+          "starter": "[26] CH SS2"
+        },
+        {
+          "route": "[+59] u+3 df+4,F MOR.u+1+2 4,4,F BAO.2 T! (b+3),4,2,F MOR.1,2",
+          "starter": "[26] CH SS2"
+        },
+        {
+          "route": "[+59] u+3 u+3 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F MOR.1,2",
+          "starter": "[26] CH SS2"
+        },
+        {
+          "route": "[+56] u+3 df+4,F MOR.u+1+2 db+2,4 BAO.2 T! wr4,4,4",
+          "starter": "[26] CH SS2"
+        },
+        {
+          "route": "[+35] u+3 df+4,F MOR.u+1+2 ff b+3,4,2 ender [1]",
+          "starter": "[26] CH SS2"
+        },
+        {
+          "route": "[+64] f,F+3 md df+4 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F,db uf+1",
+          "starter": "[23] d+1+2"
+        },
+        {
+          "route": "[+59] df+4 df+1 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F,db uf+1",
+          "starter": "[18] uf+3+4"
+        },
+        {
+          "route": "[64] f,F+3 ff df+4 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F MOR.db~uf+1",
+          "starter": "[26] CH SS2"
+        },
+        {
+          "route": "[+50] u+3 df+4,F MOR.1,4 BAO.2 T! f,F+3 f,F+2,2",
+          "starter": "[50] df+1,1,1+2 (backturn)"
+        }
+      ],
+      "raw": "[12] df2 [15] ws2 [23] d+1+2 [23] (df+1,1),1+2 [24] CH d+2 [20] CH df+4 ssr [25] CH db+3 [24] CH ws3 [26] CH SS2 [+59] u+3 df+4 df+4,F MOR.1,4,F BAO.2 T! (b+3),4,2,F MOR.1,2 [+59] u+3 df+4,F MOR.u+1+2 4,4,F BAO.2 T! (b+3),4,2,F MOR.1,2 [+59] u+3 u+3 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F MOR.1,2 [+56] u+3 df+4,F MOR.u+1+2 db+2,4 BAO.2 T! wr4,4,4 [+35] u+3 df+4,F MOR.u+1+2 ff b+3,4,2 ender [1] [23] d+1+2 [+64] f,F+3 md df+4 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F,db uf+1 [18] uf+3+4 [+59] df+4 df+1 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F,db uf+1 [26] CH SS2 [64] f,F+3 ff df+4 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F MOR.db~uf+1 [50] df+1,1,1+2 (backturn) [+50] u+3 df+4,F MOR.1,4 BAO.2 T! f,F+3 f,F+2,2",
+      "section": "Regular Launch"
+    },
+    {
+      "entries": [
+        {
+          "route": "(b+3),4,2,F MOR.1,2 (wall carry/wall blast)",
+          "starter": "T!"
+        },
+        {
+          "route": "(b+3),4,2,F,db uf+1 (floor break)",
+          "starter": "T!"
+        },
+        {
+          "route": "f,F+3 ff 3,2 (wall carry/wall splat)",
+          "starter": "T!"
+        },
+        {
+          "route": "wr4,4,4",
+          "starter": "T!"
+        }
+      ],
+      "raw": "T! (b+3),4,2,F MOR.1,2 (wall carry/wall blast) (b+3),4,2,F,db uf+1 (floor break) f,F+3 ff 3,2 (wall carry/wall splat) wr4,4,4",
+      "section": "Combo Enders"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+40] T! ssr df+4,F MOR.u+1+2 b+3,4,2,F MOR.1,2",
+          "starter": "[44] H.u+3,2"
+        },
+        {
+          "route": "[+47] T! ssr f,F+3 df+4,F MOR.u+1+2 b+3,4,2,F MOR.1,2",
+          "starter": "[44] H.u+3,2[2]"
+        },
+        {
+          "route": "[+46] T! f,F+3 b+3,4,2,F MOR.1,4,F BAO.2",
+          "starter": "[44] H.u+3,2[2]"
+        },
+        {
+          "route": "[+43] T! f,F+3 ff df+4 df+4,F MOR.1,4 BAO.2",
+          "starter": "[44] H.u+3,2[2]"
+        },
+        {
+          "route": "[+29] T! df+4 b+3,4,2,F MOR.1,2",
+          "starter": "[35] CH BAO.4"
+        },
+        {
+          "route": "[+37] f,F+3 ff df+4 b+3,4,2,F MOR.1,2",
+          "starter": "[0] Low parry"
+        },
+        {
+          "route": "[+48] ssr u+3 b+3,4,2,F MOR.db,U b+3,4,2,F,db~uf+1",
+          "starter": "[0] Low parry"
+        }
+      ],
+      "raw": "[26] uf+4,4 [30] f+3+4,2 [24] CH MOR.2 [26] CH b+1,4 [24] CH (2),2 [24] CH (1,2),2 [44] H.u+3,2 [+40] T! ssr df+4,F MOR.u+1+2 b+3,4,2,F MOR.1,2 [30] f+3+4,2 [24] CH MOR.2 [24] CH (2),2 [24] CH (1,2),2 [44] H.u+3,2[2] [+47] T! ssr f,F+3 df+4,F MOR.u+1+2 b+3,4,2,F MOR.1,2 [+46] T! f,F+3 b+3,4,2,F MOR.1,4,F BAO.2 [+43] T! f,F+3 ff df+4 df+4,F MOR.1,4 BAO.2 [35] CH BAO.4 [+29] T! df+4 b+3,4,2,F MOR.1,2 [0] Low parry [+37] f,F+3 ff df+4 b+3,4,2,F MOR.1,2 [+48] ssr u+3 b+3,4,2,F MOR.db,U b+3,4,2,F,db~uf+1",
+      "section": "Instant Tornado"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+33] dl u+3 u+3 u+3 df+4,F MOR.1,4 BAO.2 T! wr4,4,4",
+          "starter": "Heat Dash"
+        },
+        {
+          "route": "[+39] f,F+3 u+3 u+3 df+4,F MOR.1,4 BAO.2 T! b+3,4,2,F,db u+1",
+          "starter": "Heat Dash"
+        },
+        {
+          "route": "[+62] u+3 df+4 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F MOR.1,2,F HD! wr2,1",
+          "starter": "[12] H.df+2"
+        },
+        {
+          "route": "[+67] u+3 df+4,F MOR.u+1+2 db+2,4 BAO.2 T! (b+3),4,2,F HB! f+3 MOR.1,2,F HD! qcf.1",
+          "starter": "[23] d+1+2"
+        },
+        {
+          "route": "[+67] u+3 df+4,F MOR.1,4 BAO.2 T! ssr f,F+3 ff df+4,F HB! F+3 MOR.1,2,F HD! wr3",
+          "starter": "[24] CH db+3"
+        }
+      ],
+      "raw": "Heat Dash [+33] dl u+3 u+3 u+3 df+4,F MOR.1,4 BAO.2 T! wr4,4,4 [+39] f,F+3 u+3 u+3 df+4,F MOR.1,4 BAO.2 T! b+3,4,2,F,db u+1 [12] H.df+2 [+62] u+3 df+4 df+4,F MOR.1,4 BAO.2 T! (b+3),4,2,F MOR.1,2,F HD! wr2,1 [23] d+1+2 [+67] u+3 df+4,F MOR.u+1+2 db+2,4 BAO.2 T! (b+3),4,2,F HB! f+3 MOR.1,2,F HD! qcf.1 [24] CH db+3 [+67] u+3 df+4,F MOR.1,4 BAO.2 T! ssr f,F+3 ff df+4,F HB! F+3 MOR.1,2,F HD! wr3",
+      "section": "Heat Combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+22] ws1,4",
+          "starter": "[20] u+1+2"
+        },
+        {
+          "route": "[+10] ws4",
+          "starter": "[20] u+1+2"
+        },
+        {
+          "route": "d+2 d+1+2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "FC.DF+4 d+1+2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "CH b+4 ff d+1+2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "CH df+3+4 d+1+2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "CH u+3 ff d+1+2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "wr2,1 d+1+2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "wr2,1,F MOR.2",
+          "starter": "Grounded hits"
+        },
+        {
+          "route": "[+16] b+1+2",
+          "starter": "Heat Dash (e.g. H.3,2,F)"
+        },
+        {
+          "route": "[+16] qcf+1",
+          "starter": "Heat Dash (e.g. H.3,2,F)"
+        }
+      ],
+      "raw": "[20] u+1+2 [+22] ws1,4 [+10] ws4 Grounded hits d+2 d+1+2 FC.DF+4 d+1+2 CH b+4 ff d+1+2 CH df+3+4 d+1+2 CH u+3 ff d+1+2 wr2,1 d+1+2 wr2,1,F MOR.2 Heat Dash (e.g. H.3,2,F) [+16] b+1+2 [+16] qcf+1",
+      "section": "Followups"
+    },
+    {
+      "entries": [
+        {
+          "route": "WS! df+1,1,1+2 T! qcf1",
+          "starter": "Tornado Available"
+        },
+        {
+          "route": "WS! df+1,1,1+2 T! 3,1,2",
+          "starter": "Tornado Available"
+        },
+        {
+          "route": "WS! f+1+2,1+2,3+4",
+          "starter": "No Tornado"
+        },
+        {
+          "route": "WS! 1 df+1 qcf1",
+          "starter": "No Tornado"
+        }
+      ],
+      "raw": "Tornado Available WS! df+1,1,1+2 T! qcf1 WS! df+1,1,1+2 T! 3,1,2 No Tornado WS! f+1+2,1+2,3+4 WS! 1 df+1 qcf1",
+      "section": "Wall Combos"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Miary_Zo_combos"
+}

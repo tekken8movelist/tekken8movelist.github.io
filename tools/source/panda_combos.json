@@ -1,0 +1,69 @@
+{
+  "canonical_name": "Panda",
+  "character_key": "panda",
+  "display_name_zh": "熊猫",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "u+1+2,3+4 HBS.1 b+2,2,1 T! uf+2 b+1",
+          "starter": "Regular launch (e.g. df+2,1)"
+        }
+      ],
+      "raw": "Regular launch (e.g. df+2,1) u+1+2,3+4 HBS.1 b+2,2,1 T! uf+2 b+1",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo for df+2 here",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo for df+2 here",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo here",
+          "starter": "Regular carry (30% scaling)"
+        }
+      ],
+      "raw": "Regular carry (30% scaling) combo here",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you anti-air with jab here",
+          "starter": "1"
+        }
+      ],
+      "raw": "1 combo when you anti-air with jab here",
+      "section": "Float"
+    },
+    {
+      "entries": [
+        {
+          "route": "combo when you hit df+2 in the back",
+          "starter": "df+2"
+        }
+      ],
+      "raw": "df+2 combo when you hit df+2 in the back",
+      "section": "Back-turned opponent"
+    },
+    {
+      "entries": [
+        {
+          "route": "big boy break all the walls combo here",
+          "starter": "Secluded Training Ground"
+        }
+      ],
+      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "section": "Stage hazard"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Panda_combos"
+}
