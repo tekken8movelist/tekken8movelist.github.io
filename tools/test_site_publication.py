@@ -20,6 +20,14 @@ EXPECTED_CHARACTER_PAGES = 41
 EXPECTED_HTML_FILES = EXPECTED_CHARACTER_PAGES + 1
 EXPECTED_AVATARS = 44
 
+LEGACY_PIPELINE_PAGES = (
+    "xiaoyu_tk8_movelist.html",
+    "jun_tk8_movelist.html",
+    "kunimitsu_tk8_movelist.html",
+    "clive_tk8_movelist.html",
+    "law_tk8_movelist.html",
+)
+
 
 class ReferenceParser(HTMLParser):
     def __init__(self) -> None:
@@ -150,6 +158,36 @@ class SitePublicationContractTest(unittest.TestCase):
         self.assertIn("User-agent: *", robots)
         self.assertIn("Allow: /", robots)
         self.assertIn(f"Sitemap: {PUBLIC_ROOT}sitemap.xml", robots)
+
+    def test_phone_layout_media_query_covers_every_page(self) -> None:
+        for name in LEGACY_PIPELINE_PAGES:
+            with self.subTest(page=name):
+                html = (SITE / name).read_text(encoding="utf-8")
+                self.assertIn('<style id="mobile-phone">', html)
+                self.assertIn("@media (max-width: 640px)", html)
+
+        generated_pages = [
+            path
+            for path in SITE.glob("*_tk8_movelist.html")
+            if path.name not in LEGACY_PIPELINE_PAGES
+        ]
+        self.assertEqual(
+            len(generated_pages),
+            EXPECTED_CHARACTER_PAGES - len(LEGACY_PIPELINE_PAGES),
+        )
+        for page in generated_pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                self.assertIn("@media (max-width: 640px)", html)
+                self.assertNotIn("width: 600px", html)
+
+    def test_homepage_phone_layout_rules(self) -> None:
+        html = INDEX.read_text(encoding="utf-8")
+        marker = "@media (max-width:640px)"
+        self.assertIn(marker, html)
+        phone_block = html.split(marker, 1)[1]
+        self.assertIn("aspect-ratio:4/5", phone_block)
+        self.assertIn("body{zoom:1}", phone_block)
 
     def test_public_disclaimer_is_present(self) -> None:
         html = INDEX.read_text(encoding="utf-8")

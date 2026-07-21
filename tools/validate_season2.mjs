@@ -206,7 +206,7 @@ async function collectMetrics(page, expected) {
         : [{ label: label(container), expected: 'side-by-side', first, second }];
     });
 
-    const phoneRowIssues = width === 390 ? [...document.querySelectorAll('tr[data-record-id]')].flatMap((row) => {
+    const phoneRowIssues = width <= 640 ? [...document.querySelectorAll('tr[data-record-id]')].flatMap((row) => {
       const cmd = row.querySelector('td.cmd');
       if (!cmd) return [{ label: label(row), problems: ['missing cmd cell'] }];
       const anchor = row.querySelector('td.name') || row.querySelector('td.fr');
@@ -295,7 +295,7 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
   if (metrics.documentOverflow || metrics.bodyOverflow) {
     problems.push(`page overflow: ${JSON.stringify(metrics.widths)}`);
   }
-  if (expected.width === 390) {
+  if (expected.width <= 640) {
     if (metrics.bodyZoom !== '1') {
       problems.push(`body zoom at 390px: ${metrics.bodyZoom}`);
     }
