@@ -4,6 +4,8 @@ An exhibition-style, screen-first reference for TEKKEN 8 movelists in Simplified
 
 [Open the live site](https://ludengz.github.io/tekken8movelist/) · [Browse the structured data](tools/source/) · [Read the build guide](CLAUDE.md)
 
+![TEKKEN 8 Chinese Movelist Hub homepage](docs/assets/homepage-preview.png)
+
 ## Highlights
 
 - 41 character movelist pages across the base roster and Seasons 1–3
@@ -33,7 +35,7 @@ pwsh -File tools\validate_season2.ps1
 
 - `docs/index.html` — character-select homepage and GitHub Pages entry point
 - `docs/*_tk8_movelist.html` — self-contained character pages
-- `docs/avatars/` — final outline-style character portraits used by the homepage
+- `docs/avatars/` and `docs/avatars-light/` — dark- and light-theme character portraits
 - `design/notation-wireframe/` — source reference for the shared input-notation component
 - `tools/source/` — structured movelist, translation, and combo snapshots
 - `tools/build_season2.py` — reproducible page generator
