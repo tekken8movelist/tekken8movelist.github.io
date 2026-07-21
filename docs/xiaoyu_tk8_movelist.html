@@ -280,6 +280,121 @@ body:not(.txt-mode) .cmd-txt{display:none}
 </style>
 <script>/* tk-theme boot */
 try{if((localStorage.getItem('tk-theme')||'dark')==='dark')document.documentElement.classList.add('dark')}catch(e){document.documentElement.classList.add('dark')}</script>
+<style id="mobile-phone">
+/* phone layout (<=640px): 1 move per row — line 1 name + stats, line 2 full-width command.
+   Legacy pages use plain <table>/<tr> (no .move-table / data-record-id), so rows are
+   matched via :has(> td.name); header rows (<tr><th>…) are hidden. */
+@media (max-width: 640px) {
+  body {
+    zoom: 1;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .legend {
+    font-size: 11px;
+  }
+
+  table.lt,
+  table.lt > tbody,
+  table.lt > tbody > tr,
+  table.lt > tbody > tr > td.ltc {
+    display: block;
+    width: 100%;
+  }
+
+  table.lt > tbody > tr > td.ltc + td.ltc {
+    padding: 10px 0 0 !important;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) {
+    display: block;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) > tbody {
+    display: block;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) > tbody > tr:has(> th) {
+    display: none;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) > tbody > tr:has(> td.name) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 8px;
+    padding: 6px 2px;
+    border-bottom: 1px solid #f5ecf1;
+  }
+
+  html.dark section:not(.tipsPage) table:not(.lt):not(.cb) > tbody > tr:has(> td.name) {
+    border-bottom-color: #232a33;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) > tbody > tr:has(> td.name) > td {
+    display: block;
+    padding: 0;
+    border-bottom: 0;
+    white-space: normal;
+    overflow: visible;
+    background: none;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) > tbody > tr:nth-child(even):has(> td.name) {
+    background: #fcf7fa;
+  }
+
+  html.dark section:not(.tipsPage) table:not(.lt):not(.cb) > tbody > tr:nth-child(even):has(> td.name) {
+    background: #161b22;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.name {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 13px;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.fr,
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.dmg,
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.rng,
+  section:not(.tipsPage) table:not(.lt):not(.cb) td:not([class]) {
+    flex: 0 0 auto;
+    font-size: 11px;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.cmd + td.fr {
+    margin-left: auto;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.fr ~ td:not(.cmd)::before {
+    content: "·";
+    margin-right: 8px;
+    opacity: .45;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.cmd {
+    order: 2;
+    flex: 0 0 100%;
+    font-size: 11px;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.cmd .cmd-gfx {
+    white-space: normal;
+  }
+
+  section:not(.tipsPage) table:not(.lt):not(.cb) td.cmd .tk-in {
+    flex-wrap: wrap;
+    row-gap: .35em;
+    font-size: 11px;
+  }
+
+  /* page adaptation: 4 td.ltc cells carry inline style="width:50%"; !important beats it */
+  table.lt > tbody > tr > td.ltc {
+    width: 100% !important;
+  }
+}
+</style>
 </head>
 <body>
 
