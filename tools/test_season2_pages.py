@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
 SITE = ROOT / "docs"
 
+# Fixture mirrors season2_config.CHARACTERS (display/canonical/filename) as an independent expectation set — keep in sync when config changes.
 CHARACTERS = {
     "jin": {
         "display": "风间仁",
