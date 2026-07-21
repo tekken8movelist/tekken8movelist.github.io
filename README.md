@@ -2,7 +2,7 @@
 
 An exhibition-style, screen-first reference for TEKKEN 8 movelists in Simplified Chinese. Pick a character and browse commands, startup frames, stances, throws, heat moves, and sample combos in a fast, self-contained static page.
 
-[Open the live site](https://ludengz.github.io/tekken8movelist/) · [Browse the structured data](tools/source/) · [Read the build guide](CLAUDE.md)
+[Open the live site](https://tekken8movelist.github.io/) · [Browse the structured data](tools/source/) · [Read the build guide](CLAUDE.md)
 
 ![TEKKEN 8 Chinese Movelist Hub homepage](docs/assets/homepage-preview.png)
 
@@ -54,6 +54,6 @@ This is a non-commercial fan project for personal study, research, and discussio
 
 这是一个面向屏幕阅读的《铁拳 8》简体中文全角色出招表网站，提供图形化按键、发生帧、架势、投技、热能招式与示例连招，并支持深浅主题和多种记法切换。
 
-[访问在线网站](https://ludengz.github.io/tekken8movelist/) · [查看结构化数据](tools/source/) · [阅读构建说明](CLAUDE.md)
+[访问在线网站](https://tekken8movelist.github.io/) · [查看结构化数据](tools/source/) · [阅读构建说明](CLAUDE.md)
 
 本项目为非商业性质的非官方同人项目，仅供个人学习、研究与交流。招式数据整理自 Wavu Wiki，中文招式名为非官方意译；角色头像为本项目使用生成式 AI 制作的非官方轮廓风格演绎。本项目与 Bandai Namco Entertainment Inc. 无隶属关系，亦未获其赞助或认可。
