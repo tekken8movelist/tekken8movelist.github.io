@@ -341,7 +341,7 @@ section:not(.tipsPage) tr[data-record-id] td.name {
 td.cmd .tk-in {
   flex-wrap: nowrap;
   row-gap: .25em;
-  font-size: 9px;
+  font-size: 11px;
   vertical-align: middle;
 }
 
@@ -365,19 +365,29 @@ td.cmd .tk-in {
 }
 
 section:not(.tipsPage) table:not(.ten-string-table) td.cmd .tk-in.tk-cram {
-  font-size: 7.6px;
+  font-size: 9px;
 }
 
 section:not(.tipsPage) table.throw-table td.cmd .tk-in.tk-cram {
-  font-size: 6.8px;
+  font-size: 8.3px;
 }
 
 section:not(.tipsPage) table:not(.ten-string-table) td.cmd .tk-in.tk-cram.tk-cram2 {
-  font-size: 6.8px;
+  font-size: 7.1px;
 }
 
 section:not(.tipsPage) table.throw-table td.cmd .tk-in.tk-cram.tk-cram2 {
-  font-size: 6.1px;
+  font-size: 6.4px;
+}
+
+/* ten-string tables used to be exempt from cram tiers; with the larger 11px
+   base size the longest strings need the same shrink to stay inside the cell */
+section:not(.tipsPage) table.ten-string-table td.cmd .tk-in.tk-cram {
+  font-size: 9.3px;
+}
+
+section:not(.tipsPage) table.ten-string-table td.cmd .tk-in.tk-cram.tk-cram2 {
+  font-size: 8.3px;
 }
 
 body.nn-mode td.cmd .tk-b i.on {
@@ -462,6 +472,9 @@ table.cb .combo-token {
   white-space: nowrap;
   flex-wrap: wrap;
   max-width: 100%;
+  /* a single over-long token (e.g. a 5-grid starter) must be allowed to
+     shrink and wrap internally instead of overflowing the cell */
+  min-width: 0;
 }
 
 /* a single unspaced mega-token (long unbroken route notation) must still

@@ -11,7 +11,7 @@ import pipeline
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGE = ROOT / "马歇尔·洛_铁拳8_出招表.html"
+PAGE = ROOT / "docs" / "law_tk8_movelist.html"
 WAVU = ROOT / "tools" / "wavu_law.txt"
 
 

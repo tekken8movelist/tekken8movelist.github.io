@@ -1,14 +1,33 @@
 # 铁拳8 中文出招表项目 (Tekken 8 Chinese Movelist Sheets)
 
 本项目为铁拳8角色制作**纯中文屏显出招表**,每角色一个自包含 HTML:
-`{角色名}_铁拳8_出招表.html`。页面内置三组即时切换(localStorage 记忆):
+`{slug}_tk8_movelist.html`。页面内置三组即时切换(localStorage 记忆):
 
 - **主题**:夜间(默认,`html.dark`)/ 浅色
 - **记法**:按键图(图形化,默认)/ 无数字(纯方位)/ 文字(原始记法)
 - 每招带**发生帧列**(首击冲击帧,依 Wavu)
 
 > 2026-07 起废弃打印/PDF 流水线(A4 进阶版、weasyprint、夜间版注入均已删除)。
-> 历史打印版如需恢复,参考 git/备份或按 `tools/示例模板_*.html` 的旧结构重做。
+> 历史打印版如需恢复,参考 git/备份或按 `tools/jun_movelist_source_template.html` 的旧结构重做。
+
+## 发布站点 docs/
+
+`docs/` 是 GitHub Pages 的唯一发布根目录。`docs/index.html` 是角色选择画面风格的
+导航主页（自包含单文件，无构建），实现定稿的 Movelist Hub 设计系统：
+Saira/JetBrains Mono/Noto Sans SC 字体栈；分组小节布局（核心阵容 32 / 第1季 4 /
+第2季 4 / 第3季 4，组头 = Saira kicker + 标题 + 计数）；卡片 = 顶部主题色条 +
+头像区 + 字母徽标 + 名牌（中文名/英文名，无 → 箭头；无头像时显示斜体水印英文名）；S3 含 3 张
+「即将上线」占位卡（鲍勃/罗杰Jr./范马勇次郎，虚线框、不可点、键盘导航跳过）；
+图例条（月燕 d/f+2,3 按键图示例 + LP/RP/LK/RK）；搜索时隐藏空分组。
+与角色页共享 `tk-theme`（夜/日）与 `tk-notation`（gfx/txt）两项 localStorage 偏好。
+角色主题色以角色页实际 `--acc` 为准（设计稿中 jun/clive 两色有出入，未采用）。
+
+- 头像（可选）：放 `avatars/{slug}.png`（slug 如 jin/kazuya/deviljin/armorking…见卡片
+  `<img>` src）。加载成功自动加 `.hasimg` 隐藏水印与字母徽标（避免与人物图重叠）；
+  失败 `onerror` 移除 `<img>`，回退为徽标+水印，页面始终完整。
+- 新增角色：在对应分组 `.grid` 复制一张 `<a class="card" style="--acc:主题色"
+  data-q="中文名 英文名">` 卡片并更新组头计数与搜索行总数；未上线角色用
+  `<div class="card soon">` 占位（见 S3 示例）。
 
 ## 已完成角色
 
@@ -70,7 +89,7 @@
 
 ## 图形记法组件(设计定稿)
 
-来源:`Tekken 8 Movelist Wireframe/`(README + demo.html + tekken-input-notation.css,
+来源:`design/notation-wireframe/`(README + demo.html + tekken-input-notation.css,
 生产级 CSS 直接内联进各 HTML)。核心约定:
 
 - 2×2 单色按键方阵 `.tk-b`(1左上 2右上 3左下 4右下;按下 `.on` 实心,未按幽灵格)。
@@ -94,7 +113,7 @@
      (`{Char}-df+2,3`),`.movedata-startup` 为发生帧;输出含零宽字符需清理,
      结果超长需分片(存 window 变量再 slice)。存为 `tools/wavu_{char}.txt`(`input|startup` 每行)。
    - 连招 `wavu.wiki/t/{Char}_combos`。
-2. **基础 HTML**:按 `tools/示例模板_风间准_夜间版原始.html` 的结构手工制作
+2. **基础 HTML**:按 `tools/jun_movelist_source_template.html` 的结构手工制作
    (header/legend/投技/打击技 cols2/架势 lt 表/热能/十连技/tipsPage 攻略区,
    含夜间覆盖 `<style>` 块与 zoom 1.25 注入;翻译准则见下节)。
 3. **跑管线**:在 `tools/pipeline.py` 的 CONFIG 加角色条目——
@@ -123,7 +142,8 @@
    （期望值用分区/覆盖率脚本推导，勿手算）→ 构建 → 门禁。
 3. 运行 `pwsh -File tools\validate_season2.ps1`：单一入口会重建全部自包含 HTML，
    执行生成器与 Law 回归，并用 Playwright 按每角色 10 状态（桌面 6 + 响应式 4）
-   校验 UI、几何、裁切、状态恢复与 console 错误（36 角色共 360 状态）。
+   校验 UI、几何、裁切、状态恢复与 console 错误（36 角色共 360 状态），并检查
+   `docs/` 发布边界、主页链接、头像清单、免责声明与本地资源完整性。
    仅做非浏览器快速检查时可加 `-SkipBrowser`；最终交付不应跳过浏览器门禁。
    `$env:CHARACTERS='jin,king'` 可过滤角色，`$env:SCREENSHOT_DIR` 保留全页截图。
 4. 设计内文字回退（>6 方阵窄表）登记在测试的 `EXPECTED_GFX_FALLBACKS`；
@@ -156,8 +176,10 @@
 - `pipeline.py` — 一次式转换管线(旧 5 角色;解析器 parse_cmd 被生成器复用)
 - `build_season2.py` / `season2_config.py` / `season2_page.css` / `season2_page.js` — 全部生成器角色(36)的可重复页面生成器、配置与前端资源
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)
+- `scan_gfx_fallbacks.py` — 扫描 41 页 td.cmd 未图形化格子（主表回退快查）
+- `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）
 - `test_season2_pages.py` — 数据、分区、DOM 与幂等回归测试(36 角色)
 - `validate_season2.ps1` / `validate_season2.mjs` — 重建、回归测试与 360 状态 Playwright 几何门禁的单一入口(支持 CHARACTERS 过滤)
 - `source/{key}.json` / `{key}_zh.json` / `{key}_combos.json` — 结构化源快照
 - `wavu_{char}.txt` — 各角色 input|startup 帧数据(浏览器抓取存档)
-- `示例模板_风间准_夜间版原始.html` — 管线处理前的基础 HTML 结构示例
+- `jun_movelist_source_template.html` — 管线处理前的 Jun 基础 HTML 结构示例

@@ -8,43 +8,44 @@ const { chromium } = require('playwright');
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(scriptDir, '..');
+const siteRoot = resolve(repoRoot, 'docs');
 const allPages = {
-  jin: '风间仁_铁拳8_出招表.html',
-  anna: '安娜·威廉斯_铁拳8_出招表.html',
-  fahkumram: '法昆拉姆_铁拳8_出招表.html',
-  armor_king: '铠甲王_铁拳8_出招表.html',
-  miary_zo: '米亚莉·佐_铁拳8_出招表.html',
-  kazuya: '三岛一八_铁拳8_出招表.html',
-  paul: '保罗_铁拳8_出招表.html',
-  king: '金_铁拳8_出招表.html',
-  lars: '拉斯_铁拳8_出招表.html',
-  jack8: '杰克-8_铁拳8_出招表.html',
-  nina: '妮娜·威廉斯_铁拳8_出招表.html',
-  leroy: '勒罗伊_铁拳8_出招表.html',
-  asuka: '风间飞鸟_铁拳8_出招表.html',
-  lili: '莉莉_铁拳8_出招表.html',
-  bryan: '布莱恩_铁拳8_出招表.html',
-  hwoarang: '花郎_铁拳8_出招表.html',
-  claudio: '克劳迪奥_铁拳8_出招表.html',
-  azucena: '阿苏塞娜_铁拳8_出招表.html',
-  raven: '雷文_铁拳8_出招表.html',
-  leo: '雷欧_铁拳8_出招表.html',
-  steve: '史蒂夫_铁拳8_出招表.html',
-  kuma: '熊_铁拳8_出招表.html',
-  panda: '熊猫_铁拳8_出招表.html',
-  yoshimitsu: '吉光_铁拳8_出招表.html',
-  shaheen: '沙欣_铁拳8_出招表.html',
-  dragunov: '德拉古诺夫_铁拳8_出招表.html',
-  feng: '冯威_铁拳8_出招表.html',
-  lee: '李超狼_铁拳8_出招表.html',
-  alisa: '阿丽莎_铁拳8_出招表.html',
-  zafina: '扎菲娜_铁拳8_出招表.html',
-  devil_jin: '恶魔仁_铁拳8_出招表.html',
-  victor: '维克多_铁拳8_出招表.html',
-  reina: '蕾娜_铁拳8_出招表.html',
-  eddy: '艾迪_铁拳8_出招表.html',
-  lidia: '莉迪亚_铁拳8_出招表.html',
-  heihachi: '三岛平八_铁拳8_出招表.html',
+  jin: 'jin_tk8_movelist.html',
+  anna: 'anna_tk8_movelist.html',
+  fahkumram: 'fahkumram_tk8_movelist.html',
+  armor_king: 'armorking_tk8_movelist.html',
+  miary_zo: 'miaryzo_tk8_movelist.html',
+  kazuya: 'kazuya_tk8_movelist.html',
+  paul: 'paul_tk8_movelist.html',
+  king: 'king_tk8_movelist.html',
+  lars: 'lars_tk8_movelist.html',
+  jack8: 'jack_tk8_movelist.html',
+  nina: 'nina_tk8_movelist.html',
+  leroy: 'leroy_tk8_movelist.html',
+  asuka: 'asuka_tk8_movelist.html',
+  lili: 'lili_tk8_movelist.html',
+  bryan: 'bryan_tk8_movelist.html',
+  hwoarang: 'hwoarang_tk8_movelist.html',
+  claudio: 'claudio_tk8_movelist.html',
+  azucena: 'azucena_tk8_movelist.html',
+  raven: 'raven_tk8_movelist.html',
+  leo: 'leo_tk8_movelist.html',
+  steve: 'steve_tk8_movelist.html',
+  kuma: 'kuma_tk8_movelist.html',
+  panda: 'panda_tk8_movelist.html',
+  yoshimitsu: 'yoshimitsu_tk8_movelist.html',
+  shaheen: 'shaheen_tk8_movelist.html',
+  dragunov: 'dragunov_tk8_movelist.html',
+  feng: 'feng_tk8_movelist.html',
+  lee: 'lee_tk8_movelist.html',
+  alisa: 'alisa_tk8_movelist.html',
+  zafina: 'zafina_tk8_movelist.html',
+  devil_jin: 'deviljin_tk8_movelist.html',
+  victor: 'victor_tk8_movelist.html',
+  reina: 'reina_tk8_movelist.html',
+  eddy: 'eddy_tk8_movelist.html',
+  lidia: 'lidia_tk8_movelist.html',
+  heihachi: 'heihachi_tk8_movelist.html',
 };
 const onlyCharacters = process.env.CHARACTERS
   ? new Set(process.env.CHARACTERS.split(',').map((value) => value.trim()))
@@ -89,7 +90,7 @@ function findChrome() {
 
 function assertPageFiles() {
   const missing = Object.values(pages)
-    .map((filename) => join(repoRoot, filename))
+    .map((filename) => join(siteRoot, filename))
     .filter((file) => !existsSync(file));
   if (missing.length) {
     throw new Error(`Generated Season 2 pages are missing: ${missing.join(', ')}`);
@@ -366,7 +367,7 @@ try {
     try {
       const page = await context.newPage();
       const runtimeErrors = attachRuntimeErrorCapture(page);
-      await page.goto(pathToFileURL(join(repoRoot, filename)).href, { waitUntil: 'load' });
+      await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
       for (const theme of ['dark', 'light']) {
         for (const mode of ['gfx', 'nn', 'txt']) {
           await runState(
@@ -395,7 +396,7 @@ try {
       try {
         const page = await context.newPage();
         const runtimeErrors = attachRuntimeErrorCapture(page);
-        await page.goto(pathToFileURL(join(repoRoot, filename)).href, { waitUntil: 'load' });
+        await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
         await runState(
           page,
           character,

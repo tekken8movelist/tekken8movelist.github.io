@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>铁拳8 · 全角色出招表</title>
+<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* ============ tokens (Movelist Hub design system) ============ */
+:root{
+  color-scheme:light;
+  --bg:#eceef1; --panel:#ffffff; --panel-alt:#f6f7f9;
+  --ink:#1d1d1f; --muted:#69737d; --line:#e4e7ec; --kicker:#98a2ac;
+  --tile-w:176px; --tile-h:214px;
+}
+html.dark{
+  color-scheme:dark;
+  --bg:#0e1116; --panel:#161c24; --panel-alt:#1b222b;
+  --ink:#dce3ea; --muted:#8b98a5; --line:#242c37; --kicker:#6f7d8c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:13px;line-height:1.5;
+  transition:background .2s ease,color .2s ease;
+}
+@media screen{body{zoom:1.25}}
+::selection{background:#6fb3ff;color:#0e1116}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 26px 64px}
+@keyframes tkpop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ============ header ============ */
+header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;gap:18px;padding-bottom:20px;border-bottom:1px solid var(--line);
+}
+.kicker{
+  display:flex;align-items:center;gap:10px;
+  font-family:"Saira",sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:5px;text-transform:uppercase;color:var(--kicker);
+}
+.kicker::before{content:"";width:22px;height:3px;background:var(--kicker)}
+h1{margin:8px 0 0;font-size:34px;font-weight:900;letter-spacing:1px;line-height:1.05}
+.sub{margin:8px 0 0;font-size:13px;color:var(--muted);max-width:52ch}
+.ctl{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.ctl .grp{display:inline-flex;flex-direction:column;gap:4px}
+.ctl .lbl{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+  font-family:"Saira",sans-serif;font-weight:600;
+}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel)}
+.seg button{
+  border:0;padding:6px 14px;cursor:pointer;font-size:12px;font-weight:600;
+  font-family:"Noto Sans SC",sans-serif;background:transparent;color:var(--muted);
+  transition:all .15s ease;
+}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.tgl{
+  border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);
+  font-family:"JetBrains Mono",monospace;font-size:12px;padding:6px 14px;cursor:pointer;
+}
+
+/* ============ legend strip ============ */
+.legend{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;
+  margin:22px 0 18px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(150deg,var(--panel),var(--panel-alt));
+}
+.legend .demo{display:flex;flex-direction:column;gap:8px}
+.legend .cap{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+  font-family:"Saira",sans-serif;font-weight:600;
+}
+.legend .vr{width:1px;align-self:stretch;background:var(--line)}
+.legend .keys{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.legend .keys div{display:flex;align-items:center;gap:7px}
+.txtdemo{font-family:"JetBrains Mono",monospace;font-size:20px;letter-spacing:1px}
+
+/* ============ search ============ */
+.tools{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:8px}
+.search{
+  display:flex;align-items:center;gap:10px;flex:1;min-width:240px;max-width:420px;
+  padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel);
+}
+.search:focus-within{border-color:var(--muted)}
+.search svg{flex:none;stroke:var(--muted)}
+.search input{
+  flex:1;border:0;background:transparent;outline:none;font-size:14px;color:var(--ink);
+  font-family:inherit;
+}
+.search input::placeholder{color:var(--muted);opacity:.7}
+.cnt{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+
+/* ============ group sections ============ */
+.gsec{margin-top:30px}
+.ghead{
+  display:flex;align-items:baseline;gap:14px;
+  margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.ghead .gk{
+  font-family:"Saira",sans-serif;font-weight:800;font-size:13px;
+  letter-spacing:3px;text-transform:uppercase;color:var(--kicker);
+}
+.ghead .gt{font-size:19px;font-weight:900;letter-spacing:.5px}
+.ghead .sp{flex:1}
+.ghead .gc{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+
+/* ============ roster grid & cards ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--tile-w),1fr));gap:12px}
+.card{
+  position:relative;display:flex;flex-direction:column;overflow:hidden;
+  height:var(--tile-h);border-radius:12px;background:var(--panel);
+  border:1px solid var(--line);
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+  animation:tkpop .3s ease both;
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--acc);z-index:3;
+}
+.card:hover,.card.cur{
+  transform:translateY(-4px);border-color:var(--acc);
+  box-shadow:0 14px 34px -14px var(--acc);
+}
+.card:focus-visible{outline:none;border-color:var(--acc)}
+.cimg{position:relative;flex:1;min-height:0;overflow:hidden}
+.cimg img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;
+  transition:transform .25s ease;
+}
+.card:hover .cimg img,.card.cur .cimg img{transform:scale(1.02)}
+.ctint{
+  position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--acc) 18%,transparent),transparent 55%);
+}
+.cmono{
+  position:absolute;top:11px;left:11px;width:28px;height:28px;z-index:4;
+  display:flex;align-items:center;justify-content:center;border-radius:8px;
+  background:var(--acc);color:#0e1116;
+  font-family:"Saira",sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;
+  pointer-events:none;
+}
+.cwm{
+  position:absolute;right:-6px;bottom:-8px;z-index:2;pointer-events:none;white-space:nowrap;
+  font-family:"Saira",sans-serif;font-style:italic;font-weight:800;font-size:2.4rem;
+  line-height:1;text-transform:uppercase;color:var(--acc);opacity:.18;
+}
+.card.hasimg .cwm{display:none}
+.card.hasimg .cmono{display:none}
+.cplate{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:10px 12px;background:var(--panel);border-top:1px solid var(--line);
+  max-height:70px;overflow:hidden;
+  transition:background .16s ease,max-height .22s ease,padding .22s ease,opacity .18s ease,border-color .22s ease;
+}
+.card:hover .cplate,.card.cur .cplate{
+  background:var(--panel-alt);max-height:0;padding-top:0;padding-bottom:0;
+  opacity:0;border-top-color:transparent;
+}
+.cnm{min-width:0;transition:transform .2s ease}
+.card:hover .cnm,.card.cur .cnm{transform:translateY(6px)}
+.cnm b{
+  display:block;font-size:15px;font-weight:700;letter-spacing:.5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cnm i{
+  display:block;font-style:normal;font-family:"Saira",sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);
+}
+
+/* soon placeholder card */
+.card.soon{border-style:dashed;opacity:.72}
+.soonc{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--acc) 12%,var(--panel)),var(--panel));
+}
+.card.soon.hasimg .soonc{background:none}
+.card.soon.hasimg .soonc .m{display:none}
+.card.soon.hasimg .soonc .p{display:none}
+.soonpill{
+  display:none;flex:none;margin-left:auto;
+  font-size:9px;letter-spacing:1px;color:var(--acc);
+  border:1px solid color-mix(in srgb,var(--acc) 55%,var(--line));
+  border-radius:999px;padding:1px 6px;white-space:nowrap;
+}
+.card.soon.hasimg .soonpill{display:inline-block}
+.soonc .m{
+  font-family:"Saira",sans-serif;font-style:italic;font-weight:800;
+  font-size:2.6rem;line-height:1;color:var(--acc);opacity:.55;
+}
+.soonc .p{
+  font-size:10px;letter-spacing:2px;color:var(--acc);
+  border:1px solid var(--acc);border-radius:999px;padding:2px 10px;white-space:nowrap;
+}
+.card.soon .cnm b{color:var(--muted)}
+.card.soon .cnm i{opacity:.7}
+
+.none{display:none;padding:60px 20px;text-align:center;color:var(--muted)}
+.none.show{display:block}
+.none b{display:block;font-size:16px;color:var(--ink)}
+.none span{display:block;font-size:13px;margin-top:6px}
+.hide{display:none!important}
+
+/* ============ footer ============ */
+footer{
+  margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(220px,.8fr) minmax(340px,1.4fr);
+  gap:18px 42px;
+  font-size:11px;color:var(--muted);line-height:1.6;
+}
+.footer-block{display:grid;align-content:start;gap:6px}
+.footer-kicker{
+  font-family:"Saira",sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--kicker);
+}
+.footer-copy{max-width:74ch}
+footer a{
+  color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);
+  text-underline-offset:3px;transition:color .15s ease,text-decoration-color .15s ease;
+}
+footer a:hover{color:#6fb3ff;text-decoration-color:currentColor}
+footer a:focus-visible{outline:2px solid #6fb3ff;outline-offset:3px;border-radius:2px}
+footer .mono{font-family:"JetBrains Mono",monospace}
+
+/* ============ tk input notation (inlined component, theme-aware) ============ */
+.tk-in{
+  --tk-ink:#1d1d1f;--tk-bg:#ffffff;--tk-acc:#8b98a5;
+  display:inline-flex;align-items:center;gap:.42em;
+  color:var(--tk-ink);
+  font-family:ui-monospace,"JetBrains Mono",Consolas,monospace;
+}
+html.dark .tk-in{--tk-ink:#dce3ea;--tk-bg:#0e1116}
+.tk-sep{opacity:.45;font-size:.78em;font-weight:400}
+.tk-b{
+  display:inline-grid;flex:none;
+  grid-template-columns:1.35em 1.35em;grid-auto-rows:1.35em;gap:.2em;
+  font-size:.76em;font-weight:600;line-height:1;
+}
+.tk-b i{
+  display:flex;align-items:center;justify-content:center;font-style:normal;
+  border-radius:.34em;
+  background:color-mix(in srgb,var(--tk-ink) 7%,transparent);
+  border:.09em solid color-mix(in srgb,var(--tk-ink) 32%,transparent);
+  color:transparent;
+}
+.tk-b i.on{
+  background:var(--tk-ink);border-color:var(--tk-ink);color:var(--tk-bg);font-weight:700;
+}
+html.dark .tk-b i.on{box-shadow:0 0 .55em color-mix(in srgb,var(--tk-ink) 28%,transparent)}
+.tk-dir{display:inline-flex;align-items:center;justify-content:center;width:1.5em;height:1.5em;flex:none}
+.tk-dir::before{
+  content:"";width:1.02em;height:1.02em;background:var(--tk-ink);
+  clip-path:polygon(10% 18%,94% 50%,10% 82%,32% 50%);
+}
+html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk-ink) 25%,transparent))}
+.tk-dir.f::before{transform:rotate(0deg)}
+.tk-dir.df::before{transform:rotate(45deg)}
+.tk-dir.d::before{transform:rotate(90deg)}
+.tk-dir.db::before{transform:rotate(135deg)}
+.tk-dir.b::before{transform:rotate(180deg)}
+.tk-dir.ub::before{transform:rotate(225deg)}
+.tk-dir.u::before{transform:rotate(270deg)}
+.tk-dir.uf::before{transform:rotate(315deg)}
+.tk-n{font-weight:700;font-size:.8em;opacity:.55}
+.tk-sm{font-size:11px}
+.tk-md{font-size:15px}
+.tk-lg{font-size:22px}
+
+@media (prefers-reduced-motion:reduce){
+  .card,.cimg img,.cplate,.cnm{transition:none}
+}
+
+@media (max-width:640px){
+  :root{--tile-w:132px;--tile-h:172px}
+  h1{font-size:26px}
+  footer{grid-template-columns:1fr;gap:16px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="kicker">Tekken 8</div>
+    <h1>全角色出招表</h1>
+    <p class="sub">选择角色查看完整出招表 · 图形化按键记法 · 逐招发生帧 · 数据源自 Wavu Wiki</p>
+  </div>
+  <div class="ctl">
+    <div class="grp">
+      <span class="lbl">记法</span>
+      <span class="seg" id="notationSeg">
+        <button type="button" data-n="gfx">按键图</button><button type="button" data-n="txt">文字</button>
+      </span>
+    </div>
+    <div class="grp">
+      <span class="lbl">主题</span>
+      <button type="button" class="tgl" id="themeTgl">夜 / 日</button>
+    </div>
+  </div>
+</header>
+
+<section class="legend">
+  <div class="demo">
+    <span class="cap">示例 · 月燕（凌晓雨）</span>
+    <span id="demoGfx" class="tk-in tk-lg" style="--tk-acc:#ff9fce"><span class="tk-dir df"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span>
+    <span id="demoTxt" class="txtdemo hide">d/f+2, 3</span>
+  </div>
+  <div class="vr"></div>
+  <div class="keys">
+    <div><span class="tk-in tk-sm"><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span>左拳 LP</div>
+    <div><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span>右拳 RP</div>
+    <div><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i>4</i></span></span>左脚 LK</div>
+    <div><span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i class="on">4</i></span></span>右脚 RK</div>
+  </div>
+</section>
+
+<div class="tools">
+  <label class="search">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+    <input id="q" type="search" placeholder="搜索角色 · 中文名 / English" autocomplete="off">
+  </label>
+  <span class="cnt" id="cnt">41 页出招表 · 共 44 名角色</span>
+</div>
+
+<section class="gsec" data-gsec>
+  <div class="ghead"><span class="gk">Core Roster</span><span class="gt">核心阵容</span><span class="sp"></span><span class="gc">32 名</span></div>
+  <div class="grid">
+    <a class="card" style="--acc:#6fb3ff" data-q="风间仁 jin kazama jinkazama" href="jin_tk8_movelist.html"><span class="cimg"><img src="avatars/jin.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">JIN</span></span><span class="cmono">JI</span><span class="cplate"><span class="cnm"><b>风间仁</b><i>Jin Kazama</i></span></span></a>
+    <a class="card" style="--acc:#b18cff" data-q="三岛一八 kazuya mishima kazuyamishima" href="kazuya_tk8_movelist.html"><span class="cimg"><img src="avatars/kazuya.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">KAZUYA</span></span><span class="cmono">KA</span><span class="cplate"><span class="cnm"><b>三岛一八</b><i>Kazuya</i></span></span></a>
+    <a class="card" style="--acc:#7ed6b8" data-q="风间准 jun kazama junkazama" href="jun_tk8_movelist.html"><span class="cimg"><img src="avatars/jun.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">JUN</span></span><span class="cmono">JU</span><span class="cplate"><span class="cnm"><b>风间准</b><i>Jun</i></span></span></a>
+    <a class="card" style="--acc:#ff8087" data-q="保罗 paul phoenix paulphoenix" href="paul_tk8_movelist.html"><span class="cimg"><img src="avatars/paul.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">PAUL</span></span><span class="cmono">PA</span><span class="cplate"><span class="cnm"><b>保罗</b><i>Paul</i></span></span></a>
+    <a class="card" style="--acc:#ffe07a" data-q="马歇尔·洛 marshall law marshalllaw 洛" href="law_tk8_movelist.html"><span class="cimg"><img src="avatars/law.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LAW</span></span><span class="cmono">LA</span><span class="cplate"><span class="cnm"><b>马歇尔·洛</b><i>Law</i></span></span></a>
+    <a class="card" style="--acc:#e8a04c" data-q="金 king" href="king_tk8_movelist.html"><span class="cimg"><img src="avatars/king.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">KING</span></span><span class="cmono">KI</span><span class="cplate"><span class="cnm"><b>金</b><i>King</i></span></span></a>
+    <a class="card" style="--acc:#8fa8ff" data-q="拉斯 lars alexandersson larsalexandersson" href="lars_tk8_movelist.html"><span class="cimg"><img src="avatars/lars.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LARS</span></span><span class="cmono">LA</span><span class="cplate"><span class="cnm"><b>拉斯</b><i>Lars</i></span></span></a>
+    <a class="card" style="--acc:#a9cf74" data-q="杰克-8 jack-8 jack8 jack" href="jack_tk8_movelist.html"><span class="cimg"><img src="avatars/jack.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">JACK-8</span></span><span class="cmono">JA</span><span class="cplate"><span class="cnm"><b>杰克-8</b><i>Jack-8</i></span></span></a>
+    <a class="card" style="--acc:#ff9fce" data-q="凌晓雨 ling xiaoyu lingxiaoyu xiaoyu" href="xiaoyu_tk8_movelist.html"><span class="cimg"><img src="avatars/xiaoyu.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">XIAOYU</span></span><span class="cmono">XI</span><span class="cplate"><span class="cnm"><b>凌晓雨</b><i>Xiaoyu</i></span></span></a>
+    <a class="card" style="--acc:#d8a9ff" data-q="妮娜·威廉斯 nina williams ninawilliams 妮娜" href="nina_tk8_movelist.html"><span class="cimg"><img src="avatars/nina.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">NINA</span></span><span class="cmono">NI</span><span class="cplate"><span class="cnm"><b>妮娜·威廉斯</b><i>Nina</i></span></span></a>
+    <a class="card" style="--acc:#9db4c9" data-q="勒罗伊 leroy smith leroysmith" href="leroy_tk8_movelist.html"><span class="cimg"><img src="avatars/leroy.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LEROY</span></span><span class="cmono">LE</span><span class="cplate"><span class="cnm"><b>勒罗伊</b><i>Leroy</i></span></span></a>
+    <a class="card" style="--acc:#7fc4e8" data-q="风间飞鸟 asuka kazama asukakazama 飞鸟" href="asuka_tk8_movelist.html"><span class="cimg"><img src="avatars/asuka.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">ASUKA</span></span><span class="cmono">AS</span><span class="cplate"><span class="cnm"><b>风间飞鸟</b><i>Asuka</i></span></span></a>
+    <a class="card" style="--acc:#cdd6e0" data-q="莉莉 lili emilie" href="lili_tk8_movelist.html"><span class="cimg"><img src="avatars/lili.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LILI</span></span><span class="cmono">LI</span><span class="cplate"><span class="cnm"><b>莉莉</b><i>Lili</i></span></span></a>
+    <a class="card" style="--acc:#9ad0c2" data-q="布莱恩 bryan fury bryanfury" href="bryan_tk8_movelist.html"><span class="cimg"><img src="avatars/bryan.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">BRYAN</span></span><span class="cmono">BR</span><span class="cplate"><span class="cnm"><b>布莱恩</b><i>Bryan</i></span></span></a>
+    <a class="card" style="--acc:#ff8f4d" data-q="花郎 hwoarang" href="hwoarang_tk8_movelist.html"><span class="cimg"><img src="avatars/hwoarang.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">HWOARANG</span></span><span class="cmono">HW</span><span class="cplate"><span class="cnm"><b>花郎</b><i>Hwoarang</i></span></span></a>
+    <a class="card" style="--acc:#bcd4ff" data-q="克劳迪奥 claudio serafino claudioserafino" href="claudio_tk8_movelist.html"><span class="cimg"><img src="avatars/claudio.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">CLAUDIO</span></span><span class="cmono">CL</span><span class="cplate"><span class="cnm"><b>克劳迪奥</b><i>Claudio</i></span></span></a>
+    <a class="card" style="--acc:#d9a878" data-q="阿苏塞娜 azucena" href="azucena_tk8_movelist.html"><span class="cimg"><img src="avatars/azucena.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">AZUCENA</span></span><span class="cmono">AZ</span><span class="cplate"><span class="cnm"><b>阿苏塞娜</b><i>Azucena</i></span></span></a>
+    <a class="card" style="--acc:#9f86d9" data-q="雷文 raven" href="raven_tk8_movelist.html"><span class="cimg"><img src="avatars/raven.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">RAVEN</span></span><span class="cmono">RA</span><span class="cplate"><span class="cnm"><b>雷文</b><i>Raven</i></span></span></a>
+    <a class="card" style="--acc:#e0c187" data-q="雷欧 leo kliesen leokliesen" href="leo_tk8_movelist.html"><span class="cimg"><img src="avatars/leo.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LEO</span></span><span class="cmono">LE</span><span class="cplate"><span class="cnm"><b>雷欧</b><i>Leo</i></span></span></a>
+    <a class="card" style="--acc:#84a9e0" data-q="史蒂夫 steve fox stevefox" href="steve_tk8_movelist.html"><span class="cimg"><img src="avatars/steve.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">STEVE</span></span><span class="cmono">ST</span><span class="cplate"><span class="cnm"><b>史蒂夫</b><i>Steve</i></span></span></a>
+    <a class="card" style="--acc:#c99b6e" data-q="熊 kuma" href="kuma_tk8_movelist.html"><span class="cimg"><img src="avatars/kuma.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">KUMA</span></span><span class="cmono">KU</span><span class="cplate"><span class="cnm"><b>熊</b><i>Kuma</i></span></span></a>
+    <a class="card" style="--acc:#e6e9ee" data-q="熊猫 panda" href="panda_tk8_movelist.html"><span class="cimg"><img src="avatars/panda.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">PANDA</span></span><span class="cmono">PA</span><span class="cplate"><span class="cnm"><b>熊猫</b><i>Panda</i></span></span></a>
+    <a class="card" style="--acc:#7fd6a8" data-q="吉光 yoshimitsu" href="yoshimitsu_tk8_movelist.html"><span class="cimg"><img src="avatars/yoshimitsu.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">YOSHIMITSU</span></span><span class="cmono">YO</span><span class="cplate"><span class="cnm"><b>吉光</b><i>Yoshimitsu</i></span></span></a>
+    <a class="card" style="--acc:#e8cf9a" data-q="沙欣 shaheen" href="shaheen_tk8_movelist.html"><span class="cimg"><img src="avatars/shaheen.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">SHAHEEN</span></span><span class="cmono">SH</span><span class="cplate"><span class="cnm"><b>沙欣</b><i>Shaheen</i></span></span></a>
+    <a class="card" style="--acc:#aab6c2" data-q="德拉古诺夫 sergei dragunov sergeidragunov dragunov" href="dragunov_tk8_movelist.html"><span class="cimg"><img src="avatars/dragunov.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">DRAGUNOV</span></span><span class="cmono">DR</span><span class="cplate"><span class="cnm"><b>德拉古诺夫</b><i>Dragunov</i></span></span></a>
+    <a class="card" style="--acc:#b5d98a" data-q="冯威 feng wei fengwei" href="feng_tk8_movelist.html"><span class="cimg"><img src="avatars/feng.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">FENG</span></span><span class="cmono">FE</span><span class="cplate"><span class="cnm"><b>冯威</b><i>Feng</i></span></span></a>
+    <a class="card" style="--acc:#c39bff" data-q="李超狼 lee chaolan leechaolan" href="lee_tk8_movelist.html"><span class="cimg"><img src="avatars/lee.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LEE</span></span><span class="cmono">LE</span><span class="cplate"><span class="cnm"><b>李超狼</b><i>Lee</i></span></span></a>
+    <a class="card" style="--acc:#ffb3c6" data-q="阿丽莎 alisa bosconovitch alisabosconovitch" href="alisa_tk8_movelist.html"><span class="cimg"><img src="avatars/alisa.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">ALISA</span></span><span class="cmono">AL</span><span class="cplate"><span class="cnm"><b>阿丽莎</b><i>Alisa</i></span></span></a>
+    <a class="card" style="--acc:#c98fd0" data-q="扎菲娜 zafina" href="zafina_tk8_movelist.html"><span class="cimg"><img src="avatars/zafina.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">ZAFINA</span></span><span class="cmono">ZA</span><span class="cplate"><span class="cnm"><b>扎菲娜</b><i>Zafina</i></span></span></a>
+    <a class="card" style="--acc:#a17fe0" data-q="恶魔仁 devil jin deviljin" href="deviljin_tk8_movelist.html"><span class="cimg"><img src="avatars/deviljin.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">DEVIL JIN</span></span><span class="cmono">DE</span><span class="cplate"><span class="cnm"><b>恶魔仁</b><i>Devil Jin</i></span></span></a>
+    <a class="card" style="--acc:#de9fe6" data-q="维克多 victor chevalier victorchevalier" href="victor_tk8_movelist.html"><span class="cimg"><img src="avatars/victor.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">VICTOR</span></span><span class="cmono">VI</span><span class="cplate"><span class="cnm"><b>维克多</b><i>Victor</i></span></span></a>
+    <a class="card" style="--acc:#cf9ef0" data-q="蕾娜 reina" href="reina_tk8_movelist.html"><span class="cimg"><img src="avatars/reina.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">REINA</span></span><span class="cmono">RE</span><span class="cplate"><span class="cnm"><b>蕾娜</b><i>Reina</i></span></span></a>
+  </div>
+</section>
+
+<section class="gsec" data-gsec>
+  <div class="ghead"><span class="gk">Season 1</span><span class="gt">第1季 DLC</span><span class="sp"></span><span class="gc">4 名</span></div>
+  <div class="grid">
+    <a class="card" style="--acc:#9fd97f" data-q="艾迪 eddy gordo eddygordo" href="eddy_tk8_movelist.html"><span class="cimg"><img src="avatars/eddy.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">EDDY</span></span><span class="cmono">ED</span><span class="cplate"><span class="cnm"><b>艾迪</b><i>Eddy</i></span></span></a>
+    <a class="card" style="--acc:#ffb0a6" data-q="莉迪亚 lidia sobieska lidiasobieska" href="lidia_tk8_movelist.html"><span class="cimg"><img src="avatars/lidia.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">LIDIA</span></span><span class="cmono">LI</span><span class="cplate"><span class="cnm"><b>莉迪亚</b><i>Lidia</i></span></span></a>
+    <a class="card" style="--acc:#ffcf66" data-q="三岛平八 heihachi mishima heihachimishima 平八" href="heihachi_tk8_movelist.html"><span class="cimg"><img src="avatars/heihachi.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">HEIHACHI</span></span><span class="cmono">HE</span><span class="cplate"><span class="cnm"><b>三岛平八</b><i>Heihachi</i></span></span></a>
+    <a class="card" style="--acc:#9db9ff" data-q="克莱夫 clive rosfield cliverosfield" href="clive_tk8_movelist.html"><span class="cimg"><img src="avatars/clive.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">CLIVE</span></span><span class="cmono">CL</span><span class="cplate"><span class="cnm"><b>克莱夫</b><i>Clive</i></span></span></a>
+  </div>
+</section>
+
+<section class="gsec" data-gsec>
+  <div class="ghead"><span class="gk">Season 2</span><span class="gt">第2季 DLC</span><span class="sp"></span><span class="gc">4 名</span></div>
+  <div class="grid">
+    <a class="card" style="--acc:#e07a8f" data-q="安娜·威廉斯 anna williams annawilliams 安娜" href="anna_tk8_movelist.html"><span class="cimg"><img src="avatars/anna.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">ANNA</span></span><span class="cmono">AN</span><span class="cplate"><span class="cnm"><b>安娜·威廉斯</b><i>Anna</i></span></span></a>
+    <a class="card" style="--acc:#6fe0c9" data-q="法昆拉姆 fahkumram" href="fahkumram_tk8_movelist.html"><span class="cimg"><img src="avatars/fahkumram.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">FAHKUMRAM</span></span><span class="cmono">FA</span><span class="cplate"><span class="cnm"><b>法昆拉姆</b><i>Fahkumram</i></span></span></a>
+    <a class="card" style="--acc:#7f8fb3" data-q="铠甲王 armor king armorking" href="armorking_tk8_movelist.html"><span class="cimg"><img src="avatars/armorking.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">ARMOR KING</span></span><span class="cmono">AR</span><span class="cplate"><span class="cnm"><b>铠甲王</b><i>Armor King</i></span></span></a>
+    <a class="card" style="--acc:#c9e896" data-q="米亚莉·佐 miary zo miaryzo 米亚莉" href="miaryzo_tk8_movelist.html"><span class="cimg"><img src="avatars/miaryzo.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">MIARY ZO</span></span><span class="cmono">MI</span><span class="cplate"><span class="cnm"><b>米亚莉·佐</b><i>Miary Zo</i></span></span></a>
+  </div>
+</section>
+
+<section class="gsec" data-gsec>
+  <div class="ghead"><span class="gk">Season 3</span><span class="gt">第3季 DLC</span><span class="sp"></span><span class="gc">4 名</span></div>
+  <div class="grid">
+    <a class="card" style="--acc:#ff93a6" data-q="国光二世 kunimitsu 州光" href="kunimitsu_tk8_movelist.html"><span class="cimg"><img src="avatars/kunimitsu.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">KUNIMITSU</span></span><span class="cmono">KU</span><span class="cplate"><span class="cnm"><b>国光二世</b><i>Kunimitsu</i></span></span></a>
+    <div class="card soon" style="--acc:#a6d4ff" data-q="鲍勃 bob"><span class="cimg"><img src="avatars/bob.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="soonc"><span class="m">BO</span><span class="p">即将上线</span></span></span><span class="cmono">BO</span><span class="cplate"><span class="cnm"><b>鲍勃</b><i>Bob</i></span><span class="soonpill">即将上线</span></span></div>
+    <div class="card soon" style="--acc:#ff8f7a" data-q="罗杰jr roger jr rogerjr roger"><span class="cimg"><img src="avatars/rogerjr.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="soonc"><span class="m">RO</span><span class="p">即将上线</span></span></span><span class="cmono">RO</span><span class="cplate"><span class="cnm"><b>罗杰Jr.</b><i>Roger Jr.</i></span><span class="soonpill">即将上线</span></span></div>
+    <div class="card soon" style="--acc:#e5735e" data-q="范马勇次郎 yujiro hanma 勇次郎"><span class="cimg"><img src="avatars/yujiro.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="soonc"><span class="m">YU</span><span class="p">即将上线</span></span></span><span class="cmono">YU</span><span class="cplate"><span class="cnm"><b>范马勇次郎</b><i>Yujiro</i></span><span class="soonpill">即将上线</span></span></div>
+  </div>
+</section>
+
+<div class="none" id="none">
+  <b id="noneQ">未找到</b>
+  <span>试试角色的中文名或英文名</span>
+</div>
+
+<footer aria-label="项目来源与法律声明">
+  <div class="footer-block">
+    <span class="footer-kicker">Source</span>
+    <p class="footer-copy">招式数据整理自 <a href="https://wavu.wiki/" target="_blank" rel="noopener noreferrer">Wavu Wiki</a>；中文招式名为非官方意译，仅供参考。</p>
+  </div>
+  <div class="footer-block">
+    <span class="footer-kicker">Unofficial fan project</span>
+    <p class="footer-copy">角色头像为生成式 AI 制作的非官方轮廓风格演绎。本项目仅供个人学习、研究与交流，不作商业用途；与 <a href="https://www.bandainamcoent.com/games/tekken-8" target="_blank" rel="noopener noreferrer">Bandai Namco Entertainment Inc.</a> 无隶属关系，亦未获其赞助或认可。</p>
+    <p class="footer-copy"><span class="mono">TEKKEN™ 8</span> 及其角色、名称、商标与原始设计的相关权利归 Bandai Namco Entertainment Inc. 及其他相应权利人所有。</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* ---- theme (shared tk-theme with character pages) ---- */
+  var tgl = document.getElementById('themeTgl');
+  var avatarImages = document.querySelectorAll('.cimg img');
+  function paintAvatars() {
+    var light = !root.classList.contains('dark');
+    avatarImages.forEach(function (img) {
+      if (!img.dataset.darkSrc) {
+        img.dataset.darkSrc = img.getAttribute('src');
+        img.dataset.lightSrc = img.dataset.darkSrc.replace(/^avatars\//, 'avatars-light/');
+      }
+      var nextSrc = light ? img.dataset.lightSrc : img.dataset.darkSrc;
+      if (img.getAttribute('src') !== nextSrc) img.setAttribute('src', nextSrc);
+    });
+  }
+  function paintTheme() {
+    tgl.textContent = root.classList.contains('dark') ? '夜 / 日' : '日 / 夜';
+    paintAvatars();
+  }
+  tgl.addEventListener('click', function () {
+    var dark = !root.classList.contains('dark');
+    root.classList.toggle('dark', dark);
+    try { localStorage.setItem('tk-theme', dark ? 'dark' : 'light'); } catch (_) {}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* ---- notation demo (shared tk-notation: gfx / txt) ---- */
+  var nseg = document.getElementById('notationSeg');
+  var demoGfx = document.getElementById('demoGfx');
+  var demoTxt = document.getElementById('demoTxt');
+  function paintNotation() {
+    var n = 'gfx';
+    try { n = localStorage.getItem('tk-notation') || 'gfx'; } catch (_) {}
+    var gfx = n !== 'txt';
+    demoGfx.classList.toggle('hide', !gfx);
+    demoTxt.classList.toggle('hide', gfx);
+    nseg.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('on', (b.dataset.n === 'gfx') === gfx);
+    });
+  }
+  nseg.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    try { localStorage.setItem('tk-notation', b.dataset.n); } catch (_) {}
+    paintNotation();
+  });
+  paintNotation();
+
+  /* ---- search ---- */
+  var q = document.getElementById('q');
+  var cnt = document.getElementById('cnt');
+  var none = document.getElementById('none');
+  var noneQ = document.getElementById('noneQ');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('a.card'));
+
+  function visCards() {
+    return cards.filter(function (c) { return !c.classList.contains('hide'); });
+  }
+  function visLinks() {
+    return links.filter(function (c) { return !c.classList.contains('hide'); });
+  }
+  function filter() {
+    var raw = q.value.trim().toLowerCase();
+    var s = raw.replace(/\s+/g, '');
+    cards.forEach(function (c) {
+      var d = c.dataset.q.toLowerCase();
+      var hit = !s || d.indexOf(raw) >= 0 || d.replace(/\s+/g, '').indexOf(s) >= 0;
+      c.classList.toggle('hide', !hit);
+    });
+    document.querySelectorAll('[data-gsec]').forEach(function (g) {
+      g.classList.toggle('hide', g.querySelectorAll('.card:not(.hide)').length === 0);
+    });
+    var n = visCards().length;
+    cnt.textContent = raw ? n + ' 名匹配' : '41 页出招表 · 共 44 名角色';
+    none.classList.toggle('show', n === 0);
+    if (n === 0) noneQ.textContent = '未找到「' + q.value.trim() + '」';
+    cur(null);
+  }
+  q.addEventListener('input', filter);
+
+  /* ---- character-select keyboard navigation (live pages only) ---- */
+  var curCard = null;
+  function cur(c) {
+    if (curCard) curCard.classList.remove('cur');
+    curCard = c;
+    if (curCard) {
+      curCard.classList.add('cur');
+      curCard.scrollIntoView({ block: 'nearest' });
+    }
+  }
+  function cols() {
+    var v = visLinks(); if (v.length < 2) return 1;
+    var top = v[0].offsetTop, n = 0;
+    for (var i = 0; i < v.length && v[i].offsetTop === top; i++) n++;
+    return Math.max(n, 1);
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && document.activeElement !== q) {
+      e.preventDefault(); q.focus(); return;
+    }
+    if (e.key === 'Escape' && document.activeElement === q) {
+      q.value = ''; filter(); q.blur(); return;
+    }
+    if (e.key === 'Enter') {
+      if (document.activeElement === q) {
+        var v0 = visLinks();
+        if (v0.length) { e.preventDefault(); q.blur(); v0[0].click(); }
+      } else if (curCard) {
+        e.preventDefault(); curCard.click();
+      }
+      return;
+    }
+    var delta = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -cols(), ArrowDown: cols() }[e.key];
+    if (delta === undefined) return;
+    e.preventDefault();
+    var v = visLinks(); if (!v.length) return;
+    var i = v.indexOf(curCard);
+    var n = i < 0 ? (delta > 0 ? 0 : v.length - 1)
+                  : Math.min(Math.max(i + delta, 0), v.length - 1);
+    if (document.activeElement === q) q.blur();
+    cur(v[n]);
+  });
+})();
+</script>
+</body>
+</html>

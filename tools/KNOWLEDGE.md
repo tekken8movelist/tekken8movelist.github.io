@@ -189,18 +189,46 @@
   cmd-txt 恒为原文)。
 - King 连环投阶段码(AB1/MMD1-6/RAS/RSSB/SHH)、Steve TFA 等都要进 stance_names。
 
+### 连招区渲染(2026-07 二轮 QC,combo-literal 572→~190 种)
+
+- **句中架势过渡**:`~RFS.3`/`df+2~DCK~db`/`,ORB1:2`/`>LFS.4` 在 expand_command
+  统一映射(stance_names + COMMON_PREFIXES;支持 `~`/`,`/`>` 后带点、裸码、
+  裸码接数字三形态);`<`/`>` 在 normalize_combo_token 归一成逗号;括号和
+  `[]` 一样保护空白,`(H.b+2)` 类指令组内部图形化并保留括号。
+- **combo 键名别名** `COMBO_STANCE_ALIASES`(steve PKB→窥视架、eddy MD→曼丁加、
+  alisa OG→OTG),只在 render_combos 合并,不进 zh json;heihachi WKG 存疑未映射。
+- **parse_cmd 允许纯胶囊渲染**(无按键但有状态胶囊即可出图):孤立架势名
+  (SNK/KNP/H.WRA/BOK.n)、`XXX.P` 防反行靠这个出胶囊;纯文字仍回退。
+- **徽章**:token 级 `T!`/`W!`/`CH`/`!W`/`WS!`/`HWB!` 等(大小写归一)渲染
+  tk-tbang;括号注释内的徽章保持文字。攻略区说明条自动附本页用到的
+  场地/热能标记图例(`COMBO_MARKER_LEGEND` + `combo_marker_note`,
+  如 WB!=破墙/弹墙 · WH!=墙壁机关 · HB!=热能爆发 · RA=怒气技)。
+- **翻译词典** `COMBO_LITERAL_PHRASES` + `COMBO_CHAR_NAMES`:starter 与
+  combo-literal 统一走 translate_combo_literal;**多词规则必须排在单词规则前**
+  (chip damage/for damage/heat engager 先于 damage/heat),名字类 `\b` 定界。
+  回退扫描:`tools/scan_gfx_fallbacks.py`(主表)、`tools/scan_combo_literals.py`
+  (连招,不含别名合并,eddy MD 类属扫描误差)。
+- 有意保留:Tromba/cd/FLE.ds/(Tackle_reverse) 主表文字;LKS(nina)/BBP/DLS(leo)/
+  CL/HB 未考证缩写保持原文;`[s N]`/`[17; +12a (+1)]` 变体/帧数注记保留。
+
 ### 布局新机制
 
-- `tk-cram`/`tk-cram2` 压缩级:方阵数 ≥6(投技表 ≥5)或元件数
-  (方阵+箭头+N+胶囊×3)达阈值时自动加类缩小字号;>6 方阵窄表仍回退文字,
+- `tk-cram`/`tk-cram2` 压缩级:按**渲染宽度权重**分档(方阵×1 + 箭头/N×0.5
+  + 胶囊×2,实测 11px 基准下 px ≈ 43×weight):cram = 方阵 ≥5 或 weight ≥4.8
+  (投技 4.0),cram2 = 方阵 ≥6 或 weight ≥5.8;>6 方阵窄表仍回退文字,
   白名单在测试 `EXPECTED_GFX_FALLBACKS`(bryan 嘲讽十连 5 行、king MMD6)。
+  字号基准:表格指令 11px(对齐小羽页标准),move-table cram 9px / cram2 7.1px,
+  throw-table cram 8.3px / cram2 6.4px,十连技表 cram 9.3px / cram2 8.3px
+  (十连技表原本豁免压缩,11px 化后最长串会溢出,故补同档规则);
+  指令列宽 move-table 37% / throw-table 34%(容 `df+1+3:qcf+2` 类一段内多变体)。
 - 固定行高内允许 dmg/rng/fr/name 列换行(`overflow-wrap:anywhere`),
   注意这类规则必须 ≥ `section:not(.tipsPage) tr[data-record-id] td` 的特异性,
   否则被 nowrap 压住(fr 列曾因此失效)。
 - 发生帧显示截断 `(` 后的蓄力变体(完整值在 title);十连技表行高可变,
   几何门禁的 uneven 检查已豁免 `.ten-string-table`。
 - 连招 token(`.combo-token`)与其内部 `.tk-in` 都要 `flex-wrap:wrap`,
-  防无空格超长路线撑宽画布。
+  且 token 须 `min-width:0`(flex 默认 min-width:auto 会阻止收缩,
+  超长起手如 jack `db+3,4,3,4,3` 曾因此溢出起手列),防无空格超长路线撑宽画布。
 - 投技挣脱注记的变体:`Throw break: 1`(带冒号)、`Throw Break: none`、
   `Throw cannot be broken` 都要识别;确无注记显示 `—`(title 说明),
   不再输出会撑爆列宽的「—（Wavu 未注明）」。

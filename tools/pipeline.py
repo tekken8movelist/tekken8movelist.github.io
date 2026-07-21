@@ -15,7 +15,10 @@ if __name__ == "__main__":
 
 SCRATCH = os.path.dirname(os.path.abspath(__file__))  # wavu_*.txt live here
 BASE = os.path.dirname(SCRATCH)
-CSS_PATH = BASE + r"\Tekken 8 Movelist Wireframe\tekken-input-notation.css"
+SITE = os.path.join(BASE, "docs")
+CSS_PATH = os.path.join(
+    BASE, "design", "notation-wireframe", "tekken-input-notation.css"
+)
 
 COMMON_STATES = ["可发动热能时", "看准对手下段攻击", "接近空中对手", "愤怒中",
                  "热能中", "起身中", "蹲伏中", "横移中", "背墙时",
@@ -30,7 +33,7 @@ CONFIG = {
     # xiaoyu was converted by the original incremental scripts; config kept
     # here for reference (states/prefix mapping) and idempotent reruns
     "xiaoyu": {
-        "file": "凌晓雨_铁拳8_出招表.html",
+        "file": "xiaoyu_tk8_movelist.html",
         "acc": "#ff9fce", "acc_ink": "#8c2f5c",
         "wavu": "wavu_xiaoyu.txt",
         "states": ["凤凰中", "催眠中", "背身时", "看准对手拳击",
@@ -40,7 +43,7 @@ CONFIG = {
             "可发动时": ""}),
     },
     "jun": {
-        "file": "风间准_铁拳8_出招表.html",
+        "file": "jun_tk8_movelist.html",
         "acc": "#7ed6b8", "acc_ink": "#1f6f5b",
         "wavu": "wavu_jun.txt",
         "states": ["幻月中自动防反下段", "看准对手投技", "看准对手攻击",
@@ -50,7 +53,7 @@ CONFIG = {
             "刈足中": "db+4,"}),  # 刈足=db+4 sweep; wavu "Kariashi Hakuro"
     },
     "kunimitsu": {
-        "file": "国光二世_铁拳8_出招表.html",
+        "file": "kunimitsu_tk8_movelist.html",
         "acc": "#ff93a6", "acc_ink": "#8c2338",
         "wavu": "wavu_kunimitsu.txt",
         "states": ["刹那驱中迎击时", "背身时看准对手攻击", "热能中且火遁中",
@@ -64,7 +67,7 @@ CONFIG = {
             "接近空中对手": "(Airborne)."}),
     },
     "clive": {
-        "file": "克莱夫_铁拳8_出招表.html",
+        "file": "clive_tk8_movelist.html",
         "acc": "#9db9ff", "acc_ink": "#2f4272",
         "wavu": "wavu_clive.txt",
         "states": ["光翼中接近空中对手", "精准闪避成功后", "看准对手攻击",
@@ -74,7 +77,7 @@ CONFIG = {
             "精准闪避成功后": "b+3,P,", "热能": "H."}),
     },
     "law": {
-        "file": "马歇尔·洛_铁拳8_出招表.html",
+        "file": "law_tk8_movelist.html",
         "acc": "#ffe07a", "acc_ink": "#6e5200",
         "wavu": "wavu_law.txt",
         "states": ["热能中龙构中", "倒地仰面时", "自动格挡拳技",
@@ -301,11 +304,17 @@ def parse_cmd(text, cfg, cap=6):
             lead.append(el_state(pv))
         tokens = tokens[1:]
     if not tokens:
+        # capsule-only command (e.g. a lone stance name): render if any
+        if lead:
+            return '<span class="tk-in tk-sm">%s</span>' % "".join(lead)
         return None
     r = Renderer(cfg["states"])
     r.walk(tokens)
     r.flush()
-    if r.invalid or r.core == 0:
+    # stance/parry-only commands (no buttons/directions) still render as long
+    # as at least one state capsule was produced; pure text stays fallback
+    has_state = any("tk-state" in frag for frag in lead + r.out)
+    if r.invalid or (r.core == 0 and not has_state):
         return None
     if cap is not None and r.grids > cap:
         return None
@@ -617,7 +626,7 @@ def scope_dark(html):
 # ---------------------------------------------------------------- main
 def run(key):
     cfg = CONFIG[key]
-    path = BASE + "\\" + cfg["file"]
+    path = os.path.join(SITE, cfg["file"])
     with open(path, encoding="utf-8") as f:
         html = f.read()
     if "tk-notation" in html:

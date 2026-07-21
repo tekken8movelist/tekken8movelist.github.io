@@ -2,3 +2,12 @@ __pycache__/
 *.pyc
 tools/_qa_shots/
 tools/_season2_qa/
+
+# Local agent state
+/.agents/
+/.codex/
+
+# Local prototypes and experimental workbench
+/Tekken 8 Movelist Wireframe.zip
+/design/movelist-hub-prototype/
+/workbench/

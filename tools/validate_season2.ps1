@@ -7,6 +7,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
+$siteRoot = Join-Path $repoRoot 'docs'
 $userProfile = [Environment]::GetFolderPath('UserProfile')
 $workspaceHome = Split-Path -Parent (Split-Path -Parent $repoRoot)
 $runtimeRoots = @($userProfile, $HOME, $env:USERPROFILE, $workspaceHome) |
@@ -101,7 +102,8 @@ try {
             (Join-Path $PSScriptRoot 'build_season2.py'),
             (Join-Path $PSScriptRoot 'season2_config.py'),
             (Join-Path $PSScriptRoot 'test_season2_pages.py'),
-            (Join-Path $PSScriptRoot 'test_law_page.py')
+            (Join-Path $PSScriptRoot 'test_law_page.py'),
+            (Join-Path $PSScriptRoot 'test_site_publication.py')
         )
         $compileCode = @'
 import pathlib, sys
@@ -113,16 +115,18 @@ for value in sys.argv[1:]:
         Invoke-NativeStep -Label 'Compile Python sources in memory' -FilePath $python `
             -ArgumentList $compileArguments
         Invoke-NativeStep -Label 'Rebuild Season 2 pages' -FilePath $python `
-            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_season2.py'), '--output-dir', $repoRoot)
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_season2.py'), '--output-dir', $siteRoot)
         Invoke-NativeStep -Label 'Run Season 2 regression tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_season2_pages', '-v')
         Invoke-NativeStep -Label 'Run Law regression tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_law_page', '-v')
+        Invoke-NativeStep -Label 'Run site publication tests' -FilePath $python `
+            -ArgumentList @('-B', '-m', 'unittest', 'tools.test_site_publication', '-v')
 
         if ($SkipBrowser) {
             Write-Host '==> Skip browser QA (-SkipBrowser)'
         } else {
-            Invoke-NativeStep -Label 'Run 40-state Season 2 browser QA' -FilePath $node `
+            Invoke-NativeStep -Label 'Run 360-state browser QA' -FilePath $node `
                 -ArgumentList @((Join-Path $PSScriptRoot 'validate_season2.mjs'))
         }
     } finally {

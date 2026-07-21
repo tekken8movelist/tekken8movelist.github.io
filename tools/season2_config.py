@@ -12,7 +12,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Jin Kazama",
                 "display": "风间仁",
-                "filename": "风间仁_铁拳8_出招表.html",
+                "filename": "jin_tk8_movelist.html",
                 "css_class": "tk-char-jin",
                 "accent": "#6fb3ff",
                 "accent_ink": "#1e4067",
@@ -28,7 +28,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Anna Williams",
                 "display": "安娜·威廉斯",
-                "filename": "安娜·威廉斯_铁拳8_出招表.html",
+                "filename": "anna_tk8_movelist.html",
                 "css_class": "tk-char-anna",
                 "accent": "#e07a8f",
                 "accent_ink": "#6e2436",
@@ -45,7 +45,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Fahkumram",
                 "display": "法昆拉姆",
-                "filename": "法昆拉姆_铁拳8_出招表.html",
+                "filename": "fahkumram_tk8_movelist.html",
                 "css_class": "tk-char-fahkumram",
                 "accent": "#6fe0c9",
                 "accent_ink": "#175f55",
@@ -61,7 +61,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Armor King",
                 "display": "铠甲王",
-                "filename": "铠甲王_铁拳8_出招表.html",
+                "filename": "armorking_tk8_movelist.html",
                 "css_class": "tk-char-armorking",
                 "accent": "#7f8fb3",
                 "accent_ink": "#31405f",
@@ -86,7 +86,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Miary Zo",
                 "display": "米亚莉·佐",
-                "filename": "米亚莉·佐_铁拳8_出招表.html",
+                "filename": "miaryzo_tk8_movelist.html",
                 "css_class": "tk-char-miaryzo",
                 "accent": "#c9e896",
                 "accent_ink": "#49651f",
@@ -103,7 +103,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Kazuya Mishima",
                 "display": "三岛一八",
-                "filename": "三岛一八_铁拳8_出招表.html",
+                "filename": "kazuya_tk8_movelist.html",
                 "css_class": "tk-char-kazuya",
                 "accent": "#b18cff",
                 "accent_ink": "#341b6a",
@@ -122,7 +122,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Paul Phoenix",
                 "display": "保罗",
-                "filename": "保罗_铁拳8_出招表.html",
+                "filename": "paul_tk8_movelist.html",
                 "css_class": "tk-char-paul",
                 "accent": "#ff8087",
                 "accent_ink": "#6a1b1f",
@@ -141,7 +141,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "King",
                 "display": "金",
-                "filename": "金_铁拳8_出招表.html",
+                "filename": "king_tk8_movelist.html",
                 "css_class": "tk-char-king",
                 "accent": "#e8a04c",
                 "accent_ink": "#6a451b",
@@ -167,7 +167,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Lars Alexandersson",
                 "display": "拉斯",
-                "filename": "拉斯_铁拳8_出招表.html",
+                "filename": "lars_tk8_movelist.html",
                 "css_class": "tk-char-lars",
                 "accent": "#8fa8ff",
                 "accent_ink": "#1b2c6a",
@@ -186,7 +186,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Jack-8",
                 "display": "杰克-8",
-                "filename": "杰克-8_铁拳8_出招表.html",
+                "filename": "jack_tk8_movelist.html",
                 "css_class": "tk-char-jack8",
                 "accent": "#a9cf74",
                 "accent_ink": "#475e27",
@@ -206,7 +206,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Nina Williams",
                 "display": "妮娜·威廉斯",
-                "filename": "妮娜·威廉斯_铁拳8_出招表.html",
+                "filename": "nina_tk8_movelist.html",
                 "css_class": "tk-char-nina",
                 "accent": "#d8a9ff",
                 "accent_ink": "#461b6a",
@@ -224,7 +224,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Leroy Smith",
                 "display": "勒罗伊",
-                "filename": "勒罗伊_铁拳8_出招表.html",
+                "filename": "leroy_tk8_movelist.html",
                 "css_class": "tk-char-leroy",
                 "accent": "#9db4c9",
                 "accent_ink": "#2e4356",
@@ -242,7 +242,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Asuka Kazama",
                 "display": "风间飞鸟",
-                "filename": "风间飞鸟_铁拳8_出招表.html",
+                "filename": "asuka_tk8_movelist.html",
                 "css_class": "tk-char-asuka",
                 "accent": "#7fc4e8",
                 "accent_ink": "#1b4f69",
@@ -258,7 +258,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Lili",
                 "display": "莉莉",
-                "filename": "莉莉_铁拳8_出招表.html",
+                "filename": "lili_tk8_movelist.html",
                 "css_class": "tk-char-lili",
                 "accent": "#cdd6e0",
                 "accent_ink": "#2e4156",
@@ -277,7 +277,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Bryan Fury",
                 "display": "布莱恩",
-                "filename": "布莱恩_铁拳8_出招表.html",
+                "filename": "bryan_tk8_movelist.html",
                 "css_class": "tk-char-bryan",
                 "accent": "#9ad0c2",
                 "accent_ink": "#2e574c",
@@ -296,7 +296,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Hwoarang",
                 "display": "花郎",
-                "filename": "花郎_铁拳8_出招表.html",
+                "filename": "hwoarang_tk8_movelist.html",
                 "css_class": "tk-char-hwoarang",
                 "accent": "#ff8f4d",
                 "accent_ink": "#6a381b",
@@ -317,7 +317,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Claudio Serafino",
                 "display": "克劳迪奥",
-                "filename": "克劳迪奥_铁拳8_出招表.html",
+                "filename": "claudio_tk8_movelist.html",
                 "css_class": "tk-char-claudio",
                 "accent": "#bcd4ff",
                 "accent_ink": "#1b376a",
@@ -334,7 +334,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Azucena",
                 "display": "阿苏塞娜",
-                "filename": "阿苏塞娜_铁拳8_出招表.html",
+                "filename": "azucena_tk8_movelist.html",
                 "css_class": "tk-char-azucena",
                 "accent": "#d9a878",
                 "accent_ink": "#624223",
@@ -352,7 +352,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Raven",
                 "display": "雷文",
-                "filename": "雷文_铁拳8_出招表.html",
+                "filename": "raven_tk8_movelist.html",
                 "css_class": "tk-char-raven",
                 "accent": "#9f86d9",
                 "accent_ink": "#372560",
@@ -371,7 +371,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Leo",
                 "display": "雷欧",
-                "filename": "雷欧_铁拳8_出招表.html",
+                "filename": "leo_tk8_movelist.html",
                 "css_class": "tk-char-leo",
                 "accent": "#e0c187",
                 "accent_ink": "#644c21",
@@ -391,7 +391,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Steve Fox",
                 "display": "史蒂夫",
-                "filename": "史蒂夫_铁拳8_出招表.html",
+                "filename": "steve_tk8_movelist.html",
                 "css_class": "tk-char-steve",
                 "accent": "#84a9e0",
                 "accent_ink": "#213c64",
@@ -416,7 +416,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Kuma",
                 "display": "熊",
-                "filename": "熊_铁拳8_出招表.html",
+                "filename": "kuma_tk8_movelist.html",
                 "css_class": "tk-char-kuma",
                 "accent": "#c99b6e",
                 "accent_ink": "#5c4229",
@@ -435,7 +435,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Panda",
                 "display": "熊猫",
-                "filename": "熊猫_铁拳8_出招表.html",
+                "filename": "panda_tk8_movelist.html",
                 "css_class": "tk-char-panda",
                 "accent": "#e6e9ee",
                 "accent_ink": "#2e3d56",
@@ -454,7 +454,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Yoshimitsu",
                 "display": "吉光",
-                "filename": "吉光_铁拳8_出招表.html",
+                "filename": "yoshimitsu_tk8_movelist.html",
                 "css_class": "tk-char-yoshi",
                 "accent": "#7fd6a8",
                 "accent_ink": "#255f41",
@@ -477,7 +477,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Shaheen",
                 "display": "沙欣",
-                "filename": "沙欣_铁拳8_出招表.html",
+                "filename": "shaheen_tk8_movelist.html",
                 "css_class": "tk-char-shaheen",
                 "accent": "#e8cf9a",
                 "accent_ink": "#664f1f",
@@ -494,7 +494,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Sergei Dragunov",
                 "display": "德拉古诺夫",
-                "filename": "德拉古诺夫_铁拳8_出招表.html",
+                "filename": "dragunov_tk8_movelist.html",
                 "css_class": "tk-char-dragunov",
                 "accent": "#aab6c2",
                 "accent_ink": "#2e4256",
@@ -512,7 +512,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Feng Wei",
                 "display": "冯威",
-                "filename": "冯威_铁拳8_出招表.html",
+                "filename": "feng_tk8_movelist.html",
                 "css_class": "tk-char-feng",
                 "accent": "#b5d98a",
                 "accent_ink": "#455f26",
@@ -532,7 +532,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Lee Chaolan",
                 "display": "李超狼",
-                "filename": "李超狼_铁拳8_出招表.html",
+                "filename": "lee_tk8_movelist.html",
                 "css_class": "tk-char-lee",
                 "accent": "#c39bff",
                 "accent_ink": "#3a1b6a",
@@ -550,7 +550,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Alisa Bosconovitch",
                 "display": "阿丽莎",
-                "filename": "阿丽莎_铁拳8_出招表.html",
+                "filename": "alisa_tk8_movelist.html",
                 "css_class": "tk-char-alisa",
                 "accent": "#ffb3c6",
                 "accent_ink": "#6a1b2e",
@@ -570,7 +570,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Zafina",
                 "display": "扎菲娜",
-                "filename": "扎菲娜_铁拳8_出招表.html",
+                "filename": "zafina_tk8_movelist.html",
                 "css_class": "tk-char-zafina",
                 "accent": "#c98fd0",
                 "accent_ink": "#542b59",
@@ -590,7 +590,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Devil Jin",
                 "display": "恶魔仁",
-                "filename": "恶魔仁_铁拳8_出招表.html",
+                "filename": "deviljin_tk8_movelist.html",
                 "css_class": "tk-char-deviljin",
                 "accent": "#a17fe0",
                 "accent_ink": "#382065",
@@ -609,7 +609,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Victor Chevalier",
                 "display": "维克多",
-                "filename": "维克多_铁拳8_出招表.html",
+                "filename": "victor_tk8_movelist.html",
                 "css_class": "tk-char-victor",
                 "accent": "#de9fe6",
                 "accent_ink": "#5c2163",
@@ -627,7 +627,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Reina",
                 "display": "蕾娜",
-                "filename": "蕾娜_铁拳8_出招表.html",
+                "filename": "reina_tk8_movelist.html",
                 "css_class": "tk-char-reina",
                 "accent": "#cf9ef0",
                 "accent_ink": "#4a1b6a",
@@ -649,7 +649,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Eddy Gordo",
                 "display": "艾迪",
-                "filename": "艾迪_铁拳8_出招表.html",
+                "filename": "eddy_tk8_movelist.html",
                 "css_class": "tk-char-eddy",
                 "accent": "#9fd97f",
                 "accent_ink": "#396124",
@@ -668,7 +668,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Lidia Sobieska",
                 "display": "莉迪亚",
-                "filename": "莉迪亚_铁拳8_出招表.html",
+                "filename": "lidia_tk8_movelist.html",
                 "css_class": "tk-char-lidia",
                 "accent": "#ffb0a6",
                 "accent_ink": "#6a231b",
@@ -688,7 +688,7 @@ CHARACTERS = OrderedDict(
             {
                 "canonical": "Heihachi Mishima",
                 "display": "三岛平八",
-                "filename": "三岛平八_铁拳8_出招表.html",
+                "filename": "heihachi_tk8_movelist.html",
                 "css_class": "tk-char-heihachi",
                 "accent": "#ffcf66",
                 "accent_ink": "#6a511b",
@@ -722,7 +722,7 @@ COMMON_PREFIXES = OrderedDict(
     ]
 )
 
-COMMON_STATES = list(dict.fromkeys([*COMMON_PREFIXES.values(), "起身中"]))
+COMMON_STATES = list(dict.fromkeys([*COMMON_PREFIXES.values(), "起身中", "横移左", "横移右"]))
 
 COMMON_COMMAND_ALIASES = {
     "left_throw": "左侧 1+3 (或 2+4)",

@@ -14,11 +14,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
+SITE = ROOT / "docs"
 
 CHARACTERS = {
     "jin": {
         "display": "风间仁",
-        "filename": "风间仁_铁拳8_出招表.html",
+        "filename": "jin_tk8_movelist.html",
         "css_class": "tk-char-jin",
         "moves": 144,
         "visible": 135,
@@ -29,7 +30,7 @@ CHARACTERS = {
     },
     "anna": {
         "display": "安娜·威廉斯",
-        "filename": "安娜·威廉斯_铁拳8_出招表.html",
+        "filename": "anna_tk8_movelist.html",
         "css_class": "tk-char-anna",
         "moves": 183,
         "visible": 174,
@@ -40,7 +41,7 @@ CHARACTERS = {
     },
     "fahkumram": {
         "display": "法昆拉姆",
-        "filename": "法昆拉姆_铁拳8_出招表.html",
+        "filename": "fahkumram_tk8_movelist.html",
         "css_class": "tk-char-fahkumram",
         "moves": 147,
         "visible": 147,
@@ -51,7 +52,7 @@ CHARACTERS = {
     },
     "armor_king": {
         "display": "铠甲王",
-        "filename": "铠甲王_铁拳8_出招表.html",
+        "filename": "armorking_tk8_movelist.html",
         "css_class": "tk-char-armorking",
         "moves": 182,
         "visible": 182,
@@ -62,7 +63,7 @@ CHARACTERS = {
     },
     "miary_zo": {
         "display": "米亚莉·佐",
-        "filename": "米亚莉·佐_铁拳8_出招表.html",
+        "filename": "miaryzo_tk8_movelist.html",
         "css_class": "tk-char-miaryzo",
         "moves": 130,
         "visible": 130,
@@ -73,7 +74,7 @@ CHARACTERS = {
     },
     "kazuya": {
         "display": "三岛一八",
-        "filename": "三岛一八_铁拳8_出招表.html",
+        "filename": "kazuya_tk8_movelist.html",
         "css_class": "tk-char-kazuya",
         "moves": 160,
         "visible": 143,
@@ -84,7 +85,7 @@ CHARACTERS = {
     },
     "paul": {
         "display": "保罗",
-        "filename": "保罗_铁拳8_出招表.html",
+        "filename": "paul_tk8_movelist.html",
         "css_class": "tk-char-paul",
         "moves": 177,
         "visible": 155,
@@ -95,7 +96,7 @@ CHARACTERS = {
     },
     "king": {
         "display": "金",
-        "filename": "金_铁拳8_出招表.html",
+        "filename": "king_tk8_movelist.html",
         "css_class": "tk-char-king",
         "moves": 255,
         "visible": 236,
@@ -106,7 +107,7 @@ CHARACTERS = {
     },
     "lars": {
         "display": "拉斯",
-        "filename": "拉斯_铁拳8_出招表.html",
+        "filename": "lars_tk8_movelist.html",
         "css_class": "tk-char-lars",
         "moves": 140,
         "visible": 131,
@@ -117,7 +118,7 @@ CHARACTERS = {
     },
     "jack8": {
         "display": "杰克-8",
-        "filename": "杰克-8_铁拳8_出招表.html",
+        "filename": "jack_tk8_movelist.html",
         "css_class": "tk-char-jack8",
         "moves": 229,
         "visible": 220,
@@ -128,7 +129,7 @@ CHARACTERS = {
     },
     "nina": {
         "display": "妮娜·威廉斯",
-        "filename": "妮娜·威廉斯_铁拳8_出招表.html",
+        "filename": "nina_tk8_movelist.html",
         "css_class": "tk-char-nina",
         "moves": 211,
         "visible": 202,
@@ -139,7 +140,7 @@ CHARACTERS = {
     },
     "leroy": {
         "display": "勒罗伊",
-        "filename": "勒罗伊_铁拳8_出招表.html",
+        "filename": "leroy_tk8_movelist.html",
         "css_class": "tk-char-leroy",
         "moves": 147,
         "visible": 141,
@@ -150,7 +151,7 @@ CHARACTERS = {
     },
     "asuka": {
         "display": "风间飞鸟",
-        "filename": "风间飞鸟_铁拳8_出招表.html",
+        "filename": "asuka_tk8_movelist.html",
         "css_class": "tk-char-asuka",
         "moves": 163,
         "visible": 145,
@@ -161,7 +162,7 @@ CHARACTERS = {
     },
     "lili": {
         "display": "莉莉",
-        "filename": "莉莉_铁拳8_出招表.html",
+        "filename": "lili_tk8_movelist.html",
         "css_class": "tk-char-lili",
         "moves": 156,
         "visible": 156,
@@ -172,7 +173,7 @@ CHARACTERS = {
     },
     "bryan": {
         "display": "布莱恩",
-        "filename": "布莱恩_铁拳8_出招表.html",
+        "filename": "bryan_tk8_movelist.html",
         "css_class": "tk-char-bryan",
         "moves": 175,
         "visible": 166,
@@ -183,7 +184,7 @@ CHARACTERS = {
     },
     "hwoarang": {
         "display": "花郎",
-        "filename": "花郎_铁拳8_出招表.html",
+        "filename": "hwoarang_tk8_movelist.html",
         "css_class": "tk-char-hwoarang",
         "moves": 225,
         "visible": 216,
@@ -194,7 +195,7 @@ CHARACTERS = {
     },
     "claudio": {
         "display": "克劳迪奥",
-        "filename": "克劳迪奥_铁拳8_出招表.html",
+        "filename": "claudio_tk8_movelist.html",
         "css_class": "tk-char-claudio",
         "moves": 117,
         "visible": 108,
@@ -205,7 +206,7 @@ CHARACTERS = {
     },
     "azucena": {
         "display": "阿苏塞娜",
-        "filename": "阿苏塞娜_铁拳8_出招表.html",
+        "filename": "azucena_tk8_movelist.html",
         "css_class": "tk-char-azucena",
         "moves": 165,
         "visible": 156,
@@ -216,7 +217,7 @@ CHARACTERS = {
     },
     "raven": {
         "display": "雷文",
-        "filename": "雷文_铁拳8_出招表.html",
+        "filename": "raven_tk8_movelist.html",
         "css_class": "tk-char-raven",
         "moves": 195,
         "visible": 186,
@@ -227,7 +228,7 @@ CHARACTERS = {
     },
     "leo": {
         "display": "雷欧",
-        "filename": "雷欧_铁拳8_出招表.html",
+        "filename": "leo_tk8_movelist.html",
         "css_class": "tk-char-leo",
         "moves": 148,
         "visible": 148,
@@ -238,7 +239,7 @@ CHARACTERS = {
     },
     "steve": {
         "display": "史蒂夫",
-        "filename": "史蒂夫_铁拳8_出招表.html",
+        "filename": "steve_tk8_movelist.html",
         "css_class": "tk-char-steve",
         "moves": 189,
         "visible": 185,
@@ -249,7 +250,7 @@ CHARACTERS = {
     },
     "kuma": {
         "display": "熊",
-        "filename": "熊_铁拳8_出招表.html",
+        "filename": "kuma_tk8_movelist.html",
         "css_class": "tk-char-kuma",
         "moves": 150,
         "visible": 141,
@@ -260,7 +261,7 @@ CHARACTERS = {
     },
     "panda": {
         "display": "熊猫",
-        "filename": "熊猫_铁拳8_出招表.html",
+        "filename": "panda_tk8_movelist.html",
         "css_class": "tk-char-panda",
         "moves": 144,
         "visible": 144,
@@ -271,7 +272,7 @@ CHARACTERS = {
     },
     "yoshimitsu": {
         "display": "吉光",
-        "filename": "吉光_铁拳8_出招表.html",
+        "filename": "yoshimitsu_tk8_movelist.html",
         "css_class": "tk-char-yoshi",
         "moves": 376,
         "visible": 340,
@@ -282,7 +283,7 @@ CHARACTERS = {
     },
     "shaheen": {
         "display": "沙欣",
-        "filename": "沙欣_铁拳8_出招表.html",
+        "filename": "shaheen_tk8_movelist.html",
         "css_class": "tk-char-shaheen",
         "moves": 106,
         "visible": 97,
@@ -293,7 +294,7 @@ CHARACTERS = {
     },
     "dragunov": {
         "display": "德拉古诺夫",
-        "filename": "德拉古诺夫_铁拳8_出招表.html",
+        "filename": "dragunov_tk8_movelist.html",
         "css_class": "tk-char-dragunov",
         "moves": 165,
         "visible": 151,
@@ -304,7 +305,7 @@ CHARACTERS = {
     },
     "feng": {
         "display": "冯威",
-        "filename": "冯威_铁拳8_出招表.html",
+        "filename": "feng_tk8_movelist.html",
         "css_class": "tk-char-feng",
         "moves": 168,
         "visible": 159,
@@ -315,7 +316,7 @@ CHARACTERS = {
     },
     "lee": {
         "display": "李超狼",
-        "filename": "李超狼_铁拳8_出招表.html",
+        "filename": "lee_tk8_movelist.html",
         "css_class": "tk-char-lee",
         "moves": 174,
         "visible": 169,
@@ -326,7 +327,7 @@ CHARACTERS = {
     },
     "alisa": {
         "display": "阿丽莎",
-        "filename": "阿丽莎_铁拳8_出招表.html",
+        "filename": "alisa_tk8_movelist.html",
         "css_class": "tk-char-alisa",
         "moves": 197,
         "visible": 188,
@@ -337,7 +338,7 @@ CHARACTERS = {
     },
     "zafina": {
         "display": "扎菲娜",
-        "filename": "扎菲娜_铁拳8_出招表.html",
+        "filename": "zafina_tk8_movelist.html",
         "css_class": "tk-char-zafina",
         "moves": 164,
         "visible": 155,
@@ -348,7 +349,7 @@ CHARACTERS = {
     },
     "devil_jin": {
         "display": "恶魔仁",
-        "filename": "恶魔仁_铁拳8_出招表.html",
+        "filename": "deviljin_tk8_movelist.html",
         "css_class": "tk-char-deviljin",
         "moves": 160,
         "visible": 151,
@@ -359,7 +360,7 @@ CHARACTERS = {
     },
     "victor": {
         "display": "维克多",
-        "filename": "维克多_铁拳8_出招表.html",
+        "filename": "victor_tk8_movelist.html",
         "css_class": "tk-char-victor",
         "moves": 139,
         "visible": 130,
@@ -370,7 +371,7 @@ CHARACTERS = {
     },
     "reina": {
         "display": "蕾娜",
-        "filename": "蕾娜_铁拳8_出招表.html",
+        "filename": "reina_tk8_movelist.html",
         "css_class": "tk-char-reina",
         "moves": 192,
         "visible": 174,
@@ -381,7 +382,7 @@ CHARACTERS = {
     },
     "eddy": {
         "display": "艾迪",
-        "filename": "艾迪_铁拳8_出招表.html",
+        "filename": "eddy_tk8_movelist.html",
         "css_class": "tk-char-eddy",
         "moves": 176,
         "visible": 167,
@@ -392,7 +393,7 @@ CHARACTERS = {
     },
     "lidia": {
         "display": "莉迪亚",
-        "filename": "莉迪亚_铁拳8_出招表.html",
+        "filename": "lidia_tk8_movelist.html",
         "css_class": "tk-char-lidia",
         "moves": 174,
         "visible": 166,
@@ -403,7 +404,7 @@ CHARACTERS = {
     },
     "heihachi": {
         "display": "三岛平八",
-        "filename": "三岛平八_铁拳8_出招表.html",
+        "filename": "heihachi_tk8_movelist.html",
         "css_class": "tk-char-heihachi",
         "moves": 152,
         "visible": 152,
@@ -940,7 +941,7 @@ class Season2BuildTests(unittest.TestCase):
         for key, cfg in CHARACTERS.items():
             with self.subTest(character=key):
                 generated = (self.output_dir / cfg["filename"]).read_bytes()
-                checked_in = (ROOT / cfg["filename"]).read_bytes()
+                checked_in = (SITE / cfg["filename"]).read_bytes()
                 self.assertEqual(checked_in, generated)
 
     def test_source_sections_drive_move_partitioning(self):
