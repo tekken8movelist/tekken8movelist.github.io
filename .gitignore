@@ -10,6 +10,10 @@ tools/_season2_qa/
 # Local prototypes and experimental workbench
 /Tekken 8 Movelist Wireframe.zip
 /design/movelist-hub-prototype/
+# Plans/specs are local working documents, not published to GitHub
+# (files already committed stay tracked; only new files are ignored)
+/design/plans/
+/design/specs/
 /workbench/
 
 .superpowers/

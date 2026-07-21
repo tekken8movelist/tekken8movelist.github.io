@@ -11,6 +11,7 @@
 - `tools/jun_movelist_source_template.html` is the legacy pipeline input reference, not a published page.
 - `design/notation-wireframe/` is the maintained reference for the shared input-notation component.
 - `design/movelist-hub-prototype/` is a local, ignored design export. It is reference-only and must not be treated as production source or a publishable artifact.
+- `design/plans/` and `design/specs/` are local working documents. They are git-ignored for new files; files already committed stay on GitHub and remain tracked.
 - `workbench/` is local, ignored scratch space for avatar masters, backups, variants, and experimental tooling. Nothing under it is a release input unless deliberately promoted into a tracked canonical path.
 
 Do not recreate generated HTML at the repository root. Do not treat ignored design exports, avatar masters, or backup directories as publishable inputs.
