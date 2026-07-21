@@ -100,6 +100,15 @@ header h1, header h2 {
   letter-spacing: 2px;
 }
 
+/* the tips-section heading is an h2 inside <header>; keep it looking exactly
+   like the h1 it replaced by neutralizing the bare section-heading h2 rule */
+header h2 {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+}
+
 header h1 small, header h2 small {
   margin-left: 10px;
   font-size: 12px;
