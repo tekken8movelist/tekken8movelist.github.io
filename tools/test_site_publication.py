@@ -204,6 +204,35 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertIn(phrase, html)
         self.assertNotIn("生成式 AI", html)
 
+    def test_character_pages_have_seo_contract(self) -> None:
+        for page in sorted(SITE.glob("*_tk8_movelist.html")):
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                self.assertEqual(html.count("<h1"), 1)
+                self.assertRegex(
+                    html,
+                    r"<title>铁拳8 .+（.+）出招表 \| TEKKEN 8 .+ Movelist</title>",
+                )
+                self.assertIn('<meta name="description" content="', html)
+                self.assertIn(
+                    f'<link rel="canonical" href="{PUBLIC_ROOT}{page.name}">',
+                    html,
+                )
+                self.assertIn(
+                    f'<meta property="og:url" content="{PUBLIC_ROOT}{page.name}">',
+                    html,
+                )
+                slug = page.name.removesuffix("_tk8_movelist.html")
+                self.assertIn(
+                    '<meta property="og:image" content='
+                    f'"{PUBLIC_ROOT}avatars/{slug}.png">',
+                    html,
+                )
+                self.assertIn('<script type="application/ld+json">', html)
+                self.assertIn('"@type":"WebPage"', html)
+                self.assertIn('"@type":"BreadcrumbList"', html)
+                self.assertIn('class="page-intro"', html)
+
 
 if __name__ == "__main__":
     unittest.main()

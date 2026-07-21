@@ -110,7 +110,18 @@ class LawPageContractTest(unittest.TestCase):
 
     def test_page_matches_existing_interactive_design_contract(self) -> None:
         html = self.html
-        self.assertIn("<title>马歇尔·洛 · 铁拳8 出招表</title>", html)
+        self.assertIn(
+            "<title>铁拳8 马歇尔·洛（Marshall Law）出招表"
+            " | TEKKEN 8 Marshall Law Movelist</title>",
+            html,
+        )
+        self.assertEqual(html.count("<h1"), 1)
+        self.assertIn("<h2>马歇尔·洛<small>实战攻略 · PRACTICAL GUIDE</small></h2>", html)
+        self.assertIn('class="page-intro"', html)
+        self.assertIn(
+            '<link rel="canonical" href="https://tekken8movelist.github.io/law_tk8_movelist.html">',
+            html,
+        )
         self.assertIn('id="tk-notation"', html)
         self.assertIn('id="thd"', html)
         self.assertIn('id="thl"', html)
