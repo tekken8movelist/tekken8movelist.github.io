@@ -1518,12 +1518,73 @@ def build_page(key: str, config: dict, component_css: str) -> str:
     movelist_url = source["source_url"]
     combos_url = combos["source_url"]
     boot_script = """<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>"""
+    page_title = (
+        f"铁拳8 {config['display']}（{config['canonical']}）出招表"
+        f" | TEKKEN 8 {config['canonical']} Movelist"
+    )
+    page_description = (
+        f"{config['display']}（{config['canonical']}）《铁拳8》（TEKKEN 8）完整出招表："
+        "招式指令、帧数表、确反数据与进阶连招。"
+        f"Complete TEKKEN 8 {config['canonical']} movelist with frame data."
+    )
+    page_url = f"https://tekken8movelist.github.io/{config['filename']}"
+    avatar_slug = config["filename"].removesuffix("_tk8_movelist.html")
+    og_image = f"https://tekken8movelist.github.io/avatars/{avatar_slug}.png"
+    json_ld = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": page_title,
+            "description": page_description,
+            "url": page_url,
+            "inLanguage": "zh-CN",
+            "isPartOf": {
+                "@type": "WebSite",
+                "name": "铁拳8 全角色中文出招表",
+                "url": "https://tekken8movelist.github.io/",
+            },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "首页",
+                        "item": "https://tekken8movelist.github.io/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": f"{config['display']}出招表",
+                        "item": page_url,
+                    },
+                ],
+            },
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{escape(config['display'])} · 铁拳8 出招表</title>
+<title>{escape(page_title)}</title>
+<meta name="description" content="{escape(page_description, quote=True)}">
+<link rel="canonical" href="{page_url}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="铁拳8 全角色中文出招表">
+<meta property="og:title" content="{escape(page_title, quote=True)}">
+<meta property="og:description" content="{escape(page_description, quote=True)}">
+<meta property="og:url" content="{page_url}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:image:alt" content="铁拳8 {escape(config['display'], quote=True)}（{escape(config['canonical'], quote=True)}）头像">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{escape(page_title, quote=True)}">
+<meta name="twitter:description" content="{escape(page_description, quote=True)}">
+<meta name="twitter:image" content="{og_image}">
+<script type="application/ld+json">{json_ld}</script>
 {boot_script}
 <style>{PAGE_CSS}</style>
 <style id="tk-notation">{component_css}</style>

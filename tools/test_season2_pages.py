@@ -19,6 +19,7 @@ SITE = ROOT / "docs"
 CHARACTERS = {
     "jin": {
         "display": "风间仁",
+        "canonical": "Jin Kazama",
         "filename": "jin_tk8_movelist.html",
         "css_class": "tk-char-jin",
         "moves": 144,
@@ -30,6 +31,7 @@ CHARACTERS = {
     },
     "anna": {
         "display": "安娜·威廉斯",
+        "canonical": "Anna Williams",
         "filename": "anna_tk8_movelist.html",
         "css_class": "tk-char-anna",
         "moves": 183,
@@ -41,6 +43,7 @@ CHARACTERS = {
     },
     "fahkumram": {
         "display": "法昆拉姆",
+        "canonical": "Fahkumram",
         "filename": "fahkumram_tk8_movelist.html",
         "css_class": "tk-char-fahkumram",
         "moves": 147,
@@ -52,6 +55,7 @@ CHARACTERS = {
     },
     "armor_king": {
         "display": "铠甲王",
+        "canonical": "Armor King",
         "filename": "armorking_tk8_movelist.html",
         "css_class": "tk-char-armorking",
         "moves": 182,
@@ -63,6 +67,7 @@ CHARACTERS = {
     },
     "miary_zo": {
         "display": "米亚莉·佐",
+        "canonical": "Miary Zo",
         "filename": "miaryzo_tk8_movelist.html",
         "css_class": "tk-char-miaryzo",
         "moves": 130,
@@ -74,6 +79,7 @@ CHARACTERS = {
     },
     "kazuya": {
         "display": "三岛一八",
+        "canonical": "Kazuya Mishima",
         "filename": "kazuya_tk8_movelist.html",
         "css_class": "tk-char-kazuya",
         "moves": 160,
@@ -85,6 +91,7 @@ CHARACTERS = {
     },
     "paul": {
         "display": "保罗",
+        "canonical": "Paul Phoenix",
         "filename": "paul_tk8_movelist.html",
         "css_class": "tk-char-paul",
         "moves": 177,
@@ -96,6 +103,7 @@ CHARACTERS = {
     },
     "king": {
         "display": "金",
+        "canonical": "King",
         "filename": "king_tk8_movelist.html",
         "css_class": "tk-char-king",
         "moves": 255,
@@ -107,6 +115,7 @@ CHARACTERS = {
     },
     "lars": {
         "display": "拉斯",
+        "canonical": "Lars Alexandersson",
         "filename": "lars_tk8_movelist.html",
         "css_class": "tk-char-lars",
         "moves": 140,
@@ -118,6 +127,7 @@ CHARACTERS = {
     },
     "jack8": {
         "display": "杰克-8",
+        "canonical": "Jack-8",
         "filename": "jack_tk8_movelist.html",
         "css_class": "tk-char-jack8",
         "moves": 229,
@@ -129,6 +139,7 @@ CHARACTERS = {
     },
     "nina": {
         "display": "妮娜·威廉斯",
+        "canonical": "Nina Williams",
         "filename": "nina_tk8_movelist.html",
         "css_class": "tk-char-nina",
         "moves": 211,
@@ -140,6 +151,7 @@ CHARACTERS = {
     },
     "leroy": {
         "display": "勒罗伊",
+        "canonical": "Leroy Smith",
         "filename": "leroy_tk8_movelist.html",
         "css_class": "tk-char-leroy",
         "moves": 147,
@@ -151,6 +163,7 @@ CHARACTERS = {
     },
     "asuka": {
         "display": "风间飞鸟",
+        "canonical": "Asuka Kazama",
         "filename": "asuka_tk8_movelist.html",
         "css_class": "tk-char-asuka",
         "moves": 163,
@@ -162,6 +175,7 @@ CHARACTERS = {
     },
     "lili": {
         "display": "莉莉",
+        "canonical": "Lili",
         "filename": "lili_tk8_movelist.html",
         "css_class": "tk-char-lili",
         "moves": 156,
@@ -173,6 +187,7 @@ CHARACTERS = {
     },
     "bryan": {
         "display": "布莱恩",
+        "canonical": "Bryan Fury",
         "filename": "bryan_tk8_movelist.html",
         "css_class": "tk-char-bryan",
         "moves": 175,
@@ -184,6 +199,7 @@ CHARACTERS = {
     },
     "hwoarang": {
         "display": "花郎",
+        "canonical": "Hwoarang",
         "filename": "hwoarang_tk8_movelist.html",
         "css_class": "tk-char-hwoarang",
         "moves": 225,
@@ -195,6 +211,7 @@ CHARACTERS = {
     },
     "claudio": {
         "display": "克劳迪奥",
+        "canonical": "Claudio Serafino",
         "filename": "claudio_tk8_movelist.html",
         "css_class": "tk-char-claudio",
         "moves": 117,
@@ -206,6 +223,7 @@ CHARACTERS = {
     },
     "azucena": {
         "display": "阿苏塞娜",
+        "canonical": "Azucena",
         "filename": "azucena_tk8_movelist.html",
         "css_class": "tk-char-azucena",
         "moves": 165,
@@ -217,6 +235,7 @@ CHARACTERS = {
     },
     "raven": {
         "display": "雷文",
+        "canonical": "Raven",
         "filename": "raven_tk8_movelist.html",
         "css_class": "tk-char-raven",
         "moves": 195,
@@ -228,6 +247,7 @@ CHARACTERS = {
     },
     "leo": {
         "display": "雷欧",
+        "canonical": "Leo",
         "filename": "leo_tk8_movelist.html",
         "css_class": "tk-char-leo",
         "moves": 148,
@@ -239,6 +259,7 @@ CHARACTERS = {
     },
     "steve": {
         "display": "史蒂夫",
+        "canonical": "Steve Fox",
         "filename": "steve_tk8_movelist.html",
         "css_class": "tk-char-steve",
         "moves": 189,
@@ -250,6 +271,7 @@ CHARACTERS = {
     },
     "kuma": {
         "display": "熊",
+        "canonical": "Kuma",
         "filename": "kuma_tk8_movelist.html",
         "css_class": "tk-char-kuma",
         "moves": 150,
@@ -261,6 +283,7 @@ CHARACTERS = {
     },
     "panda": {
         "display": "熊猫",
+        "canonical": "Panda",
         "filename": "panda_tk8_movelist.html",
         "css_class": "tk-char-panda",
         "moves": 144,
@@ -272,6 +295,7 @@ CHARACTERS = {
     },
     "yoshimitsu": {
         "display": "吉光",
+        "canonical": "Yoshimitsu",
         "filename": "yoshimitsu_tk8_movelist.html",
         "css_class": "tk-char-yoshi",
         "moves": 376,
@@ -283,6 +307,7 @@ CHARACTERS = {
     },
     "shaheen": {
         "display": "沙欣",
+        "canonical": "Shaheen",
         "filename": "shaheen_tk8_movelist.html",
         "css_class": "tk-char-shaheen",
         "moves": 106,
@@ -294,6 +319,7 @@ CHARACTERS = {
     },
     "dragunov": {
         "display": "德拉古诺夫",
+        "canonical": "Sergei Dragunov",
         "filename": "dragunov_tk8_movelist.html",
         "css_class": "tk-char-dragunov",
         "moves": 165,
@@ -305,6 +331,7 @@ CHARACTERS = {
     },
     "feng": {
         "display": "冯威",
+        "canonical": "Feng Wei",
         "filename": "feng_tk8_movelist.html",
         "css_class": "tk-char-feng",
         "moves": 168,
@@ -316,6 +343,7 @@ CHARACTERS = {
     },
     "lee": {
         "display": "李超狼",
+        "canonical": "Lee Chaolan",
         "filename": "lee_tk8_movelist.html",
         "css_class": "tk-char-lee",
         "moves": 174,
@@ -327,6 +355,7 @@ CHARACTERS = {
     },
     "alisa": {
         "display": "阿丽莎",
+        "canonical": "Alisa Bosconovitch",
         "filename": "alisa_tk8_movelist.html",
         "css_class": "tk-char-alisa",
         "moves": 197,
@@ -338,6 +367,7 @@ CHARACTERS = {
     },
     "zafina": {
         "display": "扎菲娜",
+        "canonical": "Zafina",
         "filename": "zafina_tk8_movelist.html",
         "css_class": "tk-char-zafina",
         "moves": 164,
@@ -349,6 +379,7 @@ CHARACTERS = {
     },
     "devil_jin": {
         "display": "恶魔仁",
+        "canonical": "Devil Jin",
         "filename": "deviljin_tk8_movelist.html",
         "css_class": "tk-char-deviljin",
         "moves": 160,
@@ -360,6 +391,7 @@ CHARACTERS = {
     },
     "victor": {
         "display": "维克多",
+        "canonical": "Victor Chevalier",
         "filename": "victor_tk8_movelist.html",
         "css_class": "tk-char-victor",
         "moves": 139,
@@ -371,6 +403,7 @@ CHARACTERS = {
     },
     "reina": {
         "display": "蕾娜",
+        "canonical": "Reina",
         "filename": "reina_tk8_movelist.html",
         "css_class": "tk-char-reina",
         "moves": 192,
@@ -382,6 +415,7 @@ CHARACTERS = {
     },
     "eddy": {
         "display": "艾迪",
+        "canonical": "Eddy Gordo",
         "filename": "eddy_tk8_movelist.html",
         "css_class": "tk-char-eddy",
         "moves": 176,
@@ -393,6 +427,7 @@ CHARACTERS = {
     },
     "lidia": {
         "display": "莉迪亚",
+        "canonical": "Lidia Sobieska",
         "filename": "lidia_tk8_movelist.html",
         "css_class": "tk-char-lidia",
         "moves": 174,
@@ -404,6 +439,7 @@ CHARACTERS = {
     },
     "heihachi": {
         "display": "三岛平八",
+        "canonical": "Heihachi Mishima",
         "filename": "heihachi_tk8_movelist.html",
         "css_class": "tk-char-heihachi",
         "moves": 152,
@@ -979,7 +1015,44 @@ class Season2BuildTests(unittest.TestCase):
                 combo_parser.feed(html)
 
                 self.assertIn("<!doctype html>", html.lower())
-                self.assertIn(f"<title>{cfg['display']} · 铁拳8 出招表</title>", html)
+                expected_title = (
+                    f"铁拳8 {cfg['display']}（{cfg['canonical']}）出招表"
+                    f" | TEKKEN 8 {cfg['canonical']} Movelist"
+                )
+                self.assertIn(f"<title>{expected_title}</title>", html)
+                expected_description = (
+                    f"{cfg['display']}（{cfg['canonical']}）《铁拳8》（TEKKEN 8）完整出招表："
+                    "招式指令、帧数表、确反数据与进阶连招。"
+                    f"Complete TEKKEN 8 {cfg['canonical']} movelist with frame data."
+                )
+                self.assertIn(
+                    f'<meta name="description" content="{expected_description}">',
+                    html,
+                )
+                canonical_url = (
+                    f"https://tekken8movelist.github.io/{cfg['filename']}"
+                )
+                self.assertIn(
+                    f'<link rel="canonical" href="{canonical_url}">', html
+                )
+                self.assertIn(
+                    f'<meta property="og:title" content="{expected_title}">', html
+                )
+                self.assertIn(
+                    f'<meta property="og:url" content="{canonical_url}">', html
+                )
+                avatar_slug = cfg["filename"].removesuffix("_tk8_movelist.html")
+                self.assertIn(
+                    '<meta property="og:image" content="https://tekken8movelist.github.io/'
+                    f'avatars/{avatar_slug}.png">',
+                    html,
+                )
+                self.assertIn(
+                    '<meta name="twitter:card" content="summary_large_image">', html
+                )
+                self.assertIn('<script type="application/ld+json">', html)
+                self.assertIn('"@type":"WebPage"', html)
+                self.assertIn('"@type":"BreadcrumbList"', html)
                 for control_id in (
                     "thgl",
                     "ntgl",
