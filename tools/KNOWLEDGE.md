@@ -239,6 +239,8 @@
   KNOWN_BIG_DAMAGE)、`test_season2_pages.py`(CHARACTERS/EXPECTED_PARTITIONS/
   两个 KNOWN 表)、`validate_season2.mjs`(pages)。期望值一律脚本推导
   (分区/可见数/帧覆盖率),不手算。
+- `canonical`(英文名)在 `season2_config.py` 与 `test_season2_pages.py`
+  fixture 中均为必填:生成器的 SEO head 块与站点发布契约测试都读取它。
 - `tools/check_zh.py {key}`:翻译契约单点检查(ID 全覆盖、纯中文、
   stance 前缀完备、按键图零回退),子代理翻译的验收入口。
 - 浏览器门禁 `$env:CHARACTERS='a,b'` 过滤;全量 360 状态约 4 分钟。

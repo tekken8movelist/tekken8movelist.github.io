@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
@@ -222,6 +223,10 @@ class SitePublicationContractTest(unittest.TestCase):
                     f'<meta property="og:url" content="{PUBLIC_ROOT}{page.name}">',
                     html,
                 )
+                title = re.search(r"<title>(.*?)</title>", html).group(1)
+                self.assertIn(
+                    f'<meta property="og:title" content="{title}">', html
+                )
                 slug = page.name.removesuffix("_tk8_movelist.html")
                 self.assertIn(
                     '<meta property="og:image" content='
@@ -231,7 +236,7 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertIn('<script type="application/ld+json">', html)
                 self.assertIn('"@type":"WebPage"', html)
                 self.assertIn('"@type":"BreadcrumbList"', html)
-                self.assertIn('class="page-intro"', html)
+                self.assertEqual(html.count('class="page-intro"'), 1)
 
 
 if __name__ == "__main__":

@@ -1563,7 +1563,7 @@ def build_page(key: str, config: dict, component_css: str) -> str:
         },
         ensure_ascii=False,
         separators=(",", ":"),
-    )
+    ).replace("<", "\\u003c")
     intro_zh = (
         f"本页收录《铁拳8》（TEKKEN 8）{config['display']}（{config['canonical']}）"
         "的完整出招表与帧数表（frame data），并整理进阶连招与实战技巧，供对局间隙快速查阅。"
