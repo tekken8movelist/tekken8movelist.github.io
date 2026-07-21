@@ -71,14 +71,14 @@ header {
   );
 }
 
-header h1 {
+header h1, header h2 {
   font-size: 21px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 2px;
 }
 
-header h1 small {
+header h1 small, header h2 small {
   margin-left: 10px;
   font-size: 12px;
   font-weight: 400;
@@ -89,6 +89,20 @@ header h1 small {
 header .sub {
   font-size: 10px;
   opacity: .82;
+}
+
+header .page-intro {
+  flex: 0 0 100%;
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+header .page-intro .en {
+  display: block;
+  font-size: 10px;
+  opacity: .8;
 }
 
 .ntgl {
@@ -537,7 +551,7 @@ footer {
     padding: 10px 0 0;
   }
 
-  header h1 small {
+  header h1 small, header h2 small {
     display: block;
     margin: 3px 0 0;
   }

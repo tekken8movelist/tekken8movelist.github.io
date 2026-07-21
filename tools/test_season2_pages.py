@@ -1054,6 +1054,13 @@ class Season2BuildTests(unittest.TestCase):
                 self.assertIn('<script type="application/ld+json">', html)
                 self.assertIn('"@type":"WebPage"', html)
                 self.assertIn('"@type":"BreadcrumbList"', html)
+                self.assertEqual(html.count("<h1"), 1)
+                self.assertIn("<h2>进阶攻略", html)
+                self.assertIn('class="page-intro"', html)
+                expected_intro = (
+                    f"本页收录《铁拳8》（TEKKEN 8）{cfg['display']}（{cfg['canonical']}）"
+                )
+                self.assertIn(expected_intro, html)
                 for control_id in (
                     "thgl",
                     "ntgl",

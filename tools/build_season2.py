@@ -1564,6 +1564,14 @@ def build_page(key: str, config: dict, component_css: str) -> str:
         ensure_ascii=False,
         separators=(",", ":"),
     )
+    intro_zh = (
+        f"本页收录《铁拳8》（TEKKEN 8）{config['display']}（{config['canonical']}）"
+        "的完整出招表与帧数表（frame data），并整理进阶连招与实战技巧，供对局间隙快速查阅。"
+    )
+    intro_en = (
+        f"The complete TEKKEN 8 {config['canonical']} movelist — "
+        "full command list, frame data, and combos, written in Chinese."
+    )
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -1595,13 +1603,14 @@ def build_page(key: str, config: dict, component_css: str) -> str:
   <div class="ntgl" id="thgl" aria-label="主题">主题<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">夜间</button><button type="button" id="thl" aria-pressed="false">浅色</button></span></div>
   <div class="ntgl" id="ntgl" aria-label="指令记法">记法<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">按键图</button><button type="button" id="nn" aria-pressed="false">无数字</button><button type="button" id="nt" aria-pressed="false">文字</button></span></div>
   <div class="sub">上段 <span style="color:#9fc9ff">■</span>　中段 <span style="color:#ffd18a">■</span>　下段 <span style="color:#ff9d9d">■</span></div>
+  <p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>
 </header>
 <div class="legend"><b>指令说明</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上　|　f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　+=同时按　~=紧接　|　<b>判定</b>：<span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　|　<b>发生</b>=首击冲击帧（i=impact，越小越快，依 Wavu）　|　{move_count} 条源记录 / {visible_move_count} 条表内招式 / {frame_count} 条有发生帧{collapsed_note}</div>
 <div class="legend gfx-only"><b>图形记法</b>　<span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）　<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向　<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住　<span class="tk-in tk-sm"><span class="tk-n">N</span></span>=回中　<span class="tk-in tk-sm"><span class="tk-state">架势中</span></span>=状态前缀　|　<b>分隔</b>：› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋</div>
 <main>
   <div id="movelist" data-source-record-count="{move_count}" data-visible-record-count="{visible_move_count}">{sections}</div>
   <section class="tipsPage" id="combos">
-    <header><h1>进阶攻略<small>{escape(config['display'])} · Wavu Wiki 连招数据</small></h1></header>
+    <header><h2>进阶攻略<small>{escape(config['display'])} · Wavu Wiki 连招数据</small></h2></header>
     <div class="legend">仅收录 Wavu 连招页实际存在的 {combo_count} 条路线；原始记法与伤害标注保持不变（方括号数字为该段伤害，如 [25]），占位内容已剔除，不补写未经来源验证的打法。{marker_note}</div>
     {combo_html}
     <footer id="sources">数据来源：<a href="{escape(movelist_url, quote=True)}">Wavu Wiki movelist</a> · 打法参考：<a href="{escape(combos_url, quote=True)}">Wavu Wiki combos</a> · 招式名为中文意译，供参考；发生帧表示首击冲击帧。</footer>
