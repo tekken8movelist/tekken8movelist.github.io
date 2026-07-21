@@ -1,59 +1,75 @@
-# TEKKEN 8 Chinese Movelist Hub
+<div align="center">
 
-An exhibition-style, screen-first reference for TEKKEN 8 movelists in Simplified Chinese. Pick a character and browse commands, startup frames, stances, throws, heat moves, and sample combos in a fast, self-contained static page.
+# TEKKEN 8 全角色中文出招表
 
-[Open the live site](https://tekken8movelist.github.io/) · [Browse the structured data](tools/source/) · [Read the build guide](CLAUDE.md)
+### 看懂招式，也看懂怎么按。
 
-![TEKKEN 8 Chinese Movelist Hub homepage](docs/assets/homepage-preview.png)
+**高质量中文招式名 · 图形化四键映射 · 三种记法一键切换**
 
-## Highlights
+[**进入全角色出招表 →**](https://tekken8movelist.github.io/)
 
-- 41 character movelist pages across the base roster and Seasons 1–3
-- Graphical input notation with text and direction-only alternatives
-- Dark and light themes with saved browser preferences
-- Startup-frame references and Chinese move-name interpretations
-- Responsive, dependency-free HTML that runs directly on GitHub Pages
-- Reproducible page generation and browser-level regression checks
+<sub>当前已发布 41 份角色出招表</sub>
 
-## Run locally
+</div>
 
-The published site is already built. Serve the repository root with any static file server:
+![TEKKEN 8 全角色中文出招表首页](docs/assets/homepage-preview.png)
+
+## 飞白为像，招式成谱
+
+![凌晓雨飞白轮廓角色像与完整角色出招表](docs/assets/character-page-preview.png)
+
+以飞白轮廓识别角色；进入后，完整招式、按键、发生帧、判定与伤害在一页展开。
+
+## 同一招式，三种视图
+
+![同一招式的带数字按键图、无数字按键图与标准文字视图](docs/assets/notation-modes-preview.png)
+
+带数字认键位，无数字看位置，`d/f+2, 3` 对照训练模式与社区资料。三种视图一键切换，偏好自动保留。
+
+## 中文招式名，也是一种招式理解
+
+![白鹭之舞、最速风神拳与翻滚死亡摇篮固中文招式名示例](docs/assets/chinese-move-names-preview.png)
+
+招式名结合原文语义、武术语境与作品既有译名逐招整理，并明确标注为非官方中文意译。
+
+## 完整到能直接练
+
+**完整招式** · **发生帧** · **判定与伤害** · **架势** · **投技** · **Heat 招式** · **示例连招**
+
+无需安装，手机与桌面浏览器都能直接打开；深浅主题与记法偏好会跨角色保留。
+
+<div align="center">
+
+[**选择你的角色 →**](https://tekken8movelist.github.io/)
+
+<sub>Crafted by Ludeng Zhao · with Claude Code + OpenAI Codex</sub>
+
+</div>
+
+<details>
+<summary><strong>开发与验证</strong></summary>
+
+站点为可直接部署到 GitHub Pages 的静态 HTML。结构化招式与翻译数据位于 [`tools/source/`](tools/source/)；Codex 项目约束见 [`AGENTS.md`](AGENTS.md)，生成管线与构建说明见 [`CLAUDE.md`](CLAUDE.md)。
 
 ```powershell
 python -m http.server 3000 --directory docs
-```
-
-Then open `http://localhost:3000/`.
-
-To rebuild generated pages and run the complete validation gate:
-
-```powershell
 pwsh -File tools\validate_season2.ps1
 ```
 
-## Repository layout
+</details>
 
-- `docs/index.html` — character-select homepage and GitHub Pages entry point
-- `docs/*_tk8_movelist.html` — self-contained character pages
-- `docs/avatars/` and `docs/avatars-light/` — dark- and light-theme character portraits
-- `design/notation-wireframe/` — source reference for the shared input-notation component
-- `tools/source/` — structured movelist, translation, and combo snapshots
-- `tools/build_season2.py` — reproducible page generator
-- `tools/validate_season2.ps1` — build, regression, and browser QA entry point
-- `tools/KNOWLEDGE.md` — project-specific data and rendering constraints
+## English
 
-## Attribution and project status
+A Chinese-first TEKKEN 8 reference built for fast practice: 41 published character pages, contextual Chinese move-name translations, graphical four-button input maps, switchable numbered, number-free, and standard text notation, plus frame data, throws, stances, Heat moves, and sample combos.
+
+[**Open the live movelist →**](https://tekken8movelist.github.io/)
+
+## 来源与声明 / Credits
+
+招式数据整理自 [Wavu Wiki](https://wavu.wiki/)。中文招式名为非官方意译；角色头像为本项目使用生成式 AI 制作的非官方轮廓风格演绎。
+
+本项目为非商业性质的非官方同人项目，仅供个人学习、研究与交流；与 Bandai Namco Entertainment Inc. 无隶属关系，亦未获其赞助或认可。TEKKEN™ 8 及其角色、名称、商标与原始设计的相关权利归 Bandai Namco Entertainment Inc. 及其他相应权利人所有。
 
 Movelist data is compiled from [Wavu Wiki](https://wavu.wiki/). Chinese move names are unofficial reference interpretations. Character portraits are unofficial generative-AI outline-style interpretations created for this project.
 
-This is a non-commercial fan project for personal study, research, and discussion. It is not affiliated with, sponsored by, or endorsed by Bandai Namco Entertainment Inc. TEKKEN™ 8 and its characters, names, trademarks, and original designs belong to Bandai Namco Entertainment Inc. and their respective rights holders.
-
----
-
-## 中文说明
-
-这是一个面向屏幕阅读的《铁拳 8》简体中文全角色出招表网站，提供图形化按键、发生帧、架势、投技、热能招式与示例连招，并支持深浅主题和多种记法切换。
-
-[访问在线网站](https://tekken8movelist.github.io/) · [查看结构化数据](tools/source/) · [阅读构建说明](CLAUDE.md)
-
-本项目为非商业性质的非官方同人项目，仅供个人学习、研究与交流。招式数据整理自 Wavu Wiki，中文招式名为非官方意译；角色头像为本项目使用生成式 AI 制作的非官方轮廓风格演绎。本项目与 Bandai Namco Entertainment Inc. 无隶属关系，亦未获其赞助或认可。
+This is a non-commercial, unofficial fan project for personal study, research, and discussion. It is not affiliated with, sponsored by, or endorsed by Bandai Namco Entertainment Inc. TEKKEN™ 8 and its characters, names, trademarks, and original designs belong to Bandai Namco Entertainment Inc. and their respective rights holders.
