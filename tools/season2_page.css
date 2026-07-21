@@ -103,9 +103,12 @@ header .sub {
 header .page-intro {
   flex: 0 0 100%;
   margin-top: 6px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, .22);
   font-size: 11px;
   line-height: 1.5;
-  color: var(--muted);
+  color: inherit;
 }
 
 header .page-intro .en {
