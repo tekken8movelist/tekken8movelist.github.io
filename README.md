@@ -1,6 +1,6 @@
 <div align="center">
 
-# TEKKEN 8 全角色中文出招表
+# TEKKEN 8 · 铁拳8 全角色中文出招表
 
 ### 看懂招式，也看懂怎么按。
 
@@ -12,7 +12,7 @@
 
 </div>
 
-![TEKKEN 8 全角色中文出招表首页](docs/assets/homepage-preview.png)
+![TEKKEN 8 铁拳8 全角色中文出招表首页](docs/assets/homepage-preview.png)
 
 ![凌晓雨飞白轮廓角色像与完整角色出招表](docs/assets/character-page-preview.png)
 
@@ -35,8 +35,6 @@
 <div align="center">
 
 [**选择你的角色 →**](https://tekken8movelist.github.io/)
-
-<sub>Crafted by Ludeng Zhao · with Claude Code + OpenAI Codex</sub>
 
 </div>
 
