@@ -107,7 +107,7 @@ function attachRuntimeErrorCapture(page) {
 }
 
 async function collectMetrics(page, expected) {
-  return page.evaluate(({ theme: expectedTheme, mode: expectedMode, stackedLayout }) => {
+  return page.evaluate(({ theme: expectedTheme, mode: expectedMode, stackedLayout, width }) => {
     const label = (element) =>
       element.closest('[data-record-id]')?.getAttribute('data-record-id') ||
       element.id ||
@@ -174,7 +174,7 @@ async function collectMetrics(page, expected) {
       }
       return rights.length ? Math.max(...rights) : cell.getBoundingClientRect().left;
     };
-    const contentOverlaps = [...document.querySelectorAll(
+    const contentOverlaps = width > 640 ? [...document.querySelectorAll(
       'section:not(.tipsPage) tr[data-record-id]',
     )].flatMap((row) => {
       const cells = [...row.cells];
@@ -185,7 +185,7 @@ async function collectMetrics(page, expected) {
           ? [{ label: label(row), className: cell.className, delta: contentRight - next.left }]
           : [];
       });
-    });
+    }) : [];
 
     const layoutIssues = [...document.querySelectorAll('.cols2,.colsRow')].flatMap((container) => {
       const children = [...container.children]
@@ -205,6 +205,21 @@ async function collectMetrics(page, expected) {
         ? []
         : [{ label: label(container), expected: 'side-by-side', first, second }];
     });
+
+    const phoneRowIssues = width <= 640 ? [...document.querySelectorAll('tr[data-record-id]')].flatMap((row) => {
+      const cmd = row.querySelector('td.cmd');
+      if (!cmd) return [{ label: label(row), problems: ['missing cmd cell'] }];
+      const anchor = row.querySelector('td.name') || row.querySelector('td.fr');
+      const rowRect = row.getBoundingClientRect();
+      const cmdRect = cmd.getBoundingClientRect();
+      const anchorRect = anchor.getBoundingClientRect();
+      const issues = [];
+      if (cmdRect.top < anchorRect.bottom - 1) issues.push('command not stacked below name/stats line');
+      if (Math.abs(cmdRect.left - rowRect.left) > 3) issues.push('command not full-width');
+      if (rowRect.height <= 49) issues.push('row still desktop-height');
+      return issues.length ? [{ label: label(row), problems: issues }] : [];
+    }) : [];
+    const bodyZoom = getComputedStyle(document.body).zoom;
 
     const commandPairs = [...document.querySelectorAll('.cmd-gfx')].map((gfx) => ({
       gfx,
@@ -254,6 +269,8 @@ async function collectMetrics(page, expected) {
       rowHeightIssues,
       contentOverlaps,
       layoutIssues,
+      phoneRowIssues,
+      bodyZoom,
       rowCount: document.querySelectorAll('tr[data-record-id]').length,
       duplicateIds: [...document.querySelectorAll('[id]')]
         .map((element) => element.id)
@@ -275,17 +292,16 @@ async function collectMetrics(page, expected) {
 
 function analyzeMetrics(metrics, expected, runtimeErrors) {
   const problems = [];
-  if (expected.width === 390) {
-    const expectedCanvas = (value) => value >= 595 && value <= 605;
-    if (
-      !metrics.documentOverflow ||
-      !expectedCanvas(metrics.widths.documentScroll) ||
-      !expectedCanvas(metrics.widths.bodyScroll)
-    ) {
-      problems.push(`unexpected 390px canvas: ${JSON.stringify(metrics.widths)}`);
-    }
-  } else if (metrics.documentOverflow || metrics.bodyOverflow) {
+  if (metrics.documentOverflow || metrics.bodyOverflow) {
     problems.push(`page overflow: ${JSON.stringify(metrics.widths)}`);
+  }
+  if (expected.width <= 640) {
+    if (metrics.bodyZoom !== '1') {
+      problems.push(`body zoom at 390px: ${metrics.bodyZoom}`);
+    }
+    if (metrics.phoneRowIssues.length) {
+      problems.push(`phone stacking: ${JSON.stringify(metrics.phoneRowIssues.slice(0, 8))}`);
+    }
   }
   if (metrics.horizontalOverflow.length) {
     problems.push(`internal horizontal overflow: ${JSON.stringify(metrics.horizontalOverflow.slice(0, 12))}`);

@@ -225,17 +225,33 @@ h1{margin:8px 0 0;font-size:34px;font-weight:900;letter-spacing:1px;line-height:
 
 /* ============ footer ============ */
 footer{
-  margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
-  display:grid;grid-template-columns:minmax(220px,.8fr) minmax(340px,1.4fr);
-  gap:18px 42px;
+  margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
   font-size:11px;color:var(--muted);line-height:1.6;
 }
-.footer-block{display:grid;align-content:start;gap:6px}
+.footer-main{
+  display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.7fr);
+  gap:24px 56px;align-items:start;
+}
+.footer-intro{display:grid;align-content:start;gap:7px}
 .footer-kicker{
   font-family:"Saira",sans-serif;font-size:9px;font-weight:700;
   letter-spacing:2px;text-transform:uppercase;color:var(--kicker);
 }
-.footer-copy{max-width:74ch}
+.footer-title{max-width:17ch;font-size:15px;font-weight:700;line-height:1.45;color:var(--ink)}
+.footer-details{display:grid;gap:14px;max-width:82ch}
+.footer-row{
+  display:grid;grid-template-columns:96px minmax(0,1fr);
+  gap:16px;align-items:start;
+}
+.footer-label{
+  padding-top:1px;font-family:"Saira",sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:1.8px;text-transform:uppercase;color:var(--kicker);
+}
+.footer-copy{max-width:76ch}
+.footer-legal{
+  margin-top:20px;padding-top:13px;border-top:1px solid var(--line);
+  font-size:10px;line-height:1.65;color:var(--kicker);
+}
 footer a{
   color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);
   text-underline-offset:3px;transition:color .15s ease,text-decoration-color .15s ease;
@@ -293,9 +309,18 @@ html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk
 }
 
 @media (max-width:640px){
-  :root{--tile-w:132px;--tile-h:172px}
+  body{zoom:1}
+  .wrap{padding:16px 14px 48px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .card{height:auto}
+  .cimg{flex:none;aspect-ratio:4/5}
   h1{font-size:26px}
-  footer{grid-template-columns:1fr;gap:16px}
+  footer{margin-top:42px;padding-top:20px}
+  .footer-main{grid-template-columns:1fr;gap:18px}
+  .footer-title{max-width:none}
+  .footer-details{gap:15px}
+  .footer-row{grid-template-columns:1fr;gap:4px}
+  .footer-legal{margin-top:18px;padding-top:12px}
 }
 </style>
 </head>
@@ -419,15 +444,23 @@ html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk
 </div>
 
 <footer aria-label="项目来源与法律声明">
-  <div class="footer-block">
-    <span class="footer-kicker">Source</span>
-    <p class="footer-copy">招式数据整理自 <a href="https://wavu.wiki/" target="_blank" rel="noopener noreferrer">Wavu Wiki</a>；中文招式名为非官方意译，仅供参考。</p>
+  <div class="footer-main">
+    <div class="footer-intro">
+      <span class="footer-kicker">About this site</span>
+      <p class="footer-title">非官方《铁拳 8》中文出招参考</p>
+    </div>
+    <div class="footer-details">
+      <div class="footer-row">
+        <span class="footer-label">Source</span>
+        <p class="footer-copy">招式数据整理自 <a href="https://wavu.wiki/" target="_blank" rel="noopener noreferrer">Wavu Wiki</a>；中文招式名为非官方意译，仅供参考。</p>
+      </div>
+      <div class="footer-row">
+        <span class="footer-label">Fan project</span>
+        <p class="footer-copy">角色头像为非官方同人艺术演绎。本项目仅供个人学习、研究与交流，不作商业用途；与 <a href="https://www.bandainamcoent.com/games/tekken-8" target="_blank" rel="noopener noreferrer">Bandai Namco Entertainment Inc.</a> 无隶属关系，亦未获其赞助或认可。</p>
+      </div>
+    </div>
   </div>
-  <div class="footer-block">
-    <span class="footer-kicker">Unofficial fan project</span>
-    <p class="footer-copy">角色头像为生成式 AI 制作的非官方轮廓风格演绎。本项目仅供个人学习、研究与交流，不作商业用途；与 <a href="https://www.bandainamcoent.com/games/tekken-8" target="_blank" rel="noopener noreferrer">Bandai Namco Entertainment Inc.</a> 无隶属关系，亦未获其赞助或认可。</p>
-    <p class="footer-copy"><span class="mono">TEKKEN™ 8</span> 及其角色、名称、商标与原始设计的相关权利归 Bandai Namco Entertainment Inc. 及其他相应权利人所有。</p>
-  </div>
+  <p class="footer-legal"><span class="mono">TEKKEN™ 8</span> 及其角色、名称、商标与原始设计的相关权利归 Bandai Namco Entertainment Inc. 及其他相应权利人所有。</p>
 </footer>
 
 </div>

@@ -6,15 +6,27 @@ import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "docs"
 INDEX = SITE / "index.html"
+SITEMAP = SITE / "sitemap.xml"
+ROBOTS = SITE / "robots.txt"
+PUBLIC_ROOT = "https://tekken8movelist.github.io/"
 
 EXPECTED_CHARACTER_PAGES = 41
 EXPECTED_HTML_FILES = EXPECTED_CHARACTER_PAGES + 1
 EXPECTED_AVATARS = 44
+
+LEGACY_PIPELINE_PAGES = (
+    "xiaoyu_tk8_movelist.html",
+    "jun_tk8_movelist.html",
+    "kunimitsu_tk8_movelist.html",
+    "clive_tk8_movelist.html",
+    "law_tk8_movelist.html",
+)
 
 
 class ReferenceParser(HTMLParser):
@@ -123,18 +135,74 @@ class SitePublicationContractTest(unittest.TestCase):
             with self.subTest(page=page.name):
                 parse_references(page)
 
+    def test_search_discovery_files_cover_every_published_page(self) -> None:
+        self.assertTrue(SITEMAP.is_file())
+        self.assertTrue(ROBOTS.is_file())
+
+        namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        root = ElementTree.parse(SITEMAP).getroot()
+        self.assertEqual(root.tag, "{http://www.sitemaps.org/schemas/sitemap/0.9}urlset")
+        sitemap_urls = {
+            location.text
+            for location in root.findall("sm:url/sm:loc", namespace)
+            if location.text
+        }
+        expected_urls = {PUBLIC_ROOT}
+        expected_urls.update(
+            f"{PUBLIC_ROOT}{page.name}"
+            for page in SITE.glob("*_tk8_movelist.html")
+        )
+        self.assertEqual(sitemap_urls, expected_urls)
+
+        robots = ROBOTS.read_text(encoding="utf-8")
+        self.assertIn("User-agent: *", robots)
+        self.assertIn("Allow: /", robots)
+        self.assertIn(f"Sitemap: {PUBLIC_ROOT}sitemap.xml", robots)
+
+    def test_phone_layout_media_query_covers_every_page(self) -> None:
+        for name in LEGACY_PIPELINE_PAGES:
+            with self.subTest(page=name):
+                html = (SITE / name).read_text(encoding="utf-8")
+                self.assertIn('<style id="mobile-phone">', html)
+                self.assertIn("@media (max-width: 640px)", html)
+
+        generated_pages = [
+            path
+            for path in SITE.glob("*_tk8_movelist.html")
+            if path.name not in LEGACY_PIPELINE_PAGES
+        ]
+        self.assertEqual(
+            len(generated_pages),
+            EXPECTED_CHARACTER_PAGES - len(LEGACY_PIPELINE_PAGES),
+        )
+        for page in generated_pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                self.assertIn("@media (max-width: 640px)", html)
+                self.assertNotIn("width: 600px", html)
+
+    def test_homepage_phone_layout_rules(self) -> None:
+        html = INDEX.read_text(encoding="utf-8")
+        marker = "@media (max-width:640px)"
+        self.assertIn(marker, html)
+        phone_block = html.split(marker, 1)[1]
+        self.assertIn("aspect-ratio:4/5", phone_block)
+        self.assertIn("body{zoom:1}", phone_block)
+
     def test_public_disclaimer_is_present(self) -> None:
         html = INDEX.read_text(encoding="utf-8")
         required_phrases = (
             "Wavu Wiki",
-            "生成式 AI 制作的非官方轮廓风格演绎",
+            "角色头像为非官方同人艺术演绎",
             "不作商业用途",
             "Bandai Namco Entertainment Inc.",
             "无隶属关系",
+            "相关权利归 Bandai Namco Entertainment Inc. 及其他相应权利人所有",
         )
         for phrase in required_phrases:
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, html)
+        self.assertNotIn("生成式 AI", html)
 
 
 if __name__ == "__main__":

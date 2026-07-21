@@ -364,6 +364,7 @@ td.cmd .tk-in {
   overflow-wrap: anywhere;
 }
 
+/* source-order warning: the phone block at the end of this file neutralizes cram tiers at equal specificity, so no cram rules may be appended after it */
 section:not(.tipsPage) table:not(.ten-string-table) td.cmd .tk-in.tk-cram {
   font-size: 9px;
 }
@@ -542,11 +543,112 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
+/* ---- phone layout: 1 move per row ----------------------------------
+   Line 1: move name (left) + stats (right, "·"-separated).
+   Line 2: the command on its own full-width line; long commands
+   (ten-hit strings, long routes) wrap instead of squeezing.
+   The tk-in button-map graphics render unchanged; cram shrink tiers
+   are neutralized because wrapping replaces cramming. */
+@media (max-width: 640px) {
   body {
     zoom: 1;
+    width: auto;
+    min-width: 0;
     padding: 8px;
-    width: 600px;
-    min-width: 600px;
+    font-size: 12px;
+  }
+
+  .legend {
+    font-size: 11px;
+  }
+
+  section:not(.tipsPage) table.move-table,
+  section:not(.tipsPage) table.throw-table,
+  section:not(.tipsPage) table.ten-string-table {
+    display: block;
+  }
+
+  section:not(.tipsPage) table.move-table > thead,
+  section:not(.tipsPage) table.throw-table > thead,
+  section:not(.tipsPage) table.ten-string-table > thead {
+    display: none;
+  }
+
+  section:not(.tipsPage) table.move-table > tbody,
+  section:not(.tipsPage) table.throw-table > tbody,
+  section:not(.tipsPage) table.ten-string-table > tbody {
+    display: block;
+  }
+
+  section:not(.tipsPage) tr[data-record-id] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 8px;
+    height: auto;
+    padding: 6px 2px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:not(.tipsPage) tr[data-record-id] td {
+    display: block;
+    padding: 0;
+    border-bottom: 0;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  /* zebra striping moves from the cells to the row box */
+  section:not(.tipsPage) tbody tr:nth-child(even) td {
+    background: none;
+  }
+
+  section:not(.tipsPage) tbody tr:nth-child(even) {
+    background: color-mix(in srgb, var(--paper-alt) 52%, transparent);
+  }
+
+  section:not(.tipsPage) tr[data-record-id] td.name {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 13px;
+  }
+
+  section:not(.tipsPage) tr[data-record-id] td.fr,
+  section:not(.tipsPage) tr[data-record-id] td.dmg,
+  section:not(.tipsPage) tr[data-record-id] td.rng,
+  section:not(.tipsPage) tr[data-record-id] td.break,
+  section:not(.tipsPage) tr[data-record-id] td.direction {
+    flex: 0 0 auto;
+    font-size: 11px;
+  }
+
+  /* ten-string rows have no name cell: push the stats line right */
+  section:not(.tipsPage) tr[data-record-id] td.cmd + td.fr {
+    margin-left: auto;
+  }
+
+  /* stat separators (td.cmd precedes td.fr in the DOM, so it is never matched) */
+  section:not(.tipsPage) tr[data-record-id] td.fr ~ td:not(.cmd)::before {
+    content: "·";
+    margin-right: 8px;
+    opacity: .45;
+  }
+
+  section:not(.tipsPage) tr[data-record-id] td.cmd {
+    order: 2;
+    flex: 0 0 100%;
+    font-size: 11px;
+  }
+
+  section:not(.tipsPage) tr[data-record-id] td.cmd .cmd-gfx {
+    white-space: normal;
+  }
+
+  section:not(.tipsPage) tr[data-record-id] td.cmd .tk-in,
+  section:not(.tipsPage) tr[data-record-id] td.cmd .tk-in.tk-cram,
+  section:not(.tipsPage) tr[data-record-id] td.cmd .tk-in.tk-cram.tk-cram2 {
+    flex-wrap: wrap;
+    row-gap: .35em;
+    font-size: 11px;
   }
 }

@@ -246,3 +246,18 @@
   Toward);曾在 armor_king/king 全部译反,已统一修正。
 - 大伤害真值白名单:Gigaton Punch 满蓄 199、吉光斩月满蓄 200、
   f,F+1+4,F 60,185(致死判定)——三位数报警的合法例外,必须逐条对 notes 核实。
+
+## Phone layout (added 2026-07)
+
+- All 41 movelist pages reflow at `@media (max-width: 640px)`: line 1 = move name +
+  stats, line 2 = full-width command; long commands wrap (`tk-in` groups +
+  mega-token break rule). Body `zoom` resets to 1 on phones.
+- Season 2 pages: the block lives in `tools/season2_page.css` (end of file) —
+  edit there and rebuild; never hand-edit generated pages.
+- Legacy 5 pages: an equivalent `<style id="mobile-phone">` block sits before
+  `</head>` (plain-table markup, rows matched via `:has(> td.name)`).
+- `tools/validate_season2.mjs` asserts zero horizontal overflow + stacked rows at
+  390px; `contentOverlaps` is skipped at ≤640px because cells stack vertically.
+  Legacy pages are covered by `workbench/qa/check_legacy_mobile.mjs` (ignored
+  scratch, re-create from the plan in `design/plans/2026-07-21-mobile-support.md`
+  if deleted).
