@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="高质量中文招式名、图形化四键映射与三种输入记法，一页查看完整招式与帧数资料。">
 <meta name="twitter:image" content="https://tekken8movelist.github.io/assets/homepage-preview.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"铁拳8 全角色中文出招表","alternateName":"TEKKEN 8 Movelist","url":"https://tekken8movelist.github.io/","inLanguage":"zh-CN","description":"铁拳8全角色中文出招表，提供高质量中文招式名、图形化按键与完整帧数资料。"}</script>
-<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>
+<script>document.documentElement.classList.add('dark');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Saira:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -49,7 +49,7 @@ body{
 @media screen{body{zoom:1.25}}
 ::selection{background:#6fb3ff;color:#0e1116}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding:26px 26px 64px}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:26px 26px 64px}
 @keyframes tkpop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
 /* ============ header ============ */
@@ -78,11 +78,6 @@ h1{margin:8px 0 0;font-size:34px;font-weight:900;letter-spacing:1px;line-height:
   transition:all .15s ease;
 }
 .seg button.on{background:var(--ink);color:var(--bg)}
-.tgl{
-  border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);
-  font-family:"JetBrains Mono",monospace;font-size:12px;padding:6px 14px;cursor:pointer;
-}
-
 /* ============ legend strip ============ */
 .legend{
   display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;
@@ -306,6 +301,102 @@ html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk
 .tk-md{font-size:15px}
 .tk-lg{font-size:22px}
 
+/* ============ flux effect: ambient background flow + selected-card ring ============ */
+@property --flxa{syntax:"<angle>";inherits:false;initial-value:0deg}
+
+/* ambient background energy flow (always on, behind content) */
+body::before,body::after{
+  content:"";position:fixed;inset:-20vmax;pointer-events:none;
+}
+/* the bed is a near-static depth layer; the frame-relay current (below) owns all motion */
+body::before{
+  --flxo:1;
+  background:
+    radial-gradient(38vmax 26vmax at 24% 30%,color-mix(in srgb,#6fb3ff 11%,transparent),transparent 70%),
+    radial-gradient(30vmax 34vmax at 78% 62%,color-mix(in srgb,#b18cff 9%,transparent),transparent 70%);
+  animation:flxdrift1 47s ease-in-out infinite alternate,flxbreathe1 41s ease-in-out -10s infinite alternate;
+}
+body::after{
+  --flxo:1;
+  background:
+    radial-gradient(34vmax 24vmax at 68% 22%,color-mix(in srgb,#7ed6b8 8%,transparent),transparent 70%),
+    radial-gradient(26vmax 30vmax at 30% 78%,color-mix(in srgb,#ff9fce 8%,transparent),transparent 70%);
+  animation:flxdrift2 63s ease-in-out infinite alternate,flxbreathe2 53s ease-in-out -24s infinite alternate;
+}
+@keyframes flxdrift1{from{transform:translate3d(-3%,-2%,0) rotate(-2deg) scale(1)}to{transform:translate3d(3%,2%,0) rotate(2deg) scale(1.04)}}
+@keyframes flxdrift2{from{transform:translate3d(2%,3%,0) rotate(1.5deg) scale(1.03)}to{transform:translate3d(-2%,-3%,0) rotate(-1.5deg) scale(1)}}
+@keyframes flxbreathe1{from{opacity:calc(.75*var(--flxo))}to{opacity:var(--flxo)}}
+@keyframes flxbreathe2{from{opacity:var(--flxo)}to{opacity:calc(.7*var(--flxo))}}
+
+/* energy ring on the selected card (hover / keyboard cursor) */
+.card::after{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  border-radius:inherit;padding:2px;opacity:0;transition:opacity .5s ease;
+  background:conic-gradient(from var(--flxa,0deg),
+    transparent 0deg,
+    var(--acc) 45deg,
+    color-mix(in srgb,var(--acc) 40%,transparent) 90deg,
+    transparent 150deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  filter:blur(.6px) drop-shadow(0 0 8px color-mix(in srgb,var(--acc) 70%,transparent));
+}
+.card:hover::after,.card.cur::after{opacity:1;animation:flxspin 9s linear infinite}
+.card.soon::after{content:none}
+@keyframes flxspin{to{--flxa:360deg}}
+
+/* ============ flux v3: frame-relay energy current + patterned lightning ============ */
+:root{--flxcore:#f2fbff;--flxglow:#6fb3ff;--flxglow2:#9b7dff}
+.grid{position:relative}
+.flxlayer{position:absolute;inset:0;pointer-events:none;z-index:6}
+/* electric arc licking around a card frame (same mask-ring technique as hover halo) */
+.fring{position:absolute;border-radius:12px;padding:2px;opacity:0;transition:opacity .3s ease;
+  background:conic-gradient(from var(--flxa,0deg),
+    transparent 0deg,
+    color-mix(in srgb,var(--flxglow) 22%,transparent) 55deg,
+    color-mix(in srgb,var(--flxglow) 70%,transparent) 105deg,
+    var(--flxcore) 124deg,
+    transparent 131deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  filter:blur(.5px) drop-shadow(0 0 9px color-mix(in srgb,var(--flxglow) 65%,transparent))}
+.fring.on{opacity:1}
+/* counter-clockwise variant: mirrored gradient so the tail trails correctly */
+.fring.ccw{background:conic-gradient(from var(--flxa,0deg),
+    transparent 0deg,
+    transparent 229deg,
+    var(--flxcore) 236deg,
+    color-mix(in srgb,var(--flxglow) 70%,transparent) 255deg,
+    color-mix(in srgb,var(--flxglow) 22%,transparent) 305deg,
+    transparent 360deg)}
+svg.flxbolts{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:7;overflow:visible}
+.bolt{animation:flxzap .5s ease-out forwards}
+.bolt path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bolt .b-glow{stroke:var(--flxglow2);stroke-width:10;filter:blur(7px);opacity:.55}
+.bolt .b-mid{stroke:var(--flxglow);stroke-width:3;filter:blur(1.2px)}
+.bolt .b-core{stroke:var(--flxcore);stroke-width:1.5}
+.bolt .b-branch{stroke:var(--flxglow);stroke-width:1.1;opacity:.5;filter:blur(.6px)}
+.bolt .b-ghost{stroke:var(--flxglow);stroke-width:1.2;opacity:.35;filter:blur(1.5px)}
+@keyframes flxzap{0%{opacity:0}6%{opacity:.85}14%{opacity:.2}22%{opacity:.8}45%{opacity:.4}100%{opacity:0}}
+/* major strike: wilder, crackling multi-restrike envelope, heavier glow */
+.bolt.major{animation:flxzapM .68s ease-out forwards}
+.bolt.major .b-glow{stroke-width:16;opacity:.75}
+.bolt.major .b-mid{stroke-width:4.5}
+.bolt.major .b-core{stroke-width:2.2}
+@keyframes flxzapM{0%{opacity:0}4%{opacity:1}11%{opacity:.25}18%{opacity:.95}27%{opacity:.35}36%{opacity:.8}55%{opacity:.35}100%{opacity:0}}
+.fburst{fill:var(--flxglow);filter:blur(3px);transform-box:fill-box;transform-origin:center;animation:flxburst .5s ease-out forwards}
+@keyframes flxburst{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(2.6)}}
+.card.zap{border-color:color-mix(in srgb,var(--flxglow) 45%,var(--line));box-shadow:0 0 18px -8px var(--flxglow)}
+.card.zap2{border-color:color-mix(in srgb,var(--flxglow) 70%,var(--line));box-shadow:0 0 30px -4px var(--flxglow)}
+
+@media (prefers-reduced-motion:reduce){
+  body::before,body::after,.card::after,.flxlayer,svg.flxbolts{display:none}
+}
+
 @media (prefers-reduced-motion:reduce){
   .card,.cimg img,.cplate,.cnm{transition:none}
 }
@@ -341,10 +432,6 @@ html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk
       <span class="seg" id="notationSeg">
         <button type="button" data-n="gfx">按键图</button><button type="button" data-n="txt">文字</button>
       </span>
-    </div>
-    <div class="grp">
-      <span class="lbl">主题</span>
-      <button type="button" class="tgl" id="themeTgl">夜 / 日</button>
     </div>
   </div>
 </header>
@@ -471,32 +558,6 @@ html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk
 (function () {
   var root = document.documentElement;
 
-  /* ---- theme (shared tk-theme with character pages) ---- */
-  var tgl = document.getElementById('themeTgl');
-  var avatarImages = document.querySelectorAll('.cimg img');
-  function paintAvatars() {
-    var light = !root.classList.contains('dark');
-    avatarImages.forEach(function (img) {
-      if (!img.dataset.darkSrc) {
-        img.dataset.darkSrc = img.getAttribute('src');
-        img.dataset.lightSrc = img.dataset.darkSrc.replace(/^avatars\//, 'avatars-light/');
-      }
-      var nextSrc = light ? img.dataset.lightSrc : img.dataset.darkSrc;
-      if (img.getAttribute('src') !== nextSrc) img.setAttribute('src', nextSrc);
-    });
-  }
-  function paintTheme() {
-    tgl.textContent = root.classList.contains('dark') ? '夜 / 日' : '日 / 夜';
-    paintAvatars();
-  }
-  tgl.addEventListener('click', function () {
-    var dark = !root.classList.contains('dark');
-    root.classList.toggle('dark', dark);
-    try { localStorage.setItem('tk-theme', dark ? 'dark' : 'light'); } catch (_) {}
-    paintTheme();
-  });
-  paintTheme();
-
   /* ---- notation demo (shared tk-notation: gfx / txt) ---- */
   var nseg = document.getElementById('notationSeg');
   var demoGfx = document.getElementById('demoGfx');
@@ -593,6 +654,421 @@ html.dark .tk-dir::before{filter:drop-shadow(0 0 .3em color-mix(in srgb,var(--tk
     if (document.activeElement === q) q.blur();
     cur(v[n]);
   });
+})();
+</script>
+<script>
+/* flux v3 — frame-relay energy current + patterned lightning.
+   design: design/specs/2026-07-22-homepage-circuit-pulse-design.md
+   page stays fully usable without this script (decoration only). */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var SPEED = 1; // 中速 (user-selected final)
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var gen = 0;
+  var occupied = new Set();
+  var grids = Array.prototype.slice.call(document.querySelectorAll('.gsec .grid'));
+  var sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+
+  function sv(tag, attrs) {
+    var e = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function measure(grid) {
+    var gb = grid.getBoundingClientRect();
+    var s = gb.width / grid.offsetWidth || 1; // body zoom compensation
+    var rs = Array.prototype.slice.call(grid.querySelectorAll('a.card'))
+      .filter(function (c) { return !c.classList.contains('hide'); })
+      .map(function (c) {
+        var r = c.getBoundingClientRect();
+        return { l: (r.left - gb.left) / s, t: (r.top - gb.top) / s,
+                 r: (r.right - gb.left) / s, b: (r.bottom - gb.top) / s, el: c };
+      });
+    var uniq = function (vals) {
+      var out = [];
+      vals.sort(function (a, b) { return a - b; }).forEach(function (v) {
+        if (!out.length || v - out[out.length - 1] > 8) out.push(v);
+      });
+      return out;
+    };
+    var tops = uniq(rs.map(function (r) { return r.t; }));
+    var lefts = uniq(rs.map(function (r) { return r.l; }));
+    rs.forEach(function (r) {
+      r.row = tops.findIndex(function (t) { return Math.abs(t - r.t) <= 8; });
+      r.col = lefts.findIndex(function (l) { return Math.abs(l - r.l) <= 8; });
+    });
+    return { grid: grid, rs: rs, rows: tops.length, cols: lefts.length, s: s };
+  }
+
+  var visIn = function (m) {
+    var gt = m.grid.getBoundingClientRect().top, vh = innerHeight;
+    return function (r) { return gt + r.b * m.s > 40 && gt + r.t * m.s < vh - 40; };
+  };
+
+  function boltPts(a, b, disp) {
+    var pts = [a, b];
+    for (var it = 0; it < 4; it++) {
+      var np = [pts[0]];
+      for (var i = 1; i < pts.length; i++) {
+        var p = np[np.length - 1], q2 = pts[i];
+        np.push([(p[0] + q2[0]) / 2 + (Math.random() - .5) * disp,
+                 (p[1] + q2[1]) / 2 + (Math.random() - .5) * disp], q2);
+      }
+      pts = np; disp *= .55;
+    }
+    return pts;
+  }
+  var toD = function (pts) {
+    return 'M' + pts.map(function (p) { return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' L');
+  };
+
+  function bolt(m, p, q2, cardEls, disp, major) {
+    var gEl = sv('g', { class: major ? 'bolt major' : 'bolt' });
+    var main = boltPts(p, q2, major ? disp * 1.6 : disp);
+    var nBranch = major ? 2 : (Math.random() < .6 ? 1 : 0);
+    for (var k = 0; k < nBranch; k++) {
+      var v = main[2 + Math.floor(Math.random() * (main.length - 4))];
+      var end = [v[0] + (Math.random() - .5) * (major ? 70 : 44), v[1] + (Math.random() - .5) * (major ? 70 : 44)];
+      gEl.appendChild(sv('path', { class: 'b-branch', d: toD(boltPts(v, end, 12)) }));
+    }
+    if (major) gEl.appendChild(sv('path', { class: 'b-ghost', d: toD(boltPts(p, q2, disp * 1.6)) }));
+    var d = toD(main);
+    ['b-glow', 'b-mid', 'b-core'].forEach(function (cls) { gEl.appendChild(sv('path', { class: cls, d: d })); });
+    if (major) [p, q2].forEach(function (pt) {
+      gEl.appendChild(sv('circle', { class: 'fburst', cx: pt[0], cy: pt[1], r: 7 }));
+    });
+    m.svg.appendChild(gEl);
+    var zc = major ? 'zap2' : 'zap';
+    cardEls.forEach(function (c) { c.classList.add(zc); });
+    setTimeout(function () {
+      gEl.remove();
+      cardEls.forEach(function (c) { c.classList.remove(zc); });
+    }, major ? 700 : 500);
+  }
+
+  function pairBolt(m, a, b, disp, major) {
+    disp = disp || 20;
+    if (a.row === b.row) {
+      var L0 = a.col < b.col ? a : b, R0 = a.col < b.col ? b : a;
+      var yy = (Math.max(L0.t, R0.t) + Math.min(L0.b, R0.b)) / 2 + (Math.random() * 60 - 30);
+      bolt(m, [L0.r, yy], [R0.l, yy], [a.el, b.el], disp, major);
+    } else if (a.col === b.col) {
+      var T0 = a.row < b.row ? a : b, B0 = a.row < b.row ? b : a;
+      var xx = (Math.max(T0.l, B0.l) + Math.min(T0.r, B0.r)) / 2 + (Math.random() * 60 - 30);
+      bolt(m, [xx, T0.b], [xx, B0.t], [a.el, b.el], disp, major);
+    } else {
+      var p = [a.col < b.col ? a.r : a.l, a.row < b.row ? a.b : a.t];
+      var q2 = [a.col < b.col ? b.l : b.r, a.row < b.row ? b.t : b.b];
+      bolt(m, p, q2, [a.el, b.el], disp, major);
+    }
+  }
+
+  var borderPt = function (r, tx, ty) {
+    return [Math.max(r.l, Math.min(r.r, tx)), Math.max(r.t, Math.min(r.b, ty))];
+  };
+  var centerOf = function (r) { return [(r.l + r.r) / 2, (r.t + r.b) / 2]; };
+
+  // rhythm profiles: mostly even cruising, occasional character moves
+  function speedProfile(a0, a1) {
+    var L = function (t) { return (a0 + (a1 - a0) * t).toFixed(1) + 'deg'; };
+    var P = Math.random();
+    if (P < .7)
+      return [{ '--flxa': L(0), easing: 'ease-in-out' }, { '--flxa': L(1) }];
+    if (P < .82)
+      return [
+        { '--flxa': L(0), offset: 0, easing: 'ease-in' },
+        { '--flxa': L(.18), offset: .5, easing: 'cubic-bezier(.6,0,.2,1)' },
+        { '--flxa': L(.88), offset: .74, easing: 'ease-out' },
+        { '--flxa': L(1), offset: 1 },
+      ];
+    if (P < .92) {
+      var kf = [{ '--flxa': L(0), offset: 0, easing: 'ease-out' }];
+      for (var s2 = 1; s2 <= 3; s2++) {
+        kf.push({ '--flxa': L(s2 / 3 - .02), offset: s2 / 3 - .12, easing: 'ease-in-out' });
+        kf.push({ '--flxa': L(s2 / 3), offset: s2 / 3, easing: 'ease-out' });
+      }
+      return kf;
+    }
+    if (P < .97)
+      return [
+        { '--flxa': L(0), offset: 0, easing: 'ease-in-out' },
+        { '--flxa': L(-.09), offset: .2, easing: 'cubic-bezier(.55,0,.15,1)' },
+        { '--flxa': L(1), offset: 1 },
+      ];
+    return [
+      { '--flxa': L(0), opacity: 1, offset: 0, easing: 'ease-in-out' },
+      { '--flxa': L(.4), opacity: 1, offset: .38, easing: 'ease-in' },
+      { '--flxa': L(.44), opacity: 0, offset: .42 },
+      { '--flxa': L(.66), opacity: 0, offset: .45 },
+      { '--flxa': L(.7), opacity: 1, offset: .48, easing: 'ease-out' },
+      { '--flxa': L(1), opacity: 1, offset: 1 },
+    ];
+  }
+
+  var SIDE = { top: 0, right: 90, bottom: 180, left: 270 };
+  var OPP = { top: 'bottom', bottom: 'top', left: 'right', right: 'left' };
+  var norm = function (a) { return ((a % 360) + 360) % 360; };
+  function sideOfAngle(a) {
+    a = norm(a);
+    if (a < 45 || a >= 315) return 'top';
+    if (a < 135) return 'right';
+    if (a < 225) return 'bottom';
+    return 'left';
+  }
+  var landable = function (r) {
+    return !occupied.has(r) && !r.el.classList.contains('cur') && !r.el.matches(':hover');
+  };
+
+  async function runner(myGen, m, band) {
+    var inBand = m.rs.filter(function (r) { return band.indexOf(r.row) >= 0; });
+    if (!inBand.length) return;
+    await sleep(Math.random() * 1800);
+    if (myGen !== gen) return;
+    var cur = inBand[Math.floor(Math.random() * inBand.length)];
+    var entrySide = ['top', 'right', 'bottom', 'left'][Math.floor(Math.random() * 4)];
+    occupied.add(cur);
+    while (myGen === gen) {
+      var ring = cur.ring;
+      var exitSide;
+      if (Math.random() < .05) { // pass-through blink
+        ring.classList.add('on');
+        var fl = ring.animate(
+          [{ opacity: 0 }, { opacity: 1, offset: .25 }, { opacity: .2, offset: .55 }, { opacity: .85, offset: .75 }, { opacity: 0 }],
+          { duration: 320 });
+        try { await fl.finished; } catch (_) { ring.classList.remove('on'); return; }
+        ring.classList.remove('on');
+        exitSide = ['top', 'right', 'bottom', 'left'][Math.floor(Math.random() * 4)];
+      } else {
+        var cw = Math.random() < .6;
+        ring.classList.toggle('ccw', !cw);
+        var headOff = cw ? 124 : 236;
+        var traveled = (Math.random() < .12 ? 60 : 160) + Math.random() * (Math.random() < .3 ? 300 : 150);
+        var from0 = SIDE[entrySide] - headOff + (Math.random() * 24 - 12);
+        var from1 = cw ? from0 + traveled : from0 - traveled;
+        var T = (5400 / SPEED) * traveled / 360; // stately frame current
+        ring.classList.add('on');
+        var anim = ring.animate(speedProfile(from0, from1), { duration: T * 1.12 });
+        try { await anim.finished; } catch (_) { ring.classList.remove('on'); return; }
+        ring.classList.remove('on');
+        exitSide = sideOfAngle(from1 + headOff);
+      }
+      if (myGen !== gen) return;
+      var at = function (s3) {
+        return s3 === 'right' ? inBand.find(function (r) { return r.row === cur.row && r.col === cur.col + 1; }) :
+               s3 === 'left' ? inBand.find(function (r) { return r.row === cur.row && r.col === cur.col - 1; }) :
+               s3 === 'bottom' ? inBand.find(function (r) { return r.col === cur.col && r.row === cur.row + 1; }) :
+                                inBand.find(function (r) { return r.col === cur.col && r.row === cur.row - 1; });
+      };
+      var entryFor = function (from, to) {
+        var f = centerOf(from), t2 = centerOf(to);
+        return Math.abs(f[0] - t2[0]) > Math.abs(f[1] - t2[1])
+          ? (f[0] > t2[0] ? 'right' : 'left') : (f[1] > t2[1] ? 'bottom' : 'top');
+      };
+      var next = null;
+      if (Math.random() < .07) { // chain-lightning long leap
+        var far = inBand.filter(function (r) {
+          var d2 = Math.max(Math.abs(r.row - cur.row), Math.abs(r.col - cur.col));
+          return r !== cur && landable(r) && d2 >= 2 && d2 <= 3;
+        });
+        if (far.length) {
+          next = far[Math.floor(Math.random() * far.length)];
+          var nc = centerOf(next), cc = centerOf(cur);
+          bolt(m, borderPt(cur, nc[0], nc[1]), borderPt(next, cc[0], cc[1]), [cur.el, next.el], 26, true);
+          entrySide = entryFor(cur, next);
+        }
+      }
+      if (!next) {
+        var pref = at(exitSide);
+        if (pref && landable(pref)) {
+          next = pref;
+          pairBolt(m, cur, next, 18, Math.random() < .25);
+          entrySide = OPP[exitSide];
+        } else {
+          var nbs = inBand.filter(function (r) {
+            return r !== cur && landable(r) &&
+              Math.abs(r.row - cur.row) <= 1 && Math.abs(r.col - cur.col) <= 1;
+          });
+          if (nbs.length) {
+            next = nbs[Math.floor(Math.random() * nbs.length)];
+            pairBolt(m, cur, next, 18, Math.random() < .25);
+            entrySide = entryFor(cur, next);
+          }
+        }
+      }
+      if (next) {
+        occupied.delete(cur);
+        occupied.add(next);
+        cur = next;
+        await sleep(160 / SPEED);
+      } else {
+        await sleep(300);
+      }
+    }
+    occupied.delete(cur);
+  }
+
+  async function sweepStrike(myGen, m, vis) {
+    var V = m.rs.filter(vis);
+    if (V.length < 4) return;
+    var at = function (row, col) {
+      return V.find(function (r) { return r.row === row && r.col === col; });
+    };
+    var pattern = ['row', 'col', 'diag', 'cross', 'outward', 'storm', 'chain', 'chain'][Math.floor(Math.random() * 8)];
+    var i, line;
+    if (pattern === 'row' || pattern === 'col') {
+      var keys = [];
+      V.forEach(function (r) {
+        var k2 = pattern === 'row' ? r.row : r.col;
+        if (keys.indexOf(k2) < 0) keys.push(k2);
+      });
+      var kk = keys[Math.floor(Math.random() * keys.length)];
+      line = V.filter(function (r) { return (pattern === 'row' ? r.row : r.col) === kk; })
+        .sort(function (a, b) { return pattern === 'row' ? a.col - b.col : a.row - b.row; });
+      if (Math.random() < .5) line = line.reverse();
+      for (i = 0; i + 1 < line.length; i++) {
+        if (myGen !== gen) return;
+        pairBolt(m, line[i], line[i + 1], 20, true);
+        await sleep(80);
+      }
+    } else if (pattern === 'diag') {
+      var cur2 = V[Math.floor(Math.random() * V.length)];
+      var dc = Math.random() < .5 ? 1 : -1;
+      while (myGen === gen) {
+        var nxt = at(cur2.row + 1, cur2.col + dc);
+        if (!nxt) break;
+        pairBolt(m, cur2, nxt, 20, true);
+        cur2 = nxt;
+        await sleep(95);
+      }
+    } else if (pattern === 'cross') {
+      var c3 = V[Math.floor(Math.random() * V.length)];
+      [[0, 1], [0, -1], [1, 0], [-1, 0]].forEach(function (dd) {
+        var n2 = at(c3.row + dd[0], c3.col + dd[1]);
+        if (n2) pairBolt(m, c3, n2, 20, true);
+      });
+    } else if (pattern === 'outward') {
+      var rows2 = [];
+      V.forEach(function (r) { if (rows2.indexOf(r.row) < 0) rows2.push(r.row); });
+      var row3 = rows2[Math.floor(Math.random() * rows2.length)];
+      line = V.filter(function (r) { return r.row === row3; })
+        .sort(function (a, b) { return a.col - b.col; });
+      var ci = Math.floor(line.length / 2);
+      for (var d3 = 0; ci + d3 + 1 < line.length || ci - d3 - 1 >= 0; d3++) {
+        if (myGen !== gen) return;
+        if (ci + d3 + 1 < line.length) pairBolt(m, line[ci + d3], line[ci + d3 + 1], 20, true);
+        if (ci - d3 - 1 >= 0) pairBolt(m, line[ci - d3], line[ci - d3 - 1], 20, true);
+        await sleep(85);
+      }
+    } else if (pattern === 'chain') {
+      var cur4 = V[Math.floor(Math.random() * V.length)];
+      var visited = [cur4];
+      var hops = 5 + Math.floor(Math.random() * 4);
+      for (i = 0; i < hops; i++) {
+        if (myGen !== gen) return;
+        var nbs2 = V.filter(function (b2) {
+          return visited.indexOf(b2) < 0 &&
+            Math.abs(b2.row - cur4.row) <= 1 && Math.abs(b2.col - cur4.col) <= 1 && b2 !== cur4;
+        });
+        if (!nbs2.length) break;
+        var nxt2 = nbs2[Math.floor(Math.random() * nbs2.length)];
+        pairBolt(m, cur4, nxt2, 20, true);
+        visited.push(nxt2);
+        cur4 = nxt2;
+        await sleep(90);
+      }
+    } else { // storm
+      for (i = 0; i < 5; i++) {
+        if (myGen !== gen) return;
+        var a4 = V[Math.floor(Math.random() * V.length)];
+        var nbs3 = V.filter(function (b3) {
+          return (Math.abs(b3.row - a4.row) + Math.abs(b3.col - a4.col)) === 1;
+        });
+        if (nbs3.length) pairBolt(m, a4, nbs3[Math.floor(Math.random() * nbs3.length)], 20, true);
+        await sleep(110);
+      }
+    }
+  }
+
+  async function ambient(myGen, measures) {
+    while (myGen === gen) {
+      await sleep(5200 + Math.random() * 3600);
+      if (myGen !== gen) return;
+      var pool = measures.map(function (m) {
+        return { m: m, v: m.rs.filter(visIn(m)) };
+      }).filter(function (x) { return x.v.length >= 2; });
+      if (!pool.length) continue;
+      var total = pool.reduce(function (t2, x) { return t2 + x.v.length; }, 0);
+      var pickN = Math.random() * total, pick = pool[0];
+      for (var i = 0; i < pool.length; i++) {
+        pickN -= pool[i].v.length;
+        if (pickN <= 0) { pick = pool[i]; break; }
+      }
+      if (Math.random() < .35 && pick.v.length >= 4) {
+        await sweepStrike(myGen, pick.m, visIn(pick.m));
+        continue;
+      }
+      var pairs = [];
+      pick.v.forEach(function (a) {
+        pick.v.forEach(function (b) {
+          if ((a.row === b.row && b.col - a.col === 1) || (a.col === b.col && b.row - a.row === 1))
+            pairs.push([a, b]);
+        });
+      });
+      if (pairs.length) {
+        var pr = pairs[Math.floor(Math.random() * pairs.length)];
+        pairBolt(pick.m, pr[0], pr[1], 22, true);
+      }
+    }
+  }
+
+  function build() {
+    gen++;
+    var myGen = gen;
+    occupied.clear();
+    document.querySelectorAll('.flxlayer, svg.flxbolts').forEach(function (n) { n.remove(); });
+    var measures = [];
+    grids.forEach(function (grid) {
+      var sec = grid.closest('.gsec');
+      if (sec && sec.classList.contains('hide')) return;
+      var m = measure(grid);
+      if (!m.rs.length) return;
+      var layer = document.createElement('div');
+      layer.className = 'flxlayer';
+      m.rs.forEach(function (r) {
+        var f = document.createElement('div');
+        f.className = 'fring';
+        f.style.left = r.l + 'px';
+        f.style.top = r.t + 'px';
+        f.style.width = (r.r - r.l) + 'px';
+        f.style.height = (r.b - r.t) + 'px';
+        layer.appendChild(f);
+        r.ring = f;
+      });
+      grid.appendChild(layer);
+      m.svg = sv('svg', { class: 'flxbolts' });
+      grid.appendChild(m.svg);
+      measures.push(m);
+      // small sections: one wanderer; the core roster gets three banded chains
+      var bands = [[], [], []];
+      var r5;
+      if (m.rs.length <= 8) for (r5 = 0; r5 < m.rows; r5++) bands[0].push(r5);
+      else for (r5 = 0; r5 < m.rows; r5++) bands[Math.floor(r5 * 3 / Math.max(m.rows, 1))].push(r5);
+      bands.filter(function (b) { return b.length; }).forEach(function (b) { runner(myGen, m, b); });
+    });
+    ambient(myGen, measures);
+  }
+
+  var rT = null;
+  var rebuild = function (delay) {
+    clearTimeout(rT);
+    rT = setTimeout(build, delay || 300);
+  };
+  addEventListener('resize', function () { rebuild(300); });
+  var q3 = document.getElementById('q');
+  if (q3) q3.addEventListener('input', function () { rebuild(450); });
+  addEventListener('load', function () { rebuild(120); });
+  build();
 })();
 </script>
 </body>

@@ -19,8 +19,17 @@ Saira/JetBrains Mono/Noto Sans SC 字体栈；分组小节布局（核心阵容 
 头像区 + 字母徽标 + 名牌（中文名/英文名，无 → 箭头；无头像时显示斜体水印英文名）；S3 含 3 张
 「即将上线」占位卡（鲍勃/罗杰Jr./范马勇次郎，虚线框、不可点、键盘导航跳过）；
 图例条（月燕 d/f+2,3 按键图示例 + LP/RP/LK/RK）；搜索时隐藏空分组。
-与角色页共享 `tk-theme`（夜/日）与 `tk-notation`（gfx/txt）两项 localStorage 偏好。
+主页**固定夜间版**（2026-07-22 起移除夜/日切换，浅色下特效效果不佳；boot script
+无条件加 `html.dark`，忽略 `tk-theme`）；仅与角色页共享 `tk-notation`（gfx/txt）偏好，
+角色页自身的夜/日切换不受影响。
 角色主题色以角色页实际 `--acc` 为准（设计稿中 jun/clive 两色有出入，未采用）。
+
+主页特效 = **flux v3「电脉·框流」**（2026-07-22 定稿，spec:
+`design/specs/2026-07-22-homepage-circuit-pulse-design.md`）：电弧沿卡框环游、
+跳电接力到相邻角色（3 条领地链 + 小分区各 1 条），阵型雷击（横扫/纵劈/对角/
+十字/外扩/风暴/连锁）每 5~9s 一次；旧色团呼吸降为近静态垫底；悬停光环保留。
+QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多窗口帧差）；
+原型演练场 `workbench/qa/flux-ladder.html`。改参数先动原型再移植，两个 QA 必须过。
 
 - 头像（可选）：放 `avatars/{slug}.png`（slug 如 jin/kazuya/deviljin/armorking…见卡片
   `<img>` src）。加载成功自动加 `.hasimg` 隐藏水印与字母徽标（避免与人物图重叠）；
