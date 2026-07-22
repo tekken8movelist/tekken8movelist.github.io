@@ -76,24 +76,15 @@ class SitePublicationContractTest(unittest.TestCase):
         self.assertEqual(list(ROOT.glob("*.html")), [])
         site_directories = {path.name for path in SITE.iterdir() if path.is_dir()}
         self.assertIn("avatars", site_directories)
-        self.assertIn("avatars-light", site_directories)
-        self.assertLessEqual(
-            site_directories, {"avatars", "avatars-light", "assets"}
-        )
+        self.assertLessEqual(site_directories, {"avatars", "assets"})
 
     def test_expected_page_and_avatar_inventory(self) -> None:
         html_files = sorted(SITE.glob("*.html"))
         character_pages = sorted(SITE.glob("*_tk8_movelist.html"))
         avatars = sorted((SITE / "avatars").glob("*.png"))
-        light_avatars = sorted((SITE / "avatars-light").glob("*.png"))
         self.assertEqual(len(html_files), EXPECTED_HTML_FILES)
         self.assertEqual(len(character_pages), EXPECTED_CHARACTER_PAGES)
         self.assertEqual(len(avatars), EXPECTED_AVATARS)
-        self.assertEqual(len(light_avatars), EXPECTED_AVATARS)
-        self.assertEqual(
-            {path.name for path in avatars},
-            {path.name for path in light_avatars},
-        )
 
     def test_homepage_links_every_character_page(self) -> None:
         references = parse_references(INDEX)
@@ -116,7 +107,8 @@ class SitePublicationContractTest(unittest.TestCase):
             f"avatars/{path.name}" for path in (SITE / "avatars").glob("*.png")
         }
         self.assertEqual(linked_avatars, checked_in_avatars)
-        self.assertIn("avatars-light/", INDEX.read_text(encoding="utf-8"))
+        # homepage is dark-only (2026-07-22): the light-avatar swap must stay gone
+        self.assertNotIn("avatars-light/", INDEX.read_text(encoding="utf-8"))
 
     def test_all_local_references_resolve_inside_docs(self) -> None:
         failures: list[str] = []
