@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import unittest
 from html.parser import HTMLParser
@@ -16,6 +17,8 @@ INDEX = SITE / "index.html"
 SITEMAP = SITE / "sitemap.xml"
 ROBOTS = SITE / "robots.txt"
 PUBLIC_ROOT = "https://tekken8movelist.github.io/"
+CLOUDFLARE_BEACON_SOURCE = "https://static.cloudflareinsights.com/beacon.min.js"
+EXPECTED_CLOUDFLARE_WEB_ANALYTICS_TOKEN = "2b712855303a44c2ab09217bf6703fe1"
 
 EXPECTED_CHARACTER_PAGES = 41
 EXPECTED_HTML_FILES = EXPECTED_CHARACTER_PAGES + 1
@@ -41,6 +44,21 @@ class ReferenceParser(HTMLParser):
         for name, value in attrs:
             if name in {"href", "src"} and value:
                 self.references.append((name, value))
+
+
+class CloudflareBeaconParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.beacons: list[dict[str, str | None]] = []
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        if tag != "script":
+            return
+        attributes = dict(attrs)
+        if attributes.get("src") == CLOUDFLARE_BEACON_SOURCE:
+            self.beacons.append(attributes)
 
 
 def parse_references(path: Path) -> list[tuple[str, str]]:
@@ -127,6 +145,32 @@ class SitePublicationContractTest(unittest.TestCase):
         for page in sorted(SITE.glob("*.html")):
             with self.subTest(page=page.name):
                 parse_references(page)
+
+    def test_cloudflare_web_analytics_covers_every_published_page(self) -> None:
+        tokens: set[str] = set()
+        for page in sorted(SITE.glob("*.html")):
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                parser = CloudflareBeaconParser()
+                parser.feed(html)
+                parser.close()
+
+                self.assertEqual(len(parser.beacons), 1)
+                attributes = parser.beacons[0]
+                self.assertEqual(attributes.get("type"), "module")
+                beacon_data = attributes.get("data-cf-beacon")
+                self.assertIsNotNone(beacon_data)
+                config = json.loads(beacon_data)
+                token = config.get("token")
+                self.assertIsInstance(token, str)
+                self.assertRegex(token, r"^[0-9a-f]{32}$")
+                self.assertEqual(token, EXPECTED_CLOUDFLARE_WEB_ANALYTICS_TOKEN)
+                self.assertLess(
+                    html.index(CLOUDFLARE_BEACON_SOURCE), html.rindex("</body>")
+                )
+                tokens.add(token)
+
+        self.assertEqual(len(tokens), 1)
 
     def test_search_discovery_files_cover_every_published_page(self) -> None:
         self.assertTrue(SITEMAP.is_file())

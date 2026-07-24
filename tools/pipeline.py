@@ -10,6 +10,11 @@ import os
 import re
 import sys
 
+from site_analytics import (
+    CLOUDFLARE_WEB_ANALYTICS_TOKEN,
+    inject_cloudflare_web_analytics,
+)
+
 if __name__ == "__main__":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
@@ -627,12 +632,26 @@ def scope_dark(html):
 def run(key):
     cfg = CONFIG[key]
     path = os.path.join(SITE, cfg["file"])
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8", newline="") as f:
         html = f.read()
+    source_newline = "\r\n" if "\r\n" in html else "\n"
+    if source_newline == "\r\n":
+        html = html.replace("\r\n", "\n")
     if "tk-notation" in html:
-        print(key, ": already processed, aborting")
+        updated_html = inject_cloudflare_web_analytics(
+            html, CLOUDFLARE_WEB_ANALYTICS_TOKEN
+        )
+        if updated_html == html:
+            print(key, ": already processed, aborting")
+            return
+        if source_newline == "\r\n":
+            updated_html = updated_html.replace("\n", "\r\n")
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            f.write(updated_html)
+        print(key, ": analytics injected")
         return
-    component_css = open(CSS_PATH, encoding="utf-8").read()
+    with open(CSS_PATH, encoding="utf-8") as css_file:
+        component_css = css_file.read()
 
     # --- 1. inject CSS + toggles + legends -----------------------------
     html = html.replace(
@@ -709,8 +728,13 @@ def run(key):
     # --- 6. theme consolidation + title --------------------------------
     html = scope_dark(html)
     html = html.replace(" · 夜间版</title>", "</title>")
+    html = inject_cloudflare_web_analytics(
+        html, CLOUDFLARE_WEB_ANALYTICS_TOKEN
+    )
+    if source_newline == "\r\n":
+        html = html.replace("\n", "\r\n")
 
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding="utf-8", newline="") as f:
         f.write(html)
     print("%s: movelist %d gfx/%d text, tips %d gfx/%d text, "
           "frames %d hit/%d miss"

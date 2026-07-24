@@ -101,8 +101,10 @@ try {
         $pythonFiles = @(
             (Join-Path $PSScriptRoot 'build_season2.py'),
             (Join-Path $PSScriptRoot 'season2_config.py'),
+            (Join-Path $PSScriptRoot 'site_analytics.py'),
             (Join-Path $PSScriptRoot 'test_season2_pages.py'),
             (Join-Path $PSScriptRoot 'test_law_page.py'),
+            (Join-Path $PSScriptRoot 'test_site_analytics.py'),
             (Join-Path $PSScriptRoot 'test_site_publication.py')
         )
         $compileCode = @'
@@ -120,6 +122,8 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_season2_pages', '-v')
         Invoke-NativeStep -Label 'Run Law regression tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_law_page', '-v')
+        Invoke-NativeStep -Label 'Run site analytics tests' -FilePath $python `
+            -ArgumentList @('-B', '-m', 'unittest', 'tools.test_site_analytics', '-v')
         Invoke-NativeStep -Label 'Run site publication tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_site_publication', '-v')
 

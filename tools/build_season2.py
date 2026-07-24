@@ -36,6 +36,10 @@ from season2_config import (  # noqa: E402
     PLACEHOLDER_COMBO,
     TARGET_TITLES,
 )
+from site_analytics import (  # noqa: E402
+    CLOUDFLARE_WEB_ANALYTICS_TOKEN,
+    inject_cloudflare_web_analytics,
+)
 
 
 PAGE_CSS = (TOOLS / "season2_page.css").read_text(encoding="utf-8")
@@ -1572,7 +1576,7 @@ def build_page(key: str, config: dict, component_css: str) -> str:
         f"The complete TEKKEN 8 {config['canonical']} movelist — "
         "full command list, frame data, and combos, written in Chinese."
     )
-    return f"""<!doctype html>
+    html = f"""<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -1620,6 +1624,9 @@ def build_page(key: str, config: dict, component_css: str) -> str:
 </body>
 </html>
 """
+    return inject_cloudflare_web_analytics(
+        html, CLOUDFLARE_WEB_ANALYTICS_TOKEN
+    )
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

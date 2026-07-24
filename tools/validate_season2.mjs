@@ -106,6 +106,13 @@ function attachRuntimeErrorCapture(page) {
   return errors;
 }
 
+async function stubCloudflareWebAnalytics(context) {
+  await context.route(
+    'https://static.cloudflareinsights.com/beacon.min.js',
+    (route) => route.fulfill({ contentType: 'application/javascript', body: '' }),
+  );
+}
+
 async function collectMetrics(page, expected) {
   return page.evaluate(({ theme: expectedTheme, mode: expectedMode, stackedLayout, width }) => {
     const label = (element) =>
@@ -381,6 +388,7 @@ try {
   for (const [character, filename] of Object.entries(pages)) {
     const context = await browser.newContext({ viewport: { width: 1480, height: 1000 } });
     try {
+      await stubCloudflareWebAnalytics(context);
       const page = await context.newPage();
       const runtimeErrors = attachRuntimeErrorCapture(page);
       await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
@@ -410,6 +418,7 @@ try {
     for (const width of responsiveWidths) {
       const context = await browser.newContext({ viewport: { width, height: 1000 } });
       try {
+        await stubCloudflareWebAnalytics(context);
         const page = await context.newPage();
         const runtimeErrors = attachRuntimeErrorCapture(page);
         await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
