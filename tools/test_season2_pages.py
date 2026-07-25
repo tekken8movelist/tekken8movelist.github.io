@@ -1213,6 +1213,37 @@ class Season2BuildTests(unittest.TestCase):
                     elif len(row["covered_record_ids"]) == 1:
                         self.assertEqual(len(row["cells"]), 5, move_id)
 
+    def test_back_navigation_is_wired_on_every_page(self):
+        self.assertEqual(self.first_run.returncode, 0)
+        for key, cfg in CHARACTERS.items():
+            with self.subTest(character=key):
+                html = (self.output_dir / cfg["filename"]).read_text(encoding="utf-8")
+
+                # 1a: the breadcrumb is a plain <a>, so it works without JS
+                self.assertIn(
+                    '<div class="homerow"><a class="home" href="index.html" '
+                    'data-home aria-label="返回全角色选择">'
+                    '<span aria-hidden="true">←</span>全角色出招表</a></div>',
+                    html,
+                )
+                # 2b: the reveal bar precedes the header, matching the tab order
+                # it has once revealed, and names the character it belongs to
+                self.assertIn(
+                    f'<nav class="revealbar" aria-label="快速导航">'
+                    f'<a href="index.html" data-home aria-label="返回全角色选择">'
+                    f'<span aria-hidden="true">←</span> 全角色</a>'
+                    f'<b>{cfg["display"]}<small>{cfg["canonical"].upper()}</small></b></nav>\n'
+                    f'<header id="top">',
+                    html,
+                )
+                # the anchor the reveal bar's IntersectionObserver watches
+                self.assertEqual(html.count('<header id="top">'), 1)
+                # shared assets reached the page
+                self.assertIn(".revealbar {", html)
+                self.assertIn("const bar = document.querySelector('.revealbar');", html)
+                # collapsed bar must leave the tab order, not just move off-screen
+                self.assertIn("visibility: hidden;", html)
+
     def test_contextual_duplicate_keeps_its_own_startup(self):
         module = load_builder_module()
         source = load_json(TOOLS / "source" / "armor_king.json")

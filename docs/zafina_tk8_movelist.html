@@ -139,6 +139,11 @@ header .page-intro .en {
   opacity: .8;
 }
 
+/* back navigation lives in back_nav.css, shared with the legacy pipeline
+   pages; only the accent binding differs per page family. */
+.revealbar { --bn-accent: var(--accent-ink); }
+html.dark .revealbar { --bn-accent: var(--accent); }
+
 .ntgl {
   display: inline-flex;
   align-items: center;
@@ -700,6 +705,122 @@ footer {
     font-size: 11px;
   }
 }
+/* ---- back navigation: character page -> hub -------------------------
+   Shared verbatim by both page families (36 generator pages via
+   build_season2.py, 5 legacy pipeline pages via patch_legacy_back_nav.py),
+   so it may only rely on what both actually provide:
+     - `color: inherit` for ink, because the legacy pages set dark-mode ink
+       on <body> rather than on --ink;
+     - literal backgrounds, which match both families' --bg values exactly;
+     - --bn-accent, which each family binds once in its own stylesheet.
+   ------------------------------------------------------------------- */
+
+/* part 1: the always-there breadcrumb. Own row, so the existing
+   baseline-aligned header flex children keep their positions. */
+header .homerow {
+  flex: 0 0 100%;
+  margin-bottom: 2px;
+}
+
+header .home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+
+header .home:hover {
+  background: rgba(255, 255, 255, .18);
+}
+
+header .home:active {
+  transform: translateY(1px);
+}
+
+header .home:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* part 2: the bar that slides in on an upward scroll. The collapsed state
+   also drops `visibility` so an off-screen bar leaves the tab order --
+   `transform` alone would keep it focusable. Delaying the visibility
+   transition until the slide finishes preserves the slide-out animation. */
+.revealbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, .14);
+  color: inherit;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(8px);
+  font-size: 10px;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform .2s ease, visibility 0s linear .2s;
+}
+
+html.dark .revealbar {
+  border-bottom-color: #2a323d;
+  background: rgba(14, 17, 22, .92);
+}
+
+.revealbar.show {
+  transform: none;
+  visibility: visible;
+  transition: transform .2s ease;
+}
+
+.revealbar a {
+  color: inherit;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.revealbar a:hover {
+  color: var(--bn-accent, inherit);
+}
+
+.revealbar a:focus-visible {
+  outline: 2px solid var(--bn-accent, currentColor);
+  outline-offset: 2px;
+}
+
+.revealbar b {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.revealbar b small {
+  margin-left: 6px;
+  font-weight: 400;
+  opacity: .7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealbar {
+    transition: none;
+  }
+}
+
+@media print {
+  .revealbar {
+    display: none;
+  }
+}
 </style>
 <style id="tk-notation">/* ============================================================
    Tekken 8 input notation component · v1.1 (final, polished)
@@ -869,7 +990,9 @@ footer {
 </style>
 </head>
 <body style="--accent:#c98fd0;--accent-ink:#542b59">
+<nav class="revealbar" aria-label="快速导航"><a href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span> 全角色</a><b>扎菲娜<small>ZAFINA</small></b></nav>
 <header id="top">
+  <div class="homerow"><a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a></div>
   <h1>扎菲娜<small>ZAFINA · 铁拳 8 出招表</small></h1>
   <div class="ntgl" id="thgl" aria-label="主题">主题<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">夜间</button><button type="button" id="thl" aria-pressed="false">浅色</button></span></div>
   <div class="ntgl" id="ntgl" aria-label="指令记法">记法<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">按键图</button><button type="button" id="nn" aria-pressed="false">无数字</button><button type="button" id="nt" aria-pressed="false">文字</button></span></div>
@@ -927,6 +1050,79 @@ footer {
   Object.entries(themeButtons).forEach(([themeName, id]) => {
     document.getElementById(id).addEventListener('click', () => setTheme(themeName));
   });
+})();
+/* ---- back navigation: character page -> hub -------------------------
+   Shared verbatim by both page families (36 generator pages via
+   build_season2.py, 5 legacy pipeline pages via patch_legacy_back_nav.py).
+   Nothing here is required for the breadcrumb to work -- that is a plain
+   <a>, and the reveal bar stays parked off-screen when this never runs.
+   ------------------------------------------------------------------- */
+(() => {
+  const HOME = 'index.html';
+  const directory = (path) => path.slice(0, path.lastIndexOf('/') + 1);
+
+  // Only when the visitor actually arrived from the hub: going back instead of
+  // navigating restores its scroll position and search term. A fresh visit
+  // (bookmark, search result, shared link) still needs a real navigation.
+  function cameFromHub() {
+    if (!document.referrer) return false;
+    let referrer;
+    try {
+      referrer = new URL(document.referrer, location.href);
+    } catch (_) {
+      return false;
+    }
+    if (referrer.origin !== location.origin) return false;
+    if (directory(referrer.pathname) !== directory(location.pathname)) return false;
+    const leaf = referrer.pathname.slice(referrer.pathname.lastIndexOf('/') + 1);
+    return leaf === '' || leaf === HOME;
+  }
+
+  document.querySelectorAll('[data-home]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0) return;
+      // never hijack open-in-new-tab / new-window
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (history.length < 2 || !cameFromHub()) return;
+      event.preventDefault();
+      history.back();
+    });
+  });
+
+  const bar = document.querySelector('.revealbar');
+  if (!bar) return;
+
+  // "Has the banner left the viewport" is the exact question, and unlike a
+  // pixel threshold it is unaffected by the 1.25 screen zoom on <body>.
+  const banner = document.getElementById('top');
+  const observable = Boolean(banner) && 'IntersectionObserver' in window;
+  let pastBanner = false;
+  if (observable) {
+    new IntersectionObserver((entries) => {
+      pastBanner = !entries[0].isIntersecting;
+      if (!pastBanner) bar.classList.remove('show');
+    }).observe(banner);
+  }
+
+  let previousY = window.scrollY;
+  let queued = false;
+
+  function update() {
+    queued = false;
+    const y = window.scrollY;
+    // Scrolling up means "I am looking for navigation". Only a deliberate
+    // downward move puts the bar away again, so jitter cannot make it blink.
+    if (!(observable ? pastBanner : y > 220)) bar.classList.remove('show');
+    else if (y < previousY - 4) bar.classList.add('show');
+    else if (y > previousY + 4) bar.classList.remove('show');
+    previousY = y;
+  }
+
+  addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2b712855303a44c2ab09217bf6703fe1"}'></script><!-- End Cloudflare Web Analytics -->

@@ -42,8 +42,14 @@ from site_analytics import (  # noqa: E402
 )
 
 
-PAGE_CSS = (TOOLS / "season2_page.css").read_text(encoding="utf-8")
-PAGE_SCRIPT = "\n" + (TOOLS / "season2_page.js").read_text(encoding="utf-8")
+PAGE_CSS = (TOOLS / "season2_page.css").read_text(encoding="utf-8") + (
+    TOOLS / "back_nav.css"
+).read_text(encoding="utf-8")
+PAGE_SCRIPT = (
+    "\n"
+    + (TOOLS / "season2_page.js").read_text(encoding="utf-8")
+    + (TOOLS / "back_nav.js").read_text(encoding="utf-8")
+)
 
 
 def load_json(path: Path) -> dict:
@@ -1602,7 +1608,9 @@ def build_page(key: str, config: dict, component_css: str) -> str:
 <style id="tk-notation">{component_css}</style>
 </head>
 <body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']}">
+<nav class="revealbar" aria-label="快速导航"><a href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span> 全角色</a><b>{escape(config['display'])}<small>{escape(config['canonical'].upper())}</small></b></nav>
 <header id="top">
+  <div class="homerow"><a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a></div>
   <h1>{escape(config['display'])}<small>{escape(config['canonical'].upper())} · 铁拳 8 出招表</small></h1>
   <div class="ntgl" id="thgl" aria-label="主题">主题<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">夜间</button><button type="button" id="thl" aria-pressed="false">浅色</button></span></div>
   <div class="ntgl" id="ntgl" aria-label="指令记法">记法<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">按键图</button><button type="button" id="nn" aria-pressed="false">无数字</button><button type="button" id="nt" aria-pressed="false">文字</button></span></div>

@@ -261,7 +261,19 @@ async function collectMetrics(page, expected) {
       storedNotation = localStorage.getItem('tk-notation');
     } catch (_) {}
 
+    const homeLinks = [...document.querySelectorAll('[data-home]')];
+    const breadcrumb = document.querySelector('header#top .home');
+    const revealbar = document.querySelector('.revealbar');
+
     return {
+      backNav: {
+        homeHrefs: homeLinks.map((link) => link.getAttribute('href')),
+        breadcrumbVisible: Boolean(breadcrumb) && isVisibleContent(breadcrumb),
+        revealbarVisibility: revealbar ? getComputedStyle(revealbar).visibility : null,
+        // fixed positioning under `zoom: 1.25` must still resolve to the
+        // viewport, not to 1.25x of it
+        revealbarWidth: revealbar ? Math.round(revealbar.getBoundingClientRect().width) : 0,
+      },
       documentOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
       bodyOverflow: document.body.scrollWidth > document.body.clientWidth + 1,
       widths: {
@@ -347,6 +359,19 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
   if (metrics.dark !== (expected.theme === 'dark')) problems.push('theme class state');
   if (expected.mode === 'nn' && !metrics.noNumberColorsValid) problems.push('no-number color');
   if (expected.mode === 'gfx' && !metrics.graphicalColorsValid) problems.push('graphical number color');
+  const backNav = metrics.backNav;
+  if (backNav.homeHrefs.length !== 2 || backNav.homeHrefs.some((href) => href !== 'index.html')) {
+    problems.push(`back nav home links: ${JSON.stringify(backNav.homeHrefs)}`);
+  }
+  if (!backNav.breadcrumbVisible) problems.push('back nav breadcrumb not visible');
+  if (backNav.revealbarVisibility !== 'hidden') {
+    problems.push(`reveal bar not parked at rest: ${backNav.revealbarVisibility}`);
+  }
+  if (Math.abs(backNav.revealbarWidth - metrics.widths.documentClient) > 1) {
+    problems.push(
+      `reveal bar width ${backNav.revealbarWidth} != viewport ${metrics.widths.documentClient}`,
+    );
+  }
   if (metrics.storedTheme !== expected.theme) problems.push(`stored theme: ${metrics.storedTheme}`);
   if (metrics.storedNotation !== expected.mode) problems.push(`stored notation: ${metrics.storedNotation}`);
   if (runtimeErrors.length) problems.push(runtimeErrors.join('; '));
@@ -367,6 +392,43 @@ async function runState(page, character, expected, runtimeErrors, results) {
   const problems = analyzeMetrics(metrics, expected, stateErrors);
   results.push({ character, ...expected, problems });
   await captureScreenshot(page, character, expected);
+}
+
+// The bar only earns its keep if an upward scroll actually summons it, so drive
+// a real scroll round-trip rather than trusting the CSS to be wired up.
+async function verifyRevealBar(page, result) {
+  const readBar = () => page.evaluate(() => {
+    const bar = document.querySelector('.revealbar');
+    return {
+      visibility: getComputedStyle(bar).visibility,
+      top: Math.round(bar.getBoundingClientRect().top),
+      overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+    };
+  });
+
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  await page.waitForTimeout(300);
+  const atBottom = await readBar();
+  if (atBottom.visibility !== 'hidden') {
+    result.problems.push(`reveal bar: shown while scrolling down (${atBottom.visibility})`);
+  }
+
+  await page.evaluate(() => window.scrollBy(0, -500));
+  await page.waitForTimeout(300);
+  const afterScrollUp = await readBar();
+  if (afterScrollUp.visibility !== 'visible' || afterScrollUp.top !== 0) {
+    result.problems.push(`reveal bar: not revealed on scroll up (${JSON.stringify(afterScrollUp)})`);
+  }
+  if (afterScrollUp.overflow) {
+    result.problems.push('reveal bar: causes horizontal overflow while shown');
+  }
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(300);
+  const backAtTop = await readBar();
+  if (backAtTop.visibility !== 'hidden') {
+    result.problems.push(`reveal bar: still shown back at the banner (${backAtTop.visibility})`);
+  }
 }
 
 async function verifyReloadPersistence(page, expected, runtimeErrors, result) {
@@ -403,6 +465,7 @@ try {
           );
         }
       }
+      await verifyRevealBar(page, results.at(-1));
       await verifyReloadPersistence(
         page,
         { width: 1480, theme: 'light', mode: 'txt', stackedLayout: false },

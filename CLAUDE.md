@@ -38,6 +38,24 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
   data-q="中文名 英文名">` 卡片并更新组头计数与搜索行总数；未上线角色用
   `<div class="card soon">` 占位（见 S3 示例）。
 
+## 角色页 → 主页 返回导航
+
+2026-07-24 起 41 页统一带两个回主页入口（spec:
+`design/specs/2026-07-24-movelist-back-navigation-design.md`，来源 Claude Design 方案 1a + 2b）：
+
+- **面包屑**：`header#top` 内第一个子元素 `.homerow > a.home`，独占一行，沿用 `.ntgl .seg`
+  的白色描边胶囊。纯 `<a href="index.html">`，断 JS 仍可用，是保底入口。
+- **上滑浮现顶栏**：`nav.revealbar`（`<body>` 首个子元素），`position:fixed` 默认收在视口外，
+  **仅在向上滚动且已离开 banner 时**滑出。收起时同时切 `visibility` —— 只用 `transform`
+  位移的元素仍会被 Tab 聚焦。是否"已离开 banner"用 `IntersectionObserver` 观察 `#top` 判定，
+  比像素阈值更可靠（`body` 有 `zoom:1.25`，像素常量在两套坐标系间含义不稳）。
+- **智能返回**：`[data-home]` 若来源是同源同目录的 `index.html` 则走 `history.back()`，
+  保住主页滚动位与搜索词；带修饰键的点击一律放行。
+
+CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐字共用**；因此只依赖
+两家都成立的东西（`color: inherit`、写死的 `--bg` 实值），强调色经 `--bn-accent` 中转，
+由各自样式块赋值一次。改动后：生成器页重建，管线页跑 `python tools/patch_legacy_back_nav.py`。
+
 ## 已完成角色
 
 **全员到齐**：基础 32 人 + S1 DLC 4 人 + S2 DLC 4 人，共 41 页（2026-07）。
@@ -184,6 +202,10 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
 - `KNOWLEDGE.md` — **约定/陷阱/事故教训知识库,新角色动工前必读**
 - `pipeline.py` — 一次式转换管线(旧 5 角色;解析器 parse_cmd 被生成器复用)
 - `build_season2.py` / `season2_config.py` / `season2_page.css` / `season2_page.js` — 全部生成器角色(36)的可重复页面生成器、配置与前端资源
+- `back_nav.css` / `back_nav.js` — **41 页共用**的返回导航（面包屑 + 上滑浮现顶栏）唯一真值,
+  由生成器拼进 PAGE_CSS/PAGE_SCRIPT,也由管线页补丁脚本注入;改这里后两边都要重新产出
+- `patch_legacy_back_nav.py` — 给 5 个管线页注入同一段返回导航的幂等补丁脚本;
+  `--check` 模式已接入门禁,页面与共享资源脱节即失败
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)
 - `scan_gfx_fallbacks.py` — 扫描 41 页 td.cmd 未图形化格子（主表回退快查）
 - `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）

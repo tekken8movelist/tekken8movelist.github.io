@@ -313,3 +313,41 @@
 - 并发动效防穿透:按行分"领地带",数学上不相交,比碰撞检测简单且稳。
 - 移除功能要连契约一起翻转:删 avatars-light 时把 assertIn 翻成 assertNotIn,
   否则死重会被悄悄加回来。
+
+## 9. 角色页返回导航的教训(2026-07-24 方案 1a + 2b)
+
+### 两条实测才敢下结论的事
+
+- **`zoom:1.25` 下的 `position:fixed` 是安全的**。担心固定元素按 zoom 放大成
+  1.25 倍视口宽、触发 `documentOverflow` 断言——实测 Chrome 正确折算了固定定位的
+  包含块:1480 与 390 两个宽度下 `barWidth === docClient`,零溢出。
+  但这是**实测结论,不是推理结论**;动 fixed 元素时重跑探针,别凭记忆。
+  (注意与第 8 节的坑区分:`getBoundingClientRect` 返回视觉像素这条仍然成立,
+  所以**滚动阈值不要写像素常量**——用 `IntersectionObserver` 观察 `#top` 判定
+  "已离开 banner",与 zoom 无关。)
+- **`transform:translateY(-100%)` 藏不掉 Tab 焦点**。位移出视口的链接仍在 Tab 序里,
+  键盘用户会把焦点丢到看不见的地方。必须同时切 `visibility`,并把它的过渡延迟到
+  位移结束(`transition: transform .2s ease, visibility 0s linear .2s`),
+  才能既退出 Tab 序又保留滑出动画。
+
+### 两套页面共用前端资源的办法
+
+生成器页与管线页的 CSS 变量命名不一致(前者 `--accent/--bg/--muted`,后者
+`--jade/--acc`),且**管线页夜间模式是给 `body` 设 `color` 而不是改 `--ink`**——
+直接 `color: var(--ink)` 在管线页夜间会得到浅色主题的墨色。
+
+`back_nav.css` / `back_nav.js` 逐字共用于 41 页,做法是只依赖两家都成立的东西:
+
+- 文字色用 `color: inherit`(继承 body,两家夜/日都对)
+- 背景写死 `rgba(255,255,255,.92)` / `html.dark` 下 `rgba(14,17,22,.92)`
+  ——恰好等于两家 `--bg` 的实值
+- 强调色经 `--bn-accent` 中转,各自样式块赋值一次
+
+**不要为图省事在补丁脚本里复制一份 CSS**:41 页的样式必须只有一份真值,否则必然漂移。
+
+### 幂等补丁脚本的坑
+
+`patch_legacy_back_nav.py` 用正则定位 banner `<header>`——law 页的攻略区**也有一个裸的
+`<header>`**,靠"后面紧跟 `<h1>`"区分。但打完补丁后面包屑 `<div>` 挤到了 `<h1>` 前面,
+第一版正则复跑即失配。**正则必须同时匹配补丁前与补丁后两种形态**,写完立刻复跑验证幂等,
+别等门禁。`--check` 模式已接入 `validate_season2.ps1`,页面与共享资源脱节即失败。

@@ -117,6 +117,11 @@ header .page-intro .en {
   opacity: .8;
 }
 
+/* back navigation lives in back_nav.css, shared with the legacy pipeline
+   pages; only the accent binding differs per page family. */
+.revealbar { --bn-accent: var(--accent-ink); }
+html.dark .revealbar { --bn-accent: var(--accent); }
+
 .ntgl {
   display: inline-flex;
   align-items: center;

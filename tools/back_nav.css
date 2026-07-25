@@ -1,0 +1,116 @@
+/* ---- back navigation: character page -> hub -------------------------
+   Shared verbatim by both page families (36 generator pages via
+   build_season2.py, 5 legacy pipeline pages via patch_legacy_back_nav.py),
+   so it may only rely on what both actually provide:
+     - `color: inherit` for ink, because the legacy pages set dark-mode ink
+       on <body> rather than on --ink;
+     - literal backgrounds, which match both families' --bg values exactly;
+     - --bn-accent, which each family binds once in its own stylesheet.
+   ------------------------------------------------------------------- */
+
+/* part 1: the always-there breadcrumb. Own row, so the existing
+   baseline-aligned header flex children keep their positions. */
+header .homerow {
+  flex: 0 0 100%;
+  margin-bottom: 2px;
+}
+
+header .home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+
+header .home:hover {
+  background: rgba(255, 255, 255, .18);
+}
+
+header .home:active {
+  transform: translateY(1px);
+}
+
+header .home:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* part 2: the bar that slides in on an upward scroll. The collapsed state
+   also drops `visibility` so an off-screen bar leaves the tab order --
+   `transform` alone would keep it focusable. Delaying the visibility
+   transition until the slide finishes preserves the slide-out animation. */
+.revealbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, .14);
+  color: inherit;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(8px);
+  font-size: 10px;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform .2s ease, visibility 0s linear .2s;
+}
+
+html.dark .revealbar {
+  border-bottom-color: #2a323d;
+  background: rgba(14, 17, 22, .92);
+}
+
+.revealbar.show {
+  transform: none;
+  visibility: visible;
+  transition: transform .2s ease;
+}
+
+.revealbar a {
+  color: inherit;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.revealbar a:hover {
+  color: var(--bn-accent, inherit);
+}
+
+.revealbar a:focus-visible {
+  outline: 2px solid var(--bn-accent, currentColor);
+  outline-offset: 2px;
+}
+
+.revealbar b {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.revealbar b small {
+  margin-left: 6px;
+  font-weight: 400;
+  opacity: .7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealbar {
+    transition: none;
+  }
+}
+
+@media print {
+  .revealbar {
+    display: none;
+  }
+}

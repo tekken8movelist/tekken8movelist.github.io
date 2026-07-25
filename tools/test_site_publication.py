@@ -46,6 +46,19 @@ class ReferenceParser(HTMLParser):
                 self.references.append((name, value))
 
 
+class ElementIdParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.ids: list[str] = []
+
+    def handle_starttag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
+        for name, value in attrs:
+            if name == "id" and value:
+                self.ids.append(value)
+
+
 class CloudflareBeaconParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
@@ -217,6 +230,39 @@ class SitePublicationContractTest(unittest.TestCase):
                 html = page.read_text(encoding="utf-8")
                 self.assertIn("@media (max-width: 640px)", html)
                 self.assertNotIn("width: 600px", html)
+
+    def test_every_character_page_can_reach_the_hub(self) -> None:
+        pages = sorted(SITE.glob("*_tk8_movelist.html"))
+        self.assertEqual(len(pages), EXPECTED_CHARACTER_PAGES)
+        for page in pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                # the breadcrumb and the reveal bar, both pointing at the hub
+                self.assertEqual(html.count('href="index.html" data-home'), 2)
+                self.assertEqual(html.count('<div class="homerow">'), 1)
+                self.assertEqual(html.count('<nav class="revealbar"'), 1)
+                # the anchor the reveal bar observes to know it cleared the banner
+                self.assertEqual(html.count('<header id="top">'), 1)
+                # the breadcrumb must survive with scripting off
+                self.assertIn(
+                    '<a class="home" href="index.html" data-home '
+                    'aria-label="返回全角色选择">',
+                    html,
+                )
+                # a bar hidden by transform alone would still take focus
+                self.assertIn("visibility: hidden;", html)
+
+    def test_character_pages_have_unique_element_ids(self) -> None:
+        # the browser gate only covers the 36 generator pages, so duplicate ids
+        # injected into the 5 legacy ones would otherwise go unnoticed
+        for page in sorted(SITE.glob("*_tk8_movelist.html")):
+            with self.subTest(page=page.name):
+                parser = ElementIdParser()
+                parser.feed(page.read_text(encoding="utf-8"))
+                duplicates = sorted(
+                    {value for value in parser.ids if parser.ids.count(value) > 1}
+                )
+                self.assertEqual(duplicates, [])
 
     def test_homepage_phone_layout_rules(self) -> None:
         html = INDEX.read_text(encoding="utf-8")

@@ -100,6 +100,7 @@ try {
     try {
         $pythonFiles = @(
             (Join-Path $PSScriptRoot 'build_season2.py'),
+            (Join-Path $PSScriptRoot 'patch_legacy_back_nav.py'),
             (Join-Path $PSScriptRoot 'season2_config.py'),
             (Join-Path $PSScriptRoot 'site_analytics.py'),
             (Join-Path $PSScriptRoot 'test_season2_pages.py'),
@@ -118,6 +119,8 @@ for value in sys.argv[1:]:
             -ArgumentList $compileArguments
         Invoke-NativeStep -Label 'Rebuild Season 2 pages' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_season2.py'), '--output-dir', $siteRoot)
+        Invoke-NativeStep -Label 'Check legacy pipeline back navigation is current' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'patch_legacy_back_nav.py'), '--check')
         Invoke-NativeStep -Label 'Run Season 2 regression tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_season2_pages', '-v')
         Invoke-NativeStep -Label 'Run Law regression tests' -FilePath $python `
