@@ -273,11 +273,40 @@ async function collectMetrics(page, expected) {
     const banner = document.querySelector('header#top');
     const portrait = document.querySelector('header#top .hero img');
     const bio = document.querySelector('header#top .hdrbio');
+    // WCAG contrast of the section headings as the browser actually resolves
+    // them. Both colours are flat here, so computed styles are the whole truth.
+    const contrastOf = (node) => {
+      if (!node) return null;
+      const parse = (value) => (value.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+      const channel = (v) => (v / 255 <= 0.03928 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
+      const luminance = ([r, g, b]) => 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+      const style = getComputedStyle(node);
+      const ink = parse(style.color);
+      // a transparent background means the ground belongs to an ancestor
+      let ground = null;
+      for (let el = node; el; el = el.parentElement) {
+        const bg = getComputedStyle(el).backgroundColor;
+        if (!/^rgba\(.*,\s*0\)$/.test(bg) && bg !== 'transparent') { ground = parse(bg); break; }
+      }
+      if (ink.length !== 3 || !ground || ground.length !== 3) return null;
+      // an opacity below 1 composites the ink back towards its ground, in sRGB
+      const alpha = Number(style.opacity);
+      const painted = ink.map((v, i) => v * alpha + ground[i] * (1 - alpha));
+      const [lit, dim] = [luminance(painted), luminance(ground)].sort((a, b) => b - a);
+      return Math.round(((lit + 0.05) / (dim + 0.05)) * 100) / 100;
+    };
+    const heading = document.querySelector('section > h2');
+    const headingEn = document.querySelector('section > h2 .en');
+
     const legendTop = document.querySelector('.legend .lgtop');
     const legendTxt = document.querySelector('.legend .lgsub.txt-only');
     const legendGfx = document.querySelector('.legend .lgsub.gfx-only');
 
     return {
+      contrast: {
+        heading: contrastOf(heading),
+        headingEn: contrastOf(headingEn),
+      },
       legend: {
         // the column key is about the table, not the notation, so it always shows
         topVisible: Boolean(legendTop) && isVisibleContent(legendTop),
@@ -416,6 +445,12 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
     );
   }
   if (metrics.storedTheme !== expected.theme) problems.push(`stored theme: ${metrics.storedTheme}`);
+  // 13px bold is below the size WCAG lets off at 3:1, so the full 4.5 applies
+  for (const [what, ratio] of Object.entries(metrics.contrast)) {
+    if (ratio === null) problems.push(`contrast: ${what} not measurable`);
+    else if (ratio < 4.5) problems.push(`contrast: ${what} is ${ratio}:1, below AA`);
+  }
+
   const legend = metrics.legend;
   if (!legend.topVisible) problems.push('legend judgement/startup row not visible');
   const wantsText = expected.mode === 'txt';
@@ -506,10 +541,21 @@ async function runLegacyLegendStates(browser, results) {
             return getComputedStyle(node).display !== 'none'
               && node.getBoundingClientRect().height > 0;
           };
+          const parse = (v) => (v.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+          const ch = (v) => (v / 255 <= 0.03928 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
+          const lum = ([r, g, b]) => 0.2126 * ch(r) + 0.7152 * ch(g) + 0.0722 * ch(b);
+          const heading = document.querySelector('section > h2');
+          let headingContrast = null;
+          if (heading) {
+            const s = getComputedStyle(heading);
+            const [hi, lo] = [lum(parse(s.color)), lum(parse(s.backgroundColor))].sort((a, b) => b - a);
+            headingContrast = Math.round(((hi + 0.05) / (lo + 0.05)) * 100) / 100;
+          }
           return {
             top: shown('.legend .lgtop'),
             txt: shown('.legend .lgsub.txt-only'),
             gfx: shown('.legend .lgsub.gfx-only'),
+            headingContrast,
           };
         });
         const problems = [];
@@ -517,6 +563,9 @@ async function runLegacyLegendStates(browser, results) {
         if (legend.top !== true) problems.push(`judgement row: ${legend.top}`);
         if (legend.txt !== wantsText) problems.push(`text half visible=${legend.txt}`);
         if (legend.gfx !== !wantsText) problems.push(`button-map half visible=${legend.gfx}`);
+        if (!(legend.headingContrast >= 4.5)) {
+          problems.push(`heading contrast ${legend.headingContrast}:1, below AA`);
+        }
         problems.push(...runtimeErrors.splice(0, runtimeErrors.length));
         results.push({ character, mode, legacy: true, problems });
       }

@@ -222,6 +222,16 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 - 屏显缩放:`@media screen { body { zoom: 1.25 } }`(4K 250% 第二屏用)。
 - 跨列大区块用布局表格 `table.lt > td.ltc`;架势区超过 2 列会在管线里改 2×2。
 - 连招表 `table.cb`:全宽、一条一行、加大行距、起手列右分隔线。
+- **白字不压原始主题色**(2026-07-25):41 个 `--accent` 是按"深色页上的点缀"选的,
+  都很浅,白字压上去从 3.2:1 一路掉到熊猫的 1.2:1(等于看不见)。凡是白字压角色色的
+  表面——分区标题 `h2`、标题带渐变亮端(`--hc-accent`)——一律改用 **`--accent-band`**:
+  由 `tools/accent_contrast.py` 把 `--accent` 朝 `--accent-ink` 压深,**逐角色**取
+  仍能让白字过 WCAG AA(4.5:1)的最大主题色比例,构建时算成字面 hex 写进页面
+  (生成器写 `<body style>`,管线页写注入的 `legacy-chrome` 块)。深色主题色角色因此
+  几乎不变,近白色角色让出大部分。**不要给这些表面上的文字加 `opacity`**——band 是按
+  不透明白字标定的,`h2 .en` 原来的 `.75` 会把 4.5 打回 3.2。
+  门禁两道:`test_site_publication` 逐页算 `--accent-band` 对比度并检查引用,
+  浏览器门禁按计算样式实测 `h2` / `h2 .en`(360 生成器状态 + 15 管线状态)。
 
 ## tools/ 目录
 
@@ -238,6 +248,8 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   tekken.com 官方 fighter 页抓取 称号/国家/拳法 的抓取器与快照(离线构建)
 - `official_profile_zh.py` — 官方英文档案 → 中文的对照表;遇到未登记词条直接报错,
   绝不让英文漏进纯中文页面
+- `accent_contrast.py` — WCAG 对比度与 `band_color()`:把主题色朝其 ink 压深到白字过 AA
+  为止,**两套页面共用**,保证是构建期可断言的,而不是 CSS 里赌一把
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)
 - `scan_gfx_fallbacks.py` — 扫描 41 页 td.cmd 未图形化格子（主表回退快查）
 - `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）

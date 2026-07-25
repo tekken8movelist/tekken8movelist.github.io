@@ -813,7 +813,13 @@ html.dark .revealbar {
 
 .revealbar { --bn-accent: var(--jade-dark); }
 html.dark .revealbar { --bn-accent: var(--acc); }
-header { --hc-accent: var(--jade); --hc-ink: var(--jade-dark); }
+body { --accent-band: #bd5367; }
+header { --hc-accent: var(--accent-band); --hc-ink: var(--jade-dark); }
+h2 { background: var(--accent-band); }
+h2 .en { opacity: 1; }
+/* these pages hard-code the active toggle's colour to `--jade`, which on Law
+   is a mid gold (#b88900, 3.2:1 on the white pill) */
+.ntgl button.on { color: var(--jade-dark); }
 .legend { --lg-line: var(--line); }
 html.dark .legend { --lg-line: #2a323d; }
 </style>

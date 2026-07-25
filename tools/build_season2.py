@@ -22,6 +22,7 @@ SITE = ROOT / "docs"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
+from accent_contrast import band_color  # noqa: E402
 from official_profile_zh import localized_profile  # noqa: E402
 from pipeline import first_step, parse_cmd  # noqa: E402
 from season2_config import (  # noqa: E402
@@ -1651,7 +1652,7 @@ def build_page(key: str, config: dict, component_css: str) -> str:
 <style>{PAGE_CSS}</style>
 <style id="tk-notation">{component_css}</style>
 </head>
-<body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']}">
+<body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']};--accent-band:{band_color(config['accent'], config['accent_ink'])}">
 <nav class="revealbar" aria-label="快速导航"><a href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span> 全角色</a><b>{escape(config['display'])}<small>{escape(config['canonical'].upper())}</small></b></nav>
 <header id="top">
 {hero}

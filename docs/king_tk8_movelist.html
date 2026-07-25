@@ -75,8 +75,11 @@ body {
   body { zoom: 1.25; }
 }
 
-/* the header card lives in header_card.css, shared with the legacy pages */
-header { --hc-accent: var(--accent); --hc-ink: var(--accent-ink); }
+/* The header card lives in header_card.css, shared with the legacy pages. The
+   band carries white text across its whole width -- breadcrumb, toggles, title,
+   profile row -- so its bright end is --accent-band, the accent deepened until
+   white clears AA (see accent_contrast.py), not the raw accent. */
+header { --hc-accent: var(--accent-band); --hc-ink: var(--accent-ink); }
 
 /* back navigation lives in back_nav.css, shared with the legacy pipeline
    pages; only the accent binding differs per page family. */
@@ -155,7 +158,8 @@ h2 {
   padding: 4px 10px;
   border-radius: 2px 2px 0 0;
   color: #fff;
-  background: var(--accent);
+  /* white on the raw accent runs from 3.2:1 down to Panda's 1.2:1 */
+  background: var(--accent-band);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -167,7 +171,10 @@ h2 .en {
   font-size: 9px;
   font-weight: 400;
   letter-spacing: 1px;
-  opacity: .75;
+  /* --accent-band is calibrated for *opaque* white, so dimming this label
+     spends the whole margin: at .75 it fell back to 3.2:1. Size, weight and
+     tracking already place it below the heading without it. */
+  opacity: 1;
 }
 
 .cols2 {
@@ -1222,7 +1229,7 @@ html.dark .revealbar {
 .tk-char-yujiro    {--tk-acc:#e5735e} /* 范马勇次郎 · 鬼背红 */
 </style>
 </head>
-<body style="--accent:#e8a04c;--accent-ink:#6a451b">
+<body style="--accent:#e8a04c;--accent-ink:#6a451b;--accent-band:#9f6b30">
 <nav class="revealbar" aria-label="快速导航"><a href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span> 全角色</a><b>金<small>KING</small></b></nav>
 <header id="top">
 <div class="hero"><img src="avatars/king.png" alt="金 · 飞白轮廓角色像" decoding="async"></div>

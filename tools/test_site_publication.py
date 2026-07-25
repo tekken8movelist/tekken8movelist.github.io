@@ -4,12 +4,18 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from xml.etree import ElementTree
 
+TOOLS = Path(__file__).resolve().parent
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from accent_contrast import AA_NORMAL_TEXT, WHITE, contrast_ratio  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "docs"
@@ -302,6 +308,43 @@ class SitePublicationContractTest(unittest.TestCase):
                     self.assertIn(rule, html)
                 # the divider needs a colour in both families
                 self.assertIn("--lg-line", html)
+
+    def test_white_text_surfaces_clear_wcag_aa_on_every_page(self) -> None:
+        # The 41 accents were picked to read as accents on a dark page, so they
+        # are pale: white on the raw accent ran from 3.2:1 down to Panda's
+        # 1.2:1. Both the section headings and the title band paint white text
+        # on the character colour, and both now use --accent-band instead.
+        pages = sorted(SITE.glob("*_tk8_movelist.html"))
+        self.assertEqual(len(pages), EXPECTED_CHARACTER_PAGES)
+        for page in pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                bands = set(re.findall(r"--accent-band:\s*(#[0-9a-fA-F]{6})", html))
+                self.assertEqual(
+                    len(bands), 1, f"{page.name}: expected one --accent-band, got {bands}"
+                )
+                band = bands.pop()
+                ratio = contrast_ratio(WHITE, band)
+                self.assertGreaterEqual(
+                    ratio,
+                    AA_NORMAL_TEXT,
+                    f"{page.name}: white on {band} is {ratio:.2f}:1",
+                )
+                # ... and that the surfaces actually reference it
+                self.assertRegex(html, r"h2\s*\{[^}]*background:\s*var\(--accent-band\)")
+                self.assertRegex(html, r"--hc-accent:\s*var\(--accent-band\)")
+                # Dimming the label would spend the whole contrast margin. The
+                # legacy pages still carry their original `.75` rule, so what
+                # matters is the last one to be declared, not the absence of it.
+                opacities = re.findall(
+                    r"h2 \.en\s*\{[^}]*?opacity:\s*([0-9.]+)", html, re.DOTALL
+                )
+                self.assertTrue(opacities, f"{page.name}: no h2 .en opacity rule")
+                self.assertEqual(
+                    opacities[-1],
+                    "1",
+                    f"{page.name}: heading label ends up at opacity {opacities[-1]}",
+                )
 
     def test_character_pages_have_unique_element_ids(self) -> None:
         # the browser gate only covers the 36 generator pages, so duplicate ids

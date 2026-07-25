@@ -33,7 +33,9 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
+from accent_contrast import band_color  # noqa: E402
 from official_profile_zh import localized_profile  # noqa: E402
+from pipeline import CONFIG as PIPELINE_CONFIG  # noqa: E402
 
 ROOT = TOOLS.parent
 SITE = ROOT / "docs"
@@ -47,15 +49,32 @@ LEGACY_PAGES = {
     "law": "law_tk8_movelist.html",
 }
 
-# these pages call the accent `--jade` / `--jade-dark`, and `--acc` in dark mode.
-# --line is a fixed light green here (dark mode overrides `.legend` border-color
-# rather than the variable), so the legend divider is bound per theme.
-ACCENT_BINDING = """
-.revealbar { --bn-accent: var(--jade-dark); }
-html.dark .revealbar { --bn-accent: var(--acc); }
-header { --hc-accent: var(--jade); --hc-ink: var(--jade-dark); }
-.legend { --lg-line: var(--line); }
-html.dark .legend { --lg-line: #2a323d; }
+def accent_binding(key: str) -> str:
+    """Bind the shared chrome's colour hooks to what these pages call things.
+
+    They name the accent `--jade` / `--jade-dark`, with `--acc` (the pale
+    variant) only in dark mode. `--line` is a fixed light green -- dark mode
+    overrides `.legend`'s border-color rather than the variable -- so the legend
+    divider is bound per theme.
+
+    `--accent-band` is the surface white text sits on: `--jade` is a mid tone
+    (Law's #b88900 gives white 3.2:1), so it is recomputed here from the same
+    accent/ink pair the pipeline used, exactly as the generator does.
+    """
+    config = PIPELINE_CONFIG[key]
+    band = band_color(config["acc"], config["acc_ink"])
+    return f"""
+.revealbar {{ --bn-accent: var(--jade-dark); }}
+html.dark .revealbar {{ --bn-accent: var(--acc); }}
+body {{ --accent-band: {band}; }}
+header {{ --hc-accent: var(--accent-band); --hc-ink: var(--jade-dark); }}
+h2 {{ background: var(--accent-band); }}
+h2 .en {{ opacity: 1; }}
+/* these pages hard-code the active toggle's colour to `--jade`, which on Law
+   is a mid gold (#b88900, 3.2:1 on the white pill) */
+.ntgl button.on {{ color: var(--jade-dark); }}
+.legend {{ --lg-line: var(--line); }}
+html.dark .legend {{ --lg-line: #2a323d; }}
 """
 
 # The per-character tail of each page's original hand-written legend, kept
@@ -225,7 +244,7 @@ def patch(key: str, text: str, css: str, script: str) -> str:
     text = SCRIPT_BLOCK.sub("", text)
     text = text.replace(
         "</head>",
-        f'<style id="legacy-chrome">{css}{ACCENT_BINDING}</style>\n</head>',
+        f'<style id="legacy-chrome">{css}{accent_binding(key)}</style>\n</head>',
         1,
     )
     text = text.replace(
