@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, isAbsolute, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -56,6 +56,12 @@ const pages = Object.fromEntries(
 if (!Object.keys(pages).length) {
   throw new Error(`CHARACTERS filter matched no pages: ${process.env.CHARACTERS}`);
 }
+// whatever is published but not generated: the one-shot pipeline pages
+const legacyPages = readdirSync(siteRoot)
+  .filter((name) => name.endsWith('_tk8_movelist.html'))
+  .filter((name) => !Object.values(allPages).includes(name))
+  .filter((name) => !onlyCharacters || onlyCharacters.has(name.replace('_tk8_movelist.html', '')))
+  .sort();
 const notationButtons = { gfx: '#ng', nn: '#nn', txt: '#nt' };
 const themeButtons = { dark: '#thd', light: '#thl' };
 const responsiveWidths = [1280, 1024, 760, 390];
@@ -267,8 +273,18 @@ async function collectMetrics(page, expected) {
     const banner = document.querySelector('header#top');
     const portrait = document.querySelector('header#top .hero img');
     const bio = document.querySelector('header#top .hdrbio');
+    const legendTop = document.querySelector('.legend .lgtop');
+    const legendTxt = document.querySelector('.legend .lgsub.txt-only');
+    const legendGfx = document.querySelector('.legend .lgsub.gfx-only');
 
     return {
+      legend: {
+        // the column key is about the table, not the notation, so it always shows
+        topVisible: Boolean(legendTop) && isVisibleContent(legendTop),
+        // exactly one notation half at a time -- see legend_card.css
+        txtVisible: Boolean(legendTxt) && isVisibleContent(legendTxt),
+        gfxVisible: Boolean(legendGfx) && isVisibleContent(legendGfx),
+      },
       headerCard: {
         // a portrait that 404s would leave the band looking merely empty
         portraitLoaded: Boolean(portrait) && portrait.complete && portrait.naturalWidth > 0,
@@ -400,6 +416,16 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
     );
   }
   if (metrics.storedTheme !== expected.theme) problems.push(`stored theme: ${metrics.storedTheme}`);
+  const legend = metrics.legend;
+  if (!legend.topVisible) problems.push('legend judgement/startup row not visible');
+  const wantsText = expected.mode === 'txt';
+  if (legend.txtVisible !== wantsText) {
+    problems.push(`legend text half visible=${legend.txtVisible} in ${expected.mode} mode`);
+  }
+  if (legend.gfxVisible === wantsText) {
+    problems.push(`legend button-map half visible=${legend.gfxVisible} in ${expected.mode} mode`);
+  }
+
   if (metrics.storedNotation !== expected.mode) problems.push(`stored notation: ${metrics.storedNotation}`);
   if (runtimeErrors.length) problems.push(runtimeErrors.join('; '));
   return problems;
@@ -458,6 +484,48 @@ async function verifyRevealBar(page, result) {
   }
 }
 
+// The 5 one-shot pipeline pages sit outside the 360-state gate -- their markup
+// predates the generator and most of its assertions do not apply. They do share
+// the notation legend, and they shipped an always-visible key for months
+// precisely because nothing ever rendered them. So check that one half hides.
+async function runLegacyLegendStates(browser, results) {
+  for (const filename of legacyPages) {
+    const character = filename.replace('_tk8_movelist.html', '');
+    const context = await browser.newContext({ viewport: { width: 1480, height: 1000 } });
+    try {
+      await stubCloudflareWebAnalytics(context);
+      const page = await context.newPage();
+      const runtimeErrors = attachRuntimeErrorCapture(page);
+      await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
+      for (const mode of ['gfx', 'nn', 'txt']) {
+        await page.locator(notationButtons[mode]).click();
+        const legend = await page.evaluate(() => {
+          const shown = (selector) => {
+            const node = document.querySelector(selector);
+            if (!node) return null;
+            return getComputedStyle(node).display !== 'none'
+              && node.getBoundingClientRect().height > 0;
+          };
+          return {
+            top: shown('.legend .lgtop'),
+            txt: shown('.legend .lgsub.txt-only'),
+            gfx: shown('.legend .lgsub.gfx-only'),
+          };
+        });
+        const problems = [];
+        const wantsText = mode === 'txt';
+        if (legend.top !== true) problems.push(`judgement row: ${legend.top}`);
+        if (legend.txt !== wantsText) problems.push(`text half visible=${legend.txt}`);
+        if (legend.gfx !== !wantsText) problems.push(`button-map half visible=${legend.gfx}`);
+        problems.push(...runtimeErrors.splice(0, runtimeErrors.length));
+        results.push({ character, mode, legacy: true, problems });
+      }
+    } finally {
+      await context.close();
+    }
+  }
+}
+
 async function verifyReloadPersistence(page, expected, runtimeErrors, result) {
   await page.reload({ waitUntil: 'load' });
   const metrics = await collectMetrics(page, expected);
@@ -470,6 +538,7 @@ assertPageFiles();
 if (screenshotDir) mkdirSync(screenshotDir, { recursive: true });
 
 const results = [];
+const legacyResults = [];
 let browser;
 try {
   browser = await chromium.launch({ executablePath: findChrome(), headless: true });
@@ -524,17 +593,24 @@ try {
       }
     }
   }
+
+  await runLegacyLegendStates(browser, legacyResults);
 } finally {
   if (browser) await browser.close();
 }
 
-const failures = results.filter((result) => result.problems.length);
+const failures = [...results, ...legacyResults].filter((result) => result.problems.length);
 const expectedStateCount = Object.keys(pages).length * 10;
+const expectedLegacyStateCount = legacyPages.length * 3;
 console.log(JSON.stringify({
   stateCount: results.length,
   expectedStateCount,
+  legacyStateCount: legacyResults.length,
+  expectedLegacyStateCount,
   failureCount: failures.length,
   screenshotDir,
   failures,
 }, null, 2));
-process.exitCode = results.length === expectedStateCount && failures.length === 0 ? 0 : 1;
+process.exitCode = results.length === expectedStateCount
+  && legacyResults.length === expectedLegacyStateCount
+  && failures.length === 0 ? 0 : 1;

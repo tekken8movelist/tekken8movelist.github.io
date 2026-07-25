@@ -8,6 +8,8 @@ script owns two of those things:
 * back navigation -- the breadcrumb and the reveal bar (`back_nav.css` / `.js`)
 * the header card  -- portrait, restructured title, official profile row
                       (`header_card.css`)
+* the legend       -- split into a notation-independent row plus one half per
+                      notation (`legend_card.css`)
 
 Both stylesheets are the single source of truth for all 41 pages; this script
 only injects them and rewrites the markup around them. Anything visual belongs
@@ -45,12 +47,56 @@ LEGACY_PAGES = {
     "law": "law_tk8_movelist.html",
 }
 
-# these pages call the accent `--jade` / `--jade-dark`, and `--acc` in dark mode
+# these pages call the accent `--jade` / `--jade-dark`, and `--acc` in dark mode.
+# --line is a fixed light green here (dark mode overrides `.legend` border-color
+# rather than the variable), so the legend divider is bound per theme.
 ACCENT_BINDING = """
 .revealbar { --bn-accent: var(--jade-dark); }
 html.dark .revealbar { --bn-accent: var(--acc); }
 header { --hc-accent: var(--jade); --hc-ink: var(--jade-dark); }
+.legend { --lg-line: var(--line); }
+html.dark .legend { --lg-line: #2a323d; }
 """
+
+# The per-character tail of each page's original hand-written legend, kept
+# verbatim: it explains this character's stances and any notation only they use,
+# and it was written against the page rather than derived, so nothing here can
+# be regenerated. Jun is the exception -- that page never explained its three
+# stances, so the codes come from `pipeline.CONFIG["jun"]["prefix"]`, the same
+# map that turned those Chinese prefixes into Wavu notation.
+LEGEND_EXTRA = {
+    "jun": "<span><b>架势</b>　幻月中=GEN　出云中=IZU　御生中=MIA</span>",
+    "xiaoyu": "<span><b>架势</b>　凤凰=凤凰架势(AOP)　背身=雨舞背身(BT)　催眠=催眠师(HYP)</span>",
+    "clive": (
+        "<span><b>专用记号</b>　qcf=下前1/4圈　~F=按住前</span>"
+        "<span><b>架势</b>　光翼=光之翼　凤凰=不死鸟瞬移　气流=上升气流</span>"
+    ),
+    "kunimitsu": "<span><b>专用记号</b>　qcf=下前1/4圈(d,d/f,f)　~F=按住前</span>",
+    "law": "<span><b>架势</b>　龙构=龙构架势(DSS)　背身=背身状态(BT)</span>",
+}
+
+LEGEND_JUDGEMENT = (
+    '<b>判定</b><span><span class="hi">上</span>=上段　<span class="md">中</span>=中段　'
+    '<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　'
+    '<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御</span>'
+    "<b>发生</b><span>首击冲击帧（i=impact，越小越快，依 Wavu）</span>"
+)
+LEGEND_KEYS = (
+    "<span><b>按键 · 方向</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　"
+    "f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上</span>"
+    "<span><b>状态 · 分隔</b>　f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　"
+    "+=同时按　~=紧接　＊蓄力</span>"
+)
+LEGEND_GFX = (
+    '<b>图形记法</b>　<span class="tk-in tk-sm"><span class="tk-b">'
+    "<i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）　"
+    '<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向　'
+    '<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住　'
+    '<span class="tk-in tk-sm"><span class="tk-n">N</span></span>=回中　'
+    '<span class="tk-in tk-sm"><span class="tk-state">架势中</span></span>=状态前缀　|　'
+    "<b>分隔</b>　› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　"
+    '<span class="tk-tbang">T!</span> 回旋'
+)
 
 STYLE_BLOCK = re.compile(
     r"\n?<style id=\"(?:back-nav|back-nav-style|legacy-chrome)\">.*?</style>", re.DOTALL
@@ -68,6 +114,15 @@ TITLE = re.compile(
 TOGGLE = re.compile(r"<div class=\"ntgl\"[^>]*>.*?</span></div>", re.DOTALL)
 PAGE_INTRO = re.compile(r"\s*<p class=\"page-intro\">.*?</p>", re.DOTALL)
 FOOTER = re.compile(r"(<footer[^>]*>)")
+# Two shapes again: pristine is one always-visible legend followed by a separate
+# `.legend.gfx-only` block; this script's own output is a single id'd block whose
+# only line starting with `</div>` is its own closing tag.
+LEGEND = re.compile(
+    r"<div class=\"legend\" id=\"notation-legend\">\n.*?\n</div>"
+    r"|<div class=\"legend\">\s*<b>指令说明</b>"
+    r".*?<div class=\"legend gfx-only\">.*?\n</div>",
+    re.DOTALL,
+)
 
 
 def build_header(key: str, block: str, slug: str) -> tuple[str, str]:
@@ -114,6 +169,17 @@ def build_header(key: str, block: str, slug: str) -> tuple[str, str]:
     return header, intro_html
 
 
+def build_legend(key: str) -> str:
+    """The judgement/startup row, plus one half per notation."""
+    return (
+        '<div class="legend" id="notation-legend">\n'
+        f'  <div class="lgtop">{LEGEND_JUDGEMENT}</div>\n'
+        f'  <div class="lgsub txt-only">{LEGEND_KEYS}{LEGEND_EXTRA[key]}</div>\n'
+        f'  <div class="lgsub gfx-only">{LEGEND_GFX}</div>\n'
+        "</div>"
+    )
+
+
 def reveal_bar(display: str, canonical: str) -> str:
     return (
         '<nav class="revealbar" aria-label="快速导航">'
@@ -138,6 +204,11 @@ def patch(key: str, text: str, css: str, script: str) -> str:
         + f'<header id="top">\n{header_inner}\n</header>'
         + text[match.end() :]
     )
+
+    legend = LEGEND.search(text)
+    if not legend:
+        raise ValueError(f"{key}: notation legend not found")
+    text = text[: legend.start()] + build_legend(key) + text[legend.end() :]
 
     # the reveal bar sits before the header, matching the tab order it has once
     # revealed
@@ -176,7 +247,7 @@ def main(argv: list[str] | None = None) -> int:
 
     css = "".join(
         (TOOLS / name).read_text(encoding="utf-8")
-        for name in ("header_card.css", "back_nav.css")
+        for name in ("header_card.css", "legend_card.css", "back_nav.css")
     )
     script = (TOOLS / "back_nav.js").read_text(encoding="utf-8")
 

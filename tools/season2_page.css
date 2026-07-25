@@ -99,6 +99,8 @@ html.dark .revealbar { --bn-accent: var(--accent); }
 }
 
 .legend {
+  /* the shared legend_card.css draws the notation divider with this */
+  --lg-line: var(--line);
   margin-bottom: 10px;
   padding: 7px 11px;
   border: 1px solid var(--line);
@@ -106,46 +108,6 @@ html.dark .revealbar { --bn-accent: var(--accent); }
   color: var(--muted);
   background: var(--paper-alt);
   font-size: 9.5px;
-}
-
-/* the always-there row: what the judgement and startup columns mean */
-.legend .lgtop {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 15px;
-  line-height: 1.7;
-}
-
-.legend .lgcount {
-  margin-left: auto;
-  opacity: .8;
-}
-
-/* notation-specific halves: the button-map key is useless in text mode, and
-   the spelled-out key/direction table is redundant once the maps are drawn */
-.legend .lgsub {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 16px;
-  margin-top: 7px;
-  padding-top: 7px;
-  border-top: 1px solid var(--line);
-  line-height: 1.7;
-}
-
-/* specificity has to match `.legend .lgsub` above, or the block stays flex */
-.legend .lgsub.txt-only {
-  display: none;
-}
-
-body.txt-mode .legend .lgsub.txt-only {
-  display: flex;
-}
-
-body.txt-mode .legend .lgsub.gfx-only {
-  display: none;
 }
 
 .legend b,
@@ -561,11 +523,6 @@ footer {
    The tk-in button-map graphics render unchanged; cram shrink tiers
    are neutralized because wrapping replaces cramming. */
 @media (max-width: 640px) {
-  .legend .lgcount {
-    flex: 0 0 100%;
-    margin-left: 0;
-  }
-
   body {
     zoom: 1;
     width: auto;

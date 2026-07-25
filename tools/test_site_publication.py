@@ -280,6 +280,29 @@ class SitePublicationContractTest(unittest.TestCase):
                         f"untranslated profile text in {page.name}: {value}",
                     )
 
+    def test_character_pages_split_the_legend_by_notation(self) -> None:
+        # the legend explains the notation in force, so the half describing the
+        # other one is noise. The legacy pages shipped a single always-visible
+        # key for months because nothing asserted this.
+        pages = sorted(SITE.glob("*_tk8_movelist.html"))
+        self.assertEqual(len(pages), EXPECTED_CHARACTER_PAGES)
+        for page in pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                self.assertEqual(html.count('<div class="lgtop">'), 1)
+                self.assertEqual(html.count('<div class="lgsub txt-only">'), 1)
+                self.assertEqual(html.count('<div class="lgsub gfx-only">'), 1)
+                # the spelled-out key belongs to text notation only
+                self.assertNotIn("<b>指令说明</b>", html)
+                for rule in (
+                    ".legend .lgsub.txt-only {",
+                    "body.txt-mode .legend .lgsub.txt-only {",
+                    "body.txt-mode .legend .lgsub.gfx-only {",
+                ):
+                    self.assertIn(rule, html)
+                # the divider needs a colour in both families
+                self.assertIn("--lg-line", html)
+
     def test_character_pages_have_unique_element_ids(self) -> None:
         # the browser gate only covers the 36 generator pages, so duplicate ids
         # injected into the 5 legacy ones would otherwise go unnoticed

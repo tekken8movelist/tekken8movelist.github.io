@@ -682,6 +682,68 @@ h2 {
 .legend {
   border-radius: 2px;
 }
+/* ---- notation-aware legend ---------------------------------------------
+   Shared verbatim by both page families (36 generator pages via
+   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
+
+   The legend answers a different question depending on the notation in force.
+   With button maps drawn, spelling out "1=左拳 … d/f=前下" describes something
+   the reader is not looking at; in text mode the button-map key describes
+   glyphs that are not on the page. So each half is bound to a notation and
+   exactly one is ever visible, while the judgement/startup row -- which is
+   about table columns, not notation -- always stays.
+
+   The rule separating the halves is a different colour in each family, so it
+   reads --lg-line, which each family binds once on `.legend`.
+   ---------------------------------------------------------------------- */
+
+/* the always-there row: what the judgement and startup columns mean */
+.legend .lgtop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 15px;
+  line-height: 1.7;
+}
+
+.legend .lgcount {
+  margin-left: auto;
+  opacity: .8;
+}
+
+.legend .lgsub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--lg-line);
+  line-height: 1.7;
+}
+
+/* Specificity has to clear two other rules: `.legend .lgsub` right above, or
+   the hidden half stays flex; and the legacy pages' own generic
+   `body.txt-mode .gfx-only { display: none }`, which is declared before this
+   file is injected and would otherwise keep the button-map key on screen. */
+.legend .lgsub.txt-only {
+  display: none;
+}
+
+body.txt-mode .legend .lgsub.txt-only {
+  display: flex;
+}
+
+body.txt-mode .legend .lgsub.gfx-only {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .legend .lgcount {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+}
 /* ---- back navigation: character page -> hub -------------------------
    Shared verbatim by both page families (36 generator pages via
    build_season2.py, 5 legacy pipeline pages via patch_legacy_back_nav.py),
@@ -797,6 +859,8 @@ html.dark .revealbar {
 .revealbar { --bn-accent: var(--jade-dark); }
 html.dark .revealbar { --bn-accent: var(--acc); }
 header { --hc-accent: var(--jade); --hc-ink: var(--jade-dark); }
+.legend { --lg-line: var(--line); }
+html.dark .legend { --lg-line: #2a323d; }
 </style>
 </head>
 
@@ -817,16 +881,10 @@ header { --hc-accent: var(--jade); --hc-ink: var(--jade-dark); }
   </div>
 </header>
 
-<div class="legend">
-  <b>指令说明</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上　|
-  f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　龙构=龙构架势(DSS)　背身=背身状态(BT)　+=同时按　~=紧接　|　<b>判定</b>：<span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御　|　<b>发生</b>=首击冲击帧(i=impact,越小越快,依 Wavu)
-</div>
-<div class="legend gfx-only">
-  <b>图形记法</b>
-  <span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）
-  <span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向
-  <span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住
-  <span class="tk-in tk-sm"><span class="tk-state">龙构中</span></span>=状态前缀　|　<b>分隔</b>：› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋
+<div class="legend" id="notation-legend">
+  <div class="lgtop"><b>判定</b><span><span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御</span><b>发生</b><span>首击冲击帧（i=impact，越小越快，依 Wavu）</span></div>
+  <div class="lgsub txt-only"><span><b>按键 · 方向</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上</span><span><b>状态 · 分隔</b>　f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　+=同时按　~=紧接　＊蓄力</span><span><b>架势</b>　龙构=龙构架势(DSS)　背身=背身状态(BT)</span></div>
+  <div class="lgsub gfx-only"><b>图形记法</b>　<span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）　<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向　<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住　<span class="tk-in tk-sm"><span class="tk-n">N</span></span>=回中　<span class="tk-in tk-sm"><span class="tk-state">架势中</span></span>=状态前缀　|　<b>分隔</b>　› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋</div>
 </div>
 
 <section>

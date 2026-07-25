@@ -1,0 +1,62 @@
+/* ---- notation-aware legend ---------------------------------------------
+   Shared verbatim by both page families (36 generator pages via
+   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
+
+   The legend answers a different question depending on the notation in force.
+   With button maps drawn, spelling out "1=左拳 … d/f=前下" describes something
+   the reader is not looking at; in text mode the button-map key describes
+   glyphs that are not on the page. So each half is bound to a notation and
+   exactly one is ever visible, while the judgement/startup row -- which is
+   about table columns, not notation -- always stays.
+
+   The rule separating the halves is a different colour in each family, so it
+   reads --lg-line, which each family binds once on `.legend`.
+   ---------------------------------------------------------------------- */
+
+/* the always-there row: what the judgement and startup columns mean */
+.legend .lgtop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 15px;
+  line-height: 1.7;
+}
+
+.legend .lgcount {
+  margin-left: auto;
+  opacity: .8;
+}
+
+.legend .lgsub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--lg-line);
+  line-height: 1.7;
+}
+
+/* Specificity has to clear two other rules: `.legend .lgsub` right above, or
+   the hidden half stays flex; and the legacy pages' own generic
+   `body.txt-mode .gfx-only { display: none }`, which is declared before this
+   file is injected and would otherwise keep the button-map key on screen. */
+.legend .lgsub.txt-only {
+  display: none;
+}
+
+body.txt-mode .legend .lgsub.txt-only {
+  display: flex;
+}
+
+body.txt-mode .legend .lgsub.gfx-only {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .legend .lgcount {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+}

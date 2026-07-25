@@ -45,7 +45,12 @@ from site_analytics import (  # noqa: E402
 
 PAGE_CSS = "".join(
     (TOOLS / name).read_text(encoding="utf-8")
-    for name in ("season2_page.css", "header_card.css", "back_nav.css")
+    for name in (
+        "season2_page.css",
+        "header_card.css",
+        "legend_card.css",
+        "back_nav.css",
+    )
 )
 PAGE_SCRIPT = (
     "\n"
