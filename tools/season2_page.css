@@ -53,69 +53,8 @@ body {
   body { zoom: 1.25; }
 }
 
-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
-  padding: 14px 18px;
-  border-radius: 8px;
-  color: #fff;
-  background: linear-gradient(
-    120deg,
-    var(--accent-ink),
-    var(--accent) 60%,
-    color-mix(in srgb, var(--accent) 72%, #fff)
-  );
-}
-
-header h1, header h2 {
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 2px;
-}
-
-/* the tips-section heading is an h2 inside <header>; keep it looking exactly
-   like the h1 it replaced by neutralizing the bare section-heading h2 rule */
-header h2 {
-  padding: 0;
-  border-radius: 0;
-  background: none;
-  color: inherit;
-}
-
-header h1 small, header h2 small {
-  margin-left: 10px;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  opacity: .85;
-}
-
-header .sub {
-  font-size: 10px;
-  opacity: .82;
-}
-
-header .page-intro {
-  flex: 0 0 100%;
-  margin-top: 6px;
-  padding: 5px 9px;
-  border-radius: 6px;
-  background: rgba(0, 0, 0, .22);
-  font-size: 11px;
-  line-height: 1.5;
-  color: inherit;
-}
-
-header .page-intro .en {
-  display: block;
-  font-size: 10px;
-  opacity: .8;
-}
+/* the header card lives in header_card.css, shared with the legacy pages */
+header { --hc-accent: var(--accent); --hc-ink: var(--accent-ink); }
 
 /* back navigation lives in back_nav.css, shared with the legacy pipeline
    pages; only the accent binding differs per page family. */
@@ -133,13 +72,14 @@ html.dark .revealbar { --bn-accent: var(--accent); }
 .ntgl .seg {
   display: inline-flex;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .45);
-  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 2px;
 }
 
 .ntgl button {
   border: 0;
   padding: 2px 10px;
+  white-space: nowrap;
   color: #fff;
   background: transparent;
   font: inherit;
@@ -160,12 +100,52 @@ html.dark .revealbar { --bn-accent: var(--accent); }
 
 .legend {
   margin-bottom: 10px;
-  padding: 6px 10px;
+  padding: 7px 11px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 2px;
   color: var(--muted);
   background: var(--paper-alt);
   font-size: 9.5px;
+}
+
+/* the always-there row: what the judgement and startup columns mean */
+.legend .lgtop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 15px;
+  line-height: 1.7;
+}
+
+.legend .lgcount {
+  margin-left: auto;
+  opacity: .8;
+}
+
+/* notation-specific halves: the button-map key is useless in text mode, and
+   the spelled-out key/direction table is redundant once the maps are drawn */
+.legend .lgsub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--line);
+  line-height: 1.7;
+}
+
+/* specificity has to match `.legend .lgsub` above, or the block stays flex */
+.legend .lgsub.txt-only {
+  display: none;
+}
+
+body.txt-mode .legend .lgsub.txt-only {
+  display: flex;
+}
+
+body.txt-mode .legend .lgsub.gfx-only {
+  display: none;
 }
 
 .legend b,
@@ -189,7 +169,7 @@ section.keep,
 
 h2 {
   padding: 4px 10px;
-  border-radius: 5px 5px 0 0;
+  border-radius: 2px 2px 0 0;
   color: #fff;
   background: var(--accent);
   font-size: 13px;
@@ -581,6 +561,11 @@ footer {
    The tk-in button-map graphics render unchanged; cram shrink tiers
    are neutralized because wrapping replaces cramming. */
 @media (max-width: 640px) {
+  .legend .lgcount {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+
   body {
     zoom: 1;
     width: auto;

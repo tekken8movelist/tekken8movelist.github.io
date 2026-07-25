@@ -1,0 +1,207 @@
+{
+  "alisa": {
+    "country": "Russia",
+    "epithet": "Destroying Automaton",
+    "style": "Thruster-Based High-Mobility Fighting Style"
+  },
+  "anna": {
+    "country": "Ireland",
+    "epithet": "Scarlet Lightning",
+    "style": "Assassination Arts"
+  },
+  "armor_king": {
+    "country": "Unknown",
+    "epithet": "Dark Supernova",
+    "style": "Pro Wrestling"
+  },
+  "asuka": {
+    "country": "Japan",
+    "epithet": "Spirited Peacemaker",
+    "style": "Kazama-Style Traditional Martial Arts"
+  },
+  "azucena": {
+    "country": "Peru",
+    "epithet": "Perfect Blend",
+    "style": "Mixed Martial Arts (Striker)"
+  },
+  "bryan": {
+    "country": "U.S.A.",
+    "epithet": "Harbinger of Chaos",
+    "style": "Kickboxing"
+  },
+  "claudio": {
+    "country": "Italy",
+    "epithet": "Banisher of Demons",
+    "style": "Sirius Exorcist Arts"
+  },
+  "clive": {
+    "country": "Grand Duchy of Rosaria",
+    "epithet": "Shield of the Undying Flame",
+    "style": "Dominant"
+  },
+  "devil_jin": {
+    "country": "None",
+    "epithet": "Black Wings of Ruin",
+    "style": "Unknown"
+  },
+  "dragunov": {
+    "country": "Russia",
+    "epithet": "White Reaper",
+    "style": "Commando Sambo"
+  },
+  "eddy": {
+    "country": "Brazil",
+    "epithet": "Indomitable Flash",
+    "style": "Capoeira"
+  },
+  "fahkumram": {
+    "country": "Thailand",
+    "epithet": "Thunderstruck",
+    "style": "Muay Thai"
+  },
+  "feng": {
+    "country": "China",
+    "epithet": "God Fist",
+    "style": "Taijiquan"
+  },
+  "heihachi": {
+    "country": "Likely Japan (Refuted by Japanese government)",
+    "epithet": "Resurrected King of Iron Fist",
+    "style": "Mishima-Style Fighting Karate"
+  },
+  "hwoarang": {
+    "country": "South Korea",
+    "epithet": "Blood Talon",
+    "style": "Taekwondo"
+  },
+  "jack8": {
+    "country": "Unknown",
+    "epithet": "High Tech Annihilator",
+    "style": "Brute Force"
+  },
+  "jin": {
+    "country": "Japan",
+    "epithet": "Lightning of Fate",
+    "style": "Karate"
+  },
+  "jun": {
+    "country": "Japan",
+    "epithet": "Light of Hope",
+    "style": "Kazama-Style Traditional Martial Arts"
+  },
+  "kazuya": {
+    "country": "None (Relinquished his Japanese nationality)",
+    "epithet": "Cold-Blooded Oppressor",
+    "style": "Mishima-Style Fighting Karate"
+  },
+  "king": {
+    "country": "Mexico",
+    "epithet": "Anger of the Beast",
+    "style": "Pro Wrestling"
+  },
+  "kuma": {
+    "country": "None",
+    "epithet": "Master of Salmon",
+    "style": "Heihachi-Style Advanced Kuma Shin Ken"
+  },
+  "kunimitsu": {
+    "country": "Japan",
+    "epithet": "Enchanted Thief",
+    "style": "Manji Ninjutsu"
+  },
+  "lars": {
+    "country": "Sweden",
+    "epithet": "The Lion of the Rebellion",
+    "style": "Tekken Force Martial Arts"
+  },
+  "law": {
+    "country": "U.S.A.",
+    "epithet": "The Legendary Dragon",
+    "style": "Martial Arts"
+  },
+  "lee": {
+    "country": "Japan",
+    "epithet": "Silver Haired Demon",
+    "style": "Martial Arts"
+  },
+  "leo": {
+    "country": "Germany",
+    "epithet": "Seeker of Truth",
+    "style": "Bajiquan"
+  },
+  "leroy": {
+    "country": "U.S.A.",
+    "epithet": "Grandmaster of Drip",
+    "style": "Wing Chun"
+  },
+  "lidia": {
+    "country": "Poland",
+    "epithet": "The Warrior Prime Minister",
+    "style": "Traditional Karate"
+  },
+  "lili": {
+    "country": "Monaco",
+    "epithet": "Fighting Heiress",
+    "style": "Self-Taught Style"
+  },
+  "miary_zo": {
+    "country": "Madagascar",
+    "epithet": "Fighting God Reborn",
+    "style": "Morengy and other African Martial Arts"
+  },
+  "nina": {
+    "country": "Ireland",
+    "epithet": "Silent Assassin",
+    "style": "Assassination Arts"
+  },
+  "panda": {
+    "country": "None",
+    "epithet": "Pretty Protector",
+    "style": "Heihachi-Style Advanced Kuma Shin Ken"
+  },
+  "paul": {
+    "country": "U.S.A.",
+    "epithet": "Hot-Blooded Destroyer",
+    "style": "Integrated Martial Arts Based on Judo"
+  },
+  "raven": {
+    "country": "Unknown",
+    "epithet": "Shadow Agent",
+    "style": "Ninjitsu"
+  },
+  "reina": {
+    "country": "Unknown",
+    "epithet": "Purple Lightning",
+    "style": "Unknown"
+  },
+  "shaheen": {
+    "country": "Saudi Arabia",
+    "epithet": "Desert Falcon",
+    "style": "Close Quarters Combat"
+  },
+  "steve": {
+    "country": "United Kingdom",
+    "epithet": "Counter-Punching Paragon",
+    "style": "Boxing"
+  },
+  "victor": {
+    "country": "France",
+    "epithet": "Refined Violence",
+    "style": "Super Spy CQB"
+  },
+  "xiaoyu": {
+    "country": "China",
+    "epithet": "Dancing Phoenix",
+    "style": "Baguazhang, Piguazhang-based Chinese Martial Arts​"
+  },
+  "yoshimitsu": {
+    "country": "None (Formely Japan)",
+    "epithet": "Mechanized Space Ninja",
+    "style": "Advanced Manji Ninjutsu"
+  },
+  "zafina": {
+    "country": "Unknown",
+    "epithet": "Mystic Stargazer",
+    "style": "Ancient Assassination Arts"
+  }
+}

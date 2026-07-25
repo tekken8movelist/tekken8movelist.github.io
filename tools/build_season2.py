@@ -22,6 +22,7 @@ SITE = ROOT / "docs"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
+from official_profile_zh import localized_profile  # noqa: E402
 from pipeline import first_step, parse_cmd  # noqa: E402
 from season2_config import (  # noqa: E402
     CHARACTERS,
@@ -42,9 +43,10 @@ from site_analytics import (  # noqa: E402
 )
 
 
-PAGE_CSS = (TOOLS / "season2_page.css").read_text(encoding="utf-8") + (
-    TOOLS / "back_nav.css"
-).read_text(encoding="utf-8")
+PAGE_CSS = "".join(
+    (TOOLS / name).read_text(encoding="utf-8")
+    for name in ("season2_page.css", "header_card.css", "back_nav.css")
+)
 PAGE_SCRIPT = (
     "\n"
     + (TOOLS / "season2_page.js").read_text(encoding="utf-8")
@@ -1456,6 +1458,27 @@ def render_system_sections(
     return heat_section + ten_section
 
 
+def stance_summary(config: dict, translation: dict) -> str:
+    """Chinese stance names plus their Wavu codes, for the header bio row.
+
+    Derived from data the page already carries, so it states nothing that the
+    move tables below do not already show.
+    """
+    names = translation.get("section_names", {})
+    chips = []
+    for section in config["stance_sections"]:
+        chinese = names.get(section)
+        if not chinese:
+            continue
+        # keep the short Wavu code (CD, ZEN, AOP) but not sections whose name
+        # simply starts with an English word ("Mist Step", "Wind God Step") --
+        # this row is Chinese, and a stray "Mist" reads as a translation miss
+        head = section.split(" ", 1)[0].strip()
+        code = head if re.fullmatch(r"[A-Z0-9]{2,5}", head) else ""
+        chips.append(f"{chinese} {code}" if code else chinese)
+    return " · ".join(chips)
+
+
 def build_page(key: str, config: dict, component_css: str) -> str:
     source = load_json(TOOLS / "source" / f"{key}.json")
     translation = load_json(TOOLS / "source" / f"{key}_zh.json")
@@ -1540,6 +1563,22 @@ def build_page(key: str, config: dict, component_css: str) -> str:
     page_url = f"https://tekken8movelist.github.io/{config['filename']}"
     avatar_slug = config["filename"].removesuffix("_tk8_movelist.html")
     og_image = f"https://tekken8movelist.github.io/avatars/{avatar_slug}.png"
+    profile = localized_profile(key)
+    bio_rows = "".join(
+        f"<div><dt>{label}</dt><dd>{escape(value)}</dd></div>"
+        for label, value in (
+            ("国家", profile["country_zh"]),
+            ("拳法", profile["style_zh"]),
+            ("架势", stance_summary(config, translation)),
+        )
+        if value
+    )
+    header_bio = f'<dl class="hdrbio">{bio_rows}</dl>' if bio_rows else ""
+    hero = (
+        f'<div class="hero"><img src="avatars/{avatar_slug}.png" '
+        f'alt="{escape(config["display"], quote=True)} · 飞白轮廓角色像" '
+        f'decoding="async"></div>'
+    )
     json_ld = json.dumps(
         {
             "@context": "https://schema.org",
@@ -1610,22 +1649,31 @@ def build_page(key: str, config: dict, component_css: str) -> str:
 <body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']}">
 <nav class="revealbar" aria-label="快速导航"><a href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span> 全角色</a><b>{escape(config['display'])}<small>{escape(config['canonical'].upper())}</small></b></nav>
 <header id="top">
-  <div class="homerow"><a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a></div>
-  <h1>{escape(config['display'])}<small>{escape(config['canonical'].upper())} · 铁拳 8 出招表</small></h1>
-  <div class="ntgl" id="thgl" aria-label="主题">主题<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">夜间</button><button type="button" id="thl" aria-pressed="false">浅色</button></span></div>
-  <div class="ntgl" id="ntgl" aria-label="指令记法">记法<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">按键图</button><button type="button" id="nn" aria-pressed="false">无数字</button><button type="button" id="nt" aria-pressed="false">文字</button></span></div>
-  <div class="sub">上段 <span style="color:#9fc9ff">■</span>　中段 <span style="color:#ffd18a">■</span>　下段 <span style="color:#ff9d9d">■</span></div>
-  <p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>
+{hero}
+  <div class="hdrmain">
+    <div class="hdrtop">
+      <a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a>
+      <div class="hdrctl">
+        <div class="ntgl" id="thgl" aria-label="主题">主题<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">夜间</button><button type="button" id="thl" aria-pressed="false">浅色</button></span></div>
+        <div class="ntgl" id="ntgl" aria-label="指令记法">记法<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">按键图</button><button type="button" id="nn" aria-pressed="false">无数字</button><button type="button" id="nt" aria-pressed="false">文字</button></span></div>
+      </div>
+    </div>
+    <h1>{escape(config['display'])}<small>{escape(config['canonical'])}</small><span class="hsub">铁拳 8 出招表</span></h1>
+    {header_bio}
+  </div>
 </header>
-<div class="legend"><b>指令说明</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上　|　f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　+=同时按　~=紧接　|　<b>判定</b>：<span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　|　<b>发生</b>=首击冲击帧（i=impact，越小越快，依 Wavu）　|　{move_count} 条源记录 / {visible_move_count} 条表内招式 / {frame_count} 条有发生帧{collapsed_note}</div>
-<div class="legend gfx-only"><b>图形记法</b>　<span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）　<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向　<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住　<span class="tk-in tk-sm"><span class="tk-n">N</span></span>=回中　<span class="tk-in tk-sm"><span class="tk-state">架势中</span></span>=状态前缀　|　<b>分隔</b>：› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋</div>
+<div class="legend">
+  <div class="lgtop"><b>判定</b><span><span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御</span><b>发生</b><span>首击冲击帧（i=impact，越小越快，依 Wavu）</span><span class="lgcount">{move_count} 条源记录 / {visible_move_count} 条表内招式 / {frame_count} 条有发生帧{collapsed_note}</span></div>
+  <div class="lgsub txt-only"><span><b>按键 · 方向</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上</span><span><b>状态 · 分隔</b>　f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　+=同时按　~=紧接　＊蓄力</span></div>
+  <div class="lgsub gfx-only"><b>图形记法</b>　<span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）　<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向　<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住　<span class="tk-in tk-sm"><span class="tk-n">N</span></span>=回中　<span class="tk-in tk-sm"><span class="tk-state">架势中</span></span>=状态前缀　|　<b>分隔</b>　› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋</div>
+</div>
 <main>
   <div id="movelist" data-source-record-count="{move_count}" data-visible-record-count="{visible_move_count}">{sections}</div>
   <section class="tipsPage" id="combos">
     <header><h2>进阶攻略<small>{escape(config['display'])} · Wavu Wiki 连招数据</small></h2></header>
     <div class="legend">仅收录 Wavu 连招页实际存在的 {combo_count} 条路线；原始记法与伤害标注保持不变（方括号数字为该段伤害，如 [25]），占位内容已剔除，不补写未经来源验证的打法。{marker_note}</div>
     {combo_html}
-    <footer id="sources">数据来源：<a href="{escape(movelist_url, quote=True)}">Wavu Wiki movelist</a> · 打法参考：<a href="{escape(combos_url, quote=True)}">Wavu Wiki combos</a> · 招式名为中文意译，供参考；发生帧表示首击冲击帧。</footer>
+    <footer id="sources"><p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>数据来源：<a href="{escape(movelist_url, quote=True)}">Wavu Wiki movelist</a> · 打法参考：<a href="{escape(combos_url, quote=True)}">Wavu Wiki combos</a> · 角色资料（国家 · 拳法）来自 <a href="https://tekken.com/fighters/">TEKKEN 8 官方网站</a> · 招式名为中文意译，供参考；发生帧表示首击冲击帧。</footer>
   </section>
 </main>
 <script>{PAGE_SCRIPT}</script>

@@ -264,8 +264,22 @@ async function collectMetrics(page, expected) {
     const homeLinks = [...document.querySelectorAll('[data-home]')];
     const breadcrumb = document.querySelector('header#top .home');
     const revealbar = document.querySelector('.revealbar');
+    const banner = document.querySelector('header#top');
+    const portrait = document.querySelector('header#top .hero img');
+    const bio = document.querySelector('header#top .hdrbio');
 
     return {
+      headerCard: {
+        // a portrait that 404s would leave the band looking merely empty
+        portraitLoaded: Boolean(portrait) && portrait.complete && portrait.naturalWidth > 0,
+        portraitSrc: portrait ? portrait.getAttribute('src') : null,
+        portraitVisible: Boolean(portrait) && isVisibleContent(portrait)
+          && portrait.getBoundingClientRect().width > 8,
+        bioValues: bio ? [...bio.querySelectorAll('dd')].map((dd) => dd.textContent.trim()) : [],
+        // the whole point of treatment A: the band absorbs the portrait and the
+        // content column keeps its width, so the band must not scroll sideways
+        bannerOverflow: Boolean(banner) && banner.scrollWidth > banner.clientWidth + 1,
+      },
       backNav: {
         homeHrefs: homeLinks.map((link) => link.getAttribute('href')),
         breadcrumbVisible: Boolean(breadcrumb) && isVisibleContent(breadcrumb),
@@ -359,6 +373,19 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
   if (metrics.dark !== (expected.theme === 'dark')) problems.push('theme class state');
   if (expected.mode === 'nn' && !metrics.noNumberColorsValid) problems.push('no-number color');
   if (expected.mode === 'gfx' && !metrics.graphicalColorsValid) problems.push('graphical number color');
+  const headerCard = metrics.headerCard;
+  if (!headerCard.portraitLoaded) {
+    problems.push(`portrait not loaded: ${headerCard.portraitSrc}`);
+  }
+  if (!headerCard.portraitVisible) problems.push('portrait not visible in the band');
+  if (headerCard.bannerOverflow) problems.push('header band overflows horizontally');
+  if (headerCard.bioValues.length < 2) {
+    problems.push(`profile row: ${JSON.stringify(headerCard.bioValues)}`);
+  }
+  if (headerCard.bioValues.some((value) => /[A-Za-z]{4,}/.test(value))) {
+    problems.push(`untranslated profile text: ${JSON.stringify(headerCard.bioValues)}`);
+  }
+
   const backNav = metrics.backNav;
   if (backNav.homeHrefs.length !== 2 || backNav.homeHrefs.some((href) => href !== 'index.html')) {
     problems.push(`back nav home links: ${JSON.stringify(backNav.homeHrefs)}`);

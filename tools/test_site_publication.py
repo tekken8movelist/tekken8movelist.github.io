@@ -239,7 +239,7 @@ class SitePublicationContractTest(unittest.TestCase):
                 html = page.read_text(encoding="utf-8")
                 # the breadcrumb and the reveal bar, both pointing at the hub
                 self.assertEqual(html.count('href="index.html" data-home'), 2)
-                self.assertEqual(html.count('<div class="homerow">'), 1)
+                self.assertEqual(html.count('<div class="hdrtop">'), 1)
                 self.assertEqual(html.count('<nav class="revealbar"'), 1)
                 # the anchor the reveal bar observes to know it cleared the banner
                 self.assertEqual(html.count('<header id="top">'), 1)
@@ -251,6 +251,34 @@ class SitePublicationContractTest(unittest.TestCase):
                 )
                 # a bar hidden by transform alone would still take focus
                 self.assertIn("visibility: hidden;", html)
+
+    def test_character_pages_show_portrait_and_official_profile(self) -> None:
+        pages = sorted(SITE.glob("*_tk8_movelist.html"))
+        self.assertEqual(len(pages), EXPECTED_CHARACTER_PAGES)
+        for page in pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                slug = page.name.removesuffix("_tk8_movelist.html")
+                # the portrait is set into the header band, and the file it
+                # points at has to exist inside the publication root
+                self.assertEqual(html.count('<div class="hero">'), 1)
+                self.assertIn(f'<img src="avatars/{slug}.png"', html)
+                self.assertTrue((SITE / "avatars" / f"{slug}.png").is_file())
+                # country and fighting style, taken from the official site
+                self.assertEqual(html.count('<dl class="hdrbio">'), 1)
+                self.assertIn("<dt>国家</dt>", html)
+                self.assertIn("<dt>拳法</dt>", html)
+                # ... and nothing left in English inside that row
+                bio = re.search(r'<dl class="hdrbio">(.*?)</dl>', html, re.DOTALL)
+                self.assertIsNotNone(bio)
+                values = re.findall(r"<dd>(.*?)</dd>", bio.group(1))
+                self.assertTrue(values)
+                for value in values:
+                    self.assertNotRegex(
+                        value,
+                        r"[A-Za-z]{4,}",
+                        f"untranslated profile text in {page.name}: {value}",
+                    )
 
     def test_character_pages_have_unique_element_ids(self) -> None:
         # the browser gate only covers the 36 generator pages, so duplicate ids

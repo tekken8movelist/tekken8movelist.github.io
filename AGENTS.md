@@ -20,7 +20,8 @@ Do not recreate generated HTML at the repository root. Do not treat ignored desi
 
 - Do not hand-edit generated pages covered by `tools/build_season2.py`. Update the structured source or generator and rebuild.
 - The five legacy pipeline pages (`xiaoyu`, `jun`, `kunimitsu`, `clive`, and `law`) use `tools/pipeline.py`; read `CLAUDE.md` and `tools/KNOWLEDGE.md` before changing them.
-- Back navigation is shared by both page families through `tools/back_nav.css` and `tools/back_nav.js`. Edit those, then rebuild the generator pages and re-run `tools/patch_legacy_back_nav.py` for the five legacy ones; never patch either family by hand.
+- The header card and back navigation are shared by both page families through `tools/header_card.css`, `tools/back_nav.css`, and `tools/back_nav.js`. Edit those, then rebuild the generator pages and re-run `tools/patch_legacy_pages.py` for the five legacy ones; never patch either family by hand.
+- Character country and fighting style come from `tools/source/official_profiles.json`, snapshotted from tekken.com. Refresh it with `tools/fetch_official_profiles.py`; add any new vocabulary to `tools/official_profile_zh.py` rather than letting English reach a page.
 - `docs/index.html` may be edited directly, but preserve relative links so the site works from the GitHub Pages root and a local `docs/` server.
 - Keep public attribution and the unofficial/non-commercial/non-affiliation disclaimer intact unless the underlying sources or rights context changes.
 - Never commit local QA screenshots, avatar experiments, design exports, caches, or backup folders.

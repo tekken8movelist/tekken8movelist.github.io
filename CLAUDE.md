@@ -38,6 +38,25 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
   data-q="中文名 英文名">` 卡片并更新组头计数与搜索行总数；未上线角色用
   `<div class="card soon">` 占位（见 S3 示例）。
 
+## 角色页标题带（2026-07-25 改版，Claude Design 方案 A「铭牌」）
+
+41 页共用同一张标题带（spec 来源：Claude Design `Character Page · Avatar.dc.html`，
+treatment A）：
+
+- **头像编入标题带**：`header > .hero > img`，用横竖双向遮罩 `mask-composite: intersect`
+  溶进渐变。选 A 而非 B（边栏）是因为实测——版心 1120px × `zoom:1.25` 后，
+  1480px 视口只剩 64px 留白，B 承诺的「表格宽度不变」要 ≥1700px 才成立。
+- **深色垫板**：`.hero::before` 是一块同样遮罩、`opacity:.5` 的 `#0a0d11`。头像是
+  深底白描，只有 `mix-blend-mode: lighten` 才能抠掉黑底，而 lighten 只在深色背景上
+  成立——熊猫/莉莉这类近白主题色下头像会整个消失。垫板让它无论主题色深浅都落在深底上。
+- **切换上移**：主题/记法两组切换进入 `.hdrtop` 右侧，与返回面包屑同行。
+- **官方档案行** `dl.hdrbio`：国家 · 拳法 · 架势。前两项来自 tekken.com 官方 fighter
+  页（`fetch_official_profiles.py` 抓取 → `official_profile_zh.py` 译），架势由
+  `stance_sections` + `{key}_zh.json` 的 `section_names` 推导。**不写「定位/打法评价」**
+  ——那是主观内容，与「不补写未经来源验证」相抵触。
+- **图例按记法切换**：`.lgsub.gfx-only`（按键图/无数字）与 `.lgsub.txt-only`（文字）
+  互斥；`page-intro` 从标题带移到页脚。
+
 ## 角色页 → 主页 返回导航
 
 2026-07-24 起 41 页统一带两个回主页入口（spec:
@@ -202,10 +221,15 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 - `KNOWLEDGE.md` — **约定/陷阱/事故教训知识库,新角色动工前必读**
 - `pipeline.py` — 一次式转换管线(旧 5 角色;解析器 parse_cmd 被生成器复用)
 - `build_season2.py` / `season2_config.py` / `season2_page.css` / `season2_page.js` — 全部生成器角色(36)的可重复页面生成器、配置与前端资源
-- `back_nav.css` / `back_nav.js` — **41 页共用**的返回导航（面包屑 + 上滑浮现顶栏）唯一真值,
-  由生成器拼进 PAGE_CSS/PAGE_SCRIPT,也由管线页补丁脚本注入;改这里后两边都要重新产出
-- `patch_legacy_back_nav.py` — 给 5 个管线页注入同一段返回导航的幂等补丁脚本;
+- `header_card.css` / `back_nav.css` / `back_nav.js` — **41 页共用**的标题带（头像 +
+  标题 + 官方档案行）与返回导航（面包屑 + 上滑浮现顶栏）唯一真值,由生成器拼进
+  PAGE_CSS/PAGE_SCRIPT,也由管线页补丁脚本注入;改这里后两边都要重新产出
+- `patch_legacy_pages.py` — 给 5 个管线页注入同一套标题带与返回导航的幂等补丁脚本;
   `--check` 模式已接入门禁,页面与共享资源脱节即失败
+- `fetch_official_profiles.py` / `source/official_profiles.json` — 从
+  tekken.com 官方 fighter 页抓取 称号/国家/拳法 的抓取器与快照(离线构建)
+- `official_profile_zh.py` — 官方英文档案 → 中文的对照表;遇到未登记词条直接报错,
+  绝不让英文漏进纯中文页面
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)
 - `scan_gfx_fallbacks.py` — 扫描 41 页 td.cmd 未图形化格子（主表回退快查）
 - `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）

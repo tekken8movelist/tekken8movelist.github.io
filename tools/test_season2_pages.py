@@ -1075,8 +1075,12 @@ class Season2BuildTests(unittest.TestCase):
                 self.assertIn(cfg["css_class"], html)
                 self.assertIn(cfg["movelist"], html)
                 self.assertIn(cfg["combos"], html)
+                # the intro paragraph now opens the footer, ahead of the sources
                 self.assertIn(
-                    f'<footer id="sources">数据来源：<a href="{cfg["movelist"]}">'
+                    f'<footer id="sources"><p class="page-intro">', html
+                )
+                self.assertIn(
+                    f'数据来源：<a href="{cfg["movelist"]}">'
                     f'Wavu Wiki movelist</a> · 打法参考：<a href="{cfg["combos"]}">'
                     "Wavu Wiki combos</a>",
                     html,
@@ -1091,7 +1095,8 @@ class Season2BuildTests(unittest.TestCase):
                 if cfg["combos_count"]:
                     self.assertIn('class="cb"', html)
                 for obsolete_class in (
-                    "hero",
+                    # "hero" was retired from this list in 2026-07: it is now
+                    # the portrait slot in the header card, not dead markup
                     "quick-nav",
                     "move-section",
                     "combo-list",
@@ -1219,13 +1224,22 @@ class Season2BuildTests(unittest.TestCase):
             with self.subTest(character=key):
                 html = (self.output_dir / cfg["filename"]).read_text(encoding="utf-8")
 
-                # 1a: the breadcrumb is a plain <a>, so it works without JS
+                # the breadcrumb is a plain <a>, so it works without JS
                 self.assertIn(
-                    '<div class="homerow"><a class="home" href="index.html" '
-                    'data-home aria-label="返回全角色选择">'
-                    '<span aria-hidden="true">←</span>全角色出招表</a></div>',
+                    '<a class="home" href="index.html" data-home '
+                    'aria-label="返回全角色选择">'
+                    '<span aria-hidden="true">←</span>全角色出招表</a>',
                     html,
                 )
+                # the portrait is set into the band, not floated over the tables
+                slug = cfg["filename"].removesuffix("_tk8_movelist.html")
+                self.assertIn(
+                    f'<div class="hero"><img src="avatars/{slug}.png"', html
+                )
+                # theme and notation toggles moved into the header's top row
+                self.assertIn('<div class="hdrctl">', html)
+                # the intro paragraph now lives in the footer
+                self.assertNotIn('<p class="page-intro">', html.split("<main>")[0])
                 # 2b: the reveal bar precedes the header, matching the tab order
                 # it has once revealed, and names the character it belongs to
                 self.assertIn(
