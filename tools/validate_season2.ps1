@@ -104,6 +104,10 @@ try {
             (Join-Path $PSScriptRoot 'official_profile_zh.py'),
             (Join-Path $PSScriptRoot 'season2_config.py'),
             (Join-Path $PSScriptRoot 'site_analytics.py'),
+            (Join-Path $PSScriptRoot 'locales.py'),
+            (Join-Path $PSScriptRoot 'zh_hant.py'),
+            (Join-Path $PSScriptRoot 'test_locales.py'),
+            (Join-Path $PSScriptRoot 'test_zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_season2_pages.py'),
             (Join-Path $PSScriptRoot 'test_law_page.py'),
             (Join-Path $PSScriptRoot 'test_site_analytics.py'),
@@ -122,6 +126,10 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_season2.py'), '--output-dir', $siteRoot)
         Invoke-NativeStep -Label 'Check legacy pipeline pages match the shared chrome' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'patch_legacy_pages.py'), '--check')
+        Invoke-NativeStep -Label 'Run locale table tests' -FilePath $python `
+            -ArgumentList @('-B', '-m', 'unittest', 'tools.test_locales', '-v')
+        Invoke-NativeStep -Label 'Run Traditional conversion tests' -FilePath $python `
+            -ArgumentList @('-B', '-m', 'unittest', 'tools.test_zh_hant', '-v')
         Invoke-NativeStep -Label 'Run Season 2 regression tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_season2_pages', '-v')
         Invoke-NativeStep -Label 'Run Law regression tests' -FilePath $python `
