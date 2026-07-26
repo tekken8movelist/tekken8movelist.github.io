@@ -12,6 +12,7 @@ import json
 import re
 import sys
 from collections import OrderedDict, defaultdict
+from functools import lru_cache
 from html import escape
 from pathlib import Path
 
@@ -26,18 +27,20 @@ from accent_contrast import band_color  # noqa: E402
 from locales import (  # noqa: E402
     DEFAULT_LOCALE,
     LOCALES,
+    alternate_links,
     asset_href,
+    notation,
     public_url,
     strings,
 )
 from official_profile_zh import localized_profile  # noqa: E402
+from zh_hant import convert, convert_translation  # noqa: E402
 from pipeline import first_step, parse_cmd  # noqa: E402
 from season2_config import (  # noqa: E402
     CHARACTERS,
     COMBO_SECTION_NAMES,
     COMMON_COMMAND_ALIASES,
     COMMON_PREFIXES,
-    COMMON_STATES,
     GLUED_COMBO_ANNOTATION,
     KNOWN_AGGREGATE_DAMAGE,
     KNOWN_BIG_DAMAGE,
@@ -49,6 +52,17 @@ from site_analytics import (  # noqa: E402
     CLOUDFLARE_WEB_ANALYTICS_TOKEN,
     inject_cloudflare_web_analytics,
 )
+
+
+# The command column's state-capsule vocabulary, per locale. Cached because
+# every rendered command asks for it and the Traditional column is built by
+# running the Simplified one through the converter.
+@lru_cache(maxsize=None)
+def notation_for(locale: str) -> dict:
+    return notation(locale, COMMON_PREFIXES, COMMON_COMMAND_ALIASES)
+
+
+NOTATION_DEFAULT = notation_for(DEFAULT_LOCALE)
 
 
 PAGE_CSS = "".join(
@@ -203,21 +217,32 @@ def validate_damage_fields(key: str, source: dict) -> None:
         )
 
 
-def state_label(value: str) -> str:
-    if value.endswith(("中", "时", "后", "姿势")):
+def state_label(value: str, nt: dict | None = None) -> str:
+    """A stance name as it reads inside a capsule.
+
+    Chinese stance names want a trailing 中 / 时 unless they already end
+    in one; English capsules carry Wavu's own code and want nothing
+    appended, which is what an empty stateSuffix expresses.
+    """
+    suffix = (nt or NOTATION_DEFAULT)["stateSuffix"]
+    # both scripts: a Traditional 時 / 後 / 姿勢 ends a state name just as its
+    # Simplified form does, and missing that appends a second 中 to every
+    # converted capsule (對手倒地時中)
+    if not suffix or value.endswith(("中", "时", "時", "后", "後", "姿势", "姿勢")):
         return value
-    return value + "中"
+    return value + suffix
 
 
 def strip_state_prefixes(
-    command: str, stance_names: dict[str, str]
+    command: str, stance_names: dict[str, str], nt: dict | None = None
 ) -> tuple[str, list[str], list[tuple[str, str]]]:
+    nt = nt or NOTATION_DEFAULT
     remaining = command.replace("\u200b", "")
     labels = []
-    prefixes = OrderedDict(COMMON_PREFIXES)
+    prefixes = OrderedDict(nt["prefixes"])
     for code, name in stance_names.items():
         token = code if code.endswith(".") else code + "."
-        prefixes[token] = state_label(name)
+        prefixes[token] = state_label(name, nt)
     ordered = sorted(prefixes.items(), key=lambda item: len(item[0]), reverse=True)
     while remaining:
         for token, label in ordered:
@@ -231,14 +256,19 @@ def strip_state_prefixes(
     return remaining, labels, ordered
 
 
-def text_command(command: str, stance_names: dict[str, str]) -> str:
-    remaining, labels, ordered = strip_state_prefixes(command, stance_names)
+def text_command(
+    command: str, stance_names: dict[str, str], nt: dict | None = None
+) -> str:
+    remaining, labels, ordered = strip_state_prefixes(command, stance_names, nt)
     for token, label in ordered:
         remaining = remaining.replace("," + token, "," + label + " ")
     return " ".join(labels + [remaining])
 
 
-def expand_command(command: str, stance_names: dict[str, str]) -> tuple[str, list[str]]:
+def expand_command(
+    command: str, stance_names: dict[str, str], nt: dict | None = None
+) -> tuple[str, list[str]]:
+    nt = nt or NOTATION_DEFAULT
     # wavu case quirks: "(back_to_wall)b,b,ub" / lowercase stance codes
     command = re.sub(r"^\(back_to_wall\)\.?", "(Back_to_wall).", command, flags=re.I)
     for code in sorted(stance_names, key=len, reverse=True):
@@ -246,28 +276,28 @@ def expand_command(command: str, stance_names: dict[str, str]) -> tuple[str, lis
             command = re.sub(
                 rf"(?<![A-Za-z]){code}(?=[.~,:]|$)", code, command, flags=re.I
             )
-    command = COMMON_COMMAND_ALIASES.get(command.casefold(), command)
-    remaining, labels, ordered = strip_state_prefixes(command, stance_names)
+    command = nt["aliases"].get(command.casefold(), command)
+    remaining, labels, ordered = strip_state_prefixes(command, stance_names, nt)
 
     for token, label in ordered:
         remaining = remaining.replace("," + token, "," + label)
         remaining = remaining.replace(":" + token, ":" + label + " ")
 
-    parry_label = state_label(stance_names.get("P", "防反成功后"))
+    parry_label = state_label(stance_names.get("P", nt["parryDefault"]), nt)
     remaining = re.sub(r"(?:(?<=,)|^)P(?=,|$|_\()", parry_label, remaining)
     # parry follow-up prefixes: "P.2" / "P:b+2" / "b+1+3,P.4" / "ub+1.P.4"
     remaining = re.sub(
         r"(?:(?<=^)|(?<=,)|(?<=\.))P[.:]\s*", parry_label + " ", remaining
     )
     # hit-level variants: "_(High)" / "_(Low)" trailing the command
-    remaining = re.sub(r"_\(High\)$", " （上段）", remaining, flags=re.I)
-    remaining = re.sub(r"_\(Low\)$", " （下段）", remaining, flags=re.I)
+    remaining = re.sub(r"_\(High\)$", nt["levelHigh"], remaining, flags=re.I)
+    remaining = re.sub(r"_\(Low\)$", nt["levelLow"], remaining, flags=re.I)
     # wavu notation quirks: lowercase ss / BT+n / mid-string lowercase
     # neutral / charge-level "*(n)"
     remaining = re.sub(r"^ss(?=[1-4])", "SS+", remaining)
     remaining = re.sub(
         r"^BT\+?(?=[1-4])",
-        state_label(stance_names.get("BT", "背身时")) + " ",
+        state_label(stance_names.get("BT", nt["btDefault"]), nt) + " ",
         remaining,
     )
     # lowercase cd at start: stance "CD+1" (jin) or crouch dash otherwise
@@ -275,17 +305,19 @@ def expand_command(command: str, stance_names: dict[str, str]) -> tuple[str, lis
         remaining = re.sub(r"^cd(?=[.+])", "CD", remaining)
     remaining = re.sub(
         r"^CD\+(?=[1-4])",
-        state_label(stance_names.get("CD", "蹲步中")) + " ",
+        state_label(stance_names.get("CD", nt["cdDefault"]), nt) + " ",
         remaining,
     )
     remaining = re.sub(r"(?<=,)n(?=[+,]|$)", "N", remaining)
     remaining = re.sub(r"(?<=[~,])n$", "N", remaining)
-    remaining = re.sub(r"\*\((\d+)\)", lambda m: f"* (蓄{m.group(1)}段)", remaining)
+    remaining = re.sub(r"\*\((\d+)\)", lambda m: nt["chargeTemplate"].format(level=m.group(1)),
+        remaining,
+    )
 
     remaining = re.sub(r"^ws\+?(?=[1-4+,]|$)", "WS+", remaining, flags=re.I)
     remaining = re.sub(
         r"^wr\+?(?![A-Za-z])",
-        state_label(stance_names.get("wr", "奔跑中")),
+        state_label(stance_names.get("wr", nt["wrDefault"]), nt),
         remaining,
         flags=re.I,
     )
@@ -299,10 +331,10 @@ def expand_command(command: str, stance_names: dict[str, str]) -> tuple[str, lis
         remaining = re.sub(rf"\b{motion}\b", sequence, remaining, flags=re.I)
     # mid-string stance transitions: "f+4~RFS.3" / "df+2~DCK~db" / ">LFS.4"
     mid = [
-        (code if code.endswith(".") else code + ".", state_label(name))
+        (code if code.endswith(".") else code + ".", state_label(name, nt))
         for code, name in stance_names.items()
     ]
-    mid += list(COMMON_PREFIXES.items())
+    mid += list(nt["prefixes"].items())
     for token, label in sorted(mid, key=lambda item: len(item[0]), reverse=True):
         remaining = re.sub(
             rf"(?<=[~,>]){re.escape(token)}", label + " ", remaining
@@ -329,11 +361,11 @@ def expand_command(command: str, stance_names: dict[str, str]) -> tuple[str, lis
     # "u,f,n4" style lowercase neutral before a button
     remaining = re.sub(r"^bf(?=[+1-4])", "b,f", remaining)
     remaining = re.sub(r"^bb$", "b,b", remaining)
-    remaining = re.sub(r"(?<![A-Za-z])SSR\.?(?=[1-4,~>\s]|$)", "横移右 ", remaining, flags=re.I)
-    remaining = re.sub(r"(?<![A-Za-z])SSL\.?(?=[1-4,~>\s]|$)", "横移左 ", remaining, flags=re.I)
+    remaining = re.sub(r"(?<![A-Za-z])SSR\.?(?=[1-4,~>\s]|$)", nt["sidestepRight"], remaining, flags=re.I)
+    remaining = re.sub(r"(?<![A-Za-z])SSL\.?(?=[1-4,~>\s]|$)", nt["sidestepLeft"], remaining, flags=re.I)
     remaining = re.sub(r"(?<=,)n(?=[1-4])", "N", remaining)
     # lone stance code with nothing else ("SNK" / "BOK.n" leftover "n")
-    lone = {code: state_label(name) for code, name in stance_names.items()}
+    lone = {code: state_label(name, nt) for code, name in stance_names.items()}
     if remaining in lone:
         remaining = lone[remaining]
     remaining = re.sub(r"(?<![A-Za-z])n$", "N", remaining)
@@ -353,14 +385,24 @@ def render_graphical_command(
     cram_at: int = 5,
     weight_at: float = 4.8,
     cram2_at: float = 5.8,
+    nt: dict | None = None,
 ) -> str | None:
     if not command:
         return None
     if re.search(r"[<>&]", command):
         return None
-    expanded, labels = expand_command(command, stance_names)
-    states = list(dict.fromkeys(COMMON_STATES + [state_label(v) for v in stance_names.values()] + labels))
-    graphical = parse_cmd(expanded, {"states": states}, cap=cap)
+    nt = nt or NOTATION_DEFAULT
+    expanded, labels = expand_command(command, stance_names, nt)
+    states = list(
+        dict.fromkeys(
+            list(nt["states"])
+            + [state_label(v, nt) for v in stance_names.values()]
+            + labels
+        )
+    )
+    graphical = parse_cmd(
+        expanded, {"states": states, "stance_abbr": nt["stanceAbbr"]}, cap=cap
+    )
     if graphical is None:
         return None
     graphical = graphical.replace(
@@ -394,11 +436,12 @@ def render_command(
     cram_at: int = 5,
     weight_at: float = 4.8,
     cram2_at: float = 5.8,
+    nt: dict | None = None,
 ) -> str:
     if not command:
         return "—"
     graphical = render_graphical_command(
-        command, css_class, stance_names, cap, cram_at, weight_at, cram2_at
+        command, css_class, stance_names, cap, cram_at, weight_at, cram2_at, nt
     )
     if graphical is None:
         return escape(command.replace("\u200b", ""))
@@ -577,7 +620,7 @@ def render_startup_cell(startup: str) -> str:
 def render_move_row(
     record_id: str,
     move: dict,
-    name: str,
+    name_html: str,
     startup: str,
     kind: str,
     config: dict,
@@ -585,6 +628,8 @@ def render_move_row(
     s: dict,
     command_cap: int | None = 6,
 ) -> str:
+    """`name_html` arrives escaped -- see move_name_cells, whose English
+    fallback is markup rather than text."""
     attrs = (
         f'data-record-id="{escape(record_id, quote=True)}" '
         f'data-move-id="{escape(move["id"], quote=True)}" '
@@ -592,8 +637,8 @@ def render_move_row(
         f'data-startup="{escape(startup, quote=True)}" data-kind="{kind}"'
     )
     cells = [
-        f'<td class="name">{escape(name)}</td>',
-        f'<td class="cmd">{render_command(move["command"], config["css_class"], stance_names, command_cap, 5, 4.0 if kind == "throw" else 4.8)}</td>',
+        f'<td class="name">{name_html}</td>',
+        f'<td class="cmd">{render_command(move["command"], config["css_class"], stance_names, command_cap, 5, 4.0 if kind == "throw" else 4.8, 5.8, notation_for(s["locale"]))}</td>',
         render_startup_cell(startup),
     ]
     damage_cell = render_damage_cell(move.get("damage", ""))
@@ -652,7 +697,7 @@ def render_table(
             render_move_row(
                 record_id,
                 move,
-                translation["move_names"][move["id"]],
+                translation["name_html"][move["id"]],
                 resolver.resolve(move["command"], move.get("startup", "")),
                 kind,
                 config,
@@ -1185,20 +1230,28 @@ def normalize_combo_token(value: str, stance_names: dict[str, str]) -> str:
 
 
 def render_combo_piece(
-    value: str, css_class: str, stance_names: dict[str, str]
+    value: str,
+    css_class: str,
+    stance_names: dict[str, str],
+    nt: dict | None = None,
 ) -> str:
+    nt = nt or NOTATION_DEFAULT
     if re.fullmatch(r"CH|![A-Z][A-Za-z]{0,3}|[A-Z][A-Za-z]{0,3}!", value, re.I):
         return f'<span class="tk-tbang">{escape(value.upper())}</span>'
 
     def literal(text: str) -> str:
-        translated = translate_combo_literal(text)
+        # the English build keeps Wavu's own wording; only the Chinese
+        # builds swap these notes for a translation
+        translated = translate_combo_literal(text) if nt["translateLiterals"] else text
+        if nt["convertLiterals"]:
+            translated = convert(translated)
         # stance codes surviving inside notes get their Chinese label too
         for code, name in sorted(
             stance_names.items(), key=lambda item: len(item[0]), reverse=True
         ):
             if code.isalnum() and code.isupper() and len(code) >= 3:
                 translated = re.sub(
-                    rf"\b{re.escape(code)}\b", state_label(name), translated
+                    rf"\b{re.escape(code)}\b", state_label(name, nt), translated
                 )
         return (
             '<span class="combo-literal">'
@@ -1222,6 +1275,7 @@ def render_combo_piece(
                     css_class,
                     stance_names,
                     None,
+                    nt=nt,
                 )
                 if graphical is not None:
                     rendered.append(
@@ -1233,7 +1287,7 @@ def render_combo_piece(
 
         normalized = normalize_combo_token(part, stance_names)
         graphical = render_graphical_command(
-            normalized, css_class, stance_names, None
+            normalized, css_class, stance_names, None, nt=nt
         )
         if graphical is None:
             rendered.append(literal(part))
@@ -1244,11 +1298,14 @@ def render_combo_piece(
 
 
 def render_combo_command(
-    value: str, css_class: str, stance_names: dict[str, str]
+    value: str,
+    css_class: str,
+    stance_names: dict[str, str],
+    nt: dict | None = None,
 ) -> str:
     plain = escape(value)
     graphical = "".join(
-        render_combo_piece(token, css_class, stance_names)
+        render_combo_piece(token, css_class, stance_names, nt)
         for token in split_combo_tokens(value)
     )
     return (
@@ -1285,8 +1342,9 @@ COMBO_MARKER_LEGEND = {
 }
 
 
-def combo_marker_note(combos: dict, s: dict) -> str:
+def combo_marker_note(combos: dict, s: dict, nt: dict | None = None) -> str:
     """Legend line for stage/heat markers used in this character's combos."""
+    nt = nt or NOTATION_DEFAULT
     text = " ".join(
         entry.get(field, "")
         for group in combos.get("sections", [])
@@ -1303,7 +1361,10 @@ def combo_marker_note(combos: dict, s: dict) -> str:
             used.append(f"{marker}={label}")
     if not used:
         return ""
-    return s["comboMarkerPrefix"] + " · ".join(used)
+    note = " · ".join(used)
+    if nt["convertLiterals"]:
+        note = convert(note)
+    return s["comboMarkerPrefix"] + note
 
 
 def render_combos(
@@ -1314,6 +1375,7 @@ def render_combos(
     english_names: dict[str, str] | None = None,
 ) -> tuple[str, int]:
     english_names = english_names or {}
+    nt = notation_for(s["locale"])
     groups = valid_combo_groups(combos)
     if not groups:
         body = (
@@ -1326,21 +1388,32 @@ def render_combos(
     combo_count = 0
     for section, rows in groups:
         combo_count += len(rows)
-        title = COMBO_SECTION_NAMES.get(section, section)
-        if LATIN.search(title):
-            raise ValueError(f"untranslated combo section: {section}")
+        if nt["translateLiterals"]:
+            title = COMBO_SECTION_NAMES.get(section, section)
+            if LATIN.search(title):
+                raise ValueError(f"untranslated combo section: {section}")
+            if nt["convertLiterals"]:
+                title = convert(title)
+        else:
+            # Wavu's own section heading, which is already English
+            title = section
         rendered_rows = []
         for starter, route in rows:
             translated_starter = (
-                combo_starter_label(starter, english_names) or s["comboGeneric"]
-            )
+                combo_starter_label(starter, english_names)
+                if nt["translateLiterals"]
+                else starter
+            ) or s["comboGeneric"]
+            if nt["convertLiterals"]:
+                # the starter dictionary also produces Simplified
+                translated_starter = convert(translated_starter)
             rendered_rows.append(
                 "<tr>"
                 '<td class="cmd combo-starter">'
-                f"{render_combo_command(translated_starter, css_class, stance_names)}"
+                f"{render_combo_command(translated_starter, css_class, stance_names, nt)}"
                 "</td>"
                 '<td class="cmd combo-route">'
-                f"{render_combo_command(route, css_class, stance_names)}"
+                f"{render_combo_command(route, css_class, stance_names, nt)}"
                 "</td>"
                 "</tr>"
             )
@@ -1440,7 +1513,7 @@ def render_ten_string_table(
         )
         rows.append(
             f"<tr {attrs}>"
-            f'<td class="cmd">{render_command(command, config["css_class"], stance_names, None)}</td>'
+            f'<td class="cmd">{render_command(command, config["css_class"], stance_names, None, 5, 4.8, 5.8, notation_for(s["locale"]))}</td>'
             f"{render_startup_cell(startup)}"
             f'{render_damage_cell(move.get("damage", ""))}'
             f'<td class="rng">{render_target(move.get("target", ""), s)}</td>'
@@ -1504,6 +1577,107 @@ def render_system_sections(
     return heat_section + ten_section
 
 
+def english_section_label(section: str) -> str:
+    """Wavu's own English name for a stance section.
+
+    Sections are written `CODE (English Name)` -- `CD (Breaking Step)`,
+    `ZEN (Zenshin/Zanshin)`. The parenthetical is the name; without one the
+    whole string already is.
+    """
+    match = re.search(r"\(([^)]+)\)", section)
+    return match.group(1).strip() if match else section.strip()
+
+
+def localized_vocabulary(
+    key: str,
+    source: dict,
+    translation: dict,
+    s: dict,
+    locale: str,
+) -> dict:
+    """What this locale's page calls every move, section and stance.
+
+    Returned in the shape the renderers already expect, plus `name_html`: the
+    ready-to-insert 招式 cell per move id. HTML rather than text because the
+    English fallback below is markup, and one code path beats a flag every row
+    renderer has to remember to honour.
+
+    Traditional converts the Simplified corpus at build time, so there is no
+    third snapshot to keep in sync. English does not translate the corpus at
+    all -- section headings take Wavu's own English labels, and `.tk-state`
+    capsules take Wavu's stance codes, because 背身时 -> BT is what an English
+    reader is already looking at in the command column.
+
+    Wavu leaves `name` empty for about a fifth of all moves. The Chinese pages
+    fill those with the project's own reference names; the English build must
+    not quietly do the same. It shows the Chinese name in italics, tagged ZH.
+    Machine-translating it back would invent a name and then present it as
+    sourced -- breaking 不补写未经来源验证 twice over.
+    """
+    simplified_names = translation["move_names"]
+
+    if locale == "hant":
+        localized = convert_translation(translation, key)
+    elif locale == "en":
+        localized = {
+            **translation,
+            "section_names": {
+                section: english_section_label(section)
+                for section in translation.get("section_names", {})
+            },
+            "stance_names": {
+                code: code for code in translation.get("stance_names", {})
+            },
+        }
+    else:
+        localized = dict(translation)
+
+    if locale == "en":
+        tag_title = escape(s["zhTagTitle"], quote=True)
+        name_html = {}
+        for move in source["moves"]:
+            wavu_name = (move.get("name") or "").strip()
+            name_html[move["id"]] = (
+                escape(wavu_name)
+                if wavu_name
+                else (
+                    f'<span class="zhfall">'
+                    f'{escape(simplified_names[move["id"]])}</span>'
+                    f'<span class="zhtag" title="{tag_title}">ZH</span>'
+                )
+            )
+    else:
+        name_html = {
+            move_id: escape(name)
+            for move_id, name in localized["move_names"].items()
+        }
+
+    localized["name_html"] = name_html
+    return localized
+
+
+def display_name(config: dict, locale: str) -> str:
+    """The character's name as this locale's readers know it."""
+    if locale == "hant":
+        return convert(config["display"])
+    if locale == "en":
+        return config["canonical"]
+    return config["display"]
+
+
+def secondary_name(config: dict, locale: str) -> str:
+    """The `<small>` under the character's name: the *other* locale's name.
+
+    On the Chinese pages that is the canonical English name. On the English
+    pages it has to be the Chinese one -- putting `canonical` there would
+    render `Jin Kazama` twice, which is the duplication the brief calls out
+    for the matching `h2 .en` slot.
+    """
+    if locale == "en":
+        return config["display"]
+    return config["canonical"]
+
+
 def stance_summary(config: dict, translation: dict) -> str:
     """Chinese stance names plus their Wavu codes, for the header bio row.
 
@@ -1533,13 +1707,16 @@ def build_page(
 ) -> str:
     s = strings(locale)
     source = load_json(TOOLS / "source" / f"{key}.json")
-    translation = load_json(TOOLS / "source" / f"{key}_zh.json")
+    simplified = load_json(TOOLS / "source" / f"{key}_zh.json")
     combos = load_json(TOOLS / "source" / f"{key}_combos.json")
-    validate_metadata(key, config, [source, translation, combos])
-    validate_translation(source, translation)
+    validate_metadata(key, config, [source, simplified, combos])
+    validate_translation(source, simplified)
     validate_damage_fields(key, source)
     validate_combo_annotations(combos)
     resolver = StartupResolver(source["moves"])
+    # the Simplified snapshot stays the source of truth; every locale is
+    # derived from it here rather than kept as its own corpus
+    translation = localized_vocabulary(key, source, simplified, s, locale)
 
     records = record_ids(source["moves"])
     throws, attacks, stances, heat, ten_strings = partition_records(records, config)
@@ -1587,9 +1764,11 @@ def build_page(
             **COMBO_STANCE_ALIASES.get(key, {}),
         },
         s,
-        build_english_name_map(source, translation),
+        # combo starters name moves in English; the Chinese builds swap those
+        # for the curated Chinese names, the English build leaves them alone
+        {} if locale == "en" else build_english_name_map(source, simplified),
     )
-    marker_note = combo_marker_note(combos, s)
+    marker_note = combo_marker_note(combos, s, notation_for(locale))
     frame_count = sum(
         resolver.resolve(move["command"], move.get("startup", "")) != "—"
         for move in source["moves"]
@@ -1606,18 +1785,30 @@ def build_page(
     movelist_url = source["source_url"]
     combos_url = combos["source_url"]
     boot_script = """<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>"""
-    names = {"display": config["display"], "canonical": config["canonical"]}
+    display = display_name(config, locale)
+    secondary = secondary_name(config, locale)
+    # the reveal bar upper-cases a Latin name; upper() on Chinese is a no-op
+    secondary_upper = secondary.upper()
+    alternates = alternate_links(config["filename"])
+    names = {"display": display, "canonical": config["canonical"]}
     page_title = s["titleTemplate"].format(**names)
     page_description = s["descriptionTemplate"].format(**names)
     page_url = public_url(locale, config["filename"])
     avatar_slug = config["filename"].removesuffix("_tk8_movelist.html")
     og_image = f"https://tekken8movelist.github.io/avatars/{avatar_slug}.png"
     profile = localized_profile(key)
+    if locale == "en":
+        # tekken.com's own wording, not a round trip out of the Chinese table
+        country, style = profile["country_en"], profile["style_en"]
+    elif locale == "hant":
+        country, style = convert(profile["country_zh"]), convert(profile["style_zh"])
+    else:
+        country, style = profile["country_zh"], profile["style_zh"]
     bio_rows = "".join(
         f"<div><dt>{label}</dt><dd>{escape(value)}</dd></div>"
         for label, value in (
-            (s["bioCountry"], profile["country_zh"]),
-            (s["bioStyle"], profile["style_zh"]),
+            (s["bioCountry"], country),
+            (s["bioStyle"], style),
             (s["bioStances"], stance_summary(config, translation)),
         )
         if value
@@ -1625,7 +1816,7 @@ def build_page(
     header_bio = f'<dl class="hdrbio">{bio_rows}</dl>' if bio_rows else ""
     hero = (
         f'<div class="hero"><img src="{asset_href(locale, f"avatars/{avatar_slug}.png")}" '
-        f'alt="{escape(config["display"], quote=True)}{s["heroAltSuffix"]}" '
+        f'alt="{escape(display, quote=True)}{s["heroAltSuffix"]}" '
         f'decoding="async"></div>'
     )
     json_ld = json.dumps(
@@ -1712,6 +1903,7 @@ def build_page(
 <title>{escape(page_title)}</title>
 <meta name="description" content="{escape(page_description, quote=True)}">
 <link rel="canonical" href="{page_url}">
+{alternates}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{LOCALES[locale]["og"]}">
 <meta property="og:site_name" content="{escape(s["siteName"], quote=True)}">
@@ -1730,7 +1922,7 @@ def build_page(
 <style id="tk-notation">{component_css}</style>
 </head>
 <body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']};--accent-band:{band_color(config['accent'], config['accent_ink'])}">
-<nav class="revealbar" aria-label="{escape(s["quickNav"], quote=True)}"><a href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span> {s["crumbShort"]}</a><b>{escape(config['display'])}<small>{escape(config['canonical'].upper())}</small></b></nav>
+<nav class="revealbar" aria-label="{escape(s["quickNav"], quote=True)}"><a href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span> {s["crumbShort"]}</a><b>{escape(display)}<small>{escape(secondary_upper)}</small></b></nav>
 <header id="top">
 {hero}
   <div class="hdrmain">
@@ -1741,7 +1933,7 @@ def build_page(
         <div class="ntgl" id="ntgl" aria-label="{escape(s["notationAria"], quote=True)}">{s["notationLabel"]}<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">{s["ntGfx"]}</button><button type="button" id="nn" aria-pressed="false">{s["ntNn"]}</button><button type="button" id="nt" aria-pressed="false">{s["ntTxt"]}</button></span></div>
       </div>
     </div>
-    <h1>{escape(config['display'])}<small>{escape(config['canonical'])}</small><span class="hsub">{s["pageKind"]}</span></h1>
+    <h1>{escape(display)}<small>{escape(secondary)}</small><span class="hsub">{s["pageKind"]}</span></h1>
     {header_bio}
   </div>
 </header>
@@ -1753,7 +1945,7 @@ def build_page(
 <main>
   <div id="movelist" data-source-record-count="{move_count}" data-visible-record-count="{visible_move_count}">{sections}</div>
   <section class="tipsPage" id="combos">
-    <header><h2>{s["secTips"]}<small>{escape(config['display'])}{s["secTipsSub"]}</small></h2></header>
+    <header><h2>{s["secTips"]}<small>{escape(display)}{s["secTipsSub"]}</small></h2></header>
     <div class="legend">{s["comboNote"].format(count=combo_count)}{marker_note}</div>
     {combo_html}
     <footer id="sources"><p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>{footer_sources}</footer>
@@ -1776,6 +1968,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--character", choices=list(CHARACTERS), help="build one character only"
     )
+    parser.add_argument(
+        "--locale", choices=list(LOCALES), help="build one locale only"
+    )
     return parser.parse_args(argv)
 
 
@@ -1788,12 +1983,16 @@ def main(argv: list[str] | None = None) -> int:
         ROOT / "design" / "notation-wireframe" / "tekken-input-notation.css"
     ).read_text(encoding="utf-8")
     selected = [args.character] if args.character else list(CHARACTERS)
-    for key in selected:
-        config = CHARACTERS[key]
-        html = build_page(key, config, component_css)
-        destination = args.output_dir / config["filename"]
-        write_if_changed(destination, html)
-        print(f"built {key}: {destination.name}")
+    locales = [args.locale] if args.locale else list(LOCALES)
+    for locale in locales:
+        directory = LOCALES[locale]["dir"]
+        destination_dir = args.output_dir / directory if directory else args.output_dir
+        destination_dir.mkdir(parents=True, exist_ok=True)
+        for key in selected:
+            config = CHARACTERS[key]
+            html = build_page(key, config, component_css, locale)
+            write_if_changed(destination_dir / config["filename"], html)
+        print(f"built {locale}: {len(selected)} pages -> {destination_dir}")
     return 0
 
 

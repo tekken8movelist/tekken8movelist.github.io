@@ -97,6 +97,10 @@ CONFIG = {
 
 DIR_CLASS = {"f": "f", "b": "b", "u": "u", "d": "d",
              "d/f": "df", "d/b": "db", "u/f": "uf", "u/b": "ub"}
+# Bare WS / FC / SS tokens become state capsules. The label is Chinese here
+# because this parser was written for the Chinese pages; build_season2 passes
+# a per-locale override through cfg["stance_abbr"] so the English pages show
+# Wavu's own codes instead.
 STANCE_ABBR = {"WS": "起身中", "FC": "蹲伏中", "SS": "横移中"}
 
 TOKEN_RE = re.compile(r"""
@@ -153,8 +157,9 @@ DMG_PAREN = re.compile(r"^\+\d+$")
 
 
 class Renderer:
-    def __init__(self, states):
+    def __init__(self, states, stance_abbr=None):
         self.states = states
+        self.stance_abbr = stance_abbr or STANCE_ABBR
         self.out = []
         self.pending = []
         self.pending_sep = None
@@ -223,7 +228,7 @@ class Renderer:
                 self.core += 1
             elif kind == "stance":
                 self.flush()
-                self.emit(el_state(STANCE_ABBR[val]), "state")
+                self.emit(el_state(self.stance_abbr[val]), "state")
             elif kind == "neutral":
                 self.flush()
                 self.emit('<span class="tk-n">N</span>', "n")
@@ -304,7 +309,7 @@ def parse_cmd(text, cfg, cap=6):
         if tokens[0][0] == "space":
             tokens = tokens[1:]
             continue
-        r = Renderer(cfg["states"])
+        r = Renderer(cfg["states"], cfg.get("stance_abbr"))
         for pk, pv in r.cjk_parts(tokens[0][1]):
             lead.append(el_state(pv))
         tokens = tokens[1:]
@@ -313,7 +318,7 @@ def parse_cmd(text, cfg, cap=6):
         if lead:
             return '<span class="tk-in tk-sm">%s</span>' % "".join(lead)
         return None
-    r = Renderer(cfg["states"])
+    r = Renderer(cfg["states"], cfg.get("stance_abbr"))
     r.walk(tokens)
     r.flush()
     # stance/parry-only commands (no buttons/directions) still render as long

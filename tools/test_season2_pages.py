@@ -1563,9 +1563,15 @@ class LocaleThreadingTests(unittest.TestCase):
                 if meta["body_class"]:
                     self.assertIn(f'class="{meta["body_class"]}"', html)
 
-    def test_the_command_column_is_identical_in_every_locale(self):
-        """d/f+2, WS, FC, SS, CD and qcf are the same worldwide."""
-        pattern = re.compile(r'<span class="cmd-txt">(.*?)</span>', re.S)
+    def test_the_notation_behind_the_command_column_never_changes(self):
+        """d/f+2, WS, FC, SS, CD and qcf are the same worldwide.
+
+        Not the rendered text, though: the brief has the `.tk-state` capsules
+        and stance names inside that column localise, so Simplified draws
+        `R.df+1+2` as a 愤怒中 capsule where English keeps Wavu's `R.`. What
+        must not move is the notation those are derived from.
+        """
+        pattern = re.compile(r'data-command="(.*?)"')
         baseline = None
         for locale in self.module.LOCALES:
             commands = pattern.findall(self.build("jin", locale))
@@ -1575,6 +1581,16 @@ class LocaleThreadingTests(unittest.TestCase):
                     self.assertTrue(commands)
                 else:
                     self.assertEqual(commands, baseline)
+
+    def test_the_english_command_column_carries_no_chinese(self):
+        """English capsules show Wavu's stance codes -- 背身时 -> BT."""
+        html = self.build("jin", "en")
+        cells = re.findall(r'<td class="cmd">(.*?)</td>', html, re.S)
+        self.assertTrue(cells)
+        chinese = re.compile(r"[一-鿿]")
+        for cell in cells:
+            with self.subTest(cell=cell[:60]):
+                self.assertIsNone(chinese.search(cell))
 
     def test_english_spells_out_the_hit_level_column(self):
         html = self.build("jin", "en")

@@ -125,6 +125,9 @@ def localized_profile(key: str, profiles: dict | None = None) -> dict:
     return {
         "country_zh": COUNTRY_ZH.get(country, ""),
         "style_zh": STYLE_ZH.get(style, ""),
+        # the English build shows tekken.com's own wording rather than a
+        # round trip back out of the Chinese table
+        "country_en": country,
         "style_en": style,
         "epithet_en": _clean(profile.get("epithet", "")),
     }

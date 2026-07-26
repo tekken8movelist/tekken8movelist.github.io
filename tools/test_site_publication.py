@@ -16,6 +16,9 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import AA_NORMAL_TEXT, WHITE, contrast_ratio  # noqa: E402
+from locales import LOCALES, public_url  # noqa: E402
+from season2_config import CHARACTERS as GENERATOR_CHARACTERS  # noqa: E402
+from zh_hant import simplified_only_codepoints  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "docs"
@@ -106,6 +109,19 @@ def resolve_local_reference(source: Path, value: str) -> Path | None:
     return target
 
 
+def generator_pages() -> set[str]:
+    """Filenames build_season2.py owns.
+
+    The five one-shot pipeline pages (jun, xiaoyu, kunimitsu, clive, law) are
+    still published from hand-converted HTML, so they have no locale siblings
+    and no hreflang block. Migrating them into the generator is a prerequisite
+    project of its own -- see
+    design/plans/2026-07-26-pipeline-page-migration.md -- and until it lands,
+    the locale contract below applies to the pages the generator produces.
+    """
+    return {config["filename"] for config in GENERATOR_CHARACTERS.values()}
+
+
 class SitePublicationContractTest(unittest.TestCase):
     def test_publication_root_is_isolated(self) -> None:
         self.assertTrue(INDEX.is_file())
@@ -113,7 +129,71 @@ class SitePublicationContractTest(unittest.TestCase):
         self.assertEqual(list(ROOT.glob("*.html")), [])
         site_directories = {path.name for path in SITE.iterdir() if path.is_dir()}
         self.assertIn("avatars", site_directories)
-        self.assertLessEqual(site_directories, {"avatars", "assets"})
+        # the locale trees are the only directories the build may add, and they
+        # come from the locale table rather than a hand-kept list, so adding a
+        # fourth language does not need this assertion edited
+        locale_directories = {
+            meta["dir"] for meta in LOCALES.values() if meta["dir"]
+        }
+        self.assertLessEqual(
+            site_directories, {"avatars", "assets"} | locale_directories
+        )
+
+    def test_every_locale_tree_holds_a_full_set_of_character_pages(self) -> None:
+        expected = generator_pages()
+        for code, meta in LOCALES.items():
+            if not meta["dir"]:
+                continue
+            with self.subTest(locale=code):
+                tree = SITE / meta["dir"]
+                self.assertTrue(tree.is_dir(), f"{meta['dir']} not built")
+                self.assertEqual(
+                    {path.name for path in tree.glob("*_tk8_movelist.html")},
+                    expected,
+                )
+
+    def test_locale_trees_declare_their_language_and_cross_link(self) -> None:
+        owned = generator_pages()
+        for code, meta in LOCALES.items():
+            tree = SITE / meta["dir"] if meta["dir"] else SITE
+            for page in sorted(p for p in tree.glob("*_tk8_movelist.html")
+                               if p.name in owned):
+                with self.subTest(locale=code, page=page.name):
+                    markup = page.read_text(encoding="utf-8")
+                    self.assertIn(f'<html lang="{meta["lang"]}"', markup)
+                    self.assertIn(
+                        f'<link rel="canonical" href='
+                        f'"{public_url(code, page.name)}">',
+                        markup,
+                    )
+                    for other in LOCALES.values():
+                        self.assertIn(
+                            f'hreflang="{other["hreflang"]}"', markup
+                        )
+                    self.assertIn(
+                        '<link rel="alternate" hreflang="x-default" '
+                        f'href="{PUBLIC_ROOT}{page.name}">',
+                        markup,
+                    )
+
+    def test_the_traditional_tree_carries_no_simplified_only_glyph(self) -> None:
+        """Nothing else would catch a string that skipped the converter.
+
+        Scoped to what a reader actually sees. `<style>` and `<script>` are cut
+        first, not just their tags: the shared notation component documents its
+        per-character accents in Simplified comments
+        (`/* 阿丽莎 · 樱粉 */`), and those are one CSS file used verbatim by all
+        three locales, not page copy that failed to convert.
+        """
+        alphabet = simplified_only_codepoints()
+        tree = SITE / LOCALES["hant"]["dir"]
+        code_blocks = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
+        for page in sorted(tree.glob("*_tk8_movelist.html")):
+            markup = page.read_text(encoding="utf-8")
+            visible = re.sub(r"<[^>]+>", " ", code_blocks.sub(" ", markup))
+            stray = set(visible) & alphabet
+            with self.subTest(page=page.name):
+                self.assertEqual(stray, set(), f"{page.name}: {sorted(stray)}")
 
     def test_expected_page_and_avatar_inventory(self) -> None:
         html_files = sorted(SITE.glob("*.html"))

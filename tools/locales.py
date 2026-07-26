@@ -186,6 +186,7 @@ _TARGET_TITLES_EN = {
 STRINGS: dict[str, dict[str, object]] = {
     # -------------------------------------------------------------------
     "hans": {
+        "locale": "hans",
         # --- navigation and the title band ---
         "crumb": "全角色出招表",
         "crumbShort": "全角色",
@@ -319,6 +320,7 @@ STRINGS: dict[str, dict[str, object]] = {
     },
     # -------------------------------------------------------------------
     "hant": {
+        "locale": "hant",
         "crumb": "全角色出招表",
         "crumbShort": "全角色",
         "crumbAria": "返回全角色選擇",
@@ -444,6 +446,7 @@ STRINGS: dict[str, dict[str, object]] = {
     },
     # -------------------------------------------------------------------
     "en": {
+        "locale": "en",
         "crumb": "All fighters",
         "crumbShort": "All fighters",
         "crumbAria": "Back to the fighter list",
@@ -583,6 +586,142 @@ STRINGS: dict[str, dict[str, object]] = {
         ),
     },
 }
+
+
+# ---------------------------------------------------------------------------
+# Notation vocabulary: the `.tk-state` capsules inside the command column.
+#
+# The command column itself never translates -- d/f+2, WS, FC, SS, CD and qcf
+# are the same worldwide. What does localise is the state capsule in front of
+# it, and the handful of words the expander splices into a command.
+#
+# Traditional is derived rather than authored here, unlike the chrome above:
+# these are notation labels, so 背身时 -> 背身時 is pure character mapping with
+# none of the Taiwan-vocabulary judgement that makes 数据 -> 資料 a human call.
+# English is authored, because it is not a conversion at all -- the capsule
+# takes Wavu's own stance code, which is what the reader is already looking at.
+# ---------------------------------------------------------------------------
+
+_NOTATION_EN = {
+    "prefixes": {
+        "(Back_to_wall).": "Back to wall",
+        "(Opponent_grounded).": "Opponent down",
+        "(Airborne).": "vs airborne",
+        "hFC.": "FC",
+        "FC.": "FC",
+        "BT.": "BT",
+        "SS.": "SS",
+        "WR.": "WR",
+        "CH.": "CH",
+        "H.": "Heat",
+        "R.": "Rage",
+    },
+    "parryDefault": "Parry",
+    "btDefault": "BT",
+    "cdDefault": "CD",
+    "wrDefault": "WR",
+    "levelHigh": " (high)",
+    "levelLow": " (low)",
+    "chargeTemplate": "* (charge {level})",
+    "sidestepRight": "SSR ",
+    "sidestepLeft": "SSL ",
+    # Chinese state labels end in 中 / 时 / 后; English ones are already whole
+    "stateSuffix": "",
+    # combo notes are Wavu's own English -- translating them is what the
+    # Chinese builds do, and undoing it would be a round trip
+    "translateLiterals": False,
+    # bare WS / FC / SS capsules keep Wavu's codes in English
+    "stanceAbbr": {"WS": "WS", "FC": "FC", "SS": "SS"},
+    # nothing to convert: English never goes through the Chinese tables
+    "convertLiterals": False,
+}
+
+# states the expander produces directly rather than via the prefix table
+_EXTRA_STATES_ZH = ("起身中", "横移左", "横移右")
+
+# Wavu id quirks whose normalised form carries a word rather than pure notation.
+# Only the ones with a word need a column here; the rest are notation and are
+# the same everywhere, so they stay in season2_config.COMMON_COMMAND_ALIASES.
+_ALIAS_EN = {
+    "left_throw": "Left 1+3 (or 2+4)",
+    "right_throw": "Right 1+3 (or 2+4)",
+    "back_throw": "Back 1+3 (or 2+4)",
+    "back_throw_1+3": "Back 1+3",
+    "back_throw_2+4": "Back 2+4",
+    "(during_enemy_wall_stun)_1+3": "Opponent wall-stunned 1+3",
+    "d+3,1_(wall_stun)": "d+3,1 (wall stun)",
+    "fdft.3_(close)": "FDFT.3 (close)",
+    "after-2steps+1": "After two steps 1",
+}
+
+_NOTATION_ZH = {
+    "prefixes": None,  # filled from season2_config.COMMON_PREFIXES by the caller
+    "parryDefault": "防反成功后",
+    "btDefault": "背身时",
+    "cdDefault": "蹲步中",
+    "wrDefault": "奔跑中",
+    "levelHigh": " （上段）",
+    "levelLow": " （下段）",
+    "chargeTemplate": "* (蓄{level}段)",
+    "sidestepRight": "横移右 ",
+    "sidestepLeft": "横移左 ",
+    "stateSuffix": "中",
+    "translateLiterals": True,
+    "stanceAbbr": {"WS": "起身中", "FC": "蹲伏中", "SS": "横移中"},
+    "convertLiterals": False,
+}
+
+
+def notation(
+    locale: str,
+    common_prefixes: dict[str, str],
+    command_aliases: dict[str, str] | None = None,
+) -> dict:
+    """State-capsule vocabulary for one locale.
+
+    `common_prefixes` / `command_aliases` are season2_config's tables, passed in
+    rather than imported so this module stays free of build-time config.
+    """
+    command_aliases = dict(command_aliases or {})
+    if locale == "en":
+        vocabulary = {**_NOTATION_EN, "prefixes": dict(_NOTATION_EN["prefixes"])}
+        command_aliases.update(_ALIAS_EN)
+        extra = ("WS", "SSL", "SSR")
+    elif locale == "hant":
+        from zh_hant import convert
+
+        vocabulary = {
+            **{
+                key: (convert(value) if isinstance(value, str) else value)
+                for key, value in _NOTATION_ZH.items()
+                if key != "prefixes"
+            },
+            "prefixes": {
+                token: convert(label) for token, label in common_prefixes.items()
+            },
+        }
+        command_aliases = {
+            token: convert(value) for token, value in command_aliases.items()
+        }
+        # the combo note dictionary translates into Simplified, so the
+        # Traditional build has to convert what comes out of it
+        vocabulary["convertLiterals"] = True
+        vocabulary["stanceAbbr"] = {
+            code: convert(label)
+            for code, label in _NOTATION_ZH["stanceAbbr"].items()
+        }
+        extra = tuple(convert(value) for value in _EXTRA_STATES_ZH)
+    else:
+        vocabulary = {**_NOTATION_ZH, "prefixes": dict(common_prefixes)}
+        extra = _EXTRA_STATES_ZH
+
+    vocabulary["aliases"] = command_aliases
+    # what parse_cmd will accept as a capsule: every prefix label, plus the
+    # states the expander splices in without going through the prefix table
+    vocabulary["states"] = tuple(
+        dict.fromkeys(list(vocabulary["prefixes"].values()) + list(extra))
+    )
+    return vocabulary
 
 
 def strings(locale: str) -> dict[str, object]:
