@@ -1,0 +1,19 @@
+{
+  "_comment": "Per-character, per-move-id Traditional move names that win over the s2twp table. Keys must still exist in tools/source/{key}_zh.json -- check_zh.py fails on a stale entry rather than letting it sit here silently. Add one only when the general table picks the wrong branch of a one-to-many character for that move; this file is not for re-curating names.",
+  "_review": "Found by tools/scan_hant_suspects.py over the whole corpus, 2026-07-26. Every other ambiguous branch OpenCC chose was checked and is correct -- including 千钧一发 -> 千鈞一髮, 金发炸弹 -> 金髮炸彈, 台风 -> 颱風, 断头台 -> 斷頭臺, 猴面包树 -> 猴麵包樹, and Alisa's and Jack-8's software puns, whose Taiwan IT vocabulary (解除安裝 / 最佳化器 / 雙執行緒 / 位元組 / 偵錯程式) is what those move names actually mean.",
+
+  "asuka": {
+    "_comment": "Higata no Kagami -- 干潟 is Japanese for a tidal flat, and the 干 is 'dry / low tide'. s2twp reads it as 躯干 and gives 幹潟, which means nothing.",
+    "Asuka-f,F+2,1+2": "干潟之鏡"
+  },
+
+  "miary_zo": {
+    "_comment": "Afo'n Andrianerinerina -- a Malagasy name spelled phonetically, so every 里 is a syllable, not the word 'inside'. s2twp matches the phrase 内里 in the middle of it and gives 內裡.",
+    "Miary_Zo-b,B+2+3": "安德里亞內里內里納之火"
+  },
+
+  "lee": {
+    "_comment": "Paradigm Breaker. 范式 is 範式 (paradigm); s2twp's Taiwan IT table reads it as the database sense (normal form) and gives 正規化破壞, which is a different word.",
+    "Lee-H.2+3": "範式破壞"
+  }
+}
