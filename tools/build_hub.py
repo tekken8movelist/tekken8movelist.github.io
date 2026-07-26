@@ -90,7 +90,41 @@ def swap_copy(markup: str, locale: str) -> str:
         s["footerTitle"],
         "footer title",
     )
-    return markup
+    markup = replace_once(
+        markup, r'(?<=<footer aria-label=")[^"]*(?=")', s["footerAria"], "footer aria"
+    )
+    # the disclaimer wraps two links; swap the text around them and leave the
+    # anchors exactly as authored
+    markup = replace_once(
+        markup,
+        r'(?<=<p class="footer-copy">).*?(?=<a href="https://wavu\.wiki/")',
+        s["footerSource"],
+        "source lead-in",
+    )
+    markup = replace_once(
+        markup,
+        r'(?<=>Wavu Wiki</a>).*?(?=</p>)',
+        s["footerSourceTail"],
+        "source tail",
+    )
+    markup = replace_once(
+        markup,
+        r'(?<=<p class="footer-copy">).*?(?=<a href="https://www\.bandainamcoent\.com)',
+        s["footerFan"],
+        "fan lead-in",
+    )
+    markup = replace_once(
+        markup,
+        r'(?<=Bandai Namco Entertainment Inc\.</a>).*?(?=</p>)',
+        s["footerFanTail"],
+        "fan tail",
+    )
+    return replace_once(
+        markup,
+        r'(?<=<span class="mono">TEKKEN™ 8</span>).*?(?=</p>)',
+        s["footerLegal"],
+        "legal line",
+    )
 
 
 def swap_counts(markup: str, locale: str) -> str:

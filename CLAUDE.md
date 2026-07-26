@@ -81,6 +81,41 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 两家都成立的东西（`color: inherit`、写死的 `--bg` 实值），强调色经 `--bn-accent` 中转，
 由各自样式块赋值一次。改动后：生成器页重建，管线页跑 `python tools/patch_legacy_back_nav.py`。
 
+## 三语构建（2026-07-26）
+
+站点出三份：简体 `docs/`（`zh-CN`，**URL 一寸不动**，持有现有排名）、繁體
+`docs/zh-Hant/`（`zh-Hant`）、英文 `docs/en/`（`en`）。语系表与三列 chrome 文案的
+唯一真值是 `tools/locales.py`；`build_season2.py --locale` 可单独构建一支。
+
+- **繁體在构建期转换**，不产生第三份快照。`tools/opencc/` 逐字签入 OpenCC 的四个
+  词典，`tools/zh_hant.py` 自己走 s2twp 的三段链——构建因此仍是离线、零依赖、
+  逐字节可复现。等价性由 `tools/verify_zh_hant.py` 对真 OpenCC 全语料对拍
+  （6924 条 0 不一致），换词典后必须重跑。逐 move id 的例外写 `zh_hant_overrides.json`，
+  陈旧条目会让 `check_zh.py` 失败。
+- **「简体专用字」的判定有两个条件**：该字不在自己的 STCharacters 候选里（否则
+  香格里拉的 `里`、征服者的 `征`、背后的 `后` 会被误杀），**且**整条链真的会改它
+  （否则 `峰→峯→峰`、`秘→祕→秘` 这类回环会被误杀）。
+- **chrome 文案手写三列**，不机器转换：`记法→記法` 是机械的，但 `数据→資料`
+  是台湾用词。语料（招式/分区/架势名）走转换器。
+- **英文招式名只来自 Wavu**。Wavu 未命名的招式显示斜体中文 + `ZH` 标，
+  **绝不回译**；逐角色数量锁在 `season2_config.EXPECTED_ZH_FALLBACKS`
+  （全站 1128 条，约五分之一），静默上涨即回归。
+- **指令列不翻译**，只有 `.tk-state` 胶囊本地化，英文用 Wavu 码（背身时→BT）。
+  胶囊词汇有四个来源，全部经 `locales.notation()`：`COMMON_PREFIXES`、
+  `expand_command` 的回退默认值、`COMMON_COMMAND_ALIASES`、以及
+  `pipeline.parse_cmd` 的 `STANCE_ABBR`。
+- **判定列**：英文 1~3 段拼写全称（High/Mid/Low），超过 3 段改用缩写——
+  勒罗伊七段连拳拼全称是四行、撑爆行高，十连技十七段更是撑爆整张表；全称留在 title。
+- **行高按语系**：中文 38px、英文 46px（`html.loc-en`）。英文靠行高而非列宽换空间，
+  指令列在两张表里都保持中文的宽度份额（主表 37%、投技表 34%）——规格把投技表压到
+  28% 是错的，实测溢出。
+- **主页**：`docs/index.html` 仍手写，另两份由 `tools/build_hub.py` 派生；
+  `augment_hub.py` 负责语言控件与 `data-q` 的繁體检索词（三语共用同一份检索索引）。
+- `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（116 条 URL），
+  只给真实存在的语系发 `xhtml:link`。
+- **5 个管线页只有简体**，暂不在语系契约内（见
+  `design/plans/2026-07-26-pipeline-page-migration.md`）。
+
 ## 已完成角色
 
 **全员到齐**：基础 32 人 + S1 DLC 4 人 + S2 DLC 4 人，共 41 页（2026-07）。

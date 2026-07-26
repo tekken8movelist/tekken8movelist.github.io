@@ -92,6 +92,51 @@ HUB_STRINGS = {
         "hant": "非官方《鐵拳 8》中文出招參考",
         "en": "An unofficial TEKKEN 8 movelist reference",
     },
+    # The disclaimer is a rights statement, so the English wording is taken
+    # verbatim from README.md rather than translated here. The links inside it
+    # are preserved by matching only the text around them.
+    "footerSource": {
+        "hans": "招式数据整理自 ",
+        "hant": "招式資料整理自 ",
+        "en": "Movelist data is compiled from ",
+    },
+    "footerSourceTail": {
+        "hans": "；中文招式名为非官方意译，仅供参考。",
+        "hant": "；中文招式名為非官方意譯，僅供參考。",
+        "en": (
+            ". Chinese move names are unofficial reference interpretations. "
+            "Character portraits are unofficial generative-AI outline-style "
+            "interpretations created for this project."
+        ),
+    },
+    "footerFan": {
+        "hans": "角色头像为非官方同人艺术演绎。本项目仅供个人学习、研究与交流，不作商业用途；与 ",
+        "hant": "角色頭像為非官方同人藝術演繹。本專案僅供個人學習、研究與交流，不作商業用途；與 ",
+        "en": (
+            "This is a non-commercial, unofficial fan project for personal "
+            "study, research, and discussion. It is not affiliated with, "
+            "sponsored by, or endorsed by "
+        ),
+    },
+    "footerFanTail": {
+        "hans": " 无隶属关系，亦未获其赞助或认可。",
+        "hant": " 無隸屬關係，亦未獲其贊助或認可。",
+        "en": ".",
+    },
+    "footerLegal": {
+        "hans": " 及其角色、名称、商标与原始设计的相关权利归 Bandai Namco Entertainment Inc. 及其他相应权利人所有。",
+        "hant": " 及其角色、名稱、商標與原始設計的相關權利歸 Bandai Namco Entertainment Inc. 及其他相應權利人所有。",
+        "en": (
+            " and its characters, names, trademarks, and original designs "
+            "belong to Bandai Namco Entertainment Inc. and their respective "
+            "rights holders."
+        ),
+    },
+    "footerAria": {
+        "hans": "项目来源与法律声明",
+        "hant": "專案來源與法律聲明",
+        "en": "Sources and legal notice",
+    },
     "pageTitle": {
         "hans": "铁拳8 全角色中文出招表 | TEKKEN 8 Movelist",
         "hant": "鐵拳8 全角色中文出招表 | TEKKEN 8 Movelist",
