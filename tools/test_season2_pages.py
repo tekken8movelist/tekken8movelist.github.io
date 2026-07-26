@@ -1314,19 +1314,32 @@ class Season2BuildTests(unittest.TestCase):
                     for part in move.get("target", "").split(",")
                     if part.strip()
                 )
-        for token in sorted(tokens):
-            with self.subTest(token=token):
-                css_class, label, title = module.target_descriptor(token)
-                self.assertTrue(css_class)
-                self.assertTrue(label)
-                self.assertTrue(title)
-        self.assertEqual(module.target_descriptor("h!"), ("hi", "上", "上（不可防）"))
-        self.assertEqual(module.target_descriptor("th(g)"), ("sp", "投", "地面投"))
+        # every locale has to be able to name every token the snapshots use,
+        # not just the one the Chinese pages ship
+        for locale in module.LOCALES:
+            s = module.strings(locale)
+            for token in sorted(tokens):
+                with self.subTest(token=token, locale=locale):
+                    css_class, label, title = module.target_descriptor(token, s)
+                    self.assertTrue(css_class)
+                    self.assertTrue(label)
+                    self.assertTrue(title)
+        zh = module.strings("hans")
+        self.assertEqual(module.target_descriptor("h!", zh), ("hi", "上", "上（不可防）"))
+        self.assertEqual(module.target_descriptor("th(g)", zh), ("sp", "投", "地面投"))
         self.assertEqual(
-            module.target_descriptor("SM"),
+            module.target_descriptor("SM", zh),
             ("sp", "特中", "特中（可击中倒地）"),
         )
-        self.assertEqual(module.target_descriptor("t(w)"), ("sp", "投", "墙边投"))
+        self.assertEqual(module.target_descriptor("t(w)", zh), ("sp", "投", "墙边投"))
+        en = module.strings("en")
+        self.assertEqual(
+            module.target_descriptor("h!", en), ("hi", "High", "High (unblockable)")
+        )
+        self.assertEqual(
+            module.target_descriptor("SM", en),
+            ("sp", "Sp. mid", "Special mid (hits grounded)"),
+        )
 
     def test_ham_throw_chains_use_graphical_buttons_and_raw_text(self):
         self.assertEqual(self.first_run.returncode, 0)
@@ -1438,8 +1451,10 @@ class Season2BuildTests(unittest.TestCase):
                     self.assertIn('class="cmd-gfx"', markup)
                     self.assertIn(f'<span class="tk-state">{state}</span>', markup)
                     self.assertEqual(markup.count('class="tk-b"'), 2)
-                    expected = module.throw_break(source_by_command[suffix])
-                    if expected == "—（Wavu 未注明）":
+                    expected = module.throw_break(
+                        source_by_command[suffix], module.strings("hans")
+                    )
+                    if expected is None:
                         expected = "—"
                     self.assertEqual(row["cells"][-1]["text"], expected)
 
@@ -1502,6 +1517,79 @@ class Season2BuildTests(unittest.TestCase):
                         translation.get("stance_names", {}),
                     )
                     self.assertIn('class="cmd-gfx"', rendered)
+
+
+class LocaleThreadingTests(unittest.TestCase):
+    """The locale parameter must be invisible until it is asked for.
+
+    Threading a string table through every renderer is the kind of refactor
+    that silently moves a space or an escape. The Simplified pages are the
+    site's indexed URLs, so "nothing changed" is the acceptance test, and it is
+    cheap enough to assert on every character rather than a sample.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.module = load_builder_module()
+        cls.css = (
+            ROOT / "design" / "notation-wireframe" / "tekken-input-notation.css"
+        ).read_text(encoding="utf-8")
+
+    def build(self, key, *args):
+        return self.module.build_page(
+            key, self.module.CHARACTERS[key], self.css, *args
+        )
+
+    def test_the_default_locale_is_simplified(self):
+        self.assertEqual(self.module.DEFAULT_LOCALE, "hans")
+        for key in CHARACTERS:
+            with self.subTest(character=key):
+                self.assertEqual(self.build(key), self.build(key, "hans"))
+
+    def test_simplified_pages_match_what_is_published(self):
+        for key, cfg in CHARACTERS.items():
+            with self.subTest(character=key):
+                published = (SITE / cfg["filename"]).read_text(encoding="utf-8")
+                self.assertEqual(self.build(key, "hans"), published)
+
+    def test_every_locale_builds_and_declares_itself(self):
+        for locale, meta in self.module.LOCALES.items():
+            with self.subTest(locale=locale):
+                html = self.build("jin", locale)
+                self.assertIn(f'<html lang="{meta["lang"]}"', html)
+                self.assertIn(
+                    f'<meta property="og:locale" content="{meta["og"]}">', html
+                )
+                if meta["body_class"]:
+                    self.assertIn(f'class="{meta["body_class"]}"', html)
+
+    def test_the_command_column_is_identical_in_every_locale(self):
+        """d/f+2, WS, FC, SS, CD and qcf are the same worldwide."""
+        pattern = re.compile(r'<span class="cmd-txt">(.*?)</span>', re.S)
+        baseline = None
+        for locale in self.module.LOCALES:
+            commands = pattern.findall(self.build("jin", locale))
+            with self.subTest(locale=locale):
+                if baseline is None:
+                    baseline = commands
+                    self.assertTrue(commands)
+                else:
+                    self.assertEqual(commands, baseline)
+
+    def test_english_spells_out_the_hit_level_column(self):
+        html = self.build("jin", "en")
+        self.assertIn("<th>Hit</th>", html)
+        self.assertIn(">High<", html)
+        self.assertNotIn('<span class="hi">上</span>=上段', html)
+
+    def test_the_two_up_split_survives_every_locale(self):
+        expected = self.build("jin", "hans").count('<div class="cols2">')
+        self.assertGreater(expected, 0)
+        for locale in self.module.LOCALES:
+            with self.subTest(locale=locale):
+                self.assertEqual(
+                    self.build("jin", locale).count('<div class="cols2">'), expected
+                )
 
 
 if __name__ == "__main__":

@@ -23,6 +23,13 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import band_color  # noqa: E402
+from locales import (  # noqa: E402
+    DEFAULT_LOCALE,
+    LOCALES,
+    asset_href,
+    public_url,
+    strings,
+)
 from official_profile_zh import localized_profile  # noqa: E402
 from pipeline import first_step, parse_cmd  # noqa: E402
 from season2_config import (  # noqa: E402
@@ -403,56 +410,59 @@ def render_command(
     )
 
 
-def target_descriptor(token: str) -> tuple[str, str, str]:
+def target_descriptor(token: str, s: dict) -> tuple[str, str, str]:
     lowered = token.lower()
+    labels = s["targetLabels"]
     if lowered.startswith("sm"):
-        css_class, label = "sp", "特中"
+        css_class, label = "sp", labels["sm"]
     elif lowered.startswith("sl"):
-        css_class, label = "sp", "特下"
+        css_class, label = "sp", labels["sl"]
     elif lowered.startswith("h"):
-        css_class, label = "hi", "上"
+        css_class, label = "hi", labels["h"]
     elif lowered.startswith("m"):
-        css_class, label = "md", "中"
+        css_class, label = "md", labels["m"]
     elif lowered.startswith("l"):
-        css_class, label = "lo", "下"
+        css_class, label = "lo", labels["l"]
     elif lowered.startswith("t"):
-        css_class, label = "sp", "投"
+        css_class, label = "sp", labels["t"]
     else:
-        css_class, label = "sp", "特"
-    title = TARGET_TITLES.get(token, TARGET_TITLES.get(lowered, token))
-    if token.isupper() and token not in TARGET_TITLES and lowered in TARGET_TITLES:
-        title += "（倒地）"
+        css_class, label = "sp", labels["sp"]
+    titles = s["targetTitles"]
+    title = titles.get(token, titles.get(lowered, token))
+    # an uppercase Wavu target means the move also hits a grounded opponent
+    if token.isupper() and token not in titles and lowered in titles:
+        title += s["targetGrounded"]
     return css_class, label, title
 
 
-def translate_target(target: str) -> str:
+def translate_target(target: str, s: dict) -> str:
     titles = [
-        target_descriptor(part.strip())[2]
+        target_descriptor(part.strip(), s)[2]
         for part in target.split(",")
         if part.strip()
     ]
-    return "、".join(titles) or "—"
+    return s["targetJoin"].join(titles) or s["dash"]
 
 
-def render_target(target: str) -> str:
+def render_target(target: str, s: dict) -> str:
     if not target:
-        return "—"
+        return s["dash"]
     rendered = []
     for part in target.split(","):
         token = part.strip()
         if not token:
             continue
-        css_class, label, title = target_descriptor(token)
+        css_class, label, title = target_descriptor(token, s)
         title_attr = (
             f' title="{escape(title, quote=True)}"' if title != label else ""
         )
         rendered.append(
             f'<span class="{css_class}"{title_attr}>{escape(label)}</span>'
         )
-    return "".join(rendered) or "—"
+    return "".join(rendered) or s["dash"]
 
 
-def throw_direction(move: dict) -> str:
+def throw_direction(move: dict, s: dict) -> str:
     section = move.get("section", "").lower()
     command = move.get("command", "").lower()
     notes = move.get("notes", "").lower()
@@ -462,27 +472,33 @@ def throw_direction(move: dict) -> str:
         if token.strip()
     }
     if "t(w)" in targets or command.startswith("wall."):
-        return "墙边"
+        return s["throwWall"]
     if "t(a)" in targets:
-        return "空中"
+        return s["throwAir"]
     if "th(g)" in targets:
-        return "地面"
+        return s["throwGround"]
     if "air" in section or "airborne" in command:
-        return "空中"
+        return s["throwAir"]
     if "ground" in section or "grounded" in command:
-        return "地面"
+        return s["throwGround"]
     if "crouch" in section:
-        return "蹲姿"
+        return s["throwCrouch"]
     if "back" in command or "背后" in notes:
-        return "背后"
+        return s["throwBack"]
     if "left" in command:
-        return "左侧"
+        return s["throwLeft"]
     if "right" in command:
-        return "右侧"
-    return "正面"
+        return s["throwRight"]
+    return s["throwFront"]
 
 
-def throw_break(move: dict) -> str:
+def throw_break(move: dict, s: dict) -> str | None:
+    """The break input Wavu states, or None when it states none.
+
+    None rather than a sentinel string: callers branch on "did Wavu say", and
+    once that answer is a localised string, comparing it by value is a bug
+    waiting for the first locale whose wording differs.
+    """
     notes = move.get("notes", "")
     if re.search(
         r"(?:cannot throw break|cannot be broken|unbreakable|"
@@ -490,41 +506,41 @@ def throw_break(move: dict) -> str:
         notes,
         re.I,
     ):
-        return "不可挣脱"
+        return s["breakNone"]
     match = re.search(
         r"Throw break:?\s+(1\+2|1\s+or\s+2|2\s+or\s+1|1|2)(?=\s|$)",
         notes,
         re.I,
     )
     if match:
-        return match.group(1).replace(" or ", "或")
+        return match.group(1).replace(" or ", s["breakOr"])
     match = re.search(
         r"(1\+2|1\s+or\s+2|2\s+or\s+1|1|2)\s+(?:throw\s+)?break\b",
         notes,
         re.I,
     )
     if match:
-        return match.group(1).replace(" or ", "或")
+        return match.group(1).replace(" or ", s["breakOr"])
     if re.search(r"Throw break .*opposite", notes, re.I):
-        return "首/末异键"
-    return "—（Wavu 未注明）"
+        return s["breakOpposite"]
+    return None
 
 
-def render_move_target(move: dict) -> str:
-    rendered = render_target(move.get("target", ""))
+def render_move_target(move: dict, s: dict) -> str:
+    rendered = render_target(move.get("target", ""), s)
     has_throw_target = any(
         token.strip().lower().startswith("t")
         for token in move.get("target", "").split(",")
     )
     if not has_throw_target:
         return rendered
-    break_value = throw_break(move)
-    if break_value == "—（Wavu 未注明）":
+    break_value = throw_break(move, s)
+    if break_value is None:
         return rendered
     break_label = (
         break_value
-        if break_value == "不可挣脱"
-        else f"挣脱 {break_value}"
+        if break_value == s["breakNone"]
+        else s["breakLabel"].format(value=break_value)
     )
     return rendered + f'<span class="throw-break">{escape(break_label)}</span>'
 
@@ -566,6 +582,7 @@ def render_move_row(
     kind: str,
     config: dict,
     stance_names: dict[str, str],
+    s: dict,
     command_cap: int | None = 6,
 ) -> str:
     attrs = (
@@ -581,15 +598,16 @@ def render_move_row(
     ]
     damage_cell = render_damage_cell(move.get("damage", ""))
     if kind == "throw":
-        break_value = throw_break(move)
+        break_value = throw_break(move, s)
         break_cell = (
-            '<td class="break" title="Wavu 未注明挣脱键">—</td>'
-            if break_value == "—（Wavu 未注明）"
+            f'<td class="break" title="{escape(s["breakUnknownTitle"], quote=True)}">'
+            f'{s["dash"]}</td>'
+            if break_value is None
             else f'<td class="break">{break_value}</td>'
         )
         cells.extend(
             [
-                f'<td class="direction">{throw_direction(move)}</td>',
+                f'<td class="direction">{throw_direction(move, s)}</td>',
                 damage_cell,
                 break_cell,
             ]
@@ -598,7 +616,7 @@ def render_move_row(
         cells.extend(
             [
                 damage_cell,
-                f'<td class="rng">{render_move_target(move)}</td>',
+                f'<td class="rng">{render_move_target(move, s)}</td>',
             ]
         )
     return f"<tr {attrs}>" + "".join(cells) + "</tr>"
@@ -610,14 +628,23 @@ def render_table(
     resolver: StartupResolver,
     config: dict,
     kind: str,
+    s: dict,
     command_cap: int | None = 6,
 ) -> str:
     table_class = "throw-table" if kind == "throw" else "move-table"
     if kind == "throw":
-        header = "<tr><th>招式</th><th>指令</th><th>发生</th><th>方向</th><th>伤害</th><th>挣脱</th></tr>"
+        header = (
+            f'<tr><th>{s["thMove"]}</th><th>{s["thInput"]}</th>'
+            f'<th>{s["thStartup"]}</th><th>{s["thSide"]}</th>'
+            f'<th>{s["thDmg"]}</th><th>{s["thBreak"]}</th></tr>'
+        )
         columns = (17, 34, 9, 8, 16, 15)
     else:
-        header = "<tr><th>招式</th><th>指令</th><th>发生</th><th>伤害</th><th>判定</th></tr>"
+        header = (
+            f'<tr><th>{s["thMove"]}</th><th>{s["thInput"]}</th>'
+            f'<th>{s["thStartup"]}</th><th>{s["thDmg"]}</th>'
+            f'<th>{s["thLevel"]}</th></tr>'
+        )
         columns = (24, 37, 9, 15, 15)
     rows = []
     for record_id, move in records:
@@ -630,6 +657,7 @@ def render_table(
                 kind,
                 config,
                 translation.get("stance_names", {}),
+                s,
                 command_cap,
             )
         )
@@ -648,12 +676,13 @@ def render_split_tables(
     resolver: StartupResolver,
     config: dict,
     kind: str,
+    s: dict,
     command_cap: int | None = 6,
 ) -> str:
     midpoint = (len(records) + 1) // 2
     halves = (records[:midpoint], records[midpoint:])
     return '<div class="cols2">' + "".join(
-        render_table(half, translation, resolver, config, kind, command_cap)
+        render_table(half, translation, resolver, config, kind, s, command_cap)
         for half in halves
         if half
     ) + "</div>"
@@ -668,6 +697,7 @@ def render_stance_matrix(
     translation: dict,
     resolver: StartupResolver,
     config: dict,
+    s: dict,
 ) -> str:
     cells = []
     for index, (section, records) in enumerate(stance_groups.items(), start=1):
@@ -675,7 +705,7 @@ def render_stance_matrix(
             f'<td class="ltc stance-cell" id="stance-{index}">'
             f'<h2>{escape(translation["section_names"][section])}'
             f' <span class="en">{escape(section_code(section))}</span></h2>'
-            f'{render_table(records, translation, resolver, config, "move", 6)}</td>'
+            f'{render_table(records, translation, resolver, config, "move", s, 6)}</td>'
         )
     rows = []
     for index in range(0, len(cells), 2):
@@ -1255,7 +1285,7 @@ COMBO_MARKER_LEGEND = {
 }
 
 
-def combo_marker_note(combos: dict) -> str:
+def combo_marker_note(combos: dict, s: dict) -> str:
     """Legend line for stage/heat markers used in this character's combos."""
     text = " ".join(
         entry.get(field, "")
@@ -1273,22 +1303,23 @@ def combo_marker_note(combos: dict) -> str:
             used.append(f"{marker}={label}")
     if not used:
         return ""
-    return "<br><b>标记</b>：" + " · ".join(used)
+    return s["comboMarkerPrefix"] + " · ".join(used)
 
 
 def render_combos(
     combos: dict,
     css_class: str,
     stance_names: dict[str, str],
+    s: dict,
     english_names: dict[str, str] | None = None,
 ) -> tuple[str, int]:
     english_names = english_names or {}
     groups = valid_combo_groups(combos)
     if not groups:
         body = (
-            '<div class="tpFull"><h2>连招 <span class="en">COMBOS</span></h2>'
-            '<p class="empty-note">Wavu 连招页当前没有可用路线；占位文本已剔除。'
-            "为避免编造，本页暂不补写未经来源验证的连招。</p></div>"
+            f'<div class="tpFull"><h2>{s["secCombos"]} '
+            f'<span class="en">{s["secCombosAlt"]}</span></h2>'
+            f'<p class="empty-note">{s["comboEmpty"]}</p></div>'
         )
         return body, 0
     chunks = []
@@ -1300,7 +1331,9 @@ def render_combos(
             raise ValueError(f"untranslated combo section: {section}")
         rendered_rows = []
         for starter, route in rows:
-            translated_starter = combo_starter_label(starter, english_names) or "通用"
+            translated_starter = (
+                combo_starter_label(starter, english_names) or s["comboGeneric"]
+            )
             rendered_rows.append(
                 "<tr>"
                 '<td class="cmd combo-starter">'
@@ -1312,9 +1345,10 @@ def render_combos(
                 "</tr>"
             )
         chunks.append(
-            f'<div class="tpFull"><h2>{escape(title)} <span class="en">COMBOS</span></h2>'
-            '<table class="cb"><thead><tr><th>起手</th>'
-            '<th>路线（[数字]=伤害 · T!=回旋 · ~F=按住前 · →=下一招）</th></tr></thead>'
+            f'<div class="tpFull"><h2>{escape(title)} '
+            f'<span class="en">{s["secCombosAlt"]}</span></h2>'
+            f'<table class="cb"><thead><tr><th>{s["comboStarter"]}</th>'
+            f'<th>{s["comboRoute"]}</th></tr></thead>'
             f'<tbody>{"".join(rendered_rows)}</tbody></table></div>'
         )
     return "".join(chunks), combo_count
@@ -1329,6 +1363,7 @@ def render_sheet_section(
     resolver: StartupResolver,
     config: dict,
     kind: str,
+    s: dict,
     *,
     split: bool = False,
     command_cap: int | None = 6,
@@ -1337,7 +1372,7 @@ def render_sheet_section(
         return ""
     if split:
         table_html = render_split_tables(
-            records, translation, resolver, config, kind, command_cap
+            records, translation, resolver, config, kind, s, command_cap
         )
     else:
         table_html = render_table(
@@ -1346,6 +1381,7 @@ def render_sheet_section(
             resolver,
             config,
             kind,
+            s,
             command_cap,
         )
     return (
@@ -1382,6 +1418,7 @@ def render_ten_string_table(
     resolver: StartupResolver,
     config: dict,
     stance_names: dict[str, str],
+    s: dict,
 ) -> str:
     leaves = ten_string_leaves(records)
     rows = []
@@ -1406,14 +1443,14 @@ def render_ten_string_table(
             f'<td class="cmd">{render_command(command, config["css_class"], stance_names, None)}</td>'
             f"{render_startup_cell(startup)}"
             f'{render_damage_cell(move.get("damage", ""))}'
-            f'<td class="rng">{render_target(move.get("target", ""))}</td>'
+            f'<td class="rng">{render_target(move.get("target", ""), s)}</td>'
             "</tr>"
         )
     return (
         '<table class="ten-string-table"><colgroup><col style="width:55%">'
         '<col style="width:10%"><col style="width:22%"><col style="width:13%">'
-        '</colgroup><thead><tr><th>指令</th><th>发生</th>'
-        '<th>伤害</th><th>判定</th></tr></thead>'
+        f'</colgroup><thead><tr><th>{s["thInput"]}</th><th>{s["thStartup"]}</th>'
+        f'<th>{s["thDmg"]}</th><th>{s["thLevel"]}</th></tr></thead>'
         f'<tbody>{"".join(rows)}</tbody></table>'
     )
 
@@ -1424,6 +1461,7 @@ def render_system_sections(
     translation: dict,
     resolver: StartupResolver,
     config: dict,
+    s: dict,
 ) -> str:
     ten_table = (
         render_ten_string_table(
@@ -1431,32 +1469,34 @@ def render_system_sections(
             resolver,
             config,
             translation.get("stance_names", {}),
+            s,
         )
         if ten_strings
         else ""
     )
     if heat and ten_strings:
-        heat_table = render_table(heat, translation, resolver, config, "move")
+        heat_table = render_table(heat, translation, resolver, config, "move", s)
         return (
             '<section class="sheet-section keep" id="systems"><div class="colsRow">'
-            '<div><h2>热能系统 <span class="en">HEAT</span></h2>'
+            f'<div><h2>{s["secHeat"]} <span class="en">{s["secHeatAlt"]}</span></h2>'
             f"{heat_table}</div>"
-            '<div><h2>十连技 <span class="en">10 HIT COMBO</span></h2>'
+            f'<div><h2>{s["secTen"]} <span class="en">{s["secTenAlt"]}</span></h2>'
             f"{ten_table}</div></div></section>"
         )
     heat_section = render_sheet_section(
             "heat",
-            "热能系统",
-            "HEAT",
+            s["secHeat"],
+            s["secHeatAlt"],
             heat,
             translation,
             resolver,
             config,
             "move",
+            s,
         )
     ten_section = (
         '<section class="sheet-section keep" id="ten-strings">'
-        '<h2>十连技 <span class="en">10 HIT COMBO</span></h2>'
+        f'<h2>{s["secTen"]} <span class="en">{s["secTenAlt"]}</span></h2>'
         f"{ten_table}</section>"
         if ten_strings
         else ""
@@ -1485,7 +1525,13 @@ def stance_summary(config: dict, translation: dict) -> str:
     return " · ".join(chips)
 
 
-def build_page(key: str, config: dict, component_css: str) -> str:
+def build_page(
+    key: str,
+    config: dict,
+    component_css: str,
+    locale: str = DEFAULT_LOCALE,
+) -> str:
+    s = strings(locale)
     source = load_json(TOOLS / "source" / f"{key}.json")
     translation = load_json(TOOLS / "source" / f"{key}_zh.json")
     combos = load_json(TOOLS / "source" / f"{key}_combos.json")
@@ -1500,35 +1546,37 @@ def build_page(key: str, config: dict, component_css: str) -> str:
     sections = (
         render_sheet_section(
             "throws",
-            "投技",
-            "THROWS",
+            s["secThrows"],
+            s["secThrowsAlt"],
             throws,
             translation,
             resolver,
             config,
             "throw",
+            s,
             split=True,
         )
         + render_sheet_section(
             "attacks",
-            "打击技",
-            "ATTACKS",
+            s["secAttacks"],
+            s["secAttacksAlt"],
             attacks,
             translation,
             resolver,
             config,
             "move",
+            s,
             split=True,
         )
         + (
             '<section class="sheet-section keep" id="stances">'
-            + render_stance_matrix(stances, translation, resolver, config)
+            + render_stance_matrix(stances, translation, resolver, config, s)
             + "</section>"
             if stances
             else ""
         )
         + render_system_sections(
-            heat, ten_strings, translation, resolver, config
+            heat, ten_strings, translation, resolver, config, s
         )
     )
     combo_html, combo_count = render_combos(
@@ -1538,9 +1586,10 @@ def build_page(key: str, config: dict, component_css: str) -> str:
             **translation.get("stance_names", {}),
             **COMBO_STANCE_ALIASES.get(key, {}),
         },
+        s,
         build_english_name_map(source, translation),
     )
-    marker_note = combo_marker_note(combos)
+    marker_note = combo_marker_note(combos, s)
     frame_count = sum(
         resolver.resolve(move["command"], move.get("startup", "")) != "—"
         for move in source["moves"]
@@ -1550,39 +1599,33 @@ def build_page(key: str, config: dict, component_css: str) -> str:
         ten_string_leaves(ten_strings)
     )
     collapsed_note = (
-        f"；十连技的 {len(ten_strings)} 条递进源卡合并为完整招式"
+        s["legendCollapsed"].format(count=len(ten_strings))
         if len(ten_strings) > 1
         else ""
     )
     movelist_url = source["source_url"]
     combos_url = combos["source_url"]
     boot_script = """<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>"""
-    page_title = (
-        f"铁拳8 {config['display']}（{config['canonical']}）出招表"
-        f" | TEKKEN 8 {config['canonical']} Movelist"
-    )
-    page_description = (
-        f"{config['display']}（{config['canonical']}）《铁拳8》（TEKKEN 8）完整出招表："
-        "招式指令、帧数表、确反数据与进阶连招。"
-        f"Complete TEKKEN 8 {config['canonical']} movelist with frame data."
-    )
-    page_url = f"https://tekken8movelist.github.io/{config['filename']}"
+    names = {"display": config["display"], "canonical": config["canonical"]}
+    page_title = s["titleTemplate"].format(**names)
+    page_description = s["descriptionTemplate"].format(**names)
+    page_url = public_url(locale, config["filename"])
     avatar_slug = config["filename"].removesuffix("_tk8_movelist.html")
     og_image = f"https://tekken8movelist.github.io/avatars/{avatar_slug}.png"
     profile = localized_profile(key)
     bio_rows = "".join(
         f"<div><dt>{label}</dt><dd>{escape(value)}</dd></div>"
         for label, value in (
-            ("国家", profile["country_zh"]),
-            ("拳法", profile["style_zh"]),
-            ("架势", stance_summary(config, translation)),
+            (s["bioCountry"], profile["country_zh"]),
+            (s["bioStyle"], profile["style_zh"]),
+            (s["bioStances"], stance_summary(config, translation)),
         )
         if value
     )
     header_bio = f'<dl class="hdrbio">{bio_rows}</dl>' if bio_rows else ""
     hero = (
-        f'<div class="hero"><img src="avatars/{avatar_slug}.png" '
-        f'alt="{escape(config["display"], quote=True)} · 飞白轮廓角色像" '
+        f'<div class="hero"><img src="{asset_href(locale, f"avatars/{avatar_slug}.png")}" '
+        f'alt="{escape(config["display"], quote=True)}{s["heroAltSuffix"]}" '
         f'decoding="async"></div>'
     )
     json_ld = json.dumps(
@@ -1592,11 +1635,11 @@ def build_page(key: str, config: dict, component_css: str) -> str:
             "name": page_title,
             "description": page_description,
             "url": page_url,
-            "inLanguage": "zh-CN",
+            "inLanguage": LOCALES[locale]["lang"],
             "isPartOf": {
                 "@type": "WebSite",
-                "name": "铁拳8 全角色中文出招表",
-                "url": "https://tekken8movelist.github.io/",
+                "name": s["siteName"],
+                "url": public_url(locale, "index.html"),
             },
             "breadcrumb": {
                 "@type": "BreadcrumbList",
@@ -1604,13 +1647,13 @@ def build_page(key: str, config: dict, component_css: str) -> str:
                     {
                         "@type": "ListItem",
                         "position": 1,
-                        "name": "首页",
-                        "item": "https://tekken8movelist.github.io/",
+                        "name": s["breadcrumbHome"],
+                        "item": public_url(locale, "index.html"),
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
-                        "name": f"{config['display']}出招表",
+                        "name": s["breadcrumbPageTemplate"].format(**names),
                         "item": page_url,
                     },
                 ],
@@ -1619,16 +1662,50 @@ def build_page(key: str, config: dict, component_css: str) -> str:
         ensure_ascii=False,
         separators=(",", ":"),
     ).replace("<", "\\u003c")
-    intro_zh = (
-        f"本页收录《铁拳8》（TEKKEN 8）{config['display']}（{config['canonical']}）"
-        "的完整出招表与帧数表（frame data），并整理进阶连招与实战技巧，供对局间隙快速查阅。"
+    intro_zh = s["introPrimaryTemplate"].format(**names)
+    intro_en = s["introSecondaryTemplate"].format(**names)
+    body_class = LOCALES[locale]["body_class"]
+    html_attrs = f'lang="{LOCALES[locale]["lang"]}"' + (
+        f' class="{body_class}"' if body_class else ""
     )
-    intro_en = (
-        f"The complete TEKKEN 8 {config['canonical']} movelist — "
-        "full command list, frame data, and combos, written in Chinese."
+    legend_top = (
+        f'<b>{s["legendJudgementLabel"]}</b><span>{s["legendJudgement"]}</span>'
+        f'<b>{s["legendStartupLabel"]}</b><span>{s["legendStartup"]}</span>'
+        f'<span class="lgcount">'
+        + s["legendCount"].format(
+            moves=move_count,
+            visible=visible_move_count,
+            frames=frame_count,
+            collapsed=collapsed_note,
+        )
+        + "</span>"
+    )
+    legend_gfx = (
+        f'<b>{s["legendGfxLabel"]}</b>　'
+        '<span class="tk-in tk-sm"><span class="tk-b">'
+        "<i>1</i><i>2</i><i>3</i><i>4</i></span></span> "
+        f'{s["legendGrid"]}　'
+        '<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>'
+        f'{s["legendTap"]}　'
+        '<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>'
+        f'{s["legendHold"]}　'
+        '<span class="tk-in tk-sm"><span class="tk-n">N</span></span>'
+        f'{s["legendNeutral"]}　'
+        '<span class="tk-in tk-sm"><span class="tk-state">'
+        f'{s["legendStanceChip"]}</span></span>{s["legendStance"]}　|　'
+        f'<b>{s["legendSepLabel"]}</b>　{s["legendSeps"]}　'
+        f'<span class="tk-tbang">T!</span> {s["legendTornado"]}'
+    )
+    footer_sources = (
+        f'{s["footSource"]}<a href="{escape(movelist_url, quote=True)}">'
+        f'{s["footSourceLink"]}</a> · '
+        f'{s["footCombos"]}<a href="{escape(combos_url, quote=True)}">'
+        f'{s["footCombosLink"]}</a> · '
+        f'{s["footProfile"]}<a href="https://tekken.com/fighters/">'
+        f'{s["footOfficial"]}</a> · {s["footNote"]}'
     )
     html = f"""<!doctype html>
-<html lang="zh-CN">
+<html {html_attrs}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1636,13 +1713,13 @@ def build_page(key: str, config: dict, component_css: str) -> str:
 <meta name="description" content="{escape(page_description, quote=True)}">
 <link rel="canonical" href="{page_url}">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:site_name" content="铁拳8 全角色中文出招表">
+<meta property="og:locale" content="{LOCALES[locale]["og"]}">
+<meta property="og:site_name" content="{escape(s["siteName"], quote=True)}">
 <meta property="og:title" content="{escape(page_title, quote=True)}">
 <meta property="og:description" content="{escape(page_description, quote=True)}">
 <meta property="og:url" content="{page_url}">
 <meta property="og:image" content="{og_image}">
-<meta property="og:image:alt" content="铁拳8 {escape(config['display'], quote=True)}（{escape(config['canonical'], quote=True)}）头像">
+<meta property="og:image:alt" content="{escape(s["ogImageAltTemplate"].format(**names), quote=True)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{escape(page_title, quote=True)}">
 <meta name="twitter:description" content="{escape(page_description, quote=True)}">
@@ -1653,33 +1730,33 @@ def build_page(key: str, config: dict, component_css: str) -> str:
 <style id="tk-notation">{component_css}</style>
 </head>
 <body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']};--accent-band:{band_color(config['accent'], config['accent_ink'])}">
-<nav class="revealbar" aria-label="快速导航"><a href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span> 全角色</a><b>{escape(config['display'])}<small>{escape(config['canonical'].upper())}</small></b></nav>
+<nav class="revealbar" aria-label="{escape(s["quickNav"], quote=True)}"><a href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span> {s["crumbShort"]}</a><b>{escape(config['display'])}<small>{escape(config['canonical'].upper())}</small></b></nav>
 <header id="top">
 {hero}
   <div class="hdrmain">
     <div class="hdrtop">
-      <a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a>
+      <a class="home" href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span>{s["crumb"]}</a>
       <div class="hdrctl">
-        <div class="ntgl" id="thgl" aria-label="主题">主题<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">夜间</button><button type="button" id="thl" aria-pressed="false">浅色</button></span></div>
-        <div class="ntgl" id="ntgl" aria-label="指令记法">记法<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">按键图</button><button type="button" id="nn" aria-pressed="false">无数字</button><button type="button" id="nt" aria-pressed="false">文字</button></span></div>
+        <div class="ntgl" id="thgl" aria-label="{escape(s["themeAria"], quote=True)}">{s["themeLabel"]}<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">{s["themeDark"]}</button><button type="button" id="thl" aria-pressed="false">{s["themeLight"]}</button></span></div>
+        <div class="ntgl" id="ntgl" aria-label="{escape(s["notationAria"], quote=True)}">{s["notationLabel"]}<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">{s["ntGfx"]}</button><button type="button" id="nn" aria-pressed="false">{s["ntNn"]}</button><button type="button" id="nt" aria-pressed="false">{s["ntTxt"]}</button></span></div>
       </div>
     </div>
-    <h1>{escape(config['display'])}<small>{escape(config['canonical'])}</small><span class="hsub">铁拳 8 出招表</span></h1>
+    <h1>{escape(config['display'])}<small>{escape(config['canonical'])}</small><span class="hsub">{s["pageKind"]}</span></h1>
     {header_bio}
   </div>
 </header>
 <div class="legend">
-  <div class="lgtop"><b>判定</b><span><span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投掷　<span class="sp">!</span>=不可防御</span><b>发生</b><span>首击冲击帧（i=impact，越小越快，依 Wavu）</span><span class="lgcount">{move_count} 条源记录 / {visible_move_count} 条表内招式 / {frame_count} 条有发生帧{collapsed_note}</span></div>
-  <div class="lgsub txt-only"><span><b>按键 · 方向</b>　1=左拳　2=右拳　3=左脚　4=右脚　|　f=前　b=后　u=上　d=下　d/f=前下　d/b=后下　u/f=前上　u/b=后上</span><span><b>状态 · 分隔</b>　f,f=前冲　WS=起身中　FC=蹲伏中　SS=横移中　+=同时按　~=紧接　＊蓄力</span></div>
-  <div class="lgsub gfx-only"><b>图形记法</b>　<span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> 四键方阵（左上1 右上2 左下3 右下4，亮=按下）　<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>=轻点方向　<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>=按住　<span class="tk-in tk-sm"><span class="tk-n">N</span></span>=回中　<span class="tk-in tk-sm"><span class="tk-state">架势中</span></span>=状态前缀　|　<b>分隔</b>　› 接续　+ 方向＋键　~ 紧接　＊蓄力　→ 下一招　<span class="tk-tbang">T!</span> 回旋</div>
+  <div class="lgtop">{legend_top}</div>
+  <div class="lgsub txt-only">{s["legendKeys"]}</div>
+  <div class="lgsub gfx-only">{legend_gfx}</div>
 </div>
 <main>
   <div id="movelist" data-source-record-count="{move_count}" data-visible-record-count="{visible_move_count}">{sections}</div>
   <section class="tipsPage" id="combos">
-    <header><h2>进阶攻略<small>{escape(config['display'])} · Wavu Wiki 连招数据</small></h2></header>
-    <div class="legend">仅收录 Wavu 连招页实际存在的 {combo_count} 条路线；原始记法与伤害标注保持不变（方括号数字为该段伤害，如 [25]），占位内容已剔除，不补写未经来源验证的打法。{marker_note}</div>
+    <header><h2>{s["secTips"]}<small>{escape(config['display'])}{s["secTipsSub"]}</small></h2></header>
+    <div class="legend">{s["comboNote"].format(count=combo_count)}{marker_note}</div>
     {combo_html}
-    <footer id="sources"><p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>数据来源：<a href="{escape(movelist_url, quote=True)}">Wavu Wiki movelist</a> · 打法参考：<a href="{escape(combos_url, quote=True)}">Wavu Wiki combos</a> · 角色资料（国家 · 拳法）来自 <a href="https://tekken.com/fighters/">TEKKEN 8 官方网站</a> · 招式名为中文意译，供参考；发生帧表示首击冲击帧。</footer>
+    <footer id="sources"><p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>{footer_sources}</footer>
   </section>
 </main>
 <script>{PAGE_SCRIPT}</script>
