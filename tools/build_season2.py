@@ -30,6 +30,8 @@ from locales import (  # noqa: E402
     alternate_links,
     asset_href,
     notation,
+    page_href,
+    table_columns,
     public_url,
     strings,
 )
@@ -502,7 +504,16 @@ def render_target(target: str, s: dict) -> str:
         rendered.append(
             f'<span class="{css_class}"{title_attr}>{escape(label)}</span>'
         )
-    return "".join(rendered) or s["dash"]
+    separator = s["targetSeparator"]
+    if separator:
+        # <wbr> so a three-hit string breaks at the separators rather than
+        # mid-word: "High/Low/Low" has no spaces, so without it the cell either
+        # overflows or splits "Low" into "L ow"
+        glue = f'<i class="lvsep" aria-hidden="true">{escape(separator)}</i><wbr>'
+        joined = glue.join(rendered)
+    else:
+        joined = "".join(rendered)
+    return joined or s["dash"]
 
 
 def throw_direction(move: dict, s: dict) -> str:
@@ -683,14 +694,13 @@ def render_table(
             f'<th>{s["thStartup"]}</th><th>{s["thSide"]}</th>'
             f'<th>{s["thDmg"]}</th><th>{s["thBreak"]}</th></tr>'
         )
-        columns = (17, 34, 9, 8, 16, 15)
     else:
         header = (
             f'<tr><th>{s["thMove"]}</th><th>{s["thInput"]}</th>'
             f'<th>{s["thStartup"]}</th><th>{s["thDmg"]}</th>'
             f'<th>{s["thLevel"]}</th></tr>'
         )
-        columns = (24, 37, 9, 15, 15)
+    columns = table_columns(s["locale"], kind)
     rows = []
     for record_id, move in records:
         rows.append(
@@ -1665,6 +1675,34 @@ def display_name(config: dict, locale: str) -> str:
     return config["display"]
 
 
+def render_locale_control(locale: str, filename: str, s: dict) -> str:
+    """The 文/A group in the title band.
+
+    Plain links to the sibling paths, never buttons: a client-side toggle would
+    give Google one URL in one language and the other two would never be
+    indexed, which is the whole reason the locales are directories. Works with
+    JS off for the same reason the breadcrumb does.
+    """
+    items = []
+    for code, meta in LOCALES.items():
+        label = escape(meta["short"])
+        if code == locale:
+            items.append(f'<span aria-current="true">{label}</span>')
+        else:
+            href = escape(page_href(locale, code, filename), quote=True)
+            items.append(
+                f'<a href="{href}" lang="{meta["lang"]}" '
+                f'hreflang="{meta["hreflang"]}">{label}</a>'
+            )
+    return (
+        f'<div class="lcgl" role="group" '
+        f'aria-label="{escape(s["localeAria"], quote=True)}">'
+        '<span class="mark" aria-hidden="true">文/A</span>'
+        + "".join(items)
+        + "</div>"
+    )
+
+
 def secondary_name(config: dict, locale: str) -> str:
     """The `<small>` under the character's name: the *other* locale's name.
 
@@ -1787,6 +1825,7 @@ def build_page(
     boot_script = """<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>"""
     display = display_name(config, locale)
     secondary = secondary_name(config, locale)
+    locale_control = render_locale_control(locale, config["filename"], s)
     # the reveal bar upper-cases a Latin name; upper() on Chinese is a no-op
     secondary_upper = secondary.upper()
     alternates = alternate_links(config["filename"])
@@ -1928,6 +1967,9 @@ def build_page(
   <div class="hdrmain">
     <div class="hdrtop">
       <a class="home" href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span>{s["crumb"]}</a>
+      {locale_control}
+    </div>
+    <div class="hdrtop hdrtop2">
       <div class="hdrctl">
         <div class="ntgl" id="thgl" aria-label="{escape(s["themeAria"], quote=True)}">{s["themeLabel"]}<span class="seg"><button type="button" id="thd" class="on" aria-pressed="true">{s["themeDark"]}</button><button type="button" id="thl" aria-pressed="false">{s["themeLight"]}</button></span></div>
         <div class="ntgl" id="ntgl" aria-label="{escape(s["notationAria"], quote=True)}">{s["notationLabel"]}<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">{s["ntGfx"]}</button><button type="button" id="nn" aria-pressed="false">{s["ntNn"]}</button><button type="button" id="nt" aria-pressed="false">{s["ntTxt"]}</button></span></div>

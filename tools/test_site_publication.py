@@ -188,8 +188,12 @@ class SitePublicationContractTest(unittest.TestCase):
         alphabet = simplified_only_codepoints()
         tree = SITE / LOCALES["hant"]["dir"]
         code_blocks = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
+        # the locale control names each language in its own script -- 简 on the
+        # Traditional page is the Simplified locale's own label, the same way an
+        # English page offers "Deutsch" rather than "German"
+        locale_control = re.compile(r'<div class="lcgl".*?</div>', re.S)
         for page in sorted(tree.glob("*_tk8_movelist.html")):
-            markup = page.read_text(encoding="utf-8")
+            markup = locale_control.sub(" ", page.read_text(encoding="utf-8"))
             visible = re.sub(r"<[^>]+>", " ", code_blocks.sub(" ", markup))
             stray = set(visible) & alphabet
             with self.subTest(page=page.name):

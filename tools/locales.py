@@ -232,6 +232,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "targetLabels": _TARGET_LABELS_ZH,
         "targetTitles": _TARGET_TITLES_ZH,
         "targetGrounded": "（倒地）",
+        # single glyphs read fine run together; English words do not
+        "targetSeparator": "",
         "targetJoin": "、",
         "dash": "—",
         # --- throws ---
@@ -362,6 +364,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "targetLabels": _TARGET_LABELS_HANT,
         "targetTitles": _TARGET_TITLES_HANT,
         "targetGrounded": "（倒地）",
+        # single glyphs read fine run together; English words do not
+        "targetSeparator": "",
         "targetJoin": "、",
         "dash": "—",
         "throwFront": "正面",
@@ -490,6 +494,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "targetLabels": _TARGET_LABELS_EN,
         "targetTitles": _TARGET_TITLES_EN,
         "targetGrounded": " (hits grounded)",
+        # "HighHighMid" is unreadable and breaks mid-word in a 15% column
+        "targetSeparator": "/",
         "targetJoin": ", ",
         "dash": "—",
         "throwFront": "Front",
@@ -722,6 +728,39 @@ def notation(
         dict.fromkeys(list(vocabulary["prefixes"].values()) + list(extra))
     )
     return vocabulary
+
+
+# ---------------------------------------------------------------------------
+# Table column shares.
+#
+# English move names run about 2.5x wider than Chinese (恶魔裂爪 -> Fiendish
+# Rend). The room is bought with row height, not column width: narrowing 指令
+# instead pushes `b,f+2,1,df+2` out of the 11px tier and into .tk-cram at 9px,
+# so 指令 keeps its 37% in every locale and the cram heuristic is untouched.
+# What English does take is a few points from 伤害, which is numeric and narrow.
+# ---------------------------------------------------------------------------
+
+_COLUMNS_ZH = {
+    #      招式  指令  发生  伤害  判定
+    "move": (24, 37, 9, 15, 15),
+    #       招式  指令  发生  方向  伤害  挣脱
+    "throw": (17, 34, 9, 8, 16, 15),
+}
+
+_COLUMNS_EN = {
+    "move": (27, 37, 9, 12, 15),
+    "throw": (26, 28, 9, 8, 14, 15),
+}
+
+TABLE_COLUMNS = {
+    "hans": _COLUMNS_ZH,
+    "hant": _COLUMNS_ZH,
+    "en": _COLUMNS_EN,
+}
+
+
+def table_columns(locale: str, kind: str) -> tuple[int, ...]:
+    return TABLE_COLUMNS[locale]["throw" if kind == "throw" else "move"]
 
 
 def strings(locale: str) -> dict[str, object]:

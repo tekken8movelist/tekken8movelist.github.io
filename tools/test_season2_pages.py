@@ -1592,6 +1592,28 @@ class LocaleThreadingTests(unittest.TestCase):
             with self.subTest(cell=cell[:60]):
                 self.assertIsNone(chinese.search(cell))
 
+    def test_the_zh_fallback_count_is_pinned_per_character(self):
+        """A silent rise means a snapshot refresh dropped English names.
+
+        Wavu has no English name for about a fifth of all moves, and the
+        English build shows the Chinese one tagged ZH rather than inventing
+        anything. That is fine and expected -- what is not fine is the number
+        growing without anyone noticing, so it is pinned the way
+        EXPECTED_GFX_FALLBACKS pins notation fallbacks.
+        """
+        from season2_config import EXPECTED_ZH_FALLBACKS
+
+        self.assertEqual(set(EXPECTED_ZH_FALLBACKS), set(CHARACTERS))
+        for key, expected in EXPECTED_ZH_FALLBACKS.items():
+            with self.subTest(character=key):
+                html = self.build(key, "en")
+                self.assertEqual(html.count('class="zhtag"'), expected)
+
+    def test_the_chinese_builds_never_show_a_zh_fallback(self):
+        for locale in ("hans", "hant"):
+            with self.subTest(locale=locale):
+                self.assertNotIn('class="zhtag"', self.build("jin", locale))
+
     def test_english_spells_out_the_hit_level_column(self):
         html = self.build("jin", "en")
         self.assertIn("<th>Hit</th>", html)

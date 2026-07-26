@@ -884,3 +884,49 @@ TARGET_TITLES = {
     "SL": "特下（可击中倒地）",
     "sp": "特殊动作",
 }
+
+# Moves Wavu publishes no English name for, per character. The English
+# build shows the project's Chinese reference name for these, italic and
+# tagged ZH -- 1128 of them across the roster, a fifth of every page.
+# That is a sourcing fact, not a translation backlog: the only English
+# names this project has are Wavu's. Pinned per character so a silent rise
+# (a snapshot refresh that drops names) fails the gate instead of quietly
+# turning more of the English pages Chinese.
+EXPECTED_ZH_FALLBACKS = {
+"jin": 21,
+    "anna": 17,
+    "fahkumram": 26,
+    "armor_king": 30,
+    "miary_zo": 23,
+    "kazuya": 23,
+    "paul": 24,
+    "king": 22,
+    "lars": 20,
+    "jack8": 52,
+    "nina": 34,
+    "leroy": 40,
+    "asuka": 20,
+    "lili": 35,
+    "bryan": 48,
+    "hwoarang": 48,
+    "claudio": 13,
+    "azucena": 29,
+    "raven": 17,
+    "leo": 27,
+    "steve": 41,
+    "kuma": 28,
+    "panda": 28,
+    "yoshimitsu": 86,
+    "shaheen": 11,
+    "dragunov": 32,
+    "feng": 31,
+    "lee": 42,
+    "alisa": 44,
+    "zafina": 40,
+    "devil_jin": 24,
+    "victor": 24,
+    "reina": 32,
+    "eddy": 40,
+    "lidia": 32,
+    "heihachi": 24,
+}

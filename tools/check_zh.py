@@ -18,11 +18,46 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
 from build_season2 import render_graphical_command, load_json  # noqa: E402
+from zh_hant import (  # noqa: E402
+    convert_translation,
+    override_keys,
+    simplified_only_codepoints,
+)
 from season2_config import (  # noqa: E402
     COMMON_COMMAND_ALIASES,
     COMMON_PREFIXES,
     LATIN,
 )
+
+
+def check_traditional(key: str, translation: dict) -> list[str]:
+    """The Traditional build derives from this snapshot, so check it here.
+
+    Two things can go wrong and neither is visible on the Simplified page: a
+    name the converter leaves Simplified, and an override that outlived the
+    move it was written for. A stale override has to fail the gate rather than
+    sit in the file looking authoritative.
+    """
+    problems = []
+    converted = convert_translation(translation, key)
+    alphabet = simplified_only_codepoints()
+    stray = {
+        move_id: name
+        for move_id, name in converted["move_names"].items()
+        if set(name) & alphabet
+    }
+    if stray:
+        problems.append(
+            f"Traditional names still Simplified ({len(stray)}): "
+            f"{list(stray.items())[:8]}"
+        )
+    upstream = set(translation["move_names"])
+    orphans = sorted(override_keys(key) - upstream)
+    if orphans:
+        problems.append(
+            f"stale zh_hant_overrides entries (no such move id): {orphans}"
+        )
+    return problems
 
 
 def main() -> int:
@@ -113,6 +148,8 @@ def main() -> int:
         problems.append(
             f"button-map fallbacks ({len(fallbacks)}): {fallbacks[:12]}"
         )
+
+    problems.extend(check_traditional(key, translation))
 
     if problems:
         print(f"[{key}] FAILED:")

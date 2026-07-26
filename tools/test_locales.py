@@ -114,8 +114,10 @@ class VocabularyTests(unittest.TestCase):
                 self.assertEqual(set(strings(code)), reference)
 
     def test_no_chrome_string_is_accidentally_empty(self) -> None:
-        # zhTagTitle only exists on the English build, by design
-        optional = {"zhTagTitle"}
+        # both of these are empty on purpose: the ZH tooltip only exists on the
+        # English build, and Chinese hit levels are single glyphs that read fine
+        # run together, so they want no separator
+        optional = {"zhTagTitle", "targetSeparator"}
         for code in LOCALES:
             for key, value in strings(code).items():
                 if key in optional or not isinstance(value, str):

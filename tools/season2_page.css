@@ -632,3 +632,90 @@ footer {
     font-size: 11px;
   }
 }
+
+/* ---- locale builds -----------------------------------------------------
+   The Chinese builds are the baseline above. These two blocks are the only
+   places layout differs by language, and both are additive: a page without
+   the marker class renders exactly as it did before locales existed.
+   ---------------------------------------------------------------------- */
+
+/* Traditional: put the TC face ahead of SC so 骨 / 直 / 過 render with the
+   glyph variants readers there expect. No new families are loaded. */
+html.loc-hant body {
+  font-family: "Noto Sans TC", "Noto Sans SC", "Microsoft JhengHei",
+    "Microsoft YaHei", sans-serif;
+}
+
+/* English buys its width with row height rather than column width: taking the
+   room out of 指令 instead would push `b,f+2,1,df+2` out of the 11px tier and
+   into .tk-cram at 9px. 指令 keeps 37%, the cram heuristic is untouched, and
+   the rows grow by 8px. */
+html.loc-en section:not(.tipsPage) tr[data-record-id] {
+  height: 46px;
+}
+
+html.loc-en td {
+  padding: 4px 6px;
+}
+
+html.loc-en td.name {
+  font-size: 10px;
+  line-height: 1.3;
+  text-wrap: pretty;
+}
+
+/* `anywhere` is right for Chinese, where any character is a break point, and
+   wrong for "Three-Quarter Kick". Specificity has to match the base rule this
+   overrides, hence the same section:not(.tipsPage) prefix. */
+html.loc-en section:not(.tipsPage) tr[data-record-id] td.name {
+  overflow-wrap: break-word;
+}
+
+/* Wavu publishes no English name for about a fifth of all moves. Those cells
+   show the project's Chinese reference name instead -- italic so it reads as a
+   different kind of thing, and tagged so it never passes for a translation. */
+html.loc-en .zhfall {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+html.loc-en .zhtag {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-family: Saira, "Noto Sans SC", sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  vertical-align: 1px;
+  color: var(--muted);
+}
+
+/* the phone layout drops the fixed row height entirely, so the English rows
+   need their name line back at a readable size rather than the 9.5px the
+   Chinese stack uses */
+@media (max-width: 640px) {
+  html.loc-en section:not(.tipsPage) tr[data-record-id] {
+    height: auto;
+  }
+
+  html.loc-en section:not(.tipsPage) tr[data-record-id] td.name {
+    font-size: 10.5px;
+  }
+}
+
+/* the hit-level separator only exists where a locale asks for one */
+.lvsep {
+  font-style: normal;
+  margin: 0 1px;
+  opacity: .45;
+}
+
+/* English hit levels are words, so they must not split inside one */
+html.loc-en section:not(.tipsPage) tr[data-record-id] td.rng {
+  overflow-wrap: break-word;
+  letter-spacing: 0;
+}
