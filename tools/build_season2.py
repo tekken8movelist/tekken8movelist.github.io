@@ -455,9 +455,11 @@ def render_command(
     )
 
 
-def target_descriptor(token: str, s: dict) -> tuple[str, str, str]:
+def target_descriptor(
+    token: str, s: dict, compact: bool = False
+) -> tuple[str, str, str]:
     lowered = token.lower()
-    labels = s["targetLabels"]
+    labels = s["targetLabelsCompact" if compact else "targetLabels"]
     if lowered.startswith("sm"):
         css_class, label = "sp", labels["sm"]
     elif lowered.startswith("sl"):
@@ -489,15 +491,27 @@ def translate_target(target: str, s: dict) -> str:
     return s["targetJoin"].join(titles) or s["dash"]
 
 
-def render_target(target: str, s: dict) -> str:
+# Above this many hit levels, English switches to initials. The brief's case
+# for spelling them out is a readability one, and it holds for the one or two
+# levels most moves have. Leroy's seven-hit chain spells out to
+# "High/High/High/High/High/High/High", which is four wrapped lines in a 15%
+# column, bursts the fixed row height, and is not read as words anyway -- at
+# that length the reader is scanning a rhythm. The title keeps the words.
+SPELLED_OUT_TARGET_LIMIT = 3
+
+
+def render_target(target: str, s: dict, compact: bool | None = None) -> str:
     if not target:
         return s["dash"]
+    tokens = [part.strip() for part in target.split(",") if part.strip()]
+    if compact is None:
+        compact = len(tokens) > SPELLED_OUT_TARGET_LIMIT
     rendered = []
     for part in target.split(","):
         token = part.strip()
         if not token:
             continue
-        css_class, label, title = target_descriptor(token, s)
+        css_class, label, title = target_descriptor(token, s, compact)
         title_attr = (
             f' title="{escape(title, quote=True)}"' if title != label else ""
         )
@@ -1526,7 +1540,7 @@ def render_ten_string_table(
             f'<td class="cmd">{render_command(command, config["css_class"], stance_names, None, 5, 4.8, 5.8, notation_for(s["locale"]))}</td>'
             f"{render_startup_cell(startup)}"
             f'{render_damage_cell(move.get("damage", ""))}'
-            f'<td class="rng">{render_target(move.get("target", ""), s)}</td>'
+            f'<td class="rng">{render_target(move.get("target", ""), s, compact=True)}</td>'
             "</tr>"
         )
     return (

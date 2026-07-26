@@ -47,6 +47,56 @@ const allPages = {
   lidia: 'lidia_tk8_movelist.html',
   heihachi: 'heihachi_tk8_movelist.html',
 };
+// Locale trees. Simplified keeps the full state matrix -- it is the indexed
+// tree and the one every layout rule was tuned against. The other two run a
+// reduced matrix: their layout differs from it in exactly two ways (row height
+// and the English column shares), and running 10 states each would triple a
+// gate that already takes four minutes for no coverage the reduced set misses.
+//
+// Row heights are measured post-`zoom: 1.25`, so 38px of CSS lands near 47.5
+// and English's 46px lands near 57.5.
+const locales = [
+  {
+    id: 'hans',
+    dir: '',
+    rowHeight: [46, 49],
+    states: [
+      { width: 1480, theme: 'dark', mode: 'gfx', stackedLayout: false },
+      { width: 1480, theme: 'dark', mode: 'nn', stackedLayout: false },
+      { width: 1480, theme: 'dark', mode: 'txt', stackedLayout: false },
+      { width: 1480, theme: 'light', mode: 'gfx', stackedLayout: false },
+      { width: 1480, theme: 'light', mode: 'nn', stackedLayout: false },
+      { width: 1480, theme: 'light', mode: 'txt', stackedLayout: false },
+    ],
+    responsive: [1280, 1024, 760, 390],
+    full: true,
+  },
+  {
+    id: 'hant',
+    dir: 'zh-Hant',
+    rowHeight: [46, 49],
+    states: [
+      { width: 1480, theme: 'dark', mode: 'gfx', stackedLayout: false },
+      { width: 1480, theme: 'light', mode: 'txt', stackedLayout: false },
+      { width: 1480, theme: 'dark', mode: 'nn', stackedLayout: false },
+    ],
+    responsive: [390],
+    full: false,
+  },
+  {
+    id: 'en',
+    dir: 'en',
+    rowHeight: [56, 60],
+    states: [
+      { width: 1480, theme: 'dark', mode: 'gfx', stackedLayout: false },
+      { width: 1480, theme: 'light', mode: 'txt', stackedLayout: false },
+      { width: 1480, theme: 'dark', mode: 'nn', stackedLayout: false },
+    ],
+    responsive: [390],
+    full: false,
+  },
+];
+
 const onlyCharacters = process.env.CHARACTERS
   ? new Set(process.env.CHARACTERS.split(',').map((value) => value.trim()))
   : null;
@@ -64,7 +114,6 @@ const legacyPages = readdirSync(siteRoot)
   .sort();
 const notationButtons = { gfx: '#ng', nn: '#nn', txt: '#nt' };
 const themeButtons = { dark: '#thd', light: '#thl' };
-const responsiveWidths = [1280, 1024, 760, 390];
 const screenshotDir = process.env.SCREENSHOT_DIR
   ? resolve(process.cwd(), process.env.SCREENSHOT_DIR)
   : null;
@@ -120,7 +169,7 @@ async function stubCloudflareWebAnalytics(context) {
 }
 
 async function collectMetrics(page, expected) {
-  return page.evaluate(({ theme: expectedTheme, mode: expectedMode, stackedLayout, width }) => {
+  return page.evaluate(({ theme: expectedTheme, mode: expectedMode, stackedLayout, width, rowHeight }) => {
     const label = (element) =>
       element.closest('[data-record-id]')?.getAttribute('data-record-id') ||
       element.id ||
@@ -167,7 +216,7 @@ async function collectMetrics(page, expected) {
       'section:not(.tipsPage) table:not(.ten-string-table) tr[data-record-id]',
     )]
       .map((row) => ({ label: label(row), height: row.getBoundingClientRect().height }))
-      .filter(({ height }) => height < 46 || height > 49);
+      .filter(({ height }) => height < rowHeight[0] || height > rowHeight[1]);
 
     const isVisibleContent = (element) => {
       if (element.matches('.sr-only,[aria-hidden="true"]')) return false;
@@ -427,7 +476,12 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
   if (headerCard.bioValues.length < 2) {
     problems.push(`profile row: ${JSON.stringify(headerCard.bioValues)}`);
   }
-  if (headerCard.bioValues.some((value) => /[A-Za-z]{4,}/.test(value))) {
+  // The Chinese builds must not leak English into the profile row -- that is
+  // official_profile_zh.py's whole contract. The English build shows
+  // tekken.com's own wording there, so the same check would flag it for being
+  // correct.
+  if (expected.locale !== 'en'
+    && headerCard.bioValues.some((value) => /[A-Za-z]{4,}/.test(value))) {
     problems.push(`untranslated profile text: ${JSON.stringify(headerCard.bioValues)}`);
   }
 
@@ -592,53 +646,77 @@ let browser;
 try {
   browser = await chromium.launch({ executablePath: findChrome(), headless: true });
 
-  for (const [character, filename] of Object.entries(pages)) {
-    const context = await browser.newContext({ viewport: { width: 1480, height: 1000 } });
-    try {
-      await stubCloudflareWebAnalytics(context);
-      const page = await context.newPage();
-      const runtimeErrors = attachRuntimeErrorCapture(page);
-      await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
-      for (const theme of ['dark', 'light']) {
-        for (const mode of ['gfx', 'nn', 'txt']) {
-          await runState(
-            page,
-            character,
-            { width: 1480, theme, mode, stackedLayout: false },
-            runtimeErrors,
-            results,
-          );
-        }
-      }
-      await verifyRevealBar(page, results.at(-1));
-      await verifyReloadPersistence(
-        page,
-        { width: 1480, theme: 'light', mode: 'txt', stackedLayout: false },
-        runtimeErrors,
-        results.at(-1),
-      );
-    } finally {
-      await context.close();
-    }
-  }
+  for (const locale of locales) {
+    const tree = locale.dir ? join(siteRoot, locale.dir) : siteRoot;
+    const label = (character) => (locale.id === 'hans' ? character : `${character}@${locale.id}`);
 
-  for (const [character, filename] of Object.entries(pages)) {
-    for (const width of responsiveWidths) {
-      const context = await browser.newContext({ viewport: { width, height: 1000 } });
+    for (const [character, filename] of Object.entries(pages)) {
+      if (!existsSync(join(tree, filename))) continue;
+      const context = await browser.newContext({ viewport: { width: 1480, height: 1000 } });
       try {
         await stubCloudflareWebAnalytics(context);
         const page = await context.newPage();
         const runtimeErrors = attachRuntimeErrorCapture(page);
-        await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
-        await runState(
-          page,
-          character,
-          { width, theme: 'dark', mode: 'gfx', stackedLayout: true },
-          runtimeErrors,
-          results,
-        );
+        await page.goto(pathToFileURL(join(tree, filename)).href, { waitUntil: 'load' });
+        for (const state of locale.states) {
+          await runState(
+            page,
+            label(character),
+            { ...state, rowHeight: locale.rowHeight, locale: locale.id },
+            runtimeErrors,
+            results,
+          );
+        }
+        // the reveal bar and the reload round-trip are behaviour, not layout,
+        // and the script driving them is shared verbatim -- checking them once
+        // per character in the indexed tree is the coverage that pays
+        if (locale.full) {
+          await verifyRevealBar(page, results.at(-1));
+          await verifyReloadPersistence(
+            page,
+            {
+              width: 1480,
+              theme: 'light',
+              mode: 'txt',
+              stackedLayout: false,
+              rowHeight: locale.rowHeight,
+              locale: locale.id,
+            },
+            runtimeErrors,
+            results.at(-1),
+          );
+        }
       } finally {
         await context.close();
+      }
+    }
+
+    for (const [character, filename] of Object.entries(pages)) {
+      if (!existsSync(join(tree, filename))) continue;
+      for (const width of locale.responsive) {
+        const context = await browser.newContext({ viewport: { width, height: 1000 } });
+        try {
+          await stubCloudflareWebAnalytics(context);
+          const page = await context.newPage();
+          const runtimeErrors = attachRuntimeErrorCapture(page);
+          await page.goto(pathToFileURL(join(tree, filename)).href, { waitUntil: 'load' });
+          await runState(
+            page,
+            label(character),
+            {
+              width,
+              theme: 'dark',
+              mode: 'gfx',
+              stackedLayout: true,
+              rowHeight: locale.rowHeight,
+              locale: locale.id,
+            },
+            runtimeErrors,
+            results,
+          );
+        } finally {
+          await context.close();
+        }
       }
     }
   }
@@ -649,11 +727,22 @@ try {
 }
 
 const failures = [...results, ...legacyResults].filter((result) => result.problems.length);
-const expectedStateCount = Object.keys(pages).length * 10;
+const expectedStateCount = locales.reduce(
+  (total, locale) => total
+    + Object.keys(pages).filter((character) => existsSync(
+      join(locale.dir ? join(siteRoot, locale.dir) : siteRoot, pages[character]),
+    )).length * (locale.states.length + locale.responsive.length),
+  0,
+);
+const perLocaleStateCount = Object.fromEntries(locales.map((locale) => [
+  locale.id,
+  results.filter((result) => result.locale === locale.id).length,
+]));
 const expectedLegacyStateCount = legacyPages.length * 3;
 console.log(JSON.stringify({
   stateCount: results.length,
   expectedStateCount,
+  perLocaleStateCount,
   legacyStateCount: legacyResults.length,
   expectedLegacyStateCount,
   failureCount: failures.length,

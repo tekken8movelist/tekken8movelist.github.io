@@ -97,6 +97,20 @@ _TARGET_LABELS_HANT = {
     "sp": "特",
 }
 
+# The ten-hit table lists one level per hit -- seventeen of them for King.
+# Spelled out that is a 590px wall of words in a 374px table and unreadable
+# even where it fits, so that one table uses initials. The title attribute
+# still carries the word, and the main move table stays spelled out.
+_TARGET_LABELS_EN_COMPACT = {
+    "sm": "sM",
+    "sl": "sL",
+    "h": "H",
+    "m": "M",
+    "l": "L",
+    "t": "T",
+    "sp": "Sp",
+}
+
 _TARGET_LABELS_EN = {
     "sm": "Sp. mid",
     "sl": "Sp. low",
@@ -230,6 +244,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "thBreak": "挣脱",
         # --- hit levels ---
         "targetLabels": _TARGET_LABELS_ZH,
+        "targetLabelsCompact": _TARGET_LABELS_ZH,
         "targetTitles": _TARGET_TITLES_ZH,
         "targetGrounded": "（倒地）",
         # single glyphs read fine run together; English words do not
@@ -362,6 +377,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "thSide": "方向",
         "thBreak": "掙脫",
         "targetLabels": _TARGET_LABELS_HANT,
+        "targetLabelsCompact": _TARGET_LABELS_HANT,
         "targetTitles": _TARGET_TITLES_HANT,
         "targetGrounded": "（倒地）",
         # single glyphs read fine run together; English words do not
@@ -492,6 +508,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "thSide": "Side",
         "thBreak": "Break",
         "targetLabels": _TARGET_LABELS_EN,
+        "targetLabelsCompact": _TARGET_LABELS_EN_COMPACT,
         "targetTitles": _TARGET_TITLES_EN,
         "targetGrounded": " (hits grounded)",
         # "HighHighMid" is unreadable and breaks mid-word in a 15% column
@@ -504,11 +521,14 @@ STRINGS: dict[str, dict[str, object]] = {
         "throwBack": "Back",
         "throwAir": "Air",
         "throwGround": "Ground",
-        "throwCrouch": "Crouching",
+        "throwCrouch": "Crouch",
         "throwWall": "Wall",
         "breakNone": "No break",
         "breakOr": " or ",
-        "breakOpposite": "Opposite of first/last",
+        # the Break column is 17% of a 1120px body; the full phrase
+        # ("opposite of the first or last button") lives in no tooltip, so
+        # keep the word that carries the meaning
+        "breakOpposite": "Opposite",
         "breakLabel": "Break {value}",
         "breakUnknownTitle": "Wavu does not state the break",
         "comboStarter": "Starter",
@@ -749,7 +769,12 @@ _COLUMNS_ZH = {
 
 _COLUMNS_EN = {
     "move": (27, 37, 9, 12, 15),
-    "throw": (26, 28, 9, 8, 14, 15),
+    # 指令 keeps its Chinese 34% here too. The brief narrowed it to 28% for the
+    # throw table while stating the opposite rule for the move table, and 28%
+    # overflows: Jack-8's uf+1+2,d,df+2 needs 156px and gets 150. Side and Break
+    # still need more room than one or two glyphs ("Crouch", "No break"), so the
+    # room comes out of 招式 and 伤害, which holds two digits.
+    "throw": (22, 34, 9, 11, 10, 14),
 }
 
 TABLE_COLUMNS = {

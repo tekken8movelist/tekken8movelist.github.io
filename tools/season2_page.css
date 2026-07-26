@@ -658,10 +658,16 @@ html.loc-en td {
   padding: 4px 6px;
 }
 
-html.loc-en td.name {
-  font-size: 10px;
-  line-height: 1.3;
-  text-wrap: pretty;
+/* Desktop only. These tune a name inside a fixed 46px row; the phone layout
+   drops the fixed height and already raises td.name to 13px, and applying
+   line-height 1.3 there sizes the text taller than the flex row sizes the box
+   -- a two-line name then overflows by exactly the 2px difference. */
+@media (min-width: 641px) {
+  html.loc-en td.name {
+    font-size: 10px;
+    line-height: 1.3;
+    text-wrap: pretty;
+  }
 }
 
 /* `anywhere` is right for Chinese, where any character is a break point, and
@@ -694,16 +700,24 @@ html.loc-en .zhtag {
   color: var(--muted);
 }
 
-/* the phone layout drops the fixed row height entirely, so the English rows
-   need their name line back at a readable size rather than the 9.5px the
-   Chinese stack uses */
+/* The phone layout stacks the command onto its own line and lets rows size to
+   content. `html.loc-en` outranks the rule that does that, so the fixed height
+   has to be released here too -- without this, English rows stay 46px at 390px
+   and the command overlaps the stats line.
+   The name size is deliberately NOT touched: the stacked layout already raises
+   td.name to 13px, and an earlier attempt to "restore" a readable size here
+   pushed it back down to 10.5px instead. */
 @media (max-width: 640px) {
   html.loc-en section:not(.tipsPage) tr[data-record-id] {
     height: auto;
   }
 
+  /* The stacked layout's 1.2 line-height is tighter than this font stack's own
+     line box (19px of ink at 13px), which no Chinese name ever revealed because
+     none of them wrap on a phone. English names do, and a two-line cell then
+     overflows its box by exactly that difference. */
   html.loc-en section:not(.tipsPage) tr[data-record-id] td.name {
-    font-size: 10.5px;
+    line-height: 1.45;
   }
 }
 
