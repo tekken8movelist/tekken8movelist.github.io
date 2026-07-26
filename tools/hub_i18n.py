@@ -1,0 +1,132 @@
+# -*- coding: utf-8 -*-
+"""Shared knowledge about the hub's localisable slots.
+
+`docs/index.html` stays hand-maintained -- AGENTS.md allows editing it directly
+and it carries the flux effect, the card grid and the whole design system. So
+rather than templating it, the two other locales are *derived* from it, and
+this module is the single description of what "derived" means: which slots
+carry copy, and what each locale puts in them.
+
+Kept apart from build_hub.py so the augment step (which edits the authored
+Simplified page in place) and the derive step (which writes the other two) read
+the same table.
+"""
+
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parent
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from locales import LOCALES, page_href  # noqa: E402
+
+SITE = TOOLS.parent / "docs"
+HUB = SITE / "index.html"
+
+# Group headings. The Chinese builds read as an English kicker over a Chinese
+# title; English cannot repeat itself there, so the kicker takes the roster tag
+# and the title takes the plain name -- the pair still says two things.
+GROUP_HEADINGS = {
+    "Core Roster": {
+        "hans": ("Core Roster", "核心阵容", "{n} 名"),
+        "hant": ("Core Roster", "核心陣容", "{n} 名"),
+        "en": ("Base Game", "Core Roster", "{n} fighters"),
+    },
+    "Season 1": {
+        "hans": ("Season 1", "第1季 DLC", "{n} 名"),
+        "hant": ("Season 1", "第1季 DLC", "{n} 名"),
+        "en": ("DLC", "Season 1", "{n} fighters"),
+    },
+    "Season 2": {
+        "hans": ("Season 2", "第2季 DLC", "{n} 名"),
+        "hant": ("Season 2", "第2季 DLC", "{n} 名"),
+        "en": ("DLC", "Season 2", "{n} fighters"),
+    },
+    "Season 3": {
+        "hans": ("Season 3", "第3季 DLC", "{n} 名"),
+        "hant": ("Season 3", "第3季 DLC", "{n} 名"),
+        "en": ("DLC", "Season 3", "{n} fighters"),
+    },
+}
+
+# Copy slots keyed by a regex that captures exactly the text to replace.
+# Each value is the per-locale replacement.
+HUB_STRINGS = {
+    "hubTitle": {
+        "hans": "全角色出招表",
+        "hant": "全角色出招表",
+        "en": "Every Fighter",
+    },
+    "hubSub": {
+        "hans": "选择角色查看完整出招表 · 图形化按键记法 · 逐招发生帧 · 数据源自 Wavu Wiki",
+        "hant": "選擇角色查看完整出招表 · 圖形化按鍵記法 · 逐招發生幀 · 資料源自 Wavu Wiki",
+        "en": (
+            "Pick a fighter for the full movelist — graphical input notation, "
+            "per-move startup frames, data from Wavu Wiki"
+        ),
+    },
+    "notationLabel": {"hans": "记法", "hant": "記法", "en": "Notation"},
+    "ntGfx": {"hans": "按键图", "hant": "按鍵圖", "en": "Buttons"},
+    "ntTxt": {"hans": "文字", "hant": "文字", "en": "Text"},
+    "languageLabel": {"hans": "语言", "hant": "語言", "en": "Language"},
+    "searchPlaceholder": {
+        "hans": "搜索角色 · 中文名 / English",
+        "hant": "搜尋角色 · 中文名 / English",
+        "en": "Search fighters · name or alias",
+    },
+    "demoCap": {
+        "hans": "示例 · 月燕（凌晓雨）",
+        "hant": "範例 · 月燕（凌曉雨）",
+        "en": "Example · Rainbow Kick (Xiaoyu)",
+    },
+    "keyLP": {"hans": "左拳 LP", "hant": "左拳 LP", "en": "Left punch LP"},
+    "keyRP": {"hans": "右拳 RP", "hant": "右拳 RP", "en": "Right punch RP"},
+    "keyLK": {"hans": "左脚 LK", "hant": "左腳 LK", "en": "Left kick LK"},
+    "keyRK": {"hans": "右脚 RK", "hant": "右腳 RK", "en": "Right kick RK"},
+    "footerTitle": {
+        "hans": "非官方《铁拳 8》中文出招参考",
+        "hant": "非官方《鐵拳 8》中文出招參考",
+        "en": "An unofficial TEKKEN 8 movelist reference",
+    },
+    "pageTitle": {
+        "hans": "铁拳8 全角色中文出招表 | TEKKEN 8 Movelist",
+        "hant": "鐵拳8 全角色中文出招表 | TEKKEN 8 Movelist",
+        "en": "TEKKEN 8 Movelist · Frame Data & Command List",
+    },
+}
+
+# The count line carries two numbers the build knows; keep them substituted
+# rather than hard-coded so a new character does not need this file edited.
+COUNT_LINE = {
+    "hans": "{pages} 页出招表 · 共 {fighters} 名角色",
+    "hant": "{pages} 頁出招表 · 共 {fighters} 名角色",
+    "en": "{pages} movelists · {fighters} fighters",
+}
+
+
+def locale_control(locale: str) -> str:
+    """The hub's language group, shaped like the notation control beside it."""
+    items = []
+    for code, meta in LOCALES.items():
+        label = meta["short"]
+        href = page_href(locale, code, "index.html")
+        if code == locale:
+            items.append(f'<button type="button" class="on" aria-current="true" disabled>{label}</button>')
+        else:
+            items.append(f'<a href="{href}" lang="{meta["lang"]}" hreflang="{meta["hreflang"]}">{label}</a>')
+    label = HUB_STRINGS["languageLabel"][locale]
+    return (
+        '<div class="grp">'
+        f'<span class="lbl"><b class="lmark" aria-hidden="true">文/A</b>{label}</span>'
+        f'<span class="seg lseg" role="group" aria-label="语言 / Language">'
+        + "".join(items)
+        + "</span></div>"
+    )
+
+
+def strip_tags(fragment: str) -> str:
+    return re.sub(r"<[^>]+>", "", fragment).strip()

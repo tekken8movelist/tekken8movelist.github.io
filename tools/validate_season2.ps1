@@ -105,6 +105,9 @@ try {
             (Join-Path $PSScriptRoot 'season2_config.py'),
             (Join-Path $PSScriptRoot 'site_analytics.py'),
             (Join-Path $PSScriptRoot 'locales.py'),
+            (Join-Path $PSScriptRoot 'hub_i18n.py'),
+            (Join-Path $PSScriptRoot 'build_hub.py'),
+            (Join-Path $PSScriptRoot 'build_sitemap.py'),
             (Join-Path $PSScriptRoot 'zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_locales.py'),
             (Join-Path $PSScriptRoot 'test_zh_hant.py'),
@@ -126,6 +129,10 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_season2.py'), '--output-dir', $siteRoot)
         Invoke-NativeStep -Label 'Check legacy pipeline pages match the shared chrome' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'patch_legacy_pages.py'), '--check')
+        Invoke-NativeStep -Label 'Rebuild the derived locale hubs' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_hub.py'))
+        Invoke-NativeStep -Label 'Rebuild the sitemap' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_sitemap.py'))
         Invoke-NativeStep -Label 'Run locale table tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_locales', '-v')
         Invoke-NativeStep -Label 'Run Traditional conversion tests' -FilePath $python `

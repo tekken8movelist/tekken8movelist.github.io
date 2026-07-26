@@ -287,12 +287,32 @@ class SitePublicationContractTest(unittest.TestCase):
             for location in root.findall("sm:url/sm:loc", namespace)
             if location.text
         }
-        expected_urls = {PUBLIC_ROOT}
-        expected_urls.update(
-            f"{PUBLIC_ROOT}{page.name}"
-            for page in SITE.glob("*_tk8_movelist.html")
-        )
+        # every page in every tree it was actually built in -- the five pipeline
+        # pages exist only in Simplified, and listing three URLs for them would
+        # point a crawler at files that are not there
+        expected_urls = set()
+        for code, meta in LOCALES.items():
+            tree = SITE / meta["dir"] if meta["dir"] else SITE
+            expected_urls.add(public_url(code, "index.html"))
+            expected_urls.update(
+                public_url(code, page.name)
+                for page in tree.glob("*_tk8_movelist.html")
+            )
         self.assertEqual(sitemap_urls, expected_urls)
+
+        # and each URL declares the alternates that exist for it
+        xhtml = {"xhtml": "http://www.w3.org/1999/xhtml"}
+        for url in root.findall("sm:url", namespace):
+            location = url.findtext("sm:loc", namespaces=namespace)
+            alternates = url.findall("xhtml:link", xhtml)
+            with self.subTest(url=location):
+                self.assertTrue(alternates, "no alternates declared")
+                self.assertIn(
+                    "x-default",
+                    {link.get("hreflang") for link in alternates},
+                )
+                for link in alternates:
+                    self.assertIn(link.get("href"), expected_urls)
 
         robots = ROBOTS.read_text(encoding="utf-8")
         self.assertIn("User-agent: *", robots)
