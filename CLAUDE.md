@@ -97,9 +97,22 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   （否则 `峰→峯→峰`、`秘→祕→秘` 这类回环会被误杀）。
 - **chrome 文案手写三列**，不机器转换：`记法→記法` 是机械的，但 `数据→資料`
   是台湾用词。语料（招式/分区/架势名）走转换器。
-- **英文招式名只来自 Wavu**。Wavu 未命名的招式显示斜体中文 + `ZH` 标，
-  **绝不回译**；逐角色数量锁在 `season2_config.EXPECTED_ZH_FALLBACKS`
-  （全站 1128 条，约五分之一），静默上涨即回归。
+- **英文页不出现任何中文**（2026-07-26 定稿）。唯一例外是语言控件里的 `简`/`繁`
+  ——控件用读者的语言标注选项，否则没法用它离开。门禁
+  `test_the_english_tree_carries_no_chinese_at_all` 扫的是 `reader_text()`：
+  正文 + `<meta>`/`<title>` + `alt`/`aria-label`/`title` 等属性 + **内联脚本里的
+  字符串字面量**（`n + ' 名匹配'`、og:description 都是这样漏掉的），只剔除
+  CSS/JS 注释。旧版门禁放行「四个双语槽位」，于是 `Throws 投技`、h1 下的 `风间仁`、
+  页脚那句中文全都合规通过——**放行槽位就是文案藏身的地方**。
+- **副标题槽位只有中文页有**：`投技 / THROWS` 里的 THROWS 是 Wavu 和所有帧数站的
+  叫法，值一行；反过来 `Throws / 投技` 读者根本读不了。英文列 `sec*Alt` 一律空串，
+  `heading_alt()` 直接不输出 span；`<h1>` 的 `<small>` 与页脚 intro 副句同理。
+- **Wavu 未命名的招式**（1371 条 / 6275，22%）由 `tools/move_name_en.py` 给出英文
+  **描述**（不是官方名），带 `ref` 角标 + title 说明来源。构成方式是分词合成而非逐条
+  罗列：843 个不同中文名共用一张 segment 表，新角色的 `左中踢` 因此自动得到和别人
+  一样的英文。**架势词直接从快照挖 Wavu 自己的英文**（section 写成 `PKB (Peekaboo)`），
+  所以 `窥视`=Peekaboo 是 Wavu 说的，不是谁定的。`--check` 对 843 条全覆盖，
+  接进门禁；`EXPECTED_ZH_FALLBACKS` 仍锁「Wavu 没给名字」的条数。
 - **指令列不翻译**，只有 `.tk-state` 胶囊本地化，英文用 Wavu 码（背身时→BT）。
   胶囊词汇有四个来源，全部经 `locales.notation()`：`COMMON_PREFIXES`、
   `expand_command` 的回退默认值、`COMMON_COMMAND_ALIASES`、以及
@@ -119,9 +132,6 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   `test_english_names_every_combo_marker` 会挡。`COMBO_STANCE_ALIASES`
   （eddy MD→曼丁加）过去直接并进 `stance_names`，绕开了 `localized_vocabulary`，
   于是简体胶囊漏进英文页和繁體页；现走 `combo_stance_aliases(key, locale)`。
-  门禁 `test_the_english_tree_shows_chinese_only_where_it_means_to`：英文页只有
-  四个槽位允许出现中文（`.zhfall` ZH 标招式名、`<small>` 副名、`<span class="en">`
-  副标题、`.lcgl` 语言按钮），其余一律算泄漏。
 - **判定列**：英文 1~3 段拼写全称（High/Mid/Low），超过 3 段改用缩写——
   勒罗伊七段连拳拼全称是四行、撑爆行高，十连技十七段更是撑爆整张表；全称留在 title。
 - **行高按语系**：中文 38px、英文 46px（`html.loc-en`）。英文靠行高而非列宽换空间，
@@ -137,12 +147,17 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   角色页 `.lcgl > .lcl` + `.lcseg`，都是「小标签 + 选项组」，不再用 `文/A` 徽标。
   `.lcgl` 复述了 `.ntgl` 的三条属性而非共用——`.ntgl` 在两套页面里各定义一次，
   `header_card.css` 才是两家都读的那一份。
-- `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（116 条 URL），
+- `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（121 条 URL），
   只给真实存在的语系发 `xhtml:link`。
-- **5 个管线页只有简体**，暂不在语系契约内（见
-  `design/plans/2026-07-26-pipeline-page-migration.md`）。它们**照样带语言控件**，
-  只是繁/EN 渲染成 `.lcgl .off`（`<span>`，不可点、不进 Tab、`title` 说明原因）——
-  41 页里有 5 页控件凭空消失，读起来像坏了；禁用态读起来才是「还没翻」。
+- **5 个管线页现在有简体 + 繁體**（2026-07-26）。繁體从来不需要第三份快照——它就是
+  把简体语料过一遍转换器，而这 5 页**自己就是自己的语料**，以简体 HTML 躺在磁盘上。
+  `tools/build_legacy_hant.py` 直接转已发布页面：先按 `<script>`/`<style>` 切块，
+  只转**标签之间的文本 + 文案属性 + ld+json 的字符串值**（当 JSON 解析，不做模式匹配），
+  CSS、脚本、每一条指令逐字节不动。**英文仍缺**——那需要 Wavu 的英文招式名，
+  得先抓快照（见 `design/plans/2026-07-26-pipeline-page-migration.md`）。
+  语言控件按**磁盘实际存在**渲染（`patch_legacy_pages.built_locales()`）：有页面就给链接，
+  没有就 `.lcgl .off`（`<span>`，不可点、不进 Tab、`title` 说明原因）——控件凭空消失
+  读起来像坏了，禁用态读起来才是「还没翻」。
 
 ## 已完成角色
 

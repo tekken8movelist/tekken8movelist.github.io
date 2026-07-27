@@ -13,6 +13,7 @@ Idempotent: re-running writes byte-identical output.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -120,6 +121,37 @@ def swap_copy(markup: str, locale: str) -> str:
         s["footerFanTail"],
         "fan tail",
     )
+    markup = replace_once(
+        markup,
+        r'(?<=<b id="noneQ">).*?(?=</b>)',
+        s["noneTitle"],
+        "empty-state title",
+    )
+    markup = replace_once(
+        markup,
+        r'(?<=</b>\n  <span>).*?(?=</span>\n</div>)',
+        s["noneHint"],
+        "empty-state hint",
+    )
+    # the search script builds three strings at runtime; they are copy too
+    markup = replace_once(
+        markup,
+        r"(?<=noneQ\.textContent = ')[^']*(?=' \+ q\.value\.trim\(\))",
+        s["noneQueryOpen"],
+        "empty-state query prefix",
+    )
+    markup = replace_once(
+        markup,
+        r"(?<=q\.value\.trim\(\) \+ ')[^']*(?=';)",
+        s["noneQueryClose"],
+        "empty-state query suffix",
+    )
+    markup = replace_once(
+        markup,
+        r"(?<=cnt\.textContent = raw \? n \+ ')[^']*(?=')",
+        s["matchCount"],
+        "match count",
+    )
     return replace_once(
         markup,
         r'(?<=<span class="mono">TEKKEN™ 8</span>).*?(?=</p>)',
@@ -142,6 +174,16 @@ def swap_counts(markup: str, locale: str) -> str:
             pages=numbers.group(1), fighters=numbers.group(2)
         ),
         "count line",
+    )
+
+    # the script restores the same line when the search box is cleared
+    markup = replace_once(
+        markup,
+        r"(?<=: ')(\d+)[^']*?(\d+)[^']*(?=';)",
+        COUNT_LINE[locale].format(
+            pages=numbers.group(1), fighters=numbers.group(2)
+        ),
+        "count line reset",
     )
 
     def heading(match: re.Match[str]) -> str:
@@ -171,23 +213,39 @@ def swap_counts(markup: str, locale: str) -> str:
 def swap_card_names(markup: str, locale: str) -> str:
     """The name plate on each card. `data-q` is never touched.
 
-    Traditional converts the Chinese name. English promotes the name it already
-    carries and demotes the Chinese one -- the same "other locale in the
-    secondary slot" rule the character pages use, so the plate still says two
-    things instead of printing one name twice.
+    Traditional converts the Chinese name and keeps the English one beneath
+    it, which is what the player sees in-game. English shows the English name
+    alone: the Chinese line is one an English reader cannot use, and search
+    still finds the card either way because `data-q` carries every spelling.
     """
 
     def plate(match: re.Match[str]) -> str:
         chinese, english = match.group("zh"), match.group("en")
         if locale == "hant":
             return f'<span class="cnm"><b>{convert(chinese)}</b><i>{english}</i></span>'
-        return f'<span class="cnm"><b>{english}</b><i>{chinese}</i></span>'
+        return f'<span class="cnm"><b>{english}</b></span>'
 
     return re.sub(
         r'<span class="cnm"><b>(?P<zh>[^<]*)</b><i>(?P<en>[^<]*)</i></span>',
         plate,
         markup,
     )
+
+
+SOON_LABEL = re.compile(r'(<span class="(?:p|soonpill)">)即将上线(</span>)')
+
+
+def swap_soon_labels(markup: str, locale: str) -> str:
+    """"Coming soon" on the three unreleased S3 cards.
+
+    Twice per card -- once over the portrait, once on the plate -- so this is
+    the one copy slot that legitimately matches more than once.
+    """
+    label = HUB_STRINGS["soonLabel"][locale]
+    markup, count = SOON_LABEL.subn(rf"\g<1>{label}\g<2>", markup)
+    if count != 6:
+        raise SystemExit(f"hub: soon label matched {count} times, expected 6")
+    return markup
 
 
 def swap_head(markup: str, locale: str) -> str:
@@ -216,6 +274,46 @@ def swap_head(markup: str, locale: str) -> str:
         r'(?<=<meta property="og:url" content=")[^"]*(?=")',
         public_url(locale, "index.html"),
         "og:url",
+    )
+    # everything else in the head that carries copy rather than a URL
+    s = {key: value[locale] for key, value in HUB_STRINGS.items()}
+    for pattern, value, what in (
+        (r'(?<=<meta name="description" content=")[^"]*(?=")',
+         s["metaDescription"], "meta description"),
+        (r'(?<=<meta property="og:site_name" content=")[^"]*(?=")',
+         s["siteName"], "og:site_name"),
+        (r'(?<=<meta property="og:title" content=")[^"]*(?=")',
+         s["pageTitle"], "og:title"),
+        (r'(?<=<meta property="og:description" content=")[^"]*(?=")',
+         s["shareDescription"], "og:description"),
+        (r'(?<=<meta property="og:image:alt" content=")[^"]*(?=")',
+         s["imageAlt"], "og:image:alt"),
+        (r'(?<=<meta name="twitter:title" content=")[^"]*(?=")',
+         s["pageTitle"], "twitter:title"),
+        (r'(?<=<meta name="twitter:description" content=")[^"]*(?=")',
+         s["shareDescription"], "twitter:description"),
+    ):
+        markup = replace_once(markup, pattern, value, what)
+    # the structured-data block is rewritten whole rather than field by field:
+    # a lookbehind cannot span the fields in front of the one being replaced
+    structured = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": s["siteName"],
+            "alternateName": "TEKKEN 8 Movelist",
+            "url": public_url(locale, "index.html"),
+            "inLanguage": meta["lang"],
+            "description": s["shareDescription"],
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+    markup = replace_once(
+        markup,
+        r'(?<=<script type="application/ld\+json">).*?(?=</script>)',
+        structured,
+        "ld+json block",
     )
     # the alternates block goes in once, right after canonical
     return replace_once(
@@ -270,6 +368,7 @@ def derive(markup: str, locale: str) -> str:
     markup = swap_copy(markup, locale)
     markup = swap_counts(markup, locale)
     markup = swap_card_names(markup, locale)
+    markup = swap_soon_labels(markup, locale)
     markup = swap_paths(markup, locale)
     markup = retarget_missing_pages(markup, locale)
     # the language control has to point back out of this tree

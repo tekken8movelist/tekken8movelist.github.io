@@ -118,6 +118,50 @@ def published_pages() -> list[Path]:
     return sorted(pages)
 
 
+CHINESE = re.compile(r"[一-鿿]")
+_CODE_BLOCK = re.compile(r"<(script|style)\b[^>]*>(.*?)</\1>", re.S | re.I)
+# a source comment is not page copy: the shared notation stylesheet documents
+# its per-character accents in Simplified (`/* 阿丽莎 · 樱粉 */`) and the legend
+# stylesheet quotes the Chinese key it is describing
+_SOURCE_COMMENT = re.compile(r"/\*.*?\*/|^[ \t]*//.*$", re.S | re.M)
+_STRING_LITERAL = re.compile(r"'([^'\n]*)'|\"([^\"\n]*)\"")
+_COPY_ATTRIBUTE = re.compile(
+    r'\b(?:content|alt|title|placeholder|aria-label)="([^"]*)"'
+)
+# the one place a page names languages other than its own
+_LANGUAGE_SWITCHER = [
+    re.compile(p, re.S)
+    for p in (
+        r'<span class="lcseg".*?</span>',
+        r'<span class="seg lseg".*?</span>',
+        r'<div class="lcgl">.*?</div>',
+    )
+]
+
+
+def reader_text(markup: str) -> list[str]:
+    """Every string a reader, a crawler or a screen reader can end up seeing.
+
+    Not just the rendered body: `<meta>` and `<title>` reach link previews and
+    search results, `alt`/`aria-label` reach assistive tech, and a string
+    literal inside an inline script reaches the screen the moment the script
+    runs. All three shipped untranslated because the first sweep looked only
+    between the tags.
+    """
+    found: list[str] = []
+    for block in _CODE_BLOCK.finditer(markup):
+        for literal in _STRING_LITERAL.finditer(
+            _SOURCE_COMMENT.sub(" ", block.group(2))
+        ):
+            found.append(literal.group(1) or literal.group(2) or "")
+    body = _CODE_BLOCK.sub(" ", markup)
+    for switcher in _LANGUAGE_SWITCHER:
+        body = switcher.sub(" ", body)
+    found.extend(match.group(1) for match in _COPY_ATTRIBUTE.finditer(body))
+    found.extend(re.sub(r"<[^>]+>", "\n", body).split("\n"))
+    return [text.strip() for text in found if text.strip()]
+
+
 def generator_pages() -> set[str]:
     """Filenames build_season2.py owns.
 
@@ -148,8 +192,19 @@ class SitePublicationContractTest(unittest.TestCase):
             site_directories, {"avatars", "assets"} | locale_directories
         )
 
-    def test_every_locale_tree_holds_a_full_set_of_character_pages(self) -> None:
-        expected = generator_pages()
+    def test_every_locale_tree_holds_the_pages_it_can_build(self) -> None:
+        """Traditional has all 41; English has the 36 the generator owns.
+
+        The five pipeline pages have no structured snapshot, so English has no
+        move names for them and has to wait for the migration. Traditional
+        never needed one -- it is a conversion of the published Simplified
+        page, which is why `build_legacy_hant.py` can produce it today.
+        """
+        owned = generator_pages()
+        expected = {
+            "hant": owned | set(LEGACY_PIPELINE_PAGES),
+            "en": owned,
+        }
         for code, meta in LOCALES.items():
             if not meta["dir"]:
                 continue
@@ -158,11 +213,13 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertTrue(tree.is_dir(), f"{meta['dir']} not built")
                 self.assertEqual(
                     {path.name for path in tree.glob("*_tk8_movelist.html")},
-                    expected,
+                    expected[code],
                 )
 
     def test_locale_trees_declare_their_language_and_cross_link(self) -> None:
-        owned = generator_pages()
+        # the pipeline pages are in this now: Simplified and Traditional both
+        # exist, so both must declare their language and point at each other
+        owned = generator_pages() | set(LEGACY_PIPELINE_PAGES)
         for code, meta in LOCALES.items():
             tree = SITE / meta["dir"] if meta["dir"] else SITE
             for page in sorted(p for p in tree.glob("*_tk8_movelist.html")
@@ -188,55 +245,39 @@ class SitePublicationContractTest(unittest.TestCase):
     def test_the_traditional_tree_carries_no_simplified_only_glyph(self) -> None:
         """Nothing else would catch a string that skipped the converter.
 
-        Scoped to what a reader actually sees. `<style>` and `<script>` are cut
-        first, not just their tags: the shared notation component documents its
-        per-character accents in Simplified comments
-        (`/* 阿丽莎 · 樱粉 */`), and those are one CSS file used verbatim by all
-        three locales, not page copy that failed to convert.
+        Same reach as the English check, and for the same reason: the hub's
+        og:description and its search script's `' 名匹配'` both skipped the
+        converter and neither was between a pair of tags.
         """
         alphabet = simplified_only_codepoints()
         tree = SITE / LOCALES["hant"]["dir"]
-        code_blocks = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
-        # the locale control names each language in its own script -- 简 on the
-        # Traditional page is the Simplified locale's own label, the same way an
-        # English page offers "Deutsch" rather than "German"
-        locale_control = re.compile(r'<div class="lcgl".*?</div>', re.S)
-        for page in sorted(tree.glob("*_tk8_movelist.html")):
-            markup = locale_control.sub(" ", page.read_text(encoding="utf-8"))
-            visible = re.sub(r"<[^>]+>", " ", code_blocks.sub(" ", markup))
-            stray = set(visible) & alphabet
+        for page in sorted(tree.glob("*.html")):
+            stray = set("".join(reader_text(page.read_text(encoding="utf-8"))))
+            stray &= alphabet
             with self.subTest(page=page.name):
                 self.assertEqual(stray, set(), f"{page.name}: {sorted(stray)}")
 
-    def test_the_english_tree_shows_chinese_only_where_it_means_to(self) -> None:
-        """Four slots are bilingual by design. Everywhere else is a leak.
+    def test_the_english_tree_carries_no_chinese_at_all(self) -> None:
+        """One exception, and it is the language switcher naming itself.
 
-        The design pairs a heading with its other-language twin, and Wavu has
-        no English name for about a fifth of the moves, so those four slots
-        carry Chinese on purpose. Everything outside them that still reads as
-        Chinese got there by skipping the locale table -- which is how the
-        combo marker legend (`W!=撞墙`) and eddy's 曼丁加 capsule shipped.
+        The first version of this test allowed four "bilingual by design"
+        slots and passed while the pages still showed `Throws 投技`, 风间仁
+        under every h1, and a Chinese sentence in the footer. Allowing a slot
+        is how copy hides. The only Chinese an English page may now contain is
+        简 and 繁 inside the switcher, because a language control that labels
+        its choices in the reader's language cannot be used to leave.
+
+        `reader_text` deliberately reaches past the rendered body into script
+        string literals and the head -- `n + ' 名匹配'` and the og:description
+        are both copy, and both shipped in Chinese because the earlier sweep
+        only looked at what was between the tags.
         """
-        chinese = re.compile(r"[一-鿿]")
-        code_blocks = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
-        intentional = [
-            # a move Wavu never named, shown in Chinese and tagged ZH
-            re.compile(r'<span class="zhfall">.*?</span>', re.S),
-            # the other locale's name under the character's own
-            re.compile(r"<small>.*?</small>", re.S),
-            # the other locale's wording beside a heading
-            re.compile(r'<span class="en">.*?</span>', re.S),
-            # each language labels itself in its own script
-            re.compile(r'<div class="lcgl">.*?</div>', re.S),
-        ]
         tree = SITE / LOCALES["en"]["dir"]
-        for page in sorted(tree.glob("*_tk8_movelist.html")):
-            markup = code_blocks.sub(" ", page.read_text(encoding="utf-8"))
-            for pattern in intentional:
-                markup = pattern.sub(" ", markup)
-            visible = re.sub(r"<[^>]+>", " ", markup)
-            stray = sorted({line.strip() for line in visible.splitlines()
-                            if chinese.search(line)})
+        for page in sorted(tree.glob("*.html")):
+            stray = sorted({
+                fragment for fragment in reader_text(page.read_text(encoding="utf-8"))
+                if CHINESE.search(fragment)
+            })
             with self.subTest(page=page.name):
                 self.assertEqual(stray, [], f"{page.name}: {stray[:3]}")
 

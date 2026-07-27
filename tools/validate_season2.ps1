@@ -107,6 +107,8 @@ try {
             (Join-Path $PSScriptRoot 'locales.py'),
             (Join-Path $PSScriptRoot 'hub_i18n.py'),
             (Join-Path $PSScriptRoot 'build_hub.py'),
+            (Join-Path $PSScriptRoot 'build_legacy_hant.py'),
+            (Join-Path $PSScriptRoot 'move_name_en.py'),
             (Join-Path $PSScriptRoot 'build_sitemap.py'),
             (Join-Path $PSScriptRoot 'zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_locales.py'),
@@ -129,6 +131,10 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_season2.py'), '--output-dir', $siteRoot)
         Invoke-NativeStep -Label 'Check legacy pipeline pages match the shared chrome' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'patch_legacy_pages.py'), '--check')
+        Invoke-NativeStep -Label 'Rebuild the Traditional pipeline pages' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_legacy_hant.py'))
+        Invoke-NativeStep -Label 'Check every project-authored move name has English' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'move_name_en.py'), '--check')
         Invoke-NativeStep -Label 'Rebuild the derived locale hubs' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_hub.py'))
         Invoke-NativeStep -Label 'Rebuild the sitemap' -FilePath $python `

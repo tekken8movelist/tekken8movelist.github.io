@@ -36,6 +36,7 @@ from locales import (  # noqa: E402
     strings,
 )
 from official_profile_zh import localized_profile  # noqa: E402
+from move_name_en import english_name  # noqa: E402
 from zh_hant import convert, convert_translation  # noqa: E402
 from pipeline import first_step, parse_cmd  # noqa: E402
 from season2_config import (  # noqa: E402
@@ -788,6 +789,20 @@ def render_split_tables(
     ) + "</div>"
 
 
+def heading_alt(text: str) -> str:
+    """The other-language twin beside a heading, or nothing.
+
+    `投技 Throws` on a Chinese page is a gloss: the English is what Wavu and
+    every frame-data site call the section, so it earns its place. `Throws
+    投技` on an English page is the same trick run backwards and it earns
+    nothing -- the reader cannot read it. The English column of those strings
+    is therefore empty, and this drops the whole span rather than emitting an
+    empty one.
+    """
+    text = text.strip()
+    return f' <span class="en">{escape(text)}</span>' if text else ""
+
+
 def section_code(section: str) -> str:
     return section.split(" (", 1)[0].upper()
 
@@ -1452,8 +1467,8 @@ def render_combos(
     groups = valid_combo_groups(combos)
     if not groups:
         body = (
-            f'<div class="tpFull"><h2>{s["secCombos"]} '
-            f'<span class="en">{s["secCombosAlt"]}</span></h2>'
+            f'<div class="tpFull"><h2>{s["secCombos"]}'
+            f'{heading_alt(s["secCombosAlt"])}</h2>'
             f'<p class="empty-note">{s["comboEmpty"]}</p></div>'
         )
         return body, 0
@@ -1491,8 +1506,8 @@ def render_combos(
                 "</tr>"
             )
         chunks.append(
-            f'<div class="tpFull"><h2>{escape(title)} '
-            f'<span class="en">{s["secCombosAlt"]}</span></h2>'
+            f'<div class="tpFull"><h2>{escape(title)}'
+            f'{heading_alt(s["secCombosAlt"])}</h2>'
             f'<table class="cb"><thead><tr><th>{s["comboStarter"]}</th>'
             f'<th>{s["comboRoute"]}</th></tr></thead>'
             f'<tbody>{"".join(rendered_rows)}</tbody></table></div>'
@@ -1532,7 +1547,7 @@ def render_sheet_section(
         )
     return (
         f'<section class="sheet-section" id="{escape(section_id, quote=True)}">'
-        f'<h2>{escape(title)} <span class="en">{escape(english_title)}</span></h2>'
+        f"<h2>{escape(title)}{heading_alt(english_title)}</h2>"
         f"{table_html}</section>"
     )
 
@@ -1624,9 +1639,9 @@ def render_system_sections(
         heat_table = render_table(heat, translation, resolver, config, "move", s)
         return (
             '<section class="sheet-section keep" id="systems"><div class="colsRow">'
-            f'<div><h2>{s["secHeat"]} <span class="en">{s["secHeatAlt"]}</span></h2>'
+            f'<div><h2>{s["secHeat"]}{heading_alt(s["secHeatAlt"])}</h2>'
             f"{heat_table}</div>"
-            f'<div><h2>{s["secTen"]} <span class="en">{s["secTenAlt"]}</span></h2>'
+            f'<div><h2>{s["secTen"]}{heading_alt(s["secTenAlt"])}</h2>'
             f"{ten_table}</div></div></section>"
         )
     heat_section = render_sheet_section(
@@ -1642,7 +1657,7 @@ def render_system_sections(
         )
     ten_section = (
         '<section class="sheet-section keep" id="ten-strings">'
-        f'<h2>{s["secTen"]} <span class="en">{s["secTenAlt"]}</span></h2>'
+        f'<h2>{s["secTen"]}{heading_alt(s["secTenAlt"])}</h2>'
         f"{ten_table}</section>"
         if ten_strings
         else ""
@@ -1724,18 +1739,24 @@ def localized_vocabulary(
         localized = dict(translation)
 
     if locale == "en":
-        tag_title = escape(s["zhTagTitle"], quote=True)
+        tag_title = escape(s["refTagTitle"], quote=True)
+        tag_label = escape(s["refTagLabel"])
         name_html = {}
         for move in source["moves"]:
             wavu_name = (move.get("name") or "").strip()
-            name_html[move["id"]] = (
-                escape(wavu_name)
-                if wavu_name
-                else (
-                    f'<span class="zhfall">'
-                    f'{escape(simplified_names[move["id"]])}</span>'
-                    f'<span class="zhtag" title="{tag_title}">ZH</span>'
+            if wavu_name:
+                name_html[move["id"]] = escape(wavu_name)
+                continue
+            chinese = simplified_names[move["id"]]
+            described = english_name(chinese)
+            if described is None:
+                raise SystemExit(
+                    f"{key}: no English for {move['id']} ({chinese}) -- "
+                    "run tools/move_name_en.py --check"
                 )
+            name_html[move["id"]] = (
+                f'<span class="refname">{escape(described)}</span>'
+                f'<span class="reftag" title="{tag_title}">{tag_label}</span>'
             )
     else:
         name_html = {
@@ -1786,16 +1807,14 @@ def render_locale_control(locale: str, filename: str, s: dict) -> str:
 
 
 def secondary_name(config: dict, locale: str) -> str:
-    """The `<small>` under the character's name: the *other* locale's name.
+    """The `<small>` beside the character's name, or nothing.
 
-    On the Chinese pages that is the canonical English name. On the English
-    pages it has to be the Chinese one -- putting `canonical` there would
-    render `Jin Kazama` twice, which is the duplication the brief calls out
-    for the matching `h2 .en` slot.
+    On the Chinese pages it is the canonical English name, which is what the
+    player sees in-game and what every frame-data site uses. The English
+    pages have nothing to put there: `canonical` would print `Jin Kazama`
+    twice, and 风间仁 is a string an English reader cannot use.
     """
-    if locale == "en":
-        return config["display"]
-    return config["canonical"]
+    return "" if locale == "en" else config["canonical"]
 
 
 def stance_summary(config: dict, translation: dict) -> str:
@@ -1906,10 +1925,14 @@ def build_page(
     combos_url = combos["source_url"]
     boot_script = """<script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>"""
     display = display_name(config, locale)
+    # empty on English, where there is no other-language name worth printing
     secondary = secondary_name(config, locale)
+    secondary_html = f"<small>{escape(secondary)}</small>" if secondary else ""
     locale_control = render_locale_control(locale, config["filename"], s)
     # the reveal bar upper-cases a Latin name; upper() on Chinese is a no-op
-    secondary_upper = secondary.upper()
+    secondary_bar = (
+        f"<small>{escape(secondary.upper())}</small>" if secondary else ""
+    )
     alternates = alternate_links(config["filename"])
     names = {"display": display, "canonical": config["canonical"]}
     page_title = s["titleTemplate"].format(**names)
@@ -1974,8 +1997,10 @@ def build_page(
         ensure_ascii=False,
         separators=(",", ":"),
     ).replace("<", "\\u003c")
-    intro_zh = s["introPrimaryTemplate"].format(**names)
-    intro_en = s["introSecondaryTemplate"].format(**names)
+    intro = escape(s["introPrimaryTemplate"].format(**names))
+    intro_alt = s["introSecondaryTemplate"].format(**names).strip()
+    if intro_alt:
+        intro += f'<span class="en">{escape(intro_alt)}</span>'
     body_class = LOCALES[locale]["body_class"]
     html_attrs = f'lang="{LOCALES[locale]["lang"]}"' + (
         f' class="{body_class}"' if body_class else ""
@@ -2043,7 +2068,7 @@ def build_page(
 <style id="tk-notation">{component_css}</style>
 </head>
 <body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']};--accent-band:{band_color(config['accent'], config['accent_ink'])}">
-<nav class="revealbar" aria-label="{escape(s["quickNav"], quote=True)}"><a href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span> {s["crumbShort"]}</a><b>{escape(display)}<small>{escape(secondary_upper)}</small></b></nav>
+<nav class="revealbar" aria-label="{escape(s["quickNav"], quote=True)}"><a href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span> {s["crumbShort"]}</a><b>{escape(display)}{secondary_bar}</b></nav>
 <header id="top">
 {hero}
   <div class="hdrmain">
@@ -2057,7 +2082,7 @@ def build_page(
         <div class="ntgl" id="ntgl" aria-label="{escape(s["notationAria"], quote=True)}">{s["notationLabel"]}<span class="seg"><button type="button" id="ng" class="on" aria-pressed="true">{s["ntGfx"]}</button><button type="button" id="nn" aria-pressed="false">{s["ntNn"]}</button><button type="button" id="nt" aria-pressed="false">{s["ntTxt"]}</button></span></div>
       </div>
     </div>
-    <h1>{escape(display)}<small>{escape(secondary)}</small><span class="hsub">{s["pageKind"]}</span></h1>
+    <h1>{escape(display)}{secondary_html}<span class="hsub">{s["pageKind"]}</span></h1>
     {header_bio}
   </div>
 </header>
@@ -2072,7 +2097,7 @@ def build_page(
     <header><h2>{s["secTips"]}<small>{escape(display)}{s["secTipsSub"]}</small></h2></header>
     <div class="legend">{s["comboNote"].format(count=combo_count)}{marker_note}</div>
     {combo_html}
-    <footer id="sources"><p class="page-intro">{escape(intro_zh)}<span class="en">{escape(intro_en)}</span></p>{footer_sources}</footer>
+    <footer id="sources"><p class="page-intro">{intro}</p>{footer_sources}</footer>
   </section>
 </main>
 <script>{PAGE_SCRIPT}</script>

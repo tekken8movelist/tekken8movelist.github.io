@@ -115,10 +115,22 @@ class VocabularyTests(unittest.TestCase):
                 self.assertEqual(set(strings(code)), reference)
 
     def test_no_chrome_string_is_accidentally_empty(self) -> None:
-        # both of these are empty on purpose: the ZH tooltip only exists on the
-        # English build, and Chinese hit levels are single glyphs that read fine
-        # run together, so they want no separator
-        optional = {"zhTagTitle", "targetSeparator"}
+        # Empty on purpose: the ZH tooltip only exists on the English build,
+        # Chinese hit levels are single glyphs that read fine run together so
+        # they want no separator, and the `Alt` twins plus the intro's second
+        # sentence are blank in English because there the other locale is
+        # Chinese and it helps nobody.
+        optional = {
+            "refTagTitle",
+            "refTagLabel",
+            "targetSeparator",
+            "secThrowsAlt",
+            "secAttacksAlt",
+            "secHeatAlt",
+            "secTenAlt",
+            "secCombosAlt",
+            "introSecondaryTemplate",
+        }
         for code in LOCALES:
             for key, value in strings(code).items():
                 if key in optional or not isinstance(value, str):
@@ -197,16 +209,28 @@ class VocabularyTests(unittest.TestCase):
                 with self.subTest(key=key):
                     self.assertEqual(stray, set(), f"hant.{key}: {sorted(stray)}")
 
-    def test_the_alt_heading_slot_is_the_other_locale_not_english(self) -> None:
-        """投技 / THROWS in Chinese, Throws / 投技 in English (spec 7.1)."""
+    def test_the_alt_heading_slot_carries_english_or_nothing(self) -> None:
+        """投技 / THROWS on the Chinese pages, Throws alone in English.
+
+        The spec asked for the twin to be "the other locale" both ways, which
+        gives `Throws 投技` -- two lines where the second is one the reader
+        cannot read. The Chinese direction earns its twin because THROWS is
+        what Wavu and every frame-data site call the section; the English
+        direction earns nothing, so its column is empty and the generator
+        drops the span.
+        """
         self.assertEqual(strings("en")["secThrows"], "Throws")
-        self.assertEqual(strings("en")["secThrowsAlt"], "投技")
+        self.assertEqual(strings("en")["secThrowsAlt"], "")
         self.assertEqual(strings("hans")["secThrowsAlt"], "THROWS")
         for code in LOCALES:
-            with self.subTest(locale=code):
-                self.assertNotEqual(
-                    strings(code)["secThrows"], strings(code)["secThrowsAlt"]
-                )
+            for key in ("Throws", "Attacks", "Heat", "Ten", "Combos"):
+                with self.subTest(locale=code, section=key):
+                    alt = strings(code)[f"sec{key}Alt"]
+                    if code == "en":
+                        self.assertEqual(alt, "")
+                    else:
+                        self.assertTrue(alt)
+                        self.assertNotEqual(strings(code)[f"sec{key}"], alt)
 
     def test_the_english_site_name_drops_chinese_and_keeps_the_search_term(self) -> None:
         name = strings("en")["siteName"]
@@ -226,9 +250,10 @@ class VocabularyTests(unittest.TestCase):
                          "Special mid (hits grounded)")
 
     def test_only_the_english_build_needs_the_zh_fallback_tooltip(self) -> None:
-        self.assertTrue(strings("en")["zhTagTitle"])
-        self.assertEqual(strings("hans")["zhTagTitle"], "")
-        self.assertEqual(strings("hant")["zhTagTitle"], "")
+        for key in ("refTagTitle", "refTagLabel"):
+            self.assertTrue(strings("en")[key])
+            self.assertEqual(strings("hans")[key], "")
+            self.assertEqual(strings("hant")[key], "")
 
     def test_templates_use_the_placeholders_the_generator_supplies(self) -> None:
         allowed = {"display", "canonical", "count", "moves", "visible",

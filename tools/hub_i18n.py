@@ -73,6 +73,17 @@ HUB_STRINGS = {
     "ntGfx": {"hans": "按键图", "hant": "按鍵圖", "en": "Buttons"},
     "ntTxt": {"hans": "文字", "hant": "文字", "en": "Text"},
     "languageLabel": {"hans": "语言", "hant": "語言", "en": "Language"},
+    "soonLabel": {"hans": "即将上线", "hant": "即將上線", "en": "Coming soon"},
+    # the empty-search state, half of it built by the inline search script
+    "noneTitle": {"hans": "未找到", "hant": "未找到", "en": "No matches"},
+    "noneHint": {
+        "hans": "试试角色的中文名或英文名",
+        "hant": "試試角色的中文名或英文名",
+        "en": "Try the fighter's name or an alias",
+    },
+    "noneQueryOpen": {"hans": "未找到「", "hant": "未找到「", "en": "No match for “"},
+    "noneQueryClose": {"hans": "」", "hant": "」", "en": "”"},
+    "matchCount": {"hans": " 名匹配", "hant": " 名符合", "en": " matches"},
     "searchPlaceholder": {
         "hans": "搜索角色 · 中文名 / English",
         "hant": "搜尋角色 · 中文名 / English",
@@ -138,9 +149,47 @@ HUB_STRINGS = {
         "en": "Sources and legal notice",
     },
     "pageTitle": {
-        "hans": "铁拳8 全角色中文出招表 | TEKKEN 8 Movelist",
-        "hant": "鐵拳8 全角色中文出招表 | TEKKEN 8 Movelist",
+        "hans": "铁拳8 全角色中文出招表｜TEKKEN 8 Movelist",
+        "hant": "鐵拳8 全角色中文出招表｜TEKKEN 8 Movelist",
         "en": "TEKKEN 8 Movelist · Frame Data & Command List",
+    },
+    # The head block: everything a crawler, a link preview or a screen reader
+    # reads before the page renders. Missed in the first pass because it is
+    # invisible on screen -- which is exactly why it needed the audit.
+    "metaDescription": {
+        "hans": (
+            "铁拳8（TEKKEN 8）全角色中文出招表，提供高质量中文招式名、图形化四键映射、"
+            "带数字、无数字与纯英文三种记法，以及发生帧、判定、伤害、投技、架势、"
+            "Heat 招式与示例连招。"
+        ),
+        "hant": (
+            "鐵拳8（TEKKEN 8）全角色中文出招表，提供高品質中文招式名、圖形化四鍵對應、"
+            "帶數字、無數字與純英文三種記法，以及發生幀、判定、傷害、投技、架勢、"
+            "Heat 招式與範例連招。"
+        ),
+        "en": (
+            "The complete TEKKEN 8 movelist for every fighter: graphical "
+            "button notation, startup frames, hit levels, damage, throws, "
+            "stances, Heat moves and sample combos."
+        ),
+    },
+    "siteName": {
+        "hans": "铁拳8 全角色中文出招表",
+        "hant": "鐵拳8 全角色中文出招表",
+        "en": "TEKKEN 8 Movelist",
+    },
+    "shareDescription": {
+        "hans": "高质量中文招式名、图形化四键映射与三种输入记法，一页查看完整招式与帧数资料。",
+        "hant": "高品質中文招式名、圖形化四鍵對應與三種輸入記法，一頁查看完整招式與幀數資料。",
+        "en": (
+            "Graphical button notation, startup frames and full frame data "
+            "for all 41 fighters, one page each."
+        ),
+    },
+    "imageAlt": {
+        "hans": "铁拳8 全角色中文出招表角色选择页",
+        "hant": "鐵拳8 全角色中文出招表角色選擇頁",
+        "en": "TEKKEN 8 Movelist fighter select",
     },
 }
 

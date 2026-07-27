@@ -1638,12 +1638,12 @@ class LocaleThreadingTests(unittest.TestCase):
         for key, expected in EXPECTED_ZH_FALLBACKS.items():
             with self.subTest(character=key):
                 html = self.build(key, "en")
-                self.assertEqual(html.count('class="zhtag"'), expected)
+                self.assertEqual(html.count('class="reftag"'), expected)
 
     def test_the_chinese_builds_never_show_a_zh_fallback(self):
         for locale in ("hans", "hant"):
             with self.subTest(locale=locale):
-                self.assertNotIn('class="zhtag"', self.build("jin", locale))
+                self.assertNotIn('class="reftag"', self.build("jin", locale))
 
     def test_english_spells_out_the_hit_level_column(self):
         html = self.build("jin", "en")

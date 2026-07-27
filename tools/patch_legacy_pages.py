@@ -34,7 +34,14 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import band_color  # noqa: E402
-from locales import DEFAULT_LOCALE, LOCALES, strings  # noqa: E402
+from locales import (  # noqa: E402
+    DEFAULT_LOCALE,
+    LOCALES,
+    PUBLIC_ROOT,
+    alternate_links,
+    page_href,
+    strings,
+)
 from official_profile_zh import localized_profile  # noqa: E402
 from pipeline import CONFIG as PIPELINE_CONFIG  # noqa: E402
 
@@ -145,22 +152,43 @@ LEGEND = re.compile(
 )
 
 
-def locale_control() -> str:
-    """The same language group the generator pages carry, minus the links.
+def built_locales(filename: str) -> set[str]:
+    """Which locales this page has actually been produced in.
 
-    These five pages exist only in Simplified, so 繁 and EN have nothing to
-    point at. They are shown dimmed rather than dropped: the control is on the
-    other 36 pages, and a switcher that silently vanishes on 5 of 41 reads as
-    a bug, where a disabled choice reads as "not translated yet" -- which is
-    what it is, until the migration in
+    Read from disk rather than declared, so the control follows the build:
+    Traditional appeared the day `build_legacy_hant.py` started converting
+    these pages, and English will appear the day the migration gives them a
+    structured snapshot.
+    """
+    found = {DEFAULT_LOCALE}
+    for code, meta in LOCALES.items():
+        if meta["dir"] and (SITE / meta["dir"] / filename).is_file():
+            found.add(code)
+    return found
+
+
+def locale_control(filename: str, current: str = DEFAULT_LOCALE) -> str:
+    """The same language group the generator pages carry.
+
+    A locale this page has not been built in is shown dimmed rather than
+    dropped: the control is on the other 36 pages, and a switcher that
+    silently vanishes on 5 of 41 reads as a bug, where a disabled choice reads
+    as "not translated yet" -- which is what it is, until the migration in
     design/plans/2026-07-26-pipeline-page-migration.md lands.
     """
-    s = strings(DEFAULT_LOCALE)
+    s = strings(current)
+    available = built_locales(filename)
     items = []
     for code, meta in LOCALES.items():
         label = escape(meta["short"])
-        if code == DEFAULT_LOCALE:
+        if code == current:
             items.append(f'<span aria-current="true">{label}</span>')
+        elif code in available:
+            href = escape(page_href(current, code, filename), quote=True)
+            items.append(
+                f'<a href="{href}" lang="{meta["lang"]}" '
+                f'hreflang="{meta["hreflang"]}">{label}</a>'
+            )
         else:
             title = escape(
                 s["localeMissing"].format(language=meta["endonym"]), quote=True
@@ -207,7 +235,7 @@ def build_header(key: str, block: str, slug: str) -> tuple[str, str]:
         '    <div class="hdrtop">\n'
         '      <a class="home" href="index.html" data-home aria-label="返回全角色选择">'
         '<span aria-hidden="true">←</span>全角色出招表</a>\n'
-        f"      {locale_control()}\n"
+        f"      {locale_control(LEGACY_PAGES[key])}\n"
         "    </div>\n"
         '    <div class="hdrtop hdrtop2">\n'
         '      <div class="hdrctl">\n'
@@ -258,6 +286,19 @@ def patch(key: str, text: str, css: str, script: str) -> str:
         + f'<header id="top">\n{header_inner}\n</header>'
         + text[match.end() :]
     )
+
+    # now that these pages have a Traditional twin, tell crawlers about it
+    if 'rel="alternate"' not in text:
+        canonical_link = (
+            f'<link rel="canonical" href="{PUBLIC_ROOT}{LEGACY_PAGES[key]}">'
+        )
+        if canonical_link not in text:
+            raise ValueError(f"{key}: canonical link not found")
+        text = text.replace(
+            canonical_link,
+            canonical_link + "\n" + alternate_links(LEGACY_PAGES[key]),
+            1,
+        )
 
     legend = LEGEND.search(text)
     if not legend:

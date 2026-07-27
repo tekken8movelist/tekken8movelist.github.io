@@ -339,7 +339,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "角色资料（国家 · 拳法）来自 ",
         "footOfficial": "TEKKEN 8 官方网站",
         "footNote": "招式名为中文意译，供参考；发生帧表示首击冲击帧。",
-        "zhTagTitle": "",
+        "refTagTitle": "",
+        "refTagLabel": "",
     },
     # -------------------------------------------------------------------
     "hant": {
@@ -470,7 +471,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "角色資料（國家 · 拳法）來自 ",
         "footOfficial": "TEKKEN 8 官方網站",
         "footNote": "招式名為中文意譯，供參考；發生幀表示首擊衝擊幀。",
-        "zhTagTitle": "",
+        "refTagTitle": "",
+        "refTagLabel": "",
     },
     # -------------------------------------------------------------------
     "en": {
@@ -496,18 +498,22 @@ STRINGS: dict[str, dict[str, object]] = {
         "bioStyle": "STYLE",
         "bioStances": "STANCES",
         "heroAltSuffix": " · flying-white outline portrait",
-        # the `Alt` line is the other locale, so on the English pages it is
-        # Chinese -- the two-tier heading still says two things
+        # The `Alt` line is the other locale's name for the section. On the
+        # Chinese pages that is English, which is what Wavu and every
+        # frame-data site call it -- worth the second line. Running it the
+        # other way gives `Throws 投技`, which an English reader cannot read
+        # and gains nothing from, so the English column is empty and the
+        # generator drops the span entirely.
         "secThrows": "Throws",
-        "secThrowsAlt": "投技",
+        "secThrowsAlt": "",
         "secAttacks": "Attacks",
-        "secAttacksAlt": "打击技",
+        "secAttacksAlt": "",
         "secHeat": "Heat",
-        "secHeatAlt": "热能系统",
+        "secHeatAlt": "",
         "secTen": "10-hit combo",
-        "secTenAlt": "十连技",
+        "secTenAlt": "",
         "secCombos": "Combos",
-        "secCombosAlt": "连招",
+        "secCombosAlt": "",
         "secTips": "Combos & notes",
         "secTipsSub": " · Wavu Wiki combo data",
         "thMove": "Move",
@@ -601,10 +607,9 @@ STRINGS: dict[str, dict[str, object]] = {
             "startup frames, damage and hit level, plus throws, stances, "
             "Heat moves and sample combos on one page."
         ),
-        "introSecondaryTemplate": (
-            "本页为《铁拳8》{display}出招表的英文版，"
-            "招式名与判定取自 Wavu Wiki 原文。"
-        ),
+        # same rule as the section headings: the Chinese pages carry an English
+        # summary that a Chinese reader can use, the reverse helps nobody
+        "introSecondaryTemplate": "",
         "footSource": "Data: ",
         "footSourceLink": "Wavu Wiki movelist",
         "footCombos": "Combos: ",
@@ -616,10 +621,11 @@ STRINGS: dict[str, dict[str, object]] = {
             "impact."
         ),
         # only the English build can show this tag, so only it needs the text
-        "zhTagTitle": (
-            "Wavu publishes no English name for this move; the project's "
-            "Chinese reference name is shown"
+        "refTagTitle": (
+            "Wavu publishes no name for this move; this is the project's own "
+            "description of it, not an official name"
         ),
+        "refTagLabel": "ref",
     },
 }
 

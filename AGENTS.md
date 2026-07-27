@@ -5,11 +5,14 @@
 - `docs/` is the only publishable website root and the GitHub Pages source.
 - `docs/index.html` is the hand-maintained character-select homepage.
 - `docs/*_tk8_movelist.html` contains the 41 published character pages (Simplified).
-- `docs/zh-Hant/` and `docs/en/` are generated locale trees: 36 generator-owned
-  pages plus a derived hub each. Never hand-edit anything under them; change the
-  source or `tools/locales.py` and rebuild. The five pipeline pages exist only in
-  Simplified until they are migrated into the generator; the derived hubs point
-  their cards at `../` so those links resolve instead of 404ing.
+- `docs/zh-Hant/` and `docs/en/` are generated locale trees, each with a derived
+  hub. Traditional has all 41 character pages -- the 36 generator-owned ones plus
+  the five pipeline pages, which `tools/build_legacy_hant.py` converts from their
+  published Simplified HTML. English has the 36: the pipeline pages have no
+  structured snapshot, so Wavu's English move names for them do not exist yet.
+  Never hand-edit anything under these trees; change the source or
+  `tools/locales.py` and rebuild. The derived hubs point cards at `../` for any
+  page missing from their tree, so those links resolve instead of 404ing.
 - `docs/avatars/` contains the final homepage portraits. The homepage is dark-only (no theme toggle since flux v3); `docs/avatars-light/` was removed in that change. Other local avatar directories are experiments or backups and are intentionally ignored.
 - `tools/source/` is the structured source of truth for generated character pages.
 - `tools/` contains generators, source snapshots, regression tests, and browser QA.

@@ -106,12 +106,21 @@ const pages = Object.fromEntries(
 if (!Object.keys(pages).length) {
   throw new Error(`CHARACTERS filter matched no pages: ${process.env.CHARACTERS}`);
 }
-// whatever is published but not generated: the one-shot pipeline pages
-const legacyPages = readdirSync(siteRoot)
+// whatever is published but not generated: the one-shot pipeline pages. They
+// now exist in Traditional too (converted from the published Simplified page,
+// see build_legacy_hant.py), so the legend check runs over both trees.
+const legacyNames = readdirSync(siteRoot)
   .filter((name) => name.endsWith('_tk8_movelist.html'))
   .filter((name) => !Object.values(allPages).includes(name))
   .filter((name) => !onlyCharacters || onlyCharacters.has(name.replace('_tk8_movelist.html', '')))
   .sort();
+const legacyPages = [];
+for (const locale of locales) {
+  const dir = locale.dir ? join(siteRoot, locale.dir) : siteRoot;
+  for (const name of legacyNames) {
+    if (existsSync(join(dir, name))) legacyPages.push({ name, dir, locale: locale.id });
+  }
+}
 const notationButtons = { gfx: '#ng', nn: '#nn', txt: '#nt' };
 const themeButtons = { dark: '#thd', light: '#thl' };
 const screenshotDir = process.env.SCREENSHOT_DIR
@@ -499,10 +508,20 @@ function analyzeMetrics(metrics, expected, runtimeErrors) {
     );
   }
   if (metrics.storedTheme !== expected.theme) problems.push(`stored theme: ${metrics.storedTheme}`);
-  // 13px bold is below the size WCAG lets off at 3:1, so the full 4.5 applies
+  // 13px bold is below the size WCAG lets off at 3:1, so the full 4.5 applies.
+  // `h2 .en` is the other locale's name for the section, and the English pages
+  // have none -- `Throws 投技` is a line its reader cannot read -- so there it
+  // is absent rather than unmeasurable.
+  const absentByDesign = expected.locale === 'en' ? new Set(['headingEn']) : new Set();
   for (const [what, ratio] of Object.entries(metrics.contrast)) {
-    if (ratio === null) problems.push(`contrast: ${what} not measurable`);
-    else if (ratio < 4.5) problems.push(`contrast: ${what} is ${ratio}:1, below AA`);
+    if (ratio === null) {
+      if (!absentByDesign.has(what)) problems.push(`contrast: ${what} not measurable`);
+    } else if (ratio < 4.5) {
+      problems.push(`contrast: ${what} is ${ratio}:1, below AA`);
+    }
+  }
+  if (expected.locale === 'en' && metrics.contrast.headingEn !== null) {
+    problems.push('English page still carries an h2 .en twin');
   }
 
   const legend = metrics.legend;
@@ -578,14 +597,14 @@ async function verifyRevealBar(page, result) {
 // the notation legend, and they shipped an always-visible key for months
 // precisely because nothing ever rendered them. So check that one half hides.
 async function runLegacyLegendStates(browser, results) {
-  for (const filename of legacyPages) {
-    const character = filename.replace('_tk8_movelist.html', '');
+  for (const { name: filename, dir, locale } of legacyPages) {
+    const character = `${filename.replace('_tk8_movelist.html', '')}:${locale}`;
     const context = await browser.newContext({ viewport: { width: 1480, height: 1000 } });
     try {
       await stubCloudflareWebAnalytics(context);
       const page = await context.newPage();
       const runtimeErrors = attachRuntimeErrorCapture(page);
-      await page.goto(pathToFileURL(join(siteRoot, filename)).href, { waitUntil: 'load' });
+      await page.goto(pathToFileURL(join(dir, filename)).href, { waitUntil: 'load' });
       for (const mode of ['gfx', 'nn', 'txt']) {
         await page.locator(notationButtons[mode]).click();
         const legend = await page.evaluate(() => {
