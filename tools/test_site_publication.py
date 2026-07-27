@@ -192,19 +192,17 @@ class SitePublicationContractTest(unittest.TestCase):
             site_directories, {"avatars", "assets"} | locale_directories
         )
 
-    def test_every_locale_tree_holds_the_pages_it_can_build(self) -> None:
-        """Traditional has all 41; English has the 36 the generator owns.
+    def test_every_locale_tree_holds_all_41_pages(self) -> None:
+        """No locale is short of a page any more.
 
-        The five pipeline pages have no structured snapshot, so English has no
-        move names for them and has to wait for the migration. Traditional
-        never needed one -- it is a conversion of the published Simplified
-        page, which is why `build_legacy_hant.py` can produce it today.
+        The five pipeline pages have no structured snapshot, so neither
+        locale can come from `build_season2.py`. Traditional converts the
+        published Simplified page (`build_legacy_hant.py`); English rebuilds
+        it, taking move names from the Wavu scrape in `wavu_*_names.txt` and
+        the rest of the copy from `legacy_en.py` (`build_legacy_en.py`).
         """
-        owned = generator_pages()
-        expected = {
-            "hant": owned | set(LEGACY_PIPELINE_PAGES),
-            "en": owned,
-        }
+        owned = generator_pages() | set(LEGACY_PIPELINE_PAGES)
+        expected = {"hant": owned, "en": owned}
         for code, meta in LOCALES.items():
             if not meta["dir"]:
                 continue

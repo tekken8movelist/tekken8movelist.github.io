@@ -6,13 +6,16 @@
 - `docs/index.html` is the hand-maintained character-select homepage.
 - `docs/*_tk8_movelist.html` contains the 41 published character pages (Simplified).
 - `docs/zh-Hant/` and `docs/en/` are generated locale trees, each with a derived
-  hub. Traditional has all 41 character pages -- the 36 generator-owned ones plus
-  the five pipeline pages, which `tools/build_legacy_hant.py` converts from their
-  published Simplified HTML. English has the 36: the pipeline pages have no
-  structured snapshot, so Wavu's English move names for them do not exist yet.
-  Never hand-edit anything under these trees; change the source or
-  `tools/locales.py` and rebuild. The derived hubs point cards at `../` for any
-  page missing from their tree, so those links resolve instead of 404ing.
+  hub. Both now hold all 41 character pages. The 36 generator-owned ones come
+  from `tools/build_season2.py`; the five pipeline pages have no structured
+  snapshot, so Traditional converts their published Simplified HTML
+  (`tools/build_legacy_hant.py`) and English rebuilds it, taking move names from
+  the Wavu scrape in `tools/wavu_*_names.txt` and every other string from
+  `tools/legacy_en.py` (`tools/build_legacy_en.py`). Never hand-edit anything
+  under these trees; change the source, `tools/locales.py` or `tools/legacy_en.py`
+  and rebuild. The derived hubs still retarget cards at `../` for any page
+  missing from their tree -- nothing is missing today, but a new locale would
+  need it.
 - `docs/avatars/` contains the final homepage portraits. The homepage is dark-only (no theme toggle since flux v3); `docs/avatars-light/` was removed in that change. Other local avatar directories are experiments or backups and are intentionally ignored.
 - `tools/source/` is the structured source of truth for generated character pages.
 - `tools/` contains generators, source snapshots, regression tests, and browser QA.
@@ -46,10 +49,12 @@ pwsh -File tools\validate_season2.ps1
 ```
 
 The gate rebuilds all generator-owned pages in all three locales, rebuilds the
-derived hubs and the sitemap, runs the locale, Traditional-conversion, Season 2,
-Law, and site-publication regression suites, and checks 648 browser states
-(Simplified 36x10, Traditional and English 36x4 each) plus 15 pipeline-page
-legend states. Do not claim a release is validated when using `-SkipBrowser`.
+Traditional and English pipeline pages, the derived hubs and the sitemap, runs
+the locale, Traditional-conversion, Season 2, Law, English-pipeline-page and
+site-publication regression suites, and checks 648 browser states (Simplified
+36x10, Traditional and English 36x4 each) plus 45 pipeline-page legend states
+(5 pages x 3 locales x 3 notations). Do not claim a release is validated when
+using `-SkipBrowser`.
 
 Also verify `docs/index.html` at desktop and mobile widths, confirm all homepage links and avatar paths resolve, and check the deployed GitHub Pages URL after publishing.
 

@@ -339,8 +339,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "角色资料（国家 · 拳法）来自 ",
         "footOfficial": "TEKKEN 8 官方网站",
         "footNote": "招式名为中文意译，供参考；发生帧表示首击冲击帧。",
-        "refTagTitle": "",
-        "refTagLabel": "",
+        "refNameTitle": "",
+        "legendRefNames": "",
     },
     # -------------------------------------------------------------------
     "hant": {
@@ -471,8 +471,8 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "角色資料（國家 · 拳法）來自 ",
         "footOfficial": "TEKKEN 8 官方網站",
         "footNote": "招式名為中文意譯，供參考；發生幀表示首擊衝擊幀。",
-        "refTagTitle": "",
-        "refTagLabel": "",
+        "refNameTitle": "",
+        "legendRefNames": "",
     },
     # -------------------------------------------------------------------
     "en": {
@@ -617,15 +617,21 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "Fighter profile (country · style) from the ",
         "footOfficial": "TEKKEN 8 official site",
         "footNote": (
-            "English move names are Wavu Wiki's; startup is frames to first "
-            "impact."
+            "Move names are Wavu Wiki's where Wavu publishes one; italics mark "
+            "the project's own descriptions. Startup is frames to first impact."
         ),
-        # only the English build can show this tag, so only it needs the text
-        "refTagTitle": (
-            "Wavu publishes no name for this move; this is the project's own "
-            "description of it, not an official name"
+        # Only the English build has moves Wavu never named, so only it needs
+        # these. The name itself carries the tooltip and the legend explains
+        # the italics once -- an earlier build put a `ref` badge after every
+        # such name, which told the reader nothing and read as "Mid Kickref".
+        "refNameTitle": (
+            "Wavu Wiki publishes no name for this move; this is the project's "
+            "own description of it, not an official name"
         ),
-        "refTagLabel": "ref",
+        "legendRefNames": (
+            "italic names are the project's own descriptions — Wavu publishes "
+            "no name for those moves"
+        ),
     },
 }
 

@@ -108,11 +108,16 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   叫法，值一行；反过来 `Throws / 投技` 读者根本读不了。英文列 `sec*Alt` 一律空串，
   `heading_alt()` 直接不输出 span；`<h1>` 的 `<small>` 与页脚 intro 副句同理。
 - **Wavu 未命名的招式**（1371 条 / 6275，22%）由 `tools/move_name_en.py` 给出英文
-  **描述**（不是官方名），带 `ref` 角标 + title 说明来源。构成方式是分词合成而非逐条
+  **描述**（不是官方名）。构成方式是分词合成而非逐条
   罗列：843 个不同中文名共用一张 segment 表，新角色的 `左中踢` 因此自动得到和别人
   一样的英文。**架势词直接从快照挖 Wavu 自己的英文**（section 写成 `PKB (Peekaboo)`），
   所以 `窥视`=Peekaboo 是 Wavu 说的，不是谁定的。`--check` 对 843 条全覆盖，
-  接进门禁；`EXPECTED_ZH_FALLBACKS` 仍锁「Wavu 没给名字」的条数。
+  接进门禁；`EXPECTED_DESCRIBED_NAMES` 仍锁「Wavu 没给名字」的条数。
+  **呈现只用斜体**（2026-07-27 改）：`.refname` 斜体 + `title`，图例里 `.lgref`
+  一行说明斜体是什么，页脚 `footNote` 不再声称所有名字都来自 Wavu。原先每条还挂个
+  `ref` 角标——它在屏幕上什么都没解释，复制出来是 `Mid Kickref`，而斜体已经在表达
+  同一件事。`.refname` 与 `.lgref` 一起放 `legend_card.css`（两套页面都读那份），
+  **不要**放回 `season2_page.css`：5 个管线页不加载它，斜体会整个失效。
 - **指令列不翻译**，只有 `.tk-state` 胶囊本地化，英文用 Wavu 码（背身时→BT）。
   胶囊词汇有四个来源，全部经 `locales.notation()`：`COMMON_PREFIXES`、
   `expand_command` 的回退默认值、`COMMON_COMMAND_ALIASES`、以及
@@ -147,17 +152,35 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   角色页 `.lcgl > .lcl` + `.lcseg`，都是「小标签 + 选项组」，不再用 `文/A` 徽标。
   `.lcgl` 复述了 `.ntgl` 的三条属性而非共用——`.ntgl` 在两套页面里各定义一次，
   `header_card.css` 才是两家都读的那一份。
-- `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（121 条 URL），
+- `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（126 条 URL），
   只给真实存在的语系发 `xhtml:link`。
-- **5 个管线页现在有简体 + 繁體**（2026-07-26）。繁體从来不需要第三份快照——它就是
-  把简体语料过一遍转换器，而这 5 页**自己就是自己的语料**，以简体 HTML 躺在磁盘上。
-  `tools/build_legacy_hant.py` 直接转已发布页面：先按 `<script>`/`<style>` 切块，
-  只转**标签之间的文本 + 文案属性 + ld+json 的字符串值**（当 JSON 解析，不做模式匹配），
-  CSS、脚本、每一条指令逐字节不动。**英文仍缺**——那需要 Wavu 的英文招式名，
-  得先抓快照（见 `design/plans/2026-07-26-pipeline-page-migration.md`）。
+- **5 个管线页三语齐了**（繁體 2026-07-26，英文 2026-07-27）。繁體从来不需要第三份
+  快照——它就是把简体语料过一遍转换器，而这 5 页**自己就是自己的语料**，以简体 HTML
+  躺在磁盘上。`tools/build_legacy_hant.py` 直接转已发布页面：先按 `<script>`/`<style>`
+  切块，只转**标签之间的文本 + 文案属性 + ld+json 的字符串值**（当 JSON 解析，不做
+  模式匹配），CSS、脚本、每一条指令逐字节不动。
   语言控件按**磁盘实际存在**渲染（`patch_legacy_pages.built_locales()`）：有页面就给链接，
   没有就 `.lcgl .off`（`<span>`，不可点、不进 Tab、`title` 说明原因）——控件凭空消失
-  读起来像坏了，禁用态读起来才是「还没翻」。
+  读起来像坏了，禁用态读起来才是「还没翻」。三语齐备后这个禁用态已经没有页面会用到，
+  但保留着，下次多一个语系还是它。
+- **英文管线页**（`tools/build_legacy_en.py` + `tools/legacy_en.py`，2026-07-27）。
+  英文不能靠转换得到——招式的英文名不是中文名的变换，它要么是 Wavu 的，要么不存在。
+  所以这支是**替换**而非转换：
+  - **招式名接 Wavu**。`tools/wavu_{key}_names.txt` 是浏览器抓的 `指令|名字`，用
+    `pipeline.candidates()` 按指令回接到行上——就是当初给这 5 页接发生帧的那套映射。
+    652 行里 600 行拿到 Wavu 官方名。接不上的 15 条登记在 `legacy_en.MOVE_NAMES`
+    并逐条注明失败原因（多半是页面把后续段写成 `d/f+3 命中时 1`，Wavu 写 `df+3,1`，
+    而 `candidates` 在首个汉字处截断）——**不要**为这 15 行去改 `candidates`，
+    简体页的帧数据依赖它。Wavu 确实没命名的 16 条走 `MOVE_DESCRIPTIONS`，斜体。
+  - **判定列必须重排**。简体页一段一个 span、不加分隔，中文单字连排读得通，英文变成
+    `MidThrow`。而且切分并不稳定：同一个 `上上中` 有时 3 个 span 有时 2 个。所以
+    `render_hit_levels()` **读字不读标记**，转成 Wavu 记号（`中×5`→5 个 m、`(地)`→
+    大写、`!`→`m!`、`(投)`→`m (t)`）后交给生成器的 `render_target()`，
+    ≤3 段拼全称、>3 段用缩写这套规则因此和另外 36 页完全一致。
+  - **其余文案全部手写**，`legacy_en.PHRASES` 逐条对照（键是页面原文，含 `&amp;`）。
+    **没有条目就构建失败并打印出来**——`docs/en/` 无中文不是事后扫出来的，是建不出来。
+  - `--report` 只报缺口不写盘；语言控件先挖成占位符再翻译，`简`/`繁` 那个唯一例外
+    因此不会混进缺口清单。
 
 ## 已完成角色
 
@@ -272,8 +295,8 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
    （期望值用分区/覆盖率脚本推导，勿手算）→ 构建 → 门禁。
 3. 运行 `pwsh -File tools\validate_season2.ps1`：单一入口会重建全部自包含 HTML，
    执行生成器与 Law 回归，并用 Playwright 按每角色 10 状态（桌面 6 + 响应式 4）
-   校验 UI、几何、裁切、状态恢复与 console 错误（36 角色共 360 状态），另跑 5 个管线页
-   × 3 记法共 15 状态的图例可见性检查（这 5 页不在 360 状态门禁内），并检查
+   校验 UI、几何、裁切、状态恢复与 console 错误（36 角色 × 3 语系共 648 状态），另跑
+   5 个管线页 × 3 语系 × 3 记法共 45 状态的图例可见性检查（这些页不在 648 状态门禁内），并检查
    `docs/` 发布边界、主页链接、头像清单、免责声明与本地资源完整性。
    仅做非浏览器快速检查时可加 `-SkipBrowser`；最终交付不应跳过浏览器门禁。
    `$env:CHARACTERS='jin,king'` 可过滤角色，`$env:SCREENSHOT_DIR` 保留全页截图。
@@ -322,6 +345,12 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   重新产出
 - `patch_legacy_pages.py` — 给 5 个管线页注入同一套标题带、图例与返回导航的幂等补丁脚本;
   `--check` 模式已接入门禁,页面与共享资源脱节即失败
+- `build_legacy_hant.py` / `build_legacy_en.py` / `legacy_en.py` — 5 个管线页的繁體
+  （转换已发布的简体页）与英文（招式名接 Wavu 快照、其余文案照 `legacy_en` 的对照表
+  替换）产出器;英文的对照表缺任何一条即构建失败
+- `wavu_{char}_names.txt` — 5 个管线角色的 `指令|英文名`(浏览器抓取存档,英文页专用)
+- `test_legacy_en.py` — 管线页英文的回归:缺口为零、磁盘与产出一致、名字九成来自
+  Wavu、斜体与其图例说明不得分家、判定列不得连排
 - `fetch_official_profiles.py` / `source/official_profiles.json` — 从
   tekken.com 官方 fighter 页抓取 称号/国家/拳法 的抓取器与快照(离线构建)
 - `official_profile_zh.py` — 官方英文档案 → 中文的对照表;遇到未登记词条直接报错,
@@ -332,7 +361,7 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 - `scan_gfx_fallbacks.py` — 扫描 41 页 td.cmd 未图形化格子（主表回退快查）
 - `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）
 - `test_season2_pages.py` — 数据、分区、DOM 与幂等回归测试(36 角色)
-- `validate_season2.ps1` / `validate_season2.mjs` — 重建、回归测试与 360 状态 Playwright 几何门禁的单一入口(支持 CHARACTERS 过滤)
+- `validate_season2.ps1` / `validate_season2.mjs` — 重建、回归测试与 648 状态 Playwright 几何门禁的单一入口(支持 CHARACTERS 过滤)
 - `source/{key}.json` / `{key}_zh.json` / `{key}_combos.json` — 结构化源快照
 - `wavu_{char}.txt` — 各角色 input|startup 帧数据(浏览器抓取存档)
 - `jun_movelist_source_template.html` — 管线处理前的 Jun 基础 HTML 结构示例

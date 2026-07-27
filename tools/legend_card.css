@@ -27,6 +27,28 @@
   opacity: .8;
 }
 
+/* A pair, and they live together so neither can ship without the other: the
+   italic name is the signal, `.lgref` is the one line that says what it means.
+   Both page families read this file, so both get both -- an earlier version
+   had the italics in season2_page.css, which the five pipeline pages do not
+   load, so their described names rendered as ordinary text.
+   English-only in practice: the generator emits `.refname` only for moves
+   Wavu never named, and `legendRefNames` is empty in the Chinese locales. */
+.refname {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: help;
+}
+
+/* `.lgtop` is a wrapping flex row, so this takes a full basis to sit on its
+   own line instead of being wedged in beside the startup note. */
+.legend .lgref {
+  flex: 0 0 100%;
+  font-style: italic;
+  opacity: .8;
+}
+
 .legend .lgsub {
   display: flex;
   flex-wrap: wrap;

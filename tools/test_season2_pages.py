@@ -1623,27 +1623,41 @@ class LocaleThreadingTests(unittest.TestCase):
                     f"text-only command cells differ across locales: {counts}",
                 )
 
-    def test_the_zh_fallback_count_is_pinned_per_character(self):
+    def test_the_described_name_count_is_pinned_per_character(self):
         """A silent rise means a snapshot refresh dropped English names.
 
         Wavu has no English name for about a fifth of all moves, and the
-        English build shows the Chinese one tagged ZH rather than inventing
-        anything. That is fine and expected -- what is not fine is the number
+        English build describes those itself rather than inventing an official
+        name. That is fine and expected -- what is not fine is the number
         growing without anyone noticing, so it is pinned the way
         EXPECTED_GFX_FALLBACKS pins notation fallbacks.
         """
-        from season2_config import EXPECTED_ZH_FALLBACKS
+        from season2_config import EXPECTED_DESCRIBED_NAMES
 
-        self.assertEqual(set(EXPECTED_ZH_FALLBACKS), set(CHARACTERS))
-        for key, expected in EXPECTED_ZH_FALLBACKS.items():
+        self.assertEqual(set(EXPECTED_DESCRIBED_NAMES), set(CHARACTERS))
+        for key, expected in EXPECTED_DESCRIBED_NAMES.items():
             with self.subTest(character=key):
                 html = self.build(key, "en")
-                self.assertEqual(html.count('class="reftag"'), expected)
+                self.assertEqual(html.count('class="refname"'), expected)
 
-    def test_the_chinese_builds_never_show_a_zh_fallback(self):
+    def test_a_described_name_says_so_rather_than_wearing_a_badge(self):
+        """The italics need a tooltip and one legend line, not a `ref` label.
+
+        The badge this replaced appended `ref` to a fifth of the table, which
+        explained nothing on screen and came out as `Mid Kickref` in copied
+        text -- the exact reading that got it removed.
+        """
+        html = self.build("jin", "en")
+        self.assertNotIn("reftag", html)
+        self.assertIn('<span class="refname" title="Wavu Wiki publishes no', html)
+        self.assertIn('<span class="lgref">', html)
+
+    def test_the_chinese_builds_describe_no_names_of_their_own(self):
         for locale in ("hans", "hant"):
             with self.subTest(locale=locale):
-                self.assertNotIn('class="reftag"', self.build("jin", locale))
+                html = self.build("jin", locale)
+                self.assertNotIn('class="refname"', html)
+                self.assertNotIn('class="lgref"', html)
 
     def test_english_spells_out_the_hit_level_column(self):
         html = self.build("jin", "en")

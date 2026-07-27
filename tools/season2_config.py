@@ -885,15 +885,13 @@ TARGET_TITLES = {
     "sp": "特殊动作",
 }
 
-# Moves Wavu publishes no English name for, per character. The English
-# build shows the project's Chinese reference name for these, italic and
-# tagged ZH -- 1128 of them across the roster, a fifth of every page.
-# That is a sourcing fact, not a translation backlog: the only English
-# names this project has are Wavu's. Pinned per character so a silent rise
-# (a snapshot refresh that drops names) fails the gate instead of quietly
-# turning more of the English pages Chinese.
-EXPECTED_ZH_FALLBACKS = {
-"jin": 21,
+# Moves Wavu publishes no English name for, per character. The English build
+# gives these the project's own description, set in italics so it never passes
+# for a sourced name -- a fifth of every page. Pinned per character so a silent
+# rise (a snapshot refresh that drops names) fails the gate instead of quietly
+# widening the share of the page this project wrote itself.
+EXPECTED_DESCRIBED_NAMES = {
+    "jin": 21,
     "anna": 17,
     "fahkumram": 26,
     "armor_king": 30,

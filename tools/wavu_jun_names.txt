@@ -1,0 +1,149 @@
+2+3|Heat Burst
+H.2+3|Yomotsu Ooyumi
+H.GEN.1,1+2|Yomotsu Mihashira
+H.f+1+2,P|
+1+2|Shunkei
+f+2,1+2|Ame-no-Habakiri
+IZU.3|Zuiun Renkyaku
+MIA.2|Ame-no-Nuboko
+SS.4|Kagura
+1|Jab
+1,1|Suikei > Izumo Smash
+1,2|Spear Step
+1,2,2|Spear Step > Izumo Strike
+1,2,4|Spear Step > Spin Kick
+1,3|Suiren Leg Scythe
+2|Right Jab
+2,1|
+2,1,4|
+2,1,4,1|Byakuren Tsukinuki
+2,1,4,3|Byakuren Tamasudare
+2,1,1+2|Byakuren Misogi
+3|Shion
+3,1|Shion Kannagi
+4|Magic Four
+3+4|Ryuuntsui - Misogi
+1+4|
+1+4,2|
+1+4,2,4|White Heron Dance
+1+4,2,d+4|White Heron Lower Dance
+1+4,3|
+1+4,3,1|White Heron Sun Palm
+1+4,3,4|White Heron Moon Kick
+f+1|Izumo Smash
+f+2|Demon Slayer
+f+3|
+f+3,2|Kanbashira > Izumo Strike
+f+3,4|Double Kanbashira
+f+4|Getsukankyaku
+f+1+2|Inner Peace
+f+2+3|Wheel Kick
+df+1|Mid Check
+df+1,1|Habotan
+df+1,2|Aya Stitch
+df+2|Mizuho
+df+2,1+2|Ame-no-Murakumo
+df+3|Kazakiri
+df+4|Katabami
+df+3+4|
+df+3+4,1|Heavenly Sun Palm
+df+3+4,4|Heavenly Moon Kick
+d+2|Narumi
+d+4|
+d+4,4|Suminagashi
+d+1+2|Kamudo-no-Tsurugi
+d+3+4|Double Lift Kicks
+db+1|
+db+1,1|
+db+1,1,1+2|Hourai's Dance
+db+2|Ayame
+db+3|Leg Scythe
+db+4|
+db+4,4|
+db+4,4,4|Kariashi
+db+4,1+4|Kariashi Hakuro
+b+1|Violet
+b+2|
+b+2,1|
+b+2,1,1|Ryuen Saika Shikei
+b+2,1,2|Ryuen Saika Renken
+b+2,1,4|Ryuen Saika Renshuu
+b+2,2|Ryuen Magushi
+b+3|Dragon Wheel Kick
+b+3,2|Ryuusha Renken
+b+3,4|Dragon Wheel Leg Cutter
+b+4|
+b+4,2|Shirabyoushi
+b+3+4|Omoikane
+u+4|Chikura
+uf+1|Divine Exile - Heaven
+uf+2|Totsuka-no-Tsurugi
+uf+3|Iwato
+uf+4|
+uf+4,3|Housenka - Misogi
+ub+1+2|Shinki
+uf+3+4|Saiuntsui
+f,F+2|
+f,F+2,2|Suiei Ura Saika
+f,F+2,3|Suiei Kagetsu
+f,F+3|
+f,F+3,3+4|Yukimiguruma
+f,F+1+2|Tokkei - Misogi
+f,f,F+3|Ame-no-Uzume
+hFC.3+4|
+hFC.3+4,3|Twin Cloud Kicks
+FC.df+1|Divine Exile - Earth
+FC.df+2|Grace
+FC.df+3|Kanamegaeshi
+ws1|
+ws1,1|
+ws1,1,1|Tenkan Saika Shikei
+ws1,1,2|Tenkan Saika Renken
+ws1,1,4|Tenkan Saika Renshuu
+ws1,4|
+ws1,4,2|Tomoezakura
+ws1,4,1+2|Tomoefuji
+ws2|
+ws2,1|Hyakkaou
+ws3|Gioh
+ws4|Ichikaku
+ws1+2|Sudare Nagashi
+ws3+4|Flowing Moon Scent
+SS.2|Kasanegasumi
+SS.1+2|Sankouchou
+u+2|Izumo Strike
+IZU.1|
+IZU.1,1|Haraede Kannagi
+IZU.1,2|Haraede Musubi
+IZU.2|Setsurinbu - Misogi
+IZU.4|
+IZU.4,1|Wakeikazuchi - Misogi
+IZU.1+2|Mihikarioroshi
+IZU.1+3|Tsukuyomi
+IZU.f+1+2|Dianthus Garden
+f+3+4|Genjitsu
+GEN.1|Rurikoukai
+GEN.2|Kazama Style Spirit
+GEN.3|
+GEN.3,2|Getsuun Renken
+GEN.4|Nichiun
+Gen.P_(Low)|Amaterasu
+GEN.P_(Throw)|Throw Reversal
+b+1+2|Miare
+MIA.1|Ame-no-Sakahoko
+MIA.1+2|Yakumodachi
+MIA.F|Genjitsu
+R.df+1+2|Amatsu Izanami
+1+2+3+4|Ki Charge
+b+1+3|Attack Reversal
+b+1+3,P|
+UB,b|Back Handspring
+(Back_to_wall).b,b,UB|Wall Jump Attack
+1+3|Shiho Nage
+2+4|Katanuki
+Left_throw|Cloud Taste
+Right_throw|Wind Wheel
+Back_throw|Twisted Limbs
+df+2+3|White Mountain
+uf+1+2|Riai
+FC.db+1+2|Falling Rain

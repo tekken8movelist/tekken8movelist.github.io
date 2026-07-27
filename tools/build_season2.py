@@ -1713,11 +1713,11 @@ def localized_vocabulary(
     capsules take Wavu's stance codes, because 背身时 -> BT is what an English
     reader is already looking at in the command column.
 
-    Wavu leaves `name` empty for about a fifth of all moves. The Chinese pages
-    fill those with the project's own reference names; the English build must
-    not quietly do the same. It shows the Chinese name in italics, tagged ZH.
-    Machine-translating it back would invent a name and then present it as
-    sourced -- breaking 不补写未经来源验证 twice over.
+    Wavu leaves `name` empty for about a fifth of all moves. Those get the
+    project's own English description, set in italics and carrying a tooltip
+    that says so, with the legend explaining the italics once. What it must
+    never do is let a description pass for a sourced name -- hence the italics
+    and the wording of `footNote`, which no longer claims every name is Wavu's.
     """
     simplified_names = translation["move_names"]
 
@@ -1739,8 +1739,7 @@ def localized_vocabulary(
         localized = dict(translation)
 
     if locale == "en":
-        tag_title = escape(s["refTagTitle"], quote=True)
-        tag_label = escape(s["refTagLabel"])
+        described_title = escape(s["refNameTitle"], quote=True)
         name_html = {}
         for move in source["moves"]:
             wavu_name = (move.get("name") or "").strip()
@@ -1755,8 +1754,8 @@ def localized_vocabulary(
                     "run tools/move_name_en.py --check"
                 )
             name_html[move["id"]] = (
-                f'<span class="refname">{escape(described)}</span>'
-                f'<span class="reftag" title="{tag_title}">{tag_label}</span>'
+                f'<span class="refname" title="{described_title}">'
+                f"{escape(described)}</span>"
             )
     else:
         name_html = {
@@ -2017,6 +2016,11 @@ def build_page(
         )
         + "</span>"
     )
+    # Only English has names the project wrote itself, and the reader needs to
+    # be told once what the italics mean -- the alternative is a badge on every
+    # such row, which is noise on a fifth of the table.
+    if s["legendRefNames"]:
+        legend_top += f'<span class="lgref">{s["legendRefNames"]}</span>'
     legend_gfx = (
         f'<b>{s["legendGfxLabel"]}</b>　'
         '<span class="tk-in tk-sm"><span class="tk-b">'

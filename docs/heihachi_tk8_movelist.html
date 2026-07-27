@@ -703,28 +703,10 @@ html.loc-en section:not(.tipsPage) tr[data-record-id] td.name {
   overflow-wrap: break-word;
 }
 
-/* Wavu publishes no English name for about a fifth of all moves. Those cells
-   show the project's Chinese reference name instead -- italic so it reads as a
-   different kind of thing, and tagged so it never passes for a translation. */
-html.loc-en .refname {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-html.loc-en .reftag {
-  display: inline-block;
-  margin-left: 5px;
-  padding: 0 4px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  font-family: Saira, "Noto Sans SC", sans-serif;
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  vertical-align: 1px;
-  color: var(--muted);
-}
+/* Wavu publishes no English name for about a fifth of all moves; those cells
+   carry the project's own description. The italics and the legend line that
+   explains them live in legend_card.css, which both page families read --
+   this file is generator-only, and the five pipeline pages need them too. */
 
 /* The phone layout stacks the command onto its own line and lets rows size to
    content. `html.loc-en` outranks the rule that does that, so the fixed height
@@ -1104,6 +1086,28 @@ h2 {
 
 .legend .lgcount {
   margin-left: auto;
+  opacity: .8;
+}
+
+/* A pair, and they live together so neither can ship without the other: the
+   italic name is the signal, `.lgref` is the one line that says what it means.
+   Both page families read this file, so both get both -- an earlier version
+   had the italics in season2_page.css, which the five pipeline pages do not
+   load, so their described names rendered as ordinary text.
+   English-only in practice: the generator emits `.refname` only for moves
+   Wavu never named, and `legendRefNames` is empty in the Chinese locales. */
+.refname {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: help;
+}
+
+/* `.lgtop` is a wrapping flex row, so this takes a full basis to sit on its
+   own line instead of being wedged in beside the startup note. */
+.legend .lgref {
+  flex: 0 0 100%;
+  font-style: italic;
   opacity: .8;
 }
 

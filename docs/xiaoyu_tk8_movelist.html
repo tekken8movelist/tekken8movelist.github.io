@@ -766,6 +766,28 @@ h2 {
   opacity: .8;
 }
 
+/* A pair, and they live together so neither can ship without the other: the
+   italic name is the signal, `.lgref` is the one line that says what it means.
+   Both page families read this file, so both get both -- an earlier version
+   had the italics in season2_page.css, which the five pipeline pages do not
+   load, so their described names rendered as ordinary text.
+   English-only in practice: the generator emits `.refname` only for moves
+   Wavu never named, and `legendRefNames` is empty in the Chinese locales. */
+.refname {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: help;
+}
+
+/* `.lgtop` is a wrapping flex row, so this takes a full basis to sit on its
+   own line instead of being wedged in beside the startup note. */
+.legend .lgref {
+  flex: 0 0 100%;
+  font-style: italic;
+  opacity: .8;
+}
+
 .legend .lgsub {
   display: flex;
   flex-wrap: wrap;
@@ -932,7 +954,7 @@ html.dark .legend { --lg-line: #2a323d; }
   <div class="hdrmain">
     <div class="hdrtop">
       <a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a>
-      <div class="lcgl"><span class="lcl" aria-hidden="true">语言</span><span class="lcseg" role="group" aria-label="语言 / Language"><span aria-current="true">简</span><a href="zh-Hant/xiaoyu_tk8_movelist.html" lang="zh-Hant" hreflang="zh-Hant">繁</a><span class="off" title="本页暂无English版本">EN</span></span></div>
+      <div class="lcgl"><span class="lcl" aria-hidden="true">语言</span><span class="lcseg" role="group" aria-label="语言 / Language"><span aria-current="true">简</span><a href="zh-Hant/xiaoyu_tk8_movelist.html" lang="zh-Hant" hreflang="zh-Hant">繁</a><a href="en/xiaoyu_tk8_movelist.html" lang="en" hreflang="en">EN</a></span></div>
     </div>
     <div class="hdrtop hdrtop2">
       <div class="hdrctl">

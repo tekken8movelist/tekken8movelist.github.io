@@ -1,0 +1,172 @@
+2+3|Heat Burst
+H.2+3|Divine Shooting Star
+H.BT.2+3|Innumerable Moons
+f+2,1,H.2|Bai Yang Yan Di Po
+f,F+1,H.2|Bai Lian Yan Di Po
+HYP.3|Blue Luan Sweep
+db+1|Storming Flower
+b+4,1|Moonhare Palm
+BT.1+2,4|Battering Storm
+HYP.2|Spin Sticker
+AOP.2,1|Phoenix Double Palm
+1|
+1,2|Bayonet
+1,2,1|Bayonet Thruster
+1,d+2|Fan Dance
+1,d+2,1+2|Fan Dance > Birds Flock
+2|
+2,1|April Showers
+3|Cloud Kick
+4|
+1+2|Birds Flock
+3+4|Crescent Moon Kick
+f+2|
+f+2,1|
+f+2,1,4|Bai Yang Zhuan Wu
+f+3|
+f+3,1|
+f+3,1,4|Talons of Fury
+f+3,1,1+2|Wings of Fury
+f+4|Swivel Kick
+f+1+2|Clouded Peak
+f+3+4|Forward Roll
+f+3+4,3+4|Forward Roll > Phoenix Talon
+df+1|Belly Chop
+df+2|
+df+2,3|Moon Swallow
+df+2,1+2|Moon Scorched Feather Tackle
+df+3|Phoenix Tail
+df+4|
+d+1|Sunset Fan
+d+2|
+d+3|
+d+3,4|Giant Slayer
+d+4|
+d+1+2|Phoenix
+d+3+4|Spinner
+db+2|Feathered Fan
+db+3|Knee Cracker
+db+4|Nutcracker
+db+1+2|Hypnotist
+b+1|Great Wall Left
+b+2|
+b+2,2|Seven Star Fist
+b+3|Peacock Kick
+b+4|
+b+1+2|Cross Lifting Palms
+b+1+3|High Mid Parry
+b+3+4|Rain Dance
+ub+3|From the Ashes
+ub+4|Born of Fire
+u+1+2|
+u+1+2,2|
+u+1+2,2,1|Fortune Cookie
+uf+1|Silver Needle
+uf+2|Phoenix Flight
+uf+3|Bolting Rabbit
+uf+4|Flare Kick
+uf+3+4|Shooting Star
+uf,n,4|Delayed Rising Toe Kick
+f,F+1|
+f,F+1,3|Poison Flower
+f,F+1,4|Eclipsing Moon
+f,F+2|
+f,F+2,1|Fortune
+f,F+3|Raccoon Swing
+f,F+4|Soaring Blaze
+f,F+1+2|
+f,F+1+2,1+2|X Marks the Spot
+f,F+3+4|Front Layout
+f,f,F+3|Diving Falcon
+hFC.1|
+hFC.2|
+hFC.3|
+hFC.3,2|
+hFC.3,2,1|
+hFC.3,2,1,4|Fire Dancer
+hFC.4|
+FC.df+2|
+FC.df+2,1|Lotus Twist
+FC.df+4|
+FC.df+4,4|Flower Garden
+FC.db+3+4|Low Back Turn
+ws1|
+ws1,4|Whirlwind Cross Kick
+ws2|Sunflower
+ws2*|Jasmine Blossom
+ws3|Rising Axe Kick
+ws4|Skyscraper Kick
+ws+1+2|
+ws+1+2,1+2|X Marks the Spot
+ss4|Street Sweeper
+BT.1|
+BT.1,2|Waking Prominence
+BT.2|
+BT.2,1|
+BT.2,1,4|Dark & Stormy
+BT.2,2|
+BT.2,2,1|Turn of Fortune
+BT.3|Peg Leg
+BT.4|Mistrust
+BT.1+2|
+BT.1+2,1+2|Battering Winds
+BT.3+4|Monkey Kick
+BT.f+1+2|Spinning Push Hands
+BT.f+3+4|
+BT.f+3+4,3+4|Cyclone Left
+BT.d+3|
+BT.d+3,4|Spinning Crane
+BT.d+4|Hou Sao Tui
+BT.d+1+3|Reverse Low Parry
+BT.d+3+4|Spin Tornado Up (Down)
+BT.db+4|Reverse Knee Cracker
+BT.b+1+2|Scorched Feather Tackle
+BT.uf+1|Silver Needle
+BT.f,F+3+4|Back Layout
+HYP.4|Falling Tiger Kick
+HYP.1+2|Hypnotist
+HYP.3+4|Deadly Orchid
+HYP.2+3|Thunder Strike
+AOP.1|
+AOP.1,2|Double Serving
+AOP.1,4|Twin Mandarin Blows
+AOP.2|
+AOP.3|Piercing Spear Kick
+AOP.4|Rising Front Kick
+AOP.1+2|Phoenix Cannon
+AOP.3+4|Sliding Firecracker
+AOP.f+4|
+AOP.f+4,4|Flower Garden
+AOP.f+3+4|Roll Ball
+AOP.d|Butterfly
+AOP.d+1|Phoenix Swipe
+CH_AOP.d+1|Return to the Nest
+AOP.d+1+2|Wave Crest
+AOP.uf+3|
+AOP.uf+3,1|Alley-Oop
+AOP.uf+3,4|Double Scissor Kick
+AOP.uf+4|
+AOP.uf+4,4|Flower Power
+AOP.uf|Jumping
+AOP.While_in_the_Air_3|Jumping Pirouette
+While_in_the_air_4|Crane Kick
+While_landing_3|Sky Kick
+R.df+1+2|Wang's Celestial Epic
+1+3+4|False Salute
+2+3+4|Greetings
+1+2+3+4|Ki Charge
+(back_to_wall).b,b,UB|Wall Jump Backflip
+1+3|Jade
+2+4|Ruby
+Left_Throw|Arm Flip
+Right_Throw|Dump the Bucket
+Back_Throw|Crank up
+f+2+3|Wang's Waning Moon
+df+2+4|Dragon Fall
+uf+1+2|Dislocator
+BT.f+1+3|Bei Shen Zhuan Wu
+BT.f+2+3|Wang's Waning Moon (BT)
+AOP.1+3|Feng Huang Zhuan Wu
+u+4|1st Hit
+u+4,1|2nd Hit
+u+4,1,2|3rd Hit

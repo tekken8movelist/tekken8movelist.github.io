@@ -107,8 +107,10 @@ if (!Object.keys(pages).length) {
   throw new Error(`CHARACTERS filter matched no pages: ${process.env.CHARACTERS}`);
 }
 // whatever is published but not generated: the one-shot pipeline pages. They
-// now exist in Traditional too (converted from the published Simplified page,
-// see build_legacy_hant.py), so the legend check runs over both trees.
+// now exist in all three locales -- Traditional converted from the published
+// Simplified page (build_legacy_hant.py) and English rebuilt from it against
+// Wavu's own move names (build_legacy_en.py) -- so the legend check runs over
+// every tree that has them.
 const legacyNames = readdirSync(siteRoot)
   .filter((name) => name.endsWith('_tk8_movelist.html'))
   .filter((name) => !Object.values(allPages).includes(name))

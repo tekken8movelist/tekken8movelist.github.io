@@ -108,11 +108,14 @@ try {
             (Join-Path $PSScriptRoot 'hub_i18n.py'),
             (Join-Path $PSScriptRoot 'build_hub.py'),
             (Join-Path $PSScriptRoot 'build_legacy_hant.py'),
+            (Join-Path $PSScriptRoot 'build_legacy_en.py'),
+            (Join-Path $PSScriptRoot 'legacy_en.py'),
             (Join-Path $PSScriptRoot 'move_name_en.py'),
             (Join-Path $PSScriptRoot 'build_sitemap.py'),
             (Join-Path $PSScriptRoot 'zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_locales.py'),
             (Join-Path $PSScriptRoot 'test_zh_hant.py'),
+            (Join-Path $PSScriptRoot 'test_legacy_en.py'),
             (Join-Path $PSScriptRoot 'test_season2_pages.py'),
             (Join-Path $PSScriptRoot 'test_law_page.py'),
             (Join-Path $PSScriptRoot 'test_site_analytics.py'),
@@ -133,6 +136,8 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'patch_legacy_pages.py'), '--check')
         Invoke-NativeStep -Label 'Rebuild the Traditional pipeline pages' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_legacy_hant.py'))
+        Invoke-NativeStep -Label 'Rebuild the English pipeline pages' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_legacy_en.py'))
         Invoke-NativeStep -Label 'Check every project-authored move name has English' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'move_name_en.py'), '--check')
         Invoke-NativeStep -Label 'Rebuild the derived locale hubs' -FilePath $python `
@@ -147,6 +152,8 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_season2_pages', '-v')
         Invoke-NativeStep -Label 'Run Law regression tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_law_page', '-v')
+        Invoke-NativeStep -Label 'Run English pipeline page tests' -FilePath $python `
+            -ArgumentList @('-B', '-m', 'unittest', 'tools.test_legacy_en', '-v')
         Invoke-NativeStep -Label 'Run site analytics tests' -FilePath $python `
             -ArgumentList @('-B', '-m', 'unittest', 'tools.test_site_analytics', '-v')
         Invoke-NativeStep -Label 'Run site publication tests' -FilePath $python `

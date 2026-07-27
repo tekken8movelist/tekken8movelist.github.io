@@ -121,8 +121,8 @@ class VocabularyTests(unittest.TestCase):
         # sentence are blank in English because there the other locale is
         # Chinese and it helps nobody.
         optional = {
-            "refTagTitle",
-            "refTagLabel",
+            "refNameTitle",
+            "legendRefNames",
             "targetSeparator",
             "secThrowsAlt",
             "secAttacksAlt",
@@ -249,8 +249,8 @@ class VocabularyTests(unittest.TestCase):
         self.assertEqual(strings("en")["targetTitles"]["SM"],
                          "Special mid (hits grounded)")
 
-    def test_only_the_english_build_needs_the_zh_fallback_tooltip(self) -> None:
-        for key in ("refTagTitle", "refTagLabel"):
+    def test_only_the_english_build_describes_moves_wavu_never_named(self) -> None:
+        for key in ("refNameTitle", "legendRefNames"):
             self.assertTrue(strings("en")[key])
             self.assertEqual(strings("hans")[key], "")
             self.assertEqual(strings("hant")[key], "")

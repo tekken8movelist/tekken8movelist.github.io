@@ -1,0 +1,122 @@
+2+3|Heat Burst
+H.2+3|Infernal Flames of Rebirth
+H.PHX.2+3|Dancing Steel
+f+2,2,H.1|Lethal Ignition
+f+2,2,H.1*|Lethal Ignition (Hold)
+df+1,H.1|
+df+1,H.1,1|Crimson Rush
+df+1,H.1,2|
+df+1,H.1,2,1|Crimson Eruption
+H.u+1+2|
+H.u+1+2,1|Blazing Rush
+H.u+1+2,2|
+H.u+1+2,2,1|Blazing Eruption
+PHX.2,H.1+2|Twin Flames
+SS.2,1|Slash Burst
+1|Jab
+1,1|Double Blow
+1,2|Finishing Steel
+1,f+2|Rapid Assault
+2|
+2,1|Magic Burst
+2,2|
+2,2,1|Assault Burst
+2,2,2|Gleipnir-Cutter
+2,2,1+2|Gungnir Dance
+3|
+3,2|Fine Hound
+3,3|Bright Wing
+4|
+4,2|Mercenary Cut
+4,4|Roundabout
+1+2|Flame Bash
+3+4|Wings of Light
+f+2|
+f+2,1|Firewheel
+f+2,2|
+f+2,2,1+2|Sanngetall
+f+2,2,2|Burning Chain
+f+3|Knight's Gambit
+f+4|Phoenix Shift
+f+1+2|Prominence
+df+1|Mid Check
+df+1,2|
+df+1,2,1|Outlaw Burst
+df+1,4|
+df+1,4,3|Outlaw Wing
+df+2|Wyrm Killer
+df+2,2|
+df+2,2,2|Aerial Combination
+df+3|
+df+3,1|Hydro Blast
+df+4|Door Knocker
+d+1|Scorching Sweep
+d+2|Crouch Straight
+d+3|Crouch Spin Kick
+d+4|Crouch Shin Kick
+d+1+2|Pile Driver
+db+1|
+db+1,1|Tidal Surge
+db+2|
+db+2,1|Ice Spikes
+db+2,1*|Ice Spikes (Hold)
+db+4|Cold Cyclone
+db+1+2|
+db+1+2,1|Gouge
+b+1|Blue Bolt
+b+2|Executioner
+b+3|Precision Dodge
+b+4|Mercenary Kick
+b+1+2|Windup / Windup Counter
+uf+2|
+uf+2,2|Wicked Wheel
+uf|Updraft
+GAR.1|Griffin Hunter
+GAR.2|
+GAR.2,2|Burning Rain
+GAR.3|Lift Kick
+GAR.4|Sky Kick
+f,F+2|Soul Cleave
+f,F+1+2|Staff of Judgment
+CH.f,F+1+2|Judgment Bolt
+b,B+1+4|Pulverize
+f,f,F+2|Lunge
+qcf+1|Deadly Embrace
+qcf+1*|Deadly Embrace (hold)
+FC.1|Crouch Jab
+FC.df+2|Swift Edge
+ws1|
+ws1,2|Wild Steel
+ws2|Echo Breaker
+ws3|Fame Wolf
+ws4|Sabaton Smash
+PHX.1|Heatwave
+PHX.2|Shift Strike
+PHX.2,1|Rising Flame
+PHX.2,2|Steel Slash
+PHX.3|
+PHX.3,2|Vanagandr
+PHX.3,1+2|Dark Surge
+PHX.4|Firestarter
+PHX.1+2|Scarlet Cyclone
+PHX.3+4|Bolt Boot
+PHX.1+4|Arm of Darkness (ZAN1) / Zantetsuken (ZAN2-4) / Ultimate Zantetsuken (ZAN5)
+3+4,P|Radiant Counter
+WOL.1|Dia
+WOL.2|Impulse / Follow Up Flare
+WOL.3|Radiant Backflip
+WOL.4|Phoenix Shift
+1+4|Arm of Darkness (ZAN1) / Zantetsuken (ZAN2-4) / Ultimate Zantetsuken (ZAN5)
+R.df+1+2|Hellfire
+1+2+3+4|Ki Charge
+SS.2|
+SS.1+2|Stone Smite
+b+3,P|
+b+3,P,2|Precision Counter
+b+3,P,1+2|Dash of Steel
+1+3|Fangs of Ruin
+2+4|Punisher
+Left_throw|Fangs of Ruin
+Right_throw|Punisher
+Back_throw|Judgment Bolt
+uf+1+2|Gigaflare
