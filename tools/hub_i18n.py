@@ -22,7 +22,7 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from locales import LOCALES, page_href  # noqa: E402
+from locales import LOCALES, page_href, strings  # noqa: E402
 
 SITE = TOOLS.parent / "docs"
 HUB = SITE / "index.html"
@@ -166,8 +166,8 @@ def locale_control(locale: str) -> str:
     label = HUB_STRINGS["languageLabel"][locale]
     return (
         '<div class="grp">'
-        f'<span class="lbl"><b class="lmark" aria-hidden="true">文/A</b>{label}</span>'
-        f'<span class="seg lseg" role="group" aria-label="语言 / Language">'
+        f'<span class="lbl">{label}</span>'
+        f'<span class="seg lseg" role="group" aria-label="{strings(locale)["localeAria"]}">'
         + "".join(items)
         + "</span></div>"
     )

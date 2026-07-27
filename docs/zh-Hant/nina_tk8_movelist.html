@@ -880,8 +880,22 @@ header .hdrctl {
    and they have to work with JS off, exactly like the breadcrumb beside them.
    The current locale is a <span> with aria-current, so it is announced as the
    current page rather than offered as a destination.
+
+   Shaped like the 记法 / 主题 groups it shares the band with -- a small word,
+   then the choices -- rather than the 文/A badge it used to lead with. The
+   three .ntgl properties are restated instead of shared because .ntgl is
+   defined once per page family (season2_page.css, and the pipeline pages'
+   own inline block) while this file is the one stylesheet both families read.
    ---------------------------------------------------------------------- */
 .lcgl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  opacity: .95;
+}
+
+.lcgl .lcseg {
   display: inline-flex;
   align-items: center;
   gap: 1px;
@@ -889,17 +903,6 @@ header .hdrctl {
   border-radius: 3px;
   background: rgba(10, 13, 17, .34);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
-}
-
-.lcgl .mark {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 8px 0 6px;
-  font-family: Saira, "Noto Sans SC", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .5px;
-  color: rgba(255, 255, 255, .72);
 }
 
 .lcgl a,
@@ -1045,8 +1048,8 @@ header .hdrbio dd {
   header .hdrctl { gap: 4px 12px; }
 
   /* the locale plate is the one thing in the band that must not shrink out of
-     tap-target size, so it keeps its padding and loses the mark instead */
-  .lcgl .mark { display: none; }
+     tap-target size, so it keeps its padding and loses its label instead */
+  .lcgl .lcl { display: none; }
 
   .lcgl a,
   .lcgl [aria-current="true"] { padding: 3px 9px; }
@@ -1411,7 +1414,7 @@ html.dark .revealbar {
   <div class="hdrmain">
     <div class="hdrtop">
       <a class="home" href="index.html" data-home aria-label="返回全角色選擇"><span aria-hidden="true">←</span>全角色出招表</a>
-      <div class="lcgl" role="group" aria-label="語言 / Language"><span class="mark" aria-hidden="true">文/A</span><a href="../nina_tk8_movelist.html" lang="zh-CN" hreflang="zh-Hans">简</a><span aria-current="true">繁</span><a href="../en/nina_tk8_movelist.html" lang="en" hreflang="en">EN</a></div>
+      <div class="lcgl"><span class="lcl" aria-hidden="true">語言</span><span class="lcseg" role="group" aria-label="語言 / Language"><a href="../nina_tk8_movelist.html" lang="zh-CN" hreflang="zh-Hans">简</a><span aria-current="true">繁</span><a href="../en/nina_tk8_movelist.html" lang="en" hreflang="en">EN</a></span></div>
     </div>
     <div class="hdrtop hdrtop2">
       <div class="hdrctl">
@@ -1486,11 +1489,16 @@ html.dark .revealbar {
    ------------------------------------------------------------------- */
 (() => {
   const HOME = 'index.html';
-  const directory = (path) => path.slice(0, path.lastIndexOf('/') + 1);
 
   // Only when the visitor actually arrived from the hub: going back instead of
   // navigating restores its scroll position and search term. A fresh visit
   // (bookmark, search result, shared link) still needs a real navigation.
+  //
+  // Any same-origin index.html counts, not just one in this page's own
+  // directory. The site has exactly three and they are all hubs, and the five
+  // Simplified-only pipeline pages are reached from /en/ and /zh-Hant/ as
+  // ../name.html -- requiring the same directory sent those visitors back to
+  // the Simplified hub, losing both their language and their scroll position.
   function cameFromHub() {
     if (!document.referrer) return false;
     let referrer;
@@ -1500,7 +1508,6 @@ html.dark .revealbar {
       return false;
     }
     if (referrer.origin !== location.origin) return false;
-    if (directory(referrer.pathname) !== directory(location.pathname)) return false;
     const leaf = referrer.pathname.slice(referrer.pathname.lastIndexOf('/') + 1);
     return leaf === '' || leaf === HOME;
   }

@@ -207,6 +207,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "crumbAria": "返回全角色选择",
         "quickNav": "快速导航",
         "localeAria": "语言 / Language",
+        "languageLabel": "语言",
         "themeLabel": "主题",
         "themeAria": "主题",
         "themeDark": "夜间",
@@ -343,6 +344,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "crumbAria": "返回全角色選擇",
         "quickNav": "快速導航",
         "localeAria": "語言 / Language",
+        "languageLabel": "語言",
         "themeLabel": "主題",
         "themeAria": "主題",
         "themeDark": "夜間",
@@ -472,6 +474,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "crumbAria": "Back to the fighter list",
         "quickNav": "Quick navigation",
         "localeAria": "Language / 语言",
+        "languageLabel": "Language",
         "themeLabel": "Theme",
         "themeAria": "Theme",
         "themeDark": "Dark",
@@ -660,7 +663,22 @@ _NOTATION_EN = {
     "stanceAbbr": {"WS": "WS", "FC": "FC", "SS": "SS"},
     # nothing to convert: English never goes through the Chinese tables
     "convertLiterals": False,
+    # "1+3 (or 2+4)" -- the word between the brackets, so the parser prints it
+    # instead of reading it as stray letters
+    "orWord": "or",
 }
+
+# Leading words the alias table below puts in front of a command. Chinese gets
+# these for nothing -- any leading CJK run becomes a capsule whether or not it
+# is a declared state -- but a Latin label has to be declared or the tokenizer
+# has no way to tell "Left" from two directions and a typo.
+_ALIAS_STATES_EN = (
+    "Left",
+    "Right",
+    "Back",
+    "Opponent wall-stunned",
+    "After two steps",
+)
 
 # states the expander produces directly rather than via the prefix table
 _EXTRA_STATES_ZH = ("起身中", "横移左", "横移右")
@@ -680,6 +698,42 @@ _ALIAS_EN = {
     "after-2steps+1": "After two steps 1",
 }
 
+# English for the stage/heat markers in the combo legend. Every one of these is
+# Wavu's own wording, taken from the combo snapshots rather than translated
+# back out of the Chinese -- the marker itself is the code Wavu prints, and the
+# snapshot names it in prose nearby:
+#
+#   W!    raven      "Wall splat with T!" heading over W! routes
+#   WS!   lee        "f+2,1 (WS!)" in a wall combo; same gloss as W!
+#   WT!   leo, nina  only ever inside the "With Tornado" sections
+#   WB!   reina      wall-break routes; kazuya "Wall Break, both soft and hard"
+#   HWB!  reina      "raw HWB! (one prior wall hit)", the hard case of the above
+#   WH!   armor_king "f+1+4 WH! ... Wall Hazard Combo Here"
+#   WBl!  kazuya     "!WBl ... Wall Blast Heatsmash"
+#   BB!   lee        "u/f+3+4 (BB!)"; move notes say "Balcony Break" 283 times
+#   FB!   eddy       "d+4,3 Floor Breaks"
+#   FBl!  kazuya     "Floor Blast", the blast counterpart of FB!
+#   HB!   lee        "Heat Burst" heading over the H. routes
+#   RA    all        move notes say "Rage Art"
+_MARKER_LEGEND_EN = {
+    "W!": "Wall splat",
+    "WT!": "Wall tornado",
+    # the one that is not clear-cut: armor_king's template row reads
+    # "Wall Blast Combo Here" next to WB!, but reina's WB! routes are wall
+    # breaks, kazuya writes "Wall Break, both soft and hard", and HWB! is the
+    # hard case of exactly this. Went with the three, not the one.
+    "WB!": "Wall break",
+    "WH!": "Wall hazard",
+    "HWB!": "Hard wall break",
+    "BB!": "Balcony break",
+    "FB!": "Floor break",
+    "FBl!": "Floor blast",
+    "WBl!": "Wall blast",
+    "HB!": "Heat burst",
+    "WS!": "Wall splat",
+    "RA": "Rage Art",
+}
+
 _NOTATION_ZH = {
     "prefixes": None,  # filled from season2_config.COMMON_PREFIXES by the caller
     "parryDefault": "防反成功后",
@@ -695,6 +749,7 @@ _NOTATION_ZH = {
     "translateLiterals": True,
     "stanceAbbr": {"WS": "起身中", "FC": "蹲伏中", "SS": "横移中"},
     "convertLiterals": False,
+    "orWord": "或",
 }
 
 
@@ -712,7 +767,13 @@ def notation(
     if locale == "en":
         vocabulary = {**_NOTATION_EN, "prefixes": dict(_NOTATION_EN["prefixes"])}
         command_aliases.update(_ALIAS_EN)
-        extra = ("WS", "SSL", "SSR")
+        # `b+1+3,P` expands to the parry word, which is a capsule in English
+        # for the same reason BT is -- there is no CJK run to carry it
+        extra = (
+            ("WS", "SSL", "SSR")
+            + _ALIAS_STATES_EN
+            + (_NOTATION_EN["parryDefault"],)
+        )
     elif locale == "hant":
         from zh_hant import convert
 
@@ -742,6 +803,9 @@ def notation(
         extra = _EXTRA_STATES_ZH
 
     vocabulary["aliases"] = command_aliases
+    # the Chinese column is the authored one and Traditional converts it, so
+    # only English needs a table of its own here
+    vocabulary["markerLegend"] = _MARKER_LEGEND_EN if locale == "en" else None
     # what parse_cmd will accept as a capsule: every prefix label, plus the
     # states the expander splices in without going through the prefix table
     vocabulary["states"] = tuple(

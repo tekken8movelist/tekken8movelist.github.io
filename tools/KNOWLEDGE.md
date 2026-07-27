@@ -530,3 +530,57 @@
 原始浅色跑了一遍:Python 断言失败、浏览器门禁 10 个状态失败并报
 `contrast: heading is 1.22:1`;管线页那条单独用洛验证过。
 **没验证过会失败的门禁,和没有门禁一样。**
+
+### 解析器的"script 假设"会精确地只坑一个语系
+
+`parse_cmd` 找状态胶囊的办法是「取开头的 CJK 连续段」——写它的时候页面只有中文，
+这条规则和「取开头的状态词」等价，所以看不出问题。加了英文页才暴露：拉丁标签没有
+CJK 连续段，`Left_throw`、每一条 `BT.` / `H.` 指令都被判成杂散字母、**整格回退纯文字**。
+英文页 1732/5946 格，中文页 10 格。
+
+修法是让 tokenizer 自己认状态词（`stateword` / `orword`），但**只收非 CJK 的**——
+中文词继续走老路，简繁两棵树因此逐字节不变，改动的风险被关在一个语系里。同理，
+`(wall stun)` 这种括号旁注原来的判据是「含 CJK」，其实想说的是「含词」，改成
+「含词」后中文行为不变、英文不再回退。
+
+**中文靠"是中文"白拿的东西，换语系就要显式登记**：
+- 别名里的引导词（`Left`/`Right`/`Back`）——中文开头 CJK 一律成胶囊，拉丁没有兜底。
+- `,DVK.` → 标签后**没补空格**。中文在 script 边界自然断词，`DVK` 会和后面的 `F`
+  黏成 `DVKF`。补空格对中文是 no-op（tokenizer 跳空白），逐字节验证过。
+- cram 档位的 `2.0 × 胶囊数` 是按中文胶囊（2~3 个全角字）标定的。`BT` 比它窄、
+  `Opponent wall-stunned` 是它的四倍，所以中文保留常数、拉丁按字数量（`capsule_weight`）。
+
+门禁写成**三语回退格数相等**，不是阈值：那 10 格是六方阵上限的设计内回退，
+三语本就该一致，相等比「英文 ≤ 某个数」更早发现问题。
+
+### 相对链接在派生页里会静静地指错地方
+
+派生的 `/en/index.html` 逐字继承了手写主页的 `href="jun_tk8_movelist.html"`，
+于是解析成 `/en/jun_tk8_movelist.html`——那 5 个管线页只有简体，全是 404。
+门禁没抓到，因为 `test_all_local_references_resolve_inside_docs` 只 glob
+`docs/*.html`，压根没进另外两棵树。**为新目录树加内容时，先问一遍现有门禁的
+遍历范围有没有跟着走。**
+
+### "翻译覆盖率"要按可见文本量，不按表的数量
+
+三语构建收尾时我以为语料都过了 `localized_vocabulary`，实际漏了两张小表——
+它们都不在翻译主路径上：
+
+- `COMBO_MARKER_LEGEND`（`W!=撞墙`）只有中文一列，繁體靠 `convertLiterals` 兜住，
+  英文页于是原样印简体。
+- `COMBO_STANCE_ALIASES`（eddy `MD→曼丁加`）在渲染连招时**直接并进 `stance_names`**，
+  绕过了 `localized_vocabulary`，所以英文页和繁體页都吃到简体胶囊。
+
+**教训**：绕过本地化入口的 `{**a, **b}` 合并是最隐蔽的漏点——它看起来只是补数据。
+门禁改成扫可见文本：英文页只允许四个槽位出现中文（ZH 标招式名、副名、副标题、
+语言按钮），其余算泄漏。这条一写就同时抓到了两处，而按"表都过了吗"自查两次都没抓到。
+
+### 英文术语宁可去快照里找，也不要回译
+
+标记码的展开（`WH!` = Wall Hazard）是 Wavu 用语，不是可以从中文推回去的东西。
+把 `*_combos.json` 的 `raw` 段 grep 一遍，Wavu 自己在附近就写了：armor_king 的
+`f+1+4 WH! … Wall Hazard Combo Here`、raven 的 "Wall splat with T!"、lee 的
+`(BB!)` 与 "Heat Burst" 小节标题。`_MARKER_LEGEND_EN` 里**逐条记了出处**。
+唯一存疑的是 `WB!`：armor_king 的模板行写 "Wall Blast"，而 reina 的路线、
+kazuya 的 "Wall Break, both soft and hard" 和 `HWB!`(=Hard Wall Break) 都指向
+"Wall break"——取了后者，存疑点写在注释里，不假装确定。

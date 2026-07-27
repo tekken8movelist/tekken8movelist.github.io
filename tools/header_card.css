@@ -119,8 +119,22 @@ header .hdrctl {
    and they have to work with JS off, exactly like the breadcrumb beside them.
    The current locale is a <span> with aria-current, so it is announced as the
    current page rather than offered as a destination.
+
+   Shaped like the 记法 / 主题 groups it shares the band with -- a small word,
+   then the choices -- rather than the 文/A badge it used to lead with. The
+   three .ntgl properties are restated instead of shared because .ntgl is
+   defined once per page family (season2_page.css, and the pipeline pages'
+   own inline block) while this file is the one stylesheet both families read.
    ---------------------------------------------------------------------- */
 .lcgl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  opacity: .95;
+}
+
+.lcgl .lcseg {
   display: inline-flex;
   align-items: center;
   gap: 1px;
@@ -128,17 +142,6 @@ header .hdrctl {
   border-radius: 3px;
   background: rgba(10, 13, 17, .34);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
-}
-
-.lcgl .mark {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 8px 0 6px;
-  font-family: Saira, "Noto Sans SC", sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .5px;
-  color: rgba(255, 255, 255, .72);
 }
 
 .lcgl a,
@@ -284,8 +287,8 @@ header .hdrbio dd {
   header .hdrctl { gap: 4px 12px; }
 
   /* the locale plate is the one thing in the band that must not shrink out of
-     tap-target size, so it keeps its padding and loses the mark instead */
-  .lcgl .mark { display: none; }
+     tap-target size, so it keeps its padding and loses its label instead */
+  .lcgl .lcl { display: none; }
 
   .lcgl a,
   .lcgl [aria-current="true"] { padding: 3px 9px; }

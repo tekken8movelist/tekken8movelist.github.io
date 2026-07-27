@@ -104,6 +104,24 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   胶囊词汇有四个来源，全部经 `locales.notation()`：`COMMON_PREFIXES`、
   `expand_command` 的回退默认值、`COMMON_COMMAND_ALIASES`、以及
   `pipeline.parse_cmd` 的 `STANCE_ABBR`。
+- **拉丁胶囊要显式登记**（2026-07-26 修）：`parse_cmd` 原来只把**开头的 CJK 连续段**
+  当胶囊，拉丁标签没有这种连续段，于是 `Left_throw`、所有 `BT.` / `H.` 指令都被判成
+  杂散字母、整格回退文字——英文页 1732/5946 格是纯文字，中文页只有 10 格。
+  现在 `pipeline.latin_states()` 把**非 CJK 且 TOKEN_RE 认不出**的状态词编进 tokenizer
+  （`stateword`），`或`/`or` 编成 `orword`；CJK 词一律不进这条路，所以简繁两棵树
+  逐字节不变。别名里的引导词（Left/Right/Back…）必须写进 `locales._ALIAS_STATES_EN`，
+  中文靠"开头 CJK 一律成胶囊"白拿，拉丁没有这个兜底。
+  门禁：`test_every_locale_draws_the_same_commands_graphically` 要求三语回退**格数相等**
+  （不是阈值——那 10 格是六方阵上限的设计内回退，三语理应一致）。
+- **连招区有两张表容易漏本地化**（2026-07-26 修）：`COMBO_MARKER_LEGEND`
+  （`W!=撞墙`）英文列在 `locales._MARKER_LEGEND_EN`，**逐条注明取自哪份 Wavu 快照的
+  哪句话**——这些码的展开是 Wavu 用语，不是回译；新增标记必须补英文，
+  `test_english_names_every_combo_marker` 会挡。`COMBO_STANCE_ALIASES`
+  （eddy MD→曼丁加）过去直接并进 `stance_names`，绕开了 `localized_vocabulary`，
+  于是简体胶囊漏进英文页和繁體页；现走 `combo_stance_aliases(key, locale)`。
+  门禁 `test_the_english_tree_shows_chinese_only_where_it_means_to`：英文页只有
+  四个槽位允许出现中文（`.zhfall` ZH 标招式名、`<small>` 副名、`<span class="en">`
+  副标题、`.lcgl` 语言按钮），其余一律算泄漏。
 - **判定列**：英文 1~3 段拼写全称（High/Mid/Low），超过 3 段改用缩写——
   勒罗伊七段连拳拼全称是四行、撑爆行高，十连技十七段更是撑爆整张表；全称留在 title。
 - **行高按语系**：中文 38px、英文 46px（`html.loc-en`）。英文靠行高而非列宽换空间，
@@ -111,6 +129,14 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   28% 是错的，实测溢出。
 - **主页**：`docs/index.html` 仍手写，另两份由 `tools/build_hub.py` 派生；
   `augment_hub.py` 负责语言控件与 `data-q` 的繁體检索词（三语共用同一份检索索引）。
+  卡片链接是相对路径，派生页会**原样继承**——所以 `retarget_missing_pages()` 必须把
+  该语系没有的页面改指 `../`，否则 `/en/` 上点风间准就是 404（2026-07-26 修）。
+  门禁 `test_all_local_references_resolve_inside_docs` 原来只扫 `docs/*.html` 根目录，
+  这正是它漏掉的原因；现已覆盖三棵树。
+- **语言控件与「记法」同形**（2026-07-26）：主页 `<span class="lbl">语言</span>`、
+  角色页 `.lcgl > .lcl` + `.lcseg`，都是「小标签 + 选项组」，不再用 `文/A` 徽标。
+  `.lcgl` 复述了 `.ntgl` 的三条属性而非共用——`.ntgl` 在两套页面里各定义一次，
+  `header_card.css` 才是两家都读的那一份。
 - `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（116 条 URL），
   只给真实存在的语系发 `xhtml:link`。
 - **5 个管线页只有简体**，暂不在语系契约内（见

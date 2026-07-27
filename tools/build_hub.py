@@ -29,7 +29,13 @@ from hub_i18n import (  # noqa: E402
     SITE,
     locale_control,
 )
-from locales import LOCALES, PUBLIC_ROOT, alternate_links, public_url  # noqa: E402
+from locales import (  # noqa: E402
+    DEFAULT_LOCALE,
+    LOCALES,
+    PUBLIC_ROOT,
+    alternate_links,
+    public_url,
+)
 from zh_hant import convert  # noqa: E402
 
 
@@ -60,12 +66,7 @@ def swap_copy(markup: str, locale: str) -> str:
     markup = replace_once(
         markup, r'(?<=data-n="txt">)文字(?=</button>)', s["ntTxt"], "txt button"
     )
-    markup = replace_once(
-        markup,
-        r'(?<=<b class="lmark" aria-hidden="true">文/A</b>)语言(?=</span>)',
-        s["languageLabel"],
-        "language label",
-    )
+    # the language label rides along with the whole control, replaced last
     markup = replace_once(
         markup,
         r'(?<=<input id="q" type="search" placeholder=")[^"]*(?=")',
@@ -225,6 +226,35 @@ def swap_head(markup: str, locale: str) -> str:
     )
 
 
+CARD_LINK = re.compile(r'href="(?P<name>[a-z0-9_]+_tk8_movelist\.html)"')
+
+
+def retarget_missing_pages(markup: str, locale: str) -> str:
+    """Cards for pages this locale does not have point back at Simplified.
+
+    The five pipeline pages are Simplified-only until the migration in
+    design/plans/2026-07-26-pipeline-page-migration.md lands. Card links are
+    relative, so leaving them alone sends an /en/ visitor to
+    /en/jun_tk8_movelist.html, which is a 404 -- the page is one directory up.
+
+    `hreflang` is what says the destination is Simplified -- the card itself
+    still reads the way its neighbours do, because the fighter's name is the
+    same word whichever language the page under it happens to be in.
+    """
+    directory = LOCALES[locale]["dir"]
+    if not directory:
+        return markup
+    home = LOCALES[DEFAULT_LOCALE]
+
+    def link(match: re.Match[str]) -> str:
+        name = match.group("name")
+        if (SITE / directory / name).is_file():
+            return match.group(0)
+        return f'href="../{name}" hreflang="{home["hreflang"]}"'
+
+    return CARD_LINK.sub(link, markup)
+
+
 def swap_paths(markup: str, locale: str) -> str:
     """Assets live once at the publish root; character pages sit alongside."""
     depth = "../" if LOCALES[locale]["dir"] else ""
@@ -241,10 +271,11 @@ def derive(markup: str, locale: str) -> str:
     markup = swap_counts(markup, locale)
     markup = swap_card_names(markup, locale)
     markup = swap_paths(markup, locale)
+    markup = retarget_missing_pages(markup, locale)
     # the language control has to point back out of this tree
     return replace_once(
         markup,
-        r'<div class="grp"><span class="lbl"><b class="lmark".*?</span></div>',
+        r'<div class="grp"><span class="lbl">语言</span>.*?</span></div>',
         locale_control(locale),
         "language control",
     )

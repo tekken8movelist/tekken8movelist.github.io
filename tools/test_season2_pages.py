@@ -1592,6 +1592,37 @@ class LocaleThreadingTests(unittest.TestCase):
             with self.subTest(cell=cell[:60]):
                 self.assertIsNone(chinese.search(cell))
 
+    def test_english_names_every_combo_marker(self):
+        """A marker with no English column silently prints the Chinese one."""
+        english = self.module.notation_for("en")["markerLegend"]
+        self.assertEqual(
+            set(english), set(self.module.COMBO_MARKER_LEGEND),
+            "markerLegend and COMBO_MARKER_LEGEND must cover the same markers",
+        )
+
+    def test_every_locale_draws_the_same_commands_graphically(self):
+        """A command drawn as buttons in Chinese must be buttons everywhere.
+
+        The parser used to find a state capsule by walking a leading run of CJK,
+        which no English label has. So `Left_throw`, and every `BT.`/`H.`
+        command with it, read as stray letters and dropped the whole cell to
+        plain text -- 1732 of 5946 on the English pages, against 10 on the
+        Chinese ones. The 10 are the intended fallbacks (a ten-hit string is
+        wider than six button grids) and they are the same 10 in every locale,
+        so equality is the assertion, not a threshold.
+        """
+        cell = re.compile(r'<td class="cmd">(.*?)</td>', re.S)
+        for key in CHARACTERS:
+            counts = {}
+            for locale in self.module.LOCALES:
+                cells = cell.findall(self.build(key, locale))
+                counts[locale] = sum(1 for c in cells if "cmd-gfx" not in c)
+            with self.subTest(character=key):
+                self.assertEqual(
+                    len(set(counts.values())), 1,
+                    f"text-only command cells differ across locales: {counts}",
+                )
+
     def test_the_zh_fallback_count_is_pinned_per_character(self):
         """A silent rise means a snapshot refresh dropped English names.
 

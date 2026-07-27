@@ -282,7 +282,10 @@ def expand_command(
     remaining, labels, ordered = strip_state_prefixes(command, stance_names, nt)
 
     for token, label in ordered:
-        remaining = remaining.replace("," + token, "," + label)
+        # the space matters only in English: a Chinese label ends at the script
+        # boundary, `DVK` runs straight into the F of `DVK.F`. Tokenizers skip
+        # whitespace, so the Chinese pages render the same either way.
+        remaining = remaining.replace("," + token, "," + label + " ")
         remaining = remaining.replace(":" + token, ":" + label + " ")
 
     parry_label = state_label(stance_names.get("P", nt["parryDefault"]), nt)
@@ -379,6 +382,29 @@ def expand_command(
     return " ".join(labels + [remaining]), labels
 
 
+CAPSULE_RE = re.compile(r'<span class="tk-state">(.*?)</span>')
+CJK_CHAR = re.compile(r"[一-鿿]")
+
+
+def capsule_weight(graphical: str) -> float:
+    """How much of a cell's width the state capsules take, in grid units.
+
+    The 2.0 the tier thresholds were calibrated against is a Chinese capsule --
+    two or three full-width characters, near enough the same every time. Latin
+    capsules are not: `BT` is narrower than a button grid and `Opponent
+    wall-stunned` is four of them. So Chinese keeps the constant it was tuned
+    with and Latin gets measured, at the same 3-half-widths-per-grid rate the
+    constant implies.
+    """
+    total = 0.0
+    for label in CAPSULE_RE.findall(graphical):
+        if CJK_CHAR.search(label):
+            total += 2.0
+        else:
+            total += max(1.0, len(label) / 3)
+    return total
+
+
 def render_graphical_command(
     command: str,
     css_class: str,
@@ -403,7 +429,13 @@ def render_graphical_command(
         )
     )
     graphical = parse_cmd(
-        expanded, {"states": states, "stance_abbr": nt["stanceAbbr"]}, cap=cap
+        expanded,
+        {
+            "states": states,
+            "stance_abbr": nt["stanceAbbr"],
+            "or_words": (nt["orWord"],),
+        },
+        cap=cap,
     )
     if graphical is None:
         return None
@@ -415,8 +447,7 @@ def render_graphical_command(
     # a 2x2 button grid is ~2x as wide as an arrow, a state capsule ~2 grids
     grids = graphical.count('class="tk-b"')
     arrows = graphical.count('class="tk-dir') + graphical.count('class="tk-n"')
-    capsules = graphical.count('class="tk-state"')
-    weight = grids + 0.5 * arrows + 2.0 * capsules
+    weight = grids + 0.5 * arrows + capsule_weight(graphical)
     if grids >= 6 or weight >= cram2_at:
         tier = "tk-cram tk-cram2"
     elif grids >= cram_at or weight >= weight_at:
@@ -1348,6 +1379,22 @@ COMBO_STANCE_ALIASES = {
 }
 
 
+def combo_stance_aliases(key: str, locale: str) -> dict[str, str]:
+    """The combo-only aliases above, in this locale.
+
+    These are authored Simplified, and unlike everything else in a stance table
+    they never went through `localized_vocabulary` -- so 曼丁加 was showing up
+    inside English combo capsules. English takes Wavu's code, matching every
+    other capsule on the page.
+    """
+    aliases = COMBO_STANCE_ALIASES.get(key, {})
+    if locale == "en":
+        return {code: english_stance_label(code) for code in aliases}
+    if locale == "hant":
+        return {code: convert(name) for code, name in aliases.items()}
+    return dict(aliases)
+
+
 # Stage/heat combo markers shown as tk-tbang badges; the combos intro legend
 # explains the ones actually used on each page.
 COMBO_MARKER_LEGEND = {
@@ -1375,8 +1422,10 @@ def combo_marker_note(combos: dict, s: dict, nt: dict | None = None) -> str:
         for entry in group.get("entries", [])
         for field in ("starter", "route")
     )
+    localized = nt["markerLegend"] or {}
     used = []
     for marker, label in COMBO_MARKER_LEGEND.items():
+        label = localized.get(marker, label)
         if marker == "RA":
             found = re.search(r"\bRA\b", text)
         else:
@@ -1612,6 +1661,23 @@ def english_section_label(section: str) -> str:
     return match.group(1).strip() if match else section.strip()
 
 
+def english_stance_label(code: str) -> str:
+    """What an English capsule calls a stance the translation lists by code.
+
+    Wavu's own code is the right label -- 背身时 -> BT is what the reader is
+    already looking at in the command column. Two exceptions come from the
+    codes not all being codes: `H` and `R` are Heat and Rage, which the prefix
+    table already names, and a handful of entries are Wavu annotations rather
+    than codes (`(Back_to_wall)`, `Back_Throw`), which read as words once the
+    brackets and underscores come off.
+    """
+    prefixes = notation_for("en")["prefixes"]
+    named = prefixes.get(code if code.endswith(".") else code + ".")
+    if named:
+        return named
+    return code.strip("()").replace("_", " ")
+
+
 def localized_vocabulary(
     key: str,
     source: dict,
@@ -1650,7 +1716,8 @@ def localized_vocabulary(
                 for section in translation.get("section_names", {})
             },
             "stance_names": {
-                code: code for code in translation.get("stance_names", {})
+                code: english_stance_label(code)
+                for code in translation.get("stance_names", {})
             },
         }
     else:
@@ -1690,7 +1757,7 @@ def display_name(config: dict, locale: str) -> str:
 
 
 def render_locale_control(locale: str, filename: str, s: dict) -> str:
-    """The 文/A group in the title band.
+    """The language group in the title band.
 
     Plain links to the sibling paths, never buttons: a client-side toggle would
     give Google one URL in one language and the other two would never be
@@ -1709,11 +1776,12 @@ def render_locale_control(locale: str, filename: str, s: dict) -> str:
                 f'hreflang="{meta["hreflang"]}">{label}</a>'
             )
     return (
-        f'<div class="lcgl" role="group" '
+        f'<div class="lcgl">'
+        f'<span class="lcl" aria-hidden="true">{escape(s["languageLabel"])}</span>'
+        f'<span class="lcseg" role="group" '
         f'aria-label="{escape(s["localeAria"], quote=True)}">'
-        '<span class="mark" aria-hidden="true">文/A</span>'
         + "".join(items)
-        + "</div>"
+        + "</span></div>"
     )
 
 
@@ -1813,7 +1881,7 @@ def build_page(
         config["css_class"],
         {
             **translation.get("stance_names", {}),
-            **COMBO_STANCE_ALIASES.get(key, {}),
+            **combo_stance_aliases(key, locale),
         },
         s,
         # combo starters name moves in English; the Chinese builds swap those

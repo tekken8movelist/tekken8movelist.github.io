@@ -109,6 +109,15 @@ def resolve_local_reference(source: Path, value: str) -> Path | None:
     return target
 
 
+def published_pages() -> list[Path]:
+    """Every HTML file the site actually serves, in all three locale trees."""
+    pages = list(SITE.glob("*.html"))
+    for meta in LOCALES.values():
+        if meta["dir"]:
+            pages.extend((SITE / meta["dir"]).glob("*.html"))
+    return sorted(pages)
+
+
 def generator_pages() -> set[str]:
     """Filenames build_season2.py owns.
 
@@ -199,6 +208,38 @@ class SitePublicationContractTest(unittest.TestCase):
             with self.subTest(page=page.name):
                 self.assertEqual(stray, set(), f"{page.name}: {sorted(stray)}")
 
+    def test_the_english_tree_shows_chinese_only_where_it_means_to(self) -> None:
+        """Four slots are bilingual by design. Everywhere else is a leak.
+
+        The design pairs a heading with its other-language twin, and Wavu has
+        no English name for about a fifth of the moves, so those four slots
+        carry Chinese on purpose. Everything outside them that still reads as
+        Chinese got there by skipping the locale table -- which is how the
+        combo marker legend (`W!=撞墙`) and eddy's 曼丁加 capsule shipped.
+        """
+        chinese = re.compile(r"[一-鿿]")
+        code_blocks = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
+        intentional = [
+            # a move Wavu never named, shown in Chinese and tagged ZH
+            re.compile(r'<span class="zhfall">.*?</span>', re.S),
+            # the other locale's name under the character's own
+            re.compile(r"<small>.*?</small>", re.S),
+            # the other locale's wording beside a heading
+            re.compile(r'<span class="en">.*?</span>', re.S),
+            # each language labels itself in its own script
+            re.compile(r'<div class="lcgl">.*?</div>', re.S),
+        ]
+        tree = SITE / LOCALES["en"]["dir"]
+        for page in sorted(tree.glob("*_tk8_movelist.html")):
+            markup = code_blocks.sub(" ", page.read_text(encoding="utf-8"))
+            for pattern in intentional:
+                markup = pattern.sub(" ", markup)
+            visible = re.sub(r"<[^>]+>", " ", markup)
+            stray = sorted({line.strip() for line in visible.splitlines()
+                            if chinese.search(line)})
+            with self.subTest(page=page.name):
+                self.assertEqual(stray, [], f"{page.name}: {stray[:3]}")
+
     def test_expected_page_and_avatar_inventory(self) -> None:
         html_files = sorted(SITE.glob("*.html"))
         character_pages = sorted(SITE.glob("*_tk8_movelist.html"))
@@ -232,8 +273,11 @@ class SitePublicationContractTest(unittest.TestCase):
         self.assertNotIn("avatars-light/", INDEX.read_text(encoding="utf-8"))
 
     def test_all_local_references_resolve_inside_docs(self) -> None:
+        # every tree, not just the root: the derived hubs inherit the authored
+        # page's relative links, so a page that exists only in Simplified has
+        # to be re-pointed at ../ or the /en/ card is a 404
         failures: list[str] = []
-        for page in sorted(SITE.glob("*.html")):
+        for page in sorted(published_pages()):
             for _, value in parse_references(page):
                 try:
                     target = resolve_local_reference(page, value)
@@ -245,8 +289,8 @@ class SitePublicationContractTest(unittest.TestCase):
         self.assertEqual(failures, [])
 
     def test_html_files_are_parseable(self) -> None:
-        for page in sorted(SITE.glob("*.html")):
-            with self.subTest(page=page.name):
+        for page in published_pages():
+            with self.subTest(page=str(page.relative_to(SITE))):
                 parse_references(page)
 
     def test_cloudflare_web_analytics_covers_every_published_page(self) -> None:

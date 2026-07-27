@@ -9,6 +9,7 @@ import io
 import os
 import re
 import sys
+from functools import lru_cache
 
 from site_analytics import (
     CLOUDFLARE_WEB_ANALYTICS_TOKEN,
@@ -125,8 +126,58 @@ TOKEN_RE = re.compile(r"""
 """, re.X)
 
 
-def tokenize(text):
-    return [(m.lastgroup, m.group()) for m in TOKEN_RE.finditer(text)]
+CJK_CHAR = re.compile(r"[一-鿿]")
+
+
+def latin_states(states):
+    """The state labels the tokenizer has to recognise on its own.
+
+    A Chinese label arrives inside one `cjk` token that `Renderer.cjk_parts`
+    already splits against this same list, so Chinese labels are left out and
+    the Chinese pages tokenize byte-for-byte as before. A Latin label has no
+    such run to walk -- without this it reads as stray letters and the whole
+    cell falls back to plain text, which is what put `Left_throw` and every
+    `BT.`/`H.` command on the English pages in text form.
+
+    Labels TOKEN_RE already resolves (the WS/FC/SS stance codes, the CH badge)
+    stay out of it, so those keep rendering exactly the way they do today.
+    """
+    literals = []
+    for state in dict.fromkeys(states):
+        if not state or CJK_CHAR.search(state):
+            continue
+        known = TOKEN_RE.fullmatch(state)
+        if known and known.lastgroup != "other":
+            continue
+        literals.append(state)
+    return tuple(literals)
+
+
+@lru_cache(maxsize=None)
+def literal_token_re(statewords, orwords):
+    """TOKEN_RE with the caller's whole-word literals tried first.
+
+    Empty on the Chinese pages, where it returns TOKEN_RE itself.
+    """
+    groups = []
+    for name, words in (("stateword", statewords), ("orword", orwords)):
+        if not words:
+            continue
+        # longest first, and letter-bounded, so SS cannot eat the SSL in SSL.2
+        alternation = "|".join(
+            re.escape(word) for word in sorted(words, key=len, reverse=True)
+        )
+        groups.append(
+            f"(?P<{name}>(?<![A-Za-z])(?:{alternation})(?![A-Za-z]))"
+        )
+    if not groups:
+        return TOKEN_RE
+    return re.compile("|".join(groups) + "|" + TOKEN_RE.pattern, re.X)
+
+
+def tokenize(text, statewords=(), orwords=()):
+    pattern = literal_token_re(tuple(statewords), tuple(orwords))
+    return [(m.lastgroup, m.group()) for m in pattern.finditer(text)]
 
 
 def el_grid(btns):
@@ -229,6 +280,12 @@ class Renderer:
             elif kind == "stance":
                 self.flush()
                 self.emit(el_state(self.stance_abbr[val]), "state")
+            elif kind == "stateword":
+                self.flush()
+                self.emit(el_state(val), "state")
+            elif kind == "orword":
+                self.flush()
+                self.emit(el_txt(val), "text")
             elif kind == "neutral":
                 self.flush()
                 self.emit('<span class="tk-n">N</span>', "n")
@@ -269,18 +326,29 @@ class Renderer:
                 inner = tokens[i + 1:j]
                 raw = "".join(t[1] for t in inner)
                 nonsp = [t for t in inner if t[0] != "space"]
-                has_cjk = any(k == "cjk" for k, _ in nonsp)
-                starts_or = nonsp and nonsp[0] == ("cjk", "或")
+                # a bracketed aside is printed verbatim: "(近身)", "(wall stun)".
+                # Chinese was the only script this parser used to see, so the
+                # test used to be "contains CJK"; a Latin label is words just
+                # the same, and without this the letters read as garbage and
+                # take the whole cell down to plain text.
+                has_words = any(
+                    kind in ("cjk", "stateword")
+                    or (kind == "other" and value.isalpha())
+                    for kind, value in nonsp
+                )
+                starts_or = bool(nonsp) and (
+                    nonsp[0][0] == "orword" or nonsp[0] == ("cjk", "或")
+                )
                 if DMG_PAREN.match(raw.replace(" ", "")) or (
-                        has_cjk and not starts_or):
+                        has_words and not starts_or):
                     self.flush()
                     self.emit(el_txt("(" + raw + ")"), "text")
                 else:
                     self.flush()
                     self.emit(el_txt("("), "text")
                     if starts_or:
-                        self.emit(el_txt("或"), "text")
-                        k0 = inner.index(("cjk", "或"))
+                        self.emit(el_txt(nonsp[0][1]), "text")
+                        k0 = inner.index(nonsp[0])
                         inner = inner[k0 + 1:]
                     self.walk(inner)
                     self.flush()
@@ -302,11 +370,22 @@ def parse_cmd(text, cfg, cap=6):
     stripped = text.strip()
     if not stripped:
         return None
-    tokens = [t for t in tokenize(stripped)]
-    # leading CJK run(s): every part becomes a state capsule
+    # 或 already tokenizes as CJK and the paren branch already knows it, so
+    # only a Latin "or" needs its own token -- same reason as latin_states
+    or_words = tuple(
+        word
+        for word in (cfg.get("or_words") or ())
+        if word and not CJK_CHAR.search(word)
+    )
+    tokens = tokenize(stripped, latin_states(cfg["states"]), or_words)
+    # leading state run(s): every part becomes a state capsule
     lead = []
-    while tokens and tokens[0][0] in ("cjk", "space"):
+    while tokens and tokens[0][0] in ("cjk", "space", "stateword"):
         if tokens[0][0] == "space":
+            tokens = tokens[1:]
+            continue
+        if tokens[0][0] == "stateword":
+            lead.append(el_state(tokens[0][1]))
             tokens = tokens[1:]
             continue
         r = Renderer(cfg["states"], cfg.get("stance_abbr"))

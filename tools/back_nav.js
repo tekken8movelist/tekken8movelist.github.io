@@ -6,11 +6,16 @@
    ------------------------------------------------------------------- */
 (() => {
   const HOME = 'index.html';
-  const directory = (path) => path.slice(0, path.lastIndexOf('/') + 1);
 
   // Only when the visitor actually arrived from the hub: going back instead of
   // navigating restores its scroll position and search term. A fresh visit
   // (bookmark, search result, shared link) still needs a real navigation.
+  //
+  // Any same-origin index.html counts, not just one in this page's own
+  // directory. The site has exactly three and they are all hubs, and the five
+  // Simplified-only pipeline pages are reached from /en/ and /zh-Hant/ as
+  // ../name.html -- requiring the same directory sent those visitors back to
+  // the Simplified hub, losing both their language and their scroll position.
   function cameFromHub() {
     if (!document.referrer) return false;
     let referrer;
@@ -20,7 +25,6 @@
       return false;
     }
     if (referrer.origin !== location.origin) return false;
-    if (directory(referrer.pathname) !== directory(location.pathname)) return false;
     const leaf = referrer.pathname.slice(referrer.pathname.lastIndexOf('/') + 1);
     return leaf === '' || leaf === HOME;
   }

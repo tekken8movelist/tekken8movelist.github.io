@@ -8,7 +8,8 @@
 - `docs/zh-Hant/` and `docs/en/` are generated locale trees: 36 generator-owned
   pages plus a derived hub each. Never hand-edit anything under them; change the
   source or `tools/locales.py` and rebuild. The five pipeline pages exist only in
-  Simplified until they are migrated into the generator.
+  Simplified until they are migrated into the generator; the derived hubs point
+  their cards at `../` so those links resolve instead of 404ing.
 - `docs/avatars/` contains the final homepage portraits. The homepage is dark-only (no theme toggle since flux v3); `docs/avatars-light/` was removed in that change. Other local avatar directories are experiments or backups and are intentionally ignored.
 - `tools/source/` is the structured source of truth for generated character pages.
 - `tools/` contains generators, source snapshots, regression tests, and browser QA.
