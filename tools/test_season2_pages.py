@@ -1640,12 +1640,13 @@ class LocaleThreadingTests(unittest.TestCase):
                 html = self.build(key, "en")
                 self.assertEqual(html.count('class="refname"'), expected)
 
-    def test_a_described_name_says_so_rather_than_wearing_a_badge(self):
-        """The italics need a tooltip and one legend line, not a `ref` label.
+    def test_a_described_name_reads_like_every_other_name(self):
+        """No per-row marking: a tooltip and one legend line carry it.
 
-        The badge this replaced appended `ref` to a fifth of the table, which
-        explained nothing on screen and came out as `Mid Kickref` in copied
-        text -- the exact reading that got it removed.
+        Two earlier versions marked these rows -- a `ref` chip that came out
+        as `Mid Kickref` in copied text, then italics -- and both made a fifth
+        of the table look like it had gone wrong. What is left has to stay:
+        the tooltip on the name and the line in the legend.
         """
         html = self.build("jin", "en")
         self.assertNotIn("reftag", html)

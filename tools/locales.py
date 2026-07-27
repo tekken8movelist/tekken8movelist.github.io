@@ -617,20 +617,21 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "Fighter profile (country · style) from the ",
         "footOfficial": "TEKKEN 8 official site",
         "footNote": (
-            "Move names are Wavu Wiki's where Wavu publishes one; italics mark "
+            "Move names are Wavu Wiki's where Wavu publishes one; the rest are "
             "the project's own descriptions. Startup is frames to first impact."
         ),
         # Only the English build has moves Wavu never named, so only it needs
-        # these. The name itself carries the tooltip and the legend explains
-        # the italics once -- an earlier build put a `ref` badge after every
-        # such name, which told the reader nothing and read as "Mid Kickref".
+        # these. Both earlier attempts marked such rows individually -- a `ref`
+        # badge, then italics -- and both made a fifth of the table look
+        # broken rather than sourced. The disclosure is page-level now: this
+        # line in the legend, the footer note, and a tooltip on the name.
         "refNameTitle": (
             "Wavu Wiki publishes no name for this move; this is the project's "
             "own description of it, not an official name"
         ),
         "legendRefNames": (
-            "italic names are the project's own descriptions — Wavu publishes "
-            "no name for those moves"
+            "about a fifth of all moves have no name on Wavu — those take the "
+            "project's own description, and say so on hover"
         ),
     },
 }

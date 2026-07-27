@@ -755,17 +755,17 @@ h2 {
   opacity: .8;
 }
 
-/* A pair, and they live together so neither can ship without the other: the
-   italic name is the signal, `.lgref` is the one line that says what it means.
-   Both page families read this file, so both get both -- an earlier version
-   had the italics in season2_page.css, which the five pipeline pages do not
-   load, so their described names rendered as ordinary text.
-   English-only in practice: the generator emits `.refname` only for moves
-   Wavu never named, and `legendRefNames` is empty in the Chinese locales. */
+/* Moves Wavu never named carry the project's own description. The span stays
+   -- it holds the tooltip that says so -- but it is deliberately not styled
+   apart. Two earlier attempts marked these per row, a `ref` chip and then
+   italics, and both read as "this row is broken" rather than as a note about
+   sourcing: a fifth of every table looking different from the rest is a lot
+   of visual noise to spend on a provenance footnote. The disclosure is now
+   where a reader looks for that kind of thing -- `.lgref` in the legend and
+   the footer note -- and is page-level rather than per-row.
+   `cursor: help` is kept: it does not change how the name looks, and it is
+   the only hint that a tooltip is there at all. */
 .refname {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--muted);
   cursor: help;
 }
 
@@ -957,7 +957,7 @@ html.dark .legend { --lg-line: #2a323d; }
 </header>
 
 <div class="legend" id="notation-legend">
-  <div class="lgtop"><b>Hit level</b><span><span class="hi">High</span>=high　<span class="md">Mid</span>=mid　<span class="lo">Low</span>=low　<span class="sp">Sp.</span>=special　<span class="sp">Throw</span>=throw　<span class="sp">!</span>=unblockable</span><b>i</b><span>startup frames to first impact — lower is faster, per Wavu</span><span class="lgref">italic names are the project&#x27;s own descriptions — Wavu publishes no name for those moves</span></div>
+  <div class="lgtop"><b>Hit level</b><span><span class="hi">High</span>=high　<span class="md">Mid</span>=mid　<span class="lo">Low</span>=low　<span class="sp">Sp.</span>=special　<span class="sp">Throw</span>=throw　<span class="sp">!</span>=unblockable</span><b>i</b><span>startup frames to first impact — lower is faster, per Wavu</span><span class="lgref">about a fifth of all moves have no name on Wavu — those take the project&#x27;s own description, and say so on hover</span></div>
   <div class="lgsub txt-only"><span><b>Buttons · directions</b>　1=left punch　2=right punch　3=left kick　4=right kick　|　f=forward　b=back　u=up　d=down　d/f=down-forward　d/b=down-back　u/f=up-forward　u/b=up-back</span><span><b>States · separators</b>　f,f=dash　WS=while standing　FC=full crouch　SS=sidestep　+=together　~=immediately after　＊=charge</span><span><b>Notation notes</b>　qcf=quarter-circle forward (d,d/f,f)　~F=hold forward</span></div>
   <div class="lgsub gfx-only"><b>Notation</b>　<span class="tk-in tk-sm"><span class="tk-b"><i>1</i><i>2</i><i>3</i><i>4</i></span></span> four-button grid (1 LP, 2 RP, 3 LK, 4 RK — lit = pressed)　<span class="tk-in tk-sm"><span class="tk-dir f"></span></span>= tap direction　<span class="tk-in tk-sm"><span class="tk-dir f hold"></span></span>= hold　<span class="tk-in tk-sm"><span class="tk-n">N</span></span>= neutral　<span class="tk-in tk-sm"><span class="tk-state">STANCE</span></span>= state prefix　|　<b>Separators</b>　› follow-up　+ direction & button　~ immediately after　＊ charge　→ next move　<span class="tk-tbang">T!</span> tornado</div>
 </div>

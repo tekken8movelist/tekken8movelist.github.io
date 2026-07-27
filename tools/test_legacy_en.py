@@ -70,12 +70,19 @@ class LegacyEnglishTests(unittest.TestCase):
                     f"{key}: {described}/{named} names are the project's own",
                 )
 
-    def test_the_italics_never_ship_without_their_explanation(self) -> None:
+    def test_described_names_never_ship_without_their_disclosure(self) -> None:
+        """They look like every other name, so the legend has to say so.
+
+        Nothing marks these rows individually any more -- a `ref` chip and
+        then italics both made a fifth of the table look broken. That puts the
+        whole weight of the disclosure on the legend line and the tooltip, so
+        neither may go missing.
+        """
         for key, markup in self.built.items():
             with self.subTest(character=key):
                 if 'class="refname"' in markup:
                     self.assertIn('class="lgref"', markup)
-                    self.assertIn(".refname", markup, "the italics have no CSS")
+                    self.assertIn('<span class="refname" title="', markup)
 
     def test_hit_levels_are_separated(self) -> None:
         """`中投` reads as two words in Chinese; `MidThrow` does not."""

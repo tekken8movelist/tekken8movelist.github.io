@@ -113,11 +113,13 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   一样的英文。**架势词直接从快照挖 Wavu 自己的英文**（section 写成 `PKB (Peekaboo)`），
   所以 `窥视`=Peekaboo 是 Wavu 说的，不是谁定的。`--check` 对 843 条全覆盖，
   接进门禁；`EXPECTED_DESCRIBED_NAMES` 仍锁「Wavu 没给名字」的条数。
-  **呈现只用斜体**（2026-07-27 改）：`.refname` 斜体 + `title`，图例里 `.lgref`
-  一行说明斜体是什么，页脚 `footNote` 不再声称所有名字都来自 Wavu。原先每条还挂个
-  `ref` 角标——它在屏幕上什么都没解释，复制出来是 `Mid Kickref`，而斜体已经在表达
-  同一件事。`.refname` 与 `.lgref` 一起放 `legend_card.css`（两套页面都读那份），
-  **不要**放回 `season2_page.css`：5 个管线页不加载它，斜体会整个失效。
+  **逐行不做任何视觉标记**（2026-07-27 定稿）。试过两版都退回了：先是 `ref` 角标
+  （屏幕上什么都没解释，复制出来是 `Mid Kickref`），后是斜体（「这行长得不一样」）。
+  一张表里五分之一的行长得与众不同，读起来像是坏了，而不像在标注来源。
+  现在来源声明是**页面级**的：图例 `.lgref` 一行 + 页脚 `footNote`，外加每条名字
+  自带的 `title`。`.refname` 这个 span 保留（承载 `title`，也是门禁计数的锚点），
+  但只留 `cursor: help`。规则放 `legend_card.css`（两套页面都读那份），
+  **不要**放回 `season2_page.css`：5 个管线页不加载它。
 - **指令列不翻译**，只有 `.tk-state` 胶囊本地化，英文用 Wavu 码（背身时→BT）。
   胶囊词汇有四个来源，全部经 `locales.notation()`：`COMMON_PREFIXES`、
   `expand_command` 的回退默认值、`COMMON_COMMAND_ALIASES`、以及

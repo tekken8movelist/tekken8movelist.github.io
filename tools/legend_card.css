@@ -27,17 +27,17 @@
   opacity: .8;
 }
 
-/* A pair, and they live together so neither can ship without the other: the
-   italic name is the signal, `.lgref` is the one line that says what it means.
-   Both page families read this file, so both get both -- an earlier version
-   had the italics in season2_page.css, which the five pipeline pages do not
-   load, so their described names rendered as ordinary text.
-   English-only in practice: the generator emits `.refname` only for moves
-   Wavu never named, and `legendRefNames` is empty in the Chinese locales. */
+/* Moves Wavu never named carry the project's own description. The span stays
+   -- it holds the tooltip that says so -- but it is deliberately not styled
+   apart. Two earlier attempts marked these per row, a `ref` chip and then
+   italics, and both read as "this row is broken" rather than as a note about
+   sourcing: a fifth of every table looking different from the rest is a lot
+   of visual noise to spend on a provenance footnote. The disclosure is now
+   where a reader looks for that kind of thing -- `.lgref` in the legend and
+   the footer note -- and is page-level rather than per-row.
+   `cursor: help` is kept: it does not change how the name looks, and it is
+   the only hint that a tooltip is there at all. */
 .refname {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--muted);
   cursor: help;
 }
 
