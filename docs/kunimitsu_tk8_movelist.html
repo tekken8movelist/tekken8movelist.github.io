@@ -550,6 +550,7 @@ header .hdrctl {
 }
 
 .lcgl a,
+.lcgl .off,
 .lcgl [aria-current="true"] {
   padding: 3px 11px;
   border-radius: 2px;
@@ -573,6 +574,16 @@ header .hdrctl {
   color: var(--hc-ink);
   background: #fff;
   font-weight: 700;
+}
+
+/* a locale this page has not been built in yet -- the five pipeline pages are
+   Simplified-only. Dimmed rather than dropped: the control is on the other 36
+   pages, and one that vanishes on 5 of 41 reads as a bug where a disabled
+   choice reads as "not translated yet", which is what it is. */
+.lcgl .off {
+  color: rgba(255, 255, 255, .35);
+  font-weight: 500;
+  cursor: not-allowed;
 }
 
 header h1, header h2 {
@@ -696,6 +707,7 @@ header .hdrbio dd {
   .lcgl .lcl { display: none; }
 
   .lcgl a,
+  .lcgl .off,
   .lcgl [aria-current="true"] { padding: 3px 9px; }
 }
 
@@ -905,6 +917,9 @@ html.dark .legend { --lg-line: #2a323d; }
   <div class="hdrmain">
     <div class="hdrtop">
       <a class="home" href="index.html" data-home aria-label="返回全角色选择"><span aria-hidden="true">←</span>全角色出招表</a>
+      <div class="lcgl"><span class="lcl" aria-hidden="true">语言</span><span class="lcseg" role="group" aria-label="语言 / Language"><span aria-current="true">简</span><span class="off" title="本页暂无繁體中文版本">繁</span><span class="off" title="本页暂无English版本">EN</span></span></div>
+    </div>
+    <div class="hdrtop hdrtop2">
       <div class="hdrctl">
         <div class="ntgl" id="thgl">主题<span class="seg"><button type="button" id="thd" class="on">夜间</button><button type="button" id="thl">浅色</button></span></div>
         <div class="ntgl" id="ntgl">记法<span class="seg"><button type="button" id="ng" class="on">按键图</button><button type="button" id="nn">无数字</button><button type="button" id="nt">文字</button></span></div>

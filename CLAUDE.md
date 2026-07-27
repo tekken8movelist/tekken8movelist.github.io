@@ -140,7 +140,9 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 - `docs/sitemap.xml` 由 `tools/build_sitemap.py` 按磁盘实际页面生成（116 条 URL），
   只给真实存在的语系发 `xhtml:link`。
 - **5 个管线页只有简体**，暂不在语系契约内（见
-  `design/plans/2026-07-26-pipeline-page-migration.md`）。
+  `design/plans/2026-07-26-pipeline-page-migration.md`）。它们**照样带语言控件**，
+  只是繁/EN 渲染成 `.lcgl .off`（`<span>`，不可点、不进 Tab、`title` 说明原因）——
+  41 页里有 5 页控件凭空消失，读起来像坏了；禁用态读起来才是「还没翻」。
 
 ## 已完成角色
 

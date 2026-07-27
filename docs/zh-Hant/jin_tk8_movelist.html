@@ -906,6 +906,7 @@ header .hdrctl {
 }
 
 .lcgl a,
+.lcgl .off,
 .lcgl [aria-current="true"] {
   padding: 3px 11px;
   border-radius: 2px;
@@ -929,6 +930,16 @@ header .hdrctl {
   color: var(--hc-ink);
   background: #fff;
   font-weight: 700;
+}
+
+/* a locale this page has not been built in yet -- the five pipeline pages are
+   Simplified-only. Dimmed rather than dropped: the control is on the other 36
+   pages, and one that vanishes on 5 of 41 reads as a bug where a disabled
+   choice reads as "not translated yet", which is what it is. */
+.lcgl .off {
+  color: rgba(255, 255, 255, .35);
+  font-weight: 500;
+  cursor: not-allowed;
 }
 
 header h1, header h2 {
@@ -1052,6 +1063,7 @@ header .hdrbio dd {
   .lcgl .lcl { display: none; }
 
   .lcgl a,
+  .lcgl .off,
   .lcgl [aria-current="true"] { padding: 3px 9px; }
 }
 

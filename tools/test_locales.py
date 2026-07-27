@@ -40,7 +40,8 @@ class LocaleTableTests(unittest.TestCase):
         self.assertEqual(LOCALES["en"]["lang"], "en")
 
     def test_every_locale_declares_a_full_row(self) -> None:
-        fields = {"lang", "dir", "og", "hreflang", "short", "body_class"}
+        fields = {"lang", "dir", "og", "hreflang", "short", "endonym",
+                  "body_class"}
         # the default locale is the publish root and carries no marker class,
         # so both of those are empty for it by design
         blank_for_default = {"dir", "body_class"}
@@ -231,7 +232,7 @@ class VocabularyTests(unittest.TestCase):
 
     def test_templates_use_the_placeholders_the_generator_supplies(self) -> None:
         allowed = {"display", "canonical", "count", "moves", "visible",
-                   "frames", "collapsed", "value"}
+                   "frames", "collapsed", "value", "language"}
         placeholder = re.compile(r"\{(\w+)\}")
         for code in LOCALES:
             for key, value in strings(code).items():

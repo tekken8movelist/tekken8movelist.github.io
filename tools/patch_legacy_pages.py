@@ -34,6 +34,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import band_color  # noqa: E402
+from locales import DEFAULT_LOCALE, LOCALES, strings  # noqa: E402
 from official_profile_zh import localized_profile  # noqa: E402
 from pipeline import CONFIG as PIPELINE_CONFIG  # noqa: E402
 
@@ -144,6 +145,37 @@ LEGEND = re.compile(
 )
 
 
+def locale_control() -> str:
+    """The same language group the generator pages carry, minus the links.
+
+    These five pages exist only in Simplified, so 繁 and EN have nothing to
+    point at. They are shown dimmed rather than dropped: the control is on the
+    other 36 pages, and a switcher that silently vanishes on 5 of 41 reads as
+    a bug, where a disabled choice reads as "not translated yet" -- which is
+    what it is, until the migration in
+    design/plans/2026-07-26-pipeline-page-migration.md lands.
+    """
+    s = strings(DEFAULT_LOCALE)
+    items = []
+    for code, meta in LOCALES.items():
+        label = escape(meta["short"])
+        if code == DEFAULT_LOCALE:
+            items.append(f'<span aria-current="true">{label}</span>')
+        else:
+            title = escape(
+                s["localeMissing"].format(language=meta["endonym"]), quote=True
+            )
+            items.append(f'<span class="off" title="{title}">{label}</span>')
+    return (
+        '<div class="lcgl">'
+        f'<span class="lcl" aria-hidden="true">{escape(s["languageLabel"])}</span>'
+        f'<span class="lcseg" role="group" '
+        f'aria-label="{escape(s["localeAria"], quote=True)}">'
+        + "".join(items)
+        + "</span></div>"
+    )
+
+
 def build_header(key: str, block: str, slug: str) -> tuple[str, str]:
     """Return (new header inner HTML, the page-intro lifted out of it)."""
     title = TITLE.search(block)
@@ -175,6 +207,9 @@ def build_header(key: str, block: str, slug: str) -> tuple[str, str]:
         '    <div class="hdrtop">\n'
         '      <a class="home" href="index.html" data-home aria-label="返回全角色选择">'
         '<span aria-hidden="true">←</span>全角色出招表</a>\n'
+        f"      {locale_control()}\n"
+        "    </div>\n"
+        '    <div class="hdrtop hdrtop2">\n'
         '      <div class="hdrctl">\n'
         f"        {toggles[0]}\n"
         f"        {toggles[1]}\n"
