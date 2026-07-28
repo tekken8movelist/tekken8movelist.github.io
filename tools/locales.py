@@ -481,7 +481,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "crumbShort": "All fighters",
         "crumbAria": "Back to the fighter list",
         "quickNav": "Quick navigation",
-        "localeAria": "Language / 语言",
+        "localeAria": "Language",
         "languageLabel": "Language",
         "localeMissing": "This page is not available in {language} yet",
         "themeLabel": "Theme",

@@ -128,15 +128,19 @@ _STRING_LITERAL = re.compile(r"'([^'\n]*)'|\"([^\"\n]*)\"")
 _COPY_ATTRIBUTE = re.compile(
     r'\b(?:content|alt|title|placeholder|aria-label)="([^"]*)"'
 )
-# the one place a page names languages other than its own
-_LANGUAGE_SWITCHER = [
-    re.compile(p, re.S)
-    for p in (
-        r'<span class="lcseg".*?</span>',
-        r'<span class="seg lseg".*?</span>',
-        r'<div class="lcgl">.*?</div>',
-    )
-]
+# The one thing a page may say in a language that is not its own: a control
+# that labels its choices in the reader's language cannot be used to leave, so
+# `简` is the only way an English page can offer Simplified to someone who
+# reads Simplified. That is the entire exemption -- two glyphs of link text.
+#
+# It used to be written as three regexes that deleted the whole switcher
+# element before scanning. An exemption shaped like a region is wider than a
+# rule about two glyphs, and the difference shipped: `aria-label="Language /
+# 语言"` sat on the opening tag of `.lcseg`, inside the deleted span, on all 42
+# English pages. Same failure as the "bilingual by design" slots this test was
+# written to replace -- the shape of the hole is what copy hides in, not its
+# size.
+_LANGUAGE_SELF_NAMES = frozenset({"简", "繁"})
 
 
 def reader_text(markup: str) -> list[str]:
@@ -155,8 +159,6 @@ def reader_text(markup: str) -> list[str]:
         ):
             found.append(literal.group(1) or literal.group(2) or "")
     body = _CODE_BLOCK.sub(" ", markup)
-    for switcher in _LANGUAGE_SWITCHER:
-        body = switcher.sub(" ", body)
     found.extend(match.group(1) for match in _COPY_ATTRIBUTE.finditer(body))
     found.extend(re.sub(r"<[^>]+>", "\n", body).split("\n"))
     return [text.strip() for text in found if text.strip()]
@@ -165,12 +167,18 @@ def reader_text(markup: str) -> list[str]:
 def generator_pages() -> set[str]:
     """Filenames build_season2.py owns.
 
-    The five one-shot pipeline pages (jun, xiaoyu, kunimitsu, clive, law) are
-    still published from hand-converted HTML, so they have no locale siblings
-    and no hreflang block. Migrating them into the generator is a prerequisite
-    project of its own -- see
-    design/plans/2026-07-26-pipeline-page-migration.md -- and until it lands,
-    the locale contract below applies to the pages the generator produces.
+    Only a build-provenance split now, not a contract one. The five one-shot
+    pipeline pages (jun, xiaoyu, kunimitsu, clive, law) are still published
+    from hand-converted HTML rather than a structured snapshot, so their two
+    other locales come from their own producers -- `build_legacy_hant.py` and
+    `build_legacy_en.py` -- instead of from the generator. They reached all
+    three trees anyway, with the same hreflang block as everyone else, so the
+    locale contract below covers all 41 pages and both callers below take this
+    set unioned with `LEGACY_PIPELINE_PAGES`.
+
+    Migrating them into the generator is still an open project of its own --
+    see design/plans/2026-07-26-pipeline-page-migration.md -- but nothing in
+    this file waits on it any more.
     """
     return {config["filename"] for config in GENERATOR_CHARACTERS.values()}
 
@@ -215,8 +223,6 @@ class SitePublicationContractTest(unittest.TestCase):
                 )
 
     def test_locale_trees_declare_their_language_and_cross_link(self) -> None:
-        # the pipeline pages are in this now: Simplified and Traditional both
-        # exist, so both must declare their language and point at each other
         owned = generator_pages() | set(LEGACY_PIPELINE_PAGES)
         for code, meta in LOCALES.items():
             tree = SITE / meta["dir"] if meta["dir"] else SITE
@@ -250,7 +256,11 @@ class SitePublicationContractTest(unittest.TestCase):
         alphabet = simplified_only_codepoints()
         tree = SITE / LOCALES["hant"]["dir"]
         for page in sorted(tree.glob("*.html")):
-            stray = set("".join(reader_text(page.read_text(encoding="utf-8"))))
+            stray = set("".join(
+                fragment
+                for fragment in reader_text(page.read_text(encoding="utf-8"))
+                if fragment not in _LANGUAGE_SELF_NAMES
+            ))
             stray &= alphabet
             with self.subTest(page=page.name):
                 self.assertEqual(stray, set(), f"{page.name}: {sorted(stray)}")
@@ -262,8 +272,11 @@ class SitePublicationContractTest(unittest.TestCase):
         slots and passed while the pages still showed `Throws 投技`, 风间仁
         under every h1, and a Chinese sentence in the footer. Allowing a slot
         is how copy hides. The only Chinese an English page may now contain is
-        简 and 繁 inside the switcher, because a language control that labels
-        its choices in the reader's language cannot be used to leave.
+        简 and 繁 as the switcher's own link text, because a language control
+        that labels its choices in the reader's language cannot be used to
+        leave -- and the exemption is those two glyphs, not the element they
+        sit in. Deleting the element instead is what let `Language / 语言` ride
+        along in its `aria-label`, which a screen reader reads out.
 
         `reader_text` deliberately reaches past the rendered body into script
         string literals and the head -- `n + ' 名匹配'` and the og:description
@@ -274,7 +287,7 @@ class SitePublicationContractTest(unittest.TestCase):
         for page in sorted(tree.glob("*.html")):
             stray = sorted({
                 fragment for fragment in reader_text(page.read_text(encoding="utf-8"))
-                if CHINESE.search(fragment)
+                if CHINESE.search(fragment) and fragment not in _LANGUAGE_SELF_NAMES
             })
             with self.subTest(page=page.name):
                 self.assertEqual(stray, [], f"{page.name}: {stray[:3]}")
