@@ -838,27 +838,70 @@ def notation(
 # Table column shares.
 #
 # English move names run about 2.5x wider than Chinese (恶魔裂爪 -> Fiendish
-# Rend). The room is bought with row height, not column width: narrowing 指令
-# instead pushes `b,f+2,1,df+2` out of the 11px tier and into .tk-cram at 9px,
-# so 指令 keeps its 37% in every locale and the cram heuristic is untouched.
-# What English does take is a few points from 伤害, which is numeric and narrow.
+# Rend). The room used to be bought with row height rather than column width,
+# because narrowing 指令 pushes `b,f+2,1,df+2` out of the 11px tier and into
+# .tk-cram at 9px.
+#
+# The shares below take the room from 判定 instead, which had far more than it
+# needs. Measured on the published tables at 1480px (Range over the cell ink,
+# converted out of the 1.25 zoom, worst cell of yoshimitsu/king/jin/nina):
+#
+#     column   share   width   widest ink   slack
+#     招式      24%     129px    86px        43px
+#     指令      37%     199px   170px        29px
+#     发生       9%      48px    30px        18px
+#     伤害      15%      81px    58px        23px
+#     判定      15%      81px    20px        61px   <-- three quarters unused
+#
+# 判定 holds at most `中×5` or, in English, three spelled-out levels; it was
+# sized as if it held a sentence. Handing most of that back lets both of the
+# columns a reader actually reads -- the name and the button maps -- grow,
+# and it is what makes the 12px notation tier fit: at 37% the single cell
+# `b,f+2,1,df+2` overflowed by 12px, which is why the size was pinned at 11px.
+# Widening 指令 is the same lever the note above warned not to reverse.
 # ---------------------------------------------------------------------------
 
+# 发生 keeps its 9%. It was cut to 8% here once and the gate stayed green,
+# because `td.fr` is in the wrap list -- a startup range does not overflow when
+# it runs out of room, it breaks, and `i23~i24` came out as `i23~i2` over `4`.
+# Nothing in the geometry gate objects to a legal line break; it took reading a
+# screenshot. Treat 发生/伤害 as single-token columns: they must not wrap.
 _COLUMNS_ZH = {
     #      招式  指令  发生  伤害  判定
-    "move": (24, 37, 9, 15, 15),
+    "move": (27, 41, 9, 13, 10),
     #       招式  指令  发生  方向  伤害  挣脱
-    "throw": (17, 34, 9, 8, 16, 15),
+    "throw": (19, 37, 9, 8, 15, 12),
 }
 
 _COLUMNS_EN = {
-    "move": (27, 37, 9, 12, 15),
-    # 指令 keeps its Chinese 34% here too. The brief narrowed it to 28% for the
-    # throw table while stating the opposite rule for the move table, and 28%
-    # overflows: Jack-8's uf+1+2,d,df+2 needs 156px and gets 150. Side and Break
-    # still need more room than one or two glyphs ("Crouch", "No break"), so the
-    # room comes out of 招式 and 伤害, which holds two digits.
-    "throw": (22, 34, 9, 11, 10, 14),
+    # Every share here is at its floor except 招式, measured across all 41
+    # English pages (widest ink per column, out of the zoom, vs the content box):
+    #
+    #     指令  needs 198.9px -> 40%   (fahkumram f+3,2,4~3*, and the weight-4.5
+    #                                   four-part commands generally)
+    #     判定  needs  ~50px  -> 12%   armor king's f,n,d,df+1+3 renders one
+    #                                   unbreakable run; Chinese writes the same
+    #                                   level as a single glyph, hence 11% there
+    #     伤害  needs  45.5px -> 11%   jack 1+4*,1
+    #     发生  needs   ~35px ->  9%   asuka's i31~i33 broke across two lines
+    #                                   at 8%; a wrapped cell reports a NARROW
+    #                                   longest line, so the ink measurement
+    #                                   called 8% sufficient. Read the column,
+    #                                   not the number, when the cell may wrap.
+    #     招式         the rest -> 28%  it wraps by design, so it takes what is
+    #                                   left and the row height absorbs it
+    #
+    # Cutting any of the first four puts cells back over their box: 10% 判定
+    # overflowed on armor king, leo and eddy, and 39% 指令 overflowed on jin,
+    # devil jin, paul and fahkumram by 2px.
+    "move": (28, 40, 9, 11, 12),
+    # 指令 keeps its Chinese share here too. The brief narrowed it to 28% for
+    # the throw table while stating the opposite rule for the move table, and
+    # 28% overflows: Jack-8's uf+1+2,d,df+2 needs 156px and gets 150. Side and
+    # Break still need more room than one or two glyphs ("Crouch", "No break").
+    # 发生 is 9% here for the same reason it is in the move table: at 8% jin's
+    # throws showed i12~i14 broken over two lines.
+    "throw": (24, 37, 9, 10, 9, 11),
 }
 
 TABLE_COLUMNS = {

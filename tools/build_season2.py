@@ -71,6 +71,9 @@ NOTATION_DEFAULT = notation_for(DEFAULT_LOCALE)
 PAGE_CSS = "".join(
     (TOOLS / name).read_text(encoding="utf-8")
     for name in (
+        # first, so the shrink tiers, English line-height and phone overrides
+        # that season2_page.css layers on top keep winning
+        "table_text.css",
         "season2_page.css",
         "header_card.css",
         "legend_card.css",

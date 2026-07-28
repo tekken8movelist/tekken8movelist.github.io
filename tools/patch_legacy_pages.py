@@ -342,7 +342,12 @@ def main(argv: list[str] | None = None) -> int:
 
     css = "".join(
         (TOOLS / name).read_text(encoding="utf-8")
-        for name in ("header_card.css", "legend_card.css", "back_nav.css")
+        for name in (
+            "table_text.css",
+            "header_card.css",
+            "legend_card.css",
+            "back_nav.css",
+        )
     )
     script = (TOOLS / "back_nav.js").read_text(encoding="utf-8")
 

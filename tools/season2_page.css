@@ -234,8 +234,14 @@ tbody tr:nth-child(even) td {
   background: color-mix(in srgb, var(--paper-alt) 52%, transparent);
 }
 
+/* 39px, up from 38px, and the extra pixel is not slack: with the name at 11px
+   and the button maps at 12px the tallest row any Chinese page produces needs
+   38.2px (alisa DES.f+1+2,1+2). A fixed height under that leaves the tall rows
+   sticking out and the table reads as uneven, which is what the gate calls
+   `unevenTables`. Measured across all 41 pages, not derived -- see the note on
+   the English height below for the same measurement in that tree. */
 section:not(.tipsPage) tr[data-record-id] {
-  height: 38px;
+  height: 39px;
 }
 
 section:not(.tipsPage) tr[data-record-id] td {
@@ -244,8 +250,8 @@ section:not(.tipsPage) tr[data-record-id] td {
   white-space: nowrap;
 }
 
+/* font-size lives in table_text.css, which the five pipeline pages read too */
 td.name {
-  font-size: 9.5px;
   font-weight: 600;
 }
 
@@ -318,10 +324,13 @@ section:not(.tipsPage) tr[data-record-id] td.name {
   font-weight: 700;
 }
 
+/* Size lives in table_text.css (12px, shared with the pipeline pages). The
+   shrink tiers below keep their own sizes and thresholds: the point of the
+   wider 指令 column is that fewer cells need them, not that crammed cells
+   grow -- scaling the tiers up with the base tripled the overflow count. */
 td.cmd .tk-in {
   flex-wrap: nowrap;
   row-gap: .25em;
-  font-size: 11px;
   vertical-align: middle;
 }
 
@@ -646,12 +655,18 @@ html.loc-hant body {
     "Microsoft YaHei", sans-serif;
 }
 
-/* English buys its width with row height rather than column width: taking the
-   room out of 指令 instead would push `b,f+2,1,df+2` out of the 11px tier and
-   into .tk-cram at 9px. 指令 keeps 37%, the cram heuristic is untouched, and
-   the rows grow by 8px. */
+/* English still buys some of its width with row height -- names run about 2.5x
+   wider than Chinese and two lines are normal. It no longer buys it from 指令:
+   the room now comes from 判定, which was three-quarters empty in both locales
+   (see TABLE_COLUMNS in locales.py), so English 招式 went 27% -> 31% and the
+   button maps grew rather than shrank.
+   53px, up from 46px, is measured the same way as the Chinese height above:
+   with the name at 11px the tallest row across all 41 English pages needs 52px
+   (armor king's "Phenomenon Shadow DDT", which takes three lines). English
+   names wrap and Chinese ones do not, which is the whole reason the two trees
+   need different numbers here. */
 html.loc-en section:not(.tipsPage) tr[data-record-id] {
-  height: 46px;
+  height: 53px;
 }
 
 html.loc-en td {
@@ -664,7 +679,7 @@ html.loc-en td {
    -- a two-line name then overflows by exactly the 2px difference. */
 @media (min-width: 641px) {
   html.loc-en td.name {
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.3;
     text-wrap: pretty;
   }

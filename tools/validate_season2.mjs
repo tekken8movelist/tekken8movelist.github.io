@@ -53,8 +53,11 @@ const allPages = {
 // and the English column shares), and running 10 states each would triple a
 // gate that already takes four minutes for no coverage the reduced set misses.
 //
-// Row heights are measured post-`zoom: 1.25`, so 38px of CSS lands near 47.5
-// and English's 46px lands near 57.5.
+// Row heights are measured post-`zoom: 1.25`, so 39px of CSS lands near 48.8
+// and English's 53px lands near 66.3. Both grew when the move name went to
+// 11px and the button maps to 12px: the fixed height has to clear the tallest
+// row the content produces, or the tall rows stick out and `unevenTables`
+// fires. The CSS carries the measurement that picked each number.
 const locales = [
   {
     id: 'hans',
@@ -86,7 +89,7 @@ const locales = [
   {
     id: 'en',
     dir: 'en',
-    rowHeight: [56, 60],
+    rowHeight: [65, 68],
     states: [
       { width: 1480, theme: 'dark', mode: 'gfx', stackedLayout: false },
       { width: 1480, theme: 'light', mode: 'txt', stackedLayout: false },

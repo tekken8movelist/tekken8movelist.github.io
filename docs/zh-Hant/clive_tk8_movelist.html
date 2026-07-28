@@ -407,7 +407,65 @@ try{if((localStorage.getItem('tk-theme')||'dark')==='dark')document.documentElem
   }
 }
 </style>
-<style id="legacy-chrome">/* ---- character header card --------------------------------------------
+<style id="legacy-chrome">/* ---- movelist table text size ------------------------------------------
+   Shared verbatim by both page families (36 generator pages via
+   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py), for
+   the same reason header_card.css and legend_card.css are: a reader moving
+   between a generator page and a pipeline page should not see the table text
+   change size.
+
+   These are the two columns a reader actually reads -- what the move is called
+   and what to press -- and they were the two smallest things on the page: the
+   name at 9.5px (10.5px inherited from `body` on the pipeline pages) and the
+   button maps at 11px.
+
+   The room came from 判定, not from thin air. Measured on the published tables
+   at 1480px, that column held 81px and put at most 20px of ink in it; the
+   shares in locales.py now hand most of it back to 招式 and 指令. Sizing these
+   up without that would have made things worse, not better: at the old 37%
+   share the single cell `b,f+2,1,df+2` overflowed at 11.5px, and the only way
+   to fit it was to drop it into the 9px shrink tier -- smaller text, from a
+   change meant to enlarge it.
+
+   The generator's shrink tiers, English line-height and phone overrides stay
+   in season2_page.css: they are all more specific than these two rules, and
+   the five pipeline pages do not load that file.
+   ---------------------------------------------------------------------- */
+
+td.name {
+  font-size: 11px;
+}
+
+td.cmd .tk-in {
+  font-size: 12px;
+}
+
+/* The pipeline pages were authored for Chinese and set `white-space: nowrap`
+   with an ellipsis on the name cell, which is right for 背向右拳 and wrong for
+   "Back-Turned Right Punch": on the English tree 16 of law's names, and others
+   on clive, were being cut off mid-word. Those rows size to their content, so
+   letting the name wrap costs nothing but a taller row.
+
+   The generator pages already handle this with rules carrying
+   `section:not(.tipsPage) tr[data-record-id]`, which outrank this one, so this
+   reaches only the five pipeline pages despite being loaded by both. */
+html.loc-en td.name {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* A command that cannot be drawn falls back to prose inside .tk-in, and that
+   prose scales with the button-map size like everything else in the component
+   -- law's "In Heat, Dragon Charge auto-parries punches" went 3px over its
+   cell at 12px. Letting it wrap is free on the pipeline pages because their
+   rows size to content; on the generator pages the rows are a fixed height
+   with the overflow hidden, so wrapping there would clip instead of grow.
+   `tr:not([data-record-id])` is what separates them: every generator row has
+   that attribute and no pipeline row does. */
+tr:not([data-record-id]) td.cmd .tk-in > .tk-txt {
+  white-space: normal;
+}
+/* ---- character header card --------------------------------------------
    Shared verbatim by both page families (36 generator pages via
    build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
    The two families name their theme colours differently, so the band
