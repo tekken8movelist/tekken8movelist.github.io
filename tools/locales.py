@@ -329,7 +329,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "descTen": "，十连技",
         "descCombos": "，{count} 条 Wavu 连招",
         "descClose": "。",
-        "descTail": "TEKKEN 8 {canonical} movelist & frame data.",
+        "descTail": "TEKKEN 8 {canonical} move list & frame data.",
         "ogImageAltTemplate": "铁拳8 {display}（{canonical}）头像",
         "breadcrumbHome": "首页",
         "breadcrumbPageTemplate": "{display}出招表",
@@ -339,7 +339,7 @@ STRINGS: dict[str, dict[str, object]] = {
             "供对局间隙快速查阅。"
         ),
         "introSecondaryTemplate": (
-            "The complete TEKKEN 8 {canonical} movelist — "
+            "The complete TEKKEN 8 {canonical} move list — "
             "full command list, frame data, and combos, written in Chinese."
         ),
         "footSource": "数据来源：",
@@ -468,7 +468,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "descTen": "，十連技",
         "descCombos": "，{count} 條 Wavu 連招",
         "descClose": "。",
-        "descTail": "TEKKEN 8 {canonical} movelist & frame data.",
+        "descTail": "TEKKEN 8 {canonical} move list & frame data.",
         "ogImageAltTemplate": "鐵拳8 {display}（{canonical}）頭像",
         "breadcrumbHome": "首頁",
         "breadcrumbPageTemplate": "{display}出招表",
@@ -478,7 +478,7 @@ STRINGS: dict[str, dict[str, object]] = {
             "供對局間隙快速查閱。"
         ),
         "introSecondaryTemplate": (
-            "The complete TEKKEN 8 {canonical} movelist — "
+            "The complete TEKKEN 8 {canonical} move list — "
             "full command list, frame data, and combos, written in Chinese."
         ),
         "footSource": "資料來源：",
@@ -511,7 +511,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "ntGfx": "Buttons",
         "ntNn": "No digits",
         "ntTxt": "Text",
-        "pageKind": "TEKKEN 8 movelist",
+        "pageKind": "TEKKEN 8 move list",
         "bioCountry": "COUNTRY",
         "bioStyle": "STYLE",
         "bioStances": "STANCES",
@@ -613,7 +613,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "siteName": "TEKKEN 8 Movelist · Frame Data & Command List",
         "titleTemplate": "TEKKEN 8 {canonical} Move List · Frame Data & Command List",
         "descLead": (
-            "TEKKEN 8 {canonical} movelist: all {moves} moves with inputs, "
+            "TEKKEN 8 {canonical} move list: all {moves} moves with inputs, "
             "startup frames, hit levels and damage"
         ),
         "descThrows": ", throw breaks",
@@ -625,9 +625,9 @@ STRINGS: dict[str, dict[str, object]] = {
         "descTail": " Data from Wavu Wiki.",
         "ogImageAltTemplate": "TEKKEN 8 {canonical} portrait",
         "breadcrumbHome": "Home",
-        "breadcrumbPageTemplate": "{canonical} movelist",
+        "breadcrumbPageTemplate": "{canonical} move list",
         "introPrimaryTemplate": (
-            "The complete TEKKEN 8 {canonical} movelist: every command, "
+            "The complete TEKKEN 8 {canonical} move list: every command, "
             "startup frames, damage and hit level, plus throws, stances, "
             "Heat moves and sample combos on one page."
         ),
