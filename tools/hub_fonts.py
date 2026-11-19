@@ -33,12 +33,16 @@ import re
 from html.parser import HTMLParser
 from urllib.parse import quote
 
+# Only the faces the hub actually renders (measured 2026-11-19 from computed
+# styles in all three hubs): Noto 400/700/900 (its 600 already resolves to
+# 700), Saira 600/700/800 and 800 italic. Noto 500, Saira 500 and Saira 700
+# italic were downloaded and never used; no rule in the hub asks for them.
 LATIN_FAMILIES = (
     "https://fonts.googleapis.com/css2?"
-    "family=Saira:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800"
+    "family=Saira:ital,wght@0,600;0,700;0,800;1,800"
     "&family=JetBrains+Mono:wght@500;700&display=swap"
 )
-NOTO = "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap&text="
+NOTO = "https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&display=swap&text="
 FONT_BLOCK = re.compile(
     r'<link rel="(?:stylesheet|preload)"[^>]*href="https://fonts\.googleapis\.com/css2\?[^"]*"[^>]*>'
     r'(?:<noscript><link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^"]*"></noscript>)?'
