@@ -1394,6 +1394,8 @@ COMBO_STANCE_ALIASES = {
     "steve": {"PKB": "窥视架"},
     "eddy": {"MD": "曼丁加"},
     "alisa": {"OG": "对手倒地时"},
+    # Wavu's combo page writes Rocket Stance as RS; the movelist says ROC
+    "roger_jr": {"RS": "火箭架势"},
 }
 
 

@@ -471,7 +471,7 @@ svg.flxbolts{position:absolute;inset:0;width:100%;height:100%;pointer-events:non
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
     <input id="q" type="search" placeholder="搜索角色 · 中文名 / English" autocomplete="off">
   </label>
-  <span class="cnt" id="cnt">41 页出招表 · 共 44 名角色</span>
+  <span class="cnt" id="cnt">43 页出招表 · 共 44 名角色</span>
 </div>
 
 <section class="gsec" data-gsec>
@@ -536,8 +536,8 @@ svg.flxbolts{position:absolute;inset:0;width:100%;height:100%;pointer-events:non
   <div class="ghead"><span class="gk">Season 3</span><span class="gt">第3季 DLC</span><span class="sp"></span><span class="gc">4 名</span></div>
   <div class="grid">
     <a class="card" style="--acc:#ff93a6" data-q="国光二世 kunimitsu 州光 國光二世" href="kunimitsu_tk8_movelist.html"><span class="cimg"><img src="avatars/kunimitsu.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">KUNIMITSU</span></span><span class="cmono">KU</span><span class="cplate"><span class="cnm"><b>国光二世</b><i>Kunimitsu</i></span></span></a>
-    <div class="card soon" style="--acc:#a6d4ff" data-q="鲍勃 bob"><span class="cimg"><img src="avatars/bob.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="soonc"><span class="m">BO</span><span class="p">即将上线</span></span></span><span class="cmono">BO</span><span class="cplate"><span class="cnm"><b>鲍勃</b><i>Bob</i></span><span class="soonpill">即将上线</span></span></div>
-    <div class="card soon" style="--acc:#ff8f7a" data-q="罗杰jr roger jr rogerjr roger"><span class="cimg"><img src="avatars/rogerjr.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="soonc"><span class="m">RO</span><span class="p">即将上线</span></span></span><span class="cmono">RO</span><span class="cplate"><span class="cnm"><b>罗杰Jr.</b><i>Roger Jr.</i></span><span class="soonpill">即将上线</span></span></div>
+    <a class="card" style="--acc:#a6d4ff" data-q="鲍勃 bob 鮑勃" href="bob_tk8_movelist.html"><span class="cimg"><img src="avatars/bob.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">BOB</span></span><span class="cmono">BO</span><span class="cplate"><span class="cnm"><b>鲍勃</b><i>Bob</i></span></span></a>
+    <a class="card" style="--acc:#ff8f7a" data-q="小罗杰 罗杰jr roger jr rogerjr roger 袋鼠 小羅傑" href="rogerjr_tk8_movelist.html"><span class="cimg"><img src="avatars/rogerjr.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="cwm">ROGER JR.</span></span><span class="cmono">RO</span><span class="cplate"><span class="cnm"><b>小罗杰</b><i>Roger Jr.</i></span></span></a>
     <div class="card soon" style="--acc:#e5735e" data-q="范马勇次郎 yujiro hanma 勇次郎"><span class="cimg"><img src="avatars/yujiro.png" alt="" loading="lazy" onload="this.closest('.card').classList.add('hasimg')" onerror="this.remove()"><span class="ctint"></span><span class="soonc"><span class="m">YU</span><span class="p">即将上线</span></span></span><span class="cmono">YU</span><span class="cplate"><span class="cnm"><b>范马勇次郎</b><i>Yujiro</i></span><span class="soonpill">即将上线</span></span></div>
   </div>
 </section>
@@ -620,7 +620,7 @@ svg.flxbolts{position:absolute;inset:0;width:100%;height:100%;pointer-events:non
       g.classList.toggle('hide', g.querySelectorAll('.card:not(.hide)').length === 0);
     });
     var n = visCards().length;
-    cnt.textContent = raw ? n + ' 名匹配' : '41 页出招表 · 共 44 名角色';
+    cnt.textContent = raw ? n + ' 名匹配' : '43 页出招表 · 共 44 名角色';
     none.classList.toggle('show', n === 0);
     if (n === 0) noneQ.textContent = '未找到「' + q.value.trim() + '」';
     cur(null);

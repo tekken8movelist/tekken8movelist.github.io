@@ -703,6 +703,43 @@ CHARACTERS = OrderedDict(
                 ),
             },
         ),
+        (
+            "bob",
+            {
+                "canonical": "Bob",
+                "display": "鲍勃",
+                "filename": "bob_tk8_movelist.html",
+                "css_class": "tk-char-bob",
+                "accent": "#a6d4ff",
+                "accent_ink": "#24496b",
+                "stance_sections": (
+                    'CD (United Step/Crouch Dash)',
+                    'BAL (Spinner Ball)',
+                ),
+                "throw_sections": (
+                    'Throws',
+                ),
+            },
+        ),
+        (
+            "roger_jr",
+            {
+                "canonical": "Roger Jr.",
+                "display": "小罗杰",
+                "filename": "rogerjr_tk8_movelist.html",
+                "css_class": "tk-char-rogerjr",
+                "accent": "#ff8f7a",
+                "accent_ink": "#6e2a1e",
+                "stance_sections": (
+                    'ROC (Rocket Stance)',
+                    'AST (Astronauts)',
+                    'BOB (Bobbin Dance)',
+                ),
+                "throw_sections": (
+                    'Throws',
+                ),
+            },
+        ),
     ]
 )
 
@@ -769,6 +806,7 @@ COMBO_SECTION_NAMES = {
     "Back-turned opponent": "背身对手",
     "Backturned Opponent": "背身对手",
     "Stage hazard": "场景机关",
+    "Stage Hazards": "场景机关",
     "Floor Hazard": "地板机关",
     "Off-axis": "偏轴连招",
     "Wall Blast": "爆墙连招",
@@ -847,6 +885,8 @@ KNOWN_AGGREGATE_DAMAGE = {
     'eddy': {'Eddy-R.df+1+2', 'Eddy-b+1,4,3+4', 'Eddy-b,B+2+3'},
     'lidia': {'Lidia-CH.db+3', 'Lidia-H.2+3', 'Lidia-R.df+1+2'},
     'heihachi': {'Heihachi-H.2+3', 'Heihachi-R.df+1+2'},
+    'bob': {'Bob-R.df+1+2', 'Bob-b+1+3'},
+    'roger_jr': {'Roger_Jr.-R.df+1+2'},
 }
 # verified against the wiki: genuinely huge single damage values (charged
 # unblockables, lethal finishers), not glued join artifacts
@@ -927,4 +967,6 @@ EXPECTED_DESCRIBED_NAMES = {
     "eddy": 40,
     "lidia": 32,
     "heihachi": 24,
+    "bob": 48,
+    "roger_jr": 37,
 }

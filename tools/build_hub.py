@@ -2,7 +2,7 @@
 """Derive the Traditional and English hubs from the authored Simplified one.
 
 `docs/index.html` carries the flux effect, the card grid, the whole design
-system and 41 hand-placed cards. Templating it would mean owning all of that in
+system and 44 hand-placed cards. Templating it would mean owning all of that in
 Python; instead the two other locales are derived from it here, swapping only
 the copy and the paths. Run `augment_hub.py` first -- it puts the language
 control and the Traditional search terms into the authored page.
@@ -236,15 +236,18 @@ SOON_LABEL = re.compile(r'(<span class="(?:p|soonpill)">)即将上线(</span>)')
 
 
 def swap_soon_labels(markup: str, locale: str) -> str:
-    """"Coming soon" on the three unreleased S3 cards.
+    """"Coming soon" on the unreleased S3 cards.
 
     Twice per card -- once over the portrait, once on the plate -- so this is
-    the one copy slot that legitimately matches more than once.
+    the one copy slot that legitimately matches more than once. The expected
+    count follows the placeholder cards actually on the page, so releasing a
+    character (turning its `card soon` div into a link) needs no edit here.
     """
     label = HUB_STRINGS["soonLabel"][locale]
+    expected = 2 * markup.count('<div class="card soon"')
     markup, count = SOON_LABEL.subn(rf"\g<1>{label}\g<2>", markup)
-    if count != 6:
-        raise SystemExit(f"hub: soon label matched {count} times, expected 6")
+    if count != expected:
+        raise SystemExit(f"hub: soon label matched {count} times, expected {expected}")
     return markup
 
 

@@ -46,6 +46,8 @@ const allPages = {
   eddy: 'eddy_tk8_movelist.html',
   lidia: 'lidia_tk8_movelist.html',
   heihachi: 'heihachi_tk8_movelist.html',
+  bob: 'bob_tk8_movelist.html',
+  roger_jr: 'rogerjr_tk8_movelist.html',
 };
 // Locale trees. Simplified keeps the full state matrix -- it is the indexed
 // tree and the one every layout rule was tuned against. The other two run a

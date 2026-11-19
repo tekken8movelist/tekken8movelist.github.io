@@ -29,7 +29,7 @@ PUBLIC_ROOT = "https://tekken8movelist.github.io/"
 CLOUDFLARE_BEACON_SOURCE = "https://static.cloudflareinsights.com/beacon.min.js"
 EXPECTED_CLOUDFLARE_WEB_ANALYTICS_TOKEN = "2b712855303a44c2ab09217bf6703fe1"
 
-EXPECTED_CHARACTER_PAGES = 41
+EXPECTED_CHARACTER_PAGES = 43
 EXPECTED_HTML_FILES = EXPECTED_CHARACTER_PAGES + 1
 EXPECTED_AVATARS = 44
 
@@ -200,7 +200,7 @@ class SitePublicationContractTest(unittest.TestCase):
             site_directories, {"avatars", "assets"} | locale_directories
         )
 
-    def test_every_locale_tree_holds_all_41_pages(self) -> None:
+    def test_every_locale_tree_holds_every_page(self) -> None:
         """No locale is short of a page any more.
 
         The five pipeline pages have no structured snapshot, so neither

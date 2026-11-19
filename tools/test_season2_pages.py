@@ -450,6 +450,30 @@ CHARACTERS = {
         "movelist": "https://wavu.wiki/t/Heihachi_movelist",
         "combos": "https://wavu.wiki/t/Heihachi_combos",
     },
+    "bob": {
+        "display": "鲍勃",
+        "canonical": "Bob",
+        "filename": "bob_tk8_movelist.html",
+        "css_class": "tk-char-bob",
+        "moves": 172,
+        "visible": 172,
+        "startup_coverage": 163,
+        "combos_count": 23,
+        "movelist": "https://wavu.wiki/t/Bob_movelist",
+        "combos": "https://wavu.wiki/t/Bob_combos",
+    },
+    "roger_jr": {
+        "display": "小罗杰",
+        "canonical": "Roger Jr.",
+        "filename": "rogerjr_tk8_movelist.html",
+        "css_class": "tk-char-rogerjr",
+        "moves": 137,
+        "visible": 137,
+        "startup_coverage": 126,
+        "combos_count": 15,
+        "movelist": "https://wavu.wiki/t/Roger_Jr._movelist",
+        "combos": "https://wavu.wiki/t/Roger_Jr._combos",
+    },
 }
 
 EXPECTED_PARTITIONS = {
@@ -489,6 +513,8 @@ EXPECTED_PARTITIONS = {
     'eddy': (10, 107, {'HSP (Bananeira)': 15, 'RLX (Negativa)': 16, 'MD (Mandinga)': 10}, 8, 10),
     'lidia': (6, 106, {'HRS (Horse Stance)': 11, 'CAT (Cat Stance)': 14, 'WLF (Stalking Wolf Stance)': 9, 'HAE (Heaven and Earth)': 5}, 14, 9),
     'heihachi': (7, 86, {'CD (Wind God Step)': 16, "RAI (Thunder God's Kamae)": 6, "FUJ (Wind God's Kamae)": 11, 'WAR (Warrior Instinct)': 11}, 15, 0),
+    'bob': (8, 132, {'CD (United Step/Crouch Dash)': 10, 'BAL (Spinner Ball)': 11}, 11, 0),
+    'roger_jr': (11, 97, {'ROC (Rocket Stance)': 10, 'AST (Astronauts)': 5, 'BOB (Bobbin Dance)': 2}, 12, 0),
 }
 
 KNOWN_AGGREGATE_DAMAGE = {
@@ -548,6 +574,8 @@ KNOWN_AGGREGATE_DAMAGE = {
     'eddy': {'Eddy-R.df+1+2', 'Eddy-b+1,4,3+4', 'Eddy-b,B+2+3'},
     'lidia': {'Lidia-CH.db+3', 'Lidia-H.2+3', 'Lidia-R.df+1+2'},
     'heihachi': {'Heihachi-H.2+3', 'Heihachi-R.df+1+2'},
+    'bob': {'Bob-R.df+1+2', 'Bob-b+1+3'},
+    'roger_jr': {'Roger_Jr.-R.df+1+2'},
 }
 
 # verified against the wiki: genuinely huge damage values, not join artifacts

@@ -24,6 +24,11 @@
     "epithet": "Perfect Blend",
     "style": "Mixed Martial Arts (Striker)"
   },
+  "bob": {
+    "country": "U.S.A",
+    "epithet": "Speed & Weight",
+    "style": "Freestyle Karate"
+  },
   "bryan": {
     "country": "U.S.A.",
     "epithet": "Harbinger of Chaos",
@@ -173,6 +178,11 @@
     "country": "Unknown",
     "epithet": "Purple Lightning",
     "style": "Unknown"
+  },
+  "roger_jr": {
+    "country": "None",
+    "epithet": "Pocket Commander",
+    "style": "Commando Wrestling"
   },
   "shaheen": {
     "country": "Saudi Arabia",

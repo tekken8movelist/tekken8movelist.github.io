@@ -8,7 +8,7 @@
 
 [**进入全角色出招表 →**](https://tekken8movelist.github.io/)
 
-<sub>当前已发布 41 份角色出招表</sub>
+<sub>当前已发布 43 份角色出招表</sub>
 
 </div>
 
@@ -52,7 +52,7 @@ pwsh -File tools\validate_season2.ps1
 
 ## English
 
-A Chinese-first TEKKEN 8 reference built for fast practice: 41 published character pages, contextual Chinese move-name translations, graphical four-button input maps, switchable numbered, number-free, and standard text notation, plus frame data, throws, stances, Heat moves, and sample combos.
+A Chinese-first TEKKEN 8 reference built for fast practice: 43 published character pages, contextual Chinese move-name translations, graphical four-button input maps, switchable numbered, number-free, and standard text notation, plus frame data, throws, stances, Heat moves, and sample combos.
 
 [**Open the live movelist →**](https://tekken8movelist.github.io/)
 

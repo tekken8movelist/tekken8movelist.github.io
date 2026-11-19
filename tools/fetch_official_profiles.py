@@ -70,6 +70,8 @@ SLUGS = {
     "armor_king": "armor-king",
     "miary_zo": "miary-zo",
     "kunimitsu": "kunimitsu",
+    "bob": "bob",
+    "roger_jr": "roger-jr",
 }
 
 # The label sits as bare text inside its span, immediately before the value

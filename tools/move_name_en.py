@@ -222,6 +222,17 @@ SEGMENTS: dict[str, str] = {
     "续": "Continued",
     "起": "Rise",
     "爆裂": "Burst",
+    # 2026-11 (Bob / Roger Jr.)
+    "头槌": "Headbutt",
+    "下潜": "Dive",
+    "延迟": "Delayed",
+    "怒气技": "Rage Art",
+    "火箭": "Rocket",
+    "蹬墙": "Wall Jump",
+    "后空翻": "Backflip",
+    # Wavu's own word, from Roger Jr.'s "Goo Goo Rush" strings
+    # hyphenated: compose() collapses a doubled word ("Goo Goo" -> "Goo")
+    "咕咕": "Goo-Goo",
     # --- chaining ---------------------------------------------------------
     "连环冲拳": "Rushing Punch Chain",
     "连拳": "Punch Combo",

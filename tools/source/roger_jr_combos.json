@@ -1,0 +1,87 @@
+{
+  "canonical_name": "Roger Jr.",
+  "character_key": "roger_jr",
+  "display_name_zh": "小罗杰",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "4, d/f+4,3, d/f+2, RS.1+21+2T!, (dash) u/f+3, f,F+2",
+          "starter": "Regular launch (e.g. d/f+2)"
+        },
+        {
+          "route": "u/f+3, d/f+4, d/f+2, RS.1+21+2",
+          "starter": "Tornado launch (e.g. SS+4)"
+        }
+      ],
+      "raw": "Regular launch (e.g. d/f+2) 4, d/f+4,3, d/f+2, RS.1+21+2T!, (dash) u/f+3, f,F+2 Tornado launch (e.g. SS+4) u/f+3, d/f+4, d/f+2, RS.1+21+2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "RS.3+4",
+          "starter": "FC.1+2"
+        },
+        {
+          "route": "RS.1+21+2",
+          "starter": "FC.1+2"
+        },
+        {
+          "route": "CD1",
+          "starter": "CH (1,2),1"
+        },
+        {
+          "route": "(heat) f+2,1,2",
+          "starter": "CH f+3"
+        },
+        {
+          "route": "b+2,4 (heat)",
+          "starter": "CH f+3"
+        },
+        {
+          "route": "f+2",
+          "starter": "CH f+3"
+        },
+        {
+          "route": "(heat) f+2,1,2",
+          "starter": "CH b+1+2"
+        },
+        {
+          "route": "b+2,4 (heat)",
+          "starter": "CH b+1+2"
+        },
+        {
+          "route": "f+2",
+          "starter": "CH b+1+2"
+        },
+        {
+          "route": "CD1",
+          "starter": "(heat) b+2,4"
+        },
+        {
+          "route": "3+4",
+          "starter": "(heat) b+2,4"
+        }
+      ],
+      "raw": "FC.1+2 RS.3+4 RS.1+21+2 CH (1,2),1 CD1 CH f+3 (heat) f+2,1,2 b+2,4 (heat) f+2 CH b+1+2 (heat) f+2,1,2 b+2,4 (heat) f+2 (heat) b+2,4 CD1 3+4",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "2, b+2,1 (delay) 1+2",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "2,1~RS.3+4",
+          "starter": "Regular carry (24% scaling)"
+        }
+      ],
+      "raw": "Regular carry (24% scaling) 2, b+2,1 (delay) 1+2 2,1~RS.3+4 Regular splat (56% scaling)",
+      "section": "Wall"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Roger_Jr._combos"
+}

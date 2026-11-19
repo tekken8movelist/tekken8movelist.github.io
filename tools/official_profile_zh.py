@@ -48,6 +48,8 @@ COUNTRY_ZH = {
     "South Korea": "韩国",
     "Sweden": "瑞典",
     "Thailand": "泰国",
+    # Bob's page drops the final period
+    "U.S.A": "美国",
     "U.S.A.": "美国",
     "United Kingdom": "英国",
     "Unknown": "不明",
@@ -64,8 +66,10 @@ STYLE_ZH = {
     "Capoeira": "卡波耶拉",
     "Close Quarters Combat": "近身格斗",
     "Commando Sambo": "突击桑搏",
+    "Commando Wrestling": "突击摔角",
     # Final Fantasy XVI's official Chinese term for a Dominant is 显现者
     "Dominant": "显现者",
+    "Freestyle Karate": "自由流空手道",
     "Heihachi-Style Advanced Kuma Shin Ken": "平八流进阶熊真拳",
     "Integrated Martial Arts Based on Judo": "以柔道为根基的综合格斗",
     "Karate": "空手道",

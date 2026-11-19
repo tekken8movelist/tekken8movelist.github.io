@@ -183,7 +183,7 @@ HUB_STRINGS = {
         "hant": "高品質中文招式名、圖形化四鍵對應與三種輸入記法，一頁查看完整招式與幀數資料。",
         "en": (
             "Graphical button notation, startup frames and full frame data "
-            "for all 41 fighters, one page each."
+            "for all 43 fighters, one page each."
         ),
     },
     "imageAlt": {

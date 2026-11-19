@@ -1,0 +1,131 @@
+{
+  "canonical_name": "Bob",
+  "character_key": "bob",
+  "display_name_zh": "鲍勃",
+  "schema_version": 1,
+  "sections": [
+    {
+      "entries": [
+        {
+          "route": "db+2 d+2,3 b+4,3 f,F+3~DF CD.3,4",
+          "starter": "Regular launch (e.g. CH df+2, ws2,1, or db+1+2)"
+        },
+        {
+          "route": "T! f,F+3~DF CD.1 df+1 b+4,3~F BAL.1,2",
+          "starter": "Tornado launch (e.g. CD.1)"
+        }
+      ],
+      "raw": "Regular launch (e.g. CH df+2, ws2,1, or db+1+2) db+2 d+2,3 b+4,3 f,F+3~DF CD.3,4 Tornado launch (e.g. CD.1) T! f,F+3~DF CD.1 df+1 b+4,3~F BAL.1,2",
+      "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+16] (dash) b+3",
+          "starter": "[18] f,F+3"
+        },
+        {
+          "route": "[+19] CD.2",
+          "starter": "[38] d+1+2,2,1"
+        },
+        {
+          "route": "[+23] ws1,2[1]",
+          "starter": "[24] CH (df+1),D+1"
+        },
+        {
+          "route": "[+25] BAL.1,2[1]",
+          "starter": "[35] b+2,1~F on BT opponent"
+        },
+        {
+          "route": "[+16] b+3",
+          "starter": "[28] BAL.3+4"
+        },
+        {
+          "route": "[+16] u+3+4",
+          "starter": "[21] CH (db+3+4),4"
+        },
+        {
+          "route": "[+16] (dash) b+3",
+          "starter": "[21] CH (db+3+4),4"
+        },
+        {
+          "route": "[+16] b+3+4",
+          "starter": "[36] CH H.1,2,2~F"
+        },
+        {
+          "route": "[+19] wr+3",
+          "starter": "[36] CH H.1,2,2~F"
+        },
+        {
+          "route": "[+20] CD.1+2 (hold)",
+          "starter": "[36] CH H.1,2,2~F"
+        }
+      ],
+      "raw": "[18] f,F+3 [+16] (dash) b+3 [18] f,F+3~DF [38] d+1+2,2,1 [+19] CD.2 [24] CH (df+1),D+1 [+23] ws1,2[1] [24] CH u+3~F [35] b+2,1~F on BT opponent [+25] BAL.1,2[1] [20] f+4 [20] (2,1),4 [22] (4),4 [14] (3+4),4 [24] CH (4,3),4 [14] BAL.4 [28] BAL.3+4 [+16] b+3 [28] (ws3),3+4 [21] CH d+1 [16] CH FC.df+4 [21] CH (db+3+4),4 [+16] u+3+4 [+16] (dash) b+3 [34] H.ws1,2~F [37] H.BAL.1,2~F [36] CH H.1,2,2~F [+16] b+3+4 [+19] wr+3 [+20] CD.1+2 (hold)",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+50] T! f,F+3~DF CD.1 df+1 b+4,3[1]~F BAL.1,2",
+          "starter": "[21] CD.1"
+        },
+        {
+          "route": "[+52] T! BAL.2 uf+3+4,4 dash b+4,3[1]~F BAL.1,2",
+          "starter": "[21] CD.1"
+        },
+        {
+          "route": "[+56] db+2 d+2,3 b+4,3 f,F+3~DF CD.3,4",
+          "starter": "[20] ws2,1"
+        },
+        {
+          "route": "[+63] CD.1 db+2 d+2,3 microdash b+4,3[1] T! f,F+3~DF CD.3,4",
+          "starter": "[20] ws2,1"
+        }
+      ],
+      "raw": "[21] CD.1 [+50] T! f,F+3~DF CD.1 df+1 b+4,3[1]~F BAL.1,2 [+52] T! BAL.2 uf+3+4,4 dash b+4,3[1]~F BAL.1,2 [16] db+1+2 [16] CH df+2 [20] ws2,1 [+56] db+2 d+2,3 b+4,3 f,F+3~DF CD.3,4 [+63] CD.1 db+2 d+2,3 microdash b+4,3[1] T! f,F+3~DF CD.3,4",
+      "section": "Staples"
+    },
+    {
+      "entries": [
+        {
+          "route": "3+4,4,2",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "b+2,2 d+3+4",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "3,1,1",
+          "starter": "Regular carry (24% scaling)"
+        },
+        {
+          "route": "3,2 T! 3,1,1",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "df+3 T! b+2,2 d+3+4",
+          "starter": "Regular splat (56% scaling)"
+        },
+        {
+          "route": "CD.2 T! 3+4,4,2",
+          "starter": "Regular splat (56% scaling)"
+        }
+      ],
+      "raw": "Regular carry (24% scaling) 3+4,4,2 b+2,2 d+3+4 3,1,1 Regular splat (56% scaling) 3,2 T! 3,1,1 df+3 T! b+2,2 d+3+4 CD.2 T! 3+4,4,2",
+      "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "H.2+3:3:4 HWB! CD.1 b+2,2,4,4 W! b+3+4 BB! f,F+3~DF CD.2 T! (dash) df+4,3 W! 3+4,4,2",
+          "starter": "Elegant Palace"
+        }
+      ],
+      "raw": "Elegant Palace H.2+3:3:4 HWB! CD.1 b+2,2,4,4 W! b+3+4 BB! f,F+3~DF CD.2 T! (dash) df+4,3 W! 3+4,4,2",
+      "section": "Stage Hazards"
+    }
+  ],
+  "source_url": "https://wavu.wiki/t/Bob_combos"
+}

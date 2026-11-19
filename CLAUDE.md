@@ -16,8 +16,8 @@
 导航主页（自包含单文件，无构建），实现定稿的 Movelist Hub 设计系统：
 Saira/JetBrains Mono/Noto Sans SC 字体栈；分组小节布局（核心阵容 32 / 第1季 4 /
 第2季 4 / 第3季 4，组头 = Saira kicker + 标题 + 计数）；卡片 = 顶部主题色条 +
-头像区 + 字母徽标 + 名牌（中文名/英文名，无 → 箭头；无头像时显示斜体水印英文名）；S3 含 3 张
-「即将上线」占位卡（鲍勃/罗杰Jr./范马勇次郎，虚线框、不可点、键盘导航跳过）；
+头像区 + 字母徽标 + 名牌（中文名/英文名，无 → 箭头；无头像时显示斜体水印英文名）；S3 含
+「即将上线」占位卡（现仅剩范马勇次郎一张；鲍勃/小罗杰 2026-11 已转为正式卡片；虚线框、不可点、键盘导航跳过）；
 图例条（月燕 d/f+2,3 按键图示例 + LP/RP/LK/RK）；搜索时隐藏空分组。
 主页**固定夜间版**（2026-07-22 起移除夜/日切换，浅色下特效效果不佳；boot script
 无条件加 `html.dark`，忽略 `tk-theme`）；仅与角色页共享 `tk-notation`（gfx/txt）偏好，
@@ -192,7 +192,8 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 
 ## 已完成角色
 
-**全员到齐**：基础 32 人 + S1 DLC 4 人 + S2 DLC 4 人，共 41 页（2026-07）。
+基础 32 人 + S1 DLC 4 人 + S2 DLC 4 人 + S3 DLC 3 人（国光二世、鲍勃、小罗杰），共 43 页（2026-11）。
+S3 末位范马勇次郎尚未发售，主页保留其占位卡。
 
 一次式管线角色（tools/pipeline.py，勿重跑转换）：
 
@@ -244,6 +245,8 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 | 艾迪 (Eddy Gordo) | #9fd97f | tools/wavu_eddy.txt (163/176) |
 | 莉迪亚 (Lidia Sobieska) | #ffb0a6 | tools/wavu_lidia.txt (151/174) |
 | 三岛平八 (Heihachi Mishima) | #ffcf66 | tools/wavu_heihachi.txt (139/152) |
+| 鲍勃 (Bob) | #a6d4ff | tools/wavu_bob.txt (163/172) |
+| 小罗杰 (Roger Jr.) | #ff8f7a | tools/wavu_roger_jr.txt (126/137) |
 
 `—` 表示 Wavu 快照未给出可用的首击发生帧;常见于当身/防反、架势进入和纯移动
 动作,不应凭招式动画推测补值。
@@ -289,9 +292,9 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
    另用注入 click 的副本验证 浅色/无数字/文字 三种模式;帧 MISS 列表逐条核对
    (真缺=当身/架势进入,可修=前缀映射缺失)。
 
-### 可重复生成流程（通用，36 角色）
+### 可重复生成流程（通用，38 角色）
 
-除上述 5 个管线角色外，全部角色（jin + S2 四人 + 2026-07 批量的 31 人）都由
+除上述 5 个管线角色外，全部角色（jin + S2 四人 + 2026-07 批量的 31 人 + 2026-11 的鲍勃/小罗杰）都由
 `tools/build_season2.py` 从结构化源数据生成，不走一次式 `pipeline.py` 转换：
 
 1. 每角色源快照位于 `tools/source/{key}.json`、`{key}_zh.json`、
@@ -303,8 +306,8 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
    （期望值用分区/覆盖率脚本推导，勿手算）→ 构建 → 门禁。
 3. 运行 `pwsh -File tools\validate_season2.ps1`：单一入口会重建全部自包含 HTML，
    执行生成器与 Law 回归，并用 Playwright 按每角色 10 状态（桌面 6 + 响应式 4）
-   校验 UI、几何、裁切、状态恢复与 console 错误（36 角色 × 3 语系共 648 状态），另跑
-   5 个管线页 × 3 语系 × 3 记法共 45 状态的图例可见性检查（这些页不在 648 状态门禁内），并检查
+   校验 UI、几何、裁切、状态恢复与 console 错误（38 角色 × 3 语系共 684 状态），另跑
+   5 个管线页 × 3 语系 × 3 记法共 45 状态的图例可见性检查（这些页不在 684 状态门禁内），并检查
    `docs/` 发布边界、主页链接、头像清单、免责声明与本地资源完整性。
    仅做非浏览器快速检查时可加 `-SkipBrowser`；最终交付不应跳过浏览器门禁。
    `$env:CHARACTERS='jin,king'` 可过滤角色，`$env:SCREENSHOT_DIR` 保留全页截图。
@@ -373,7 +376,7 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
 
 - `KNOWLEDGE.md` — **约定/陷阱/事故教训知识库,新角色动工前必读**
 - `pipeline.py` — 一次式转换管线(旧 5 角色;解析器 parse_cmd 被生成器复用)
-- `build_season2.py` / `season2_config.py` / `season2_page.css` / `season2_page.js` — 全部生成器角色(36)的可重复页面生成器、配置与前端资源
+- `build_season2.py` / `season2_config.py` / `season2_page.css` / `season2_page.js` — 全部生成器角色(38)的可重复页面生成器、配置与前端资源
 - `table_text.css` — **41 页共用**的表格正文尺寸(招式名/按键图字号 + 英文名换行);
   生成器与管线页都读,改这里两边都要重新产出
 - `header_card.css` / `legend_card.css` / `back_nav.css` / `back_nav.js` — **41 页共用**的
@@ -394,11 +397,20 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   绝不让英文漏进纯中文页面
 - `accent_contrast.py` — WCAG 对比度与 `band_color()`:把主题色朝其 ink 压深到白字过 AA
   为止,**两套页面共用**,保证是构建期可断言的,而不是 CSS 里赌一把
+- `wavu_extract.js` / `wavu_snapshot.py` — Wavu 抓取的两半（2026-11 起签入；7 月那版注入脚本
+  只存在于会话 scratchpad，已丢失）。浏览器半边在过了 Anubis 的 wavu.wiki 标签页里注入，
+  `TK8.grab('Bob')` 后点红按钮走剪贴板落盘；Python 半边离线把原始抓取转成
+  `source/{key}.json` / `_combos.json` / `wavu_{key}.txt`，`--compare` 与现有快照逐字段对比
+  （新抽取器对 7 月快照的复现：除 Wavu 自身后来的编辑外逐字段一致）。
+  **Wavu 已把多数角色的十连技从招式卡片迁成 wikitable**，抽取器只认卡片——刷新老角色前
+  必须先补表格合成，否则十连技会被静默删光。
+- `indexnow_submit.py` / `docs/{key}.txt` — IndexNow 提交（Bing/Yandex/Naver/Seznam）；
+  发布上线后运行。Google 不参与 IndexNow、2023 年起也不收 sitemap ping，走 Search Console。
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)
 - `scan_gfx_fallbacks.py` — 扫描 41 页 td.cmd 未图形化格子（主表回退快查）
 - `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）
-- `test_season2_pages.py` — 数据、分区、DOM 与幂等回归测试(36 角色)
-- `validate_season2.ps1` / `validate_season2.mjs` — 重建、回归测试与 648 状态 Playwright 几何门禁的单一入口(支持 CHARACTERS 过滤)
+- `test_season2_pages.py` — 数据、分区、DOM 与幂等回归测试(38 角色)
+- `validate_season2.ps1` / `validate_season2.mjs` — 重建、回归测试与 684 状态 Playwright 几何门禁的单一入口(支持 CHARACTERS 过滤)
 - `source/{key}.json` / `{key}_zh.json` / `{key}_combos.json` — 结构化源快照
 - `wavu_{char}.txt` — 各角色 input|startup 帧数据(浏览器抓取存档)
 - `jun_movelist_source_template.html` — 管线处理前的 Jun 基础 HTML 结构示例
