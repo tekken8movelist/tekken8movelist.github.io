@@ -64,6 +64,8 @@ SEGMENTS: dict[str, str] = {
     "前冲": "Rushing",
     "进身": "Advancing",
     "破势步": "Crouch Dash",
+    # a generic crouch dash; 破势步 is also Jin's stance name
+    "蹲冲步": "Crouch Dash",
     "前进构": "Zenshin",
     "觉醒": "Awakened",
     "低位": "Low Stance",
