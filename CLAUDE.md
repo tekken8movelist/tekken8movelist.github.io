@@ -39,6 +39,21 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
   data-q="中文名 英文名">` 卡片并更新组头计数与搜索行总数；未上线角色用
   `<div class="card soon">` 占位（见 S3 示例）。
 
+## 搜索与性能（2026-11-19 夜间优化，依据 GSC / Bing / Lighthouse 实测）
+
+- **标题**：英文尾巴写 Move List（GSC：用户搜 "move list" 两个词，是 "movelist" 的 4 倍）；
+  繁體写 出招表・招式表；站名 `TEKKEN 8 Movelist` 作为名字不动。
+- **描述**：`page_description_for()` 按本页实有内容组合（招式数、架势名、十连技、连招条数），
+  ≤160 字符；门禁要求全站 100–160 且同语系不重复（Bing 的「太短」阈值约 100）。
+- **页脚角色名单**（见上）、**sitemap `<lastmod>`**（按内容哈希，`source/sitemap_lastmod.json`）、
+  **`docs/404.html`**（`tools/build_404.py`，全 URL 链接、noindex）。
+- **社交卡片**：角色页 `twitter:card=summary`（方形头像）+ `og:image:width/height`；主页保持大图卡片。
+- **Lighthouse（移动端）**：角色页性能 100 / SEO 100；无障碍修了触控目标
+  （`header_card.css` 的 `pointer: coarse` 规则）、主页 `<main>` 地标与 `--kicker` 对比度
+  （#808e9e，三种底色都过 4.5）。主页字体改为 preload 非阻塞后，**首屏头像成了 LCP**——
+  前 8 张卡片不得 `loading="lazy"`，第一张 `fetchpriority="high"`；新增卡片时保持这个顺序约定。
+- **工具**：`tools/indexnow_submit.py`（发布后推 Bing 等）；Google 只能靠 Search Console。
+
 ## 角色页标题带（2026-07-25 改版，Claude Design 方案 A「铭牌」）
 
 41 页共用同一张标题带（spec 来源：Claude Design `Character Page · Avatar.dc.html`，
@@ -414,6 +429,7 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
   `--tables`（`TK8.grabTens` 抓的表格），否则这些角色的十连技会被静默删光。
   表格合成按「每个 10 Hit Combo N 一条链」，表头行不是一击（见 KNOWLEDGE §15）。
 - `roster.py` — 页脚角色名单（解析主页卡片，两套页面共用；样式在 `back_nav.css`）
+- `build_404.py` — 生成 `docs/404.html`（门禁重建）；`build_sitemap.py` 含按内容哈希的 lastmod
 - `build_avatars_webp.py` / `source/avatar_webp.json` — 头像 WebP 副本与其来源 PNG 的哈希清单
 - `indexnow_submit.py` / `docs/{key}.txt` — IndexNow 提交（Bing/Yandex/Naver/Seznam）；
   发布上线后运行。Google 不参与 IndexNow、2023 年起也不收 sitemap ping，走 Search Console。
