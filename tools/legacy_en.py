@@ -444,27 +444,31 @@ PHRASES = {
     "武术": "Martial arts",
 
     # -- meta descriptions and intros -------------------------------------
-    "风间准（Jun Kazama）《铁拳8》（TEKKEN 8）完整出招表：招式指令、帧数表、"
-    "确反数据与进阶连招。Complete TEKKEN 8 Jun Kazama movelist with frame data.":
-        "The complete TEKKEN 8 Jun Kazama movelist: every command, startup "
-        "frames, damage and hit level, plus punishers and combo routes.",
-    "凌晓雨（Ling Xiaoyu）《铁拳8》（TEKKEN 8）完整出招表：招式指令、帧数表、"
-    "确反数据与进阶连招。Complete TEKKEN 8 Ling Xiaoyu movelist with frame data.":
-        "The complete TEKKEN 8 Ling Xiaoyu movelist: every command, startup "
-        "frames, damage and hit level, plus punishers and combo routes.",
-    "国光二世（Kunimitsu II）《铁拳8》（TEKKEN 8）完整出招表：招式指令、帧数表、"
-    "确反数据与进阶连招。Complete TEKKEN 8 Kunimitsu II movelist with frame data.":
-        "The complete TEKKEN 8 Kunimitsu II movelist: every command, startup "
-        "frames, damage and hit level, plus punishers and combo routes.",
-    "克莱夫·罗兹菲尔德（Clive Rosfield）《铁拳8》（TEKKEN 8）完整出招表：招式指令、"
-    "帧数表、确反数据与进阶连招。Complete TEKKEN 8 Clive Rosfield movelist with "
-    "frame data.":
-        "The complete TEKKEN 8 Clive Rosfield movelist: every command, startup "
-        "frames, damage and hit level, plus punishers and combo routes.",
-    "马歇尔·洛（Marshall Law）《铁拳8》（TEKKEN 8）完整出招表：招式指令、帧数表、"
-    "确反数据与进阶连招。Complete TEKKEN 8 Marshall Law movelist with frame data.":
-        "The complete TEKKEN 8 Marshall Law movelist: every command, startup "
-        "frames, damage and hit level, plus punishers and combo routes.",
+    '风间准（Jun Kazama）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技，架势：幻月、出云、御生，热能技，十连技，连招、确反与实战技巧。TEKKEN 8 Jun Kazama movelist & frame data.':
+        'TEKKEN 8 Jun Kazama movelist: every command and startup frame, throws, Genjitsu, Izumo and Miare stances, Heat moves, the 10-hit combo, combos and punishers.',
+    # the same sentence as the head attributes carry it (escaped)
+    '风间准（Jun Kazama）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技，架势：幻月、出云、御生，热能技，十连技，连招、确反与实战技巧。TEKKEN 8 Jun Kazama movelist &amp; frame data.':
+        'TEKKEN 8 Jun Kazama movelist: every command and startup frame, throws, Genjitsu, Izumo and Miare stances, Heat moves, the 10-hit combo, combos and punishers.',
+    '凌晓雨（Ling Xiaoyu）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技，架势：凤凰、雨舞背身、催眠师，热能技，十连技，连招、确反与框架陷阱。TEKKEN 8 Ling Xiaoyu movelist & frame data.':
+        'TEKKEN 8 Ling Xiaoyu movelist: every command and startup frame, throws, Phoenix and Hypnotist stances, Heat moves, the 10-hit combo, combos and punishers.',
+    # the same sentence as the head attributes carry it (escaped)
+    '凌晓雨（Ling Xiaoyu）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技，架势：凤凰、雨舞背身、催眠师，热能技，十连技，连招、确反与框架陷阱。TEKKEN 8 Ling Xiaoyu movelist &amp; frame data.':
+        'TEKKEN 8 Ling Xiaoyu movelist: every command and startup frame, throws, Phoenix and Hypnotist stances, Heat moves, the 10-hit combo, combos and punishers.',
+    '国光二世（Kunimitsu II）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技与当身，架势：火遁、刹那驱，热能技，十连技，连招、确反与实战技巧。TEKKEN 8 Kunimitsu II movelist & frame data.':
+        'TEKKEN 8 Kunimitsu II movelist: every command and startup frame, throws, parries, Katon and Setsunagake stances, Heat moves, the 10-hit combo and punishers.',
+    # the same sentence as the head attributes carry it (escaped)
+    '国光二世（Kunimitsu II）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技与当身，架势：火遁、刹那驱，热能技，十连技，连招、确反与实战技巧。TEKKEN 8 Kunimitsu II movelist &amp; frame data.':
+        'TEKKEN 8 Kunimitsu II movelist: every command and startup frame, throws, parries, Katon and Setsunagake stances, Heat moves, the 10-hit combo and punishers.',
+    '克莱夫·罗兹菲尔德（Clive Rosfield）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技与当身，架势：光之翼、上升气流、不死鸟瞬移，热能技，十连技，连招与确反要点。TEKKEN 8 Clive Rosfield movelist & frame data.':
+        'TEKKEN 8 Clive Rosfield movelist: every command and startup frame, throws, parries, Wings of Light and Updraft stances, Heat moves, combos and punishers.',
+    # the same sentence as the head attributes carry it (escaped)
+    '克莱夫·罗兹菲尔德（Clive Rosfield）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技与当身，架势：光之翼、上升气流、不死鸟瞬移，热能技，十连技，连招与确反要点。TEKKEN 8 Clive Rosfield movelist &amp; frame data.':
+        'TEKKEN 8 Clive Rosfield movelist: every command and startup frame, throws, parries, Wings of Light and Updraft stances, Heat moves, combos and punishers.',
+    '马歇尔·洛（Marshall Law）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技，架势：龙构、背身，热能技，十连技，连招、确反与实战攻略。TEKKEN 8 Marshall Law movelist & frame data.':
+        'TEKKEN 8 Marshall Law movelist: every command and startup frame, throws, Dragon Charge stance, Heat moves, the 10-hit combo, combos, punishers and tips.',
+    # the same sentence as the head attributes carry it (escaped)
+    '马歇尔·洛（Marshall Law）《铁拳8》中文出招表：完整招式指令与图形化按键，逐招发生帧，投技，架势：龙构、背身，热能技，十连技，连招、确反与实战攻略。TEKKEN 8 Marshall Law movelist &amp; frame data.':
+        'TEKKEN 8 Marshall Law movelist: every command and startup frame, throws, Dragon Charge stance, Heat moves, the 10-hit combo, combos, punishers and tips.',
     "本页收录《铁拳8》（TEKKEN 8）风间准（Jun Kazama）的完整出招表与帧数表"
     "（frame data），并整理进阶连招与实战技巧，供对局间隙快速查阅。":
         "The complete TEKKEN 8 Jun Kazama movelist and frame data, with combo "

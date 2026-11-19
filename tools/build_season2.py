@@ -1821,6 +1821,101 @@ def secondary_name(config: dict, locale: str) -> str:
     return "" if locale == "en" else config["canonical"]
 
 
+DESCRIPTION_LIMIT = 160
+
+
+def description_stances(
+    stances: OrderedDict, translation: dict, locale: str, keep: int = 3
+) -> str:
+    """The stance names a meta description can afford, in this locale.
+
+    Back-turned sections are skipped -- every character has a back, so it
+    tells a searcher nothing -- and Wavu's alternates (`Beast Step/Crouch
+    Dash`) keep their first name.
+    """
+    names = []
+    for section in stances:
+        head = section.split(" ", 1)[0]
+        if head == "BT" or section.casefold().startswith("back turned"):
+            continue
+        label = translation.get("section_names", {}).get(section, section)
+        label = label.split("/", 1)[0].strip()
+        if locale != "en":
+            # 野兽步与蹲冲招式 -> 野兽步与蹲冲: the template already says 架势
+            label = label.removesuffix("招式")
+        if label and label not in names:
+            names.append(label)
+    names = names[:keep]
+    if locale == "en":
+        return names[0] if len(names) == 1 else (
+            ", ".join(names[:-1]) + " and " + names[-1] if names else ""
+        )
+    return "、".join(names)
+
+
+def page_description_for(
+    s: dict,
+    names: dict,
+    *,
+    moves: int,
+    throws: bool,
+    stances: OrderedDict,
+    translation: dict,
+    locale: str,
+    heat: bool,
+    ten: bool,
+    combos: int,
+) -> str:
+    """Meta description built from what this page actually carries.
+
+    Bing flagged the one-line template as too short (under ~100 characters
+    for the short names: 金, 熊, 雷欧) and every page read the same apart from
+    the name. This says how many moves, which stances, whether there is a
+    ten-string and how many combo routes -- and nothing the page lacks. Parts
+    fall away in a fixed order until the whole fits in 160 characters.
+    """
+    lead = s["descLead"].format(moves=moves, **names)
+    tail = s["descTail"].format(**names)
+    keep_stances = 3
+    optional = {
+        "throws": throws,
+        "heat": heat,
+        "ten": ten,
+        "combos": combos > 0,
+        "stances": bool(description_stances(stances, translation, locale)),
+    }
+    with_tail = True
+
+    def build() -> str:
+        parts = []
+        if optional["throws"]:
+            parts.append(s["descThrows"])
+        if optional["stances"]:
+            label = description_stances(stances, translation, locale, keep_stances)
+            parts.append(s["descStances"].format(value=label))
+        if optional["heat"]:
+            parts.append(s["descHeat"])
+        if optional["ten"]:
+            parts.append(s["descTen"])
+        if optional["combos"]:
+            parts.append(s["descCombos"].format(count=combos))
+        return lead + "".join(parts) + s["descClose"] + (tail if with_tail else "")
+
+    text = build()
+    # least distinctive first: every page has Heat moves and throws
+    for drop in ("heat", "throws", "stances-2", "stances-1", "ten", "combos", "tail"):
+        if len(text) <= DESCRIPTION_LIMIT:
+            break
+        if drop == "tail":
+            with_tail = False
+        elif drop.startswith("stances-"):
+            keep_stances = int(drop[-1])
+        else:
+            optional[drop] = False
+        text = build()
+    return text
+
+
 def stance_summary(config: dict, translation: dict) -> str:
     """Chinese stance names plus their Wavu codes, for the header bio row.
 
@@ -1940,7 +2035,18 @@ def build_page(
     alternates = alternate_links(config["filename"])
     names = {"display": display, "canonical": config["canonical"]}
     page_title = s["titleTemplate"].format(**names)
-    page_description = s["descriptionTemplate"].format(**names)
+    page_description = page_description_for(
+        s,
+        names,
+        moves=visible_move_count,
+        throws=bool(throws),
+        stances=stances,
+        translation=translation,
+        locale=locale,
+        heat=bool(heat),
+        ten=bool(ten_strings),
+        combos=combo_count,
+    )
     page_url = public_url(locale, config["filename"])
     avatar_slug = config["filename"].removesuffix("_tk8_movelist.html")
     og_image = f"https://tekken8movelist.github.io/avatars/{avatar_slug}.png"

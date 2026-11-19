@@ -315,11 +315,21 @@ STRINGS: dict[str, dict[str, object]] = {
         # --- SEO, footer, intro ---
         "siteName": "铁拳8 全角色中文出招表",
         "titleTemplate": "铁拳8 {display}（{canonical}）出招表 | TEKKEN 8 {canonical} Movelist",
-        "descriptionTemplate": (
-            "{display}（{canonical}）《铁拳8》（TEKKEN 8）完整出招表："
-            "招式指令、帧数表、确反数据与进阶连招。"
-            "Complete TEKKEN 8 {canonical} movelist with frame data."
+        # meta description, composed per character by page_description():
+        # lead + whichever parts the page actually has + close + tail, trimmed
+        # to 160 characters. Bing flags anything under ~100 as too short, and
+        # the old one-line template claimed punish data no table carries.
+        "descLead": (
+            "{display}（{canonical}）《铁拳8》中文出招表：{moves} 招指令与图形化按键，"
+            "逐招发生帧、判定与伤害"
         ),
+        "descThrows": "，投技挣脱键",
+        "descStances": "，架势：{value}",
+        "descHeat": "，热能技",
+        "descTen": "，十连技",
+        "descCombos": "，{count} 条 Wavu 连招",
+        "descClose": "。",
+        "descTail": "TEKKEN 8 {canonical} movelist & frame data.",
         "ogImageAltTemplate": "铁拳8 {display}（{canonical}）头像",
         "breadcrumbHome": "首页",
         "breadcrumbPageTemplate": "{display}出招表",
@@ -447,11 +457,17 @@ STRINGS: dict[str, dict[str, object]] = {
         "legendTornado": "迴旋",
         "siteName": "鐵拳8 全角色中文出招表",
         "titleTemplate": "鐵拳8 {display}（{canonical}）出招表 | TEKKEN 8 {canonical} Movelist",
-        "descriptionTemplate": (
-            "{display}（{canonical}）《鐵拳8》（TEKKEN 8）完整出招表："
-            "招式指令、幀數表、確反資料與進階連招。"
-            "Complete TEKKEN 8 {canonical} movelist with frame data."
+        "descLead": (
+            "{display}（{canonical}）《鐵拳8》中文出招表：{moves} 招指令與圖形化按鍵，"
+            "逐招發生幀、判定與傷害"
         ),
+        "descThrows": "，投技掙脫鍵",
+        "descStances": "，架勢：{value}",
+        "descHeat": "，熱能技",
+        "descTen": "，十連技",
+        "descCombos": "，{count} 條 Wavu 連招",
+        "descClose": "。",
+        "descTail": "TEKKEN 8 {canonical} movelist & frame data.",
         "ogImageAltTemplate": "鐵拳8 {display}（{canonical}）頭像",
         "breadcrumbHome": "首頁",
         "breadcrumbPageTemplate": "{display}出招表",
@@ -594,11 +610,17 @@ STRINGS: dict[str, dict[str, object]] = {
         # lie here and costs the phrase people actually type
         "siteName": "TEKKEN 8 Movelist · Frame Data & Command List",
         "titleTemplate": "TEKKEN 8 {canonical} Movelist · Frame Data & Command List",
-        "descriptionTemplate": (
-            "The complete TEKKEN 8 {canonical} movelist: every command, "
-            "startup frames, damage and hit level, plus throws, stances, "
-            "Heat moves and sample combos on one page."
+        "descLead": (
+            "TEKKEN 8 {canonical} movelist: all {moves} moves with inputs, "
+            "startup frames, hit levels and damage"
         ),
+        "descThrows": ", throw breaks",
+        "descStances": ", {value} stances",
+        "descHeat": ", Heat moves",
+        "descTen": ", 10-hit combos",
+        "descCombos": ", {count} combo routes",
+        "descClose": ".",
+        "descTail": " Data from Wavu Wiki.",
         "ogImageAltTemplate": "TEKKEN 8 {canonical} portrait",
         "breadcrumbHome": "Home",
         "breadcrumbPageTemplate": "{canonical} movelist",

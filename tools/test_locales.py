@@ -237,7 +237,8 @@ class VocabularyTests(unittest.TestCase):
         self.assertNotIn("中文", name)
         self.assertEqual(name, "TEKKEN 8 Movelist · Frame Data & Command List")
         self.assertNotIn("中文", strings("en")["titleTemplate"])
-        self.assertNotIn("中文", strings("en")["descriptionTemplate"])
+        for key in ("descLead", "descStances", "descTail"):
+            self.assertNotIn("中文", strings("en")[key])
 
     def test_english_hit_levels_are_spelled_out(self) -> None:
         labels = strings("en")["targetLabels"]

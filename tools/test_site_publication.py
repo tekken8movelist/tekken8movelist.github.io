@@ -581,6 +581,30 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertIn(phrase, html)
         self.assertNotIn("生成式 AI", html)
 
+    def test_meta_descriptions_are_long_enough_and_distinct(self) -> None:
+        """Bing Webmaster flagged 12 pages as "too short" in 2026-11.
+
+        Every flagged one was under 100 characters (the hubs at 88, 金/熊/雷欧
+        at 94-95); Bing asks for 150-160. Chinese reads far more per character
+        than English, so the floor is Bing's threshold rather than its target,
+        and the ceiling is where search results truncate. Within one tree no
+        two pages may share a description -- the old template differed only by
+        the name.
+        """
+        for code, meta in LOCALES.items():
+            tree = SITE / meta["dir"] if meta["dir"] else SITE
+            seen: dict[str, str] = {}
+            for page in sorted(tree.glob("*.html")):
+                with self.subTest(locale=code, page=page.name):
+                    html = page.read_text(encoding="utf-8")
+                    match = re.search(r'<meta name="description" content="([^"]*)"', html)
+                    self.assertIsNotNone(match)
+                    description = match.group(1).replace("&amp;", "&")
+                    self.assertGreaterEqual(len(description), 100, description)
+                    self.assertLessEqual(len(description), 160, description)
+                    self.assertNotIn(description, seen, seen.get(description))
+                    seen[description] = page.name
+
     def test_character_pages_have_seo_contract(self) -> None:
         for page in sorted(SITE.glob("*_tk8_movelist.html")):
             with self.subTest(page=page.name):

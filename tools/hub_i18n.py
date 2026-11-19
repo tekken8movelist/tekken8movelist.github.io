@@ -157,15 +157,14 @@ HUB_STRINGS = {
     # reads before the page renders. Missed in the first pass because it is
     # invisible on screen -- which is exactly why it needed the audit.
     "metaDescription": {
+        # Bing flagged the old 88-character line as too short (2026-11)
         "hans": (
-            "铁拳8（TEKKEN 8）全角色中文出招表，提供高质量中文招式名、图形化四键映射、"
-            "带数字、无数字与纯英文三种记法，以及发生帧、判定、伤害、投技、架势、"
-            "Heat 招式与示例连招。"
+            '铁拳8（TEKKEN 8）全角色中文出招表：每位角色一页，高质量中文招式名与图形化四键映射，带数字、无数字、原文三种记法'
+            '一键切换，逐招发生帧、判定、伤害、投技挣脱、架势、热能技、十连技与 Wavu 连招。TEKKEN 8 movelist and frame data for every fighter.'
         ),
         "hant": (
-            "鐵拳8（TEKKEN 8）全角色中文出招表，提供高品質中文招式名、圖形化四鍵對應、"
-            "帶數字、無數字與純英文三種記法，以及發生幀、判定、傷害、投技、架勢、"
-            "Heat 招式與範例連招。"
+            '鐵拳8（TEKKEN 8）全角色中文出招表：每位角色一頁，高品質中文招式名與圖形化四鍵對應，帶數字、無數字、原文三種記法'
+            '一鍵切換，逐招發生幀、判定、傷害、投技掙脫、架勢、熱能技、十連技與 Wavu 連招。TEKKEN 8 movelist and frame data for every fighter.'
         ),
         "en": (
             "The complete TEKKEN 8 movelist for every fighter: graphical "

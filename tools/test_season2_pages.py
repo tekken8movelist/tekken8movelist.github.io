@@ -1080,15 +1080,18 @@ class Season2BuildTests(unittest.TestCase):
                     f" | TEKKEN 8 {cfg['canonical']} Movelist"
                 )
                 self.assertIn(f"<title>{expected_title}</title>", html)
-                expected_description = (
-                    f"{cfg['display']}（{cfg['canonical']}）《铁拳8》（TEKKEN 8）完整出招表："
-                    "招式指令、帧数表、确反数据与进阶连招。"
-                    f"Complete TEKKEN 8 {cfg['canonical']} movelist with frame data."
+                description = re.search(
+                    r'<meta name="description" content="([^"]*)">', html
+                ).group(1)
+                # composed from the page's own counts (page_description_for)
+                self.assertTrue(
+                    description.startswith(
+                        f"{cfg['display']}（{cfg['canonical']}）《铁拳8》中文出招表："
+                        f"{cfg['visible']} 招"
+                    ),
+                    description,
                 )
-                self.assertIn(
-                    f'<meta name="description" content="{expected_description}">',
-                    html,
-                )
+                self.assertNotIn("确反", description)
                 canonical_url = (
                     f"https://tekken8movelist.github.io/{cfg['filename']}"
                 )
