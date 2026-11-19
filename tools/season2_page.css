@@ -495,6 +495,10 @@ footer {
   text-align: center;
 }
 
+/* the footer roster's link colour (rules in back_nav.css, shared) */
+footer .roster { --bn-accent: var(--accent-ink); }
+html.dark footer .roster { --bn-accent: var(--accent); }
+
 @media print {
   body {
     max-width: none;

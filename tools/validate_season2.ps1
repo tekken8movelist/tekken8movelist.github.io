@@ -113,6 +113,7 @@ try {
             (Join-Path $PSScriptRoot 'move_name_en.py'),
             (Join-Path $PSScriptRoot 'build_sitemap.py'),
             (Join-Path $PSScriptRoot 'build_avatars_webp.py'),
+            (Join-Path $PSScriptRoot 'roster.py'),
             (Join-Path $PSScriptRoot 'zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_locales.py'),
             (Join-Path $PSScriptRoot 'test_zh_hant.py'),

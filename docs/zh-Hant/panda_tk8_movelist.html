@@ -579,6 +579,10 @@ footer {
   text-align: center;
 }
 
+/* the footer roster's link colour (rules in back_nav.css, shared) */
+footer .roster { --bn-accent: var(--accent-ink); }
+html.dark footer .roster { --bn-accent: var(--accent); }
+
 @media print {
   body {
     max-width: none;
@@ -1317,6 +1321,40 @@ html.dark .revealbar {
   opacity: .7;
 }
 
+/* part 3: the footer roster (tools/roster.py) -- every other fighter in one
+   wrapping line, so each page is reachable from more than the hub. */
+footer .roster {
+  display: block;
+  margin: 8px auto 0;
+  max-width: 900px;
+  font-size: 9.5px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+footer .roster b {
+  margin-right: 4px;
+  font-weight: 700;
+  opacity: .75;
+}
+
+footer .roster a {
+  color: var(--bn-accent, inherit);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+footer .roster a:hover,
+footer .roster a:focus-visible {
+  text-decoration: underline;
+}
+
+footer .roster [aria-current] {
+  color: inherit;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .revealbar {
     transition: none;
@@ -1526,7 +1564,7 @@ html.dark .revealbar {
     <header><h2>進階攻略<small>熊貓 · Wavu Wiki 連招資料</small></h2></header>
     <div class="legend">僅收錄 Wavu 連招頁實際存在的 1 條路線；原始記法與傷害標註保持不變（方括號數字為該段傷害，如 [25]），佔位內容已剔除，不補寫未經來源驗證的打法。</div>
     <div class="tpFull"><h2>基礎連招 <span class="en">COMBOS</span></h2><table class="cb"><thead><tr><th>起手</th><th>路線（[數字]=傷害 · T!=迴旋 · ~F=按住前 · →=下一招）</th></tr></thead><tbody><tr><td class="cmd combo-starter"><span class="cmd-gfx combo-gfx" aria-hidden="true"><span class="combo-token"><span class="tk-in tk-sm tk-char-panda"><span class="tk-state">常規浮空</span></span></span><span class="combo-token"><span class="combo-literal">(例如 df+2,1)</span></span></span><span class="cmd-txt">常規浮空 (例如 df+2,1)</span><span class="sr-only cmd-a11y">常規浮空 (例如 df+2,1)</span></td><td class="cmd combo-route"><span class="cmd-gfx combo-gfx" aria-hidden="true"><span class="combo-token"><span class="tk-in tk-sm tk-char-panda"><span class="tk-dir u"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i>2</i><i class="on">3</i><i class="on">4</i></span></span></span><span class="combo-token"><span class="tk-in tk-sm tk-char-panda"><span class="tk-state">狩獵構中</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="combo-token"><span class="tk-in tk-sm tk-char-panda"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span><span class="tk-sep">›</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span><span class="tk-tbang">T!</span><span class="combo-token"><span class="tk-in tk-sm tk-char-panda"><span class="tk-dir uf"></span><span class="tk-sep">+</span><span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span></span></span><span class="combo-token"><span class="tk-in tk-sm tk-char-panda"><span class="tk-dir b"></span><span class="tk-sep">+</span><span class="tk-b"><i class="on">1</i><i>2</i><i>3</i><i>4</i></span></span></span></span><span class="cmd-txt">u+1+2,3+4 HBS.1 b+2,2,1 T! uf+2 b+1</span><span class="sr-only cmd-a11y">u+1+2,3+4 HBS.1 b+2,2,1 T! uf+2 b+1</span></td></tr></tbody></table></div>
-    <footer id="sources"><p class="page-intro">本頁收錄《鐵拳8》（TEKKEN 8）熊貓（Panda）的完整出招表與幀數表（frame data），並整理進階連招與實戰技巧，供對局間隙快速查閱。<span class="en">The complete TEKKEN 8 Panda movelist — full command list, frame data, and combos, written in Chinese.</span></p>資料來源：<a href="https://wavu.wiki/t/Panda_movelist">Wavu Wiki movelist</a> · 打法參考：<a href="https://wavu.wiki/t/Panda_combos">Wavu Wiki combos</a> · 角色資料（國家 · 拳法）來自 <a href="https://tekken.com/fighters/">TEKKEN 8 官方網站</a> · 招式名為中文意譯，供參考；發生幀表示首擊衝擊幀。</footer>
+    <footer id="sources"><p class="page-intro">本頁收錄《鐵拳8》（TEKKEN 8）熊貓（Panda）的完整出招表與幀數表（frame data），並整理進階連招與實戰技巧，供對局間隙快速查閱。<span class="en">The complete TEKKEN 8 Panda movelist — full command list, frame data, and combos, written in Chinese.</span></p>資料來源：<a href="https://wavu.wiki/t/Panda_movelist">Wavu Wiki movelist</a> · 打法參考：<a href="https://wavu.wiki/t/Panda_combos">Wavu Wiki combos</a> · 角色資料（國家 · 拳法）來自 <a href="https://tekken.com/fighters/">TEKKEN 8 官方網站</a> · 招式名為中文意譯，供參考；發生幀表示首擊衝擊幀。<nav class="roster" aria-label="全部角色"><b>全部角色</b> <a href="jin_tk8_movelist.html">風間仁</a> · <a href="kazuya_tk8_movelist.html">三島一八</a> · <a href="jun_tk8_movelist.html">風間準</a> · <a href="paul_tk8_movelist.html">保羅</a> · <a href="law_tk8_movelist.html">馬歇爾·洛</a> · <a href="king_tk8_movelist.html">金</a> · <a href="lars_tk8_movelist.html">拉斯</a> · <a href="jack_tk8_movelist.html">傑克-8</a> · <a href="xiaoyu_tk8_movelist.html">凌曉雨</a> · <a href="nina_tk8_movelist.html">妮娜·威廉斯</a> · <a href="leroy_tk8_movelist.html">勒羅伊</a> · <a href="asuka_tk8_movelist.html">風間飛鳥</a> · <a href="lili_tk8_movelist.html">莉莉</a> · <a href="bryan_tk8_movelist.html">布萊恩</a> · <a href="hwoarang_tk8_movelist.html">花郎</a> · <a href="claudio_tk8_movelist.html">克勞迪奧</a> · <a href="azucena_tk8_movelist.html">阿蘇塞娜</a> · <a href="raven_tk8_movelist.html">雷文</a> · <a href="leo_tk8_movelist.html">雷歐</a> · <a href="steve_tk8_movelist.html">史蒂夫</a> · <a href="kuma_tk8_movelist.html">熊</a> · <span aria-current="page">熊貓</span> · <a href="yoshimitsu_tk8_movelist.html">吉光</a> · <a href="shaheen_tk8_movelist.html">沙欣</a> · <a href="dragunov_tk8_movelist.html">德拉古諾夫</a> · <a href="feng_tk8_movelist.html">馮威</a> · <a href="lee_tk8_movelist.html">李超狼</a> · <a href="alisa_tk8_movelist.html">阿麗莎</a> · <a href="zafina_tk8_movelist.html">扎菲娜</a> · <a href="deviljin_tk8_movelist.html">惡魔仁</a> · <a href="victor_tk8_movelist.html">維克多</a> · <a href="reina_tk8_movelist.html">蕾娜</a> · <a href="eddy_tk8_movelist.html">艾迪</a> · <a href="lidia_tk8_movelist.html">莉迪亞</a> · <a href="heihachi_tk8_movelist.html">三島平八</a> · <a href="clive_tk8_movelist.html">克萊夫</a> · <a href="anna_tk8_movelist.html">安娜·威廉斯</a> · <a href="fahkumram_tk8_movelist.html">法昆拉姆</a> · <a href="armorking_tk8_movelist.html">鎧甲王</a> · <a href="miaryzo_tk8_movelist.html">米亞莉·佐</a> · <a href="kunimitsu_tk8_movelist.html">國光二世</a> · <a href="bob_tk8_movelist.html">鮑勃</a> · <a href="rogerjr_tk8_movelist.html">小羅傑</a></nav></footer>
   </section>
 </main>
 <script>

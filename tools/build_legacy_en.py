@@ -48,6 +48,7 @@ from legacy_en import (  # noqa: E402
 from locales import LOCALES, alternate_links, public_url, strings  # noqa: E402
 from move_name_en import english_name  # noqa: E402
 from patch_legacy_pages import LEGACY_PAGES  # noqa: E402
+from roster import ROSTER_BLOCK, render_roster  # noqa: E402
 
 SITE = TOOLS.parent / "docs"
 LOCALE = "en"
@@ -67,6 +68,7 @@ EN_TWIN = re.compile(r'\s*<span class="en">[^<]*</span>')
 TABLE_HEAD = re.compile(r"(<th\b[^>]*>)([^<]*)(</th>)")
 TIPS_MARKER = '<section class="tipsPage">'
 LOCALE_SLOT = "<!--locale-control-->"
+ROSTER_SLOT = "<!--footer-roster-->"
 
 # Longest first, so 背身时看准对手攻击 wins over 背身时.
 _CHIP_KEYS = sorted(CAPSULES, key=len, reverse=True)
@@ -445,6 +447,11 @@ def build(key: str, filename: str, missing: Missing) -> str:
     markup = re.sub(
         r'<div class="lcgl">.*?</div>', LOCALE_SLOT, markup, count=1, flags=re.S
     )
+    # The footer roster is rebuilt the same way: its names are fighters'
+    # English names from the hub, not translations of the Chinese ones.
+    markup, rosters = ROSTER_BLOCK.subn(ROSTER_SLOT, markup)
+    if rosters != 1:
+        raise SystemExit(f"{filename}: expected one footer roster, found {rosters}")
 
     # The bilingual heading twins are a Chinese-page device: `Throws 投技`
     # helps a Chinese reader, `Throws Throws` helps nobody.
@@ -455,6 +462,11 @@ def build(key: str, filename: str, missing: Missing) -> str:
     markup = retarget(markup, filename)
     from patch_legacy_pages import locale_control
 
+    markup = markup.replace(
+        ROSTER_SLOT,
+        render_roster(filename, LOCALE, strings(LOCALE)["rosterLabel"]),
+        1,
+    )
     return markup.replace(LOCALE_SLOT, locale_control(filename, current=LOCALE), 1)
 
 

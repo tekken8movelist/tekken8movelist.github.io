@@ -587,6 +587,26 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertIn(phrase, html)
         self.assertNotIn("生成式 AI", html)
 
+    def test_every_character_page_links_every_other_fighter(self) -> None:
+        """The footer roster: each page reachable from every other one.
+
+        Before 2026-11 a character page's only internal inbound link was the
+        hub, and Search Console held eight of them at "crawled - currently
+        not indexed".
+        """
+        for code, meta in LOCALES.items():
+            tree = SITE / meta["dir"] if meta["dir"] else SITE
+            pages = {p.name for p in tree.glob("*_tk8_movelist.html")}
+            self.assertEqual(len(pages), EXPECTED_CHARACTER_PAGES)
+            for name in sorted(pages):
+                with self.subTest(locale=code, page=name):
+                    html = (tree / name).read_text(encoding="utf-8")
+                    roster = re.search(r'<nav class="roster".*?</nav>', html, re.S)
+                    self.assertIsNotNone(roster)
+                    linked = set(re.findall(r'href="([a-z0-9]+_tk8_movelist\.html)"', roster.group(0)))
+                    self.assertEqual(linked, pages - {name})
+                    self.assertIn('aria-current="page"', roster.group(0))
+
     def test_meta_descriptions_are_long_enough_and_distinct(self) -> None:
         """Bing Webmaster flagged 12 pages as "too short" in 2026-11.
 

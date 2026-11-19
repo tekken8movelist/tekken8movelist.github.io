@@ -349,6 +349,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "角色资料（国家 · 拳法）来自 ",
         "footOfficial": "TEKKEN 8 官方网站",
         "footNote": "招式名为中文意译，供参考；发生帧表示首击冲击帧。",
+        "rosterLabel": "全部角色",
         "refNameTitle": "",
         "legendRefNames": "",
     },
@@ -487,6 +488,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "footProfile": "角色資料（國家 · 拳法）來自 ",
         "footOfficial": "TEKKEN 8 官方網站",
         "footNote": "招式名為中文意譯，供參考；發生幀表示首擊衝擊幀。",
+        "rosterLabel": "全部角色",
         "refNameTitle": "",
         "legendRefNames": "",
     },
@@ -642,6 +644,7 @@ STRINGS: dict[str, dict[str, object]] = {
             "Move names are Wavu Wiki's where Wavu publishes one; the rest are "
             "the project's own descriptions. Startup is frames to first impact."
         ),
+        "rosterLabel": "All fighters",
         # Only the English build has moves Wavu never named, so only it needs
         # these. Both earlier attempts marked such rows individually -- a `ref`
         # badge, then italics -- and both made a fifth of the table look

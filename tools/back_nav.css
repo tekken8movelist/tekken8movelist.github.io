@@ -98,6 +98,40 @@ html.dark .revealbar {
   opacity: .7;
 }
 
+/* part 3: the footer roster (tools/roster.py) -- every other fighter in one
+   wrapping line, so each page is reachable from more than the hub. */
+footer .roster {
+  display: block;
+  margin: 8px auto 0;
+  max-width: 900px;
+  font-size: 9.5px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+footer .roster b {
+  margin-right: 4px;
+  font-weight: 700;
+  opacity: .75;
+}
+
+footer .roster a {
+  color: var(--bn-accent, inherit);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+footer .roster a:hover,
+footer .roster a:focus-visible {
+  text-decoration: underline;
+}
+
+footer .roster [aria-current] {
+  color: inherit;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .revealbar {
     transition: none;

@@ -44,6 +44,7 @@ from locales import (  # noqa: E402
 )
 from official_profile_zh import localized_profile  # noqa: E402
 from pipeline import CONFIG as PIPELINE_CONFIG  # noqa: E402
+from roster import ROSTER_BLOCK, render_roster  # noqa: E402
 
 ROOT = TOOLS.parent
 SITE = ROOT / "docs"
@@ -72,8 +73,8 @@ def accent_binding(key: str) -> str:
     config = PIPELINE_CONFIG[key]
     band = band_color(config["acc"], config["acc_ink"])
     return f"""
-.revealbar {{ --bn-accent: var(--jade-dark); }}
-html.dark .revealbar {{ --bn-accent: var(--acc); }}
+.revealbar, footer .roster {{ --bn-accent: var(--jade-dark); }}
+html.dark .revealbar, html.dark footer .roster {{ --bn-accent: var(--acc); }}
 body {{ --accent-band: {band}; }}
 header {{ --hc-accent: var(--accent-band); --hc-ink: var(--jade-dark); }}
 h2 {{ background: var(--accent-band); }}
@@ -315,6 +316,14 @@ def patch(key: str, text: str, css: str, script: str) -> str:
     # the intro paragraph now belongs to the footer, as on the generator pages
     if intro_html and 'class="page-intro"' not in text:
         text = FOOTER.sub(lambda m: m.group(1) + intro_html, text, count=1)
+
+    # every other fighter, as on the generator pages (tools/roster.py);
+    # replaced rather than skipped when present, so --check sees a stale list
+    text = ROSTER_BLOCK.sub("", text)
+    roster = render_roster(LEGACY_PAGES[key], DEFAULT_LOCALE, strings(DEFAULT_LOCALE)["rosterLabel"])
+    if text.count("</footer>") != 1:
+        raise ValueError(f"{key}: expected exactly one footer")
+    text = text.replace("</footer>", roster + "</footer>", 1)
 
     text = STYLE_BLOCK.sub("", text)
     text = SCRIPT_BLOCK.sub("", text)

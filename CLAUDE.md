@@ -78,6 +78,13 @@ treatment A）：
 - **智能返回**：`[data-home]` 若来源是同源同目录的 `index.html` 则走 `history.back()`，
   保住主页滚动位与搜索词；带修饰键的点击一律放行。
 
+- **页脚角色名单**（2026-11）：每个角色页页脚末尾 `nav.roster` 一行列出全部已上线角色，
+  链到同语系同目录页面，当前页为 `aria-current`。名单与顺序**从手写主页的 `a.card` 解析**
+  （`tools/roster.py`），占位卡是 `<div>` 所以未上线角色不会出现；繁體走转换器，英文用卡片
+  `<i>` 里的英文名（管线页英文版把整段换掉，不进 PHRASES）。起因：此前每个角色页唯一的
+  站内入链是主页，GSC 有 8 页「已抓取 - 尚未编入索引」。门禁
+  `test_every_character_page_links_every_other_fighter`。
+
 CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐字共用**；因此只依赖
 两家都成立的东西（`color: inherit`、写死的 `--bg` 实值），强调色经 `--bn-accent` 中转，
 由各自样式块赋值一次。改动后：生成器页重建，管线页跑 `python tools/patch_legacy_back_nav.py`。
@@ -406,6 +413,7 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
   **Wavu 已把多数角色的十连技从招式卡片迁成 wikitable**：刷新时必须带
   `--tables`（`TK8.grabTens` 抓的表格），否则这些角色的十连技会被静默删光。
   表格合成按「每个 10 Hit Combo N 一条链」，表头行不是一击（见 KNOWLEDGE §15）。
+- `roster.py` — 页脚角色名单（解析主页卡片，两套页面共用；样式在 `back_nav.css`）
 - `build_avatars_webp.py` / `source/avatar_webp.json` — 头像 WebP 副本与其来源 PNG 的哈希清单
 - `indexnow_submit.py` / `docs/{key}.txt` — IndexNow 提交（Bing/Yandex/Naver/Seznam）；
   发布上线后运行。Google 不参与 IndexNow、2023 年起也不收 sitemap ping，走 Search Console。

@@ -39,6 +39,7 @@ from official_profile_zh import localized_profile  # noqa: E402
 from move_name_en import english_name  # noqa: E402
 from zh_hant import convert, convert_translation  # noqa: E402
 from pipeline import first_step, parse_cmd  # noqa: E402
+from roster import render_roster  # noqa: E402
 from season2_config import (  # noqa: E402
     CHARACTERS,
     COMBO_SECTION_NAMES,
@@ -2212,7 +2213,7 @@ def build_page(
     <header><h2>{s["secTips"]}<small>{escape(display)}{s["secTipsSub"]}</small></h2></header>
     <div class="legend">{s["comboNote"].format(count=combo_count)}{marker_note}</div>
     {combo_html}
-    <footer id="sources"><p class="page-intro">{intro}</p>{footer_sources}</footer>
+    <footer id="sources"><p class="page-intro">{intro}</p>{footer_sources}{render_roster(config["filename"], locale, s["rosterLabel"])}</footer>
   </section>
 </main>
 <script>{PAGE_SCRIPT}</script>
