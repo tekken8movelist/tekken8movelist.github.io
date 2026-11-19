@@ -370,6 +370,17 @@ Wavu 抓取经浏览器返回，约 1200 字符就截断，而截断标记出现
 门禁没抓到的原因：伤害列的「三位数黏连」报警只看数字，`Damage` 不是数字；
 链长没有上限断言。看线上页面才发现。
 
+### 刷新老角色的完整流程（2026-11-19 固化）
+1. 浏览器：注入 `tools/wavu_extract.js`，`TK8.grab(page)` 全部角色 + `TK8.grabTens(page)`
+   十连技表，两次 `TK8.button(...)` 走剪贴板落盘（RAW.json / TENS.json）。
+2. `python tools/wavu_snapshot.py RAW.json --tables TENS.json Page=key ...`（已有快照的
+   角色只给 `Page=key`，名字沿用快照）。
+3. `python tools/carry_translations.py --all --write`：承接旧中文名、十连技按位次命名、
+   删除消失的 ID，列出 MISSING——这些手工写进 `{key}_zh.json`，再跑到 0 为止。
+4. `check_zh.py` / `move_name_en.py --check`，再用门禁报出的新期望值改登记表
+   （分区、计数、发生帧覆盖、聚合伤害、described 名数——一律从构建结果推导）。
+5. `validate_season2.ps1` 全绿后提交、推送、`indexnow_submit.py`。
+
 ### 刷新老角色时 ID 会漂移，翻译要「按规范化指令」承接
 
 `FC.1→hFC.1`、`D+4→d+4`、`df4→df+4`、`H.RFS.d+4,3→RFS.d+4,H.3`——Wavu 改写法，

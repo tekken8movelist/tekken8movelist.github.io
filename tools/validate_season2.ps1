@@ -115,6 +115,8 @@ try {
             (Join-Path $PSScriptRoot 'build_avatars_webp.py'),
             (Join-Path $PSScriptRoot 'roster.py'),
             (Join-Path $PSScriptRoot 'build_404.py'),
+            (Join-Path $PSScriptRoot 'carry_translations.py'),
+            (Join-Path $PSScriptRoot 'wavu_snapshot.py'),
             (Join-Path $PSScriptRoot 'zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_locales.py'),
             (Join-Path $PSScriptRoot 'test_zh_hant.py'),

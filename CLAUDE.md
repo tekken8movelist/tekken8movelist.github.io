@@ -430,6 +430,7 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
   表格合成按「每个 10 Hit Combo N 一条链」，表头行不是一击（见 KNOWLEDGE §15）。
 - `roster.py` — 页脚角色名单（解析主页卡片，两套页面共用；样式在 `back_nav.css`）
 - `build_404.py` — 生成 `docs/404.html`（门禁重建）；`build_sitemap.py` 含按内容哈希的 lastmod
+- `carry_translations.py` — Wavu 刷新后承接中文名、十连技按位次命名、列出待人工翻译（流程见 KNOWLEDGE §15）
 - `build_avatars_webp.py` / `source/avatar_webp.json` — 头像 WebP 副本与其来源 PNG 的哈希清单
 - `indexnow_submit.py` / `docs/{key}.txt` — IndexNow 提交（Bing/Yandex/Naver/Seznam）；
   发布上线后运行。Google 不参与 IndexNow、2023 年起也不收 sitemap ping，走 Search Console。
