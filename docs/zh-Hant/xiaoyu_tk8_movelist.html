@@ -795,6 +795,25 @@ h2 {
 .legend {
   border-radius: 2px;
 }
+
+/* Touch screens: the band's switches (主题 / 记法 / 语言) are 16-20px tall,
+   under the 24px minimum target size (WCAG 2.2 SC 2.5.8). Lighthouse's mobile
+   audit flagged #thl and #nt on 2026-11-19. Only coarse pointers get the extra
+   height, so the desktop band keeps its density. */
+@media (pointer: coarse) {
+  header .ntgl button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  header .lcgl a,
+  header .lcgl .off,
+  header .lcgl [aria-current="true"] {
+    display: inline-block;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
 /* ---- notation-aware legend ---------------------------------------------
    Shared verbatim by both page families (36 generator pages via
    build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
