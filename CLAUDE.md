@@ -52,6 +52,9 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
   （`header_card.css` 的 `pointer: coarse` 规则）、主页 `<main>` 地标与 `--kicker` 对比度
   （#808e9e，三种底色都过 4.5）。主页字体改为 preload 非阻塞后，**首屏头像成了 LCP**——
   前 8 张卡片不得 `loading="lazy"`，第一张 `fetchpriority="high"`；新增卡片时保持这个顺序约定。
+- **主页字体**：Noto Sans SC 用 `text=` 只请求该主页实际渲染的字符（`tools/hub_fonts.py`，
+  `augment_hub` / `build_hub` 每次重算，门禁校验覆盖）；两条字体链接都是 `media="print"` 低优先级，
+  不得阻塞渲染（fonts.googleapis.com 在大陆不可达）。改主页文案后照常跑门禁即可。
 - **工具**：`tools/indexnow_submit.py`（发布后推 Bing 等）；Google 只能靠 Search Console。
 
 ## 角色页标题带（2026-07-25 改版，Claude Design 方案 A「铭牌」）

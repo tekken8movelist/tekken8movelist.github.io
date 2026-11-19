@@ -22,6 +22,7 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
+from hub_fonts import apply_hub_fonts  # noqa: E402
 from hub_i18n import HUB, locale_control  # noqa: E402
 from zh_hant import convert  # noqa: E402
 
@@ -80,6 +81,8 @@ def main() -> int:
     markup = HUB.read_text(encoding="utf-8")
     markup, added = add_traditional_search_terms(markup)
     markup, control = add_language_control(markup)
+    # web fonts subset to this page's own text (tools/hub_fonts.py)
+    markup = apply_hub_fonts(markup)
     HUB.write_text(markup, encoding="utf-8", newline="\n")
     print(f"data-q: {added} card(s) gained a Traditional spelling")
     print(f"language control: {'added' if control else 'already present'}")

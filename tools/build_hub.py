@@ -37,6 +37,7 @@ from locales import (  # noqa: E402
     alternate_links,
     public_url,
 )
+from hub_fonts import apply_hub_fonts  # noqa: E402
 from zh_hant import convert  # noqa: E402
 
 
@@ -375,12 +376,14 @@ def derive(markup: str, locale: str) -> str:
     markup = swap_paths(markup, locale)
     markup = retarget_missing_pages(markup, locale)
     # the language control has to point back out of this tree
-    return replace_once(
+    markup = replace_once(
         markup,
         r'<div class="grp"><span class="lbl">语言</span>.*?</span></div>',
         locale_control(locale),
         "language control",
     )
+    # this tree's own text decides the Noto subset (tools/hub_fonts.py)
+    return apply_hub_fonts(markup)
 
 
 def write_if_changed(path: Path, content: str) -> bool:

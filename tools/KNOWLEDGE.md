@@ -428,6 +428,17 @@ ID 跟着变，旧翻译按 ID 查不到。按规范化指令（大小写、`FC.
 「渲染阻塞」被修掉之后要重新看 LCP 元素是谁；首屏图片不能懒加载。修法是前 8 张卡片
 eager、第一张 `fetchpriority="high"`。教训：一次只改一个性能变量，改完立刻复测。
 
+### 中文页的网络字体按「页面上的字」收费
+同一份主页，英文版 LCP 1.0s、简体版 11.1s（PageSpeed 移动端）：Google Fonts 按字重 × unicode-range
+切片下发 Noto Sans SC，中文页拉了 21 个文件 / 1.1 MB（外加 451 KB 的 CSS），在模拟慢速链路上
+把首屏头像饿住了。只把样式表降成低优先级（`media="print"`）**没用**——Lighthouse 的模拟把
+LCP 之前开始的请求都算进关键路径，字节不减就没救。根治是 `text=`：主页文字是固定的，
+`tools/hub_fonts.py` 把每个主页**实际渲染的全部字符**（含拉丁字母——body 首选 Noto，漏掉拉丁会
+悄悄换字体；含全部 ASCII——搜索计数是运行时写的）写进请求，四个字重保留，字体 1.1 MB→0.3 MB、
+CSS 451 KB→12 KB。门禁 `test_hub_font_subset_covers_every_rendered_character` 防止改了文案没更新子集。
+另：fonts.googleapis.com 在中国大陆不可达——以前那个阻塞式样式表会让大陆用户白屏到超时，
+所以字体链接**永远不能阻塞渲染**。
+
 ### 设备相关的样式只给对应设备
 触控目标 24px 的修复放在 `@media (pointer: coarse)` 里——桌面标题带的密度是设计定稿，
 不能为了手机把它撑高。门禁的桌面/响应式几何状态因此不受影响。

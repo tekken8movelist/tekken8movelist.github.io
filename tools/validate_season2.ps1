@@ -108,6 +108,7 @@ try {
             (Join-Path $PSScriptRoot 'hub_i18n.py'),
             (Join-Path $PSScriptRoot 'build_hub.py'),
             (Join-Path $PSScriptRoot 'augment_hub.py'),
+            (Join-Path $PSScriptRoot 'hub_fonts.py'),
             (Join-Path $PSScriptRoot 'build_legacy_hant.py'),
             (Join-Path $PSScriptRoot 'build_legacy_en.py'),
             (Join-Path $PSScriptRoot 'legacy_en.py'),

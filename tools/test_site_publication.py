@@ -599,6 +599,34 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertIn(phrase, html)
         self.assertNotIn("生成式 AI", html)
 
+    def test_hub_font_subset_covers_every_rendered_character(self) -> None:
+        """Noto Sans SC is requested with text=<the hub's own characters>.
+
+        A glyph missing from the subset would quietly render in the fallback
+        face, so each hub's request must cover everything that hub shows
+        (tools/hub_fonts.py), and both font links must load without blocking.
+        """
+        import html as html_module
+        from urllib.parse import unquote
+
+        from hub_fonts import rendered_characters
+
+        for code, meta in LOCALES.items():
+            tree = SITE / meta["dir"] if meta["dir"] else SITE
+            with self.subTest(locale=code):
+                markup = (tree / "index.html").read_text(encoding="utf-8")
+                noto = re.findall(r'href="(https://fonts\.googleapis\.com/css2\?family=Noto[^"]*)"', markup)
+                self.assertTrue(noto)
+                subset = unquote(html_module.unescape(noto[0]).split("text=", 1)[1])
+                missing = set(rendered_characters(markup)) - set(subset)
+                self.assertEqual(missing, set())
+                # the <noscript> twins are meant to be plain links
+                scripted = re.sub(r"<noscript>.*?</noscript>", "", markup, flags=re.S)
+                links = re.findall(r'<link rel="stylesheet" href="https://fonts[^>]*>', scripted)
+                self.assertEqual(len(links), 2)
+                for link in links:
+                    self.assertIn('media="print"', link)
+
     def test_every_character_page_links_every_other_fighter(self) -> None:
         """The footer roster: each page reachable from every other one.
 
