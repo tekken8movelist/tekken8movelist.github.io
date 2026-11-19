@@ -317,10 +317,16 @@ class SitePublicationContractTest(unittest.TestCase):
             for name, value in references
             if name == "src" and value.startswith("avatars/")
         }
+        # cards load the WebP copy (tools/build_avatars_webp.py); the PNG
+        # stays for og:image / twitter:image
         checked_in_avatars = {
-            f"avatars/{path.name}" for path in (SITE / "avatars").glob("*.png")
+            f"avatars/{path.name}" for path in (SITE / "avatars").glob("*.webp")
         }
         self.assertEqual(linked_avatars, checked_in_avatars)
+        self.assertEqual(
+            {p.stem for p in (SITE / "avatars").glob("*.webp")},
+            {p.stem for p in (SITE / "avatars").glob("*.png")},
+        )
         # homepage is dark-only (2026-07-22): the light-avatar swap must stay gone
         self.assertNotIn("avatars-light/", INDEX.read_text(encoding="utf-8"))
 
@@ -468,7 +474,7 @@ class SitePublicationContractTest(unittest.TestCase):
                 # the portrait is set into the header band, and the file it
                 # points at has to exist inside the publication root
                 self.assertEqual(html.count('<div class="hero">'), 1)
-                self.assertIn(f'<img src="avatars/{slug}.png"', html)
+                self.assertIn(f'<img src="avatars/{slug}.webp"', html)
                 self.assertTrue((SITE / "avatars" / f"{slug}.png").is_file())
                 # country and fighting style, taken from the official site
                 self.assertEqual(html.count('<dl class="hdrbio">'), 1)

@@ -112,6 +112,7 @@ try {
             (Join-Path $PSScriptRoot 'legacy_en.py'),
             (Join-Path $PSScriptRoot 'move_name_en.py'),
             (Join-Path $PSScriptRoot 'build_sitemap.py'),
+            (Join-Path $PSScriptRoot 'build_avatars_webp.py'),
             (Join-Path $PSScriptRoot 'zh_hant.py'),
             (Join-Path $PSScriptRoot 'test_locales.py'),
             (Join-Path $PSScriptRoot 'test_zh_hant.py'),
@@ -142,6 +143,8 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'move_name_en.py'), '--check')
         Invoke-NativeStep -Label 'Rebuild the derived locale hubs' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_hub.py'))
+        Invoke-NativeStep -Label 'Check every portrait has a current WebP' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_avatars_webp.py'), '--check')
         Invoke-NativeStep -Label 'Rebuild the sitemap' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_sitemap.py'))
         Invoke-NativeStep -Label 'Run locale table tests' -FilePath $python `

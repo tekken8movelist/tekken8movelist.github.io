@@ -1296,7 +1296,7 @@ class Season2BuildTests(unittest.TestCase):
                 # the portrait is set into the band, not floated over the tables
                 slug = cfg["filename"].removesuffix("_tk8_movelist.html")
                 self.assertIn(
-                    f'<div class="hero"><img src="avatars/{slug}.png"', html
+                    f'<div class="hero"><img src="avatars/{slug}.webp"', html
                 )
                 # theme and notation toggles moved into the header's top row
                 self.assertIn('<div class="hdrctl">', html)

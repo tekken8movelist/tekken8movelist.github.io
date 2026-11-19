@@ -31,8 +31,9 @@ Saira/JetBrains Mono/Noto Sans SC 字体栈；分组小节布局（核心阵容 
 QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多窗口帧差）；
 原型演练场 `workbench/qa/flux-ladder.html`。改参数先动原型再移植，两个 QA 必须过。
 
-- 头像（可选）：放 `avatars/{slug}.png`（slug 如 jin/kazuya/deviljin/armorking…见卡片
-  `<img>` src）。加载成功自动加 `.hasimg` 隐藏水印与字母徽标（避免与人物图重叠）；
+- 头像（可选）：放 `avatars/{slug}.png`，再跑 `python tools/build_avatars_webp.py` 生成
+  页面实际加载的 `{slug}.webp`（2026-11 起：44 张 PNG 18.5 MB → WebP 1.8 MB；PNG 只留给
+  og:image/twitter:image；门禁 `--check` 按 PNG 的 SHA-256 判过期，不看文件时间）。加载成功自动加 `.hasimg` 隐藏水印与字母徽标（避免与人物图重叠）；
   失败 `onerror` 移除 `<img>`，回退为徽标+水印，页面始终完整。
 - 新增角色：在对应分组 `.grid` 复制一张 `<a class="card" style="--acc:主题色"
   data-q="中文名 英文名">` 卡片并更新组头计数与搜索行总数；未上线角色用
@@ -405,6 +406,7 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
   **Wavu 已把多数角色的十连技从招式卡片迁成 wikitable**：刷新时必须带
   `--tables`（`TK8.grabTens` 抓的表格），否则这些角色的十连技会被静默删光。
   表格合成按「每个 10 Hit Combo N 一条链」，表头行不是一击（见 KNOWLEDGE §15）。
+- `build_avatars_webp.py` / `source/avatar_webp.json` — 头像 WebP 副本与其来源 PNG 的哈希清单
 - `indexnow_submit.py` / `docs/{key}.txt` — IndexNow 提交（Bing/Yandex/Naver/Seznam）；
   发布上线后运行。Google 不参与 IndexNow、2023 年起也不收 sitemap ping，走 Search Console。
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)

@@ -397,6 +397,27 @@ ID 跟着变，旧翻译按 ID 查不到。按规范化指令（大小写、`FC.
   `application/xml`、robots.txt 已声明），且索引报告里有 62 页已编入——这是 GSC 的
   显示问题，不是站点缺陷，不要为它改 sitemap 格式。
 
+### 用 Search Console 的数据做决定（2026-11-19 夜间优化）
+- **流量几乎全在英文页**：近三个月 1.02K 点击 / 40.7K 展示，`/en/` 主页 275 点击，
+  `/en/king` 9,093 展示但 CTR 2.2%，`/en/jack` 3,090 展示 CTR 0.5%。英文页的标题与描述
+  是收益最大的地方；中文页展示量小，GSC 里有 8 个简体角色页「已抓取 - 尚未编入索引」。
+- **查询写的是 "move list" 两个词**（"tekken 8 move list" 537 展示，"movelist" 174），
+  于是标题尾巴改成 Move List；站名 `TEKKEN 8 Movelist` 作为名字保留不动。
+  繁體用户也搜「招式表」（鐵拳8招式表ps5），繁體标题写 出招表・招式表。
+- **Bing 的「描述太短」阈值约 100 字符**：被标的 12 页全在 88–98（两个中文主页、
+  金/熊/雷欧/熊猫/雷文/蕾娜 这些短名角色），它建议 150–160。描述改为
+  `page_description_for()` 按本页实有内容组合（招式数、架势名、十连技、连招条数），
+  超长时按固定顺序删部分；门禁 `test_meta_descriptions_are_long_enough_and_distinct`
+  卡 100–160 且同语系不重复。旧模板还写着「确反数据」，生成器页并没有确反列——
+  描述只能写页面真有的东西。
+
+### 写回文件时别改换行符（又踩了一次）
+管线页的简体 HTML 是 **CRLF**。Python `open()` 读入时把 CRLF 折成 LF，以 LF 换行
+写回就把整页换成了 LF——描述那次提交因此把 5 个管线页变成整页 diff（`8001fbe` 修过
+同一件事）。`.gitattributes` 是 `* -text`，git 不会替你兜底。改这些页面要么走
+`patch_legacy_pages.py`（它保留原换行），要么用 `newline=""` 读写；提交前用
+`git diff --stat` 看行数是否和改动量相称。
+
 ## Phone layout (added 2026-07)
 
 - All 41 movelist pages reflow at `@media (max-width: 640px)`: line 1 = move name +

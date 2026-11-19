@@ -229,7 +229,7 @@ def build_header(key: str, block: str, slug: str) -> tuple[str, str]:
     bio = f'<dl class="hdrbio">{rows}</dl>' if rows else ""
 
     header = (
-        f'<div class="hero"><img src="avatars/{slug}.png" '
+        f'<div class="hero"><img src="avatars/{slug}.webp" '
         f'alt="{escape(display, quote=True)} · 飞白轮廓角色像" decoding="async"></div>\n'
         '  <div class="hdrmain">\n'
         '    <div class="hdrtop">\n'

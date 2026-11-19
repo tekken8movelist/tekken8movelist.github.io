@@ -2069,7 +2069,7 @@ def build_page(
     )
     header_bio = f'<dl class="hdrbio">{bio_rows}</dl>' if bio_rows else ""
     hero = (
-        f'<div class="hero"><img src="{asset_href(locale, f"avatars/{avatar_slug}.png")}" '
+        f'<div class="hero"><img src="{asset_href(locale, f"avatars/{avatar_slug}.webp")}" '
         f'alt="{escape(display, quote=True)}{s["heroAltSuffix"]}" '
         f'decoding="async"></div>'
     )
