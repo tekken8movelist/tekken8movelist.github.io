@@ -112,7 +112,7 @@ class LawPageContractTest(unittest.TestCase):
         html = self.html
         self.assertIn(
             "<title>铁拳8 马歇尔·洛（Marshall Law）出招表"
-            " | TEKKEN 8 Marshall Law Movelist</title>",
+            " | TEKKEN 8 Marshall Law Move List</title>",
             html,
         )
         self.assertEqual(html.count("<h1"), 1)

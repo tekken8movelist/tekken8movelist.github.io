@@ -1077,7 +1077,7 @@ class Season2BuildTests(unittest.TestCase):
                 self.assertIn("<!doctype html>", html.lower())
                 expected_title = (
                     f"铁拳8 {cfg['display']}（{cfg['canonical']}）出招表"
-                    f" | TEKKEN 8 {cfg['canonical']} Movelist"
+                    f" | TEKKEN 8 {cfg['canonical']} Move List"
                 )
                 self.assertIn(f"<title>{expected_title}</title>", html)
                 description = re.search(

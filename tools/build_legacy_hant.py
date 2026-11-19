@@ -154,6 +154,17 @@ def build(filename: str) -> str:
         r'<div class="lcgl">.*?</div>', locale_control(filename), markup,
         count=1, flags=re.S,
     )
+    # Taiwan searches say 招式表 as often as 出招表 (Search Console, 2026-11);
+    # the generator's Traditional titles carry both, and these match them.
+    # Only the head titles: the visible h1 keeps reading 出招表.
+    markup, count = re.subn(
+        r'((?:<title>|<meta (?:property="og:title"|name="twitter:title") content=")'
+        r'[^<"]*?)出招表 \|',
+        r"\1出招表・招式表 |",
+        markup,
+    )
+    if count != 3:
+        raise SystemExit(f"{filename}: expected 3 head titles, rewrote {count}")
     return markup
 
 

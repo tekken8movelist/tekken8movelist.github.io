@@ -201,7 +201,7 @@ PHRASES = {
     "快速导航": "Quick navigation",
     "首页": "Home",
     "铁拳 8 出招表": "TEKKEN 8 movelist",
-    "铁拳8 全角色中文出招表": "TEKKEN 8 Movelist · Frame Data & Command List",
+    "铁拳8 全角色中文出招表": "TEKKEN 8 Move List · Frame Data & Command List",
     "主题": "Theme",
     "夜间": "Dark",
     "浅色": "Light",
@@ -403,34 +403,34 @@ PHRASES = {
     "风间准出招表": "Jun Kazama movelist",
     "风间准 · 飞白轮廓角色像": "Jun Kazama · flying-white outline portrait",
     "铁拳8 风间准（Jun Kazama）头像": "TEKKEN 8 Jun Kazama portrait",
-    "铁拳8 风间准（Jun Kazama）出招表 | TEKKEN 8 Jun Kazama Movelist":
-        "TEKKEN 8 Jun Kazama Movelist · Frame Data & Command List",
+    "铁拳8 风间准（Jun Kazama）出招表 | TEKKEN 8 Jun Kazama Move List":
+        "TEKKEN 8 Jun Kazama Move List · Frame Data & Command List",
     "凌晓雨": "Ling Xiaoyu",
     "凌晓雨出招表": "Ling Xiaoyu movelist",
     "凌晓雨 · 飞白轮廓角色像": "Ling Xiaoyu · flying-white outline portrait",
     "铁拳8 凌晓雨（Ling Xiaoyu）头像": "TEKKEN 8 Ling Xiaoyu portrait",
-    "铁拳8 凌晓雨（Ling Xiaoyu）出招表 | TEKKEN 8 Ling Xiaoyu Movelist":
-        "TEKKEN 8 Ling Xiaoyu Movelist · Frame Data & Command List",
+    "铁拳8 凌晓雨（Ling Xiaoyu）出招表 | TEKKEN 8 Ling Xiaoyu Move List":
+        "TEKKEN 8 Ling Xiaoyu Move List · Frame Data & Command List",
     "国光二世": "Kunimitsu II",
     "国光二世出招表": "Kunimitsu II movelist",
     "国光二世 · 飞白轮廓角色像": "Kunimitsu II · flying-white outline portrait",
     "铁拳8 国光二世（Kunimitsu II）头像": "TEKKEN 8 Kunimitsu II portrait",
-    "铁拳8 国光二世（Kunimitsu II）出招表 | TEKKEN 8 Kunimitsu II Movelist":
-        "TEKKEN 8 Kunimitsu II Movelist · Frame Data & Command List",
+    "铁拳8 国光二世（Kunimitsu II）出招表 | TEKKEN 8 Kunimitsu II Move List":
+        "TEKKEN 8 Kunimitsu II Move List · Frame Data & Command List",
     "克莱夫·罗兹菲尔德": "Clive Rosfield",
     "克莱夫·罗兹菲尔德出招表": "Clive Rosfield movelist",
     "克莱夫·罗兹菲尔德 · 飞白轮廓角色像":
         "Clive Rosfield · flying-white outline portrait",
     "铁拳8 克莱夫·罗兹菲尔德（Clive Rosfield）头像":
         "TEKKEN 8 Clive Rosfield portrait",
-    "铁拳8 克莱夫·罗兹菲尔德（Clive Rosfield）出招表 | TEKKEN 8 Clive Rosfield Movelist":
-        "TEKKEN 8 Clive Rosfield Movelist · Frame Data & Command List",
+    "铁拳8 克莱夫·罗兹菲尔德（Clive Rosfield）出招表 | TEKKEN 8 Clive Rosfield Move List":
+        "TEKKEN 8 Clive Rosfield Move List · Frame Data & Command List",
     "马歇尔·洛": "Marshall Law",
     "马歇尔·洛出招表": "Marshall Law movelist",
     "马歇尔·洛 · 飞白轮廓角色像": "Marshall Law · flying-white outline portrait",
     "铁拳8 马歇尔·洛（Marshall Law）头像": "TEKKEN 8 Marshall Law portrait",
-    "铁拳8 马歇尔·洛（Marshall Law）出招表 | TEKKEN 8 Marshall Law Movelist":
-        "TEKKEN 8 Marshall Law Movelist · Frame Data & Command List",
+    "铁拳8 马歇尔·洛（Marshall Law）出招表 | TEKKEN 8 Marshall Law Move List":
+        "TEKKEN 8 Marshall Law Move List · Frame Data & Command List",
 
     # -- official profile values ------------------------------------------
     "日本": "Japan",

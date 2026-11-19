@@ -149,9 +149,9 @@ HUB_STRINGS = {
         "en": "Sources and legal notice",
     },
     "pageTitle": {
-        "hans": "铁拳8 全角色中文出招表｜TEKKEN 8 Movelist",
-        "hant": "鐵拳8 全角色中文出招表｜TEKKEN 8 Movelist",
-        "en": "TEKKEN 8 Movelist · Frame Data & Command List",
+        "hans": "铁拳8 全角色中文出招表｜TEKKEN 8 Move List",
+        "hant": "鐵拳8 全角色中文出招表・招式表｜TEKKEN 8 Move List",
+        "en": "TEKKEN 8 Move List · Frame Data & Command List",
     },
     # The head block: everything a crawler, a link preview or a screen reader
     # reads before the page renders. Missed in the first pass because it is

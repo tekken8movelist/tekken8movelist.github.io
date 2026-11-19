@@ -612,7 +612,7 @@ class SitePublicationContractTest(unittest.TestCase):
                 self.assertEqual(html.count("<h1"), 1)
                 self.assertRegex(
                     html,
-                    r"<title>铁拳8 .+（.+）出招表 \| TEKKEN 8 .+ Movelist</title>",
+                    r"<title>铁拳8 .+（.+）出招表 \| TEKKEN 8 .+ Move List</title>",
                 )
                 self.assertIn('<meta name="description" content="', html)
                 self.assertIn(

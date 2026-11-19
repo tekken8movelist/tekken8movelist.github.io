@@ -314,7 +314,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "legendTornado": "回旋",
         # --- SEO, footer, intro ---
         "siteName": "铁拳8 全角色中文出招表",
-        "titleTemplate": "铁拳8 {display}（{canonical}）出招表 | TEKKEN 8 {canonical} Movelist",
+        "titleTemplate": "铁拳8 {display}（{canonical}）出招表 | TEKKEN 8 {canonical} Move List",
         # meta description, composed per character by page_description():
         # lead + whichever parts the page actually has + close + tail, trimmed
         # to 160 characters. Bing flags anything under ~100 as too short, and
@@ -456,7 +456,7 @@ STRINGS: dict[str, dict[str, object]] = {
         "legendSeps": "› 接續　+ 方向＋鍵　~ 緊接　＊蓄力　→ 下一招",
         "legendTornado": "迴旋",
         "siteName": "鐵拳8 全角色中文出招表",
-        "titleTemplate": "鐵拳8 {display}（{canonical}）出招表 | TEKKEN 8 {canonical} Movelist",
+        "titleTemplate": "鐵拳8 {display}（{canonical}）出招表・招式表 | TEKKEN 8 {canonical} Move List",
         "descLead": (
             "{display}（{canonical}）《鐵拳8》中文出招表：{moves} 招指令與圖形化按鍵，"
             "逐招發生幀、判定與傷害"
@@ -609,7 +609,7 @@ STRINGS: dict[str, dict[str, object]] = {
         # the site name in English is also the search term; "中文" would be a
         # lie here and costs the phrase people actually type
         "siteName": "TEKKEN 8 Movelist · Frame Data & Command List",
-        "titleTemplate": "TEKKEN 8 {canonical} Movelist · Frame Data & Command List",
+        "titleTemplate": "TEKKEN 8 {canonical} Move List · Frame Data & Command List",
         "descLead": (
             "TEKKEN 8 {canonical} movelist: all {moves} moves with inputs, "
             "startup frames, hit levels and damage"
