@@ -403,6 +403,17 @@ class SitePublicationContractTest(unittest.TestCase):
             )
         self.assertEqual(sitemap_urls, expected_urls)
 
+        # every URL dates its last content change (tools/build_sitemap.py
+        # derives it from a content hash, so it never claims a change that
+        # did not happen), and the manifest agrees with the pages on disk
+        for url in root.findall("sm:url", namespace):
+            lastmod = url.findtext("sm:lastmod", namespaces=namespace)
+            with self.subTest(lastmod_for=url.findtext("sm:loc", namespaces=namespace)):
+                self.assertRegex(lastmod or "", r"^\d{4}-\d{2}-\d{2}$")
+        import build_sitemap  # noqa: E402  (local: only this test needs it)
+        _, changed = build_sitemap.refresh_lastmod(build_sitemap.load_lastmod(), "9999-12-31")
+        self.assertEqual(changed, 0, "a page changed without its sitemap lastmod moving")
+
         # and each URL declares the alternates that exist for it
         xhtml = {"xhtml": "http://www.w3.org/1999/xhtml"}
         for url in root.findall("sm:url", namespace):
