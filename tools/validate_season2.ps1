@@ -107,6 +107,7 @@ try {
             (Join-Path $PSScriptRoot 'locales.py'),
             (Join-Path $PSScriptRoot 'hub_i18n.py'),
             (Join-Path $PSScriptRoot 'build_hub.py'),
+            (Join-Path $PSScriptRoot 'augment_hub.py'),
             (Join-Path $PSScriptRoot 'build_legacy_hant.py'),
             (Join-Path $PSScriptRoot 'build_legacy_en.py'),
             (Join-Path $PSScriptRoot 'legacy_en.py'),
@@ -145,6 +146,8 @@ for value in sys.argv[1:]:
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_legacy_en.py'))
         Invoke-NativeStep -Label 'Check every project-authored move name has English' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'move_name_en.py'), '--check')
+        Invoke-NativeStep -Label 'Augment the authored hub (language control, Traditional search terms)' -FilePath $python `
+            -ArgumentList @('-B', (Join-Path $PSScriptRoot 'augment_hub.py'))
         Invoke-NativeStep -Label 'Rebuild the derived locale hubs' -FilePath $python `
             -ArgumentList @('-B', (Join-Path $PSScriptRoot 'build_hub.py'))
         Invoke-NativeStep -Label 'Check every portrait has a current WebP' -FilePath $python `

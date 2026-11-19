@@ -4,9 +4,9 @@
 
 - `docs/` is the only publishable website root and the GitHub Pages source.
 - `docs/index.html` is the hand-maintained character-select homepage.
-- `docs/*_tk8_movelist.html` contains the 41 published character pages (Simplified).
+- `docs/*_tk8_movelist.html` contains the 43 published character pages (Simplified).
 - `docs/zh-Hant/` and `docs/en/` are generated locale trees, each with a derived
-  hub. Both now hold all 41 character pages. The 36 generator-owned ones come
+  hub. Both now hold all 43 character pages. The 38 generator-owned ones come
   from `tools/build_season2.py`; the five pipeline pages have no structured
   snapshot, so Traditional converts their published Simplified HTML
   (`tools/build_legacy_hant.py`) and English rebuilds it, taking move names from
@@ -16,7 +16,7 @@
   and rebuild. The derived hubs still retarget cards at `../` for any page
   missing from their tree -- nothing is missing today, but a new locale would
   need it.
-- `docs/avatars/` contains the final homepage portraits. The homepage is dark-only (no theme toggle since flux v3); `docs/avatars-light/` was removed in that change. Other local avatar directories are experiments or backups and are intentionally ignored.
+- `docs/avatars/` contains the final homepage portraits: `{slug}.png` (used by og:image) plus the `{slug}.webp` copy every `<img>` loads, made by `tools/build_avatars_webp.py` and checked by the gate against the PNG's hash. The homepage is dark-only (no theme toggle since flux v3); `docs/avatars-light/` was removed in that change. Other local avatar directories are experiments or backups and are intentionally ignored.
 - `tools/source/` is the structured source of truth for generated character pages.
 - `tools/` contains generators, source snapshots, regression tests, and browser QA.
 - `tools/jun_movelist_source_template.html` is the legacy pipeline input reference, not a published page.
@@ -34,10 +34,11 @@ Do not recreate generated HTML at the repository root. Do not treat ignored desi
 - The header card, notation legend, back navigation and movelist table text are shared by both page families through `tools/header_card.css`, `tools/legend_card.css`, `tools/back_nav.css`, `tools/table_text.css`, and `tools/back_nav.js`. Edit those, then rebuild the generator pages and re-run `tools/patch_legacy_pages.py` for the five legacy ones; never patch either family by hand.
 - Table text size and column shares are one decision, not two. The move name and button-map sizes live in `tools/table_text.css`; the width that pays for them comes from `TABLE_COLUMNS` in `tools/locales.py`. Raising a size without widening its column pushes the longest commands into the 9px shrink tier, which makes the page smaller rather than larger. Measure the columns before changing either — the widths in the `TABLE_COLUMNS` comment were taken off the rendered pages, and the `zoom: 1.25` on `body` means `getBoundingClientRect()` and `clientWidth` are in different units.
 - Character country and fighting style come from `tools/source/official_profiles.json`, snapshotted from tekken.com. Refresh it with `tools/fetch_official_profiles.py`; add any new vocabulary to `tools/official_profile_zh.py` rather than letting English reach a page.
-- `docs/index.html` may be edited directly, but preserve relative links so the site works from the GitHub Pages root and a local `docs/` server.
+- `docs/index.html` may be edited directly, but preserve relative links so the site works from the GitHub Pages root and a local `docs/` server. Its `a.card` list is also the roster every character page's footer links to (`tools/roster.py`), so adding a fighter there is the whole registration on the hub side. Keep the first eight card images free of `loading="lazy"` (the first carries `fetchpriority="high"`): they are the Largest Contentful Paint.
+- `docs/404.html` comes from `tools/build_404.py` and `docs/sitemap.xml` (with content-hash `<lastmod>`) from `tools/build_sitemap.py`; both are rebuilt by the gate.
 - After editing the hub, run `tools/augment_hub.py` (adds the language control and
   Traditional search terms) and `tools/build_hub.py` (derives the other two hubs).
-  Both are idempotent and both are in the gate.
+  Both are idempotent and both run in the gate (augment before derive).
 - Keep public attribution and the unofficial/non-commercial/non-affiliation disclaimer intact unless the underlying sources or rights context changes.
 - Never commit local QA screenshots, avatar experiments, design exports, caches, or backup folders.
 
@@ -52,8 +53,8 @@ pwsh -File tools\validate_season2.ps1
 The gate rebuilds all generator-owned pages in all three locales, rebuilds the
 Traditional and English pipeline pages, the derived hubs and the sitemap, runs
 the locale, Traditional-conversion, Season 2, Law, English-pipeline-page and
-site-publication regression suites, and checks 648 browser states (Simplified
-36x10, Traditional and English 36x4 each) plus 45 pipeline-page legend states
+site-publication regression suites, and checks 684 browser states (Simplified
+38x10, Traditional and English 38x4 each) plus 45 pipeline-page legend states
 (5 pages x 3 locales x 3 notations). Do not claim a release is validated when
 using `-SkipBrowser`.
 
