@@ -1111,7 +1111,8 @@ class Season2BuildTests(unittest.TestCase):
                     html,
                 )
                 self.assertIn(
-                    '<meta name="twitter:card" content="summary_large_image">', html
+                    # a square portrait: summary, not the 2:1 large-image card
+                    '<meta name="twitter:card" content="summary">', html
                 )
                 self.assertIn('<script type="application/ld+json">', html)
                 self.assertIn('"@type":"WebPage"', html)

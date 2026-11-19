@@ -2173,8 +2173,10 @@ def build_page(
 <meta property="og:description" content="{escape(page_description, quote=True)}">
 <meta property="og:url" content="{page_url}">
 <meta property="og:image" content="{og_image}">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
 <meta property="og:image:alt" content="{escape(s["ogImageAltTemplate"].format(**names), quote=True)}">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{escape(page_title, quote=True)}">
 <meta name="twitter:description" content="{escape(page_description, quote=True)}">
 <meta name="twitter:image" content="{og_image}">
