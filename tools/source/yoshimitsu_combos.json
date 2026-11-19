@@ -333,11 +333,6 @@
       ],
       "raw": "Floor Blast [50] uf1+2 [40] 2+4 [40] dgf.3+4 [+31] u,f,n4 d22b 1 f3+4 d2,2,2 t! b1 3,1 [+29] ssl1 d2,2b 1 f3+4 d2,2,2 t! b1 3,1 [+28] u,f,n4 df2 d2,2b d2,2,2 t! 1+2 d2,2 [50] uf1+2 (nss) [+31] db1+2,1 f3+4 d2,2b d2,2,2 t! 1+4 d2,2b Floor Break [35] 2+4 [35] dgf.3+4 [+29] ssl1 d2,2b 1 f3+4 d2,2,2 t! b1 3,1 [45] uf1+2 [+34] ss1 d2,2 df1,2,1 t! ff1+2 bt.d1 [45] uf1+2 (nss) NSS.1+4 d2,2 df1,2,1 t! ff1+2 bt.d1 Secluded Training Ground big boy break all the walls combo here",
       "section": "Stage hazard"
-    },
-    {
-      "entries": [],
-      "raw": "[51] df+2 df+2 df+2 HB df2 d+2,2,2 T! df+2 f,n,d,df+1 [71] uf+3 uf+3 1+4 HB uf+3 H.1+4 d+2,2,2 T! H.1+4 f+1+2,F HD! uf+3",
-      "section": "Extras"
     }
   ],
   "source_url": "https://wavu.wiki/t/Yoshimitsu_combos"

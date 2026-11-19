@@ -233,6 +233,8 @@ SEGMENTS: dict[str, str] = {
     # Wavu's own word, from Roger Jr.'s "Goo Goo Rush" strings
     # hyphenated: compose() collapses a doubled word ("Goo Goo" -> "Goo")
     "咕咕": "Goo-Goo",
+    # Wavu's own prefix for Fahkumram's ws2,4 strings ("Demon Horn > ...")
+    "破魔": "Demon Horn",
     # --- chaining ---------------------------------------------------------
     "连环冲拳": "Rushing Punch Chain",
     "连拳": "Punch Combo",

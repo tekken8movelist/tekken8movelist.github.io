@@ -285,7 +285,13 @@
         {
           "route": "[+43] T! b+3+4, BT.3, LIB.4,1, ff b+4,3,4,3",
           "starter": "[28] CH (F4,4)~3"
-        },
+        }
+      ],
+      "raw": "[12] df+2 [+58] df+3, d+2,3 LIB.3+4, ff db+3,4 T! f+2,1,4 [+54] 4,1, BT.3, LIB.4,1,2, T! f+2,1,4[1] [+54] df+3 d+2,3 LIB.4,1,2, T! f+2,1,4 [14] ws2 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2+1+4 [+54] > 4,1, BT.3, LIB.4,1,2, T! f+2,1,4 [+54] 4, BT.3, LIB.4,1, ff df+4,1, T! f+2,1,4 [+52] f+3, LIB.4,1, d+2,3, LIB.1+2, T! f+2,1,4 [23] db+1+2 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+52] f+3, LIB.4,1, d+2,3, LIB.1+2, T! f+2,1,4 [+54] 4, BT.3, LIB.4,1, ff df+4,1, T! f+2,1,4 [23] LIB.1+2[2] [20] f,F+3 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+57] b+2, d+2,3, LIB.4,1,2 T! f+2,1,4 [22] uf+4 [+58] df+3, d+2,3, LIB.3+4, ff db+3,4, T! f+2,1,4 [+53] db+3, BT.4, BT.3, LIB.4,1,2 T! f+2,1,4 [20] CH ws1 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4[3] [+58] df+3, d+2,3, LIB.3+4, ff db+3,4 T! f+2,1,4 [+53] db+3, BT.4, BT.3, LIB.4,1,2 T! f+2,1,4 [23] BT.3+4 [+58] BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [+47] BT.4, BT.1,4, db+3,4 T! f+2,1,4 [+44] BT.4, BT.4, BT.4,3 T! f+2,1,4 [31] uf+3,4 [+39] fF d+4,1, d+2,3, LIB.1+2 T! f+2,1,4 [+33] ff d+4,1, df+4,1 T! f+2,1,4 [+33] db+3,4 T! ff b+4,3,4,3 [0] Low Parry [27] H.LIB.d+3+4 [+49] f+3,4, d+4,1~2, ff d+2,3, LIB.uf+3,4[4] [+44] f+4,4, df+1,4~B, BT.3, LIB.F, LIB.3,1 [20] CH 1+2 [20] CH (uf+3,)4 [24] CH (df+1,4,)1 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+58] b+3+4, BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [24] CH d+1 [+60] cc f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+58] wsb+3+4, BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [+56] ws4,1~F, LIB.4,1,2, T! ff d+2,3 LIB.uf+3+4 [25] CH (BT.1,)4 [24] CH (d+4,)1~2 [20] CH BT.1+2 [20] CH df+3 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+58] SSL b+3+4, BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [23] CH LIB.4,1 [+48] df+3, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+43] d+2,3, LIB.4,1,2 T! f+2,1,4 [36] CH db+3,4 [28] CH (F4,4)~3 [+47] T! b+3+4, BT.3, LIB.4,1, d+2,3 > LIB.3,1[5] [+45] T! b+3+4, BT,3, LIB.4,1, d+2,3, LIB.uf+3+4 [+43] T! b+3+4, BT.3, LIB.4,1, ff b+4,3,4,3",
+      "section": "Staples"
+    },
+    {
+      "entries": [
         {
           "route": "[+58] df+3, d+2,3, LIB.3+4, ff db+3,4 T! f+2,1,4",
           "starter": "[0] 2+3+4"
@@ -335,8 +341,74 @@
           "starter": "[21] b+3~F"
         }
       ],
-      "raw": "[12] df+2 [+58] df+3, d+2,3 LIB.3+4, ff db+3,4 T! f+2,1,4 [+54] 4,1, BT.3, LIB.4,1,2, T! f+2,1,4[1] [+54] df+3 d+2,3 LIB.4,1,2, T! f+2,1,4 [14] ws2 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2+1+4 [+54] > 4,1, BT.3, LIB.4,1,2, T! f+2,1,4 [+54] 4, BT.3, LIB.4,1, ff df+4,1, T! f+2,1,4 [+52] f+3, LIB.4,1, d+2,3, LIB.1+2, T! f+2,1,4 [23] db+1+2 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+52] f+3, LIB.4,1, d+2,3, LIB.1+2, T! f+2,1,4 [+54] 4, BT.3, LIB.4,1, ff df+4,1, T! f+2,1,4 [23] LIB.1+2[2] [20] f,F+3 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+57] b+2, d+2,3, LIB.4,1,2 T! f+2,1,4 [22] uf+4 [+58] df+3, d+2,3, LIB.3+4, ff db+3,4, T! f+2,1,4 [+53] db+3, BT.4, BT.3, LIB.4,1,2 T! f+2,1,4 [20] CH ws1 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4[3] [+58] df+3, d+2,3, LIB.3+4, ff db+3,4 T! f+2,1,4 [+53] db+3, BT.4, BT.3, LIB.4,1,2 T! f+2,1,4 [23] BT.3+4 [+58] BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [+47] BT.4, BT.1,4, db+3,4 T! f+2,1,4 [+44] BT.4, BT.4, BT.4,3 T! f+2,1,4 [31] uf+3,4 [+39] fF d+4,1, d+2,3, LIB.1+2 T! f+2,1,4 [+33] ff d+4,1, df+4,1 T! f+2,1,4 [+33] db+3,4 T! ff b+4,3,4,3 [0] Low Parry [27] H.LIB.d+3+4 [+49] f+3,4, d+4,1~2, ff d+2,3, LIB.uf+3,4[4] [+44] f+4,4, df+1,4~B, BT.3, LIB.F, LIB.3,1 [20] CH 1+2 [20] CH (uf+3,)4 [24] CH (df+1,4,)1 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+58] b+3+4, BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [24] CH d+1 [+60] cc f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+58] wsb+3+4, BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [+56] ws4,1~F, LIB.4,1,2, T! ff d+2,3 LIB.uf+3+4 [25] CH (BT.1,)4 [24] CH (d+4,)1~2 [20] CH BT.1+2 [20] CH df+3 [+60] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+58] SSL b+3+4, BT.3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [23] CH LIB.4,1 [+48] df+3, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+43] d+2,3, LIB.4,1,2 T! f+2,1,4 [36] CH db+3,4 [28] CH (F4,4)~3 [+47] T! b+3+4, BT.3, LIB.4,1, d+2,3 > LIB.3,1[5] [+45] T! b+3+4, BT,3, LIB.4,1, d+2,3, LIB.uf+3+4 [+43] T! b+3+4, BT.3, LIB.4,1, ff b+4,3,4,3 [0] 2+3+4 [+58] df+3, d+2,3, LIB.3+4, ff db+3,4 T! f+2,1,4 [+53] db+3, BT.4, BT.3, LIB.4,1,2 T! f+2,1,4 [46] CH b+1,1,2~F [34] LIB.1,2~F [21] b+2~F [20] (b+1,1,)2~F [+29] LIB.4,1, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+28] LIB.1+2 T! uf+3,4, d+2,3, LIB.3,1 [+25] LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [21] LIB.2~F [+38] 4,3, f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+37] 4,3, f+3,4, d+2,3, LIB.4,1, f,F+3, T! f+3+4, LIB.3+4, uf+3+4 [+32] f+4,4, df+1,4~B, BT.3, LIB.4,1,2, T! f+2,1,4 [37] f+4,4~F [+38] 4,3, f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+37] 4,3, f+3,4, d+2,3, LIB.4,1, f,F+3, T! f+3+4, LIB.3+4, uf+3+4 [+34] uf+3,4, f+3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [21] b+3~F [+XX] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4",
-      "section": "Staples"
+      "raw": "[0] 2+3+4 [+58] df+3, d+2,3, LIB.3+4, ff db+3,4 T! f+2,1,4 [+53] db+3, BT.4, BT.3, LIB.4,1,2 T! f+2,1,4 [46] CH b+1,1,2~F [34] LIB.1,2~F [21] b+2~F [20] (b+1,1,)2~F [+29] LIB.4,1, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+28] LIB.1+2 T! uf+3,4, d+2,3, LIB.3,1 [+25] LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [21] LIB.2~F [+38] 4,3, f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+37] 4,3, f+3,4, d+2,3, LIB.4,1, f,F+3, T! f+3+4, LIB.3+4, uf+3+4 [+32] f+4,4, df+1,4~B, BT.3, LIB.4,1,2, T! f+2,1,4 [37] f+4,4~F [+38] 4,3, f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4 [+37] 4,3, f+3,4, d+2,3, LIB.4,1, f,F+3, T! f+3+4, LIB.3+4, uf+3+4 [+34] uf+3,4, f+3, LIB.4,1, d+2,3, LIB.1+2 T! f+2,1,4 [21] b+3~F [+XX] f+3,4, d+2,3, LIB.3+4, f,F+3, T! f+2,1,4",
+      "section": "Heat"
+    },
+    {
+      "entries": [
+        {
+          "route": "df+3",
+          "starter": "Short Wall Carry"
+        },
+        {
+          "route": "df+1,4",
+          "starter": "Short Wall Carry"
+        },
+        {
+          "route": "1,2",
+          "starter": "Short Wall Carry"
+        },
+        {
+          "route": "df+4,1",
+          "starter": "Medium Wall Carry"
+        },
+        {
+          "route": "d+2,3",
+          "starter": "Medium Wall Carry"
+        },
+        {
+          "route": "LIB.4,1",
+          "starter": "Medium Wall Carry"
+        },
+        {
+          "route": "BT.4,3",
+          "starter": "Medium Wall Carry"
+        },
+        {
+          "route": "wr3,2",
+          "starter": "Long Wall Carry"
+        },
+        {
+          "route": "4,3",
+          "starter": "Long Wall Carry"
+        },
+        {
+          "route": "f+3,2",
+          "starter": "Long Wall Carry"
+        },
+        {
+          "route": "db+3,4",
+          "starter": "Long Wall Carry"
+        },
+        {
+          "route": "d+1",
+          "starter": "Spike"
+        },
+        {
+          "route": "f,F+4",
+          "starter": "Spike"
+        },
+        {
+          "route": "2,1,2",
+          "starter": "Medium Wall Carry"
+        },
+        {
+          "route": "1,wr3,2",
+          "starter": "Long Wall Carry"
+        }
+      ],
+      "raw": "Short Wall Carry df+3 df+1,4 1,2 Medium Wall Carry df+4,1 d+2,3 LIB.4,1 BT.4,3 Long Wall Carry wr3,2 4,3 f+3,2 db+3,4 Spike d+1 f,F+4 Medium Wall Carry 2,1,2 Long Wall Carry 1,wr3,2",
+      "section": "Alternate Enders"
     },
     {
       "entries": [

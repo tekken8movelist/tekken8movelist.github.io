@@ -303,6 +303,56 @@
     {
       "entries": [
         {
+          "route": "[+74] u+1+2 3,1,ff 2 df+3,2,4 T! dash 2+3 ws3,F MCR.2,2,H.f f,n,d,df+1,u",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+61] 3,1,ff 2 df+3,2,4 T! dash 2+3 ws3,F MCR.2,2,H.f f,n,d,df+1,u",
+          "starter": "[25] d+3+4"
+        },
+        {
+          "route": "[+54] dash up u+1+2 2+3 ws3,F MCR.2,2,F f,n,d,df+1,u",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+52] dash up u+1+2 3,1 b,f+2,1,4,1+2",
+          "starter": "[20] ws2"
+        },
+        {
+          "route": "[+44] (b,f+2),1,df+2 2+3 uf+1 MCR.2,2,H.F f,n,d,df+1,u",
+          "starter": "[16] f,n,d,df+4,1+2"
+        },
+        {
+          "route": "[+54] df+1 2 df+3,2,4 T! dash 2+3 ws3,F MCR.2,2,H.f f,n,d,df+1,u",
+          "starter": "[24] CH b+4"
+        },
+        {
+          "route": "[+23] f+3 MCR.4,2,1+2",
+          "starter": "[39] H.f,n,d,df+1+2,1+2"
+        },
+        {
+          "route": "[+29] ws1,1,F MCR.4,2,1+2",
+          "starter": "[31] H.(b,f+2,1),4,1+2"
+        },
+        {
+          "route": "[+31] 3,1,2 T! ws1,1~f MCR.4,2,1+2",
+          "starter": "[32] H.MCR.2,2,F"
+        },
+        {
+          "route": "[+28] ws+4~3,H.1+2",
+          "starter": "[18] CH db+2"
+        },
+        {
+          "route": "[+46] FLY.1 f,n,d,df+4,H.3 T! f+3 MCR.4,2,1,UF",
+          "starter": "[42] df+3,2,4,U (backturned)"
+        }
+      ],
+      "raw": "[23] EWGF [+74] u+1+2 3,1,ff 2 df+3,2,4 T! dash 2+3 ws3,F MCR.2,2,H.f f,n,d,df+1,u [25] d+3+4 [+61] 3,1,ff 2 df+3,2,4 T! dash 2+3 ws3,F MCR.2,2,H.f f,n,d,df+1,u [20] ws2 [+54] dash up u+1+2 2+3 ws3,F MCR.2,2,F f,n,d,df+1,u [+52] dash up u+1+2 3,1 b,f+2,1,4,1+2 [16] f,n,d,df+4,1+2 [+44] (b,f+2),1,df+2 2+3 uf+1 MCR.2,2,H.F f,n,d,df+1,u [24] CH b+4 [+54] df+1 2 df+3,2,4 T! dash 2+3 ws3,F MCR.2,2,H.f f,n,d,df+1,u [39] H.f,n,d,df+1+2,1+2 [+23] f+3 MCR.4,2,1+2 [31] H.4~3,1+2 [31] H.(b,f+2,1),4,1+2 [+29] ws1,1,F MCR.4,2,1+2 [21] H.uf+4,F [24] H.f,F+2,F [34] H.b+2,3,F [32] H.MCR.2,2,F [+31] 3,1,2 T! ws1,1~f MCR.4,2,1+2 [18] CH db+2 [+28] ws+4~3,H.1+2 [42] df+3,2,4,U (backturned) [+46] FLY.1 f,n,d,df+4,H.3 T! f+3 MCR.4,2,1,UF",
+      "section": "Heat"
+    },
+    {
+      "entries": [
+        {
           "route": "combo when you anti-air with jab here",
           "starter": "1"
         }

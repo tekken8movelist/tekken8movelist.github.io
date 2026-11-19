@@ -17,10 +17,10 @@
       "hit": "+2c",
       "id": "Anna-2+3",
       "name": "Heat Burst",
-      "notes": "Heat Burst Cancel to r45 with b,b on frame 42 2 chip damage on block 12 chip damage on hit Only deals recoverable damage Cannot cause a K.O.",
+      "notes": "Heat Burst 46f timestop at frame 14 of activation (t92) Cancel to r87 with b,b on frame 42 (frame 28 of timestop) t41 r27 effective recovery 20f timestop on block or hit 2 chip damage on block 12 chip damage on hit Only deals recoverable damage Cannot cause a K.O.",
       "number": "6",
       "range": "",
-      "recovery": "t92 r30",
+      "recovery": "t46 r30",
       "section": "Heat",
       "startup": "i16",
       "states": "pc7~16",
@@ -34,17 +34,17 @@
       "block": "-5",
       "command": "H.2+3",
       "counter_hit": "",
-      "damage": "50",
+      "damage": "23, 10 (50)",
       "displayed_input": "H.2+3",
       "hit": "+0d",
       "id": "Anna-H.2+3",
       "name": "From Éire with Love",
-      "notes": "Heat Smash Reversal Break Balcony Break Fragile debuff on hit or block, opponent receives chip damage from any attack, removed when land a hit on you Transition to attack throw on hit Jails",
+      "notes": "Heat Smash Reversal Break Balcony Break Transition to attack throw on hit (50 damage) Fragile debuff on hit, opponent receives chip damage from any attack, removed when land a hit on you Jails +17a (+0) on 2nd hit 6 chip damage on block",
       "number": "18",
       "range": "",
-      "recovery": "t85 r32",
+      "recovery": "t70 r32",
       "section": "Heat",
-      "startup": "i13~14",
+      "startup": "i13~14, i22~23",
       "states": "cs6~27",
       "target": "m"
     },
@@ -61,7 +61,7 @@
       "hit": "+9a (+0)",
       "id": "Anna-3+4",
       "name": "Aphrodite's Scorn",
-      "notes": "Heat Engager Heat Dash +5, +43d (+35) Balcony Break Hip Sometimes written Anna-ws3+4",
+      "notes": "Heat Engager Heat Dash +5, +43d (+35) Balcony Break Hip CJM.3+4: i13 t49 Sometimes written Anna-ws3+4",
       "number": "32",
       "range": "",
       "recovery": "t49 r35",
@@ -80,7 +80,7 @@
       "hit": "+20d",
       "id": "Anna-f,F+3,2",
       "name": "Gancanagh's Pipe",
-      "notes": "Heat Engager Heat Dash +5, +67a (+50) Balcony Break Spike Weapon Combo from 1st hit with 5f delay 6 chip damage on block",
+      "notes": "Heat Engager Heat Dash +5, +67a (+50) Balcony Break Spike Weapon Combo from 1st hit with 5f delay Interrupt with i6 from 1st block 6 chip damage on block",
       "number": "70",
       "range": "",
       "recovery": "t73 r29",
@@ -153,10 +153,10 @@
       "counter_hit": "",
       "damage": "5,8,4,5,5,24",
       "displayed_input": ",H.2",
-      "hit": "+23a (-3)",
+      "hit": "+9a (+4)",
       "id": "Anna-1,2,1,H.2",
       "name": "Roasted with Eternal Love",
-      "notes": "Weapon Combo from 3rd CH Jails from 4th hit Consumes 300F of remaining Heat time Sometimes written H.1,2,1,2",
+      "notes": "Weapon Combo from 3rd CH Interrupt with i1 from 3rd block Jails from 4th block Consumes 300F of remaining Heat time +13a (+8) on average? Sometimes written H.1,2,1,2",
       "number": "12",
       "range": "",
       "recovery": "t137 r24",
@@ -166,7 +166,9 @@
       "target": "h,h,h,m,m,m"
     },
     {
-      "alt": [],
+      "alt": [
+        "H.CJM.u+3,1"
+      ],
       "block": "+4g~+53g",
       "command": "uf+3,H.1",
       "counter_hit": "",
@@ -185,7 +187,9 @@
       "target": "m,h"
     },
     {
-      "alt": [],
+      "alt": [
+        "H.CJM.u+3,2"
+      ],
       "block": "-1~+98g",
       "command": "uf+3,H.2",
       "counter_hit": "",
@@ -270,7 +274,7 @@
       "hit": "+17a (+7)",
       "id": "Anna-HAM.2,1,2",
       "name": "Banshee Scream",
-      "notes": "Spike Weapon Combo from 1st hit 6 chip damage on block 9 chip damage on block in heat (30%)",
+      "notes": "Spike Weapon Combo from 1st hit Interrupt with i4 from 1st block 6 chip damage on block 9 chip damage on block in heat (30%)",
       "number": "95",
       "range": "",
       "recovery": "t115 r38 FC",
@@ -422,7 +426,7 @@
       "hit": "+21a (+11)",
       "id": "Anna-1,2,1,2",
       "name": "Roasted with Love",
-      "notes": "Weapon Combo from 3rd CH Chip damage on block",
+      "notes": "Weapon Combo from 3rd CH Interrupt with i1 4 chip damage on block",
       "number": "21",
       "range": "",
       "recovery": "t94 r13",
@@ -441,7 +445,7 @@
       "hit": "+32a (+22)",
       "id": "Anna-1,2,1,4",
       "name": "Frost Combination",
-      "notes": "Tornado Chip damage on block",
+      "notes": "Tornado Chip damage on block String jails vs hits (string duckable)",
       "number": "22",
       "range": "",
       "recovery": "t94 r37",
@@ -460,7 +464,7 @@
       "hit": "+12",
       "id": "Anna-1,2,2",
       "name": "Left Right Stinger",
-      "notes": "Transition to HAM on hit automatically",
+      "notes": "Transition to HAM on hit automatically Interrupt with i11 Whiffs vs SSR from 1st block",
       "number": "23",
       "range": "",
       "recovery": "t83 r31",
@@ -479,7 +483,7 @@
       "hit": "+20a (+11)",
       "id": "Anna-1,2,4",
       "name": "Bermuda Triangle",
-      "notes": "Balcony Break Combo from 2nd CH",
+      "notes": "Balcony Break Combo from 2nd CH with 8F delay Interrupt with i2 Move can be delayed by 10F",
       "number": "24",
       "range": "",
       "recovery": "t72 r30",
@@ -489,7 +493,9 @@
       "target": "h,h,h"
     },
     {
-      "alt": [],
+      "alt": [
+        "1,2,u+1+2"
+      ],
       "block": "-14~+10",
       "command": "1,2,uf+1+2",
       "counter_hit": "",
@@ -498,7 +504,7 @@
       "hit": "+33a (+18)",
       "id": "Anna-1,2,uf+1+2",
       "name": "Left Right Fried Love",
-      "notes": "Weapon Combo from 2nd CH with 9f delay Input can be delayed 10f Move can be delayed 5f Chip damage on block Recovers 7f slower on block Expand",
+      "notes": "Weapon Combo from 2nd CH with 9f delay Input can be delayed 10f Move can be delayed 5f Chip damage on block Recovers 7f slower on block",
       "number": "",
       "range": "",
       "recovery": "t78 r8",
@@ -555,7 +561,7 @@
       "hit": "+12",
       "id": "Anna-2,2",
       "name": "Quick Stinger",
-      "notes": "Combo from 1st CH High evasion Interrupt with i11 from 1st block Input can be delayed 5f Transition to HAM on hit automatically",
+      "notes": "High evasion Interrupt with i11 from 1st block Whiffs vs SSR from 1st block Input can be delayed 5f Transition to HAM on hit automatically",
       "number": "26",
       "range": "",
       "recovery": "t73 r31",
@@ -574,7 +580,7 @@
       "hit": "+8",
       "id": "Anna-2,3",
       "name": "Straight Face Wash",
-      "notes": "Jail from 1st attack Combo from 1st hit with ?f delay Input can be delayed 2f",
+      "notes": "Jail from 1st block with no delay Combo from 1st hit with 2f delay Move can be delayed 2f",
       "number": "",
       "range": "",
       "recovery": "t51 r20 CJM",
@@ -593,7 +599,7 @@
       "hit": "+20a (+11)",
       "id": "Anna-2,4",
       "name": "Jab Roundhouse",
-      "notes": "Balcony Break Combo from 1st CH with 9f delay Input can be delayed 10f",
+      "notes": "Balcony Break Interrupt with i2 Move can be delayed 10f",
       "number": "28",
       "range": "",
       "recovery": "",
@@ -603,7 +609,9 @@
       "target": "h,h"
     },
     {
-      "alt": [],
+      "alt": [
+        "2,u+1+2"
+      ],
       "block": "-14~+10",
       "command": "2,uf+1+2",
       "counter_hit": "",
@@ -612,7 +620,7 @@
       "hit": "+33a (+18)",
       "id": "Anna-2,uf+1+2",
       "name": "Quick Fried Love",
-      "notes": "Weapon Input can be delayed 10f Move can be delayed 5f Chip damage on block Recovers 7f slower on block Expand",
+      "notes": "Weapon Input can be delayed 10f Move can be delayed 5f 2 chip damage on block Recovers 7f slower on block",
       "number": "",
       "range": "",
       "recovery": "t68 r8",
@@ -637,7 +645,7 @@
       "recovery": "t41 r25 CJM",
       "section": "n",
       "startup": "i14~16",
-      "states": "",
+      "states": "fs14~16, js17~27, fs28~30",
       "target": "m"
     },
     {
@@ -688,7 +696,7 @@
       "hit": "-4",
       "id": "Anna-4,2",
       "name": "",
-      "notes": "Combo from 1st CH",
+      "notes": "Combo from 1st CH Interrupt with i5 Whiffs vs SSR from 1st block",
       "number": "",
       "range": "",
       "recovery": "t59 r33",
@@ -707,7 +715,7 @@
       "hit": "+8a (-1)",
       "id": "Anna-4,2,1+2",
       "name": "Blonde Bomb Blitz",
-      "notes": "Tornado Balcony Break Combo from 2nd hit Combo from 1st CH",
+      "notes": "Tornado Balcony Break Combo from 2nd hit Airborne combo from 1st CH Interrupt with i1",
       "number": "30",
       "range": "",
       "recovery": "t101 r37",
@@ -748,7 +756,7 @@
       "hit": "+9a (+0)",
       "id": "Anna-3+4",
       "name": "Aphrodite's Scorn",
-      "notes": "Heat Engager Heat Dash +5, +43d (+35) Balcony Break Hip Sometimes written Anna-ws3+4",
+      "notes": "Heat Engager Heat Dash +5, +43d (+35) Balcony Break Hip CJM.3+4: i13 t49 Sometimes written Anna-ws3+4",
       "number": "32",
       "range": "",
       "recovery": "t49 r35",
@@ -881,7 +889,7 @@
       "hit": "+19a (+2)",
       "id": "Anna-df+1,2,3",
       "name": "Uppercut Jab > Radiant Arch",
-      "notes": "Tornado Balcony Break Combo from 2nd CH with 8F edlay Move can be delayed by 10F Cancel to CJM -17 -10 -3 r35 with B on frame 20",
+      "notes": "Tornado Balcony Break Move can be delayed by 10F Cancel to CJM -17 -10 -3 r35 with B on frame 20",
       "number": "36",
       "range": "",
       "recovery": "t85 r30",
@@ -900,7 +908,7 @@
       "hit": "+20a (+11)",
       "id": "Anna-df+1,2,4",
       "name": "Uppercut Jab > Cutting Crescent",
-      "notes": "Balcony Break Combo from 2nd CH with 10f delay Input can be delayed 10f Move can be delayed 8f",
+      "notes": "Balcony Break Input can be delayed 10f Move can be delayed 8f",
       "number": "37",
       "range": "",
       "recovery": "t79 r27",
@@ -1081,7 +1089,9 @@
       "target": "m,h,h"
     },
     {
-      "alt": [],
+      "alt": [
+        "df+3,2,u+1+2"
+      ],
       "block": "-14~+10",
       "command": "df+3,2,uf+1+2",
       "counter_hit": "",
@@ -1090,7 +1100,7 @@
       "hit": "+33a (+18)",
       "id": "Anna-df+3,2,uf+1+2",
       "name": "Creep-Fried Love",
-      "notes": "Weapon Combo from 2nd CH with 10f delay Input can be delayed 10f Move can be delayed 5f Chip damage on block Recovers 7f slower on block Expand",
+      "notes": "Weapon Combo from 2nd CH with 10f delay Input can be delayed 10f Move can be delayed 5f Chip damage on block Recovers 7f slower on block",
       "number": "",
       "range": "",
       "recovery": "t91 r8",
@@ -1138,7 +1148,9 @@
       "target": "L"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.1"
+      ],
       "block": "-5",
       "command": "d+1",
       "counter_hit": "",
@@ -1157,7 +1169,9 @@
       "target": "sl"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.1,4"
+      ],
       "block": "-11",
       "command": "d+1,4",
       "counter_hit": "",
@@ -1195,7 +1209,9 @@
       "target": "m"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.3"
+      ],
       "block": "-17",
       "command": "d+3",
       "counter_hit": "",
@@ -1214,7 +1230,9 @@
       "target": "L"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.3,2"
+      ],
       "block": "-11",
       "command": "d+3,2",
       "counter_hit": "",
@@ -1233,7 +1251,9 @@
       "target": "L,m"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.3,4"
+      ],
       "block": "-8",
       "command": "d+3,4",
       "counter_hit": "",
@@ -1252,7 +1272,9 @@
       "target": "L,h"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.3,4,1"
+      ],
       "block": "-3",
       "command": "d+3,4,1",
       "counter_hit": "+21a",
@@ -1271,7 +1293,9 @@
       "target": "L,h,m"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.4"
+      ],
       "block": "-15",
       "command": "d+4",
       "counter_hit": "",
@@ -1290,7 +1314,9 @@
       "target": "l"
     },
     {
-      "alt": [],
+      "alt": [
+        "FC.4,1"
+      ],
       "block": "+0",
       "command": "d+4,1",
       "counter_hit": "+11",
@@ -1337,7 +1363,7 @@
       "hit": "+6c",
       "id": "Anna-d+1+2",
       "name": "Pooka's Misfortune",
-      "notes": "Balcony Break (airborne) Weapon Chip damage on block Expand",
+      "notes": "Balcony Break (airborne) Weapon Chip damage on block",
       "number": "",
       "range": "",
       "recovery": "t58 r33",
@@ -1651,7 +1677,9 @@
       "target": "m"
     },
     {
-      "alt": [],
+      "alt": [
+        "b+2+4"
+      ],
       "block": "",
       "command": "b+1+3",
       "counter_hit": "",
@@ -1723,7 +1751,7 @@
       "hit": "+7",
       "id": "Anna-uf+1,3",
       "name": "Fatal Attack Combo",
-      "notes": "Combo from 1st CH with 12f delay Input can be delayed 12f Move can be delayed 11f",
+      "notes": "Jail from 1st block with 4F delay Combo from 1st CH with 12f delay Input can be delayed 12f Move can be delayed 11f",
       "number": "",
       "range": "",
       "recovery": "t64 r35",
@@ -1745,7 +1773,7 @@
       "hit": "+78a (+62)",
       "id": "Anna-uf+1,3,3+4",
       "name": "Hail Storm",
-      "notes": "Tornado Balcony Break Knee Combo from 2nd hit with 5f delay Combo from 1st CH +27a (+18) if only the last hit connects Instant Tornado on hit",
+      "notes": "Tornado Balcony Break Knee Combo from 2nd hit with 5f delay Combo from 1st CH Interrupt with i12 from 1st block Whiffs vs SSR from 1st block +27a (+18) if only the last hit connects Instant Tornado on hit",
       "number": "",
       "range": "",
       "recovery": "t97 r22",
@@ -1890,7 +1918,7 @@
       "hit": "+20d",
       "id": "Anna-f,F+3,2",
       "name": "Gancanagh's Pipe",
-      "notes": "Heat Engager Heat Dash +5, +67a (+50) Balcony Break Spike Weapon Combo from 1st hit with 5f delay 6 chip damage on block",
+      "notes": "Heat Engager Heat Dash +5, +67a (+50) Balcony Break Spike Weapon Combo from 1st hit with 5f delay Interrupt with i6 from 1st block 6 chip damage on block",
       "number": "70",
       "range": "",
       "recovery": "t73 r29",
@@ -1909,13 +1937,13 @@
       "hit": "+4c",
       "id": "Anna-f,F+3,3",
       "name": "Mouse Trouble",
-      "notes": "Combo from 1st hit with 5f delay",
+      "notes": "Combo from 1st hit with 5f delay Interrupt with i3 from 1st block",
       "number": "71",
       "range": "",
       "recovery": "t73 r33 FC",
       "section": "Motion Input",
       "startup": ",i25",
-      "states": ",cs25~",
+      "states": ",cs25~58",
       "target": "m,L"
     },
     {
@@ -1928,7 +1956,7 @@
       "hit": "+19a",
       "id": "Anna-f,F+4",
       "name": "Falling Heel",
-      "notes": "Spike Enter CJM +6 +20a r28 with B Chip damage on block",
+      "notes": "Spike Enter CJM +6 +20a r28 with B 4 chip damage on block",
       "number": "72",
       "range": "",
       "recovery": "t62 r28 FC",
@@ -1938,7 +1966,9 @@
       "target": "M"
     },
     {
-      "alt": [],
+      "alt": [
+        "wr1+2"
+      ],
       "block": "-9",
       "command": "f,F+1+2",
       "counter_hit": "",
@@ -1957,7 +1987,9 @@
       "target": "m"
     },
     {
-      "alt": [],
+      "alt": [
+        "wr1+2*"
+      ],
       "block": "+5~+7",
       "command": "f,F+1+2*",
       "counter_hit": "",
@@ -2042,7 +2074,7 @@
       "hit": "+67a (+51)",
       "id": "Anna-qcf+2,1",
       "name": "Artemis Arrow",
-      "notes": "Tornado Elbow Combo from 1st hit with 8f delay Input can be delayed 8f Move can be delayed 7f Can be buffered Cancel to CJM -13 +2 r34 with B on frame 14 Sometimes written d,df,f+2,1",
+      "notes": "Tornado Elbow Combo from 1st hit with 8f delay Move cannot be interrupted Input can be delayed 8f Move can be delayed 7f Can be buffered Cancel to CJM -13 +2 r34 with B on frame 14 Sometimes written d,df,f+2,1",
       "number": "76",
       "range": "",
       "recovery": "t76 r35",
@@ -2080,7 +2112,7 @@
       "hit": "+9a (+0)",
       "id": "Anna-f,f,F+2,4",
       "name": "Double Meteor Alter",
-      "notes": "Balcony Break Knee Combo from 1st hit Sometimes written wr2,4",
+      "notes": "Balcony Break Knee Combo from 1st hit Trade with i1? Sometimes written wr2,4",
       "number": "77",
       "range": "",
       "recovery": "t63 r33",
@@ -2118,7 +2150,7 @@
       "hit": "+19a (+9)",
       "id": "Anna-f,f,F+3,2",
       "name": "Grilled with Love",
-      "notes": "Weapon Combo from 1st CH Chip damage on block Power up in Heat Sometimes written wr3,2",
+      "notes": "Weapon Combo from 1st CH Interrupt with i12 from 1st block 4 chip damage on block Power up in Heat Sometimes written wr3,2",
       "number": "78",
       "range": "",
       "recovery": "t85 r27 FC",
@@ -2137,7 +2169,7 @@
       "hit": "+19a (+9)",
       "id": "Anna-f,f,F+4",
       "name": "Imploding Star",
-      "notes": "Balcony Break Chip damage on block Hitstop 20f on hit Sometimes written wr4",
+      "notes": "Balcony Break 8 chip damage on block Hitstop 20f on hit Sometimes written wr4",
       "number": "79",
       "range": "",
       "recovery": "t55 r35",
@@ -2365,7 +2397,7 @@
       "hit": "+17a (+8)",
       "id": "Anna-HAM.2,1",
       "name": "",
-      "notes": "Strong Aerial Tailspin Balcony Break Weapon Combo from 1st hit 4 chip damage on block",
+      "notes": "Strong Aerial Tailspin Balcony Break Weapon Combo from 1st hit Interrupt with i1 from 1st block 4 chip damage on block",
       "number": "",
       "range": "",
       "recovery": "t74 r32",
@@ -2384,7 +2416,7 @@
       "hit": "+17a (+7)",
       "id": "Anna-HAM.2,1,2",
       "name": "Banshee Scream",
-      "notes": "Spike Weapon Combo from 1st hit 6 chip damage on block 9 chip damage on block in heat (30%)",
+      "notes": "Spike Weapon Combo from 1st hit Interrupt with i4 from 1st block 6 chip damage on block 9 chip damage on block in heat (30%)",
       "number": "95",
       "range": "",
       "recovery": "t115 r38 FC",
@@ -2403,7 +2435,7 @@
       "hit": "+33a",
       "id": "Anna-HAM.2,2",
       "name": "Banshee's Comb",
-      "notes": "Tornado Weapon Combo from 1st hit Transition to r34 TOM on hit automatically Steel Pedal 6 chip damage on block",
+      "notes": "Tornado Weapon Combo from 1st hit Transition to r34 TOM on hit automatically Jails attack inputs from 1st block Steel Pedal 6 chip damage on block",
       "number": "96",
       "range": "",
       "recovery": "t80 r41",
@@ -2470,7 +2502,9 @@
       "target": "M"
     },
     {
-      "alt": [],
+      "alt": [
+        "HAM.2+4"
+      ],
       "block": "-2",
       "command": "HAM.1+3",
       "counter_hit": "",
@@ -2489,7 +2523,9 @@
       "target": "t"
     },
     {
-      "alt": [],
+      "alt": [
+        "HAM.2+4,1"
+      ],
       "block": "-3",
       "command": "HAM.1+3,1",
       "counter_hit": "",
@@ -2508,7 +2544,9 @@
       "target": "t,t"
     },
     {
-      "alt": [],
+      "alt": [
+        "HAM.2+4,2"
+      ],
       "block": "-3",
       "command": "HAM.1+3,2",
       "counter_hit": "",
@@ -2717,7 +2755,9 @@
       "target": "M"
     },
     {
-      "alt": [],
+      "alt": [
+        "CJM.db+3"
+      ],
       "block": "-11",
       "command": "CJM.d+3",
       "counter_hit": "",
@@ -2736,7 +2776,9 @@
       "target": "L"
     },
     {
-      "alt": [],
+      "alt": [
+        "CJM.db+3,3"
+      ],
       "block": "-7",
       "command": "CJM.d+3,3",
       "counter_hit": "",
@@ -2764,12 +2806,12 @@
       "hit": "+9a (-1)",
       "id": "Anna-CJM.uf+1",
       "name": "Flying Fascinator",
-      "notes": "Balcony Break Chip damage on block Unpunishable on block due to pushback Fragile debuff on hit or block, opponent receives chip damage from any attack, removed when land a hit on you",
+      "notes": "Balcony Break 5 chip damage on block Unpunishable on block due to pushback Fragile debuff on hit or block, opponent receives chip damage from any attack, removed when land a hit on you",
       "number": "108",
       "range": "",
       "recovery": "t66 r37",
       "section": "CJM (Chaos Judgement)",
-      "startup": "i19~29",
+      "startup": "i19~31",
       "states": "js9~37 fs38~40",
       "target": "M"
     },
@@ -2783,12 +2825,12 @@
       "hit": "+3a",
       "id": "Anna-CJM.uf+2",
       "name": "Flying Penetrator",
-      "notes": "Balcony Break Chip damage on block Unpunishable on block due to pushback",
+      "notes": "Balcony Break 7 chip damage on block Unpunishable on block due to pushback",
       "number": "109",
       "range": "",
       "recovery": "t66 r37",
       "section": "CJM (Chaos Judgement)",
-      "startup": "i19~29",
+      "startup": "i19~31",
       "states": "js9~37 fs38~40",
       "target": "M"
     },
@@ -2865,10 +2907,10 @@
       "hit": "",
       "id": "Anna-CJM.df",
       "name": "Forward Roll (ROLL)",
-      "notes": "Sometimes written CJM~df",
+      "notes": "Transition to r40 FC with no input Sometimes written CJM~df",
       "number": "113",
       "range": "",
-      "recovery": "r40 FC",
+      "recovery": "t40 r20 ROLL",
       "section": "CJM (Chaos Judgement)",
       "startup": "",
       "states": "cs5~ fs8~35",
@@ -2884,31 +2926,31 @@
       "hit": "+32d (+24)",
       "id": "Anna-ROLL.3",
       "name": "Rolling Stone",
-      "notes": "Balcony Break Sometimes written CJM.df,3 CJM.df+3",
+      "notes": "Balcony Break Roll adds minimum 20f, effective startup i30~31 Sometimes written CJM.df,3 CJM.df+3",
       "number": "114",
       "range": "",
       "recovery": "t43 r32 FC",
       "section": "CJM (Chaos Judgement)",
-      "startup": "i10~11",
-      "states": ",cs1~",
+      "startup": "i10~11 (i30~31)",
+      "states": ",cs1~43",
       "target": "m"
     },
     {
       "alt": [],
       "block": "+7",
       "command": "ROLL.4",
-      "counter_hit": "+57a",
+      "counter_hit": "",
       "damage": "21",
       "displayed_input": "ROLL.4",
       "hit": "+32a (+22)",
       "id": "Anna-ROLL.4",
       "name": "Falling Frost",
-      "notes": "Tornado Chip damage on block Roll adds minimum 20f, effective startup i40 Sometimes written CJM.df,4 CJM.df+4",
+      "notes": "Tornado 6 chip damage on block Roll adds minimum 20f, effective startup i40 Sometimes written CJM.df,4 CJM.df+4",
       "number": "115",
       "range": "",
       "recovery": "t58 r38",
       "section": "CJM (Chaos Judgement)",
-      "startup": "i20",
+      "startup": "i20 (i40)",
       "states": ",cs39~69 js20~35 fs36~38",
       "target": "h"
     },
@@ -3017,13 +3059,13 @@
       "hit": "+0d",
       "id": "Anna-R.df+1+2",
       "name": "Some Like It Rough!",
-      "notes": "Rage Art Removes Recoverable Health Reversal Break Damage increases with lower health, maximum 82 Freezes match timer on activation and on hit Restores recoverable health on hit Transition to attack throw on hit Consumes Rage",
+      "notes": "Rage Art Removes Recoverable Health Reversal Break Damage increases with lower health, maximum 82 Freezes match timer on activation equal to (total frame idle recovery - 5F) or 57F when canceled by any action Freezes match timer on hit by 15F 114F timestop on activation 20F timestop on block r24 opponent blockstun (r44 effective blockstun w/ timestop) Restores 13 recoverable health on hit Transition to attack throw on hit Consumes Rage",
       "number": "19",
       "range": "",
-      "recovery": "r39",
+      "recovery": "t62 r42",
       "section": "Others",
       "startup": "i20",
-      "states": "pc8~",
+      "states": "pc8~20",
       "target": "m,t"
     },
     {
@@ -3063,6 +3105,25 @@
       "startup": "i20~21",
       "states": "cs6~",
       "target": "L"
+    },
+    {
+      "alt": [],
+      "block": "",
+      "command": "ub,b",
+      "counter_hit": "",
+      "damage": "",
+      "displayed_input": "ub,b",
+      "hit": "",
+      "id": "Anna-ub,b",
+      "name": "Back Handspring",
+      "notes": "",
+      "number": "",
+      "range": "",
+      "recovery": "r49",
+      "section": "Others",
+      "startup": "",
+      "states": "js9~40, fs41~43",
+      "target": "sp"
     },
     {
       "alt": [],
@@ -3274,7 +3335,9 @@
       "target": "t"
     },
     {
-      "alt": [],
+      "alt": [
+        "HAM.2+4"
+      ],
       "block": "-2",
       "command": "HAM.1+3",
       "counter_hit": "",
@@ -3293,7 +3356,9 @@
       "target": "t"
     },
     {
-      "alt": [],
+      "alt": [
+        "HAM.2+4,1"
+      ],
       "block": "-3",
       "command": "HAM.1+3,1",
       "counter_hit": "",
@@ -3312,7 +3377,9 @@
       "target": "t,t"
     },
     {
-      "alt": [],
+      "alt": [
+        "HAM.2+4,2"
+      ],
       "block": "-3",
       "command": "HAM.1+3,2",
       "counter_hit": "",
@@ -3344,7 +3411,7 @@
       "number": "",
       "range": "",
       "recovery": "t43 r29",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "i14",
       "states": "",
       "target": "m"
@@ -3363,7 +3430,7 @@
       "number": "",
       "range": "",
       "recovery": "t40 r21",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": ",i19",
       "states": "",
       "target": "m,h"
@@ -3378,11 +3445,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1",
       "name": "",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3397,11 +3464,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2",
       "name": "",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3416,11 +3483,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2,4",
       "name": "",
-      "notes": "Transition to -21 -10 +9a CJM with B",
+      "notes": "10-hit combo string Transition to -21 -10 +9a CJM with B",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3435,11 +3502,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2,4,1",
       "name": "",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3454,11 +3521,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2,4,1,2",
       "name": "",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3473,11 +3540,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2,4,1,2,2",
       "name": "",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3492,11 +3559,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2,4,1,2,2,3+4",
       "name": "",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"
@@ -3511,11 +3578,11 @@
       "hit": "",
       "id": "Anna-df+3,2,1,2,4,1,2,2,3+4,2",
       "name": "10 Hit Combo",
-      "notes": "",
+      "notes": "10-hit combo string",
       "number": "",
       "range": "",
       "recovery": "",
-      "section": "10 strings",
+      "section": "10 Strings",
       "startup": "",
       "states": "",
       "target": "m,h"

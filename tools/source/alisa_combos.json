@@ -215,14 +215,20 @@
         {
           "route": "[+31; 24] b+2,3 T! db+1~3",
           "starter": "Regular Splat (56% scaling)"
-        },
+        }
+      ],
+      "raw": "Wall Carry (24% scaling) [+25; 16] b+2,3 T! 2,3,3 [+16; 16] f+2,3,3 [+11; 4] 2,3,3 [+11; 4] ws1,2,3 Regular Splat (56% scaling) [+34; 23] b+2,3 T! 2,3,3 [+31; 24] b+2,3 T! db+1~3",
+      "section": "Wall"
+    },
+    {
+      "entries": [
         {
           "route": "[+23; 13] DES.uf+2 DES.b+1+2",
           "starter": "[25] b+1+2"
         }
       ],
-      "raw": "Wall Carry (24% scaling) [+25; 16] b+2,3 T! 2,3,3 [+16; 16] f+2,3,3 [+11; 4] 2,3,3 [+11; 4] ws1,2,3 Regular Splat (56% scaling) [+34; 23] b+2,3 T! 2,3,3 [+31; 24] b+2,3 T! db+1~3 [25] b+1+2 [+23; 13] DES.uf+2 DES.b+1+2",
-      "section": "Wall"
+      "raw": "[25] b+1+2 [+23; 13] DES.uf+2 DES.b+1+2",
+      "section": "Specific Wall Combos"
     }
   ],
   "source_url": "https://wavu.wiki/t/Alisa_combos"

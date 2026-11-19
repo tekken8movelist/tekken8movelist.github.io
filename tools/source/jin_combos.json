@@ -139,7 +139,7 @@
           "starter": "[20] CH (1,3),4"
         }
       ],
-      "raw": "[23] H.DVS.2 (EWGF) Cannot do HB! routes [22] f,n,d,df#1 [20] f,n,d,df+1 [20] ZEN.u+1[1] [20] d+3+4 [13] uf+4 [14] ws2 [+78; 57] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.2 HB! f+3+4 ZEN.1,2,H.F f,F+4 [+63; 38] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+56; 35] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] H.DVS.1 Cannot do HB! routes [25] EWHF [0] Low Parry [+66] T! EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.HB! (2),4~F ZEN.2 f,F+2,H.F f,F+4 [+47] T! (2),4~F ZEN.2 b,f+2,3~F ZEN.1,3 [+47] T! EWHF b+3~F ZEN.1 b+3~F ZEN.1,3 [35] ZEN.1,2,H.F [29] f+3,2,H.F [22] f,F+2,H.F [22] df+4,H.F [+39; 38] EWHF b+3~F ZEN.1 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] CH f+4 [+52] [3] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! ssr b+3~F ZEN.1,3 [+46] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+49] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! dash b,f+2,1,2 [25] CH f+4~F [+55; 33] ZEN.df <ws4 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] H.DVS.3 Stick to second route, cannot do HB! routes [20] f,F+3 [+63; 38] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [21] CH (3,1),4 [20] CH (1,3),4 [+62; 37] EWHF b+3~F ZEN.1 b,f+2,1,df+2 T! dash (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
+      "raw": "[23] H.DVS.2 (EWGF)Cannot do HB! routes [22] f,n,d,df#1 [20] f,n,d,df+1 [20] ZEN.u+1[1] [20] d+3+4 [13] uf+4 [14] ws2 [+78; 57] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.2 HB! f+3+4 ZEN.1,2,H.F f,F+4 [+63; 38] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+56; 35] EWHF[2] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] H.DVS.1Cannot do HB! routes [25] EWHF [0] Low Parry [+66] T! EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.HB! (2),4~F ZEN.2 f,F+2,H.F f,F+4 [+47] T! (2),4~F ZEN.2 b,f+2,3~F ZEN.1,3 [+47] T! EWHF b+3~F ZEN.1 b+3~F ZEN.1,3 [35] ZEN.1,2,H.F [29] f+3,2,H.F [22] f,F+2,H.F [22] df+4,H.F [+39; 38] EWHF b+3~F ZEN.1 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] CH f+4 [+52] [3] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! ssr b+3~F ZEN.1,3 [+46] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3,2 [+49] run b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! dash b,f+2,1,2 [25] CH f+4~F [+55; 33] ZEN.df <ws4 b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [25] H.DVS.3Stick to second route, cannot do HB! routes [20] f,F+3 [+63; 38] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [21] CH (3,1),4 [20] CH (1,3),4 [+62; 37] EWHF b+3~F ZEN.1 b,f+2,1,df+2 T! dash (2),4~F ZEN.1,3 [+59; 36] b,f+2,3~F ZEN.2 b,f+2,3~F ZEN.u+1 T! SSL (2),4~F ZEN.1,3 [+53; 32] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
       "section": "Staples"
     },
     {
@@ -209,7 +209,13 @@
         {
           "route": "[+28; 16] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3",
           "starter": "[5; 5] FH! (35% scaling)"
-        },
+        }
+      ],
+      "raw": "[40] uf+1+2 [5; 5] FH! (39% scaling) [+31; 18] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [42; 12] ws1,3,2,1,4,2 [31; 13] f,n,d,df+4,2 [5; 5] FH! (35% scaling) [+28; 16] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3",
+      "section": "Floor Hazard"
+    },
+    {
+      "entries": [
         {
           "route": "[+28; 20] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3",
           "starter": "[5; 5] WH! (39% scaling)"
@@ -219,8 +225,8 @@
           "starter": "Secluded Training Ground"
         }
       ],
-      "raw": "[40] uf+1+2 [5; 5] FH! (39% scaling) [+31; 18] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 [42; 12] ws1,3,2,1,4,2 [31; 13] f,n,d,df+4,2 [5; 5] FH! (35% scaling) [+28; 16] b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! b+3~F ZEN.1,3 [29] 2,4 [5; 5] WH! (39% scaling) [+28; 20] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 Secluded Training Ground big boy break all the walls combo here",
-      "section": "Stage hazard"
+      "raw": "[29] 2,4 [5; 5] WH! (39% scaling) [+28; 20] EWHF b+3~F ZEN.1 b,f+2,3~F ZEN.u+1 T! (2),4~F ZEN.1,3 Secluded Training Ground big boy break all the walls combo here",
+      "section": "Wall Hazard"
     },
     {
       "entries": [

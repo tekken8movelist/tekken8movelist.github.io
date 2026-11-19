@@ -6,6 +6,7 @@
 //
 //     await TK8.grab('Bob'); await TK8.grab('Roger_Jr.');   // Wavu page names
 //     TK8.button();   // click the red button: copies TK8.data to the clipboard
+//     await TK8.grabTens('Paul'); TK8.button('tens');   // ten-string wikitables
 //
 // and save the clipboard (PowerShell `Get-Clipboard -Raw`) as RAW.json for
 // `python tools/wavu_snapshot.py RAW.json Bob=bob ...`. The clipboard is the
@@ -94,20 +95,36 @@
     window.TK8.data[page] = { page, moves: movelist(ml), combos2: combos(cb) };
     return [page, window.TK8.data[page].moves.length, window.TK8.data[page].combos2.length];
   };
-  window.TK8.button = () => {
+  // Ten-strings moved from move cards into wikitables on most pages (2026-11).
+  // The tables only exist on the movelist page; keep them raw per section.
+  window.TK8.tens = window.TK8.tens || {};
+  window.TK8.grabTens = async page => {
+    const doc = await fetchDoc('/t/' + page + '_movelist');
+    const tables = [];
+    let section = '';
+    for (const el of doc.querySelectorAll('h2, h3, table.wikitable')) {
+      if (el.tagName !== 'TABLE') { section = headingText(el); continue; }
+      tables.push({ section, rows: [...el.querySelectorAll('tr')].map(tr =>
+        [...tr.querySelectorAll('th, td')].map(c => [c.tagName.toLowerCase(), clean(c.textContent)])) });
+    }
+    window.TK8.tens[page] = tables;
+    return [page, tables.length];
+  };
+  window.TK8.button = (what = 'data') => {
     let b = document.getElementById('tk8copy');
     if (!b) {
       b = document.createElement('button');
       b.id = 'tk8copy';
       b.style.cssText = 'position:fixed;top:10px;left:10px;z-index:999999;font-size:28px;padding:20px 40px;background:#c00;color:#fff';
       b.onclick = async () => {
-        const json = JSON.stringify(window.TK8.data);
+        const json = JSON.stringify(window.TK8[b.dataset.what]);
         await navigator.clipboard.writeText(json);
         b.textContent = 'COPIED ' + json.length;
       };
       document.body.appendChild(b);
     }
-    b.textContent = 'COPY TK8';
+    b.dataset.what = what;
+    b.textContent = 'COPY TK8.' + what;
     return 'button ready';
   };
   return 'TK8 ready';

@@ -210,40 +210,40 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
 | 角色 | 页面主题色 --acc | 帧数据 |
 |------|------------|--------|
 | 风间仁 (Jin Kazama) | #6fb3ff | tools/wavu_jin.txt (133/144) |
-| 安娜·威廉斯 (Anna Williams) | #e07a8f | tools/wavu_anna.txt (169/183) |
-| 法昆拉姆 (Fahkumram) | #6fe0c9 | tools/wavu_fahkumram.txt (142/147) |
-| 铠甲王 (Armor King) | #7f8fb3 | tools/wavu_armor_king.txt (169/182) |
+| 安娜·威廉斯 (Anna Williams) | #e07a8f | tools/wavu_anna.txt (169/184) |
+| 法昆拉姆 (Fahkumram) | #6fe0c9 | tools/wavu_fahkumram.txt (158/161) |
+| 铠甲王 (Armor King) | #7f8fb3 | tools/wavu_armor_king.txt (168/182) |
 | 米亚莉·佐 (Miary Zo) | #c9e896 | tools/wavu_miary_zo.txt (115/130) |
-| 三岛一八 (Kazuya Mishima) | #b18cff | tools/wavu_kazuya.txt (136/160) |
-| 保罗 (Paul Phoenix) | #ff8087 | tools/wavu_paul.txt (141/177) |
-| 金 (King) | #e8a04c | tools/wavu_king.txt (213/255) |
-| 拉斯 (Lars Alexandersson) | #8fa8ff | tools/wavu_lars.txt (130/140) |
+| 三岛一八 (Kazuya Mishima) | #b18cff | tools/wavu_kazuya.txt (132/159) |
+| 保罗 (Paul Phoenix) | #ff8087 | tools/wavu_paul.txt (166/177) |
+| 金 (King) | #e8a04c | tools/wavu_king.txt (213/254) |
+| 拉斯 (Lars Alexandersson) | #8fa8ff | tools/wavu_lars.txt (131/141) |
 | 杰克-8 (Jack-8) | #a9cf74 | tools/wavu_jack8.txt (220/229) |
-| 妮娜·威廉斯 (Nina Williams) | #d8a9ff | tools/wavu_nina.txt (186/211) |
+| 妮娜·威廉斯 (Nina Williams) | #d8a9ff | tools/wavu_nina.txt (185/210) |
 | 勒罗伊 (Leroy Smith) | #9db4c9 | tools/wavu_leroy.txt (138/147) |
-| 风间飞鸟 (Asuka Kazama) | #7fc4e8 | tools/wavu_asuka.txt (156/163) |
-| 莉莉 (Lili) | #cdd6e0 | tools/wavu_lili.txt (142/156) |
+| 风间飞鸟 (Asuka Kazama) | #7fc4e8 | tools/wavu_asuka.txt (156/164) |
+| 莉莉 (Lili) | #cdd6e0 | tools/wavu_lili.txt (141/155) |
 | 布莱恩 (Bryan Fury) | #9ad0c2 | tools/wavu_bryan.txt (168/175) |
-| 花郎 (Hwoarang) | #ff8f4d | tools/wavu_hwoarang.txt (210/225) |
-| 克劳迪奥 (Claudio Serafino) | #bcd4ff | tools/wavu_claudio.txt (103/117) |
-| 阿苏塞娜 (Azucena) | #d9a878 | tools/wavu_azucena.txt (138/165) |
+| 花郎 (Hwoarang) | #ff8f4d | tools/wavu_hwoarang.txt (205/220) |
+| 克劳迪奥 (Claudio Serafino) | #bcd4ff | tools/wavu_claudio.txt (110/114) |
+| 阿苏塞娜 (Azucena) | #d9a878 | tools/wavu_azucena.txt (137/164) |
 | 雷文 (Raven) | #9f86d9 | tools/wavu_raven.txt (172/195) |
 | 雷欧 (Leo) | #e0c187 | tools/wavu_leo.txt (139/148) |
 | 史蒂夫 (Steve Fox) | #84a9e0 | tools/wavu_steve.txt (165/189) |
 | 熊 (Kuma) | #c99b6e | tools/wavu_kuma.txt (141/150) |
 | 熊猫 (Panda) | #e6e9ee | tools/wavu_panda.txt (134/144) |
 | 吉光 (Yoshimitsu) | #7fd6a8 | tools/wavu_yoshimitsu.txt (330/376) |
-| 沙欣 (Shaheen) | #e8cf9a | tools/wavu_shaheen.txt (101/106) |
-| 德拉古诺夫 (Sergei Dragunov) | #aab6c2 | tools/wavu_dragunov.txt (153/165) |
-| 冯威 (Feng Wei) | #b5d98a | tools/wavu_feng.txt (155/168) |
-| 李超狼 (Lee Chaolan) | #c39bff | tools/wavu_lee.txt (162/174) |
-| 阿丽莎 (Alisa Bosconovitch) | #ffb3c6 | tools/wavu_alisa.txt (172/197) |
-| 扎菲娜 (Zafina) | #c98fd0 | tools/wavu_zafina.txt (150/164) |
-| 恶魔仁 (Devil Jin) | #a17fe0 | tools/wavu_devil_jin.txt (149/160) |
-| 维克多 (Victor Chevalier) | #de9fe6 | tools/wavu_victor.txt (131/139) |
+| 沙欣 (Shaheen) | #e8cf9a | tools/wavu_shaheen.txt (100/105) |
+| 德拉古诺夫 (Sergei Dragunov) | #aab6c2 | tools/wavu_dragunov.txt (155/167) |
+| 冯威 (Feng Wei) | #b5d98a | tools/wavu_feng.txt (155/169) |
+| 李超狼 (Lee Chaolan) | #c39bff | tools/wavu_lee.txt (161/173) |
+| 阿丽莎 (Alisa Bosconovitch) | #ffb3c6 | tools/wavu_alisa.txt (172/198) |
+| 扎菲娜 (Zafina) | #c98fd0 | tools/wavu_zafina.txt (150/165) |
+| 恶魔仁 (Devil Jin) | #a17fe0 | tools/wavu_devil_jin.txt (148/159) |
+| 维克多 (Victor Chevalier) | #de9fe6 | tools/wavu_victor.txt (127/139) |
 | 蕾娜 (Reina) | #cf9ef0 | tools/wavu_reina.txt (168/192) |
-| 艾迪 (Eddy Gordo) | #9fd97f | tools/wavu_eddy.txt (163/176) |
-| 莉迪亚 (Lidia Sobieska) | #ffb0a6 | tools/wavu_lidia.txt (151/174) |
+| 艾迪 (Eddy Gordo) | #9fd97f | tools/wavu_eddy.txt (160/176) |
+| 莉迪亚 (Lidia Sobieska) | #ffb0a6 | tools/wavu_lidia.txt (151/176) |
 | 三岛平八 (Heihachi Mishima) | #ffcf66 | tools/wavu_heihachi.txt (139/152) |
 | 鲍勃 (Bob) | #a6d4ff | tools/wavu_bob.txt (163/172) |
 | 小罗杰 (Roger Jr.) | #ff8f7a | tools/wavu_roger_jr.txt (126/137) |
@@ -402,8 +402,9 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
   `TK8.grab('Bob')` 后点红按钮走剪贴板落盘；Python 半边离线把原始抓取转成
   `source/{key}.json` / `_combos.json` / `wavu_{key}.txt`，`--compare` 与现有快照逐字段对比
   （新抽取器对 7 月快照的复现：除 Wavu 自身后来的编辑外逐字段一致）。
-  **Wavu 已把多数角色的十连技从招式卡片迁成 wikitable**，抽取器只认卡片——刷新老角色前
-  必须先补表格合成，否则十连技会被静默删光。
+  **Wavu 已把多数角色的十连技从招式卡片迁成 wikitable**：刷新时必须带
+  `--tables`（`TK8.grabTens` 抓的表格），否则这些角色的十连技会被静默删光。
+  表格合成按「每个 10 Hit Combo N 一条链」，表头行不是一击（见 KNOWLEDGE §15）。
 - `indexnow_submit.py` / `docs/{key}.txt` — IndexNow 提交（Bing/Yandex/Naver/Seznam）；
   发布上线后运行。Google 不参与 IndexNow、2023 年起也不收 sitemap ping，走 Search Console。
 - `check_zh.py` — 单角色翻译契约检查(ID 覆盖/纯中文/stance 前缀/按键图回退)

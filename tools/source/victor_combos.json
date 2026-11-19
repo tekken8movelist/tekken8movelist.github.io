@@ -73,7 +73,13 @@
         {
           "route": "[+52] T! IAI.4,2 db+1,1~F PRF.2,2 IAI.4,2 db+1,1~F PRF.3",
           "starter": "[25] CH wr2~3+4 (or D)"
-        },
+        }
+      ],
+      "raw": "[14] df+2 [24] f,F+2 [20] ws1 [18] CH ws2 [20] CH 1+2 [+55] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! db+1,1~F PRF.3 [+56] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [+56] df+4,2 IAI.2 T! df+4,2 IAI.4,2 db+1,1~F PRF.3[1] [+59] df+4,2 IAI.4,2 df+3 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [0] Low Parry [25] CH wr2 [24] CH db+3 [+45] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 [+51] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.1,2,2 [25] CH wr2~3+4 (or D) [+52] T! IAI.4,2 db+1,1~F PRF.2,2 IAI.4,2 db+1,1~F PRF.3",
+      "section": "Staples"
+    },
+    {
+      "entries": [
         {
           "route": "[+54] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! b+3,1",
           "starter": "Regular Launch (e.g. df+2/ws1/CH 1+2)"
@@ -91,8 +97,8 @@
           "starter": "Heat Dash (H.f+1+2~F, H.d+2~F, H.PRF.3~F)"
         }
       ],
-      "raw": "[14] df+2 [24] f,F+2 [20] ws1 [18] CH ws2 [20] CH 1+2 [+55] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! db+1,1~F PRF.3 [+56] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [+56] df+4,2 IAI.2 T! df+4,2 IAI.4,2 db+1,1~F PRF.3[1] [+59] df+4,2 IAI.4,2 df+3 db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [0] Low Parry [25] CH wr2 [24] CH db+3 [+45] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 [+51] T! df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.1,2,2 [25] CH wr2~3+4 (or D) [+52] T! IAI.4,2 db+1,1~F PRF.2,2 IAI.4,2 db+1,1~F PRF.3 Regular Launch (e.g. df+2/ws1/CH 1+2) [+54] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! b+3,1 [+48] df+4,2 IAI.4,2 HB! db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [+68] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! db+1,1~F H.PRF.3~F f+1+2 (or u+1+2) Heat Dash (H.f+1+2~F, H.d+2~F, H.PRF.3~F) [+38] ws2 df+3,4 df+4,2 IAI.4,2 df+3,4,2 T! b+3,1",
-      "section": "Staples"
+      "raw": "Regular Launch (e.g. df+2/ws1/CH 1+2) [+54] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! b+3,1 [+48] df+4,2 IAI.4,2 HB! db+1,1~F PRF.2,2 IAI.2 T! b+3,1 [+68] df+4,2 IAI.4,2 db+1,1~F PRF.2,2 IAI.2 T! HB! db+1,1~F H.PRF.3~F f+1+2 (or u+1+2) Heat Dash (H.f+1+2~F, H.d+2~F, H.PRF.3~F) [+38] ws2 df+3,4 df+4,2 IAI.4,2 df+3,4,2 T! b+3,1",
+      "section": "Heat"
     },
     {
       "entries": [
@@ -169,13 +175,9 @@
         {
           "route": "wall break combo 2",
           "starter": ""
-        },
-        {
-          "route": "notes for combo 1",
-          "starter": ""
         }
       ],
-      "raw": "wall break combo 1, note oddities notes for combo 1 wall break combo 2 notes for combo 1",
+      "raw": "wall break combo 1, note oddities notes for combo 1 wall break combo 2",
       "section": "Wall break"
     },
     {
@@ -187,14 +189,20 @@
         {
           "route": "floor break combo 2",
           "starter": ""
-        },
-        {
-          "route": "notes for combo 1",
-          "starter": ""
         }
       ],
-      "raw": "floor break combo 1, note direction opponent faces notes for combo 1 floor break combo 2 notes for combo 1",
+      "raw": "floor break combo 1, note direction opponent faces notes for combo 1 floor break combo 2",
       "section": "Floor break"
+    },
+    {
+      "entries": [
+        {
+          "route": "df3,4 df+4,2 LAI.4,2 db+1,1~F PRF 3~F HD! d+1+2 qcf+2 W! LAI.1,2,2",
+          "starter": "[HEAT PRE-ACTIVATED] ff+2"
+        }
+      ],
+      "raw": "[HEAT PRE-ACTIVATED] ff+2 df3,4 df+4,2 LAI.4,2 db+1,1~F PRF 3~F HD! d+1+2 qcf+2 W! LAI.1,2,2",
+      "section": "Extras"
     }
   ],
   "source_url": "https://wavu.wiki/t/Victor_combos"

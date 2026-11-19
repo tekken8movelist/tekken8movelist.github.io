@@ -111,7 +111,7 @@ ws3|i14~15
 ws4|i11~12
 ws4,2|,i18
 f+3+4|
-HRS.1|i17
+HRS.1|i17~18
 HRS.2|i16
 HRS.3|i22~24
 HRS.4|i28
@@ -135,6 +135,7 @@ CAT.F|
 CAT.b|
 H.CAT.U|
 CAT.b,B|
+HRS.F|
 WLF.1|i22~36
 WLF.1*|i36
 WLF.2|i15~16
@@ -149,6 +150,7 @@ HAE.1|i18~19
 HAE.2|i13, i20~21
 HAE.1+2|i16
 P.HAE|
+HAE.b|
 R.df+1+2|i20
 1+3+4|
 1+2+3+4|

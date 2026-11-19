@@ -7,27 +7,35 @@
     {
       "entries": [
         {
-          "route": "qcf+2 df+4,3 db+1,2 T! b+3+4",
+          "route": "[71] qcf+2 2,2 f3,1+2,4 T! dash 3+4 HRM.1,2 dash uf3+4,1+2 [1]",
           "starter": "Regular launch (e.g. df+2)"
         },
         {
-          "route": "f2,3,4 HRM.2,3 T! dash ssr b3 HRM.2,3",
+          "route": "[70] f4,4 f3,1+2,4 T! dash 3+4 HRM.1,2 ff3 ff42 [2]",
           "starter": "Regular launch (e.g. df+2)"
         },
         {
-          "route": "T! qcf+2 df+4,3 df+3,1 b3+4",
+          "route": "[61] ff3 2,2 f3,1+2,4 T! dash 3+4 HRM.1,2 dash uf3+4,1+2 [1]",
+          "starter": "Stagger launch (e.g. ws2, ff2,2)"
+        },
+        {
+          "route": "[53] qcf+2 df+4,3 db+1,2 dash b3 HRM.2,3 [2]",
+          "starter": "Stagger launch (e.g. ws2, ff2,2)"
+        },
+        {
+          "route": "[47] T! ssr f+2,3,4 HRM.2,3 uf3+4,1+2 [1]",
           "starter": "After instant tornado (e.g. low parry)"
         },
         {
-          "route": "T! qcf+2 df+4,3 df+3,1 dash uf3+4,1+2[1]",
+          "route": "[45] T! qcf+2 df+4,3 df+3,1 dash uf3+4,1+2[1]",
           "starter": "After instant tornado (e.g. low parry)"
         },
         {
           "route": "qcf+2 df+4,3 f+2,3,4 HRM.2,3 T! b+3 HRM.2,3",
-          "starter": "After heat dash launcher [2]"
+          "starter": "After heat dash launcher [3]"
         }
       ],
-      "raw": "Regular launch (e.g. df+2) qcf+2 df+4,3 db+1,2 T! b+3+4 f2,3,4 HRM.2,3 T! dash ssr b3 HRM.2,3 After instant tornado (e.g. low parry) T! qcf+2 df+4,3 df+3,1 b3+4 T! qcf+2 df+4,3 df+3,1 dash uf3+4,1+2[1] After heat dash launcher [2] qcf+2 df+4,3 f+2,3,4 HRM.2,3 T! b+3 HRM.2,3",
+      "raw": "Regular launch (e.g. df+2) [71] qcf+2 2,2 f3,1+2,4 T! dash 3+4 HRM.1,2 dash uf3+4,1+2 [1] [70] f4,4 f3,1+2,4 T! dash 3+4 HRM.1,2 ff3 ff42 [2] Stagger launch (e.g. ws2, ff2,2) [61] ff3 2,2 f3,1+2,4 T! dash 3+4 HRM.1,2 dash uf3+4,1+2 [1] [53] qcf+2 df+4,3 db+1,2 dash b3 HRM.2,3 [2] After instant tornado (e.g. low parry) [47] T! ssr f+2,3,4 HRM.2,3 uf3+4,1+2 [1] [45] T! qcf+2 df+4,3 df+3,1 dash uf3+4,1+2[1] After heat dash launcher [3] qcf+2 df+4,3 f+2,3,4 HRM.2,3 T! b+3 HRM.2,3",
       "section": "Bread n' butter"
     },
     {

@@ -171,11 +171,31 @@
     {
       "entries": [
         {
+          "route": "f,n,d,df#2.",
+          "starter": "EWGF"
+        },
+        {
+          "route": "f,n,df#2",
+          "starter": "PEWGF (perfect EWGF)"
+        },
+        {
+          "route": "f,f,n,d,df#2",
+          "starter": "DEWGF (dash EWGF)"
+        },
+        {
+          "route": "f,n,df#1",
+          "starter": "OTGF"
+        },
+        {
+          "route": "micro dash.",
+          "starter": "md"
+        },
+        {
           "route": "[+70] md EWGF PEWGF md f,n,d,DF+4,4,1 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3",
           "starter": "[17] FC.df+2"
         },
         {
-          "route": "[+63; 41] EWGF md EWGF f+3,D FUJ.1 f+3,D FUJ.2 T! dash uf+3,4 qcf+2",
+          "route": "[+63; 41][1] EWGF md EWGF f+3,D FUJ.1 f+3,D FUJ.2 T! dash uf+3,4 qcf+2",
           "starter": "[17] FC.df+2"
         },
         {
@@ -219,7 +239,7 @@
           "starter": "CH b+4"
         },
         {
-          "route": "[88; 37][1] 4* T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2",
+          "route": "[88; 37][2] 4* T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2",
           "starter": "CH b+4"
         },
         {
@@ -235,7 +255,7 @@
           "starter": "[22] f,F+1+2,H.F"
         }
       ],
-      "raw": "[23] EWGF [23] PEWGF [22] f,F+2 [21] f,F+3 [17] FC.df+2 [+70] md EWGF PEWGF md f,n,d,DF+4,4,1 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3 [+63; 41] EWGF md EWGF f+3,D FUJ.1 f+3,D FUJ.2 T! dash uf+3,4 qcf+2 [+62; 39] EGWF md EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3 [+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 uf+3,4 [77; 39] f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SSR.2,F RAI.1 [32] CH 4* [28] df+2,WAR.1 [20] FUJ.2 [0] low parry [+64; 10] T! b:2* md f,n,d,DF+4,4,1 1,b+2,WAR.2 OTGF [+51; 32] T! b:2* f,n,d,DF+4,4,1 1,b+2,4 [+50; 31] T! b:2* md EWGF f+3,D FUJ.DF+4,4,3 [+49; 8] T! uf+3,4 f+3 1,b+2,WAR.2 d+4 [+45; 30] T! DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 [+40; 25] T! uf+3,4 f+3 1,b+2,4 CH b+4 [91; 39] f,n,d,df+3 T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2 [88; 37][1] 4* T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2 [25] CH 4 [25] (f,n,d,DF+4),3 [24] CH (b+3),2 [+62; 41] DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [18] f,n,d,df+4 [10] f,n,d,DF+4,4 [+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [36] uf+2,1,H.F [22] f,F+1+2,H.F [+35; 25] EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+      "raw": "EWGF f,n,d,df#2. PEWGF (perfect EWGF) f,n,df#2 DEWGF (dash EWGF) f,f,n,d,df#2 OTGF f,n,df#1 md micro dash. [23] EWGF [23] PEWGF [22] f,F+2 [21] f,F+3 [17] FC.df+2 [+70] md EWGF PEWGF md f,n,d,DF+4,4,1 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3 [+63; 41][1] EWGF md EWGF f+3,D FUJ.1 f+3,D FUJ.2 T! dash uf+3,4 qcf+2 [+62; 39] EGWF md EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.2 T! dash b:2* md f,n,d,DF+4,3 [+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 uf+3,4 [77; 39] f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SSR.2,F RAI.1 [32] CH 4* [28] df+2,WAR.1 [20] FUJ.2 [0] low parry [+64; 10] T! b:2* md f,n,d,DF+4,4,1 1,b+2,WAR.2 OTGF [+51; 32] T! b:2* f,n,d,DF+4,4,1 1,b+2,4 [+50; 31] T! b:2* md EWGF f+3,D FUJ.DF+4,4,3 [+49; 8] T! uf+3,4 f+3 1,b+2,WAR.2 d+4 [+45; 30] T! DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 [+40; 25] T! uf+3,4 f+3 1,b+2,4 CH b+4 [91; 39] f,n,d,df+3 T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2 [88; 37][2] 4* T! dash b:2* f,f,n,d,DF+4,4,1 f+3,D FUJ.2 [25] CH 4 [25] (f,n,d,DF+4),3 [24] CH (b+3),2 [+62; 41] DEWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [18] f,n,d,df+4 [10] f,n,d,DF+4,4 [+62; 41] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [36] uf+2,1,H.F [22] f,F+1+2,H.F [+35; 25] EWGF f+3,D FUJ.DF ws4 f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
       "section": "Staples"
     },
     {
@@ -387,7 +407,13 @@
         {
           "route": "[+18; 5][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1",
           "starter": "[5; 5] W! (19% scaling)"
-        },
+        }
+      ],
+      "raw": "[50] H.2+3,F (Heat Smash Foward) [33] df+4,2 [25] 1+2 [5; 5] W! (39% scaling) [+41; 24][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+41; 21][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [+36; 24] uf+3,4 b+1,4 T! df+3,1+2,qcf+1 [30] qcf+2,HE [22] f,F+1+2,HE [5; 5] W! (39% scaling) [+44; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2 [27] 1,1,2 [5; 5] W! (27% scaling)[2][3] [+32; 18][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+30; 13][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [+26; 12] uf+3,4 b+1,4 T! df+3,1+2,qcf+1 [33] f+3~D FUJ.1,1,HE [5; 5] W! (27% scaling)[4] [+31; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2 [28; 10] RAI.2 GB! 1,1,2 [5; 5] W! (19% scaling) [+27; 13][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+18; 5][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1",
+      "section": "Wall Blast"
+    },
+    {
+      "entries": [
         {
           "route": "[+29; 17] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
           "starter": "[5; 5] W! (39% scaling)"
@@ -407,14 +433,20 @@
         {
           "route": "[+12; 3] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
           "starter": "[5; 5] W! (19% scaling)"
-        },
+        }
+      ],
+      "raw": "[50] H.2+3,F (Heat Smash Foward) [33] df+4,2 [25] 1+2 [5; 5] W! (39% scaling) [+29; 17] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [30] qcf+2,HE [22] f,F+1+2,HE [5; 5] W! (39% scaling) [+32; 20] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2 [27] 1,1,2 [5; 5] W! (27% scaling)[2][3] [+16; 5] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [33] f+3~D FUJ.1,1,HE [5; 5] W! (27% scaling)[4] [+18; 8] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2 [28; 10] RAI.2 GB! 1,1,2 [5; 5] W! (19% scaling) [+12; 3] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+      "section": "Wall Hazard"
+    },
+    {
+      "entries": [
         {
           "route": "[+30; 18] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
           "starter": "[5; 5] FH! (39% scaling)"
         }
       ],
-      "raw": "[50] H.2+3,F (Heat Smash Foward) [33] df+4,2 [25] 1+2 [5; 5] W! (39% scaling) [+41; 24][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+41; 21][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [+36; 24] uf+3,4 b+1,4 T! df+3,1+2,qcf+1 [30] qcf+2,HE [22] f,F+1+2,HE [5; 5] W! (39% scaling) [+44; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2 [27] 1,1,2 [5; 5] W! (27% scaling)[2][3] [+32; 18][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+30; 13][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [+26; 12] uf+3,4 b+1,4 T! df+3,1+2,qcf+1 [33] f+3~D FUJ.1,1,HE [5; 5] W! (27% scaling)[4] [+31; 20][1] <uf+3,4 W! b+1,4 T! 2 b+3,3,H.2 [28; 10] RAI.2 GB! 1,1,2 [5; 5] W! (19% scaling) [+27; 13][1] <uf+3,4 W! b+1,4 T! 1+2 HB! b+3,3,H.2 [+18; 5][1] <uf+3,4 W! b+1,4 T! 1+2 df+3,1+2,qcf+1 [50] H.2+3,F (Heat Smash Foward) [33] df+4,2 [25] 1+2 [5; 5] W! (39% scaling) [+29; 17] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [30] qcf+2,HE [22] f,F+1+2,HE [5; 5] W! (39% scaling) [+32; 20] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2 [27] 1,1,2 [5; 5] W! (27% scaling)[2][3] [+16; 5] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [33] f+3~D FUJ.1,1,HE [5; 5] W! (27% scaling)[4] [+18; 8] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! b+2* d+3,H.2 [28; 10] RAI.2 GB! 1,1,2 [5; 5] W! (19% scaling) [+12; 3] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1 [50] H.2+3 (Heat Smash) [46] Right Throw (Freefall) [35] 2+4 (Jumping Powerbomb) [5; 5] FH! (39% scaling) [+30; 18] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
-      "section": "Stage Hazard"
+      "raw": "[50] H.2+3 (Heat Smash) [46] Right Throw (Freefall) [35] 2+4 (Jumping Powerbomb) [5; 5] FH! (39% scaling) [+30; 18] EWGF f+3,D FUJ.DF+4,4,1 f+3,D FUJ.2 T! SS.2,F RAI.1",
+      "section": "Floor Hazard"
     },
     {
       "entries": [

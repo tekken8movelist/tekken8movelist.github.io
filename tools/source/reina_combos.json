@@ -539,7 +539,13 @@
         {
           "route": "[+20] WB! b,B uf+3+4,1+2 1 OTG.d+4:1",
           "starter": "≥ 3 hits, T! used (e.g., long combo with T! into W!)"
-        },
+        }
+      ],
+      "raw": "≤ 2 hits, T! available [+32] WB! b+1,1,3,F~3 W! df+4,2,3 WT! <OTG.d+4:1[2] [+27] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2] 3 hits, T! available [+26] WB! b+1,1,3 W! df+4,2,3 T! <OTG.d+4:1[2] [+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2] > 3 hits, T! available (e.g., short combo into W!) [+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2][3] 2 hits, T! used [+22] WB! b+1,1,3 W! 1 OTG.d+4:1 [+21] WB! b,B uf+3+4,1+2 1 OTG.d+4:1 ≥ 3 hits, T! used (e.g., long combo with T! into W!) [+20] WB! b,B uf+3+4,1+2 1 OTG.d+4:1",
+      "section": "Wall Blast"
+    },
+    {
+      "entries": [
         {
           "route": "(1 hit) WH! EWGF df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4",
           "starter": "< 7 hits, T! available"
@@ -613,8 +619,42 @@
           "starter": "≥ 4 hits, T! unavailable, W! into HWB! (e.g. long combo with T! into W!)"
         }
       ],
-      "raw": "≤ 2 hits, T! available [+32] WB! b+1,1,3,F~3 W! df+4,2,3 WT! <OTG.d+4:1[2] [+27] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2] 3 hits, T! available [+26] WB! b+1,1,3 W! df+4,2,3 T! <OTG.d+4:1[2] [+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2] > 3 hits, T! available (e.g., short combo into W!) [+26] WB! b,B uf+3+4,1+2 W! df+4,2,3 WT! <OTG.d+4:1[2][3] 2 hits, T! used [+22] WB! b+1,1,3 W! 1 OTG.d+4:1 [+21] WB! b,B uf+3+4,1+2 1 OTG.d+4:1 ≥ 3 hits, T! used (e.g., long combo with T! into W!) [+20] WB! b,B uf+3+4,1+2 1 OTG.d+4:1 < 7 hits, T! available (1 hit) WH! EWGF df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (2 hits) WH! df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (3 hits) WH! df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (4 hits) WH! df+1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (5 hits) WH! f+2,3,F df+1,F~1+2 T! WRA.3,4 (6 hits) WH! f+2,3,F~1+2 T! WRA.3,4 (7 hits) WH! dash df+1,F~1+2 T! WRA.3,4 8+ hits, T! available <3,2[4][5] T! iws3,4 b+4 T! iws3,4 2-7 hits, T! unavailable WH! (same combo as with T! available, but replace F~1+2 T! WRA.3,4 with F~1,qcf+2) 8+ hits, T! unavailable (e.g., long combo with T! into W!) [+8] WH! <f,F+3[6] [+5] WH! 3+4,4 [+3] WH! <3,2[5] [+2] WH! uf+1[7] raw HWB! (one prior wall hit) [+40] HWB! EWGF df+2 df+1 f+2,3 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 [+39] HWB! b+1,1,3 df+3 iws3,4 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4,D W! WRA.4,2,2,qcf+1+2 raw W! into HWB! (no prior wall hit) [+35] HWB! b+1,1,3,F~<3 W! d+3~4 BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 (demo Reina Elegant Palace HWB! combo) ≥ 4 hits, T! unavailable, W! into HWB! (e.g. long combo with T! into W!) [+??] 3,2 W! wr3 BB! 3+4,4",
-      "section": "Stage Hazard"
+      "raw": "< 7 hits, T! available (1 hit) WH! EWGF df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (2 hits) WH! df+2 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (3 hits) WH! df+1,1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (4 hits) WH! df+1 f+2,3,F df+1,F~1+2 T! WRA.3,4 (5 hits) WH! f+2,3,F df+1,F~1+2 T! WRA.3,4 (6 hits) WH! f+2,3,F~1+2 T! WRA.3,4 (7 hits) WH! dash df+1,F~1+2 T! WRA.3,4 8+ hits, T! available <3,2[4][5] T! iws3,4 b+4 T! iws3,4 2-7 hits, T! unavailable WH! (same combo as with T! available, but replace F~1+2 T! WRA.3,4 with F~1,qcf+2) 8+ hits, T! unavailable (e.g., long combo with T! into W!) [+8] WH! <f,F+3[6] [+5] WH! 3+4,4 [+3] WH! <3,2[5] [+2] WH! uf+1[7] raw HWB! (one prior wall hit) [+40] HWB! EWGF df+2 df+1 f+2,3 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 [+39] HWB! b+1,1,3 df+3 iws3,4 W! d+3~4[8] BB! df+1,F~1+2 T! WRA.3,4,D W! WRA.4,2,2,qcf+1+2 raw W! into HWB! (no prior wall hit) [+35] HWB! b+1,1,3,F~<3 W! d+3~4 BB! df+1,F~1+2 T! WRA.3,4 W! 1 OTG.d+4:1 (demo Reina Elegant Palace HWB! combo) ≥ 4 hits, T! unavailable, W! into HWB! (e.g. long combo with T! into W!) [+??] 3,2 W! wr3 BB! 3+4,4",
+      "section": "Wall Hazard"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+31] FB! df+4 f+2,3,F~2 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[35] 1+3"
+        },
+        {
+          "route": "[+31] FB! b+1,1,3,F~2 T![9] f+2,3,F df+1,F~1,qcf+2",
+          "starter": "[35] 1+3"
+        },
+        {
+          "route": "[+30] FB! b+1,1,3,F~2[9] T! f+2,3,F~1,qcf+2",
+          "starter": "[35] 1+3"
+        },
+        {
+          "route": "[+29] FB! f,F+2,F~2 T! b+1,1,3,F~1,qcf+2[5]",
+          "starter": "[35] 1+3"
+        },
+        {
+          "route": "[+29] FB! <df+4,2,3 T! b+1,1,3,F~1,qcf+2",
+          "starter": "[35] 1+3"
+        },
+        {
+          "route": "[+26] FB! b+1,1,3,F~2[9] T! f+2,3,F~3",
+          "starter": "[35] 1+3"
+        },
+        {
+          "route": "[+45] FB! b+1,1,3,F~2 T![9] f+2,3,F df+1,F~1+2 W! WRA.4,2,2,qcf+1+2[10]",
+          "starter": "[35] 1+3"
+        }
+      ],
+      "raw": "[35] 1+3 [+31] FB! df+4 f+2,3,F~2 T! b+1,1,3,F~1,qcf+2 [+31] FB! b+1,1,3,F~2 T![9] f+2,3,F df+1,F~1,qcf+2 [+30] FB! b+1,1,3,F~2[9] T! f+2,3,F~1,qcf+2 [+29] FB! f,F+2,F~2 T! b+1,1,3,F~1,qcf+2[5] [+29] FB! <df+4,2,3 T! b+1,1,3,F~1,qcf+2 [+26] FB! b+1,1,3,F~2[9] T! f+2,3,F~3 [35] 1+3 [+45] FB! b+1,1,3,F~2 T![9] f+2,3,F df+1,F~1+2 W! WRA.4,2,2,qcf+1+2[10]",
+      "section": "Floor Break"
     },
     {
       "entries": [
@@ -664,7 +704,7 @@
         }
       ],
       "raw": "[23] EWGF [20] FC.df+4 [+70] EWGF EWGF EWGF b+4 T! 1 f,F+3 PEWGK [+67] EWGF EWGF df+1 b+4 T! 1 f,F+3 PEWGK [+64] EWGF EWGF b+4 T! 1 f,F+3 PEWGK [30] f+3+4* [30] CH f+3+4 [25] FC.df+3 [24] CH (3),4 [24] CH (3+4),4 [24] CH (df+3+4),4 [24] CH (b+1,1,3),3 [24] CH (WRA.d+4),3 [20] BT.4 [20] CH f,n,3 [19] CH (f,n,d,DF+4),4 [13] df+2 [+62] EWGF EWGF microdash df+1,1 f+2,3,F df+1,F~<1+2 T! WRA.DF WGS.1,4 [24] CH (df+4,2),3 [24] CH b+4 [15] uf+4 [0] low parry [+53] T! EWGF EWGF df+1,1 f+2,3,F df+1,F~1,qcf+2 [32] CH f,n,d,df#3 [25] CH WGS.df+3 [+??] ws3 ws4 df+1,1 f+2,3,F df+1,F~1+2 T! WRA.D~1,4 [26] CH.f,F+3+4 [+55] SSR (f+2),3,F~3 df+2 df+1 f+2,3,F df+1,F~1+2 T! WRA.DF uf+3+4,1+2 [14] CH WRA.1 [+111] PEWGF EWGF EWGF dash EWGF microdash df+1,F~1+2 T! f,F+3+4 HB! f+2,d~4,F OTG.d+4:1[1] (demo Reina CH HW.1 max damage combo on bigs) [+??] PEWGF EWGF EWGF microdash df+1,1 f+2,3,F~<1+2 T! WRA.3,4 [30] H.WRA.2,F [30] H.UNS.4,F [20] H.f,F+3,F [+??] SSR EWGF EWGF EWGF df+1 EWGF df+1,1 f+2,3,F~1+2 T! WRA.3,4 [23] EWGF W! [+48] W! EWGF 3,2 WT! 1 OTG.d+4:1",
-      "section": "Extras"
+      "section": "Max Damage"
     },
     {
       "entries": [
@@ -683,7 +723,13 @@
         {
           "route": "[+13] df+1 df+1,1",
           "starter": "launcher"
-        },
+        }
+      ],
+      "raw": "launcher [+21] b+1,1,3 [+20] f,F+2,F~3 [+17] df+2 df+1,1 [+13] df+1 df+1,1",
+      "section": "Fillers"
+    },
+    {
+      "entries": [
         {
           "route": "[+8] SEN.1+2[1]",
           "starter": "after 4+ filler hits"
@@ -695,7 +741,13 @@
         {
           "route": "[+6] b+4[3]",
           "starter": "after 4+ filler hits"
-        },
+        }
+      ],
+      "raw": "after 4+ filler hits [+8] SEN.1+2[1] [+6] SEN.2[2] [+6] b+4[3]",
+      "section": "Tornado"
+    },
+    {
+      "entries": [
         {
           "route": "done after a df+1/df+1,1 from instant T! combos",
           "starter": "[+36] HB! dash H.f+2,D~4,F OTG.d+4:1"
@@ -839,7 +891,13 @@
         {
           "route": "[+?] f+3~1,qcf+2",
           "starter": "W!"
-        },
+        }
+      ],
+      "raw": "[+36] HB! dash H.f+2,D~4,F OTG.d+4:1 done after a df+1/df+1,1 from instant T! combos T! [+35] HB! d+3~H.4,F OTG.d+4:1[1] [+??] HB! f+3~H.3,F OTG.d+4:1 [+??] HB! H.f,F+3,F OTG.d+4:1 T! [+15] H.WRA.2,F OTG.d+4:1[1] [+13] H.f,F+3,F 3+4,4 [+13] H.f+3~3,F 3+4,4 [+13] T! df+1,2,F EWGK[2] [+12] H.f,F+3,F OTG.d+4:1 T! [+24] df+1 RA[1] [+24] 1 RA[1] [+23] RA[2] T! [+13] WGS.1,4[1] [+12] uf+3+4,1+2[2] [+11] WRA.3,4[3] [+10] ws3,4[4] T! [+5] df+1,1 [+4] uf+1[1] [+6] f+3~3 [+6] uf+3+4 [+8] f+3~1+2 T! W! [+7] f+3~4 [+7] ws4,4[1] [+6] f,F+3 [+6] f+4[2] [+6] OTG.d+4 [+5] d+2 [+?] 3+4 T! W! [+?] WRA.3,4,D W! WRA.2 [+?] uf+3+4,1+2 [+?] ws3,4[3] [+?] d+3~4[4] [+?] 1+2[5] [+?] 3,4[6] [+?] H.2+3 [+?] f+3~1,qcf+2",
+      "section": "Enders"
+    },
+    {
+      "entries": [
         {
           "route": "[+20] df+4,2,3",
           "starter": "W!"
@@ -863,7 +921,13 @@
         {
           "route": "[+9] uf+4",
           "starter": "W!"
-        },
+        }
+      ],
+      "raw": "W! [+20] df+4,2,3 [+15] SEN.1+2/f+3~1+2 [+14] 3,2 [+12] b+4 [+12] SEN.2/f+3~2 [+9] uf+4",
+      "section": "Wall Tornado"
+    },
+    {
+      "entries": [
         {
           "route": "[+28] W! b+1,<1,3,F~1+2",
           "starter": "1 wall hit (e.g., combo ender into W!, b+4 WT!)"
@@ -909,8 +973,8 @@
           "starter": "3+ wall hits (e.g. df+4,2,3 WT!)"
         }
       ],
-      "raw": "launcher [+21] b+1,1,3 [+20] f,F+2,F~3 [+17] df+2 df+1,1 [+13] df+1 df+1,1 after 4+ filler hits [+8] SEN.1+2[1] [+6] SEN.2[2] [+6] b+4[3] [+36] HB! dash H.f+2,D~4,F OTG.d+4:1 done after a df+1/df+1,1 from instant T! combos T! [+35] HB! d+3~H.4,F OTG.d+4:1[1] [+??] HB! f+3~H.3,F OTG.d+4:1 [+??] HB! H.f,F+3,F OTG.d+4:1 T! [+15] H.WRA.2,F OTG.d+4:1[1] [+13] H.f,F+3,F 3+4,4 [+13] H.f+3~3,F 3+4,4 [+13] T! df+1,2,F EWGK[2] [+12] H.f,F+3,F OTG.d+4:1 T! [+24] df+1 RA[1] [+24] 1 RA[1] [+23] RA[2] T! [+13] WGS.1,4[1] [+12] uf+3+4,1+2[2] [+11] WRA.3,4[3] [+10] ws3,4[4] T! [+5] df+1,1 [+4] uf+1[1] [+6] f+3~3 [+6] uf+3+4 [+8] f+3~1+2 T! W! [+7] f+3~4 [+7] ws4,4[1] [+6] f,F+3 [+6] f+4[2] [+6] OTG.d+4 [+5] d+2 [+?] 3+4 T! W! [+?] WRA.3,4,D W! WRA.2 [+?] uf+3+4,1+2 [+?] ws3,4[3] [+?] d+3~4[4] [+?] 1+2[5] [+?] 3,4[6] [+?] H.2+3 [+?] f+3~1,qcf+2 W! [+20] df+4,2,3 [+15] SEN.1+2/f+3~1+2 [+14] 3,2 [+12] b+4 [+12] SEN.2/f+3~2 [+9] uf+4 1 wall hit (e.g., combo ender into W!, b+4 WT!) [+28] W! b+1,<1,3,F~1+2 [+28] W! b+1,<1,3,F~2 [+20] W! df+1,1 1+2 [+19] W! <1,1 df+3+4,4 [+19] W! f+2,D~4 2 wall hits (e.g. 3,2 WT!, f+3~1+2 WT!) [+24] W! 1 OTG.d+4:1 [+21] W! WRA.4,2,2,qcf+1+2[7] [+21] W! f,F+3+4 1+2 3+ wall hits (e.g. df+4,2,3 WT!) [+22] W! <OTG.d+4:1 [+15] W! df+3+4,4 [+11] W! 3+4,4",
-      "section": "Combo Theory"
+      "raw": "1 wall hit (e.g., combo ender into W!, b+4 WT!) [+28] W! b+1,<1,3,F~1+2 [+28] W! b+1,<1,3,F~2 [+20] W! df+1,1 1+2 [+19] W! <1,1 df+3+4,4 [+19] W! f+2,D~4 2 wall hits (e.g. 3,2 WT!, f+3~1+2 WT!) [+24] W! 1 OTG.d+4:1 [+21] W! WRA.4,2,2,qcf+1+2[7] [+21] W! f,F+3+4 1+2 3+ wall hits (e.g. df+4,2,3 WT!) [+22] W! <OTG.d+4:1 [+15] W! df+3+4,4 [+11] W! 3+4,4",
+      "section": "Wall Ender"
     }
   ],
   "source_url": "https://wavu.wiki/t/Reina_combos"

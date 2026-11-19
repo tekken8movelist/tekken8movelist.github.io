@@ -17,6 +17,40 @@
     {
       "entries": [
         {
+          "route": "[+17] f,F+4",
+          "starter": "[30] CH ws1+2"
+        },
+        {
+          "route": "[+20] f,F+2",
+          "starter": "[25] CH (df+3,2),1"
+        },
+        {
+          "route": "[39] 1,1,2",
+          "starter": "df+3 (last active frame)"
+        },
+        {
+          "route": "[38] 1,2,2",
+          "starter": "df+3 (last active frame)"
+        }
+      ],
+      "raw": "[27] CH db+2 [24] CH f+4 [20] CH (3,1),4 [21] CH 4 [30] CH ws1+2 [+17] f,F+4 [25] CH (df+3,2),1 [+20] f,F+2 df+3 (last active frame) [39] 1,1,2 [38] 1,2,2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "f,n,df#2 or f,n,d,df#2.",
+          "starter": "EWGF"
+        },
+        {
+          "route": "f,f,n,d,df#2.",
+          "starter": "DEWGF (dash EWGF)"
+        },
+        {
+          "route": "frame perfect f,n,df#2.",
+          "starter": "PEWGF (perfect EWGF)"
+        },
+        {
           "route": "[+51; 34] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3",
           "starter": "[20] WGF"
         },
@@ -65,7 +99,7 @@
           "starter": "[27] CH SS.3"
         }
       ],
-      "raw": "[23] EWGF [20] WGF [+51; 34] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3 [+49; 32] b+4 b+2,2 df+1,df+2 T! 3,1,df CD.3 [22] ws1,2 [0] low parry [+41; 26] ws1+2 b+2,2 b+2,2,1+2 [25] ws2 [24] CH d+1+2 [+52] ws1+2 b+2,2 df+1,df+2 T! 3,1,df CD.3 [21] f,F+3 [+51] SSR.3 b+2,2 df+1,df+2 T! 3,1,df CD.3 [26] CH df+2 [30] CH (1,2,4),3 [+51] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3[s 1] [26] CH f,F+4 [+37] df+3 df+1,df+2 T! 3,1,df CD.3 [+38] df+3,2,1 T! 3,1,df CD.3 [28] CH (2),2 [+35] df+3,2,1 T! df+3,2,1 [26] CH df+2 [+74] PEWGF EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3 [27] CH SS.3 [+33] df+1,df+2 T! 3,1,df CD.3[s 2] [+42] CD.1 T! ws1+2 b+2,2,1+2[s 3]",
+      "raw": "EWGF f,n,df#2 or f,n,d,df#2. DEWGF (dash EWGF) f,f,n,d,df#2. PEWGF (perfect EWGF) frame perfect f,n,df#2. [23] EWGF [20] WGF [+51; 34] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3 [+49; 32] b+4 b+2,2 df+1,df+2 T! 3,1,df CD.3 [22] ws1,2 [0] low parry [+41; 26] ws1+2 b+2,2 b+2,2,1+2 [25] ws2 [24] CH d+1+2 [+52] ws1+2 b+2,2 df+1,df+2 T! 3,1,df CD.3 [21] f,F+3 [+51] SSR.3 b+2,2 df+1,df+2 T! 3,1,df CD.3 [26] CH df+2 [30] CH (1,2,4),3 [+51] EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3[s 1] [26] CH f,F+4 [+37] df+3 df+1,df+2 T! 3,1,df CD.3 [+38] df+3,2,1 T! 3,1,df CD.3 [28] CH (2),2 [+35] df+3,2,1 T! df+3,2,1 [26] CH df+2 [+74] PEWGF EWGF b+2,2 df+1,df+2 T! 3,1,df CD.3 [27] CH SS.3 [+33] df+1,df+2 T! 3,1,df CD.3[s 2] [+42] CD.1 T! ws1+2 b+2,2,1+2[s 3]",
       "section": "Staples"
     },
     {
@@ -89,6 +123,52 @@
       ],
       "raw": "Regular carry (30% scaling) [+23] df+3+4,1,2 [+25] df+1,4 1+2 [+39] df+1,4 f+2 df+1,4 1+2 [+46] df+1,4 df+1,df+2 df+3+4,1,2",
       "section": "Wall"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+55] b+4 b+2,2 df+1,df+2 T! 2+3 df+1,2,H.f !HD uf+3 - Overheat +6",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+53] b+4 b+2,2 df+1,df+2 T! 3,1~df~3 - While In Heat +4",
+          "starter": "[23] EWGF"
+        },
+        {
+          "route": "[+58] ws1+2 b+2,2 df+1,df+2 T! 2+3 df+1,2,H.f uf+3 - Overheat +6",
+          "starter": "[24] CH d+1+2"
+        },
+        {
+          "route": "[+56] ws1+2 b+2,2 df+1,df+2 T! 3,1~df~3 - While in Heat +4",
+          "starter": "[24] CH d+1+2"
+        },
+        {
+          "route": "[+47] iWS1+2 b+2,2 df+1,2,H.f 3,1~df~3 - While in heat +6",
+          "starter": "[22] ws1,2"
+        },
+        {
+          "route": "[+42] iWS1+2 b+2,4 2+3 3,1~df~3 - heat activation +1 better oki",
+          "starter": "[22] ws1,2"
+        },
+        {
+          "route": "[+62] u+1+2 DEWGF df+1,df+2 T! b+3,1 f,F+2,H.f 3,1~df~3",
+          "starter": "[25] SS.2"
+        },
+        {
+          "route": "[+58] u+1+2 DEWGF df+1,df+2 T! 3,1~df~3",
+          "starter": "[25] SS.2"
+        },
+        {
+          "route": "[+52] u+1+2 dash df+1 df+1,df+2 T! 3,1~df~3",
+          "starter": "[25] SS.2"
+        },
+        {
+          "route": "[+50] u+1+2 dash df+1,df+2 T! 3,1~df~3",
+          "starter": "[25] SS.2"
+        }
+      ],
+      "raw": "[23] EWGF [+55] b+4 b+2,2 df+1,df+2 T! 2+3 df+1,2,H.f !HD uf+3 - Overheat +6 [+53] b+4 b+2,2 df+1,df+2 T! 3,1~df~3 - While In Heat +4 [25] ws2 [24] CH d+1+2 [+58] ws1+2 b+2,2 df+1,df+2 T! 2+3 df+1,2,H.f uf+3 - Overheat +6 [+56] ws1+2 b+2,2 df+1,df+2 T! 3,1~df~3 - While in Heat +4 [22] ws1,2 [+47] iWS1+2 b+2,2 df+1,2,H.f 3,1~df~3 - While in heat +6 [+42] iWS1+2 b+2,4 2+3 3,1~df~3 - heat activation +1 better oki [25] SS.2 [+62] u+1+2 DEWGF df+1,df+2 T! b+3,1 f,F+2,H.f 3,1~df~3 [+58] u+1+2 DEWGF df+1,df+2 T! 3,1~df~3 [+52] u+1+2 dash df+1 df+1,df+2 T! 3,1~df~3 [+50] u+1+2 dash df+1,df+2 T! 3,1~df~3",
+      "section": "Heat"
     },
     {
       "entries": [

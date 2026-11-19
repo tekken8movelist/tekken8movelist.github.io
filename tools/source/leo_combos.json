@@ -99,6 +99,22 @@
     {
       "entries": [
         {
+          "route": "Barge Barge Punch/Palm",
+          "starter": "BBP"
+        },
+        {
+          "route": "b+1+2,1+2,qcf+2",
+          "starter": "BBP"
+        },
+        {
+          "route": "Dragon's Impact Lightning Skypiercer",
+          "starter": "DLS"
+        },
+        {
+          "route": "ssr b+4,1~4~df >CD.2,4",
+          "starter": "DLS"
+        },
+        {
           "route": "[+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[1][2]",
           "starter": "[12] f,F+4"
         },
@@ -207,7 +223,7 @@
           "starter": "[21] b+2+3 (successful parry)"
         }
       ],
-      "raw": "[20] uf,n,4 [17] ws2 [15] df+2 [15] uf+4 [12] f,F+4 [+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[1][2] [+54; 32] 4 b+1,1+2,d BOK.1,2 T! DLS[3] [+54; 34] b+1,1+2 1 f+3,d BOK.1,2 T! BBP[4][5] [+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS CH d+2 [84; 36] f+3 2 b+1,1+2,d BOK.1,2 T! BBP [28] CH f+3+4 [0] low parry [+45; 26] T! df+2+3 ws3 b+1,4~df >ws3 f+4~df CD.2,4 [+40] f+3~d BOK.1,2 d+4,1 [6] [31; 12] KNK.3,4 [28; 9] BOK.1,2 [+35; 20] T! 4 b+1,4~df >ws3 f+4~df CD.2,4 [24] CH df+2+3[7] [21] CH KNK.4~df [+50; 30] ws3 4 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4[3] [+49; 29] ws3 b+1,1+2,d BOK.1,2 T! DLS uf+2,1 [77; 32] iws3 b+1,1+2,d BOK.1,2 T! BBP[8] [59; 40] HB~ f+2 b+1,1+2,d BOK.1,2 T! BBP [41; 17] d+4,2[9] f,F+4,3 [72; 38] f+2 b+1,1+2,d BOK.1,2 T! BBP[4] [69; 36] b+1,1+2,d BOK.1,2 T! BBP [24] CH KNK.1+2 [23] db+3 [23] BOK.2 [+60; 38] f+3 f+2 b+1,1+2,d BOK.1,2 T! BBP [13] KNK.3 [31] CH ub+3 [+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[5] CH KNK.2 [76; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS CH f+1+2 [85; 36] b+1,1+2 b+1,1+2,d BOK.1,2 T! BBP [14] CH CL db+4 [10] CH db+4 [+55; 34] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[10] [+54; 32] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4 CH f+3 [76; 29] dash df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[8] [74; 29] CD ws3 b+1,1+2,d BOK.1,2 T! DLS CH (CD.2),1 [69; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8] CH (f,F+4,3),4 [72; 31] df+1 b+1,1+2,d BOK.1,2 T! DLS [25] CH b+2+3 [21] b+2+3 (successful parry) [+47; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8] [+16; 11] f+1+2",
+      "raw": "BBP Barge Barge Punch/Palm b+1+2,1+2,qcf+2 DLS Dragon's Impact Lightning Skypiercer ssr b+4,1~4~df >CD.2,4 [20] uf,n,4 [17] ws2 [15] df+2 [15] uf+4 [12] f,F+4 [+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[1][2] [+54; 32] 4 b+1,1+2,d BOK.1,2 T! DLS[3] [+54; 34] b+1,1+2 1 f+3,d BOK.1,2 T! BBP[4][5] [+52; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS CH d+2 [84; 36] f+3 2 b+1,1+2,d BOK.1,2 T! BBP [28] CH f+3+4 [0] low parry [+45; 26] T! df+2+3 ws3 b+1,4~df >ws3 f+4~df CD.2,4 [+40] f+3~d BOK.1,2 d+4,1 [6] [31; 12] KNK.3,4 [28; 9] BOK.1,2 [+35; 20] T! 4 b+1,4~df >ws3 f+4~df CD.2,4 [24] CH df+2+3[7] [21] CH KNK.4~df [+50; 30] ws3 4 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4[3] [+49; 29] ws3 b+1,1+2,d BOK.1,2 T! DLS uf+2,1 [77; 32] iws3 b+1,1+2,d BOK.1,2 T! BBP[8] [59; 40] HB~ f+2 b+1,1+2,d BOK.1,2 T! BBP [41; 17] d+4,2[9] f,F+4,3 [72; 38] f+2 b+1,1+2,d BOK.1,2 T! BBP[4] [69; 36] b+1,1+2,d BOK.1,2 T! BBP [24] CH KNK.1+2 [23] db+3 [23] BOK.2 [+60; 38] f+3 f+2 b+1,1+2,d BOK.1,2 T! BBP [13] KNK.3 [31] CH ub+3 [+55; 34] 4 f+2 b+1,1+2,d BOK.1,2 T! BBP[5] CH KNK.2 [76; 31] f+2 b+1,1+2,d BOK.1,2 T! DLS CH f+1+2 [85; 36] b+1,1+2 b+1,1+2,d BOK.1,2 T! BBP [14] CH CL db+4 [10] CH db+4 [+55; 34] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[10] [+54; 32] df+2+3 ws3 b+1,1+2,d BOK.1,2 T! f+4~df CD.2,4 CH f+3 [76; 29] dash df+2+3 ws3 b+1,1+2,d BOK.1,2 T! BBP[8] [74; 29] CD ws3 b+1,1+2,d BOK.1,2 T! DLS CH (CD.2),1 [69; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8] CH (f,F+4,3),4 [72; 31] df+1 b+1,1+2,d BOK.1,2 T! DLS [25] CH b+2+3 [21] b+2+3 (successful parry) [+47; 29] dash iws3 b+1,1+2,d BOK.1,2 T! DLS[8] [+16; 11] f+1+2",
       "section": "Staples"
     },
     {

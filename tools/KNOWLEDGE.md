@@ -348,6 +348,55 @@ Wavu 抓取经浏览器返回，约 1200 字符就截断，而截断标记出现
 `<ul><li>` 多名列表（同一指令在不同条件下有不同官方名），`textContent`
 会把它们拼成 `Windup Windup Counter`，要按 `li` 取并用 ` / ` 连。
 
+## 15. 2026-11 数据刷新的教训（鲍勃/小罗杰上线 + 36 角色重抓）
+
+### 抽取器要签入，不要只活在 scratchpad
+
+7 月的注入脚本只存在于会话 scratchpad，四个月后已无从复现。现在两半都在仓库：
+`tools/wavu_extract.js`（浏览器）+ `tools/wavu_snapshot.py`（离线）。新抽取器先用
+`--compare` 对 7 月快照逐字段复现，差异只剩 Wavu 自己后来的编辑，才拿去抓新角色。
+
+### 十连技表格合成：表头行不是一击，一张表可以装两条链
+
+7 月那版的表格合成在线上留了五处错，门禁全绿：
+- **保罗 / 克劳迪奥**：表头首格是空的（`['', 'Level', 'Damage', …]`），被当成第一击——
+  ID 变成 `Paul-,1,2,…`，伤害 `Damage,5,12,…`，判定里的 `Level` 渲染成「下」，
+  按键图多出一个空方阵。
+- **金**：一张表里有「10 Hit Combo 1」「10 Hit Combo 2」两段，被接成一条 20 击。
+- **恶魔仁 / 沙欣**：`1+4,,1`、`3+4,` 这类双逗号 / 尾逗号 ID。
+现在 `ten_string_chains()`：单格行 = 链标题（开新链），全 `<th>` 行 = 表头，其余才是击。
+**表头行判定看 tag 不看文字**——保罗那张的表头首格是空串。
+
+门禁没抓到的原因：伤害列的「三位数黏连」报警只看数字，`Damage` 不是数字；
+链长没有上限断言。看线上页面才发现。
+
+### 刷新老角色时 ID 会漂移，翻译要「按规范化指令」承接
+
+`FC.1→hFC.1`、`D+4→d+4`、`df4→df+4`、`H.RFS.d+4,3→RFS.d+4,H.3`——Wavu 改写法，
+ID 跟着变，旧翻译按 ID 查不到。按规范化指令（大小写、`FC./hFC.`、多余逗号）承接旧名；
+十连技一律按「第几击」重新命名（克劳迪奥的旧名因表头 bug 整体错位一格，不能承接）。
+
+### 其他坑
+- `Generic-` 卡（共用的热能爆发 / 蓄气）和丢了角色前缀的卡（史蒂夫 `EXD.1+2`）要保留，
+  7 月快照就是这么存的；只丢弃别的角色的卡和空 ID 的图例卡。
+- `<sup>HARD</sup>` 在 textContent 里会黏成 `df+2HARD`，构建器会拒收。
+  `unglue_annotations()` 按 7 月的格式恢复（`(HARD)` / `(Close range)` / `(Backturned)` /
+  ` (on lower hit)` / ` With heat`），`raw` 字段保持原样。
+- 连招页长出了 h4 小标题：h2/h3 是分区，h4 并入上一个分区（否则一行标签变成整页分区）。
+- Wavu 自己的笔误照抄不改：小罗杰 `RS.1+21+2`（连招页源码就是这样）。但连招页用 `RS`、
+  招式表用 `ROC` 指同一架势，这属于别名，进 `COMBO_STANCE_ALIASES`。
+- 发生帧覆盖率下降不一定是 bug：一八、艾迪的侧投与背投，维克多 `3+4`，在 Wavu 上
+  现在就是空的。规则不变——不补未经来源的值。
+
+### 搜索引擎
+- 站点早已用 meta 验证过 Google Search Console 与 Bing Webmaster。Google 不接
+  IndexNow、2023 年起也停了 sitemap ping，新页只能靠 Search Console 的 sitemap 与
+  「请求编入索引」（每日配额约 10 条）。Bing / Yandex / Naver / Seznam 用
+  `tools/indexnow_submit.py`（密钥文件在 `docs/` 根目录，发布后再提交，202 = 已受理）。
+- Search Console 的 sitemap 状态长期显示「无法抓取」，但线上 sitemap 合法（200、
+  `application/xml`、robots.txt 已声明），且索引报告里有 62 页已编入——这是 GSC 的
+  显示问题，不是站点缺陷，不要为它改 sitemap 格式。
+
 ## Phone layout (added 2026-07)
 
 - All 41 movelist pages reflow at `@media (max-width: 640px)`: line 1 = move name +

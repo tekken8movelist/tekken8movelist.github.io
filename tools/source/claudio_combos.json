@@ -8,17 +8,29 @@
       "entries": [
         {
           "route": "f,F+4 b+3 uf+3+4 db+1+2 T! wr2",
-          "starter": "Regular launch (e.g. df+2)"
+          "starter": "Regular launch (e.g. u/f+4)"
+        },
+        {
+          "route": "f,F+4 b+3, d/f+3,2, b+4,4 T!, wr2",
+          "starter": "Regular launch (e.g. u/f+4)"
         }
       ],
-      "raw": "Regular launch (e.g. df+2) f,F+4 b+3 uf+3+4 db+1+2 T! wr2",
+      "raw": "Regular launch (e.g. u/f+4) f,F+4 b+3 uf+3+4 db+1+2 T! wr2 f,F+4 b+3, d/f+3,2, b+4,4 T!, wr2",
       "section": "Bread n' butter"
     },
     {
       "entries": [
         {
-          "route": "[+15] 3,2",
-          "starter": "[24] CH 4,3"
+          "route": "[+??] 3+4",
+          "starter": "[??] STB d/b+1+2"
+        },
+        {
+          "route": "[+15] 3,2 (heat)",
+          "starter": "[??] CH (b+3,N),3"
+        },
+        {
+          "route": "[+??] d/f+3,1",
+          "starter": "[??] CH f+3"
         },
         {
           "route": "[+??] 4,2 STB",
@@ -29,34 +41,72 @@
           "starter": "[??] CH f+3"
         },
         {
-          "route": "[+??] 3+4,cc,3",
-          "starter": "[??] CH SS.4"
-        },
-        {
-          "route": "[+??] db+3",
-          "starter": "[??] CH SS.4"
-        },
-        {
-          "route": "[+??] f2+2",
-          "starter": "[??] CH ff4"
+          "route": "[+??] f+2,2 STB",
+          "starter": "[??] CH f,F+4"
         },
         {
           "route": "[+??] 4,STB 2",
-          "starter": "[??] CH ff4"
+          "starter": "[??] CH f,F+4"
+        },
+        {
+          "route": "[+??] 3+4",
+          "starter": "[??] H.3,2~F"
+        },
+        {
+          "route": "[+??] d+1+2",
+          "starter": "[??] H.3,2~F"
+        },
+        {
+          "route": "[+??] d/b+1+2",
+          "starter": "[??] H.3,2~F"
         }
       ],
-      "raw": "[24] CH 4,3 [+15] 3,2 [??] CH f+3 [+??] 4,2 STB [+??] f+2,2 STB [??] CH SS.4 [+??] 3+4,cc,3 [+??] db+3 [??] CH ff4 [+??] f2+2 [+??] 4,STB 2",
+      "raw": "[??] u/f+3 [??] CH f+4 [??] STB u/b+2 [??] STB d/b+1+2 [+??] 3+4 [24] CH 4,3 [??] CH (b+3,N),3 [+15] 3,2 (heat) [??] CH f+3 [+??] d/f+3,1 [+??] 4,2 STB [+??] f+2,2 STB [??] CH f,F+4 [+??] f+2,2 STB [+??] 4,STB 2 [??] H.3,2~F [+??] 3+4 [+??] d+1+2 [+??] d/b+1+2",
       "section": "Mini-combos"
     },
     {
       "entries": [
         {
+          "route": "[+??] b+2 T! f,F+4 b+3, f+2, f,F+4 3,2",
+          "starter": "[??] d/f+1,2"
+        },
+        {
+          "route": "[+??] f,F+4 b+3 d/f+3,2 b+4,4 T! (dash) 1, wr2",
+          "starter": "[??] d/f+1,2"
+        },
+        {
+          "route": "[+??] f,F+4, b+3, md. b+3, u/f+3+4 d/b+1+2 T! (dash) f+2, wr2",
+          "starter": "[??] d/f+1,2"
+        },
+        {
+          "route": "[+??] d/b+1+2 T! SSR. f,F+4 b+3 f+2 f,F+4 3,2",
+          "starter": "[??] f+3+4"
+        },
+        {
           "route": "[+47] b+3 dash b+3 b+3 uf+3+4 db+1+2 T! wr2",
           "starter": "[20] ws2"
+        },
+        {
+          "route": "[+??] f,F+4 b+3 md. b+3 2,(1),2 d+1,2 T! (dash) 1, wr2",
+          "starter": "[??] CH d/f+2"
         }
       ],
-      "raw": "[20] ws2 [+47] b+3 dash b+3 b+3 uf+3+4 db+1+2 T! wr2",
-      "section": "Staples"
+      "raw": "[??] u/f+4 [??] d/f+1,2 [+??] b+2 T! f,F+4 b+3, f+2, f,F+4 3,2 [+??] f,F+4 b+3 d/f+3,2 b+4,4 T! (dash) 1, wr2 [+??] f,F+4, b+3, md. b+3, u/f+3+4 d/b+1+2 T! (dash) f+2, wr2 [??] f+3+4 [+??] d/b+1+2 T! SSR. f,F+4 b+3 f+2 f,F+4 3,2 [20] ws2 [+47] b+3 dash b+3 b+3 uf+3+4 db+1+2 T! wr2 [??] CH d/f+2 [+??] f,F+4 b+3 md. b+3 2,(1),2 d+1,2 T! (dash) 1, wr2",
+      "section": "Regular Launch"
+    },
+    {
+      "entries": [
+        {
+          "route": "[+??] f,F+4 b+3 f+2 f,F+4 3,2",
+          "starter": "[??] CH d/b+1+2"
+        },
+        {
+          "route": "[+??] SSR. f,F+4, b+3 md. b+3, f+2 f,F+4 3,2",
+          "starter": "[??] CH d/b+1+2"
+        }
+      ],
+      "raw": "[??] CH d/b+1+2 [+??] f,F+4 b+3 f+2 f,F+4 3,2 [+??] SSR. f,F+4, b+3 md. b+3, f+2 f,F+4 3,2",
+      "section": "Instant Tornado"
     },
     {
       "entries": [
@@ -81,11 +131,11 @@
     {
       "entries": [
         {
-          "route": "combo when you hit df+2 in the back",
-          "starter": "df+2"
+          "route": "b+2 T! SSL. f,F+4 b+3 md. 3,2 STB.",
+          "starter": "u/f+4"
         }
       ],
-      "raw": "df+2 combo when you hit df+2 in the back",
+      "raw": "u/f+4 b+2 T! SSL. f,F+4 b+3 md. 3,2 STB.",
       "section": "Back-turned opponent"
     },
     {
@@ -93,9 +143,13 @@
         {
           "route": "big boy break all the walls combo here",
           "starter": "Secluded Training Ground"
+        },
+        {
+          "route": "H.2+3 HWB! b+3 b+3 d/f+1,2 W! wr2 BB! (dash) 2,(1),2 u/f+3+4 W! b+2 T! d/f+3,2 u/f+3+4,2",
+          "starter": "Elegant Palace"
         }
       ],
-      "raw": "Secluded Training Ground big boy break all the walls combo here",
+      "raw": "Secluded Training Ground big boy break all the walls combo here Elegant Palace H.2+3 HWB! b+3 b+3 d/f+1,2 W! wr2 BB! (dash) 2,(1),2 u/f+3+4 W! b+2 T! d/f+3,2 u/f+3+4,2",
       "section": "Stage hazard"
     }
   ],

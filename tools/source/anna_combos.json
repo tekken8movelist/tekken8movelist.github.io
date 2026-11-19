@@ -7,12 +7,88 @@
     {
       "entries": [
         {
-          "route": "BNB goes here",
+          "route": "2,2 HAM.2,1 u+2 HAM.2,2T! (TOM.3) CJM u/f+3 d/b+2 TOM.2",
           "starter": "Regular launch (e.g. df+2)"
         }
       ],
-      "raw": "Regular launch (e.g. df+2) BNB goes here",
+      "raw": "Regular launch (e.g. df+2) 2,2 HAM.2,1 u+2 HAM.2,2T! (TOM.3) CJM u/f+3 d/b+2 TOM.2",
       "section": "Bread n' butter"
+    },
+    {
+      "entries": [
+        {
+          "route": "u+2",
+          "starter": "CH (b+1,2),2"
+        },
+        {
+          "route": "u+2",
+          "starter": "u/f+3"
+        },
+        {
+          "route": "(dash) OTG.d+3+4",
+          "starter": "u/f+3"
+        },
+        {
+          "route": "f+2,3",
+          "starter": "CH CJM.1"
+        },
+        {
+          "route": "3+4 (heat)",
+          "starter": "CH CJM.1"
+        },
+        {
+          "route": "HAM.1 (heat)",
+          "starter": "CH d/b+4"
+        },
+        {
+          "route": "CJM.3,2",
+          "starter": "CH HAM.3~B"
+        },
+        {
+          "route": "CJM.2,1 (heat)",
+          "starter": "CH HAM.3~B"
+        },
+        {
+          "route": "ws+1+2",
+          "starter": "ROLL 3"
+        },
+        {
+          "route": "1,2,1",
+          "starter": "CH (d+4),1"
+        },
+        {
+          "route": "2,3",
+          "starter": "CH (d+4),1"
+        },
+        {
+          "route": "TOM.2 (or TOM.1 for debuff)",
+          "starter": "CH d/b+2"
+        },
+        {
+          "route": "OTG.d3+4",
+          "starter": "(heat) HAM.1~F"
+        },
+        {
+          "route": "f,F+1+2",
+          "starter": "(heat) HAM.1~F"
+        }
+      ],
+      "raw": "f,F+2 CH f+1+2 CH CJM.1+2 CH SS+3 CH (b+1,2),2 u+2 u/f+3 u+2 (dash) OTG.d+3+4 CH 1+2 CH d+3,2 (near wall) CH CJM.1 f+2,3 3+4 (heat) CH d/b+4 HAM.1 (heat) CH ws+3 CH HAM.3~B CJM.3,2 CJM.2,1 (heat) ROLL 3 ws+1+2 CH (d+4),1 1,2,1 2,3 CH d/b+2 TOM.2 (or TOM.1 for debuff) (heat) HAM.1~F OTG.d3+4 f,F+1+2",
+      "section": "Mini-combos"
+    },
+    {
+      "entries": [
+        {
+          "route": "2,2 HAM.2,1 u+2 HAM.2,2T! (TOM.3) CJM u/f+3 d/b+2 TOM.2",
+          "starter": "CJM.u/f+4"
+        },
+        {
+          "route": "u/f+3 u+2 HAM.2,1 b+4 HAM.2,2T! (TOM.3) CJM.u/f+3 d/b+2 TOM.2",
+          "starter": "CH qcf+1"
+        }
+      ],
+      "raw": "d/f+2 u/f+4 ws+2 CJM.u/f+4 2,2 HAM.2,1 u+2 HAM.2,2T! (TOM.3) CJM u/f+3 d/b+2 TOM.2 CH qcf+1 u/f+3 u+2 HAM.2,1 b+4 HAM.2,2T! (TOM.3) CJM.u/f+3 d/b+2 TOM.2",
+      "section": "Regular Launch"
     },
     {
       "entries": [
