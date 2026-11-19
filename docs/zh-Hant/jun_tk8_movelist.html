@@ -1483,12 +1483,19 @@ html.dark .legend { --lg-line: #2a323d; }
     }).observe(banner);
   }
 
-  let previousY = window.scrollY;
+  // Read lazily: taking window.scrollY here, while the page is still being
+  // built, forced a synchronous layout (Lighthouse: ~100 ms on mobile).
+  // The first scroll event, which runs after layout, sets the baseline.
+  let previousY = null;
   let queued = false;
 
   function update() {
     queued = false;
     const y = window.scrollY;
+    if (previousY === null) {
+      previousY = y;
+      return;
+    }
     // Scrolling up means "I am looking for navigation". Only a deliberate
     // downward move puts the bar away again, so jitter cannot make it blink.
     if (!(observable ? pastBanner : y > 220)) bar.classList.remove('show');
