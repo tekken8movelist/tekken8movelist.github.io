@@ -834,6 +834,23 @@ footer .roster [aria-current] {
     display: none;
   }
 }
+@media (max-width: 1280px) {
+  .cols2,
+  .colsRow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  table.lt,
+  table.lt > tbody,
+  table.lt > tbody > tr,
+  table.lt > tbody > tr > td.ltc {
+    display: block;
+    width: 100%;
+  }
+  table.lt > tbody > tr > td.ltc + td.ltc {
+    padding: 10px 0 0 !important;
+  }
+}
 .revealbar, footer .roster { --bn-accent: var(--jade-dark); }
 html.dark .revealbar, html.dark footer .roster { --bn-accent: var(--acc); }
 body { --accent-band: #b45684; }

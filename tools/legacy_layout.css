@@ -1,0 +1,32 @@
+/* ---- pipeline pages: the generator's tablet breakpoint -----------------
+   Injected into the five pipeline pages only (patch_legacy_pages.py).
+
+   The generator stacks its two-column areas at 1280px (season2_page.css);
+   the pipeline pages were written for a 4K second screen and only stacked
+   .cols2 at 760px and the 2x2 stance tables (table.lt) at the 640px phone
+   breakpoint. In between, under `zoom: 1.25`, a 768px tablet leaves 614 CSS
+   px for two auto-layout tables that each want ~470: jun, xiaoyu, kunimitsu
+   and clive scrolled sideways by up to 251px at 768px, and clive's stance
+   area by 28px at 1024px (found by tools/validate_site_sweep.mjs, 2026-11-19).
+   Same breakpoint and same rules as the generator, so the two page families
+   change layout at the same width. */
+@media (max-width: 1280px) {
+  .cols2,
+  .colsRow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  table.lt,
+  table.lt > tbody,
+  table.lt > tbody > tr,
+  table.lt > tbody > tr > td.ltc {
+    display: block;
+    width: 100%;
+  }
+
+  /* the pages give the right-hand cell its gutter inline */
+  table.lt > tbody > tr > td.ltc + td.ltc {
+    padding: 10px 0 0 !important;
+  }
+}

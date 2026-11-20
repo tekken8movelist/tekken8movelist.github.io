@@ -177,6 +177,10 @@ for value in sys.argv[1:]:
         } else {
             Invoke-NativeStep -Label 'Run 360-state browser QA' -FilePath $node `
                 -ArgumentList @((Join-Path $PSScriptRoot 'validate_season2.mjs'))
+            # wide and shallow where the QA above is deep: every page incl. the
+            # hubs and the pipeline pages, at 360/768/1024/1480, both themes
+            Invoke-NativeStep -Label 'Run site-wide sweep (every page, 4 widths, both themes)' -FilePath $node `
+                -ArgumentList @((Join-Path $PSScriptRoot 'validate_site_sweep.mjs'))
         }
     } finally {
         Pop-Location

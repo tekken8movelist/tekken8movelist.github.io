@@ -378,6 +378,8 @@ def main(argv: list[str] | None = None) -> int:
             "header_card.css",
             "legend_card.css",
             "back_nav.css",
+            # pipeline-only: the generator's 1280px stacking breakpoint
+            "legacy_layout.css",
         )
     )
     script = (TOOLS / "back_nav.js").read_text(encoding="utf-8")

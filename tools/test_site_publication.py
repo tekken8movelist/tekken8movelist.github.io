@@ -566,11 +566,83 @@ class SitePublicationContractTest(unittest.TestCase):
                     f"{page.name}: heading label ends up at opacity {opacities[-1]}",
                 )
 
+    def test_every_page_declares_a_reciprocal_hreflang_cluster(self) -> None:
+        """Each page names itself as canonical, and every alternate answers back.
+
+        The Simplified hub shipped with no alternates at all for months while
+        the other two hubs pointed at it -- the cross-link test looked only at
+        character pages. This one walks every page that carries a cluster.
+        """
+        clusters: dict[str, dict[str, str]] = {}
+        for page in published_pages():
+            if page.name == "404.html":
+                continue
+            relative = page.relative_to(SITE).as_posix()
+            markup = page.read_text(encoding="utf-8")
+            own = PUBLIC_ROOT + (relative[: -len("index.html")] if relative.endswith("index.html") else relative)
+            with self.subTest(page=relative):
+                self.assertEqual(
+                    re.findall(r'<link rel="canonical" href="([^"]*)">', markup), [own]
+                )
+                cluster = dict(re.findall(
+                    r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">', markup
+                ))
+                self.assertIn("x-default", cluster)
+                self.assertIn(own, cluster.values(), "the cluster leaves this page out")
+                clusters[own] = cluster
+        for own, cluster in clusters.items():
+            for language, target in cluster.items():
+                with self.subTest(page=own, alternate=language):
+                    self.assertIn(target, clusters, "alternate is not a published page")
+                    self.assertEqual(clusters[target], cluster, "alternate answers differently")
+
+    def test_no_placeholder_or_double_escaped_text_reaches_a_reader(self) -> None:
+        """`undefined`, `NaN`, a replacement glyph or `&amp;amp;` on screen.
+
+        Body text and copy attributes only: inline scripts legitimately say
+        `typeof x === 'undefined'`, and that never reaches a reader.
+        """
+        import html as html_module
+
+        suspects = ("undefined", "NaN", "[object", "�", "&amp;", "&lt;", "&gt;",
+                    "​", "‌", "‍", "﻿")
+        for page in published_pages():
+            with self.subTest(page=page.relative_to(SITE).as_posix()):
+                body = _CODE_BLOCK.sub(" ", page.read_text(encoding="utf-8"))
+                texts = [m.group(1) for m in _COPY_ATTRIBUTE.finditer(body)]
+                texts += re.sub(r"<[^>]+>", "\n", body).split("\n")
+                # one unescape is what the browser does; anything entity-like
+                # left after it was escaped twice
+                shown = "\n".join(html_module.unescape(text) for text in texts)
+                for suspect in suspects:
+                    self.assertNotIn(suspect, shown)
+
+    def test_titles_are_unique_across_the_site(self) -> None:
+        seen: dict[str, str] = {}
+        for page in published_pages():
+            title = re.search(r"<title>(.*?)</title>", page.read_text(encoding="utf-8"), re.S)
+            relative = page.relative_to(SITE).as_posix()
+            with self.subTest(page=relative):
+                self.assertIsNotNone(title)
+                self.assertNotIn(title.group(1), seen, f"same title as {seen.get(title.group(1))}")
+                seen[title.group(1)] = relative
+
+    def test_share_images_exist(self) -> None:
+        for page in published_pages():
+            markup = page.read_text(encoding="utf-8")
+            for url in re.findall(
+                r'<meta (?:property="og:image"|name="twitter:image") content="([^"]+)">', markup
+            ):
+                with self.subTest(page=page.relative_to(SITE).as_posix(), image=url):
+                    self.assertTrue(url.startswith(PUBLIC_ROOT))
+                    self.assertTrue((SITE / url[len(PUBLIC_ROOT):]).is_file())
+
     def test_character_pages_have_unique_element_ids(self) -> None:
         # the browser gate only covers the 36 generator pages, so duplicate ids
-        # injected into the 5 legacy ones would otherwise go unnoticed
-        for page in sorted(SITE.glob("*_tk8_movelist.html")):
-            with self.subTest(page=page.name):
+        # injected into the 5 legacy ones would otherwise go unnoticed -- and
+        # the hubs and both locale trees are published too
+        for page in published_pages():
+            with self.subTest(page=page.relative_to(SITE).as_posix()):
                 parser = ElementIdParser()
                 parser.feed(page.read_text(encoding="utf-8"))
                 duplicates = sorted(

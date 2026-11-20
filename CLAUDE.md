@@ -340,6 +340,7 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
    `docs/` 发布边界、主页链接、头像清单、免责声明与本地资源完整性。
    仅做非浏览器快速检查时可加 `-SkipBrowser`；最终交付不应跳过浏览器门禁。
    `$env:CHARACTERS='jin,king'` 可过滤角色，`$env:SCREENSHOT_DIR` 保留全页截图。
+   门禁最后一步是全站扫描 `validate_site_sweep.mjs`（约 90 秒，不受 CHARACTERS 过滤）。
 4. 设计内文字回退（>6 方阵窄表）登记在测试的 `EXPECTED_GFX_FALLBACKS`；
    已核实的超大伤害真值（如 Gigaton Punch 199）登记在 `KNOWN_BIG_DAMAGE`。
 
@@ -446,6 +447,10 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
 - `scan_combo_literals.py` — 连招区 combo-literal 回退清单（分类统计英文残句/架势码/伤害标注；不含 COMBO_STANCE_ALIASES 合并，eddy 的 MD 类别名在构建页生效）
 - `test_season2_pages.py` — 数据、分区、DOM 与幂等回归测试(38 角色)
 - `validate_season2.ps1` / `validate_season2.mjs` — 重建、回归测试与 684 状态 Playwright 几何门禁的单一入口(支持 CHARACTERS 过滤)
+- `validate_site_sweep.mjs` — 门禁的「宽而浅」一步(2026-11-19):**全部 133 页**(含主页、404、5 个管线页)
+  × 360/768/1024/1480 查横向溢出、脚本错误、坏图、表格文字截断,两种主题下查页脚与徽标对比度;
+  `SITE_ROOT=` 可指向旧构建证明它会失败。上面那 684 状态是「深而窄」,两者互补
+- `legacy_layout.css` — 只注入管线页:与生成器相同的 1280px 单栏断点(此前 768px 平板横向溢出最多 251px)
 - `source/{key}.json` / `{key}_zh.json` / `{key}_combos.json` — 结构化源快照
 - `wavu_{char}.txt` — 各角色 input|startup 帧数据(浏览器抓取存档)
 - `jun_movelist_source_template.html` — 管线处理前的 Jun 基础 HTML 结构示例
