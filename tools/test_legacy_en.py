@@ -11,6 +11,7 @@ italics and the line explaining them) never ship apart.
 
 from __future__ import annotations
 
+import html
 import re
 import sys
 import unittest
@@ -65,8 +66,12 @@ class LegacyEnglishTests(unittest.TestCase):
                 named = len(NAME_CELL.findall(markup))
                 described = markup.count('class="refname"')
                 self.assertGreater(named, 100)
+                # 0.15 until 2026-11-19, when strings Wavu lists without a
+                # name stopped borrowing their first hit's (law's 1,1 had read
+                # "Jab"): law went to 28/185 honestly described. A collapse of
+                # the join would still put this past one half.
                 self.assertLess(
-                    described / named, 0.15,
+                    described / named, 0.20,
                     f"{key}: {described}/{named} names are the project's own",
                 )
 
@@ -96,6 +101,50 @@ class LegacyEnglishTests(unittest.TestCase):
                     spans = re.findall(r"<span[^>]*>([^<]*)</span>", cell)
                     if len(spans) > 1:
                         self.assertIn("lvsep", cell, f"{spans} run together")
+
+    def test_a_string_never_borrows_another_moves_name(self) -> None:
+        """One English name standing for several Chinese moves is a wrong join.
+
+        Until 2026-11-19, 46 names did: strings took their first hit's name
+        (law's 1,2,2,2 read "Jab"), and variants behind a condition word took
+        their base move's (Jun's Amaterasu read "Genjitsu"). What remains is
+        Wavu's own sharing, listed with the reason.
+        """
+        allowed = {
+            ("xiaoyu", "Hypnotist"),           # wavu: db+1+2 and HYP.1+2 alike
+            ("xiaoyu", "Spinning Push Hands"),  # 鞋底拍击 is its punch-parry use
+            ("xiaoyu", "X Marks the Spot"),    # wavu: f,F+1+2,1+2 and ws+1+2,1+2
+            ("clive", "Fangs of Ruin"),        # wavu Left_throw = 1+3
+            ("clive", "Punisher"),             # wavu Right_throw = 2+4
+            ("clive", "Judgment Bolt"),        # wavu: CH.f,F+1+2 and Back_throw
+            ("law", "Dragon's Rising Kick"),   # the page lists u/f+4 twice
+        }
+        row = re.compile(r"<tr>(?:(?!</tr>).)*?</tr>", re.S)
+        badge = re.compile(r'<span class="tag[^"]*">[^<]*</span>')
+
+        def rows(markup: str) -> list[tuple[str, bool]]:
+            found = []
+            for tr in row.findall(markup.partition('<section class="tipsPage">')[0]):
+                name = re.search(r'<td class="name">(.*?)</td>', tr, re.S)
+                if name and '<span class="cmd-txt">' in tr:
+                    text = re.sub(r"<[^>]+>", "", badge.sub("", name.group(1))).strip()
+                    found.append((html.unescape(text), "refname" in name.group(1)))
+            return found
+
+        for key, markup in self.built.items():
+            with self.subTest(character=key):
+                chinese = rows((SITE / LEGACY_PAGES[key]).read_text(encoding="utf-8"))
+                english = rows(markup)
+                self.assertEqual(len(chinese), len(english))
+                sources: dict[str, set[str]] = {}
+                for (zh, _), (en, described) in zip(chinese, english):
+                    if not described:
+                        sources.setdefault(en, set()).add(zh)
+                shared = {en for en, zh in sources.items() if len(zh) > 1}
+                self.assertEqual(
+                    shared, {en for k, en in allowed if k == key},
+                    f"{key}: one English name for several moves",
+                )
 
     def test_name_badges_survive_the_rename(self) -> None:
         """Heat Engager / Rage Art / Stance badges reach the English page.

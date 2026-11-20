@@ -205,10 +205,14 @@ CSS/JS 唯一真值在 `tools/back_nav.css` / `back_nav.js`，**两套页面逐�
   所以这支是**替换**而非转换：
   - **招式名接 Wavu**。`tools/wavu_{key}_names.txt` 是浏览器抓的 `指令|名字`，用
     `pipeline.candidates()` 按指令回接到行上——就是当初给这 5 页接发生帧的那套映射。
-    652 行里 600 行拿到 Wavu 官方名。接不上的 15 条登记在 `legacy_en.MOVE_NAMES`
-    并逐条注明失败原因（多半是页面把后续段写成 `d/f+3 命中时 1`，Wavu 写 `df+3,1`，
-    而 `candidates` 在首个汉字处截断）——**不要**为这 15 行去改 `candidates`，
-    简体页的帧数据依赖它。Wavu 确实没命名的 16 条走 `MOVE_DESCRIPTIONS`，斜体。
+    **只接受整串的名字**（2026-11-19）：`candidates()` 按 `[第一击, 整串]` 排序，对发生帧
+    对、对名字错——曾让洛的 `1,2,2,2` 显示成 "Jab"。现在整串在 Wavu 无名或缺席时绝不借
+    第一击的名字。招式表 651 行：597 行是 Wavu 的名字，54 行斜体描述。`legacy_en.MOVE_NAMES`
+    **优先于** Wavu 匹配：既补接不上的（`d/f+3 命中时 1` 对 Wavu `df+3,1`），也纠正接错卡的
+    （条件词截断后变体拿了本招的名字：天照→Amaterasu 而非 Genjitsu），逐条注明 Wavu 出处。
+    **不要**为此去改 `candidates`，简体页的帧数据依赖它。门禁
+    `test_a_string_never_borrows_another_moves_name` 锁住「一个英文名对应多个招式」只剩
+    Wavu 自己的 7 组。
   - **判定列必须重排**。简体页一段一个 span、不加分隔，中文单字连排读得通，英文变成
     `MidThrow`。而且切分并不稳定：同一个 `上上中` 有时 3 个 span 有时 2 个。所以
     `render_hit_levels()` **读字不读标记**，转成 Wavu 记号（`中×5`→5 个 m、`(地)`→

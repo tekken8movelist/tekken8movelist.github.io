@@ -128,21 +128,18 @@ def load_wavu_names(key: str) -> dict[str, str]:
 def wavu_name(command: str, cfg: dict, names: dict[str, str]) -> str | None:
     lowered = {k.lower(): v for k, v in names.items()}
     candidates = list(pipeline.candidates(command, cfg))
-    # candidates() lists the first hit before the whole string -- right for
-    # startup frames, which belong to the first hit, wrong for names: Law's
-    # 1,2,2,2 came out "Jab" where Wavu calls it "Left Right Dragon Fist
-    # Combo". When Wavu names the whole string, that name wins (2026-11-19).
-    # Rows where Wavu has no name for the whole string still fall back to the
-    # first hit below; that is a known defect (燃烧连锁 reads "Flame Bash")
-    # left for a pass that can write the ~22 English names it would need.
-    if candidates:
-        depth = max(c.count(",") for c in candidates)
-        for candidate in candidates:
-            if candidate.count(",") != depth or depth == 0:
-                continue
-            found = names.get(candidate) or lowered.get(candidate.lower())
-            if found:
-                return found
+    # Only a name for the WHOLE command. candidates() lists the first hit
+    # before the whole string -- right for startup frames, which belong to the
+    # first hit, wrong for names: Law's 1,2,2,2 read "Jab" where Wavu calls it
+    # "Left Right Dragon Fist Combo", Clive's 燃烧连锁 read "Flame Bash" because
+    # Wavu has no 1+2,2 and the opener's name filled in. When Wavu lists the
+    # string without a name, or not at all, this returns None and the row goes
+    # on to MOVE_NAMES / MOVE_DESCRIPTIONS / the described-name synthesis, so a
+    # string never borrows its first hit's name (2026-11-19).
+    if not candidates:
+        return None
+    depth = max(c.count(",") for c in candidates)
+    candidates = [c for c in candidates if c.count(",") == depth]
     for candidate in candidates:
         found = names.get(candidate)
         if found is None:
@@ -205,10 +202,16 @@ def rewrite_move_names(markup: str, key: str, cfg: dict, names: dict,
                     missing.add("phrases", word, f"{key} tag")
                     continue
                 badges += f'<span class="{cls}">{escape(english)}</span>'
-            official = wavu_name(raw, cfg, names) or MOVE_NAMES.get((key, chinese))
+            # The tables go first: besides the joins that fail, they correct
+            # the ones that land on the wrong card. A condition word ends the
+            # join (看准对手下段攻击, 命中时, 反击时), so Jun's Amaterasu -- a
+            # parry triggered off f+3+4 -- matched plain f+3+4, "Genjitsu".
+            listed = MOVE_NAMES.get((key, chinese))
+            described = MOVE_DESCRIPTIONS.get((key, chinese))
+            official = listed or (None if described else wavu_name(raw, cfg, names))
             if official:
                 return name_match.group(1) + escape(official) + badges + name_match.group(3)
-            described = MOVE_DESCRIPTIONS.get((key, chinese)) or english_name(chinese)
+            described = described or english_name(chinese)
             if described:
                 return (
                     name_match.group(1)

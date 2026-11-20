@@ -127,6 +127,31 @@ MOVE_NAMES = {
     ("law", "十连技"): "10 Hit Combo",             # wavu 10_String
     ("clive", "昆古尼尔之舞"): "Gungnir Dance",     # wavu 2,2,1+2 -- the page
                                                    # writes one 2 too many
+    # Reached only once wavu_name() stopped lending a string its first hit's
+    # name (2026-11-19); each was checked against wavu_{key}_names.txt
+    ("clive", "燃烧连锁"): "Burning Chain",        # wavu f+2,2,2 -- the page
+                                                   # leads with 1+2,2, which Wavu lacks
+    ("clive", "绯红突进热能中"): "Crimson Rush",     # wavu df+1,H.1,1
+    ("clive", "绯红喷发热能中"): "Crimson Eruption",  # wavu df+1,H.1,2,1
+    ("clive", "双炎热能中"): "Twin Flames",          # wavu PHX.2,H.1+2
+    ("jun", "黄泉御柱热能中"): "Yomotsu Mihashira",  # wavu H.GEN.1,1+2 -- same
+                                                   # kanji; the page writes 1, 2+3
+    ("xiaoyu", "背身转舞"): "Bei Shen Zhuan Wu",     # wavu BT.f+1+3 -- Wavu's name
+                                                   # is this name's pinyin; the
+                                                   # page writes f, f+1+3
+    ("kunimitsu", "天翔回旋"): "Tensho Kaisen",      # wavu f,d,df+2 -- the page
+                                                   # writes f, N, d, d/f+2
+    # The join reached a card, but the wrong one: a condition word ends it, so
+    # the variant took its base move's name. These override the join.
+    ("jun", "天照"): "Amaterasu",                  # wavu Gen.P_(Low); the page
+                                                   # writes 看准对手下段攻击 f+3+4
+    ("jun", "投技反制"): "Throw Reversal",          # wavu GEN.P_(Throw)
+    ("kunimitsu", "苦无贯穿"): "Piercing Kunai Throw",  # wavu qcf+1,F
+    ("kunimitsu", "轮舞踢·苦无贯穿"): "Rinbu Kick > Piercing Kunai Throw",
+                                                   # ^ wavu d+3,4,1,F
+    ("clive", "审判之雷"): "Judgment Bolt",         # wavu CH.f,F+1+2
+    ("clive", "光辉反击"): "Radiant Counter",       # wavu 3+4,P
+    ("xiaoyu", "归巢"): "Return to the Nest",       # wavu CH_AOP.d+1
 }
 
 # The badges the Simplified pages pin to a move name (<span class="tag">).
@@ -178,6 +203,26 @@ MOVE_DESCRIPTIONS = {
     ("law", "龙构双飞踢"): "Dragon Flight Kicks",
     ("law", "龙构突拳"): "Dragon Thrust Punch",
     ("law", "双截棍连击"): "Nunchaku Combo",
+    # strings Wavu has no name for, which used to borrow the opener's
+    # (2026-11-19); the opener's Wavu name leads where there is one
+    ("clive", "日珥·斩击爆发"): "Prominence > Slash Burst",   # wavu f+1+2 "Prominence"
+    ("kunimitsu", "牛头龙·回旋龙人热能发动"): "Gozuryu > Kaisen Ryujin",
+    # ^ wavu f+1+2 "Gozuryu"; ws2,1 romanises the same 回旋龙人 "Kaisen Ryujin"
+    ("kunimitsu", "牛头龙·荒魂碎热能发动"): "Gozuryu > Aramitama Kudaki",
+    ("kunimitsu", "牛头龙·断雪热能发动"): "Gozuryu > Dansetsu",
+    ("xiaoyu", "十连·一"): "10 Hit Combo 1",   # wavu's term (law's 10_String)
+    ("xiaoyu", "十连·二"): "10 Hit Combo 2",
+    ("law", "右拳反手"): "Right Jab > Backhand",              # wavu 2,b+2 unnamed
+    ("law", "右拳回身连击"): "Right Jab > Backhand > Spin",   # wavu 2,b+2,1 unnamed
+    ("law", "右踢转左踢"): "Right High Kick > Left Kick",     # wavu 4,3 unnamed
+    ("law", "龙探手连拳"): "Dragon's Poke > Punch",           # wavu f,F+2,1 unnamed
+    # the join stopped at 空中/落地 and took AOP.uf, "Jumping" -- the jump
+    # itself; wavu lists AOP.uf+3 and AOP.uf+4 without names
+    ("xiaoyu", "跳跃回旋"): "Jumping Spin",
+    ("xiaoyu", "天踢"): "Heaven Kick",
+    ("xiaoyu", "鹤踢"): "Crane Kick",
+    # not a move: the heat section's summary row of all three Engagers
+    ("clive", "发动技一览"): "Heat Engagers",
 }
 
 # --- column heads ---------------------------------------------------------
