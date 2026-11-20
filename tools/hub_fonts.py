@@ -115,9 +115,20 @@ def font_block(markup: str) -> str:
         f'<link rel="stylesheet" href="{href.replace("&", "&amp;")}">' for href in hrefs
     )
     urls = ",".join(f"'{href}'" for href in hrefs)
+    # `load` alone was not enough: on PageSpeed the first portrait sometimes
+    # paints after `load` (its render delay ran to 1.3 s under the throttled
+    # CPU), the fonts were already in flight, and LCP came out 5-6 s on those
+    # runs and 1.1 s on the others. Waiting for that portrait to decode, then
+    # two frames, means a frame with it on screen has been produced before the
+    # first font byte is asked for. A missing or broken image (decode rejects,
+    # or onerror removed it) goes straight on.
     return (
-        f'<script id="hub-fonts">addEventListener("load",function(){{[{urls}].forEach(function(h){{'
-        f'var l=document.createElement("link");l.rel="stylesheet";l.href=h;document.head.appendChild(l)}})}})</script>'
+        '<script id="hub-fonts">(function(){var d=0;function go(){if(d)return;d=1;'
+        f'[{urls}].forEach(function(h){{var l=document.createElement("link");'
+        'l.rel="stylesheet";l.href=h;document.head.appendChild(l)})}'
+        'addEventListener("load",function(){var i=document.querySelector(".card img"),'
+        'f=function(){requestAnimationFrame(function(){requestAnimationFrame(go)})};'
+        "if(i&&i.decode)i.decode().then(f,f);else f()})})()</script>"
         f"<noscript>{plain}</noscript>"
     )
 
