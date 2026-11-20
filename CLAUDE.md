@@ -53,9 +53,8 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
   （#808e9e，三种底色都过 4.5）。主页字体改为 preload 非阻塞后，**首屏头像成了 LCP**——
   前 8 张卡片不得 `loading="lazy"`，第一张 `fetchpriority="high"`；新增卡片时保持这个顺序约定。
 - **主页字体**：Noto Sans SC 用 `text=` 只请求该主页实际渲染的字符（`tools/hub_fonts.py`，
-  `augment_hub` / `build_hub` 每次重算，门禁校验覆盖）；字体样式表由 `<script id="hub-fonts">`
-  在 `load` 事件后才插入（`<noscript>` 兜底），不得阻塞渲染、也不得与首屏头像抢带宽
-  （fonts.googleapis.com 在大陆不可达）。改主页文案后照常跑门禁即可。
+  `augment_hub` / `build_hub` 每次重算，门禁校验覆盖）；两条字体链接都是 `media="print"` 低优先级，
+  不得阻塞渲染（fonts.googleapis.com 在大陆不可达）。改主页文案后照常跑门禁即可。
 - **共享 CSS 内联时去注释**（`tools/css_inline.py`）：设计理由照常写在源 CSS 注释里，
   页面上没有；每个角色页 gzip 29→21 KB。
 - **主页 hreflang** 由 `hub_i18n.with_alternates()` 统一生成（简体主页此前漏了，门禁现覆盖主页）。
