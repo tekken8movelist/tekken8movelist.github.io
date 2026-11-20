@@ -44,6 +44,7 @@ import pipeline  # noqa: E402
 from build_season2 import render_target  # noqa: E402
 from legacy_en import (  # noqa: E402
     CAPSULES, COMMAND_WORDS, MOVE_DESCRIPTIONS, MOVE_NAMES, PHRASES, TABLE_HEADS,
+    TAG_NAMES,
 )
 from locales import LOCALES, alternate_links, public_url, strings  # noqa: E402
 from move_name_en import english_name  # noqa: E402
@@ -62,6 +63,7 @@ COPY_ATTRIBUTE = re.compile(
 TEXT_NODE = re.compile(r">([^<]+)<")
 ROW = re.compile(r"<tr\b.*?</tr>", re.S)
 NAME_CELL = re.compile(r'(<td class="name">)(.*?)(</td>)', re.S)
+TAG_SPAN = re.compile(r'<span class="(tag[^"]*)">([^<]*)</span>')
 CMD_TXT = re.compile(r'(<span class="cmd-txt">)([^<]*)(</span>)')
 STATE_CHIP = re.compile(r'(<span class="tk-state">)([^<]*)(</span>)')
 EN_TWIN = re.compile(r'\s*<span class="en">[^<]*</span>')
@@ -179,9 +181,17 @@ def rewrite_move_names(markup: str, key: str, cfg: dict, names: dict,
             chinese = re.sub(r"<[^>]+>", "", name_match.group(2)).strip()
             if not chinese or not CHINESE.search(chinese):
                 return name_match.group(0)
+            # the name is replaced wholesale; its badges are carried over
+            badges = ""
+            for cls, word in TAG_SPAN.findall(name_match.group(2)):
+                english = TAG_NAMES.get(word)
+                if english is None:
+                    missing.add("phrases", word, f"{key} tag")
+                    continue
+                badges += f'<span class="{cls}">{escape(english)}</span>'
             official = wavu_name(raw, cfg, names) or MOVE_NAMES.get((key, chinese))
             if official:
-                return name_match.group(1) + escape(official) + name_match.group(3)
+                return name_match.group(1) + escape(official) + badges + name_match.group(3)
             described = MOVE_DESCRIPTIONS.get((key, chinese)) or english_name(chinese)
             if described:
                 return (
@@ -189,6 +199,7 @@ def rewrite_move_names(markup: str, key: str, cfg: dict, names: dict,
                     + f'<span class="refname" title="{title}">'
                     + escape(described)
                     + "</span>"
+                    + badges
                     + name_match.group(3)
                 )
             missing.add("names", f"{chinese}\t[{raw}]", key)

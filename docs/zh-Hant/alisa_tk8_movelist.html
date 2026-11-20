@@ -1096,10 +1096,12 @@ header .hdrbio dd {
   color: var(--muted);
 }
 
+/* smaller and on a line of its own is enough to set it apart; the .8 opacity
+   it used to carry put it at 3.3:1 on the light theme, 2.9:1 on the pipeline
+   pages' dark one */
 .page-intro .en {
   display: block;
   font-size: 9.5px;
-  opacity: .8;
 }
 
 /* the band gives width back before the content column ever has to */
@@ -1370,10 +1372,11 @@ footer .roster {
   text-align: center;
 }
 
+/* no opacity on the label: the footer colour is already the quiet one, and
+   .75 of it measured 3.0:1 on the light theme (Lighthouse wants 4.5) */
 footer .roster b {
   margin-right: 4px;
   font-weight: 700;
-  opacity: .75;
 }
 
 footer .roster a {

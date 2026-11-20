@@ -754,10 +754,12 @@ header .hdrbio dd {
   color: var(--muted);
 }
 
+/* smaller and on a line of its own is enough to set it apart; the .8 opacity
+   it used to carry put it at 3.3:1 on the light theme, 2.9:1 on the pipeline
+   pages' dark one */
 .page-intro .en {
   display: block;
   font-size: 9.5px;
-  opacity: .8;
 }
 
 /* the band gives width back before the content column ever has to */
@@ -1028,10 +1030,11 @@ footer .roster {
   text-align: center;
 }
 
+/* no opacity on the label: the footer colour is already the quiet one, and
+   .75 of it measured 3.0:1 on the light theme (Lighthouse wants 4.5) */
 footer .roster b {
   margin-right: 4px;
   font-weight: 700;
-  opacity: .75;
 }
 
 footer .roster a {
@@ -1074,6 +1077,15 @@ h2 .en { opacity: 1; }
 .ntgl button.on { color: var(--jade-dark); }
 .legend { --lg-line: var(--line); }
 html.dark .legend { --lg-line: #2a323d; }
+/* the footer: these pages wrote it as #8aa39a / #68737f (clive #8d97ad),
+   2.7:1 and 3.9:1 -- the intro, the sources line and the roster all failed
+   Lighthouse's 4.5. The generator's --muted pair passes on both themes. */
+footer { color: #66756f; }
+html.dark footer { color: #98a4b1; }
+/* the plain tag badge (愤怒技, 量表, 霸体) is white on var(--misc), which dark
+   mode turns into the pale #c39bff: 2.2:1. The light value reads 6.9:1 on
+   either theme; the variable itself stays, the hit-level text uses it. */
+.tag { background: #6b46a8; }
 </style>
 </head>
 <body>
@@ -1096,6 +1108,7 @@ html.dark .legend { --lg-line: #2a323d; }
     <dl class="hdrbio"><div><dt>國家</dt><dd>中國</dd></div><div><dt>拳法</dt><dd>以八卦掌、劈掛掌為基的中國武術</dd></div></dl>
   </div>
 </header>
+<main>
 
 <div class="legend" id="notation-legend">
   <div class="lgtop"><b>判定</b><span><span class="hi">上</span>=上段　<span class="md">中</span>=中段　<span class="lo">下</span>=下段　<span class="sp">特</span>=特殊　<span class="sp">投</span>=投擲　<span class="sp">!</span>=不可防禦</span><b>發生</b><span>首擊衝擊幀（i=impact，越小越快，依 Wavu）</span></div>
@@ -1414,6 +1427,7 @@ html.dark .legend { --lg-line: #2a323d; }
   </tr></tbody></table>
   <footer style="margin-top:4px"><p class="page-intro">本頁收錄《鐵拳8》（TEKKEN 8）凌曉雨（Ling Xiaoyu）的完整出招表與幀數表（frame data），並整理進階連招與實戰技巧，供對局間隙快速查閱。<span class="en">The complete TEKKEN 8 Ling Xiaoyu move list — full command list, frame data, and combos, written in Chinese.</span></p>資料來源：Wavu Wiki (wavu.wiki/t/Xiaoyu_movelist · Xiaoyu_combos) · 打法參考：TekkenDocs Xiaoyu Guide by kanda · 招式名為中文意譯，供參考<nav class="roster" aria-label="全部角色"><b>全部角色</b> <a href="jin_tk8_movelist.html">風間仁</a> · <a href="kazuya_tk8_movelist.html">三島一八</a> · <a href="jun_tk8_movelist.html">風間準</a> · <a href="paul_tk8_movelist.html">保羅</a> · <a href="law_tk8_movelist.html">馬歇爾·洛</a> · <a href="king_tk8_movelist.html">金</a> · <a href="lars_tk8_movelist.html">拉斯</a> · <a href="jack_tk8_movelist.html">傑克-8</a> · <span aria-current="page">凌曉雨</span> · <a href="nina_tk8_movelist.html">妮娜·威廉斯</a> · <a href="leroy_tk8_movelist.html">勒羅伊</a> · <a href="asuka_tk8_movelist.html">風間飛鳥</a> · <a href="lili_tk8_movelist.html">莉莉</a> · <a href="bryan_tk8_movelist.html">布萊恩</a> · <a href="hwoarang_tk8_movelist.html">花郎</a> · <a href="claudio_tk8_movelist.html">克勞迪奧</a> · <a href="azucena_tk8_movelist.html">阿蘇塞娜</a> · <a href="raven_tk8_movelist.html">雷文</a> · <a href="leo_tk8_movelist.html">雷歐</a> · <a href="steve_tk8_movelist.html">史蒂夫</a> · <a href="kuma_tk8_movelist.html">熊</a> · <a href="panda_tk8_movelist.html">熊貓</a> · <a href="yoshimitsu_tk8_movelist.html">吉光</a> · <a href="shaheen_tk8_movelist.html">沙欣</a> · <a href="dragunov_tk8_movelist.html">德拉古諾夫</a> · <a href="feng_tk8_movelist.html">馮威</a> · <a href="lee_tk8_movelist.html">李超狼</a> · <a href="alisa_tk8_movelist.html">阿麗莎</a> · <a href="zafina_tk8_movelist.html">扎菲娜</a> · <a href="deviljin_tk8_movelist.html">惡魔仁</a> · <a href="victor_tk8_movelist.html">維克多</a> · <a href="reina_tk8_movelist.html">蕾娜</a> · <a href="eddy_tk8_movelist.html">艾迪</a> · <a href="lidia_tk8_movelist.html">莉迪亞</a> · <a href="heihachi_tk8_movelist.html">三島平八</a> · <a href="clive_tk8_movelist.html">克萊夫</a> · <a href="anna_tk8_movelist.html">安娜·威廉斯</a> · <a href="fahkumram_tk8_movelist.html">法昆拉姆</a> · <a href="armorking_tk8_movelist.html">鎧甲王</a> · <a href="miaryzo_tk8_movelist.html">米亞莉·佐</a> · <a href="kunimitsu_tk8_movelist.html">國光二世</a> · <a href="bob_tk8_movelist.html">鮑勃</a> · <a href="rogerjr_tk8_movelist.html">小羅傑</a></nav></footer>
 </section>
+</main>
 
 
 <script>

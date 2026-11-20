@@ -109,10 +109,11 @@ footer .roster {
   text-align: center;
 }
 
+/* no opacity on the label: the footer colour is already the quiet one, and
+   .75 of it measured 3.0:1 on the light theme (Lighthouse wants 4.5) */
 footer .roster b {
   margin-right: 4px;
   font-weight: 700;
-  opacity: .75;
 }
 
 footer .roster a {

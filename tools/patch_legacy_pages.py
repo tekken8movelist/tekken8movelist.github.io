@@ -84,6 +84,15 @@ h2 .en {{ opacity: 1; }}
 .ntgl button.on {{ color: var(--jade-dark); }}
 .legend {{ --lg-line: var(--line); }}
 html.dark .legend {{ --lg-line: #2a323d; }}
+/* the footer: these pages wrote it as #8aa39a / #68737f (clive #8d97ad),
+   2.7:1 and 3.9:1 -- the intro, the sources line and the roster all failed
+   Lighthouse's 4.5. The generator's --muted pair passes on both themes. */
+footer {{ color: #66756f; }}
+html.dark footer {{ color: #98a4b1; }}
+/* the plain tag badge (愤怒技, 量表, 霸体) is white on var(--misc), which dark
+   mode turns into the pale #c39bff: 2.2:1. The light value reads 6.9:1 on
+   either theme; the variable itself stays, the hit-level text uses it. */
+.tag {{ background: #6b46a8; }}
 """
 
 # The per-character tail of each page's original hand-written legend, kept
@@ -324,6 +333,17 @@ def patch(key: str, text: str, css: str, script: str) -> str:
     if text.count("</footer>") != 1:
         raise ValueError(f"{key}: expected exactly one footer")
     text = text.replace("</footer>", roster + "</footer>", 1)
+
+    # a <main> landmark, as the generator pages have (Lighthouse: "Document
+    # does not have a main landmark"): from the end of the banner to the end of
+    # the section that holds the footer -- the same span the generator wraps
+    if "<main>" not in text:
+        top_end = text.index("</header>", text.index('<header id="top">')) + len("</header>")
+        section_end = text.index("</section>", text.index("</footer>")) + len("</section>")
+        text = (
+            text[:top_end] + "\n<main>" + text[top_end:section_end]
+            + "\n</main>" + text[section_end:]
+        )
 
     text = STYLE_BLOCK.sub("", text)
     text = SCRIPT_BLOCK.sub("", text)

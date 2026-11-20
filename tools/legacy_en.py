@@ -129,6 +129,31 @@ MOVE_NAMES = {
                                                    # writes one 2 too many
 }
 
+# The badges the Simplified pages pin to a move name (<span class="tag">).
+# rewrite_move_names() swaps the whole name cell for the Wavu name, and until
+# 2026-11-19 the badges went with it: 78 of the 79 never reached an English
+# page, so Heat Engagers, Heat Smashes and Rage Arts read like any other move.
+# Game terms where the game has one (Heat Engager, Heat Smash, Power Crush,
+# Rage Art, Parry); the rest say what the tag marks on that row -- 转换 sits
+# on stance switches (幻月 from 御生, 不死鸟瞬移 from 光翼), 量表 on Clive's
+# Zantetsuken gauge moves, 回转 on Xiaoyu's spinning d+3+4.
+TAG_NAMES = {
+    "热能发动": "Heat Engager",
+    "发动技": "Heat Engager",
+    "热能斩": "Heat Smash",
+    "热能中": "Heat",
+    "愤怒技": "Rage Art",
+    "霸体": "Power Crush",
+    "拂挡": "Parry",
+    "投": "Throw",
+    "自动": "auto",
+    "量表": "Gauge",
+    "架势": "Stance",
+    "转换": "Switch",
+    "背身": "Back-turned",
+    "回转": "Spin",
+}
+
 # Wavu publishes no name for these, so the page shows the project's own
 # description, in italics like every other described name on the site.
 # Where Wavu romanises the same kanji on a follow-up card, that romanisation

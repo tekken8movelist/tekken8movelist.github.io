@@ -97,6 +97,18 @@ class LegacyEnglishTests(unittest.TestCase):
                     if len(spans) > 1:
                         self.assertIn("lvsep", cell, f"{spans} run together")
 
+    def test_name_badges_survive_the_rename(self) -> None:
+        """Heat Engager / Rage Art / Stance badges reach the English page.
+
+        The name cell is replaced wholesale with the Wavu name, and until
+        2026-11-19 its badges went with it: 78 of 79 were missing.
+        """
+        badge = re.compile(r'<span class="(tag[^"]*)">')
+        for key, markup in self.built.items():
+            with self.subTest(character=key):
+                source = (SITE / LEGACY_PAGES[key]).read_text(encoding="utf-8")
+                self.assertEqual(badge.findall(markup), badge.findall(source))
+
     def test_no_table_is_left_holding_chinese(self) -> None:
         for key, markup in self.built.items():
             with self.subTest(character=key):
