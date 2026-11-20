@@ -24,6 +24,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import band_color  # noqa: E402
+from css_inline import strip_css_comments  # noqa: E402
 from locales import (  # noqa: E402
     DEFAULT_LOCALE,
     LOCALES,
@@ -69,7 +70,8 @@ def notation_for(locale: str) -> dict:
 NOTATION_DEFAULT = notation_for(DEFAULT_LOCALE)
 
 
-PAGE_CSS = "".join(
+# comments stripped as they are inlined: tools/css_inline.py
+PAGE_CSS = strip_css_comments("".join(
     (TOOLS / name).read_text(encoding="utf-8")
     for name in (
         # first, so the shrink tiers, English line-height and phone overrides
@@ -80,7 +82,7 @@ PAGE_CSS = "".join(
         "legend_card.css",
         "back_nav.css",
     )
-)
+))
 PAGE_SCRIPT = (
     "\n"
     + (TOOLS / "season2_page.js").read_text(encoding="utf-8")
@@ -2183,7 +2185,7 @@ def build_page(
 <script type="application/ld+json">{json_ld}</script>
 {boot_script}
 <style>{PAGE_CSS}</style>
-<style id="tk-notation">{component_css}</style>
+<style id="tk-notation">{strip_css_comments(component_css)}</style>
 </head>
 <body style="--accent:{config['accent']};--accent-ink:{config['accent_ink']};--accent-band:{band_color(config['accent'], config['accent_ink'])}">
 <nav class="revealbar" aria-label="{escape(s["quickNav"], quote=True)}"><a href="index.html" data-home aria-label="{escape(s["crumbAria"], quote=True)}"><span aria-hidden="true">←</span> {s["crumbShort"]}</a><b>{escape(display)}{secondary_bar}</b></nav>

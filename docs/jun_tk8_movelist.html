@@ -416,89 +416,24 @@ try{if((localStorage.getItem('tk-theme')||'dark')==='dark')document.documentElem
   }
 }
 </style>
-<style id="legacy-chrome">/* ---- movelist table text size ------------------------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py), for
-   the same reason header_card.css and legend_card.css are: a reader moving
-   between a generator page and a pipeline page should not see the table text
-   change size.
-
-   These are the two columns a reader actually reads -- what the move is called
-   and what to press -- and they were the two smallest things on the page: the
-   name at 9.5px (10.5px inherited from `body` on the pipeline pages) and the
-   button maps at 11px.
-
-   The room came from 判定, not from thin air. Measured on the published tables
-   at 1480px, that column held 81px and put at most 20px of ink in it; the
-   shares in locales.py now hand most of it back to 招式 and 指令. Sizing these
-   up without that would have made things worse, not better: at the old 37%
-   share the single cell `b,f+2,1,df+2` overflowed at 11.5px, and the only way
-   to fit it was to drop it into the 9px shrink tier -- smaller text, from a
-   change meant to enlarge it.
-
-   The generator's shrink tiers, English line-height and phone overrides stay
-   in season2_page.css: they are all more specific than these two rules, and
-   the five pipeline pages do not load that file.
-   ---------------------------------------------------------------------- */
-
+<style id="legacy-chrome">
 td.name {
   font-size: 11px;
 }
-
 td.cmd .tk-in {
   font-size: 12px;
 }
-
-/* The pipeline pages were authored for Chinese and set `white-space: nowrap`
-   with an ellipsis on the name cell, which is right for 背向右拳 and wrong for
-   "Back-Turned Right Punch": on the English tree 16 of law's names, and others
-   on clive, were being cut off mid-word. Those rows size to their content, so
-   letting the name wrap costs nothing but a taller row.
-
-   The generator pages already handle this with rules carrying
-   `section:not(.tipsPage) tr[data-record-id]`, which outrank this one, so this
-   reaches only the five pipeline pages despite being loaded by both. */
 html.loc-en td.name {
   white-space: normal;
   overflow-wrap: break-word;
 }
-
-/* Chinese needs the same only where the column cannot grow (2026-11-19).
-   law's stance tables are the one fixed-layout table on any pipeline page
-   (`.synced-lists .movelist`, name column 19%), and when the name went from
-   10.5px to 11px a four-character name stopped fitting between 700px and
-   820px: 龙构旋踢, 背身右拳 and 17 others showed as 龙构… on a tablet.
-
-   Do NOT widen this to every pipeline name cell. Tried, measured: in the
-   auto-layout tables `nowrap` is what holds the column at the name's width,
-   and letting it wrap hands that width to the other columns -- at 768px some
-   three hundred names broke onto two or three lines (龙/尾/扫), up to 1480px
-   on clive. In a fixed-layout table the column is the same width whatever its
-   content, so a name wraps only when it really does not fit. */
 .synced-lists .movelist td.name {
   white-space: normal;
   overflow-wrap: anywhere;
 }
-
-/* A command that cannot be drawn falls back to prose inside .tk-in, and that
-   prose scales with the button-map size like everything else in the component
-   -- law's "In Heat, Dragon Charge auto-parries punches" went 3px over its
-   cell at 12px. Letting it wrap is free on the pipeline pages because their
-   rows size to content; on the generator pages the rows are a fixed height
-   with the overflow hidden, so wrapping there would clip instead of grow.
-   `tr:not([data-record-id])` is what separates them: every generator row has
-   that attribute and no pipeline row does. */
 tr:not([data-record-id]) td.cmd .tk-in > .tk-txt {
   white-space: normal;
 }
-/* ---- character header card --------------------------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
-   The two families name their theme colours differently, so the band
-   reads --hc-accent / --hc-ink, which each family binds once on `header`.
-   The portrait is set into the band itself and dissolves into the gradient,
-   so the content column and every table below keep their exact width.
-   ---------------------------------------------------------------------- */
 header {
   display: flex;
   align-items: stretch;
@@ -510,26 +445,18 @@ header {
   color: #fff;
   background: linear-gradient(112deg, var(--hc-ink), var(--hc-accent) 88%);
 }
-
 header .hero {
   position: relative;
   flex: 0 0 162px;
   width: 162px;
   align-self: stretch;
 }
-
-/* a spacer, so the band keeps its height even before the portrait decodes */
 header .hero::after {
   content: "";
   display: block;
   width: 1px;
   height: 150px;
 }
-
-/* `lighten` only reveals pale line art over a DARK ground, and accents range
-   from #1e4067 to near-white (Panda, Lili). So the portrait gets its own dark
-   plate, faded out by the same mask as the image: invisible under dark
-   accents, and the thing that makes the art legible under pale ones. */
 header .hero::before {
   content: "";
   position: absolute;
@@ -539,8 +466,6 @@ header .hero::before {
   height: calc(100% + 32px);
   background: #0a0d11;
   opacity: .5;
-  /* a longer ramp than the image mask: under a pale accent the plate would
-     otherwise read as a panel with an edge rather than as a vignette */
   mask-image:
     linear-gradient(90deg, #000 0 34%, rgba(0, 0, 0, .5) 68%, transparent 100%),
     linear-gradient(180deg, #000 0 62%, rgba(0, 0, 0, .45) 86%, transparent 100%);
@@ -550,10 +475,6 @@ header .hero::before {
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
-
-/* The portraits are pale line art on a near-black square. Masking it out
-   towards the right and bottom is what makes it read as part of the gradient
-   rather than a pasted-on thumbnail; `lighten` drops the black ground. */
 header .hero img {
   position: absolute;
   left: -21px;
@@ -572,7 +493,6 @@ header .hero img {
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
-
 header .hdrmain {
   flex: 1 1 auto;
   min-width: 0;
@@ -581,11 +501,6 @@ header .hdrmain {
   justify-content: center;
   gap: 6px;
 }
-
-/* Row 1 is breadcrumb and locale; row 2 is theme and notation. Locale is not a
-   peer of those two: 主题 / 记法 change something about the page you are
-   reading, locale navigates to a different one. Centring rather than baseline
-   because the locale plate is a box, not a run of text. */
 header .hdrtop {
   display: flex;
   align-items: center;
@@ -593,12 +508,9 @@ header .hdrtop {
   flex-wrap: wrap;
   gap: 8px 16px;
 }
-
-/* row 2 has a single child, so space-between would park it on the left */
 header .hdrtop.hdrtop2 {
   justify-content: flex-end;
 }
-
 header .hdrctl {
   display: flex;
   align-items: baseline;
@@ -606,19 +518,6 @@ header .hdrctl {
   flex-wrap: wrap;
   gap: 6px 18px;
 }
-
-/* ---- locale control ----------------------------------------------------
-   Plain <a> elements, never buttons: a crawler has to be able to follow them
-   and they have to work with JS off, exactly like the breadcrumb beside them.
-   The current locale is a <span> with aria-current, so it is announced as the
-   current page rather than offered as a destination.
-
-   Shaped like the 记法 / 主题 groups it shares the band with -- a small word,
-   then the choices -- rather than the 文/A badge it used to lead with. The
-   three .ntgl properties are restated instead of shared because .ntgl is
-   defined once per page family (season2_page.css, and the pipeline pages'
-   own inline block) while this file is the one stylesheet both families read.
-   ---------------------------------------------------------------------- */
 .lcgl {
   display: inline-flex;
   align-items: center;
@@ -626,7 +525,6 @@ header .hdrctl {
   font-size: 10px;
   opacity: .95;
 }
-
 .lcgl .lcseg {
   display: inline-flex;
   align-items: center;
@@ -636,7 +534,6 @@ header .hdrctl {
   background: rgba(10, 13, 17, .34);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
 }
-
 .lcgl a,
 .lcgl .off,
 .lcgl [aria-current="true"] {
@@ -647,33 +544,24 @@ header .hdrctl {
   letter-spacing: 1px;
   text-decoration: none;
 }
-
 .lcgl a {
   color: rgba(255, 255, 255, .82);
   font-weight: 500;
 }
-
 .lcgl a:hover {
   background: rgba(255, 255, 255, .14);
   color: #fff;
 }
-
 .lcgl [aria-current="true"] {
   color: var(--hc-ink);
   background: #fff;
   font-weight: 700;
 }
-
-/* a locale this page has not been built in yet -- the five pipeline pages are
-   Simplified-only. Dimmed rather than dropped: the control is on the other 36
-   pages, and one that vanishes on 5 of 41 reads as a bug where a disabled
-   choice reads as "not translated yet", which is what it is. */
 .lcgl .off {
   color: rgba(255, 255, 255, .35);
   font-weight: 500;
   cursor: not-allowed;
 }
-
 header h1, header h2 {
   display: flex;
   align-items: baseline;
@@ -684,16 +572,12 @@ header h1, header h2 {
   line-height: 1.15;
   letter-spacing: 3px;
 }
-
-/* the tips-section heading is an h2 inside <header>; keep it looking exactly
-   like the h1 it replaced by neutralizing the bare section-heading h2 rule */
 header h2 {
   padding: 0;
   border-radius: 0;
   background: none;
   color: inherit;
 }
-
 header h1 small, header h2 small {
   font-size: 10.5px;
   font-weight: 600;
@@ -701,14 +585,12 @@ header h1 small, header h2 small {
   text-transform: uppercase;
   opacity: .74;
 }
-
 header h1 .hsub {
   font-size: 10.5px;
   font-weight: 400;
   letter-spacing: 1.5px;
   opacity: .62;
 }
-
 header .hdrbio {
   display: flex;
   flex-wrap: wrap;
@@ -718,14 +600,12 @@ header .hdrbio {
   padding-top: 7px;
   border-top: 1px solid rgba(255, 255, 255, .24);
 }
-
 header .hdrbio > div {
   display: flex;
   align-items: baseline;
   gap: 8px;
   min-width: 0;
 }
-
 header .hdrbio dt {
   flex: none;
   font-size: 8.5px;
@@ -733,15 +613,11 @@ header .hdrbio dt {
   letter-spacing: 2.4px;
   color: rgba(255, 255, 255, .58);
 }
-
 header .hdrbio dd {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: .5px;
 }
-
-
-/* the page intro moved to the footer; keep the class styled for both spots */
 .page-intro {
   margin: 0 0 6px;
   font-size: 10px;
@@ -749,80 +625,51 @@ header .hdrbio dd {
   text-align: left;
   color: var(--muted);
 }
-
-/* smaller and on a line of its own is enough to set it apart; the .8 opacity
-   it used to carry put it at 3.3:1 on the light theme, 2.9:1 on the pipeline
-   pages' dark one */
 .page-intro .en {
   display: block;
   font-size: 9.5px;
 }
-
-/* the band gives width back before the content column ever has to */
 @media (max-width: 1280px) {
   header .hero {
     flex-basis: 132px;
     width: 132px;
   }
-
   header .hero::after { height: 128px; }
 }
-
 @media (max-width: 640px) {
   header {
     gap: 12px;
     padding: 12px 13px;
   }
-
   header .hero {
     flex-basis: 92px;
     width: 92px;
   }
-
   header .hero::after { height: 104px; }
-
   header .hero img {
     left: -12px;
     top: -10px;
     width: calc(100% + 26px);
     height: calc(100% + 20px);
   }
-
   header h1, header h2 { font-size: 18px; letter-spacing: 1.5px; }
-
   header .hdrctl { gap: 4px 12px; }
-
-  /* the locale plate is the one thing in the band that must not shrink out of
-     tap-target size, so it keeps its padding and loses its label instead */
   .lcgl .lcl { display: none; }
-
   .lcgl a,
   .lcgl .off,
   .lcgl [aria-current="true"] { padding: 3px 9px; }
 }
-
-/* Design-language normalisation. These values are what the generator already
-   emits, so they are a no-op there; they exist to pull the legacy pipeline
-   pages -- whose inline CSS still carries the old 6px pill radii -- onto the
-   same flat 2px chrome. */
 h2 {
   border-radius: 2px 2px 0 0;
 }
-
 .legend {
   border-radius: 2px;
 }
-
-/* Touch screens: the band's switches (主题 / 记法 / 语言) are 16-20px tall,
-   under the 24px minimum target size (WCAG 2.2 SC 2.5.8). Lighthouse's mobile
-   audit flagged #thl and #nt on 2026-11-19. Only coarse pointers get the extra
-   height, so the desktop band keeps its density. */
 @media (pointer: coarse) {
   header .ntgl button {
     padding-top: 7px;
     padding-bottom: 7px;
   }
-
   header .lcgl a,
   header .lcgl .off,
   header .lcgl [aria-current="true"] {
@@ -831,22 +678,6 @@ h2 {
     padding-bottom: 7px;
   }
 }
-/* ---- notation-aware legend ---------------------------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
-
-   The legend answers a different question depending on the notation in force.
-   With button maps drawn, spelling out "1=左拳 … d/f=前下" describes something
-   the reader is not looking at; in text mode the button-map key describes
-   glyphs that are not on the page. So each half is bound to a notation and
-   exactly one is ever visible, while the judgement/startup row -- which is
-   about table columns, not notation -- always stays.
-
-   The rule separating the halves is a different colour in each family, so it
-   reads --lg-line, which each family binds once on `.legend`.
-   ---------------------------------------------------------------------- */
-
-/* the always-there row: what the judgement and startup columns mean */
 .legend .lgtop {
   display: flex;
   flex-wrap: wrap;
@@ -854,34 +685,18 @@ h2 {
   gap: 4px 15px;
   line-height: 1.7;
 }
-
 .legend .lgcount {
   margin-left: auto;
   opacity: .8;
 }
-
-/* Moves Wavu never named carry the project's own description. The span stays
-   -- it holds the tooltip that says so -- but it is deliberately not styled
-   apart. Two earlier attempts marked these per row, a `ref` chip and then
-   italics, and both read as "this row is broken" rather than as a note about
-   sourcing: a fifth of every table looking different from the rest is a lot
-   of visual noise to spend on a provenance footnote. The disclosure is now
-   where a reader looks for that kind of thing -- `.lgref` in the legend and
-   the footer note -- and is page-level rather than per-row.
-   `cursor: help` is kept: it does not change how the name looks, and it is
-   the only hint that a tooltip is there at all. */
 .refname {
   cursor: help;
 }
-
-/* `.lgtop` is a wrapping flex row, so this takes a full basis to sit on its
-   own line instead of being wedged in beside the startup note. */
 .legend .lgref {
   flex: 0 0 100%;
   font-style: italic;
   opacity: .8;
 }
-
 .legend .lgsub {
   display: flex;
   flex-wrap: wrap;
@@ -892,46 +707,25 @@ h2 {
   border-top: 1px solid var(--lg-line);
   line-height: 1.7;
 }
-
-/* Specificity has to clear two other rules: `.legend .lgsub` right above, or
-   the hidden half stays flex; and the legacy pages' own generic
-   `body.txt-mode .gfx-only { display: none }`, which is declared before this
-   file is injected and would otherwise keep the button-map key on screen. */
 .legend .lgsub.txt-only {
   display: none;
 }
-
 body.txt-mode .legend .lgsub.txt-only {
   display: flex;
 }
-
 body.txt-mode .legend .lgsub.gfx-only {
   display: none;
 }
-
 @media (max-width: 640px) {
   .legend .lgcount {
     flex: 0 0 100%;
     margin-left: 0;
   }
 }
-/* ---- back navigation: character page -> hub -------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_back_nav.py),
-   so it may only rely on what both actually provide:
-     - `color: inherit` for ink, because the legacy pages set dark-mode ink
-       on <body> rather than on --ink;
-     - literal backgrounds, which match both families' --bg values exactly;
-     - --bn-accent, which each family binds once in its own stylesheet.
-   ------------------------------------------------------------------- */
-
-/* part 1: the always-there breadcrumb. Own row, so the existing
-   baseline-aligned header flex children keep their positions. */
 header .homerow {
   flex: 0 0 100%;
   margin-bottom: 2px;
 }
-
 header .home {
   display: inline-flex;
   align-items: center;
@@ -943,21 +737,14 @@ header .home {
   border-bottom: 1px solid transparent;
   transition: color .15s ease, border-color .15s ease;
 }
-
 header .home:hover {
   color: #fff;
   border-bottom-color: rgba(255, 255, 255, .6);
 }
-
 header .home:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
-
-/* part 2: the bar that slides in on an upward scroll. The collapsed state
-   also drops `visibility` so an off-screen bar leaves the tab order --
-   `transform` alone would keep it focusable. Delaying the visibility
-   transition until the slide finishes preserves the slide-out animation. */
 .revealbar {
   position: fixed;
   top: 0;
@@ -977,46 +764,36 @@ header .home:focus-visible {
   visibility: hidden;
   transition: transform .2s ease, visibility 0s linear .2s;
 }
-
 html.dark .revealbar {
   border-bottom-color: #2a323d;
   background: rgba(14, 17, 22, .92);
 }
-
 .revealbar.show {
   transform: none;
   visibility: visible;
   transition: transform .2s ease;
 }
-
 .revealbar a {
   color: inherit;
   letter-spacing: 1px;
   text-decoration: none;
 }
-
 .revealbar a:hover {
   color: var(--bn-accent, inherit);
 }
-
 .revealbar a:focus-visible {
   outline: 2px solid var(--bn-accent, currentColor);
   outline-offset: 2px;
 }
-
 .revealbar b {
   font-size: 11px;
   letter-spacing: 1px;
 }
-
 .revealbar b small {
   margin-left: 6px;
   font-weight: 400;
   opacity: .7;
 }
-
-/* part 3: the footer roster (tools/roster.py) -- every other fighter in one
-   wrapping line, so each page is reachable from more than the hub. */
 footer .roster {
   display: block;
   margin: 8px auto 0;
@@ -1025,62 +802,45 @@ footer .roster {
   line-height: 1.9;
   text-align: center;
 }
-
-/* no opacity on the label: the footer colour is already the quiet one, and
-   .75 of it measured 3.0:1 on the light theme (Lighthouse wants 4.5) */
 footer .roster b {
   margin-right: 4px;
   font-weight: 700;
 }
-
 footer .roster a {
   color: var(--bn-accent, inherit);
   white-space: nowrap;
   text-decoration: none;
 }
-
 footer .roster a:hover,
 footer .roster a:focus-visible {
   text-decoration: underline;
 }
-
 footer .roster [aria-current] {
   color: inherit;
   font-weight: 700;
   white-space: nowrap;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .revealbar {
     transition: none;
   }
 }
-
 @media print {
   .revealbar {
     display: none;
   }
 }
-
 .revealbar, footer .roster { --bn-accent: var(--jade-dark); }
 html.dark .revealbar, html.dark footer .roster { --bn-accent: var(--acc); }
 body { --accent-band: #32846e; }
 header { --hc-accent: var(--accent-band); --hc-ink: var(--jade-dark); }
 h2 { background: var(--accent-band); }
 h2 .en { opacity: 1; }
-/* these pages hard-code the active toggle's colour to `--jade`, which on Law
-   is a mid gold (#b88900, 3.2:1 on the white pill) */
 .ntgl button.on { color: var(--jade-dark); }
 .legend { --lg-line: var(--line); }
 html.dark .legend { --lg-line: #2a323d; }
-/* the footer: these pages wrote it as #8aa39a / #68737f (clive #8d97ad),
-   2.7:1 and 3.9:1 -- the intro, the sources line and the roster all failed
-   Lighthouse's 4.5. The generator's --muted pair passes on both themes. */
 footer { color: #66756f; }
 html.dark footer { color: #98a4b1; }
-/* the plain tag badge (愤怒技, 量表, 霸体) is white on var(--misc), which dark
-   mode turns into the pale #c39bff: 2.2:1. The light value reads 6.9:1 on
-   either theme; the variable itself stays, the hit-level text uses it. */
 .tag { background: #6b46a8; }
 </style>
 </head>

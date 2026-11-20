@@ -55,6 +55,9 @@ QA：`workbench/qa/flux-check.mjs`（28 断言）+ `flux-perception.mjs`（多�
 - **主页字体**：Noto Sans SC 用 `text=` 只请求该主页实际渲染的字符（`tools/hub_fonts.py`，
   `augment_hub` / `build_hub` 每次重算，门禁校验覆盖）；两条字体链接都是 `media="print"` 低优先级，
   不得阻塞渲染（fonts.googleapis.com 在大陆不可达）。改主页文案后照常跑门禁即可。
+- **共享 CSS 内联时去注释**（`tools/css_inline.py`）：设计理由照常写在源 CSS 注释里，
+  页面上没有；每个角色页 gzip 29→21 KB。
+- **主页 hreflang** 由 `hub_i18n.with_alternates()` 统一生成（简体主页此前漏了，门禁现覆盖主页）。
 - **工具**：`tools/indexnow_submit.py`（发布后推 Bing 等）；Google 只能靠 Search Console。
 
 ## 角色页标题带（2026-07-25 改版，Claude Design 方案 A「铭牌」）
@@ -409,7 +412,8 @@ S3 末位范马勇次郎尚未发售，主页保留其占位卡。
   标题带（头像 + 标题 + 官方档案行）、按记法切换的图例、返回导航（面包屑 + 上滑浮现顶栏）
   唯一真值,由生成器拼进 PAGE_CSS/PAGE_SCRIPT,也由管线页补丁脚本注入;改这里后两边都要
   重新产出
-- `patch_legacy_pages.py` — 给 5 个管线页注入同一套标题带、图例与返回导航的幂等补丁脚本;
+- `patch_legacy_pages.py` — 给 5 个管线页注入同一套标题带、图例与返回导航的幂等补丁脚本
+  (另含 `<main>` 地标、页脚/徽标对比度修正，2026-11-19);
   `--check` 模式已接入门禁,页面与共享资源脱节即失败
 - `build_legacy_hant.py` / `build_legacy_en.py` / `legacy_en.py` — 5 个管线页的繁體
   （转换已发布的简体页）与英文（招式名接 Wavu 快照、其余文案照 `legacy_en` 的对照表

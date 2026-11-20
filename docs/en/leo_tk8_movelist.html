@@ -26,78 +26,21 @@
 <meta name="twitter:image" content="https://tekken8movelist.github.io/avatars/leo.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"TEKKEN 8 Leo Move List · Frame Data & Command List","description":"TEKKEN 8 Leo move list: all 148 moves with inputs, startup frames, hit levels and damage, Lightning Glare stances, 71 combo routes. Data from Wavu Wiki.","url":"https://tekken8movelist.github.io/en/leo_tk8_movelist.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"TEKKEN 8 Movelist · Frame Data & Command List","url":"https://tekken8movelist.github.io/en/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tekken8movelist.github.io/en/"},{"@type":"ListItem","position":2,"name":"Leo move list","item":"https://tekken8movelist.github.io/en/leo_tk8_movelist.html"}]}}</script>
 <script>(function(){try{var t=localStorage.getItem('tk-theme');if(t!=='light')document.documentElement.classList.add('dark')}catch(_){document.documentElement.classList.add('dark')}})();</script>
-<style>/* ---- movelist table text size ------------------------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py), for
-   the same reason header_card.css and legend_card.css are: a reader moving
-   between a generator page and a pipeline page should not see the table text
-   change size.
-
-   These are the two columns a reader actually reads -- what the move is called
-   and what to press -- and they were the two smallest things on the page: the
-   name at 9.5px (10.5px inherited from `body` on the pipeline pages) and the
-   button maps at 11px.
-
-   The room came from 判定, not from thin air. Measured on the published tables
-   at 1480px, that column held 81px and put at most 20px of ink in it; the
-   shares in locales.py now hand most of it back to 招式 and 指令. Sizing these
-   up without that would have made things worse, not better: at the old 37%
-   share the single cell `b,f+2,1,df+2` overflowed at 11.5px, and the only way
-   to fit it was to drop it into the 9px shrink tier -- smaller text, from a
-   change meant to enlarge it.
-
-   The generator's shrink tiers, English line-height and phone overrides stay
-   in season2_page.css: they are all more specific than these two rules, and
-   the five pipeline pages do not load that file.
-   ---------------------------------------------------------------------- */
-
+<style>
 td.name {
   font-size: 11px;
 }
-
 td.cmd .tk-in {
   font-size: 12px;
 }
-
-/* The pipeline pages were authored for Chinese and set `white-space: nowrap`
-   with an ellipsis on the name cell, which is right for 背向右拳 and wrong for
-   "Back-Turned Right Punch": on the English tree 16 of law's names, and others
-   on clive, were being cut off mid-word. Those rows size to their content, so
-   letting the name wrap costs nothing but a taller row.
-
-   The generator pages already handle this with rules carrying
-   `section:not(.tipsPage) tr[data-record-id]`, which outrank this one, so this
-   reaches only the five pipeline pages despite being loaded by both. */
 html.loc-en td.name {
   white-space: normal;
   overflow-wrap: break-word;
 }
-
-/* Chinese needs the same only where the column cannot grow (2026-11-19).
-   law's stance tables are the one fixed-layout table on any pipeline page
-   (`.synced-lists .movelist`, name column 19%), and when the name went from
-   10.5px to 11px a four-character name stopped fitting between 700px and
-   820px: 龙构旋踢, 背身右拳 and 17 others showed as 龙构… on a tablet.
-
-   Do NOT widen this to every pipeline name cell. Tried, measured: in the
-   auto-layout tables `nowrap` is what holds the column at the name's width,
-   and letting it wrap hands that width to the other columns -- at 768px some
-   three hundred names broke onto two or three lines (龙/尾/扫), up to 1480px
-   on clive. In a fixed-layout table the column is the same width whatever its
-   content, so a name wraps only when it really does not fit. */
 .synced-lists .movelist td.name {
   white-space: normal;
   overflow-wrap: anywhere;
 }
-
-/* A command that cannot be drawn falls back to prose inside .tk-in, and that
-   prose scales with the button-map size like everything else in the component
-   -- law's "In Heat, Dragon Charge auto-parries punches" went 3px over its
-   cell at 12px. Letting it wrap is free on the pipeline pages because their
-   rows size to content; on the generator pages the rows are a fixed height
-   with the overflow hidden, so wrapping there would clip instead of grow.
-   `tr:not([data-record-id])` is what separates them: every generator row has
-   that attribute and no pipeline row does. */
 tr:not([data-record-id]) td.cmd .tk-in > .tk-txt {
   white-space: normal;
 }
@@ -114,7 +57,6 @@ tr:not([data-record-id]) td.cmd .tk-in > .tk-txt {
   --low: #b3262e;
   --misc: #6b46a8;
 }
-
 html.dark {
   color-scheme: dark;
   --bg: #0e1116;
@@ -128,19 +70,16 @@ html.dark {
   --low: #ff8087;
   --misc: #c39bff;
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
   background: var(--bg);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
-
 body {
   max-width: 1120px;
   margin: 0 auto;
@@ -151,22 +90,12 @@ body {
   font-size: 10.5px;
   line-height: 1.35;
 }
-
 @media screen {
   body { zoom: 1.25; }
 }
-
-/* The header card lives in header_card.css, shared with the legacy pages. The
-   band carries white text across its whole width -- breadcrumb, toggles, title,
-   profile row -- so its bright end is --accent-band, the accent deepened until
-   white clears AA (see accent_contrast.py), not the raw accent. */
 header { --hc-accent: var(--accent-band); --hc-ink: var(--accent-ink); }
-
-/* back navigation lives in back_nav.css, shared with the legacy pipeline
-   pages; only the accent binding differs per page family. */
 .revealbar { --bn-accent: var(--accent-ink); }
 html.dark .revealbar { --bn-accent: var(--accent); }
-
 .ntgl {
   display: inline-flex;
   align-items: center;
@@ -174,14 +103,12 @@ html.dark .revealbar { --bn-accent: var(--accent); }
   font-size: 10px;
   opacity: .95;
 }
-
 .ntgl .seg {
   display: inline-flex;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .5);
   border-radius: 2px;
 }
-
 .ntgl button {
   border: 0;
   padding: 2px 10px;
@@ -192,20 +119,16 @@ html.dark .revealbar { --bn-accent: var(--accent); }
   letter-spacing: 1px;
   cursor: pointer;
 }
-
 .ntgl button.on {
   color: var(--accent-ink);
   background: rgba(255, 255, 255, .92);
   font-weight: 700;
 }
-
 .ntgl button:focus-visible {
   outline: 2px solid #fff;
   outline-offset: -2px;
 }
-
 .legend {
-  /* the shared legend_card.css draws the notation divider with this */
   --lg-line: var(--line);
   margin-bottom: 10px;
   padding: 7px 11px;
@@ -215,104 +138,84 @@ html.dark .revealbar { --bn-accent: var(--accent); }
   background: var(--paper-alt);
   font-size: 9.5px;
 }
-
 .legend b,
 footer a {
   color: var(--accent-ink);
 }
-
 html.dark .legend b,
 html.dark footer a {
   color: var(--accent);
 }
-
 section {
   margin-bottom: 12px;
 }
-
 section.keep,
 .tpFull {
   break-inside: avoid;
 }
-
 h2 {
   padding: 4px 10px;
   border-radius: 2px 2px 0 0;
   color: #fff;
-  /* white on the raw accent runs from 3.2:1 down to Panda's 1.2:1 */
   background: var(--accent-band);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 3px;
 }
-
 h2 .en {
   float: right;
   margin-top: 2px;
   font-size: 9px;
   font-weight: 400;
   letter-spacing: 1px;
-  /* --accent-band is calibrated for *opaque* white, so dimming this label
-     spends the whole margin: at .75 it fell back to 3.2:1. Size, weight and
-     tracking already place it below the heading without it. */
   opacity: 1;
 }
-
 .cols2 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0 14px;
   align-items: start;
 }
-
 .cols2 > table,
 .colsRow > div,
 .ltc {
   min-width: 0;
 }
-
 .colsRow {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
   gap: 12px;
   align-items: start;
 }
-
 table {
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
   background: var(--paper);
 }
-
 .move-table,
 .throw-table,
 .ten-string-table {
   table-layout: fixed;
 }
-
 table.lt {
   table-layout: fixed;
   margin-bottom: 10px;
   border-spacing: 0;
   break-inside: avoid;
 }
-
 table.lt > tbody > tr > td.ltc {
   padding: 0;
   border: 0;
   background: none;
   vertical-align: top;
 }
-
 table.lt > tbody > tr > td.ltc + td.ltc {
   padding-left: 16px;
 }
-
 table.lt > tbody > tr + tr > td.ltc {
   padding-top: 10px;
 }
-
 th {
   padding: 3px 6px;
   border-bottom: 1.5px solid var(--accent);
@@ -322,77 +225,54 @@ th {
   text-align: left;
   letter-spacing: 1px;
 }
-
 html.dark th {
   color: var(--accent);
 }
-
 td {
   padding: 2.5px 6px;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
-
 tbody tr:nth-child(even) td {
   background: color-mix(in srgb, var(--paper-alt) 52%, transparent);
 }
-
-/* 39px, up from 38px, and the extra pixel is not slack: with the name at 11px
-   and the button maps at 12px the tallest row any Chinese page produces needs
-   38.2px (alisa DES.f+1+2,1+2). A fixed height under that leaves the tall rows
-   sticking out and the table reads as uneven, which is what the gate calls
-   `unevenTables`. Measured across all 41 pages, not derived -- see the note on
-   the English height below for the same measurement in that tree. */
 section:not(.tipsPage) tr[data-record-id] {
   height: 39px;
 }
-
 section:not(.tipsPage) tr[data-record-id] td {
   overflow: hidden;
   vertical-align: middle;
   white-space: nowrap;
 }
-
-/* font-size lives in table_text.css, which the five pipeline pages read too */
 td.name {
   font-weight: 600;
 }
-
 td.cmd {
   color: var(--accent-ink);
   font-family: Consolas, "Courier New", monospace;
   font-size: 8.5px;
 }
-
 html.dark td.cmd {
   color: var(--accent);
 }
-
 td.fr {
   color: #8a6f7d;
   font-family: Consolas, "Courier New", monospace;
   font-size: 9px;
 }
-
 html.dark td.fr {
   color: #8fa3b8;
 }
-
 td.dmg {
   color: var(--muted);
   font-size: 9px;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-
 td.rng {
   font-size: 9px;
   letter-spacing: 1px;
 }
-
-/* long per-hit damage strings / target marker runs / startup ranges /
-   move names wrap inside the fixed-height row instead of spilling into
-   the next column */
 section:not(.tipsPage) tr[data-record-id] td.dmg,
 section:not(.tipsPage) tr[data-record-id] td.rng,
 section:not(.tipsPage) tr[data-record-id] td.fr,
@@ -401,12 +281,10 @@ section:not(.tipsPage) tr[data-record-id] td.name {
   overflow-wrap: anywhere;
   line-height: 1.2;
 }
-
 .hi { color: var(--hi); font-weight: 600; }
 .md { color: var(--mid); font-weight: 600; }
 .lo { color: var(--low); font-weight: 600; }
 .sp { color: var(--misc); font-weight: 600; }
-
 .throw-break {
   display: inline-block;
   margin-left: 4px;
@@ -416,97 +294,71 @@ section:not(.tipsPage) tr[data-record-id] td.name {
   letter-spacing: 0;
   white-space: nowrap;
 }
-
 .cmd-gfx,
 .cmd-txt {
   white-space: nowrap;
 }
-
 .cmd-txt {
   font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
   font-weight: 700;
 }
-
-/* Size lives in table_text.css (12px, shared with the pipeline pages). The
-   shrink tiers below keep their own sizes and thresholds: the point of the
-   wider 指令 column is that fewer cells need them, not that crammed cells
-   grow -- scaling the tiers up with the base tripled the overflow count. */
 td.cmd .tk-in {
   flex-wrap: nowrap;
   row-gap: .25em;
   vertical-align: middle;
 }
-
 .ten-string-table tr[data-record-id] {
   height: auto !important;
 }
-
 .ten-string-table tr[data-record-id] td {
   overflow: visible !important;
   white-space: normal !important;
 }
-
 .ten-string-table td.cmd .tk-in {
   display: flex;
   max-width: 100%;
   flex-wrap: wrap;
 }
-
 .ten-string-table td.dmg {
   overflow-wrap: anywhere;
 }
-
-/* source-order warning: the phone block at the end of this file neutralizes cram tiers at equal specificity, so no cram rules may be appended after it */
 section:not(.tipsPage) table:not(.ten-string-table) td.cmd .tk-in.tk-cram {
   font-size: 9px;
 }
-
 section:not(.tipsPage) table.throw-table td.cmd .tk-in.tk-cram {
   font-size: 8.3px;
 }
-
 section:not(.tipsPage) table:not(.ten-string-table) td.cmd .tk-in.tk-cram.tk-cram2 {
   font-size: 7.1px;
 }
-
 section:not(.tipsPage) table.throw-table td.cmd .tk-in.tk-cram.tk-cram2 {
   font-size: 6.4px;
 }
-
-/* ten-string tables used to be exempt from cram tiers; with the larger 11px
-   base size the longest strings need the same shrink to stay inside the cell */
 section:not(.tipsPage) table.ten-string-table td.cmd .tk-in.tk-cram {
   font-size: 9.3px;
 }
-
 section:not(.tipsPage) table.ten-string-table td.cmd .tk-in.tk-cram.tk-cram2 {
   font-size: 8.3px;
 }
-
 body.nn-mode td.cmd .tk-b i.on {
   color: transparent !important;
 }
-
 body.txt-mode .cmd-gfx,
 body.txt-mode .gfx-only {
   display: none;
 }
-
 body.txt-mode .cmd-txt {
   display: inline-block;
   max-width: 100%;
   overflow-wrap: anywhere;
   white-space: normal;
 }
-
 body:not(.txt-mode) .cmd-txt {
   display: none;
 }
-
 html:not(.dark) .tk-in { --tk-ink: #1d1d1f; --tk-bg: #fff; }
 html:not(.dark) .tk-b i.on { box-shadow: none; }
 html:not(.dark) .tk-dir::before { filter: none; }
-
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -518,37 +370,31 @@ html:not(.dark) .tk-dir::before { filter: none; }
   white-space: nowrap !important;
   border: 0 !important;
 }
-
 section.tipsPage {
   break-before: page;
   margin-top: 16px;
   padding-top: 14px;
   border-top: 2px solid var(--line);
 }
-
 .tpFull {
   margin-bottom: 10px;
 }
-
 .tipsPage td {
   padding: 7px 8px;
   line-height: 1.4;
   vertical-align: middle;
   white-space: normal;
 }
-
 table.cb td:first-child {
   width: 30%;
   padding-right: 10px;
   border-right: 1px solid var(--line);
   font-weight: 700;
 }
-
 table.cb td:last-child {
   overflow-wrap: anywhere;
   font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
-
 body:not(.txt-mode) table.cb .combo-gfx {
   display: flex;
   max-width: 100%;
@@ -557,7 +403,6 @@ body:not(.txt-mode) table.cb .combo-gfx {
   gap: 4px 6px;
   white-space: normal;
 }
-
 table.cb .combo-token {
   display: inline-flex;
   align-items: center;
@@ -565,62 +410,48 @@ table.cb .combo-token {
   white-space: nowrap;
   flex-wrap: wrap;
   max-width: 100%;
-  /* a single over-long token (e.g. a 5-grid starter) must be allowed to
-     shrink and wrap internally instead of overflowing the cell */
   min-width: 0;
 }
-
-/* a single unspaced mega-token (long unbroken route notation) must still
-   wrap between grids instead of widening the page */
 table.cb td.cmd .tk-in {
   display: inline-flex;
   flex-wrap: wrap;
   max-width: 100%;
   row-gap: .25em;
 }
-
 table.cb .combo-literal {
   font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
   white-space: normal;
   overflow-wrap: anywhere;
 }
-
 .empty-note {
   padding: 8px 10px;
   border: 1px dashed var(--line);
   color: var(--muted);
 }
-
 footer {
   margin-top: 8px;
   color: var(--muted);
   font-size: 8.5px;
   text-align: center;
 }
-
-/* the footer roster's link colour (rules in back_nav.css, shared) */
 footer .roster { --bn-accent: var(--accent-ink); }
 html.dark footer .roster { --bn-accent: var(--accent); }
-
 @media print {
   body {
     max-width: none;
     padding: 0;
     font-size: 9.5px;
   }
-
   header { border-radius: 0; }
   tr { break-inside: avoid; }
   a { color: inherit; text-decoration: none; }
 }
-
 @media (max-width: 1280px) {
   .cols2,
   .colsRow {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-
   table.lt,
   table.lt > tbody,
   table.lt > tbody > tr,
@@ -628,23 +459,14 @@ html.dark footer .roster { --bn-accent: var(--accent); }
     display: block;
     width: 100%;
   }
-
   table.lt > tbody > tr > td.ltc + td.ltc {
     padding: 10px 0 0;
   }
-
   header h1 small, header h2 small {
     display: block;
     margin: 3px 0 0;
   }
 }
-
-/* ---- phone layout: 1 move per row ----------------------------------
-   Line 1: move name (left) + stats (right, "·"-separated).
-   Line 2: the command on its own full-width line; long commands
-   (ten-hit strings, long routes) wrap instead of squeezing.
-   The tk-in button-map graphics render unchanged; cram shrink tiers
-   are neutralized because wrapping replaces cramming. */
 @media (max-width: 640px) {
   body {
     zoom: 1;
@@ -653,29 +475,24 @@ html.dark footer .roster { --bn-accent: var(--accent); }
     padding: 8px;
     font-size: 12px;
   }
-
   .legend {
     font-size: 11px;
   }
-
   section:not(.tipsPage) table.move-table,
   section:not(.tipsPage) table.throw-table,
   section:not(.tipsPage) table.ten-string-table {
     display: block;
   }
-
   section:not(.tipsPage) table.move-table > thead,
   section:not(.tipsPage) table.throw-table > thead,
   section:not(.tipsPage) table.ten-string-table > thead {
     display: none;
   }
-
   section:not(.tipsPage) table.move-table > tbody,
   section:not(.tipsPage) table.throw-table > tbody,
   section:not(.tipsPage) table.ten-string-table > tbody {
     display: block;
   }
-
   section:not(.tipsPage) tr[data-record-id] {
     display: flex;
     flex-wrap: wrap;
@@ -685,7 +502,6 @@ html.dark footer .roster { --bn-accent: var(--accent); }
     padding: 6px 2px;
     border-bottom: 1px solid var(--line);
   }
-
   section:not(.tipsPage) tr[data-record-id] td {
     display: block;
     padding: 0;
@@ -693,22 +509,17 @@ html.dark footer .roster { --bn-accent: var(--accent); }
     overflow: visible;
     white-space: normal;
   }
-
-  /* zebra striping moves from the cells to the row box */
   section:not(.tipsPage) tbody tr:nth-child(even) td {
     background: none;
   }
-
   section:not(.tipsPage) tbody tr:nth-child(even) {
     background: color-mix(in srgb, var(--paper-alt) 52%, transparent);
   }
-
   section:not(.tipsPage) tr[data-record-id] td.name {
     flex: 1 1 auto;
     min-width: 0;
     font-size: 13px;
   }
-
   section:not(.tipsPage) tr[data-record-id] td.fr,
   section:not(.tipsPage) tr[data-record-id] td.dmg,
   section:not(.tipsPage) tr[data-record-id] td.rng,
@@ -717,29 +528,22 @@ html.dark footer .roster { --bn-accent: var(--accent); }
     flex: 0 0 auto;
     font-size: 11px;
   }
-
-  /* ten-string rows have no name cell: push the stats line right */
   section:not(.tipsPage) tr[data-record-id] td.cmd + td.fr {
     margin-left: auto;
   }
-
-  /* stat separators (td.cmd precedes td.fr in the DOM, so it is never matched) */
   section:not(.tipsPage) tr[data-record-id] td.fr ~ td:not(.cmd)::before {
     content: "·";
     margin-right: 8px;
     opacity: .45;
   }
-
   section:not(.tipsPage) tr[data-record-id] td.cmd {
     order: 2;
     flex: 0 0 100%;
     font-size: 11px;
   }
-
   section:not(.tipsPage) tr[data-record-id] td.cmd .cmd-gfx {
     white-space: normal;
   }
-
   section:not(.tipsPage) tr[data-record-id] td.cmd .tk-in,
   section:not(.tipsPage) tr[data-record-id] td.cmd .tk-in.tk-cram,
   section:not(.tipsPage) tr[data-record-id] td.cmd .tk-in.tk-cram.tk-cram2 {
@@ -748,42 +552,16 @@ html.dark footer .roster { --bn-accent: var(--accent); }
     font-size: 11px;
   }
 }
-
-/* ---- locale builds -----------------------------------------------------
-   The Chinese builds are the baseline above. These two blocks are the only
-   places layout differs by language, and both are additive: a page without
-   the marker class renders exactly as it did before locales existed.
-   ---------------------------------------------------------------------- */
-
-/* Traditional: put the TC face ahead of SC so 骨 / 直 / 過 render with the
-   glyph variants readers there expect. No new families are loaded. */
 html.loc-hant body {
   font-family: "Noto Sans TC", "Noto Sans SC", "Microsoft JhengHei",
     "Microsoft YaHei", sans-serif;
 }
-
-/* English still buys some of its width with row height -- names run about 2.5x
-   wider than Chinese and two lines are normal. It no longer buys it from 指令:
-   the room now comes from 判定, which was three-quarters empty in both locales
-   (see TABLE_COLUMNS in locales.py), so English 招式 went 27% -> 31% and the
-   button maps grew rather than shrank.
-   53px, up from 46px, is measured the same way as the Chinese height above:
-   with the name at 11px the tallest row across all 41 English pages needs 52px
-   (armor king's "Phenomenon Shadow DDT", which takes three lines). English
-   names wrap and Chinese ones do not, which is the whole reason the two trees
-   need different numbers here. */
 html.loc-en section:not(.tipsPage) tr[data-record-id] {
   height: 53px;
 }
-
 html.loc-en td {
   padding: 4px 6px;
 }
-
-/* Desktop only. These tune a name inside a fixed 46px row; the phone layout
-   drops the fixed height and already raises td.name to 13px, and applying
-   line-height 1.3 there sizes the text taller than the flex row sizes the box
-   -- a two-line name then overflows by exactly the 2px difference. */
 @media (min-width: 641px) {
   html.loc-en td.name {
     font-size: 11px;
@@ -791,60 +569,26 @@ html.loc-en td {
     text-wrap: pretty;
   }
 }
-
-/* `anywhere` is right for Chinese, where any character is a break point, and
-   wrong for "Three-Quarter Kick". Specificity has to match the base rule this
-   overrides, hence the same section:not(.tipsPage) prefix. */
 html.loc-en section:not(.tipsPage) tr[data-record-id] td.name {
   overflow-wrap: break-word;
 }
-
-/* Wavu publishes no English name for about a fifth of all moves; those cells
-   carry the project's own description. The italics and the legend line that
-   explains them live in legend_card.css, which both page families read --
-   this file is generator-only, and the five pipeline pages need them too. */
-
-/* The phone layout stacks the command onto its own line and lets rows size to
-   content. `html.loc-en` outranks the rule that does that, so the fixed height
-   has to be released here too -- without this, English rows stay 46px at 390px
-   and the command overlaps the stats line.
-   The name size is deliberately NOT touched: the stacked layout already raises
-   td.name to 13px, and an earlier attempt to "restore" a readable size here
-   pushed it back down to 10.5px instead. */
 @media (max-width: 640px) {
   html.loc-en section:not(.tipsPage) tr[data-record-id] {
     height: auto;
   }
-
-  /* The stacked layout's 1.2 line-height is tighter than this font stack's own
-     line box (19px of ink at 13px), which no Chinese name ever revealed because
-     none of them wrap on a phone. English names do, and a two-line cell then
-     overflows its box by exactly that difference. */
   html.loc-en section:not(.tipsPage) tr[data-record-id] td.name {
     line-height: 1.45;
   }
 }
-
-/* the hit-level separator only exists where a locale asks for one */
 .lvsep {
   font-style: normal;
   margin: 0 1px;
   opacity: .45;
 }
-
-/* English hit levels are words, so they must not split inside one */
 html.loc-en section:not(.tipsPage) tr[data-record-id] td.rng {
   overflow-wrap: break-word;
   letter-spacing: 0;
 }
-/* ---- character header card --------------------------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
-   The two families name their theme colours differently, so the band
-   reads --hc-accent / --hc-ink, which each family binds once on `header`.
-   The portrait is set into the band itself and dissolves into the gradient,
-   so the content column and every table below keep their exact width.
-   ---------------------------------------------------------------------- */
 header {
   display: flex;
   align-items: stretch;
@@ -856,26 +600,18 @@ header {
   color: #fff;
   background: linear-gradient(112deg, var(--hc-ink), var(--hc-accent) 88%);
 }
-
 header .hero {
   position: relative;
   flex: 0 0 162px;
   width: 162px;
   align-self: stretch;
 }
-
-/* a spacer, so the band keeps its height even before the portrait decodes */
 header .hero::after {
   content: "";
   display: block;
   width: 1px;
   height: 150px;
 }
-
-/* `lighten` only reveals pale line art over a DARK ground, and accents range
-   from #1e4067 to near-white (Panda, Lili). So the portrait gets its own dark
-   plate, faded out by the same mask as the image: invisible under dark
-   accents, and the thing that makes the art legible under pale ones. */
 header .hero::before {
   content: "";
   position: absolute;
@@ -885,8 +621,6 @@ header .hero::before {
   height: calc(100% + 32px);
   background: #0a0d11;
   opacity: .5;
-  /* a longer ramp than the image mask: under a pale accent the plate would
-     otherwise read as a panel with an edge rather than as a vignette */
   mask-image:
     linear-gradient(90deg, #000 0 34%, rgba(0, 0, 0, .5) 68%, transparent 100%),
     linear-gradient(180deg, #000 0 62%, rgba(0, 0, 0, .45) 86%, transparent 100%);
@@ -896,10 +630,6 @@ header .hero::before {
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
-
-/* The portraits are pale line art on a near-black square. Masking it out
-   towards the right and bottom is what makes it read as part of the gradient
-   rather than a pasted-on thumbnail; `lighten` drops the black ground. */
 header .hero img {
   position: absolute;
   left: -21px;
@@ -918,7 +648,6 @@ header .hero img {
   mask-composite: intersect;
   -webkit-mask-composite: source-in;
 }
-
 header .hdrmain {
   flex: 1 1 auto;
   min-width: 0;
@@ -927,11 +656,6 @@ header .hdrmain {
   justify-content: center;
   gap: 6px;
 }
-
-/* Row 1 is breadcrumb and locale; row 2 is theme and notation. Locale is not a
-   peer of those two: 主题 / 记法 change something about the page you are
-   reading, locale navigates to a different one. Centring rather than baseline
-   because the locale plate is a box, not a run of text. */
 header .hdrtop {
   display: flex;
   align-items: center;
@@ -939,12 +663,9 @@ header .hdrtop {
   flex-wrap: wrap;
   gap: 8px 16px;
 }
-
-/* row 2 has a single child, so space-between would park it on the left */
 header .hdrtop.hdrtop2 {
   justify-content: flex-end;
 }
-
 header .hdrctl {
   display: flex;
   align-items: baseline;
@@ -952,19 +673,6 @@ header .hdrctl {
   flex-wrap: wrap;
   gap: 6px 18px;
 }
-
-/* ---- locale control ----------------------------------------------------
-   Plain <a> elements, never buttons: a crawler has to be able to follow them
-   and they have to work with JS off, exactly like the breadcrumb beside them.
-   The current locale is a <span> with aria-current, so it is announced as the
-   current page rather than offered as a destination.
-
-   Shaped like the 记法 / 主题 groups it shares the band with -- a small word,
-   then the choices -- rather than the 文/A badge it used to lead with. The
-   three .ntgl properties are restated instead of shared because .ntgl is
-   defined once per page family (season2_page.css, and the pipeline pages'
-   own inline block) while this file is the one stylesheet both families read.
-   ---------------------------------------------------------------------- */
 .lcgl {
   display: inline-flex;
   align-items: center;
@@ -972,7 +680,6 @@ header .hdrctl {
   font-size: 10px;
   opacity: .95;
 }
-
 .lcgl .lcseg {
   display: inline-flex;
   align-items: center;
@@ -982,7 +689,6 @@ header .hdrctl {
   background: rgba(10, 13, 17, .34);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
 }
-
 .lcgl a,
 .lcgl .off,
 .lcgl [aria-current="true"] {
@@ -993,33 +699,24 @@ header .hdrctl {
   letter-spacing: 1px;
   text-decoration: none;
 }
-
 .lcgl a {
   color: rgba(255, 255, 255, .82);
   font-weight: 500;
 }
-
 .lcgl a:hover {
   background: rgba(255, 255, 255, .14);
   color: #fff;
 }
-
 .lcgl [aria-current="true"] {
   color: var(--hc-ink);
   background: #fff;
   font-weight: 700;
 }
-
-/* a locale this page has not been built in yet -- the five pipeline pages are
-   Simplified-only. Dimmed rather than dropped: the control is on the other 36
-   pages, and one that vanishes on 5 of 41 reads as a bug where a disabled
-   choice reads as "not translated yet", which is what it is. */
 .lcgl .off {
   color: rgba(255, 255, 255, .35);
   font-weight: 500;
   cursor: not-allowed;
 }
-
 header h1, header h2 {
   display: flex;
   align-items: baseline;
@@ -1030,16 +727,12 @@ header h1, header h2 {
   line-height: 1.15;
   letter-spacing: 3px;
 }
-
-/* the tips-section heading is an h2 inside <header>; keep it looking exactly
-   like the h1 it replaced by neutralizing the bare section-heading h2 rule */
 header h2 {
   padding: 0;
   border-radius: 0;
   background: none;
   color: inherit;
 }
-
 header h1 small, header h2 small {
   font-size: 10.5px;
   font-weight: 600;
@@ -1047,14 +740,12 @@ header h1 small, header h2 small {
   text-transform: uppercase;
   opacity: .74;
 }
-
 header h1 .hsub {
   font-size: 10.5px;
   font-weight: 400;
   letter-spacing: 1.5px;
   opacity: .62;
 }
-
 header .hdrbio {
   display: flex;
   flex-wrap: wrap;
@@ -1064,14 +755,12 @@ header .hdrbio {
   padding-top: 7px;
   border-top: 1px solid rgba(255, 255, 255, .24);
 }
-
 header .hdrbio > div {
   display: flex;
   align-items: baseline;
   gap: 8px;
   min-width: 0;
 }
-
 header .hdrbio dt {
   flex: none;
   font-size: 8.5px;
@@ -1079,15 +768,11 @@ header .hdrbio dt {
   letter-spacing: 2.4px;
   color: rgba(255, 255, 255, .58);
 }
-
 header .hdrbio dd {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: .5px;
 }
-
-
-/* the page intro moved to the footer; keep the class styled for both spots */
 .page-intro {
   margin: 0 0 6px;
   font-size: 10px;
@@ -1095,80 +780,51 @@ header .hdrbio dd {
   text-align: left;
   color: var(--muted);
 }
-
-/* smaller and on a line of its own is enough to set it apart; the .8 opacity
-   it used to carry put it at 3.3:1 on the light theme, 2.9:1 on the pipeline
-   pages' dark one */
 .page-intro .en {
   display: block;
   font-size: 9.5px;
 }
-
-/* the band gives width back before the content column ever has to */
 @media (max-width: 1280px) {
   header .hero {
     flex-basis: 132px;
     width: 132px;
   }
-
   header .hero::after { height: 128px; }
 }
-
 @media (max-width: 640px) {
   header {
     gap: 12px;
     padding: 12px 13px;
   }
-
   header .hero {
     flex-basis: 92px;
     width: 92px;
   }
-
   header .hero::after { height: 104px; }
-
   header .hero img {
     left: -12px;
     top: -10px;
     width: calc(100% + 26px);
     height: calc(100% + 20px);
   }
-
   header h1, header h2 { font-size: 18px; letter-spacing: 1.5px; }
-
   header .hdrctl { gap: 4px 12px; }
-
-  /* the locale plate is the one thing in the band that must not shrink out of
-     tap-target size, so it keeps its padding and loses its label instead */
   .lcgl .lcl { display: none; }
-
   .lcgl a,
   .lcgl .off,
   .lcgl [aria-current="true"] { padding: 3px 9px; }
 }
-
-/* Design-language normalisation. These values are what the generator already
-   emits, so they are a no-op there; they exist to pull the legacy pipeline
-   pages -- whose inline CSS still carries the old 6px pill radii -- onto the
-   same flat 2px chrome. */
 h2 {
   border-radius: 2px 2px 0 0;
 }
-
 .legend {
   border-radius: 2px;
 }
-
-/* Touch screens: the band's switches (主题 / 记法 / 语言) are 16-20px tall,
-   under the 24px minimum target size (WCAG 2.2 SC 2.5.8). Lighthouse's mobile
-   audit flagged #thl and #nt on 2026-11-19. Only coarse pointers get the extra
-   height, so the desktop band keeps its density. */
 @media (pointer: coarse) {
   header .ntgl button {
     padding-top: 7px;
     padding-bottom: 7px;
   }
-
   header .lcgl a,
   header .lcgl .off,
   header .lcgl [aria-current="true"] {
@@ -1177,22 +833,6 @@ h2 {
     padding-bottom: 7px;
   }
 }
-/* ---- notation-aware legend ---------------------------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_pages.py).
-
-   The legend answers a different question depending on the notation in force.
-   With button maps drawn, spelling out "1=左拳 … d/f=前下" describes something
-   the reader is not looking at; in text mode the button-map key describes
-   glyphs that are not on the page. So each half is bound to a notation and
-   exactly one is ever visible, while the judgement/startup row -- which is
-   about table columns, not notation -- always stays.
-
-   The rule separating the halves is a different colour in each family, so it
-   reads --lg-line, which each family binds once on `.legend`.
-   ---------------------------------------------------------------------- */
-
-/* the always-there row: what the judgement and startup columns mean */
 .legend .lgtop {
   display: flex;
   flex-wrap: wrap;
@@ -1200,34 +840,18 @@ h2 {
   gap: 4px 15px;
   line-height: 1.7;
 }
-
 .legend .lgcount {
   margin-left: auto;
   opacity: .8;
 }
-
-/* Moves Wavu never named carry the project's own description. The span stays
-   -- it holds the tooltip that says so -- but it is deliberately not styled
-   apart. Two earlier attempts marked these per row, a `ref` chip and then
-   italics, and both read as "this row is broken" rather than as a note about
-   sourcing: a fifth of every table looking different from the rest is a lot
-   of visual noise to spend on a provenance footnote. The disclosure is now
-   where a reader looks for that kind of thing -- `.lgref` in the legend and
-   the footer note -- and is page-level rather than per-row.
-   `cursor: help` is kept: it does not change how the name looks, and it is
-   the only hint that a tooltip is there at all. */
 .refname {
   cursor: help;
 }
-
-/* `.lgtop` is a wrapping flex row, so this takes a full basis to sit on its
-   own line instead of being wedged in beside the startup note. */
 .legend .lgref {
   flex: 0 0 100%;
   font-style: italic;
   opacity: .8;
 }
-
 .legend .lgsub {
   display: flex;
   flex-wrap: wrap;
@@ -1238,46 +862,25 @@ h2 {
   border-top: 1px solid var(--lg-line);
   line-height: 1.7;
 }
-
-/* Specificity has to clear two other rules: `.legend .lgsub` right above, or
-   the hidden half stays flex; and the legacy pages' own generic
-   `body.txt-mode .gfx-only { display: none }`, which is declared before this
-   file is injected and would otherwise keep the button-map key on screen. */
 .legend .lgsub.txt-only {
   display: none;
 }
-
 body.txt-mode .legend .lgsub.txt-only {
   display: flex;
 }
-
 body.txt-mode .legend .lgsub.gfx-only {
   display: none;
 }
-
 @media (max-width: 640px) {
   .legend .lgcount {
     flex: 0 0 100%;
     margin-left: 0;
   }
 }
-/* ---- back navigation: character page -> hub -------------------------
-   Shared verbatim by both page families (36 generator pages via
-   build_season2.py, 5 legacy pipeline pages via patch_legacy_back_nav.py),
-   so it may only rely on what both actually provide:
-     - `color: inherit` for ink, because the legacy pages set dark-mode ink
-       on <body> rather than on --ink;
-     - literal backgrounds, which match both families' --bg values exactly;
-     - --bn-accent, which each family binds once in its own stylesheet.
-   ------------------------------------------------------------------- */
-
-/* part 1: the always-there breadcrumb. Own row, so the existing
-   baseline-aligned header flex children keep their positions. */
 header .homerow {
   flex: 0 0 100%;
   margin-bottom: 2px;
 }
-
 header .home {
   display: inline-flex;
   align-items: center;
@@ -1289,21 +892,14 @@ header .home {
   border-bottom: 1px solid transparent;
   transition: color .15s ease, border-color .15s ease;
 }
-
 header .home:hover {
   color: #fff;
   border-bottom-color: rgba(255, 255, 255, .6);
 }
-
 header .home:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
-
-/* part 2: the bar that slides in on an upward scroll. The collapsed state
-   also drops `visibility` so an off-screen bar leaves the tab order --
-   `transform` alone would keep it focusable. Delaying the visibility
-   transition until the slide finishes preserves the slide-out animation. */
 .revealbar {
   position: fixed;
   top: 0;
@@ -1323,46 +919,36 @@ header .home:focus-visible {
   visibility: hidden;
   transition: transform .2s ease, visibility 0s linear .2s;
 }
-
 html.dark .revealbar {
   border-bottom-color: #2a323d;
   background: rgba(14, 17, 22, .92);
 }
-
 .revealbar.show {
   transform: none;
   visibility: visible;
   transition: transform .2s ease;
 }
-
 .revealbar a {
   color: inherit;
   letter-spacing: 1px;
   text-decoration: none;
 }
-
 .revealbar a:hover {
   color: var(--bn-accent, inherit);
 }
-
 .revealbar a:focus-visible {
   outline: 2px solid var(--bn-accent, currentColor);
   outline-offset: 2px;
 }
-
 .revealbar b {
   font-size: 11px;
   letter-spacing: 1px;
 }
-
 .revealbar b small {
   margin-left: 6px;
   font-weight: 400;
   opacity: .7;
 }
-
-/* part 3: the footer roster (tools/roster.py) -- every other fighter in one
-   wrapping line, so each page is reachable from more than the hub. */
 footer .roster {
   display: block;
   margin: 8px auto 0;
@@ -1371,82 +957,48 @@ footer .roster {
   line-height: 1.9;
   text-align: center;
 }
-
-/* no opacity on the label: the footer colour is already the quiet one, and
-   .75 of it measured 3.0:1 on the light theme (Lighthouse wants 4.5) */
 footer .roster b {
   margin-right: 4px;
   font-weight: 700;
 }
-
 footer .roster a {
   color: var(--bn-accent, inherit);
   white-space: nowrap;
   text-decoration: none;
 }
-
 footer .roster a:hover,
 footer .roster a:focus-visible {
   text-decoration: underline;
 }
-
 footer .roster [aria-current] {
   color: inherit;
   font-weight: 700;
   white-space: nowrap;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .revealbar {
     transition: none;
   }
 }
-
 @media print {
   .revealbar {
     display: none;
   }
 }
 </style>
-<style id="tk-notation">/* ============================================================
-   Tekken 8 input notation component · v1.1 (final, polished)
-   单色 2×2 按键方阵 + 粗箭头方向。全部 em 计量，随 font-size 缩放。
-
-   主题：两个自定义属性
-     --tk-ink : 前景色（按键填充 / 箭头）
-     --tk-bg  : 页面背景色（按下键内的数字用色）
-   默认为夜间版配色（#0e1116 底），加 .light 切浅色。
-
-   标记约定（每条指令一个 .tk-in）：
-     <span class="tk-in tk-md">
-       <span class="tk-dir df"></span>          方向: f b u d df db uf ub
-       <span class="tk-sep">+</span>
-       <span class="tk-b"><i>1</i><i class="on">2</i><i>3</i><i>4</i></span>
-       <span class="tk-sep">›</span>            下一步
-       ...
-     </span>
-   .tk-b 恒有 4 个 <i>，顺序固定 1,2,3,4：
-     1 左拳 LP 左上 · 2 右拳 RP 右上 · 3 左脚 LK 左下 · 4 右脚 RK 右下
-   按下 = .on（实心+数字）；4 键常显，未按为幽灵态，不显数字。
-   ============================================================ */
-
+<style id="tk-notation">
 .tk-in{
   --tk-ink:#dce3ea;
   --tk-bg:#0e1116;
-  --tk-acc:#8b98a5; /* 角色主题色，默认中性灰蓝；按角色覆盖，见文件底部 */
+  --tk-acc:#8b98a5; 
   display:inline-flex;align-items:center;gap:.42em;
   color:var(--tk-ink);
   font-family:ui-monospace,"JetBrains Mono",Consolas,monospace;
 }
 .tk-in.light{--tk-ink:#1d1d1f;--tk-bg:#ffffff}
-/* 浅色底：关掉辉光/阴影（浅色上会糊） */
 .tk-in.light .tk-b i.on{box-shadow:none}
 .tk-in.light .tk-dir::before{filter:none}
-
-/* 分隔符  + › ~ ＊ */
 .tk-sep{opacity:.45;font-size:.78em;font-weight:400}
-
-/* ---- 2×2 按键方阵 ---------------------------------------- */
 .tk-b{
   display:inline-grid;flex:none;
   grid-template-columns:1.35em 1.35em;
@@ -1458,7 +1010,6 @@ footer .roster [aria-current] {
   display:flex;align-items:center;justify-content:center;
   font-style:normal;
   border-radius:.34em;
-  /* 幽灵态：淡填充 + 淡描边，不显数字（只有按下的键显示数字） */
   background:color-mix(in srgb, var(--tk-ink) 7%, transparent);
   border:.09em solid color-mix(in srgb, var(--tk-ink) 32%, transparent);
   color:transparent;
@@ -1470,10 +1021,7 @@ footer .roster [aria-current] {
   font-weight:700;
   box-shadow:0 0 .55em color-mix(in srgb, var(--tk-ink) 28%, transparent);
 }
-/* 紧凑列表行：连按下键的数字也隐藏，只靠位置 */
 .tk-b.no-num i.on{color:transparent}
-
-/* ---- 方向箭头 --------------------------------------------- */
 .tk-dir{
   display:inline-flex;align-items:center;justify-content:center;
   width:1.5em;height:1.5em;flex:none;
@@ -1493,17 +1041,12 @@ footer .roster [aria-current] {
 .tk-dir.ub::before{transform:rotate(225deg)}
 .tk-dir.u::before {transform:rotate(270deg)}
 .tk-dir.uf::before{transform:rotate(315deg)}
-/* 按住（大写 F/B/U/D…）：箭头套圈 */
 .tk-dir.hold{
   border:.09em solid color-mix(in srgb, var(--tk-ink) 75%, transparent);
   border-radius:50%;
 }
 .tk-dir.hold::before{width:.82em;height:.82em}
-/* 回中 N：纯文字 <span class="tk-n">N</span> */
 .tk-n{font-weight:700;font-size:.8em;opacity:.55}
-
-/* ---- 状态前缀（起身中 / 凤凰中 / 背身时…） --------------- */
-/* 唯一使用主题色的位置：按键图与箭头恒为单色 */
 .tk-state{
   border:.08em solid color-mix(in srgb, var(--tk-acc) 45%, transparent);
   background:color-mix(in srgb, var(--tk-acc) 12%, transparent);
@@ -1513,66 +1056,53 @@ footer .roster [aria-current] {
   color:color-mix(in srgb, var(--tk-acc) 60%, var(--tk-ink));
   white-space:nowrap;
 }
-
-/* ---- 三档尺寸 --------------------------------------------- */
-.tk-sm{font-size:11px} /* 列表行，配合 .tk-b.no-num */
-.tk-md{font-size:15px} /* 详情弹层 / 连招卡 */
-.tk-lg{font-size:22px} /* 教学 / 逐步播放 */
-
-/* ---- 推荐角色主题色（至第3季全阵容） -----------------------
-   夜间底调校（浅色底可原样使用）。用法：
-   <span class="tk-in tk-md tk-char-xiaoyu">…</span>
-   或页面级：body{--tk-acc:#ff9fce}
-   按键图/箭头始终单色，主题色只出现在状态胶囊、标签、页面点缀。 */
-
-/* 基础阵容 (32) */
-.tk-char-jin       {--tk-acc:#6fb3ff} /* 风间仁 · 电蓝 */
-.tk-char-kazuya    {--tk-acc:#b18cff} /* 三岛一八 · 恶魔紫 */
-.tk-char-jun       {--tk-acc:#9fe0c0} /* 风间准 · 净绿 */
-.tk-char-paul      {--tk-acc:#ff8087} /* 保罗 · 红 */
-.tk-char-law       {--tk-acc:#ffe07a} /* 马歇尔·洛 · 明黄 */
-.tk-char-king      {--tk-acc:#e8a04c} /* 金 · 豹金 */
-.tk-char-lars      {--tk-acc:#8fa8ff} /* 拉斯 · 蓝紫 */
-.tk-char-jack8     {--tk-acc:#a9cf74} /* 杰克-8 · 军绿 */
-.tk-char-xiaoyu    {--tk-acc:#ff9fce} /* 凌晓雨 · 粉 */
-.tk-char-nina      {--tk-acc:#d8a9ff} /* 妮娜 · 淡紫 */
-.tk-char-leroy     {--tk-acc:#9db4c9} /* 勒罗伊 · 灰蓝 */
-.tk-char-asuka     {--tk-acc:#7fc4e8} /* 风间飞鸟 · 天蓝 */
-.tk-char-lili      {--tk-acc:#cdd6e0} /* 莉莉 · 银白 */
-.tk-char-bryan     {--tk-acc:#9ad0c2} /* 布莱恩 · 青 */
-.tk-char-hwoarang  {--tk-acc:#ff8f4d} /* 花郎 · 烈橙 */
-.tk-char-claudio   {--tk-acc:#bcd4ff} /* 克劳迪奥 · 星蓝 */
-.tk-char-azucena   {--tk-acc:#d9a878} /* 阿苏塞娜 · 咖啡棕 */
-.tk-char-raven     {--tk-acc:#9f86d9} /* 雷文 · 忍紫 */
-.tk-char-leo       {--tk-acc:#e0c187} /* 雷欧 · 棕金 */
-.tk-char-steve     {--tk-acc:#84a9e0} /* 史蒂夫 · 宝蓝 */
-.tk-char-kuma      {--tk-acc:#c99b6e} /* 熊 · 棕 */
-.tk-char-yoshi     {--tk-acc:#7fd6a8} /* 吉光 · 妖绿 */
-.tk-char-shaheen   {--tk-acc:#e8cf9a} /* 沙欣 · 沙金 */
-.tk-char-dragunov  {--tk-acc:#aab6c2} /* 德拉古诺夫 · 铁灰 */
-.tk-char-feng      {--tk-acc:#b5d98a} /* 冯威 · 竹绿 */
-.tk-char-panda     {--tk-acc:#e6e9ee} /* 熊猫 · 熊猫白 */
-.tk-char-lee       {--tk-acc:#c39bff} /* 李超狼 · 紫罗兰 */
-.tk-char-alisa     {--tk-acc:#ffb3c6} /* 阿丽莎 · 樱粉 */
-.tk-char-zafina    {--tk-acc:#c98fd0} /* 扎菲娜 · 暗紫红 */
-.tk-char-deviljin  {--tk-acc:#a17fe0} /* 恶魔仁 · 墨紫 */
-.tk-char-victor    {--tk-acc:#de9fe6} /* 维克多 · 霓紫 */
-.tk-char-reina     {--tk-acc:#cf9ef0} /* 蕾娜 · 雷紫 */
-/* 第1季 */
-.tk-char-eddy      {--tk-acc:#9fd97f} /* 艾迪 · 巴西绿 */
-.tk-char-lidia     {--tk-acc:#ffb0a6} /* 莉迪亚 · 白红 */
-.tk-char-heihachi  {--tk-acc:#ffcf66} /* 三岛平八 · 雷金 */
-.tk-char-clive     {--tk-acc:#6fd0e0} /* 克莱夫 · 晶蓝 */
-/* 第2季 */
-.tk-char-anna      {--tk-acc:#e07a8f} /* 安娜 · 酒红 */
-.tk-char-fahkumram {--tk-acc:#6fe0c9} /* 法昆拉姆 · 雷青 */
-.tk-char-armorking {--tk-acc:#7f8fb3} /* 铠甲王 · 黑豹蓝 */
-.tk-char-miaryzo   {--tk-acc:#c9e896} /* 米亚莉·佐 · 自然绿 */
-/* 第3季 */
-.tk-char-kunimitsu {--tk-acc:#ffc27a} /* 州光 · 狐黄 */
-.tk-char-bob       {--tk-acc:#a6d4ff} /* 鲍勃 · 天蓝白 */
-.tk-char-rogerjr   {--tk-acc:#ff8f7a} /* 罗杰Jr. · 拳套红 */
-.tk-char-yujiro    {--tk-acc:#e5735e} /* 范马勇次郎 · 鬼背红 */
+.tk-sm{font-size:11px} 
+.tk-md{font-size:15px} 
+.tk-lg{font-size:22px} 
+.tk-char-jin       {--tk-acc:#6fb3ff} 
+.tk-char-kazuya    {--tk-acc:#b18cff} 
+.tk-char-jun       {--tk-acc:#9fe0c0} 
+.tk-char-paul      {--tk-acc:#ff8087} 
+.tk-char-law       {--tk-acc:#ffe07a} 
+.tk-char-king      {--tk-acc:#e8a04c} 
+.tk-char-lars      {--tk-acc:#8fa8ff} 
+.tk-char-jack8     {--tk-acc:#a9cf74} 
+.tk-char-xiaoyu    {--tk-acc:#ff9fce} 
+.tk-char-nina      {--tk-acc:#d8a9ff} 
+.tk-char-leroy     {--tk-acc:#9db4c9} 
+.tk-char-asuka     {--tk-acc:#7fc4e8} 
+.tk-char-lili      {--tk-acc:#cdd6e0} 
+.tk-char-bryan     {--tk-acc:#9ad0c2} 
+.tk-char-hwoarang  {--tk-acc:#ff8f4d} 
+.tk-char-claudio   {--tk-acc:#bcd4ff} 
+.tk-char-azucena   {--tk-acc:#d9a878} 
+.tk-char-raven     {--tk-acc:#9f86d9} 
+.tk-char-leo       {--tk-acc:#e0c187} 
+.tk-char-steve     {--tk-acc:#84a9e0} 
+.tk-char-kuma      {--tk-acc:#c99b6e} 
+.tk-char-yoshi     {--tk-acc:#7fd6a8} 
+.tk-char-shaheen   {--tk-acc:#e8cf9a} 
+.tk-char-dragunov  {--tk-acc:#aab6c2} 
+.tk-char-feng      {--tk-acc:#b5d98a} 
+.tk-char-panda     {--tk-acc:#e6e9ee} 
+.tk-char-lee       {--tk-acc:#c39bff} 
+.tk-char-alisa     {--tk-acc:#ffb3c6} 
+.tk-char-zafina    {--tk-acc:#c98fd0} 
+.tk-char-deviljin  {--tk-acc:#a17fe0} 
+.tk-char-victor    {--tk-acc:#de9fe6} 
+.tk-char-reina     {--tk-acc:#cf9ef0} 
+.tk-char-eddy      {--tk-acc:#9fd97f} 
+.tk-char-lidia     {--tk-acc:#ffb0a6} 
+.tk-char-heihachi  {--tk-acc:#ffcf66} 
+.tk-char-clive     {--tk-acc:#6fd0e0} 
+.tk-char-anna      {--tk-acc:#e07a8f} 
+.tk-char-fahkumram {--tk-acc:#6fe0c9} 
+.tk-char-armorking {--tk-acc:#7f8fb3} 
+.tk-char-miaryzo   {--tk-acc:#c9e896} 
+.tk-char-kunimitsu {--tk-acc:#ffc27a} 
+.tk-char-bob       {--tk-acc:#a6d4ff} 
+.tk-char-rogerjr   {--tk-acc:#ff8f7a} 
+.tk-char-yujiro    {--tk-acc:#e5735e} 
 </style>
 </head>
 <body style="--accent:#e0c187;--accent-ink:#644c21;--accent-band:#8d7343">

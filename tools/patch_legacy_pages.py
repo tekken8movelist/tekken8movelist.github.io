@@ -34,6 +34,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import band_color  # noqa: E402
+from css_inline import strip_css_comments  # noqa: E402
 from locales import (  # noqa: E402
     DEFAULT_LOCALE,
     LOCALES,
@@ -349,7 +350,8 @@ def patch(key: str, text: str, css: str, script: str) -> str:
     text = SCRIPT_BLOCK.sub("", text)
     text = text.replace(
         "</head>",
-        f'<style id="legacy-chrome">{css}{accent_binding(key)}</style>\n</head>',
+        # comments stripped as they are inlined: tools/css_inline.py
+        f'<style id="legacy-chrome">{strip_css_comments(css + accent_binding(key))}</style>\n</head>',
         1,
     )
     text = text.replace(
