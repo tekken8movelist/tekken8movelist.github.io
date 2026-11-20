@@ -127,7 +127,23 @@ def load_wavu_names(key: str) -> dict[str, str]:
 
 def wavu_name(command: str, cfg: dict, names: dict[str, str]) -> str | None:
     lowered = {k.lower(): v for k, v in names.items()}
-    for candidate in pipeline.candidates(command, cfg):
+    candidates = list(pipeline.candidates(command, cfg))
+    # candidates() lists the first hit before the whole string -- right for
+    # startup frames, which belong to the first hit, wrong for names: Law's
+    # 1,2,2,2 came out "Jab" where Wavu calls it "Left Right Dragon Fist
+    # Combo". When Wavu names the whole string, that name wins (2026-11-19).
+    # Rows where Wavu has no name for the whole string still fall back to the
+    # first hit below; that is a known defect (燃烧连锁 reads "Flame Bash")
+    # left for a pass that can write the ~22 English names it would need.
+    if candidates:
+        depth = max(c.count(",") for c in candidates)
+        for candidate in candidates:
+            if candidate.count(",") != depth or depth == 0:
+                continue
+            found = names.get(candidate) or lowered.get(candidate.lower())
+            if found:
+                return found
+    for candidate in candidates:
         found = names.get(candidate)
         if found is None:
             found = lowered.get(candidate.lower())
