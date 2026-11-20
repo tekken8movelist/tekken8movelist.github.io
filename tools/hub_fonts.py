@@ -17,9 +17,9 @@ the search box later is not known in advance and falls back per glyph,
 which is what the system fonts behind Noto are for.
 
 Saira and JetBrains Mono (display Latin, small) keep their full request.
-Both links load at low priority (media="print", switched on load) with a
-<noscript> twin; fonts.googleapis.com is unreachable from mainland China, so
-nothing may wait on it.
+Both stylesheets are inserted by a script once the page has loaded (see
+font_block), with a <noscript> twin; fonts.googleapis.com is unreachable
+from mainland China, so nothing may wait on it.
 
 augment_hub.py applies this to the authored Simplified hub, build_hub.py to
 each derived hub after its copy is swapped, so every tree subsets its own
@@ -48,6 +48,11 @@ FONT_BLOCK = re.compile(
     r'(?:<noscript><link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^"]*"></noscript>)?'
     r'(?:\s*<link rel="(?:stylesheet|preload)"[^>]*href="https://fonts\.googleapis\.com/css2\?[^"]*"[^>]*>'
     r'(?:<noscript><link rel="stylesheet" href="https://fonts\.googleapis\.com/css2\?[^"]*"></noscript>)?)*'
+)
+# what font_block() writes now; FONT_BLOCK above is the link form it replaced
+LOADER_BLOCK = re.compile(
+    r'<script id="hub-fonts">.*?</script><noscript>(?:<link rel="stylesheet" href="[^"]*">)+</noscript>',
+    re.S,
 )
 STRING_LITERAL = re.compile(r"'([^'\\\n]*)'|\"([^\"\\\n]*)\"")
 
@@ -93,19 +98,33 @@ def rendered_characters(markup: str) -> str:
 
 
 def font_block(markup: str) -> str:
+    """The stylesheets are requested once the page has loaded, not before.
+
+    Even at low priority (media="print") they were fetched in parallel with
+    the first row of portraits, and PageSpeed's simulated slow link counts
+    every request that starts before the Largest Contentful Paint against
+    it: the Simplified hub sat at LCP 3.8 s with 0.3 MB of subset fonts in
+    flight, the English one (0.07 MB) at 1.0 s. After `load` the fonts start
+    once the portraits are in; the page paints in the fallback faces until
+    then, which `display=swap` already did on any connection slower than
+    the font host. Without JavaScript the <noscript> links load as before.
+    """
     noto = NOTO + quote(rendered_characters(markup), safe="")
-    links = []
-    for href in (noto, LATIN_FAMILIES):
-        href = href.replace("&", "&amp;")
-        links.append(
-            f'<link rel="stylesheet" href="{href}" media="print" onload="this.media=\'all\'">'
-            f'<noscript><link rel="stylesheet" href="{href}"></noscript>'
-        )
-    return "\n".join(links)
+    hrefs = (noto, LATIN_FAMILIES)
+    plain = "".join(
+        f'<link rel="stylesheet" href="{href.replace("&", "&amp;")}">' for href in hrefs
+    )
+    urls = ",".join(f"'{href}'" for href in hrefs)
+    return (
+        f'<script id="hub-fonts">addEventListener("load",function(){{[{urls}].forEach(function(h){{'
+        f'var l=document.createElement("link");l.rel="stylesheet";l.href=h;document.head.appendChild(l)}})}})</script>'
+        f"<noscript>{plain}</noscript>"
+    )
 
 
 def apply_hub_fonts(markup: str) -> str:
-    match = FONT_BLOCK.search(markup)
+    # the loader first: its <noscript> holds links the old pattern would match
+    match = LOADER_BLOCK.search(markup) or FONT_BLOCK.search(markup)
     if not match:
         raise SystemExit("hub: Google Fonts links not found")
     return markup[: match.start()] + font_block(markup) + markup[match.end():]

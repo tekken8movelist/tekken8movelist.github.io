@@ -622,12 +622,18 @@ class SitePublicationContractTest(unittest.TestCase):
                 subset = unquote(html_module.unescape(noto[0]).split("text=", 1)[1])
                 missing = set(rendered_characters(markup)) - set(subset)
                 self.assertEqual(missing, set())
-                # the <noscript> twins are meant to be plain links
+                # nothing may fetch the fonts before the page has loaded: the
+                # stylesheets come from the `load` loader, and only the
+                # <noscript> fallback is a plain link
                 scripted = re.sub(r"<noscript>.*?</noscript>", "", markup, flags=re.S)
-                links = re.findall(r'<link rel="stylesheet" href="https://fonts[^>]*>', scripted)
-                self.assertEqual(len(links), 2)
-                for link in links:
-                    self.assertIn('media="print"', link)
+                self.assertEqual(
+                    re.findall(r'<link rel="(?:stylesheet|preload)"[^>]*fonts\.googleapis', scripted),
+                    [],
+                )
+                loader = re.search(r'<script id="hub-fonts">(.*?)</script>', markup, re.S)
+                self.assertIsNotNone(loader)
+                self.assertIn('addEventListener("load"', loader.group(1))
+                self.assertEqual(loader.group(1).count("fonts.googleapis.com/css2"), 2)
 
     def test_every_character_page_links_every_other_fighter(self) -> None:
         """The footer roster: each page reachable from every other one.

@@ -436,6 +436,10 @@ LCP 之前开始的请求都算进关键路径，字节不减就没救。根治�
 `tools/hub_fonts.py` 把每个主页**实际渲染的全部字符**（含拉丁字母——body 首选 Noto，漏掉拉丁会
 悄悄换字体；含全部 ASCII——搜索计数是运行时写的）写进请求，四个字重保留，字体 1.1 MB→0.3 MB、
 CSS 451 KB→12 KB。门禁 `test_hub_font_subset_covers_every_rendered_character` 防止改了文案没更新子集。
+子集之后简体主页 LCP 仍是 3.8s（英文 1.0s）：0.3 MB 字体仍在 LCP 之前开始下载，模拟器把它们都算进去。
+第二步（2026-11-19）改为 `load` 事件后再插入样式表（`<script id="hub-fonts">` + `<noscript>`），
+慢速 4G 实测 CLS 仍为 0——字体晚到只换字形，不挪版面。注意：`apply_hub_fonts` 必须**先**匹配新的
+loader 块，旧的 `<link>` 正则会匹配到 `<noscript>` 里的链接，导致每跑一次嵌套一层。
 另：fonts.googleapis.com 在中国大陆不可达——以前那个阻塞式样式表会让大陆用户白屏到超时，
 所以字体链接**永远不能阻塞渲染**。
 
