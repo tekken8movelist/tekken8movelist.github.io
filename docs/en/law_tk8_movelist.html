@@ -501,6 +501,23 @@ html.loc-en td.name {
   overflow-wrap: break-word;
 }
 
+/* Chinese needs the same only where the column cannot grow (2026-11-19).
+   law's stance tables are the one fixed-layout table on any pipeline page
+   (`.synced-lists .movelist`, name column 19%), and when the name went from
+   10.5px to 11px a four-character name stopped fitting between 700px and
+   820px: 龙构旋踢, 背身右拳 and 17 others showed as 龙构… on a tablet.
+
+   Do NOT widen this to every pipeline name cell. Tried, measured: in the
+   auto-layout tables `nowrap` is what holds the column at the name's width,
+   and letting it wrap hands that width to the other columns -- at 768px some
+   three hundred names broke onto two or three lines (龙/尾/扫), up to 1480px
+   on clive. In a fixed-layout table the column is the same width whatever its
+   content, so a name wraps only when it really does not fit. */
+.synced-lists .movelist td.name {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 /* A command that cannot be drawn falls back to prose inside .tk-in, and that
    prose scales with the button-map size like everything else in the component
    -- law's "In Heat, Dragon Charge auto-parries punches" went 3px over its

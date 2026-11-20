@@ -29,12 +29,12 @@ from hub_i18n import (  # noqa: E402
     HUB_STRINGS,
     SITE,
     locale_control,
+    with_alternates,
 )
 from locales import (  # noqa: E402
     DEFAULT_LOCALE,
     LOCALES,
     PUBLIC_ROOT,
-    alternate_links,
     public_url,
 )
 from hub_fonts import apply_hub_fonts  # noqa: E402
@@ -319,13 +319,9 @@ def swap_head(markup: str, locale: str) -> str:
         structured,
         "ld+json block",
     )
-    # the alternates block goes in once, right after canonical
-    return replace_once(
-        markup,
-        r'(?<=<link rel="canonical" href="' + re.escape(public_url(locale, "index.html")) + r'">)',
-        "\n" + alternate_links("index.html"),
-        "alternates",
-    )
+    # the alternates block goes in once, right after canonical (the authored
+    # hub now carries one too, so this rebuilds rather than appends)
+    return with_alternates(markup, locale)
 
 
 CARD_LINK = re.compile(r'href="(?P<name>[a-z0-9_]+_tk8_movelist\.html)"')

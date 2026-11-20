@@ -22,7 +22,7 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from locales import LOCALES, page_href, strings  # noqa: E402
+from locales import LOCALES, alternate_links, page_href, public_url, strings  # noqa: E402
 
 SITE = TOOLS.parent / "docs"
 HUB = SITE / "index.html"
@@ -219,6 +219,25 @@ def locale_control(locale: str) -> str:
         + "".join(items)
         + "</span></div>"
     )
+
+
+ALTERNATE_LINK = re.compile(r'\n?<link rel="alternate" hreflang="[^"]*" href="[^"]*">')
+
+
+def with_alternates(markup: str, locale: str) -> str:
+    """The hreflang block, once, right after this hub's canonical link.
+
+    The authored Simplified hub never had one: the derived hubs pointed back
+    at it, but it pointed nowhere, so the cluster had no return links -- and
+    Bing reads hreflang from the HTML only. Any existing block is dropped and
+    rebuilt, which keeps both callers idempotent and lets a derived hub
+    inherit the authored one's block without doubling it.
+    """
+    markup = ALTERNATE_LINK.sub("", markup)
+    canonical = f'<link rel="canonical" href="{public_url(locale, "index.html")}">'
+    if markup.count(canonical) != 1:
+        raise SystemExit(f"hub ({locale}): canonical link not found exactly once")
+    return markup.replace(canonical, canonical + "\n" + alternate_links("index.html"))
 
 
 def strip_tags(fragment: str) -> str:

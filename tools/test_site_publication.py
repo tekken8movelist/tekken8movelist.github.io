@@ -16,7 +16,7 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from accent_contrast import AA_NORMAL_TEXT, WHITE, contrast_ratio  # noqa: E402
-from locales import LOCALES, public_url  # noqa: E402
+from locales import DEFAULT_LOCALE, LOCALES, public_url  # noqa: E402
 from season2_config import CHARACTERS as GENERATOR_CHARACTERS  # noqa: E402
 from zh_hant import simplified_only_codepoints  # noqa: E402
 
@@ -224,10 +224,12 @@ class SitePublicationContractTest(unittest.TestCase):
                 )
 
     def test_locale_trees_declare_their_language_and_cross_link(self) -> None:
-        owned = generator_pages() | set(LEGACY_PIPELINE_PAGES)
+        # the hubs too: the Simplified one carried no hreflang at all until
+        # 2026-11-19, because this test only looked at character pages
+        owned = generator_pages() | set(LEGACY_PIPELINE_PAGES) | {"index.html"}
         for code, meta in LOCALES.items():
             tree = SITE / meta["dir"] if meta["dir"] else SITE
-            for page in sorted(p for p in tree.glob("*_tk8_movelist.html")
+            for page in sorted(p for p in tree.glob("*.html")
                                if p.name in owned):
                 with self.subTest(locale=code, page=page.name):
                     markup = page.read_text(encoding="utf-8")
@@ -243,7 +245,7 @@ class SitePublicationContractTest(unittest.TestCase):
                         )
                     self.assertIn(
                         '<link rel="alternate" hreflang="x-default" '
-                        f'href="{PUBLIC_ROOT}{page.name}">',
+                        f'href="{public_url(DEFAULT_LOCALE, page.name)}">',
                         markup,
                     )
 

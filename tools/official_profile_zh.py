@@ -105,6 +105,16 @@ def load_profiles() -> dict:
     return json.loads(SNAPSHOT.read_text(encoding="utf-8"))
 
 
+# tekken.com's English, corrected where it is plainly a slip: Yoshimitsu's page
+# says "Formely", and Bob's drops the last stop that every other American
+# fighter's page has. Keys stay verbatim so the snapshot is still checked
+# against the tables above.
+COUNTRY_EN_FIXES = {
+    "None (Formely Japan)": "None (Formerly Japan)",
+    "U.S.A": "U.S.A.",
+}
+
+
 def localized_profile(key: str, profiles: dict | None = None) -> dict:
     """Country and fighting style in Chinese, plus the English style for the title.
 
@@ -130,8 +140,8 @@ def localized_profile(key: str, profiles: dict | None = None) -> dict:
         "country_zh": COUNTRY_ZH.get(country, ""),
         "style_zh": STYLE_ZH.get(style, ""),
         # the English build shows tekken.com's own wording rather than a
-        # round trip back out of the Chinese table
-        "country_en": country,
+        # round trip back out of the Chinese table -- minus its typos
+        "country_en": COUNTRY_EN_FIXES.get(country, country),
         "style_en": style,
         "epithet_en": _clean(profile.get("epithet", "")),
     }
